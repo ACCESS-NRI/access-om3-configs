@@ -1,0 +1,20 @@
+project: tm70
+queue: normal
+ncpus: 48
+jobfs: 10GB
+
+walltime: 02:00:00
+jobname: GMOM_JRA
+
+shortpath: /scratch/tm70
+
+model: cesm
+exe: /scratch/tm70/ds0092/cime/scratch/GMOM_JRA/bld/cesm.exe
+input:
+    - /g/data/tm70/cime
+
+collate: false
+runlog: false
+storage:
+  gdata:
+    - tm70
