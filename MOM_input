@@ -9,7 +9,7 @@
         corresponding MOM_parameter_doc.all file which is generated
         by the model at runtime. */
 
-INPUTDIR = /g/data/tm70/cime/inputdata/ocn/mom/gx1v6
+INPUTDIR = inputdata/ocn/mom/gx1v6
                                 ! "The directory in which input files are found."
 
 TRIPOLAR_N = False

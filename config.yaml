@@ -8,10 +8,12 @@ jobname: GMOM_JRA
 
 shortpath: /scratch/tm70
 
+laboratory: cesm_gmom_jra
+
 model: cesm
 exe: /scratch/tm70/ds0092/cime/scratch/GMOM_JRA/bld/cesm.exe
-input:
-    - /g/data/tm70/cime
+
+input: /g/data/tm70/cime
 
 collate: false
 runlog: false
