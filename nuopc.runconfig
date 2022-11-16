@@ -3,7 +3,7 @@ DRIVER_attributes::
      cime_model = cesm
      drv_restart_pointer = rpointer.cpl
      logFilePostFix = .log
-     outPathRoot = ./output
+     outPathRoot = ./output/
      pio_blocksize = -1
      pio_buffer_size_limit = -1
      pio_debug_level = 0
