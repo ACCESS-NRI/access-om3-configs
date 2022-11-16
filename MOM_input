@@ -9,7 +9,7 @@
         corresponding MOM_parameter_doc.all file which is generated
         by the model at runtime. */
 
-INPUTDIR = input
+INPUTDIR = "./input/"
                                 ! "The directory in which input files are found."
 
 TRIPOLAR_N = False
