@@ -11,7 +11,7 @@
   history_file = "unknown"
   history_format = "default"
   history_precision = 4
-  ice_ic = "/g/data/tm70/cime/inputdata/ice/cice/b.e15.B1850G.f09_g16.pi_control.25.cice.r.0041-01-01-00000.nc"
+  ice_ic = "input/b.e15.B1850G.f09_g16.pi_control.25.cice.r.0041-01-01-00000.nc"
   latpnt = 90.0, -65.0
   lcdf64 = .true.
   lonpnt = 0.0, -45.0
@@ -30,17 +30,17 @@
   year_init = 1
 /
 &grid_nml
-  bathymetry_file = "/g/data/tm70/cime/inputdata/ice/cice/global_gx1.bathy.nc"
+  bathymetry_file = "input/global_gx1.bathy.nc"
   bathymetry_format = "pop"
   close_boundaries = .false.
   dxrect = 30.0e5
   dyrect = 30.0e5
-  grid_file = "/g/data/tm70/cime/inputdata/ocn/pop/gx1v6/grid/horiz_grid_20010402.ieeer8"
+  grid_file = "input/horiz_grid_20010402.ieeer8"
   grid_format = "bin"
   grid_type = "displaced_pole"
   gridcpl_file = "unknown_gridcpl_file"
   kcatbound = 0
-  kmt_file = "/g/data/tm70/cime/inputdata/ocn/pop/gx1v6/grid/topography_20090204.ieeei4"
+  kmt_file = "input/topography_20090204.ieeei4"
   nblyr = 3
   ncat = 5
   nfsd = 1

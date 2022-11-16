@@ -8,8 +8,8 @@
   flds_preso3 = .false.
   flds_wiso = .false.
   iradsw = 1
-  model_maskfile = "inputdata/share/meshes/T62_040121_ESMFmesh.nc"
-  model_meshfile = "inputdata/share/meshes/T62_040121_ESMFmesh.nc"
+  model_maskfile = "input/T62_040121_ESMFmesh.nc"
+  model_meshfile = "input/T62_040121_ESMFmesh.nc"
   nx_global = 192
   ny_global = 94
   restfilm = "null"

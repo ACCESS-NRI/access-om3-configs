@@ -3,7 +3,7 @@ DRIVER_attributes::
      cime_model = cesm
      drv_restart_pointer = rpointer.cpl
      logFilePostFix = .log
-     outPathRoot = ./
+     outPathRoot = ./output
      pio_blocksize = -1
      pio_buffer_size_limit = -1
      pio_debug_level = 0
@@ -113,12 +113,12 @@ ALLCOMP_attributes::
      hostname = gadi
      ice_ncat = 5
      mediator_present = true
-     mesh_atm = inputdata/share/meshes/T62_040121_ESMFmesh.nc
+     mesh_atm = input/T62_040121_ESMFmesh.nc
      mesh_glc = UNSET
-     mesh_ice = inputdata/share/meshes/gx1v6_090205_ESMFmesh.nc
+     mesh_ice = input/gx1v6_090205_ESMFmesh.nc
      mesh_lnd = UNSET
-     mesh_mask = inputdata/share/meshes/gx1v6_090205_ESMFmesh.nc
-     mesh_ocn = inputdata/share/meshes/gx1v6_090205_ESMFmesh.nc
+     mesh_mask = input/gx1v6_090205_ESMFmesh.nc
+     mesh_ocn = input/gx1v6_090205_ESMFmesh.nc
      model_version = unknown
      ocn2glc_coupling = .false.
      ocn2glc_levels = 1:10:19:26:30:33:35
@@ -133,7 +133,6 @@ ALLCOMP_attributes::
      single_column_lnd_domainfile = UNSET
      start_type = startup
      tfreeze_option = linear_salt
-     username = ds0092
      wavice_coupling = .false.
      write_restart_at_endofrun = .false.
 ::
@@ -258,8 +257,8 @@ MED_attributes::
      ocn_surface_flux_scheme = 0
      rof2lnd_map = unset
      rof2ocn_fmapname = unset
-     rof2ocn_ice_rmapname = inputdata/cpl/gridmaps/rx1/map_rx1_to_gx1v6_nnsm_e1000r300_170503.nc
-     rof2ocn_liq_rmapname = inputdata/cpl/gridmaps/rx1/map_rx1_to_gx1v6_nn_open_ocean_nnsm_e1000r300_marginal_sea_170503.nc
+     rof2ocn_ice_rmapname = input/map_rx1_to_gx1v6_nnsm_e1000r300_170503.nc
+     rof2ocn_liq_rmapname = input/map_rx1_to_gx1v6_nn_open_ocean_nnsm_e1000r300_marginal_sea_170503.nc
      rof_nx = 360
      rof_ny = 180
      wav2ocn_smapname = unset
@@ -277,14 +276,14 @@ CLOCK_attributes::
      ice_cpl_dt = 3600
      lnd_cpl_dt = 3600
      ocn_cpl_dt = 3600
-     restart_n = 90
+     restart_n = 1
      restart_option = ndays
      restart_ymd = -999
      rof_cpl_dt = 3600
      start_tod = 0
      start_ymd = 00010101
-     stop_n = 3
-     stop_option = nmonths
+     stop_n = 1
+     stop_option = ndays
      stop_tod = 0
      stop_ymd = -999
      tprof_n = -999
@@ -318,7 +317,7 @@ OCN_attributes::
 
 ROF_attributes::
      Verbosity = off
-     mesh_rof = inputdata/share/meshes/rx1_nomask_181022_ESMFmesh.nc
+     mesh_rof = input/rx1_nomask_181022_ESMFmesh.nc
 ::
 
 WAV_attributes::
@@ -327,8 +326,8 @@ WAV_attributes::
 ::
 
 MED_modelio::
-     diro = ./
-     logfile = log.med
+     diro = ./log
+     logfile = med.log
      pio_async_interface = .false.
      pio_netcdf_format = 64bit_offset
      pio_numiotasks = -99
@@ -339,8 +338,8 @@ MED_modelio::
 ::
 
 ATM_modelio::
-     diro = ./
-     logfile = log.atm
+     diro = ./log
+     logfile = atm.log
      pio_async_interface = .false.
      pio_netcdf_format = 64bit_offset
      pio_numiotasks = -99
@@ -351,8 +350,8 @@ ATM_modelio::
 ::
 
 LND_modelio::
-     diro = ./
-     logfile = log.lnd
+     diro = ./log
+     logfile = lnd.log
      pio_async_interface = .false.
      pio_netcdf_format = 64bit_offset
      pio_numiotasks = -99
@@ -363,8 +362,8 @@ LND_modelio::
 ::
 
 ICE_modelio::
-     diro = ./
-     logfile = log.ice
+     diro = ./log
+     logfile = ice.log
      pio_async_interface = .false.
      pio_netcdf_format = 64bit_offset
      pio_numiotasks = -99
@@ -375,8 +374,8 @@ ICE_modelio::
 ::
 
 OCN_modelio::
-     diro = ./
-     logfile = log.ocn
+     diro = ./log
+     logfile = ocn.log
      pio_async_interface = .false.
      pio_netcdf_format = 64bit_offset
      pio_numiotasks = -99
@@ -387,8 +386,8 @@ OCN_modelio::
 ::
 
 ROF_modelio::
-     diro = ./
-     logfile = log.rof
+     diro = ./log
+     logfile = rof.log
      pio_async_interface = .false.
      pio_netcdf_format = 64bit_offset
      pio_numiotasks = -99
@@ -399,8 +398,8 @@ ROF_modelio::
 ::
 
 GLC_modelio::
-     diro = ./
-     logfile = log.glc
+     diro = ./log
+     logfile = glc/log
      pio_async_interface = .false.
      pio_netcdf_format = 64bit_offset
      pio_numiotasks = -99
@@ -411,8 +410,8 @@ GLC_modelio::
 ::
 
 WAV_modelio::
-     diro = ./
-     logfile = log.wav
+     diro = ./log
+     logfile = wav.log
      pio_async_interface = .false.
      pio_netcdf_format = 64bit_offset
      pio_numiotasks = -99
@@ -423,8 +422,8 @@ WAV_modelio::
 ::
 
 ESP_modelio::
-     diro = ./
-     logfile = log.esp
+     diro = ./log
+     logfile = esp.log
      pio_async_interface = .false.
      pio_netcdf_format = 64bit_offset
      pio_numiotasks = -99
@@ -435,7 +434,7 @@ ESP_modelio::
 ::
 
 DRV_modelio::
-     diro = ./
-     logfile = log.drv
+     diro = ./log
+     logfile = drv.log
 ::
 
