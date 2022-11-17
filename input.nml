@@ -1,7 +1,7 @@
 &MOM_input_nml
-    output_directory = './output'
-    restart_input_dir = './output'
-    restart_output_dir = './output'
+    output_directory = './'
+    restart_input_dir = './'
+    restart_output_dir = './'
     parameter_filename = 'MOM_input', 'MOM_override'
 /
 
