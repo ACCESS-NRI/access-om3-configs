@@ -1,0 +1,8 @@
+format: yamanifest
+version: 1.0
+---
+work/cesm.exe:
+  fullpath: /scratch/tm70/ds0092/cime/scratch/GMOM_JRA_WD/bld/cesm.exe
+  hashes:
+    binhash: 5482f83eb2c3455d046e76bc034b1207
+    md5: 826fdd76cb39ed885bfdf1c7c647302e

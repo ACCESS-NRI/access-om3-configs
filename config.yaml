@@ -9,6 +9,13 @@ jobname: gmom_jra_wd
 shortpath: /scratch/tm70
 
 model: cesm
+components:
+    - mom6
+    - cice6
+    - ww3
+    - datm
+    - drof
+
 exe: /scratch/tm70/ds0092/cime/scratch/GMOM_JRA_WD/bld/cesm.exe
 input: 
     - /g/data/tm70/cime/inputdata/share/meshes/T62_040121_ESMFmesh.nc # datm meshfile
