@@ -4,12 +4,12 @@ ncpus: 48
 jobfs: 10GB
 
 walltime: 02:00:00
-jobname: gmom_jra
+jobname: gmom_jra_wd
 
 shortpath: /scratch/tm70
 
 model: cesm
-exe: /scratch/tm70/ds0092/cime/scratch/GMOM_JRA/bld/cesm.exe
+exe: /scratch/tm70/ds0092/cime/scratch/GMOM_JRA_WD/bld/cesm.exe
 input: 
     - /g/data/tm70/cime/inputdata/share/meshes/T62_040121_ESMFmesh.nc # datm meshfile
     - /g/data/tm70/cime/inputdata/share/meshes/TL319_151007_ESMFmesh.nc # datm JRA stream meshfile
