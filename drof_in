@@ -1,0 +1,9 @@
+&drof_nml
+  datamode = "copyall"
+  model_maskfile = "./input/rx1_nomask_181022_ESMFmesh.nc"
+  model_meshfile = "./input/rx1_nomask_181022_ESMFmesh.nc"
+  nx_global = 360
+  ny_global = 180
+  restfilm = "null"
+  skip_restart_read = .false.
+/

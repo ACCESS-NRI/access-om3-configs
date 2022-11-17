@@ -1,0 +1,17 @@
+&datm_nml
+  datamode = "CORE_IAF_JRA"
+  factorfn_data = "null"
+  factorfn_mesh = "null"
+  flds_co2 = .false.
+  flds_presaero = .true.
+  flds_presndep = .true.
+  flds_preso3 = .false.
+  flds_wiso = .false.
+  iradsw = 1
+  model_maskfile = "./input/T62_040121_ESMFmesh.nc"
+  model_meshfile = "./input/T62_040121_ESMFmesh.nc"
+  nx_global = 192
+  ny_global = 94
+  restfilm = "null"
+  skip_restart_read = .false.
+/
