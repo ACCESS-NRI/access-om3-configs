@@ -3,7 +3,7 @@ queue: normal
 ncpus: 48
 jobfs: 10GB
 
-walltime: 03:00:00
+walltime: 01:00:00
 jobname: gmom_jra_wd
 
 shortpath: /scratch/tm70
