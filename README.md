@@ -1,4 +1,4 @@
-# Test Payu configuration for 1 deg MOM6-CICE6-WW3-datm-drof configuration using CMEPS with the CESM driver
+# Experimental Payu configuration for 1 deg MOM6-CICE6-WW3-datm-drof configuration using CMEPS with the CESM driver
 
 datm = JRA v1.3 IAF
 
