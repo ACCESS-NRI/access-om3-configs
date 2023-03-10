@@ -1,8 +1,8 @@
 # Experimental Payu configuration for 1 deg MOM6-CICE6-WW3-datm-drof configuration using CMEPS with the CESM driver
 
-datm = JRA v1.3 IAF
+data atmosphere (datm) = JRA v1.3 (NB: not JRA55-do), 1958-2016, no-leap calendar
 
-drof = JRA v1.1 IAF
+data runoff (drof) = JRA v1.1 (NB: not JRA55-do), 1958-2016, no-leap calendar
 
 Note:
 - **This is an untested Payu configuration for an untested CESM configuration**. This configuration is adapted from an officially-unsupported CESM configuration (The CIME GMOM_JRA_WD "compset").
