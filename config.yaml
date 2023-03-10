@@ -23,7 +23,7 @@ components:
     - datm
     - drof
 
-exe: /scratch/tm70/ds0092/cime/scratch/GMOM_JRA_WD/bld/cesm.exe
+exe: /g/data/ik11/inputs/cime/bin/MOM6-CICE6-WW3/2023-03-10/cesm.exe
 input: 
     - /g/data/ik11/inputs/cime/inputdata/share/meshes/T62_040121_ESMFmesh.nc # datm meshfile
     - /g/data/ik11/inputs/cime/inputdata/share/meshes/TL319_151007_ESMFmesh.nc # datm JRA stream meshfile
