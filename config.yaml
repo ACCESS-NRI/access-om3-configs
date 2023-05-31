@@ -15,12 +15,7 @@ jobfs: 10GB
 walltime: 02:00:00
 jobname: MOM6-CICE6
 
-model: cesm
-components:
-    - mom6
-    - cice6
-    - datm
-    - drof
+model: access-om3
 
 exe: /g/data/ik11/inputs/access-om3/bin/access-om3-d582547
 input: 
@@ -43,12 +38,6 @@ input:
  
 collate: false
 runlog: false
-
-storage:
-  gdata:
-    - ik11
-  scratch:
-    - v45
 
 modules:
   - parallelio/2.5.9-intel-2021.6.0
