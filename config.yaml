@@ -12,7 +12,7 @@ queue: normal
 ncpus: 48
 jobfs: 10GB
 
-walltime: 02:00:00
+walltime: 04:00:00
 jobname: MOM6-CICE6
 
 model: access-om3
