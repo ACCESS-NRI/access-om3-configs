@@ -9,20 +9,16 @@
 # shortpath: /scratch/v45
 
 queue: normal
-ncpus: 48
+ncpus: 1
+mem: 192GB
 jobfs: 10GB
 
-walltime: 01:00:00
+walltime: 02:00:00
 jobname: MOM6-CICE6
 
-model: cesm
-components:
-    - mom6
-    - cice6
-    - datm
-    - drof
+model: access-om3
 
-exe: /g/data/ik11/inputs/cime/bin/MOM6-CICE6/2023-03-10/cesm.exe
+exe: /g/data/tm70/ds0092/model/inputs/cime/bin/MOM6-CICE6-20230712/bld/cesm.exe
 input: 
     - /g/data/ik11/inputs/cime/inputdata/2023-03-10/share/meshes/T62_040121_ESMFmesh.nc # datm meshfile
     - /g/data/ik11/inputs/cime/inputdata/2023-03-10/share/meshes/TL319_151007_ESMFmesh.nc # datm JRA stream meshfile

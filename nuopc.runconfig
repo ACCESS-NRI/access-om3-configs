@@ -27,11 +27,11 @@ DRIVER_attributes::
 ::
 
 PELAYOUT_attributes::
-     atm_ntasks = 48
+     atm_ntasks = 1
      atm_nthreads = 1
      atm_pestride = 1
      atm_rootpe = 0
-     cpl_ntasks = 48
+     cpl_ntasks = 1
      cpl_nthreads = 1
      cpl_pestride = 1
      cpl_rootpe = 0
@@ -40,28 +40,28 @@ PELAYOUT_attributes::
      esp_nthreads = 1
      esp_pestride = 1
      esp_rootpe = 0
-     glc_ntasks = 48
+     glc_ntasks = 1
      glc_nthreads = 1
      glc_pestride = 1
      glc_rootpe = 0
-     ice_ntasks = 48
+     ice_ntasks = 1
      ice_nthreads = 1
      ice_pestride = 1
      ice_rootpe = 0
-     lnd_ntasks = 48
+     lnd_ntasks = 1
      lnd_nthreads = 1
      lnd_pestride = 1
      lnd_rootpe = 0
      ninst = 1
-     ocn_ntasks = 48
+     ocn_ntasks = 1
      ocn_nthreads = 1
      ocn_pestride = 1
      ocn_rootpe = 0
-     rof_ntasks = 48
+     rof_ntasks = 1
      rof_nthreads = 1
      rof_pestride = 1
      rof_rootpe = 0
-     wav_ntasks = 48
+     wav_ntasks = 1
      wav_nthreads = 1
      wav_pestride = 1
      wav_rootpe = 0
@@ -276,14 +276,14 @@ CLOCK_attributes::
      ice_cpl_dt = 3600
      lnd_cpl_dt = 3600
      ocn_cpl_dt = 3600
-     restart_n = 1
-     restart_option = nmonths
+     restart_n = 2
+     restart_option = nsteps
      restart_ymd = -999
      rof_cpl_dt = 3600
      start_tod = 0
      start_ymd = 00010101
-     stop_n = 1
-     stop_option = nmonths
+     stop_n = 2
+     stop_option = nsteps
      stop_tod = 0
      stop_ymd = -999
      tprof_n = -999
@@ -333,7 +333,7 @@ MED_modelio::
      pio_numiotasks = -99
      pio_rearranger = 2
      pio_root = 1
-     pio_stride = 48
+     pio_stride = 1
      pio_typename = netcdf
 ::
 
@@ -345,7 +345,7 @@ ATM_modelio::
      pio_numiotasks = -99
      pio_rearranger = 1
      pio_root = 1
-     pio_stride = 48
+     pio_stride = 1
      pio_typename = netcdf
 ::
 
@@ -357,7 +357,7 @@ LND_modelio::
      pio_numiotasks = -99
      pio_rearranger = 2
      pio_root = 1
-     pio_stride = 48
+     pio_stride = 1
      pio_typename = netcdf
 ::
 
@@ -369,7 +369,7 @@ ICE_modelio::
      pio_numiotasks = -99
      pio_rearranger = 2
      pio_root = 1
-     pio_stride = 48
+     pio_stride = 1
      pio_typename = netcdf
 ::
 
@@ -381,7 +381,7 @@ OCN_modelio::
      pio_numiotasks = -99
      pio_rearranger = 2
      pio_root = 1
-     pio_stride = 48
+     pio_stride = 1
      pio_typename = netcdf
 ::
 
@@ -393,7 +393,7 @@ ROF_modelio::
      pio_numiotasks = -99
      pio_rearranger = 2
      pio_root = 1
-     pio_stride = 48
+     pio_stride = 1
      pio_typename = netcdf
 ::
 
@@ -405,7 +405,7 @@ GLC_modelio::
      pio_numiotasks = -99
      pio_rearranger = 2
      pio_root = 1
-     pio_stride = 48
+     pio_stride = 1
      pio_typename = netcdf
 ::
 
@@ -417,7 +417,7 @@ WAV_modelio::
      pio_numiotasks = -99
      pio_rearranger = 2
      pio_root = 1
-     pio_stride = 48
+     pio_stride = 1
      pio_typename = netcdf
 ::
 
