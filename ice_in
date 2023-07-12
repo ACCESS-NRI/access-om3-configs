@@ -198,7 +198,7 @@
   maskhalo_bound = .true.
   maskhalo_dyn = .true.
   maskhalo_remap = .true.
-  max_blocks = -1
+  max_blocks = 800
   ns_boundary_type = "open"
   nx_global = 320
   ny_global = 384
