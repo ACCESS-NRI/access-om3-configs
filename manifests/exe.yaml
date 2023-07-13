@@ -2,7 +2,7 @@ format: yamanifest
 version: 1.0
 ---
 work/cesm.exe:
-  fullpath: /g/data/tm70/ds0092/model/inputs/cime/bin/MOM6-CICE6-20230712/bld/cesm.exe
+  fullpath: /g/data/ik11/inputs/cime/bin/MOM6-CICE6/2023-07-13/cesm.exe
   hashes:
-    binhash: b944ed3dbd5f4d08b8ee54d6673e6ea8
-    md5: 6418cac472f4b8c708293c854c186778
+    binhash: 9e933f4e766253d06b9e8dba09761ed1
+    md5: e90e18d6b32b3e0312531111be9d0ad8
