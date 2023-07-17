@@ -6,7 +6,7 @@
   dumpfreq = "x"
   dumpfreq_n = 1
   hist_avg = .true.
-  histfreq = "m", "x", "x", "x", "x"
+  histfreq = "d", "x", "x", "x", "x"
   histfreq_n = 1, 0, 0, 0, 0
   history_file = "unknown"
   history_format = "default"
