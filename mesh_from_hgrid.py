@@ -1,19 +1,19 @@
 # Copyright 2023 ACCESS-NRI and contributors. See the top-level COPYRIGHT file for details.
 # SPDX-License-Identifier: Apache-2.0
-#
-# To run: 
-#     python mesh_from_hgrid.py hgrid_filename mesh_filename
-# 
+
 # Contact: Dougie Squire
+# To run:
+#     python mesh_from_hgrid.py hgrid_filename mask_filename mesh_filename
+# in an environment with argparse, xarray, numpy and pandas 
 
 import os
 import subprocess
+from datetime import datetime
 
 import argparse
 import xarray as xr
 import numpy as np
 import pandas as pd
-from datetime import datetime
 
 
 def is_git_repo():
@@ -46,9 +46,9 @@ def git_info():
     return url, rel_path, short_hash
     
 
-def mesh_from_hgrid(hgrid_filename, mesh_filename):
+def mesh_from_hgrid(hgrid_filename, mask_filename, mesh_filename):
     """
-    Create an ESMFMESH file from a MOM hgrid supergrid netcdf file.
+    Create an ESMFMESH file from MOM hgrid and mask netcdf files.
     
     Parameters
     ----------
@@ -59,6 +59,7 @@ def mesh_from_hgrid(hgrid_filename, mesh_filename):
     """
     
     hgrid = xr.open_dataset(hgrid_filename)
+    mask = xr.open_dataset(mask_filename)
     
     x = hgrid.x.values
     y = hgrid.y.values
@@ -105,8 +106,8 @@ def mesh_from_hgrid(hgrid_filename, mesh_filename):
         window_shape=(2,2)
     )[::2,::2].sum(axis=(-2,-1)).flatten()
 
-    # aritifical mask (for now)
-    mask = np.ones(x_centres.size, dtype=np.int8)
+    # process mask
+    mask = mask["mask"].values.flatten()
     
     # create new dataset for output
     out = xr.Dataset()
@@ -135,7 +136,7 @@ def mesh_from_hgrid(hgrid_filename, mesh_filename):
         dims=('elementCount'),
     )
     out["elementMask"] = xr.DataArray(
-        mask,
+        mask.astype(np.int8),
         dims=('elementCount'),
     )
 
@@ -147,7 +148,7 @@ def mesh_from_hgrid(hgrid_filename, mesh_filename):
     # add global attributes
     out.attrs = {
         "gridType" : "unstructured mesh",
-        "inputFile": hgrid_filename,
+        "inputFile": f"{hgrid_filename}, {mask_filename}",
         "timeGenerated": f"{datetime.now()}",
         "created_by": "Dougie Squire"
     }
@@ -162,12 +163,17 @@ def mesh_from_hgrid(hgrid_filename, mesh_filename):
     
 def main():
     parser = argparse.ArgumentParser(
-        description="Create an ESMF mesh file from a MOM hgrid supergrid netcdf file."
+        description="Create an ESMF mesh file from MOM hgrid and mask netcdf files."
     )
     parser.add_argument(
         "hgrid_filename",
         type=str,
-        help="The path to the MOM hgrid file.",
+        help="The path to the MOM hgrid supergrid file.",
+    )
+    parser.add_argument(
+        "mask_filename",
+        type=str,
+        help="The path to the MOM mask file.",
     )
     parser.add_argument(
         "mesh_filename",
@@ -177,9 +183,10 @@ def main():
 
     args = parser.parse_args()
     hgrid_filename = args.hgrid_filename
+    mask_filename = args.mask_filename
     mesh_filename = args.mesh_filename
     
-    mesh_from_hgrid(hgrid_filename, mesh_filename)
+    mesh_from_hgrid(hgrid_filename, mask_filename, mesh_filename)
     
 if __name__ == "__main__":
     main()
