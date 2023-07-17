@@ -198,9 +198,9 @@
   maskhalo_dyn = .true.
   maskhalo_remap = .true.
   max_blocks = 8
-  ns_boundary_type = "open"
-  nx_global = 320
-  ny_global = 384
+  ns_boundary_type = "tripole"
+  nx_global = 360
+  ny_global = 300
   processor_shape = "square-ice"
 /
 &ice_prescribed_nml
