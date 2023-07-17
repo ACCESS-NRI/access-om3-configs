@@ -2672,20 +2672,20 @@ work/input/TL319_151007_ESMFmesh.nc:
     binhash: b24fa88d4b1eae86397966339a70736f
     md5: e6ced55a98751a37a38a332b79e4bf48
 work/input/WOA05_pottemp_salt.nc:
-  fullpath: /g/data/ik11/inputs/cime/inputdata/2023-03-10/ocn/mom/gx1v6/WOA05_pottemp_salt.nc
+  fullpath: /g/data/tm70/ds0092/model/inputs/access-om3/WOA05_pottemp_salt.nc
   hashes:
     binhash: 871e36b62c8f83b55b116cf1e9ec04d3
     md5: 46803f1e1595e29ea527086438a58391
+work/input/access-om2-1deg-ESMFmesh.nc:
+  fullpath: /g/data/tm70/ds0092/model/inputs/access-om3/access-om2-1deg-ESMFmesh.nc
+  hashes:
+    binhash: 98fac97dbac84d8eb9f1270b05a3674f
+    md5: 1358190e031a0a6ede5ce499831d3061
 work/input/aerosoldep_WACCM.ensmean_monthly_hist_1849-2015_0.9x1.25_CMIP6_c180926.nc:
   fullpath: /g/data/ik11/inputs/cime/inputdata/2023-03-10/atm/cam/chem/trop_mozart_aero/aero/aerosoldep_WACCM.ensmean_monthly_hist_1849-2015_0.9x1.25_CMIP6_c180926.nc
   hashes:
     binhash: 12f1ef680f4c0ab76f2de8a8ea5547f7
     md5: ee48f75d95bed20151129297a1d74491
-work/input/b.e15.B1850G.f09_g16.pi_control.25.cice.r.0041-01-01-00000.nc:
-  fullpath: /g/data/ik11/inputs/cime/inputdata/2023-03-10/ice/cice/b.e15.B1850G.f09_g16.pi_control.25.cice.r.0041-01-01-00000.nc
-  hashes:
-    binhash: c248b1cb568c0de375f1d54af0f67990
-    md5: 311e5f7610d7d093cc0d784031f2adda
 work/input/fndep_clm_hist_b.e21.BWHIST.f09_g17.CMIP6-historical-WACCM.ensmean_1849-2015_monthly_0.9x1.25_c180926.nc:
   fullpath: /g/data/ik11/inputs/cime/inputdata/2023-03-10/lnd/clm2/ndepdata/fndep_clm_hist_b.e21.BWHIST.f09_g17.CMIP6-historical-WACCM.ensmean_1849-2015_monthly_0.9x1.25_c180926.nc
   hashes:
@@ -2696,43 +2696,23 @@ work/input/fv0.9x1.25_141008_polemod_ESMFmesh.nc:
   hashes:
     binhash: 03f7e7be93046b6185f4f0d40aa525bf
     md5: 522432e6af593bc3f4c0ddec22e45ff5
-work/input/global_gx1.bathy.nc:
-  fullpath: /g/data/ik11/inputs/cime/inputdata/2023-03-10/ice/cice/global_gx1.bathy.nc
+work/input/grid.nc:
+  fullpath: /g/data/tm70/ds0092/model/inputs/access-om3/grid.nc
   hashes:
-    binhash: 64af7a2cf94f041a2b2c3d1489a2bab2
-    md5: e3bf809ef76eb42b5f538f0f7110c106
-work/input/gx1v6_090205_ESMFmesh.nc:
-  fullpath: /g/data/ik11/inputs/cime/inputdata/2023-03-10/share/meshes/gx1v6_090205_ESMFmesh.nc
+    binhash: e7108317ae28b1f9ae77711728925cb6
+    md5: 1213e346055ee073fe33dc12578d99c6
+work/input/kmt.nc:
+  fullpath: /g/data/tm70/ds0092/model/inputs/access-om3/kmt.nc
   hashes:
-    binhash: 7d64c3cc3fbb8a669de3d3aa1b6ed11b
-    md5: 4b271b651c9242b7e53f365a475e5fdb
-work/input/horiz_grid_20010402.ieeer8:
-  fullpath: /g/data/ik11/inputs/cime/inputdata/2023-03-10/ocn/pop/gx1v6/grid/horiz_grid_20010402.ieeer8
-  hashes:
-    binhash: bcd54def1b19d8568a97ee0a27e4b565
-    md5: 5fa55af74a3fbe0af21e380f1e1fbd2f
-work/input/map_rx1_to_gx1v6_nn_open_ocean_nnsm_e1000r300_marginal_sea_170503.nc:
-  fullpath: /g/data/ik11/inputs/cime/inputdata/2023-03-10/cpl/gridmaps/rx1/map_rx1_to_gx1v6_nn_open_ocean_nnsm_e1000r300_marginal_sea_170503.nc
-  hashes:
-    binhash: 08d812a69269a4010d368b1ad9761a0e
-    md5: 4099efddb2a939d0341d0b2f53d90ddf
-work/input/map_rx1_to_gx1v6_nnsm_e1000r300_170503.nc:
-  fullpath: /g/data/ik11/inputs/cime/inputdata/2023-03-10/cpl/gridmaps/rx1/map_rx1_to_gx1v6_nnsm_e1000r300_170503.nc
-  hashes:
-    binhash: 199a87fdf86a4b4b1a4c2c7c85b905de
-    md5: d27e75d8095deb053f58c76af1c0ab68
+    binhash: 13a23d6d9331abc9d677c6fd466a4433
+    md5: 1f9806c646a620378e5257e480bc9df7
 work/input/ocean_hgrid.nc:
-  fullpath: /g/data/ik11/inputs/cime/inputdata/2023-03-10/ocn/mom/gx1v6/ocean_hgrid.nc
+  fullpath: /g/data/tm70/ds0092/model/inputs/access-om3/ocean_hgrid.nc
   hashes:
-    binhash: 0b6665f861c8444adf1357fa7d386537
-    md5: 03ff27167ad5aeaca867935fa1073432
-work/input/ocean_topog.nc:
-  fullpath: /g/data/ik11/inputs/cime/inputdata/2023-03-10/ocn/mom/gx1v6/ocean_topog.nc
-  hashes:
-    binhash: db7212ac0b7c6bb2899c368bce9788af
-    md5: 55c883a469cf6d402b05ca39db619528
+    binhash: 87d66edc0ef57c97b758a3049bfe8a14
+    md5: 51f58be0f4ea6da2cb438a893f95c689
 work/input/ocean_vgrid.nc:
-  fullpath: /g/data/ik11/inputs/cime/inputdata/2023-03-10/ocn/mom/gx1v6/ocean_vgrid.nc
+  fullpath: /g/data/tm70/ds0092/model/inputs/access-om3/ocean_vgrid.nc
   hashes:
     binhash: 59f8cfa4795f3eb785700789e099b86e
     md5: 6d6157af263a5bc52a4ddc9b90958d4c
@@ -2741,8 +2721,8 @@ work/input/rx1_nomask_181022_ESMFmesh.nc:
   hashes:
     binhash: 6a41f15e5c3818b3e82a7c38e2e49a77
     md5: 29b525caef10cae4da5bc64eb1dc5581
-work/input/topography_20090204.ieeei4:
-  fullpath: /g/data/ik11/inputs/cime/inputdata/2023-03-10/ocn/pop/gx1v6/grid/topography_20090204.ieeei4
+work/input/topog.nc:
+  fullpath: /g/data/tm70/ds0092/model/inputs/access-om3/topog.nc
   hashes:
-    binhash: 9b4be5327334aa060f105576edf97d09
-    md5: bfbd5e48dfe095d9b8cbb73f58a47e7b
+    binhash: 8ab65e521a588943b533b188a619d361
+    md5: 4e13d88001b646f3cf4f1c3b8db59f91

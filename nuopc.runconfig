@@ -115,10 +115,10 @@ ALLCOMP_attributes::
      mediator_present = true
      mesh_atm = ./input/T62_040121_ESMFmesh.nc
      mesh_glc = UNSET
-     mesh_ice = ./input/gx1v6_090205_ESMFmesh.nc
+     mesh_ice = ./input/access-om2-1deg-ESMFmesh.nc
      mesh_lnd = UNSET
-     mesh_mask = ./input/gx1v6_090205_ESMFmesh.nc
-     mesh_ocn = ./input/gx1v6_090205_ESMFmesh.nc
+     mesh_mask = ./input/access-om2-1deg-ESMFmesh.nc
+     mesh_ocn = ./input/access-om2-1deg-ESMFmesh.nc
      model_version = unknown
      ocn2glc_coupling = .false.
      ocn2glc_levels = 1:10:19:26:30:33:35
