@@ -12,7 +12,7 @@
 INPUTDIR = "./input/"
                                 ! "The directory in which input files are found."
 
-TRIPOLAR_N = False
+TRIPOLAR_N = True
                                 ! "[Boolean] default = False
                                 ! Use tripolar connectivity at the northern edge of the
                                 ! domain.  With TRIPOLAR_N, NIGLOBAL must be even."
@@ -31,12 +31,12 @@ NJHALO = 4
                                 ! in MOM_memory.h at compile time; without STATIC_MEMORY_
                                 ! the default is NJHALO_ in MOM_memory.h (if defined) or 2."
 
-NIGLOBAL = 320
+NIGLOBAL = 360
                                 ! "The total number of thickness grid points in the
                                 ! x-direction in the physical domain. With STATIC_MEMORY_
                                 ! this is set in MOM_memory.h at compile time."
 
-NJGLOBAL = 384
+NJGLOBAL = 300
                                 ! "The total number of thickness grid points in the
                                 ! y-direction in the physical domain. With STATIC_MEMORY_
                                 ! this is set in MOM_memory.h at compile time.
@@ -226,7 +226,7 @@ TOPO_CONFIG = file
                                 ! seamount - Gaussian bump for spontaneous motion test case.
                                 ! USER - call a user modified routine."
 
-TOPO_FILE = ocean_topog_230424.nc
+TOPO_FILE = topog.nc
                                 ! "default = 'topog.nc'
                                 ! The file from which the bathymetry is read."
 

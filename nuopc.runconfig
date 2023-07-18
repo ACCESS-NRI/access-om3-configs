@@ -118,10 +118,10 @@ ALLCOMP_attributes::
      mediator_present = true
      mesh_atm = ./input/T62_040121_ESMFmesh.nc
      mesh_glc = UNSET
-     mesh_ice = ./input/gx1v6_090205_ESMFmesh.nc
+     mesh_ice = ./input/access-om2-1deg-ESMFmesh.nc
      mesh_lnd = UNSET
-     mesh_mask = ./input/gx1v6_090205_ESMFmesh.nc
-     mesh_ocn = ./input/gx1v6_090205_ESMFmesh.nc
+     mesh_mask = ./input/access-om2-1deg-ESMFmesh.nc
+     mesh_ocn = ./input/access-om2-1deg-ESMFmesh.nc
      model_version = unknown
      ocn2glc_coupling = .false.
      ocn2glc_levels = 1:10:19:26:30:33:35
@@ -268,8 +268,8 @@ MED_attributes::
      ocn_surface_flux_scheme = 0
      rof2lnd_map = unset
      rof2ocn_fmapname = unset
-     rof2ocn_ice_rmapname = ./input/map_rx1_to_gx1v6_nnsm_e1000r300_170503.nc
-     rof2ocn_liq_rmapname = ./input/map_rx1_to_gx1v6_nn_open_ocean_nnsm_e1000r300_marginal_sea_170503.nc
+     rof2ocn_ice_rmapname = unset
+     rof2ocn_liq_rmapname = unset
      rof_nx = 360
      rof_ny = 180
      wav2ocn_smapname = unset
