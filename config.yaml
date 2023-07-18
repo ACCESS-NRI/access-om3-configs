@@ -2,17 +2,18 @@
 
 # If submitting to a different project to your default, uncomment line below 
 # and change project code as appropriate; also set shortpath below
-# project: v45
+project: x77
 
 # Force payu to always find, and save, files in this scratch project directory
 # (you may need to add the corresponding PBS -l storage flag in sync_data.sh)
-# shortpath: /scratch/v45
+shortpath: /scratch/v45
 
 queue: normal
-ncpus: 48
+ncpus: 1
 jobfs: 10GB
+mem: 192GB
 
-walltime: 00:30:00
+walltime: 02:00:00
 jobname: MOM6-CICE6
 
 model: access-om3

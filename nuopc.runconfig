@@ -1,5 +1,5 @@
 DRIVER_attributes::
-     Verbosity = off
+     Verbosity = max
      cime_model = cesm
      drv_restart_pointer = rpointer.cpl
      logFilePostFix = .log
@@ -27,11 +27,11 @@ DRIVER_attributes::
 ::
 
 PELAYOUT_attributes::
-     atm_ntasks = 48
+     atm_ntasks = 1
      atm_nthreads = 1
      atm_pestride = 1
      atm_rootpe = 0
-     cpl_ntasks = 48
+     cpl_ntasks = 1
      cpl_nthreads = 1
      cpl_pestride = 1
      cpl_rootpe = 0
@@ -40,28 +40,28 @@ PELAYOUT_attributes::
      esp_nthreads = 1
      esp_pestride = 1
      esp_rootpe = 0
-     glc_ntasks = 48
+     glc_ntasks = 1
      glc_nthreads = 1
      glc_pestride = 1
      glc_rootpe = 0
-     ice_ntasks = 48
+     ice_ntasks = 1
      ice_nthreads = 1
      ice_pestride = 1
      ice_rootpe = 0
-     lnd_ntasks = 48
+     lnd_ntasks = 1
      lnd_nthreads = 1
      lnd_pestride = 1
      lnd_rootpe = 0
      ninst = 1
-     ocn_ntasks = 48
+     ocn_ntasks = 1
      ocn_nthreads = 1
      ocn_pestride = 1
      ocn_rootpe = 0
-     rof_ntasks = 48
+     rof_ntasks = 1
      rof_nthreads = 1
      rof_pestride = 1
      rof_rootpe = 0
-     wav_ntasks = 48
+     wav_ntasks = 1
      wav_nthreads = 1
      wav_pestride = 1
      wav_rootpe = 0
@@ -138,7 +138,7 @@ ALLCOMP_attributes::
 ::
 
 MED_attributes::
-     Verbosity = off
+     Verbosity = max
      aoflux_grid = ogrid
      atm2ice_map = unset
      atm2lnd_map = unset
@@ -148,9 +148,9 @@ MED_attributes::
      atm_ny = 94
      budget_ann = 1
      budget_daily = 0
-     budget_inst = 0
+     budget_inst = 1
      budget_ltann = 1
-     budget_ltend = 0
+     budget_ltend = 1
      budget_month = 1
      budget_table_version = v1
      coupling_mode = cesm
@@ -161,19 +161,19 @@ MED_attributes::
      glc2ocn_liq_rmapname = idmap
      glc_renormalize_smb = on_if_glc_coupled_fluxes
      gust_fac = 0.0D0
-     histaux_atm2med_file1_auxname = atm.1h.inst
+     histaux_atm2med_file1_auxname = atm.1step.inst
      histaux_atm2med_file1_doavg = .false.
-     histaux_atm2med_file1_enabled = .false.
+     histaux_atm2med_file1_enabled = .true.
      histaux_atm2med_file1_flds = Faxa_swndr:Faxa_swvdr:Faxa_swndf:Faxa_swvdf
      histaux_atm2med_file1_history_n = 1
-     histaux_atm2med_file1_history_option = nhours
+     histaux_atm2med_file1_history_option = nsteps
      histaux_atm2med_file1_ntperfile = 24
-     histaux_atm2med_file2_auxname = atm.1h.avrg
+     histaux_atm2med_file2_auxname = atm.1step.avrg
      histaux_atm2med_file2_doavg = .true.
-     histaux_atm2med_file2_enabled = .false.
+     histaux_atm2med_file2_enabled = .true.
      histaux_atm2med_file2_flds = Sa_u:Sa_v
      histaux_atm2med_file2_history_n = 1
-     histaux_atm2med_file2_history_option = nhours
+     histaux_atm2med_file2_history_option = nsteps
      histaux_atm2med_file2_ntperfile = 24
      histaux_atm2med_file3_auxname = atm.3hprec.avrg
      histaux_atm2med_file3_doavg = .true.
@@ -293,14 +293,14 @@ CLOCK_attributes::
 ::
 
 ATM_attributes::
-     Verbosity = off
+     Verbosity = max
      aqua_planet = .false.
      perpetual = .false.
      perpetual_ymd = -999
 ::
 
 ICE_attributes::
-     Verbosity = off
+     Verbosity = max
 ::
 
 GLC_attributes::
@@ -312,11 +312,11 @@ LND_attributes::
 ::
 
 OCN_attributes::
-     Verbosity = off
+     Verbosity = max
 ::
 
 ROF_attributes::
-     Verbosity = off
+     Verbosity = max
      mesh_rof = ./input/rx1_nomask_181022_ESMFmesh.nc
 ::
 
@@ -333,7 +333,7 @@ MED_modelio::
      pio_numiotasks = -99
      pio_rearranger = 2
      pio_root = 1
-     pio_stride = 48
+     pio_stride = 1
      pio_typename = netcdf
 ::
 
@@ -345,7 +345,7 @@ ATM_modelio::
      pio_numiotasks = -99
      pio_rearranger = 1
      pio_root = 1
-     pio_stride = 48
+     pio_stride = 1
      pio_typename = netcdf
 ::
 
@@ -357,7 +357,7 @@ LND_modelio::
      pio_numiotasks = -99
      pio_rearranger = 2
      pio_root = 1
-     pio_stride = 48
+     pio_stride = 1
      pio_typename = netcdf
 ::
 
@@ -369,7 +369,7 @@ ICE_modelio::
      pio_numiotasks = -99
      pio_rearranger = 2
      pio_root = 1
-     pio_stride = 48
+     pio_stride = 1
      pio_typename = netcdf
 ::
 
@@ -381,7 +381,7 @@ OCN_modelio::
      pio_numiotasks = -99
      pio_rearranger = 2
      pio_root = 1
-     pio_stride = 48
+     pio_stride = 1
      pio_typename = netcdf
 ::
 
@@ -393,7 +393,7 @@ ROF_modelio::
      pio_numiotasks = -99
      pio_rearranger = 2
      pio_root = 1
-     pio_stride = 48
+     pio_stride = 1
      pio_typename = netcdf
 ::
 
@@ -405,7 +405,7 @@ GLC_modelio::
      pio_numiotasks = -99
      pio_rearranger = 2
      pio_root = 1
-     pio_stride = 48
+     pio_stride = 1
      pio_typename = netcdf
 ::
 
@@ -417,7 +417,7 @@ WAV_modelio::
      pio_numiotasks = -99
      pio_rearranger = 2
      pio_root = 1
-     pio_stride = 48
+     pio_stride = 1
      pio_typename = netcdf
 ::
 
