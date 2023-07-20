@@ -2,27 +2,22 @@
 
 # If submitting to a different project to your default, uncomment line below 
 # and change project code as appropriate; also set shortpath below
-# project: v45
+project: x77
 
 # Force payu to always find, and save, files in this scratch project directory
 # (you may need to add the corresponding PBS -l storage flag in sync_data.sh)
-# shortpath: /scratch/v45
+shortpath: /scratch/v45
 
 queue: normal
 ncpus: 48
 jobfs: 10GB
 
-walltime: 01:00:00
+walltime: 04:00:00
 jobname: MOM6-CICE6
 
-model: cesm
-components:
-    - mom6
-    - cice6
-    - datm
-    - drof
+model: access-om3
 
-exe: /g/data/ik11/inputs/cime/bin/MOM6-CICE6/2023-03-10/cesm.exe
+exe: /g/data/ik11/inputs/access-om3/bin/access-om3-MOM6-CICE6-2b52198
 input: 
     - /g/data/ik11/inputs/cime/inputdata/2023-03-10/share/meshes/T62_040121_ESMFmesh.nc # datm meshfile
     - /g/data/ik11/inputs/cime/inputdata/2023-03-10/share/meshes/TL319_151007_ESMFmesh.nc # datm JRA stream meshfile
@@ -42,8 +37,7 @@ input:
     - /g/data/ik11/inputs/cime/inputdata/2023-03-10/ocn/mom/gx1v6 # ocn input data
  
 collate: false
-runlog: true
+runlog: false
 
-storage:
-  gdata:
-    - ik11
+modules:
+  - parallelio/2.5.10-intel-2021.6.0
