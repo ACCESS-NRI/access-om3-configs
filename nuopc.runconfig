@@ -253,8 +253,8 @@ MED_attributes::
      history_option_wav_inst = never
      ice2atm_map = unset
      ice2wav_smapname = unset
-     ice_nx = 320
-     ice_ny = 384
+     ice_nx = 360
+     ice_ny = 300
      info_debug = 1
      lnd2atm_map = unset
      lnd2rof_map = unset
@@ -263,8 +263,8 @@ MED_attributes::
      mapuv_with_cart3d = .true.
      ocn2atm_map = unset
      ocn2wav_smapname = unset
-     ocn_nx = 320
-     ocn_ny = 384
+     ocn_nx = 360
+     ocn_ny = 300
      ocn_surface_flux_scheme = 0
      rof2lnd_map = unset
      rof2ocn_fmapname = unset
