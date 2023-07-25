@@ -7,8 +7,8 @@
    <readmode>single</readmode>
    <mapalgo>bilinear</mapalgo>
    <dtlimit>1.5</dtlimit>
-   <year_first>1990</year_first>
-   <year_last>1990</year_last>
+   <year_first>1900</year_first>
+   <year_last>1900</year_last>
    <year_align>1</year_align>
    <vectors>null</vectors>
    <meshfile>./input/TL319_151007_ESMFmesh.nc</meshfile>
@@ -28,8 +28,8 @@
    <readmode>single</readmode>
    <mapalgo>bilinear</mapalgo>
    <dtlimit>1.5</dtlimit>
-   <year_first>1990</year_first>
-   <year_last>1990</year_last>
+   <year_first>1900</year_first>
+   <year_last>1900</year_last>
    <year_align>1</year_align>
    <vectors>null</vectors>
    <meshfile>./input/TL319_151007_ESMFmesh.nc</meshfile>
@@ -49,8 +49,8 @@
    <readmode>single</readmode>
    <mapalgo>bilinear</mapalgo>
    <dtlimit>1.5</dtlimit>
-   <year_first>1990</year_first>
-   <year_last>1990</year_last>
+   <year_first>1900</year_first>
+   <year_last>1900</year_last>
    <year_align>1</year_align>
    <vectors>null</vectors>
    <meshfile>./input/TL319_151007_ESMFmesh.nc</meshfile>
@@ -71,8 +71,8 @@
    <readmode>single</readmode>
    <mapalgo>bilinear</mapalgo>
    <dtlimit>1.5</dtlimit>
-   <year_first>1990</year_first>
-   <year_last>1990</year_last>
+   <year_first>1900</year_first>
+   <year_last>1900</year_last>
    <year_align>1</year_align>
    <vectors>null</vectors>
    <meshfile>./input/TL319_151007_ESMFmesh.nc</meshfile>
@@ -83,7 +83,7 @@
    <datavars>
       <var>rsds  Faxa_swdn</var>
    </datavars>
-   <offset>-5400</offset>
+   <offset>0</offset>
   </stream_info>
 
 
@@ -93,8 +93,8 @@
    <readmode>single</readmode>
    <mapalgo>bilinear</mapalgo>
    <dtlimit>1.5</dtlimit>
-   <year_first>1990</year_first>
-   <year_last>1990</year_last>
+   <year_first>1900</year_first>
+   <year_last>1900</year_last>
    <year_align>1</year_align>
    <vectors>null</vectors>
    <meshfile>./input/TL319_151007_ESMFmesh.nc</meshfile>
@@ -115,8 +115,8 @@
    <readmode>single</readmode>
    <mapalgo>bilinear</mapalgo>
    <dtlimit>1.5</dtlimit>
-   <year_first>1990</year_first>
-   <year_last>1990</year_last>
+   <year_first>1900</year_first>
+   <year_last>1900</year_last>
    <year_align>1</year_align>
    <vectors>null</vectors>
    <meshfile>./input/TL319_151007_ESMFmesh.nc</meshfile>
@@ -137,8 +137,8 @@
    <readmode>single</readmode>
    <mapalgo>bilinear</mapalgo>
    <dtlimit>1.5</dtlimit>
-   <year_first>1990</year_first>
-   <year_last>1990</year_last>
+   <year_first>1900</year_first>
+   <year_last>1900</year_last>
    <year_align>1</year_align>
    <vectors>null</vectors>
    <meshfile>./input/TL319_151007_ESMFmesh.nc</meshfile>
@@ -159,8 +159,8 @@
    <readmode>single</readmode>
    <mapalgo>bilinear</mapalgo>
    <dtlimit>1.5</dtlimit>
-   <year_first>1990</year_first>
-   <year_last>1990</year_last>
+   <year_first>1900</year_first>
+   <year_last>1900</year_last>
    <year_align>1</year_align>
    <vectors>null</vectors>
    <meshfile>./input/TL319_151007_ESMFmesh.nc</meshfile>
@@ -181,8 +181,8 @@
    <readmode>single</readmode>
    <mapalgo>bilinear</mapalgo>
    <dtlimit>1.5</dtlimit>
-   <year_first>1990</year_first>
-   <year_last>1990</year_last>
+   <year_first>1900</year_first>
+   <year_last>1900</year_last>
    <year_align>1</year_align>
    <vectors>null</vectors>
    <meshfile>./input/TL319_151007_ESMFmesh.nc</meshfile>
@@ -203,8 +203,8 @@
    <readmode>single</readmode>
    <mapalgo>bilinear</mapalgo>
    <dtlimit>1.5</dtlimit>
-   <year_first>2000</year_first>
-   <year_last>2000</year_last>
+   <year_first>1990</year_first>
+   <year_last>1990</year_last>
    <year_align>1</year_align>
    <vectors>null</vectors>
    <meshfile>./input/fv0.9x1.25_141008_polemod_ESMFmesh.nc</meshfile>
@@ -238,8 +238,8 @@
    <readmode>single</readmode>
    <mapalgo>bilinear</mapalgo>
    <dtlimit>1.5</dtlimit>
-   <year_first>2000</year_first>
-   <year_last>2000</year_last>
+   <year_first>1990</year_first>
+   <year_last>1990</year_last>
    <year_align>1</year_align>
    <vectors>null</vectors>
    <meshfile>./input/fv0.9x1.25_141008_polemod_ESMFmesh.nc</meshfile>
