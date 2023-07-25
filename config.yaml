@@ -6,18 +6,19 @@ project: tm70
 
 # Force payu to always find, and save, files in this scratch project directory
 # (you may need to add the corresponding PBS -l storage flag in sync_data.sh)
-shortpath: /scratch/tm70/ek4684/
+shortpath: /scratch/tm70/
 
 queue: normal
 ncpus: 48
 jobfs: 10GB
+mem: 192GB
 
-walltime: 01:00:00
+walltime: 04:00:00
 jobname: MOM6-CICE6
 
 model: access-om3
 
-exe: /home/565/ek4684/payu/access-om3/bin/access-om3-MOM6-CICE6-Debug-cca8784
+exe: /g/data/ik11/inputs/access-om3/bin/access-om3-MOM6-CICE6-2b52198 
 input: 
     - /g/data/ik11/inputs/cime/inputdata/2023-03-10/share/meshes/T62_040121_ESMFmesh.nc # datm meshfile
     - /g/data/ik11/inputs/cime/inputdata/2023-03-10/share/meshes/TL319_151007_ESMFmesh.nc # datm JRA stream meshfile
@@ -40,5 +41,4 @@ collate: false
 runlog: false
 
 modules:
-  - parallelio/2.5.9-intel-2021.6.0
-  - xerces-c/3.2.3-intel-2021.6.0
+     - parallelio/2.5.10-intel-2021.6.0 

@@ -7,11 +7,11 @@
    <readmode>single</readmode>
    <mapalgo>bilinear</mapalgo>
    <dtlimit>3.0</dtlimit>
-   <year_first>1990</year_first>
-   <year_last>1990</year_last>
+   <year_first>1900</year_first>
+   <year_last>1900</year_last>
    <year_align>1</year_align>
    <vectors>null</vectors>
-   <meshfile>./input/JRA.v1.4.runoff.1958_ESMFmesh_cdf5_20201020.nc</meshfile>
+   <meshfile>/g/data/ik11/inputs/cime/inputdata/2023-03-10/lnd/dlnd7/JRA55/JRA.v1.4.runoff.1958_ESMFmesh_cdf5_20201020.nc</meshfile>
    <lev_dimname>null</lev_dimname>
    <datafiles>
       <file>/g/data/ik11/inputs/JRA-55/RYF/v1-4/RYF.friver.1990_1991.nc</file>
@@ -28,11 +28,11 @@
    <readmode>single</readmode>
    <mapalgo>bilinear</mapalgo>
    <dtlimit>3.0</dtlimit>
-   <year_first>1990</year_first>
-   <year_last>1990</year_last>
+   <year_first>1900</year_first>
+   <year_last>1900</year_last>
    <year_align>1</year_align>
    <vectors>null</vectors>
-   <meshfile>./input/JRA.v1.4.runoff.1958_ESMFmesh_cdf5_20201020.nc</meshfile>
+   <meshfile>/g/data/ik11/inputs/cime/inputdata/2023-03-10/lnd/dlnd7/JRA55/JRA.v1.4.runoff.1958_ESMFmesh_cdf5_20201020.nc</meshfile>
    <lev_dimname>null</lev_dimname>
    <datafiles>
       <file>/g/data/ik11/inputs/JRA-55/RYF/v1-4/RYF.licalvf.1990_1991.nc</file>

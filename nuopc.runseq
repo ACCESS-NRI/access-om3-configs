@@ -5,24 +5,24 @@ runSeq::
   MED med_phases_ocnalb_run
   MED med_phases_diag_ocn
   MED med_phases_prep_ice
-  MED -> ICE :remapMethod=redist
+  MED -> ICE :remapMethod=redist:srcTermProcessing=1:termOrder=srcseq
   MED med_phases_prep_ocn_avg
-  MED -> OCN :remapMethod=redist
+  MED -> OCN :remapMethod=redist:srcTermProcessing=1:termOrder=srcseq
   ICE
   ROF
   OCN
-  OCN -> MED :remapMethod=redist
+  OCN -> MED :remapMethod=redist:srcTermProcessing=1:termOrder=srcseq
   MED med_phases_post_ocn
   MED med_phases_diag_rof
   MED med_phases_diag_ice_ice2med
-  ICE -> MED :remapMethod=redist
+  ICE -> MED :remapMethod=redist:srcTermProcessing=1:termOrder=srcseq
   MED med_phases_post_ice
   ATM
-  ATM -> MED :remapMethod=redist
+  ATM -> MED :remapMethod=redist:srcTermProcessing=1:termOrder=srcseq
   MED med_phases_post_atm
   MED med_phases_diag_atm
   MED med_phases_diag_ice_med2ice
-  ROF -> MED :remapMethod=redist
+  ROF -> MED :remapMethod=redist:srcTermProcessing=1:termOrder=srcseq
   MED med_phases_post_rof
   MED med_phases_diag_accum
   MED med_phases_diag_print
