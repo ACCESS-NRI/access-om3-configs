@@ -1,6 +1,11 @@
 format: yamanifest
 version: 1.0
 ---
+work/input/JRA55do-ESMFmesh.nc:
+  fullpath: /g/data/tm70/ds0092/model/inputs/access-om3/JRA55do-ESMFmesh.nc
+  hashes:
+    binhash: 0cb9390912f934081942c1731f6df3c1
+    md5: 154215afc3b742e3da9ac77e4eac6813
 work/input/RYF.friver.1990_1991.nc:
   fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/RYF.friver.1990_1991.nc
   hashes:
@@ -66,11 +71,6 @@ work/input/T62_040121_ESMFmesh.nc:
   hashes:
     binhash: 7139bf220d302d5ab110ad45ea5ab05b
     md5: 0623c04264b7a129b4c5b302bd292262
-work/input/TL319_151007_ESMFmesh.nc:
-  fullpath: /g/data/ik11/inputs/cime/inputdata/2023-03-10/share/meshes/TL319_151007_ESMFmesh.nc
-  hashes:
-    binhash: b24fa88d4b1eae86397966339a70736f
-    md5: e6ced55a98751a37a38a332b79e4bf48
 work/input/WOA05_pottemp_salt.nc:
   fullpath: /g/data/ik11/inputs/cime/inputdata/2023-03-10/ocn/mom/gx1v6/WOA05_pottemp_salt.nc
   hashes:
