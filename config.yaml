@@ -2,11 +2,12 @@
 
 # If submitting to a different project to your default, uncomment line below 
 # and change project code as appropriate; also set shortpath below
-project: tm70
+
+project: x77
 
 # Force payu to always find, and save, files in this scratch project directory
 # (you may need to add the corresponding PBS -l storage flag in sync_data.sh)
-shortpath: /scratch/tm70/
+shortpath: /scratch/v45
 
 queue: normal
 ncpus: 48
@@ -18,7 +19,9 @@ jobname: MOM6-CICE6
 
 model: access-om3
 
+
 exe: /g/data/ik11/inputs/access-om3/bin/access-om3-MOM6-CICE6-2b52198 
+
 input: 
     - /g/data/ik11/inputs/cime/inputdata/2023-03-10/share/meshes/T62_040121_ESMFmesh.nc # datm meshfile
     - /g/data/tm70/ds0092/model/inputs/access-om3/JRA55do-ESMFmesh.nc  # datm JRA stream meshfile
