@@ -76,21 +76,11 @@ work/input/WOA05_pottemp_salt.nc:
   hashes:
     binhash: 871e36b62c8f83b55b116cf1e9ec04d3
     md5: 46803f1e1595e29ea527086438a58391
-work/input/aerosoldep_WACCM.ensmean_monthly_hist_1849-2015_0.9x1.25_CMIP6_c180926.nc:
-  fullpath: /g/data/ik11/inputs/access-om3/0.x.0/cime/atm/cam/chem/trop_mozart_aero/aero/aerosoldep_WACCM.ensmean_monthly_hist_1849-2015_0.9x1.25_CMIP6_c180926.nc
-  hashes:
-    binhash: 12f1ef680f4c0ab76f2de8a8ea5547f7
-    md5: ee48f75d95bed20151129297a1d74491
 work/input/b.e15.B1850G.f09_g16.pi_control.25.cice.r.0041-01-01-00000.nc:
   fullpath: /g/data/ik11/inputs/access-om3/0.x.0/cime/ice/cice/b.e15.B1850G.f09_g16.pi_control.25.cice.r.0041-01-01-00000.nc
   hashes:
     binhash: c248b1cb568c0de375f1d54af0f67990
     md5: 311e5f7610d7d093cc0d784031f2adda
-work/input/fndep_clm_hist_b.e21.BWHIST.f09_g17.CMIP6-historical-WACCM.ensmean_1849-2015_monthly_0.9x1.25_c180926.nc:
-  fullpath: /g/data/ik11/inputs/access-om3/0.x.0/cime/lnd/clm2/ndepdata/fndep_clm_hist_b.e21.BWHIST.f09_g17.CMIP6-historical-WACCM.ensmean_1849-2015_monthly_0.9x1.25_c180926.nc
-  hashes:
-    binhash: 86504baae557ecf8aee57f297a51c397
-    md5: 23e0f808380832c24c41b9dfa0bc60be
 work/input/fv0.9x1.25_141008_polemod_ESMFmesh.nc:
   fullpath: /g/data/ik11/inputs/access-om3/0.x.0/cime/share/meshes/fv0.9x1.25_141008_polemod_ESMFmesh.nc
   hashes:
