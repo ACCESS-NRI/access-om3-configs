@@ -24,7 +24,7 @@ exe: /g/data/ik11/inputs/access-om3/bin/access-om3-MOM6-CICE6-2b52198
 
 input: 
     - /g/data/ik11/inputs/cime/inputdata/2023-03-10/share/meshes/T62_040121_ESMFmesh.nc # datm meshfile
-    - /g/data/tm70/ds0092/model/inputs/access-om3/JRA55do-ESMFmesh.nc  # datm JRA stream meshfile
+    - /g/data/ik11/inputs/access-om3/input_20230728/JRA55do-ESMFmesh.nc
     - /g/data/ik11/inputs/cime/inputdata/2023-03-10/share/meshes/fv0.9x1.25_141008_polemod_ESMFmesh.nc # datm aerosol/lnd stream meshfile
     - /g/data/ik11/inputs/cime/inputdata/2023-03-10/share/meshes/gx1v6_090205_ESMFmesh.nc # ice, ocn meshfile
     - /g/data/ik11/inputs/cime/inputdata/2023-03-10/share/meshes/rx1_nomask_181022_ESMFmesh.nc # drof meshfile
