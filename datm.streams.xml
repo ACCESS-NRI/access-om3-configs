@@ -11,10 +11,10 @@
    <year_last>1900</year_last>
    <year_align>1</year_align>
    <vectors>null</vectors>
-   <meshfile>/g/data/tm70/ds0092/model/inputs/access-om3/JRA55do-ESMFmesh.nc</meshfile>
+   <meshfile>./input/JRA55do-ESMFmesh.nc</meshfile>
    <lev_dimname>null</lev_dimname>
    <datafiles>
-      <file>/g/data/ik11/inputs/JRA-55/RYF/v1-4/RYF.prsn.1990_1991.nc</file>
+      <file>./input/RYF.prsn.1990_1991.nc</file>
    </datafiles>
    <datavars>
       <var>prsn  Faxa_prsn</var>
@@ -32,10 +32,10 @@
    <year_last>1900</year_last>
    <year_align>1</year_align>
    <vectors>null</vectors>
-   <meshfile>/g/data/tm70/ds0092/model/inputs/access-om3/JRA55do-ESMFmesh.nc</meshfile>
+   <meshfile>./input/JRA55do-ESMFmesh.nc</meshfile>
    <lev_dimname>null</lev_dimname>
    <datafiles>
-      <file>/g/data/ik11/inputs/JRA-55/RYF/v1-4/RYF.prra.1990_1991.nc</file>
+      <file>./input/RYF.prra.1990_1991.nc</file>
    </datafiles>
    <datavars>
       <var>prra  Faxa_prrn</var>
@@ -53,10 +53,10 @@
    <year_last>1900</year_last>
    <year_align>1</year_align>
    <vectors>null</vectors>
-   <meshfile>/g/data/tm70/ds0092/model/inputs/access-om3/JRA55do-ESMFmesh.nc</meshfile>
+   <meshfile>./input/JRA55do-ESMFmesh.nc</meshfile>
    <lev_dimname>null</lev_dimname>
    <datafiles>
-      <file>/g/data/ik11/inputs/JRA-55/RYF/v1-4/RYF.rlds.1990_1991.nc</file>
+      <file>./input/RYF.rlds.1990_1991.nc</file>
    </datafiles>
    <datavars>
       <var>rlds  Faxa_lwdn</var>
@@ -75,10 +75,10 @@
    <year_last>1900</year_last>
    <year_align>1</year_align>
    <vectors>null</vectors>
-   <meshfile>/g/data/tm70/ds0092/model/inputs/access-om3/JRA55do-ESMFmesh.nc</meshfile>
+   <meshfile>./input/JRA55do-ESMFmesh.nc</meshfile>
    <lev_dimname>null</lev_dimname>
    <datafiles>
-      <file>/g/data/ik11/inputs/JRA-55/RYF/v1-4/RYF.rsds.1990_1991.nc</file>
+      <file>./input/RYF.rsds.1990_1991.nc</file>
    </datafiles>
    <datavars>
       <var>rsds  Faxa_swdn</var>
@@ -97,10 +97,10 @@
    <year_last>1900</year_last>
    <year_align>1</year_align>
    <vectors>null</vectors>
-   <meshfile>/g/data/tm70/ds0092/model/inputs/access-om3/JRA55do-ESMFmesh.nc</meshfile>
+   <meshfile>./input/JRA55do-ESMFmesh.nc</meshfile>
    <lev_dimname>null</lev_dimname>
    <datafiles>
-      <file>/g/data/ik11/inputs/JRA-55/RYF/v1-4/RYF.huss.1990_1991.nc</file>
+      <file>./input/RYF.huss.1990_1991.nc</file>
    </datafiles>
    <datavars>
       <var>huss  Sa_shum</var>
@@ -119,10 +119,10 @@
    <year_last>1900</year_last>
    <year_align>1</year_align>
    <vectors>null</vectors>
-   <meshfile>/g/data/tm70/ds0092/model/inputs/access-om3/JRA55do-ESMFmesh.nc</meshfile>
+   <meshfile>./input/JRA55do-ESMFmesh.nc</meshfile>
    <lev_dimname>null</lev_dimname>
    <datafiles>
-      <file>/g/data/ik11/inputs/JRA-55/RYF/v1-4/RYF.psl.1990_1991.nc</file>
+      <file>./input/RYF.psl.1990_1991.nc</file>
    </datafiles>
    <datavars>
       <var>psl  Sa_pslv</var>
@@ -141,10 +141,10 @@
    <year_last>1900</year_last>
    <year_align>1</year_align>
    <vectors>null</vectors>
-   <meshfile>/g/data/tm70/ds0092/model/inputs/access-om3/JRA55do-ESMFmesh.nc</meshfile>
+   <meshfile>./input/JRA55do-ESMFmesh.nc</meshfile>
    <lev_dimname>null</lev_dimname>
    <datafiles>
-      <file>/g/data/ik11/inputs/JRA-55/RYF/v1-4/RYF.tas.1990_1991.nc</file>
+      <file>./input/RYF.tas.1990_1991.nc</file>
    </datafiles>
    <datavars>
       <var>tas Sa_tbot</var>
@@ -163,10 +163,10 @@
    <year_last>1900</year_last>
    <year_align>1</year_align>
    <vectors>null</vectors>
-   <meshfile>/g/data/tm70/ds0092/model/inputs/access-om3/JRA55do-ESMFmesh.nc</meshfile>
+   <meshfile>./input/JRA55do-ESMFmesh.nc</meshfile>
    <lev_dimname>null</lev_dimname>
    <datafiles>
-      <file>/g/data/ik11/inputs/JRA-55/RYF/v1-4/RYF.uas.1990_1991.nc</file>
+      <file>./input/RYF.uas.1990_1991.nc</file>
    </datafiles>
    <datavars>
       <var>uas Sa_u</var>
@@ -185,10 +185,10 @@
    <year_last>1900</year_last>
    <year_align>1</year_align>
    <vectors>null</vectors>
-   <meshfile>/g/data/tm70/ds0092/model/inputs/access-om3/JRA55do-ESMFmesh.nc</meshfile>
+   <meshfile>./input/JRA55do-ESMFmesh.nc</meshfile>
    <lev_dimname>null</lev_dimname>
    <datafiles>
-      <file>/g/data/ik11/inputs/JRA-55/RYF/v1-4/RYF.vas.1990_1991.nc</file>
+      <file>./input/RYF.vas.1990_1991.nc</file>
    </datafiles>
    <datavars>
       <var>vas Sa_v</var>
