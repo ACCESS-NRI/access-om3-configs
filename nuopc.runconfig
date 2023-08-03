@@ -116,7 +116,7 @@ ALLCOMP_attributes::
      hostname = gadi
      ice_ncat = 5
      mediator_present = true
-     mesh_atm = ./input/T62_040121_ESMFmesh.nc
+     mesh_atm = ./input/access-om2-1deg-nomask-ESMFmesh.nc
      mesh_glc = UNSET
      mesh_ice = ./input/access-om2-1deg-ESMFmesh.nc
      mesh_lnd = UNSET
@@ -147,8 +147,8 @@ MED_attributes::
      atm2lnd_map = unset
      atm2ocn_map = unset
      atm2wav_map = unset
-     atm_nx = 192
-     atm_ny = 94
+     atm_nx = 360
+     atm_ny = 300
      budget_ann = 1
      budget_daily = 0
      budget_inst = 0
@@ -271,7 +271,7 @@ MED_attributes::
      rof2ocn_ice_rmapname = unset
      rof2ocn_liq_rmapname = unset
      rof_nx = 360
-     rof_ny = 180
+     rof_ny = 300
      wav2ocn_smapname = unset
      wav_nx = 0
      wav_ny = 0
@@ -328,7 +328,7 @@ OCN_attributes::
 
 ROF_attributes::
      Verbosity = off
-     mesh_rof = ./input/rx1_nomask_181022_ESMFmesh.nc
+     mesh_rof = ./input/access-om2-1deg-nomask-ESMFmesh.nc
 ::
 
 WAV_attributes::
