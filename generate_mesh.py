@@ -11,7 +11,6 @@ import os
 import subprocess
 from datetime import datetime
 
-import argparse
 import numpy as np
 import xarray as xr
 import pandas as pd
@@ -86,10 +85,21 @@ class BaseGrid:
 
         self.mesh = None
 
-    def create_mesh(self):
+    def create_mesh(self, wrap_lons=False, global_attrs=None):
         """
         Create the mesh as an xarray Dataset
+
+        Parameters
+        ----------
+        wrap_lons: boolean, optional
+            If True, wrap longitude values into the range between 0 and 360
+        global_attrs: dict
+            Global attributes to the mesh object
         """
+
+        if wrap_lons:
+            self.x_centres = (self.x_centres + 360) % 360
+            self.x_corners = (self.x_corners + 360) % 360
         
         centres = np.stack((self.x_centres, self.y_centres), axis=1)
         corners_df = pd.DataFrame({"x": self.x_corners, "y": self.y_corners})
@@ -155,11 +165,12 @@ class BaseGrid:
             ds.attrs["inputFile"] = ", ".join(self.inputs)
 
         # add git info to history
-        if is_git_repo():
-            url, rel_path, hash = git_info()
-            ds.attrs["history"] = f"Created using commit {hash} of {rel_path} in {url}"
+        if global_attrs:
+            ds.attrs |= global_attrs
 
         self.mesh = ds
+
+        return self
     
     def write(self, filename):
         """
@@ -167,7 +178,7 @@ class BaseGrid:
         """
         
         if self.mesh is None:
-            self.create_mesh()
+            raise ValueError("Before writing, you must first create the mesh object using self.create_mesh()")
         
         self.mesh.to_netcdf(filename)
 
@@ -333,25 +344,31 @@ def main():
     )
 
     parser.add_argument(
-        "--grid_type",
+        "--grid-type",
         choices=gridtype_dispatch.keys(),
         required=True,
         help='The type of grid in the netcdf file.', 
     )
     parser.add_argument(
-        "--grid_filename",
+        "--wrap-lons", 
+        default=False, 
+        action="store_true",
+        help="Wrap longitude values into the range between 0 and 360."
+    )
+    parser.add_argument(
+        "--grid-filename",
         type=str,
         required=True,
         help="The path to the netcdf file specifying the grid.", 
     )
     parser.add_argument(
-        "--mask_filename",
+        "--mask-filename",
         type=str,
         default=None,
         help="The path to a netcdf file specifying the mask.",
     )
     parser.add_argument(
-        "--mesh_filename",
+        "--mesh-filename",
         type=str,
         required=True,
         help="The path to the mesh file to create.", 
@@ -359,12 +376,34 @@ def main():
 
     args = parser.parse_args()
     grid_type = args.grid_type
+    wrap_lons = args.wrap_lons
     grid_filename = args.grid_filename
     mask_filename = args.mask_filename
     mesh_filename = args.mesh_filename
 
+    # Add some info about how the file was generated
+    runcmd = (
+        f"python3 {__file__} --grid-type={grid_type} --grid-filename={grid_filename} "
+        f"--mesh-filename={mesh_filename}"
+    )
+    if mask_filename:
+        runcmd += f" --mask-filename={mask_filename}"
+    if wrap_lons:
+        runcmd += f" --wrap-lons"
+        
+    if is_git_repo():
+        url, rel_path, hash = git_info()
+        prepend = f"Created using commit {hash} of {rel_path} in {url}: "
+    else:
+        prepend = "Created using: "
+        
+    global_attrs = {"history": prepend + runcmd}
+
     mesh = gridtype_dispatch[grid_type](grid_filename, mask_filename)
-    mesh.write(mesh_filename)
+
+    mesh.create_mesh(wrap_lons=wrap_lons, global_attrs=global_attrs).write(mesh_filename)
     
 if __name__ == "__main__":
+    import argparse
+    
     main()
