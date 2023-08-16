@@ -4,7 +4,8 @@
 # Contact: Ezhilsabareesh Kannadasan
 # To run:
 #   python generate_xml_drof.py <year_first> <year_last> 
-
+# if year_first == year_last, then RYF xml file will be generated,
+# otherwise IAF xml file will be generated
 
 
 from xml.etree.ElementTree import Element, SubElement, tostring
