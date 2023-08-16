@@ -268,7 +268,7 @@ MED_attributes::
 
 CLOCK_attributes::
      atm_cpl_dt = 3600
-     calendar = NO_LEAP
+     calendar = GREGORIAN
      end_restart = .false.
      glc_avg_period = yearly
      glc_cpl_dt = 86400
