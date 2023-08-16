@@ -68,9 +68,9 @@ for stream_name in stream_info_names:
     datavars = SubElement(stream_info, "datavars")
     
     if stream_name not in ["CORE_IAF_JRA55do.SLP_10","CORE_IAF_JRA55do.T_10","CORE_IAF_JRA55do.Q_10", "CORE_IAF_JRA55do.U_10","CORE_IAF_JRA55do.V_10"]:
-     SubElement(stream_info, "offset").text = "0" #an offset of -5400 is required since the day starts at 00:00hrs
+     SubElement(stream_info, "offset").text = "0" 
     else:
-     SubElement(stream_info, "offset").text = "5400"
+     SubElement(stream_info, "offset").text = "5400" #an offset of 5400 is required since the day starts at 00:00hrs
 
     var_name_parts = var_names.get(stream_name, (stream_name.split('.')[-1].lower(), f"Faxa_{stream_name.split('.')[-1].lower()}"))
     var_element = SubElement(datavars, "var")
