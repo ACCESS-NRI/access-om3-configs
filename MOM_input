@@ -228,7 +228,7 @@ Z_INIT_FILE_SALT_VAR = salt
                                 ! The name of the salinity variable in
                                 ! TEMP_SALT_Z_INIT_FILE."
 
-TEMP_SALT_INIT_VERTICAL_REMAP_ONLY = False
+TEMP_SALT_INIT_VERTICAL_REMAP_ONLY = True
                                 ! "[Boolean] default = False"
 
 Z_INIT_REMAP_OLD_ALG = False
