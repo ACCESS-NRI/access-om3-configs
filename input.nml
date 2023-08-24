@@ -14,6 +14,9 @@
 
 &diag_manager_nml
     flush_nc_files = .true.
-    use_mpp_io = .true.
+/
+
+&mpp_io_nml
+    cf_compliance = .true.
 /
 
