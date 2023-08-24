@@ -57,6 +57,9 @@ PELAYOUT_attributes::
      ocn_nthreads = 1
      ocn_pestride = 1
      ocn_rootpe = 0
+     pio_asyncio_ntasks = 0
+     pio_asyncio_rootpe = 1
+     pio_asyncio_stride = 0
      rof_ntasks = 48
      rof_nthreads = 1
      rof_pestride = 1
@@ -134,7 +137,7 @@ ALLCOMP_attributes::
      start_type = startup
      tfreeze_option = linear_salt
      username = ds0092
-     wavice_coupling = .false.
+     wav_coupling_to_cice = .false.
      write_restart_at_endofrun = .false.
 ::
 
@@ -154,6 +157,7 @@ MED_attributes::
      budget_ltend = 0
      budget_month = 1
      budget_table_version = v1
+     check_for_nans = .true.
      coupling_mode = cesm
      do_budgets = .true.
      flux_albav = .true.
@@ -194,9 +198,9 @@ MED_attributes::
      histaux_atm2med_file5_doavg = .true.
      histaux_atm2med_file5_enabled = .false.
      histaux_atm2med_file5_flds = Faxa_bcph:Faxa_ocph:Faxa_dstwet:Faxa_dstdry:Sa_co2prog:Sa_co2diag
-     histaux_atm2med_file5_history_n = 1
-     histaux_atm2med_file5_history_option = ndays
-     histaux_atm2med_file5_ntperfile = 1
+     histaux_atm2med_file5_history_n = 3
+     histaux_atm2med_file5_history_option = nhours
+     histaux_atm2med_file5_ntperfile = 2
      histaux_lnd2med_file1_auxname = lnd.ncpl.inst
      histaux_lnd2med_file1_doavg = .false.
      histaux_lnd2med_file1_enabled = .false.
@@ -204,13 +208,20 @@ MED_attributes::
      histaux_lnd2med_file1_history_n = 1
      histaux_lnd2med_file1_history_option = nsteps
      histaux_lnd2med_file1_ntperfile = 1
+     histaux_ocn2med_file1_auxname = ocn.24h.avg
+     histaux_ocn2med_file1_doavg = .true.
+     histaux_ocn2med_file1_enabled = .false.
+     histaux_ocn2med_file1_flds = So_bldepth:So_t:So_u:So_v
+     histaux_ocn2med_file1_history_n = 1
+     histaux_ocn2med_file1_history_option = ndays
+     histaux_ocn2med_file1_ntperfile = 30
      histaux_rof2med_file1_auxname = rof.24h.avrg
      histaux_rof2med_file1_doavg = .true.
      histaux_rof2med_file1_enabled = .false.
      histaux_rof2med_file1_flds = all
-     histaux_rof2med_file1_history_n = 1
-     histaux_rof2med_file1_history_option = ndays
-     histaux_rof2med_file1_ntperfile = 1
+     histaux_rof2med_file1_history_n = 3
+     histaux_rof2med_file1_history_option = nhours
+     histaux_rof2med_file1_ntperfile = 2
      history_n_atm_avg = -999
      history_n_atm_inst = -999
      history_n_glc_avg = -999

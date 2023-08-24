@@ -1,0 +1,29 @@
+! Note that CESM restarts are not controlled by namelist input
+! - but rather by driver config variables
+! See w3nmlshelmd.F90 for the definition of the data types used below
+&domain_nml
+ domain%start = '00010101 0'
+ domain%stop  = '99990101 0'
+/
+&input_nml
+  input%forcing%water_levels = 'T'
+  input%forcing%currents     = 'T'
+  input%forcing%winds        = 'T'
+  input%forcing%ice_conc     = 'T'
+/
+&output_type_nml
+  type%field%list = 'WND ICE HS T02 T0M1 T01 FP DIR EF USS TOC'
+  type%point%file = 'points.list'
+/
+&output_date_nml
+  date%field%outffile  = '1'
+  date%field%start     = '00010101 0'
+  date%field%stride    = '3600'
+  date%field%stop      = '99990101 0'
+  date%restart%start   = '00010101 0'
+  date%restart%stride  = '3600'
+  date%restart%stop    = '99990101 0'
+  date%restart2%start  = '99990101 0'
+  date%restart2%stride = '0'
+  date%restart2%stop   = '99990101 0'
+/
