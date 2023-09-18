@@ -18,7 +18,7 @@ jobname: 1deg_jra55do_ryf
 
 model: access-om3
 
-exe: /g/data/ik11/inputs/access-om3/bin/access-om3-MOM6-CICE6-059b7b2
+exe: /g/data/ik11/inputs/access-om3/bin/access-om3-MOM6-CICE6-fdaa3a6
 input: 
     - /g/data/ik11/inputs/access-om3/0.x.0/share/meshes/JRA55do-ESMFmesh.nc # datm JRA stream raw data meshfile
     - /g/data/ik11/inputs/access-om3/0.x.0/cime/share/meshes/fv0.9x1.25_141008_polemod_ESMFmesh.nc # datm aerosol/lnd stream raw data meshfile
