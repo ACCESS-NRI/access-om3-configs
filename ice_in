@@ -71,7 +71,7 @@
   restart_pond_lvl = .false.
   restart_pond_topo = .false.
   restart_snow = .false.
-  tr_aero = .true.
+  tr_aero = .false.
   tr_fsd = .false.
   tr_fy = .true.
   tr_iage = .true.
