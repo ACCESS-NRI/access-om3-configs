@@ -116,12 +116,12 @@ ALLCOMP_attributes::
      hostname = gadi
      ice_ncat = 5
      mediator_present = true
-     mesh_atm = ./input/T62_040121_ESMFmesh.nc
+     mesh_atm = ./input/access-om2-1deg-nomask-ESMFmesh.nc
      mesh_glc = UNSET
-     mesh_ice = ./input/gx1v6_090205_ESMFmesh.nc
+     mesh_ice = ./input/access-om2-1deg-ESMFmesh.nc
      mesh_lnd = UNSET
-     mesh_mask = ./input/gx1v6_090205_ESMFmesh.nc
-     mesh_ocn = ./input/gx1v6_090205_ESMFmesh.nc
+     mesh_mask = ./input/access-om2-1deg-ESMFmesh.nc
+     mesh_ocn = ./input/access-om2-1deg-ESMFmesh.nc
      model_version = unknown
      ocn2glc_coupling = .false.
      ocn2glc_levels = 1:10:19:26:30:33:35
@@ -147,8 +147,8 @@ MED_attributes::
      atm2lnd_map = unset
      atm2ocn_map = unset
      atm2wav_map = unset
-     atm_nx = 192
-     atm_ny = 94
+     atm_nx = 360
+     atm_ny = 300
      budget_ann = 1
      budget_daily = 0
      budget_inst = 0
@@ -253,8 +253,8 @@ MED_attributes::
      history_option_wav_inst = never
      ice2atm_map = unset
      ice2wav_smapname = unset
-     ice_nx = 320
-     ice_ny = 384
+     ice_nx = 360
+     ice_ny = 300
      info_debug = 1
      lnd2atm_map = unset
      lnd2rof_map = unset
@@ -263,15 +263,15 @@ MED_attributes::
      mapuv_with_cart3d = .true.
      ocn2atm_map = unset
      ocn2wav_smapname = unset
-     ocn_nx = 320
-     ocn_ny = 384
+     ocn_nx = 360
+     ocn_ny = 300
      ocn_surface_flux_scheme = 0
      rof2lnd_map = unset
      rof2ocn_fmapname = unset
-     rof2ocn_ice_rmapname = ./input/map_rx1_to_gx1v6_nnsm_e1000r300_170503.nc
-     rof2ocn_liq_rmapname = ./input/map_rx1_to_gx1v6_nn_open_ocean_nnsm_e1000r300_marginal_sea_170503.nc
+     rof2ocn_ice_rmapname = unset
+     rof2ocn_liq_rmapname = unset
      rof_nx = 360
-     rof_ny = 180
+     rof_ny = 300
      wav2ocn_smapname = unset
      wav_nx = 0
      wav_ny = 0
@@ -328,7 +328,7 @@ OCN_attributes::
 
 ROF_attributes::
      Verbosity = off
-     mesh_rof = ./input/rx1_nomask_181022_ESMFmesh.nc
+     mesh_rof = ./input/access-om2-1deg-nomask-ESMFmesh.nc
 ::
 
 WAV_attributes::
