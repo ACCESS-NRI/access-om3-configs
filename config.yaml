@@ -39,7 +39,7 @@ input:
     - /g/data/ik11/inputs/access-om3/0.x.0/cime/ocn/pop/gx1v6/grid/topography_20090204.ieeei4 # ice kmt file
     - /g/data/ik11/inputs/access-om3/0.x.0/cime/ocn/mom/gx1v6 # ocn input data
     - /g/data/ik11/inputs/access-om3/0.x.0/cime/wav/ww3/ww3a.restart.ww3.calm.wwver7.14.220119 # wav initial condition
-    - /g/data/ik11/inputs/access-om3/0.x.0/cime/wav/ww3/ww3a.mod_def.ww3.wwver7.14.230705b # wav mod_def
+    - /g/data/ik11/inputs/access-om3/0.x.0/cime/wav/ww3/mod_def.ww3 # wav mod_def
 
 collate: false
 runlog: false
