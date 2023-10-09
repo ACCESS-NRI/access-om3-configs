@@ -1068,3 +1068,6 @@ KPP_LT_VT2_METHOD = VR12
                                 !    LF17     = Function of Langmuir number based on LF17
 
 %KPP
+
+LATENT_HEAT_FUSION = 3.337E+05  !   [J/kg] default = 3.337E+05
+LATENT_HEAT_VAPORIZATION = 2.501E+06 !   [J/kg] default = 2.501E+06
