@@ -3,6 +3,6 @@
   dtcfli = 1800.
   dtmax = 3600.
   dtmin = 10
-  initfile = "/g/data/ik11/inputs/access-om3/0.1.0/cime/wav/ww3/restart.ww3"
+  initfile = "./input/restart.ww3"
   outfreq = 0
 /
