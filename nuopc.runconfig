@@ -242,7 +242,7 @@ MED_attributes::
      history_option_wav_avg = never
      history_option_wav_inst = never
      ice2atm_map = unset
-     ice2wav_smapname = ./input/map_gx1v6_TO_ww3a_splice_150428.nc
+     ice2wav_smapname = unset
      ice_nx = 320
      ice_ny = 384
      info_debug = 1
@@ -252,7 +252,7 @@ MED_attributes::
      lnd_ny = 0
      mapuv_with_cart3d = .true.
      ocn2atm_map = unset
-     ocn2wav_smapname = ./input/map_gx1v6_TO_ww3a_splice_150428.nc
+     ocn2wav_smapname = unset
      ocn_nx = 320
      ocn_ny = 384
      ocn_surface_flux_scheme = 0
@@ -262,7 +262,7 @@ MED_attributes::
      rof2ocn_liq_rmapname = ./input/map_rx1_to_gx1v6_nn_open_ocean_nnsm_e1000r300_marginal_sea_170503.nc
      rof_nx = 360
      rof_ny = 180
-     wav2ocn_smapname = ./input/map_ww3a_TO_gx1v6_splice_150428.nc
+     wav2ocn_smapname = unset
      wav_nx = 90
      wav_ny = 50
 ::
@@ -323,7 +323,7 @@ ROF_attributes::
 
 WAV_attributes::
      Verbosity = off
-     mesh_wav = ./input/ww3a_120222_ESMFmesh.nc
+     mesh_wav = /g/data/ik11/inputs/access-om3/0.1.0/cime/share/meshes/gx1v6_090205_ESMFmesh.nc
 ::
 
 MED_modelio::
