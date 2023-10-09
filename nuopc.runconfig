@@ -334,7 +334,7 @@ ROF_attributes::
 
 WAV_attributes::
      Verbosity = off
-     mesh_wav = ./input/ww3a_120222_ESMFmesh.nc
+     mesh_wav = ./input/access-om2-1deg-nomask-ESMFmesh.nc
 ::
 
 MED_modelio::

@@ -651,6 +651,11 @@ work/input/make_ryf/make_ryf.py:
   hashes:
     binhash: 9fbb6a9f6bec50ccb2afafecae9a5ff7
     md5: c5ef2aeff9516ec76c80e76aef08d352
+work/input/mod_def.ww3:
+  fullpath: /g/data/ik11/inputs/access-om3/0.x.0/1deg/ww3/mod_def.ww3
+  hashes:
+    binhash: 37421525cd3e587c82dae788be663f60
+    md5: f05ce20560ac68008bd9d76ce05b47d3
 work/input/ocean_hgrid.nc:
   fullpath: /g/data/ik11/inputs/access-om3/0.x.0/1deg/mom/ocean_hgrid.nc
   hashes:
@@ -666,6 +671,11 @@ work/input/ocean_vgrid.nc:
   hashes:
     binhash: 30af5058d31d9133770757144f6bd7cf
     md5: a1e0b0b0adc363506ff17a362e83f64a
+work/input/restart.ww3:
+  fullpath: /g/data/ik11/inputs/access-om3/0.x.0/1deg/ww3/restart.ww3
+  hashes:
+    binhash: cb36d35e6ee91fc8ab086db8626d82de
+    md5: db8c0fe5cb4ef31b5143a64e80eb1f76
 work/input/salt_sfc_restore.nc:
   fullpath: /g/data/ik11/inputs/access-om3/0.x.0/1deg/mom/salt_sfc_restore.nc
   hashes:
@@ -676,18 +686,3 @@ work/input/topog.nc:
   hashes:
     binhash: 049d8b297efe931a1c1d3f40af23afea
     md5: 4e13d88001b646f3cf4f1c3b8db59f91
-work/input/ww3a.mod_def.ww3.wwver7.14.230705b:
-  fullpath: /g/data/ik11/inputs/access-om3/0.x.0/cime/wav/ww3/ww3a.mod_def.ww3.wwver7.14.230705b
-  hashes:
-    binhash: 6cd19c786f95be53ddf6e4ac61609b7d
-    md5: a9b4a0769678a882a28bed8081e03c63
-work/input/ww3a.restart.ww3.calm.wwver7.14.220119:
-  fullpath: /g/data/ik11/inputs/access-om3/0.x.0/cime/wav/ww3/ww3a.restart.ww3.calm.wwver7.14.220119
-  hashes:
-    binhash: 9d74b77749f3128230bce80bc1feb197
-    md5: a7992b3f2afcf9c1cfe83f3059efb91f
-work/input/ww3a_120222_ESMFmesh.nc:
-  fullpath: /g/data/ik11/inputs/access-om3/0.x.0/cime/share/meshes/ww3a_120222_ESMFmesh.nc
-  hashes:
-    binhash: aefd9a01e029952bf93d08f36e614385
-    md5: 75f66d46bae4ad6df9ed44fdd018cffc
