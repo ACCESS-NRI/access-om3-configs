@@ -1,0 +1,46 @@
+$ WAVEWATCH III Grid preprocessor input file
+$ ------------------------------------------
+  'Global Tripolar Grid '
+$
+$   1.1 0.03679 25 24 0.
+$    1.1 0.04118 5 96 0
+    1.1 0.04118 25 24 0.5
+$
+$ Set model flags ---------------------------------------------------- $
+$  - FLDRY         Dry run (input/output only, no calculation).
+$  - FLCX, FLCY    Activate X and Y component of propagation.
+$  - FLCTH, FLCK   Activate direction and wavenumber shifts.
+$  - FLSOU         Activate source terms.
+$
+  F T T T T T
+$ F T T F F
+$ geogr. CFL time step is the 2nd one....
+$ note that PR1 shows instability before PR3
+$ min spacing for active portion of grid is 10 km
+$ from  T=1/0.0368, Cg=25.447, I get dt=393 s
+  600.  300.0  300.  50.
+$
+ &PRO2 DTIME = 0. /
+$ &PRO2 DTIME = 2777. /
+ &PRO3 WDTHCG = 0., WDTHTH = 0. /
+$ &PRO4 RNFAC = 0., RSFAC = 0. /
+  &MISC CICE0 = 0.25, CICEN = 0.75, FLAGTR = 4 /
+ &OUTS USSP = 1, IUSSP = 3,
+  STK_WN = 0.04 , 0.1102, 0.3305 /
+ &GLOC READ_GRID_METRICS = .false.,
+       GRID_METRIC_FILENAME = 'ocean_hgrid.nc' /
+END OF NAMELISTS
+$
+$ case6ith no grid closure :
+  'CURV' T 'NONE'
+  320 384
+  20 1.0 0.0 1 1 '(....)' 'NAME' 'OM3_1.Lon'
+  21 1.0 0.0 1 1 '(....)' 'NAME' 'OM3_1.Lat'
+  -0.1 2.50  22  1.0 1 1 '(....)' 'NAME' 'OM3_1.Dpt'
+  24  0.01  1 1 '(....)' 'NAME' 'OM3_1.Obstr'
+   25  1  1 '(....)' 'NAME' 'OM3_1.Mask'
+$   10 1 1 '(....)' 'PART' 'mapsta.inp'
+$   0   0   F
+$   0   0   F
+$   0  0
+   0. 0. 0. 0.  0
