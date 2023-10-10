@@ -1,4 +1,4 @@
-# Payu configuration for 1 deg MOM6-CICE6-datm-drof configuration using CMEPS with the CESM driver
+# MOM6-CICE6 1 deg JRA CESM configuration
 
 **WARNING: This configuration is to be used for testing purposes only.**
 
@@ -13,3 +13,17 @@ cd my_case
 ./case.setup
 ```
 The configuration was then adapted to run with ACCESS-OM3 using payu.
+
+See [`main` branch
+README](https://github.com/COSIMA/MOM6-CICE6/blob/main/README.md) for usage
+information.
+
+## Features
+
+- data atmosphere (DATM) = JRA v1.3 (NB: not JRA55-do), 1958-2016, no-leap calendar
+- data runoff (DROF) = JRA v1.1 (NB: not JRA55-do), 1958-2016, no-leap calendar
+- displaced pole grid
+
+## Requirements
+
+This configuration requires payu v1.0.29 or greater to run correctly.
