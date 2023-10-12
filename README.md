@@ -6,8 +6,8 @@ following components:
 
 - [MOM6](https://mom6.readthedocs.io/) ocean model
 - [CICE](https://github.com/CICE-Consortium/CICE) sea ice model
-- [DATM](https://escomp.github.io/CDEPS/versions/master/html/datm.html) data model
-- [DROF](https://escomp.github.io/CDEPS/versions/master/html/drof.html) data model
+- [DATM](https://escomp.github.io/CDEPS/versions/master/html/datm.html) atmosphere data model
+- [DROF](https://escomp.github.io/CDEPS/versions/master/html/drof.html) runoff data model
 
 All the configurations use the [payu](https://payu.readthedocs.io/en/latest/)
 workflow management tool.
