@@ -17,7 +17,7 @@ jobname: gmom_jra_wd
 
 model: access-om3
 
-exe: /g/data/ik11/inputs/access-om3/bin/access-om3-MOM6-CICE6-WW3-0.1.0
+exe:  /g/data/tm70/ek4684/access-om3/bin/access-om3-MOM6-CICE6-WW3-beec615-modified
 input: 
     - /g/data/ik11/inputs/access-om3/0.1.0/cime/share/meshes/T62_040121_ESMFmesh.nc # datm meshfile
     - /g/data/ik11/inputs/access-om3/0.1.0/cime/share/meshes/TL319_151007_ESMFmesh.nc # datm JRA stream meshfile
@@ -42,8 +42,12 @@ runlog: false
 
 modules:
   use:
-      - /g/data/ik11/spack/0.20.1/modules/access-om3/cesm-0.1.0/linux-rocky8-x86_64
+      - /g/data/ik11/spack/0.20.1/modules/access-om3/0.x.0/linux-rocky8-cascadelake
   load:
       - intel-compiler/2021.6.0
       - openmpi/4.1.4
-      - parallelio/2.5.9
+      - parallelio/2.5.10
+
+storage:
+  gdata:
+    - tm70
