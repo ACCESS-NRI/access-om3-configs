@@ -47,12 +47,12 @@ $
 $ below, we cannot use TRPL closure, because it's only available for PR1
 $ but we use PR3 (?).
   'CURV'  T  'SMPL'
-  320  384
-  21 1.0 0.0 1 1 '(....)' 'NAME' 'OM3_1.Lon'
-  22 1.0 0.0 1 1 '(....)' 'NAME' 'OM3_1.Lat'
-  -0.1 2.50 23 1.0 1 1 '(....)' 'NAME' 'OM3_1.Dpt'
-  24  0.01  1 1 '(....)' 'NAME' 'OM3_1.Obstr'
-  25  1  1 '(....)' 'NAME' 'OM3_1.Mask'
+  360  300
+  21 1.0 0.0 1 1 '(....)' 'NAME' 'OM2_1.Lon'
+  22 1.0 0.0 1 1 '(....)' 'NAME' 'OM2_1.Lat'
+  -0.1 2.50 23 1.0 1 1 '(....)' 'NAME' 'OM2_1.Dpt'
+  24  0.01  1 1 '(....)' 'NAME' 'OM2_1.Obstr'
+  25  1  1 '(....)' 'NAME' 'OM2_1.Mask'
 $
 $  Close list by defining line with 0 points (mandatory)
 $

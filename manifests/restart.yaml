@@ -1,3 +1,63 @@
 format: yamanifest
 version: 1.0
---- {}
+---
+work/GMOM_JRA_WD.cice.r.0001-04-01-00000.nc:
+  fullpath: /scratch/tm70/ek4684/access-om3/archive/MOM6-CICE6-WW3-OM2-grid-compatible/restart002/GMOM_JRA_WD.cice.r.0001-04-01-00000.nc
+  hashes:
+    binhash: adf59202d9dcaf06c350664aa9e9a607
+    md5: f70f1b85eecfa92d2b3b98484d24fe01
+work/GMOM_JRA_WD.cpl.r.0001-04-01-00000.nc:
+  fullpath: /scratch/tm70/ek4684/access-om3/archive/MOM6-CICE6-WW3-OM2-grid-compatible/restart002/GMOM_JRA_WD.cpl.r.0001-04-01-00000.nc
+  hashes:
+    binhash: daacb6bfcbd914500c930fd123b84fea
+    md5: c98ea860c1a9727ebfbed67e0dbca30c
+work/GMOM_JRA_WD.datm.r.0001-04-01-00000.nc:
+  fullpath: /scratch/tm70/ek4684/access-om3/archive/MOM6-CICE6-WW3-OM2-grid-compatible/restart002/GMOM_JRA_WD.datm.r.0001-04-01-00000.nc
+  hashes:
+    binhash: 532c184dd2b4f64504e7bfddc728f89d
+    md5: 4dcd761f946c3b29a130e3ced8d36e07
+work/GMOM_JRA_WD.drof.r.0001-04-01-00000.nc:
+  fullpath: /scratch/tm70/ek4684/access-om3/archive/MOM6-CICE6-WW3-OM2-grid-compatible/restart002/GMOM_JRA_WD.drof.r.0001-04-01-00000.nc
+  hashes:
+    binhash: bb22176e8ecbf9c3f620cc65a15fdebb
+    md5: 3783efd4517c8fe4d9c2d0efd05c3ed3
+work/GMOM_JRA_WD.mom6.r.0001-04-01-00000.nc:
+  fullpath: /scratch/tm70/ek4684/access-om3/archive/MOM6-CICE6-WW3-OM2-grid-compatible/restart002/GMOM_JRA_WD.mom6.r.0001-04-01-00000.nc
+  hashes:
+    binhash: 00153ad8b43dd14424f1a3f989fa9739
+    md5: 974878d1b509cd2e4c13556ff7031a07
+work/GMOM_JRA_WD.ww3.r.0001-04-01-00000:
+  fullpath: /scratch/tm70/ek4684/access-om3/archive/MOM6-CICE6-WW3-OM2-grid-compatible/restart002/GMOM_JRA_WD.ww3.r.0001-04-01-00000
+  hashes:
+    binhash: 986a556b52dd0dcfbe3af11ad27e1767
+    md5: b81bc57336b2419b06e59a2117ca33b1
+work/rpointer.atm:
+  fullpath: /scratch/tm70/ek4684/access-om3/archive/MOM6-CICE6-WW3-OM2-grid-compatible/restart002/rpointer.atm
+  hashes:
+    binhash: 4d493003978f2752de0628b010ee0946
+    md5: d889213cd0801e56ecc70cda8d79c01d
+work/rpointer.cpl:
+  fullpath: /scratch/tm70/ek4684/access-om3/archive/MOM6-CICE6-WW3-OM2-grid-compatible/restart002/rpointer.cpl
+  hashes:
+    binhash: ebcbfd81f4f9e962f8a6ec67f90c329b
+    md5: ac5b036a077dcc946105a7f1a0e7c900
+work/rpointer.ice:
+  fullpath: /scratch/tm70/ek4684/access-om3/archive/MOM6-CICE6-WW3-OM2-grid-compatible/restart002/rpointer.ice
+  hashes:
+    binhash: 7e078a75076d5b16dcfce14e89e8712d
+    md5: 71c2d81a2311a35e25ea9e2ab9c19fb3
+work/rpointer.ocn:
+  fullpath: /scratch/tm70/ek4684/access-om3/archive/MOM6-CICE6-WW3-OM2-grid-compatible/restart002/rpointer.ocn
+  hashes:
+    binhash: 45825442e2de8b2c3e2992581b101e38
+    md5: d9d8ef4bd8a0cbc9935b69b6c6ddcb76
+work/rpointer.rof:
+  fullpath: /scratch/tm70/ek4684/access-om3/archive/MOM6-CICE6-WW3-OM2-grid-compatible/restart002/rpointer.rof
+  hashes:
+    binhash: 687fdc0f3fb9093ba0726a3300c32baf
+    md5: d856c42112e8e496f34cbe6be8350dbd
+work/rpointer.wav:
+  fullpath: /scratch/tm70/ek4684/access-om3/archive/MOM6-CICE6-WW3-OM2-grid-compatible/restart002/rpointer.wav
+  hashes:
+    binhash: 7f6aff0b4d28b8cc5fd1730fb503240c
+    md5: a70ba24ed0ac31656d321f3ae46c64d7
