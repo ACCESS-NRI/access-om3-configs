@@ -1,4 +1,4 @@
-# MOM6-CICE6 1 deg JRA55-do RYF ACCESS-OM3 configuration
+# MOM6-CICE6 1 deg JRA55-do IAF ACCESS-OM3 configuration
 
 **WARNING: This configuration is still under development and should not be used for production.**
 
@@ -8,8 +8,8 @@ information.
 
 ## Features
 
-- data atmosphere (DATM) = JRA55-do v1-4, RYF 1990-1991
-- data runoff (DROF) = JRA55-do v1-4, RYF 1990-1991
+- data atmosphere (DATM) = JRA55-do v1-4, IAF 1958-2018
+- data runoff (DROF) = JRA55-do v1-4, IAF 1958-2018
 - tripolar grid
 
 ## Requirements
