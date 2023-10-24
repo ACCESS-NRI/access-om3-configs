@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # Copyright 2023 ACCESS-NRI and contributors. See the top-level COPYRIGHT file for details.
 # SPDX-License-Identifier: Apache-2.0
 
@@ -12,7 +13,7 @@ from xml.dom import minidom
 import sys
 
 if len(sys.argv) != 3:
-    print("Usage: python script_name.py year_first year_last")
+    print("Usage: python generate_xml_datm.py year_first year_last")
     sys.exit(1)
 
 try:
@@ -66,11 +67,14 @@ for stream_name in stream_info_names:
 
     datafiles = SubElement(stream_info, "datafiles")
     datavars = SubElement(stream_info, "datavars")
-    
-    if stream_name not in ["CORE_IAF_JRA55do.SLP_10","CORE_IAF_JRA55do.T_10","CORE_IAF_JRA55do.Q_10", "CORE_IAF_JRA55do.U_10","CORE_IAF_JRA55do.V_10"]:
-     SubElement(stream_info, "offset").text = "0" 
+
+    if stream_name in [ "CORE_IAF_JRA55do.PRSN",
+                        "CORE_IAF_JRA55do.PRRN",
+                        "CORE_IAF_JRA55do.LWDN",
+                        "CORE_IAF_JRA55do.SWDN" ]:
+        SubElement(stream_info, "offset").text = "-5400"  # shift back 1.5hr to match RYF
     else:
-     SubElement(stream_info, "offset").text = "5400" #an offset of 5400 is required since the day starts at 00:00hrs
+        SubElement(stream_info, "offset").text = "0"
 
     var_name_parts = var_names.get(stream_name, (stream_name.split('.')[-1].lower(), f"Faxa_{stream_name.split('.')[-1].lower()}"))
     var_element = SubElement(datavars, "var")

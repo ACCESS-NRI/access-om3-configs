@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # Copyright 2023 ACCESS-NRI and contributors. See the top-level COPYRIGHT file for details.
 # SPDX-License-Identifier: Apache-2.0
 
@@ -13,7 +14,7 @@ from xml.dom import minidom
 import sys
 
 if len(sys.argv) != 3:
-    print("Usage: python script_name.py year_first year_last")
+    print("Usage: python generate_xml_drof.py year_first year_last")
     sys.exit(1)
 
 try:
@@ -49,7 +50,7 @@ for stream_name, var_prefix, var_suffix in stream_info_data:
 
     datafiles = SubElement(stream_info, "datafiles")
     datavars = SubElement(stream_info, "datavars")
-    SubElement(stream_info, "offset").text = "0"
+    SubElement(stream_info, "offset").text = "-43200"  # shift backwards from noon to midnight to match RYF
 
     var_element = SubElement(datavars, "var")
     var_element.text = f"{var_prefix} {var_suffix}"
