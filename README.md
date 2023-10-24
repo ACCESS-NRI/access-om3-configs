@@ -26,6 +26,7 @@ biogeochemistry, is appended to the name.
 Currently the following configurations are available:
 
 - [`1deg_jra55do_ryf`](https://github.com/COSIMA/MOM6-CICE6/tree/1deg_jra55do_ryf)
+- [`1deg_jra55do_iaf`](https://github.com/COSIMA/MOM6-CICE6/tree/1deg_jra55do_iaf)
 
 **Note that the [`main`](https://github.com/COSIMA/MOM6-CICE6/tree/main) branch
 does not store any configuration, only some documentation.**
