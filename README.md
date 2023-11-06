@@ -1,5 +1,6 @@
-# Experimental Payu configuration for 1 deg MOM6-CICE6-WW3-datm-drof configuration using CMEPS with the CESM driver
+# MOM6-CICE6-WW3 1 deg JRA55-do RYF ACCESS-OM3 configuration
 
+<<<<<<< HEAD
 data atmosphere (datm) = JRA v1.3 (NB: not JRA55-do), 1958-2016, no-leap calendar
 
 data runoff (drof) = JRA v1.1 (NB: not JRA55-do), 1958-2016, no-leap calendar
@@ -17,3 +18,20 @@ Note:
   ./case.build
   ```
 - By default, this configuration will advance 1 month per model run
+=======
+**WARNING: This configuration is still under development and should not be used for production.**
+
+See [`main` branch
+README](https://github.com/COSIMA/MOM6-CICE6-WW3/blob/main/README.md) for usage
+information.
+
+## Features
+
+- data atmosphere (DATM) = JRA55-do v1-4, RYF 1990-1991
+- data runoff (DATM) = JRA55-do v1-4, RYF 1990-1991
+- tripolar grid
+
+## Requirements
+
+This configuration requires payu v1.0.29 or greater to run correctly.
+>>>>>>> 07169be5f6655852f4b8704229346fa1fd03a28e
