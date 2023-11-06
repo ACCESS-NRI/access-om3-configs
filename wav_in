@@ -2,10 +2,6 @@
   dtcfl = 1800.
   dtcfli = 1800.
   dtmax = 3600.
-  dtmin = 10
-<<<<<<< HEAD
-  initfile = "/g/data/ik11/inputs/access-om3/0.x.0/1deg/ww3/restart.ww3"
-=======
+  dtmin = 1
   initfile = "./input/restart.ww3"
->>>>>>> 07169be5f6655852f4b8704229346fa1fd03a28e
 /
