@@ -18,7 +18,7 @@
 &output_date_nml
   date%field%outffile  = '1'
   date%field%start     = '00010101 0'
-  date%field%stride    = '3600'
+  date%field%stride    = '86400'
   date%field%stop      = '99990101 0'
   date%point%outffile  = '0'
   date%point%start     = '00010101 0'
