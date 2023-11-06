@@ -46,11 +46,7 @@ $ Define grid -------------------------------------------------------- $
 $
 $ below, we cannot use TRPL closure, because it's only available for PR1
 $ but we use PR3 (?).
-<<<<<<< HEAD
  'CURV'  T  'TRPL'
-=======
-  'CURV'  T  'SMPL'
->>>>>>> 07169be5f6655852f4b8704229346fa1fd03a28e
   360  300
   21 1.0 0.0 1 1 '(....)' 'NAME' 'OM2_1.Lon'
   22 1.0 0.0 1 1 '(....)' 'NAME' 'OM2_1.Lat'
