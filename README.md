@@ -1,6 +1,5 @@
 # MOM6-CICE6-WW3 1 deg JRA55-do RYF ACCESS-OM3 configuration
 
-<<<<<<< HEAD
 data atmosphere (datm) = JRA v1.3 (NB: not JRA55-do), 1958-2016, no-leap calendar
 
 data runoff (drof) = JRA v1.1 (NB: not JRA55-do), 1958-2016, no-leap calendar
@@ -34,4 +33,3 @@ information.
 ## Requirements
 
 This configuration requires payu v1.0.29 or greater to run correctly.
->>>>>>> 07169be5f6655852f4b8704229346fa1fd03a28e
