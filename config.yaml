@@ -14,11 +14,8 @@ jobfs: 10GB
 mem: 192GB
 
 walltime: 01:00:00
-<<<<<<< HEAD
-jobname: MOM6-CICE6-WW3
-=======
+
 jobname: 1deg_jra55do_ryf
->>>>>>> 07169be5f6655852f4b8704229346fa1fd03a28e
 
 model: access-om3
 
@@ -27,17 +24,9 @@ input:
     - /g/data/ik11/inputs/access-om3/0.x.0/1deg/share # shared grids and topography
     - /g/data/ik11/inputs/access-om3/0.x.0/1deg/mom # grids, ICs etc
     - /g/data/ik11/inputs/access-om3/0.x.0/1deg/cice # grids, ICs etc
-<<<<<<< HEAD
-    - /g/data/ik11/inputs/access-om3/0.x.0/share/meshes/JRA55do-ESMFmesh.nc # mesh for JRA55-do stream
-    - /g/data/ik11/inputs/JRA-55/RYF/v1-4 # datm and drof JRA55-do streams data
-    - /g/data/ik11/inputs/access-om3/0.x.0/1deg/share/access-om2-1deg-nomask-ESMFmesh.nc # wav meshfile
-    - /g/data/ik11/inputs/access-om3/0.x.0/1deg/ww3/restart.ww3 # wav initial condition
-    - /g/data/ik11/inputs/access-om3/0.x.0/1deg/ww3/mod_def.ww3 # wav mod_def
-=======
     - /g/data/ik11/inputs/access-om3/0.x.0/1deg/ww3 # grids, ICs etc
     - /g/data/ik11/inputs/access-om3/0.x.0/share/meshes/JRA55do-ESMFmesh.nc # mesh for JRA55-do stream
     - /g/data/ik11/inputs/JRA-55/RYF/v1-4 # datm and drof JRA55-do streams data
->>>>>>> 07169be5f6655852f4b8704229346fa1fd03a28e
  
 collate: false
 runlog: false
@@ -48,8 +37,4 @@ modules:
   load:
       - intel-compiler/2021.6.0
       - openmpi/4.1.4
-<<<<<<< HEAD
-      - parallelio/2.5.10 
-=======
       - parallelio/2.5.10
->>>>>>> 07169be5f6655852f4b8704229346fa1fd03a28e
