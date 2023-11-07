@@ -10,7 +10,6 @@
   npt = 35040
   pointer_file      = './rpointer.ice'
   print_global      = .false.
-  write_ic = .true.
 /
 &grid_nml
   bathymetry_file = "./input/topog.nc"
@@ -38,7 +37,6 @@
 /
 &shortwave_nml
   ahmax = 0.1
-  albedo_type = "constant"
   albicei = 0.44
   albicev = 0.86
   albsnowi = 0.7
@@ -70,12 +68,11 @@
   maskhalo_bound = .true.
   maskhalo_dyn = .true.
   maskhalo_remap = .true.
-  nprocs = 24
-  max_blocks = 40
+  max_blocks = 10
   ns_boundary_type = "tripole"
   nx_global = 360
   ny_global = 300
-  processor_shape = "slenderX1"
+  processor_shape = "slenderX2"
 /
 &ice_prescribed_nml
 /
@@ -88,11 +85,11 @@
 &icefields_fsd_nml
 /
 &icefields_mechred_nml
-  f_alvl = "m"
-  f_ardg = "m"
-  f_opening = "m"
-  f_vlvl = "m"
-  f_vrdg = "m"
+  !-----------------------------------
+  ! These fields are on by default (in ice_history_mechred.F90) but lets turn them off
+  !-----------------------------------
+  f_dardg1dt  = 'x', f_dardg2dt   = 'x'
+  f_dvirdgdt  = 'x'
 /
 &icefields_pond_nml
 /
@@ -108,79 +105,52 @@
 &icefields_nml
   f_aice = "md"
   f_aicen = "m"
-  f_albice = "m"
-  f_albsni = "m"
-  f_albsno = "m"
-  f_angle = .true.
-  f_anglet = .true.
   f_bounds = .false.
+  f_fcondtopn_ai = "m"
   f_congel = "md"
-  f_daidtd = "m"
-  f_daidtt = "m"
-  f_divu = "m"
   f_dvidtd = "md"
   f_dvidtt = "md"
-  f_dxt = .true.
-  f_dxu = .true.
-  f_dyt = .true.
-  f_dyu = .true.
-  f_evap_ai = "m"
-  f_fcondtop_ai = "m"
-  f_fcondtopn_ai = "m"
-  f_fhocn_ai = "m"
-  f_flat_ai = "m"
-  f_flatn_ai = "m"
-  f_flwdn = "m"
-  f_flwup_ai = "m"
-  f_fmeltt_ai = "m"
   f_fmelttn_ai = "m"
-  f_frazil = "md"
-  f_fresh_ai = "m"
   f_frzmlt = "md"
-  f_fsalt = "m"
-  f_fsalt_ai = "m"
+  f_frazil = "md"
+  f_flatn_ai   = "m"
   f_fsens_ai = "m"
   f_fsensn_ai = "m"
   f_fsurfn_ai = "m"
-  f_fswabs_ai = "m"
-  f_fswdn = "m"
-  f_fswfac = "m"
-  f_fswthru_ai = "m"
-  f_fswup = "m"
   f_hi = "md"
   f_hs = "md"
-  f_hte = .true.
-  f_htn = .true.
-  f_iage = "m"
-  f_icepresent = "m"
-  f_meltb = "m"
-  f_meltl = "m"
-  f_melts = "m"
-  f_meltt = "m"
-  f_ncat = .true.
-  f_rain_ai = "m"
-  f_shear = "m"
-  f_sice = "m"
   f_snoice = "md"
-  f_snow_ai = "m"
-  f_strairx = "m"
-  f_strairy = "m"
-  f_strcorx = "m"
-  f_strcory = "m"
-  f_strength = "m"
-  f_strintx = "m"
-  f_strinty = "m"
-  f_strocnx = "m"
-  f_strocny = "m"
-  f_strtltx = "m"
-  f_strtlty = "m"
-  f_tair = "m"
-  f_tarea = .true.
-  f_tmask = .true.
-  f_trsig = "m"
-  f_tsfc = "m"
-  f_uarea = .true.
-  f_uvel = "md"
+  f_uvel = "md" , f_vvel = "md"
   f_vicen = "m"
-  f_vvel = "md"
+  !-----------------------------------
+  ! These fields are on by default (in ice_history_shared.F90) but lets turn them off
+  !-----------------------------------
+  f_albpnd = 'x'
+  f_atmdir = 'x' , f_atmspd = 'x'
+  f_coszen = 'x'
+  f_dsnow = 'x'
+  f_evap = 'x'
+  f_fbot = 'x'
+  f_fhocn = 'x'
+  f_flat = 'x'
+  f_fresh = 'x'
+  f_fswthru = 'x'
+  f_fsurf_ai = 'x'
+  f_hisnap = 'x', f_aisnap = 'x',
+  f_icedir = 'x'
+  f_icespd = 'x'
+  f_mlt_onset = 'x', f_frz_onset  = 'x'
+  f_ocndir = 'x' , f_ocnspd = 'x'
+  f_rain = 'x'
+  f_fsens = 'x'
+  f_flwup = 'x'
+  f_sig1 = 'x', f_sig2 = 'x'
+  f_sigP = 'x'
+  f_snow = 'x'
+  f_sst = 'x'
+  f_sss = 'x'
+  f_fswabs = 'x'
+  f_taubx = 'x' , f_tauby = 'x'
+  f_Tref = 'x', f_Qref = 'x'
+  f_uocn = 'x' , f_vocn = 'x'
 /
