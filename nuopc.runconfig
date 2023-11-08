@@ -431,6 +431,8 @@ WAV_modelio::
      pio_root = 1
      pio_stride = 48
      pio_typename = netcdf
+     history_n = 1
+     history_option = nmonths
 ::
 
 ESP_modelio::
