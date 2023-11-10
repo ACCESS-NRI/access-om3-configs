@@ -624,3 +624,7 @@ MAX_DELTA_SRESTORE = 0.5        !   [PSU or g kg-1] default = 999.0
                                 ! The maximum salinity difference used in restoring terms.
 GUST_CONST = 0.02               !   [Pa] default = 0.0
                                 ! The background gustiness in the winds.
+
+! === module MOM_file_parser ===
+FATAL_UNUSED_PARAMS = True      !   [Boolean] default = False
+                                ! If true, kill the run if there are any unused parameters.
