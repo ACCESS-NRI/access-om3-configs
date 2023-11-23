@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """
 WWIII Grid Generation Script
 
@@ -7,7 +8,7 @@ It is adapted from Shou Li's config and modified to work with the current versio
 Author: Ezhilsabareesh Kannadasan
 
 Usage:
-    python generate_grid.py
+    ./GenGrid.py
 
 Input: ocean_hgrid.nc, topog.nc
 Output: dat files containing Lat, Lon, Mask and Obstruction grid
