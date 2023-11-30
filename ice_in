@@ -1,4 +1,6 @@
 &setup_nml
+  bfbflag = "off" 
+  conserv_check = .false.
   debug_forcing = .true.
   debug_model = .true.
   diagfreq = 960
@@ -33,7 +35,8 @@
   dsdt_slow_mode = -5e-08
 /
 &dynamics_nml
-  k1 = 8.0d0
+  advection = "remap"
+  ssh_stress = "coupled"
 /
 &shortwave_nml
   ahmax = 0.1
@@ -44,8 +47,6 @@
   dt_mlt = 1.0
   kalg = 0.0
   r_snw = 0.0
-  sw_dtemp = 0.01d0
-  sw_frac = 1.0d0
   sw_redist = .true.
 /
 &ponds_nml
@@ -57,14 +58,17 @@
 /
 &forcing_nml
   emissivity = 0.95d0
+  ice_ref_salinity = 4.0d0
   highfreq = .true.
   tfrz_option = "linear_salt"
   update_ocn_f = .true.
-  ustar_min = 0.005
+  ustar_min = 0.0005
 /
 &domain_nml
-  block_size_x = 20
-  block_size_y = 16
+  block_size_x = 16
+  block_size_y = 15
+  distribution_type = "sectrobin"
+  distribution_wght = "blockall"
   maskhalo_bound = .true.
   maskhalo_dyn = .true.
   maskhalo_remap = .true.
