@@ -58,7 +58,7 @@
 /
 &forcing_nml
   emissivity = 0.95d0
-  ice_ref_salinity = 4.0d0
+  ice_ref_salinity = 5.0d0
   highfreq = .true.
   tfrz_option = "linear_salt"
   update_ocn_f = .true.
@@ -67,8 +67,8 @@
 &domain_nml
   block_size_x = 16
   block_size_y = 15
-  distribution_type = "sectrobin"
-  distribution_wght = "blockall"
+  distribution_type = "cartesian"
+  distribution_wght = "latitude"
   maskhalo_bound = .true.
   maskhalo_dyn = .true.
   maskhalo_remap = .true.
