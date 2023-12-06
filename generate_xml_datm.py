@@ -5,9 +5,10 @@
 # Contact: Ezhilsabareesh Kannadasan
 # To run:
 #   python generate_xml_datm.py <year_first> <year_last> 
-# To generate RYF xml file, set year_first == year_last and year_align = 1
-# To generate IAF xml file, set year_first and year_last to the forcing period
-# and year_align == year_first
+# To generate RYF xml file, set year_first == year_last. The value of year_align has no
+# effect
+# To generate IAF xml file, set year_first and year_last to the forcing period and
+# year_align == year_first
 
 from xml.etree.ElementTree import Element, SubElement, tostring
 from xml.dom import minidom
