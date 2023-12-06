@@ -5,20 +5,22 @@
 # Contact: Ezhilsabareesh Kannadasan
 # To run:
 #   python generate_xml_datm.py <year_first> <year_last> 
-# if year_first == year_last, then RYF xml file will be generated,
-# otherwise IAF xml file will be generated
+# To generate RYF xml file, set year_first == year_last and year_align = 1
+# To generate IAF xml file, set year_first and year_last to the forcing period
+# and year_align == year_first
 
 from xml.etree.ElementTree import Element, SubElement, tostring
 from xml.dom import minidom
 import sys
 
-if len(sys.argv) != 3:
-    print("Usage: python generate_xml_datm.py year_first year_last")
+if len(sys.argv) != 4:
+    print("Usage: python generate_xml_datm.py year_first year_last year_align")
     sys.exit(1)
 
 try:
     year_first = int(sys.argv[1])
     year_last = int(sys.argv[2])
+    year_align = int(sys.argv[3])
 except ValueError:
     print("Year values must be integers")
     sys.exit(1)
@@ -60,7 +62,7 @@ for stream_name in stream_info_names:
     SubElement(stream_info, "dtlimit").text = "1.5"
     SubElement(stream_info, "year_first").text = str(year_first)
     SubElement(stream_info, "year_last").text = str(year_last)
-    SubElement(stream_info, "year_align").text = "1"
+    SubElement(stream_info, "year_align").text = str(year_align)
     SubElement(stream_info, "vectors").text = "null"
     SubElement(stream_info, "meshfile").text = "./input/JRA55do-ESMFmesh.nc"
     SubElement(stream_info, "lev_dimname").text = "null"
