@@ -29,6 +29,10 @@ input:
 collate: false
 runlog: false
 
+userscripts:
+    setup: ./setup_cice_restarts.sh
+    archive: ./archive_cice_restarts.sh
+
 modules:
   use:
       - /g/data/ik11/spack/0.20.1/modules/access-om3/0.x.0/linux-rocky8-cascadelake
