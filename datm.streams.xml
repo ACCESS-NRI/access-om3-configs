@@ -1,7 +1,7 @@
 <?xml version="1.0" ?>
 <file id="stream" version="2.0">
   <stream_info name="CORE_IAF_JRA55do.PRSN">
-    <taxmode>cycle</taxmode>
+    <taxmode>limit</taxmode>
     <readmode>single</readmode>
     <mapalgo>bilinear</mapalgo>
     <dtlimit>1.5</dtlimit>
@@ -81,7 +81,7 @@
     <tintalgo>linear</tintalgo>
   </stream_info>
   <stream_info name="CORE_IAF_JRA55do.PRRN">
-    <taxmode>cycle</taxmode>
+    <taxmode>limit</taxmode>
     <readmode>single</readmode>
     <mapalgo>bilinear</mapalgo>
     <dtlimit>1.5</dtlimit>
@@ -161,7 +161,7 @@
     <tintalgo>linear</tintalgo>
   </stream_info>
   <stream_info name="CORE_IAF_JRA55do.LWDN">
-    <taxmode>cycle</taxmode>
+    <taxmode>limit</taxmode>
     <readmode>single</readmode>
     <mapalgo>bilinear</mapalgo>
     <dtlimit>1.5</dtlimit>
@@ -241,7 +241,7 @@
     <tintalgo>linear</tintalgo>
   </stream_info>
   <stream_info name="CORE_IAF_JRA55do.SWDN">
-    <taxmode>cycle</taxmode>
+    <taxmode>limit</taxmode>
     <readmode>single</readmode>
     <mapalgo>bilinear</mapalgo>
     <dtlimit>1.5</dtlimit>
@@ -321,7 +321,7 @@
     <tintalgo>coszen</tintalgo>
   </stream_info>
   <stream_info name="CORE_IAF_JRA55do.Q_10">
-    <taxmode>cycle</taxmode>
+    <taxmode>limit</taxmode>
     <readmode>single</readmode>
     <mapalgo>bilinear</mapalgo>
     <dtlimit>1.5</dtlimit>
@@ -401,7 +401,7 @@
     <tintalgo>linear</tintalgo>
   </stream_info>
   <stream_info name="CORE_IAF_JRA55do.SLP_10">
-    <taxmode>cycle</taxmode>
+    <taxmode>limit</taxmode>
     <readmode>single</readmode>
     <mapalgo>bilinear</mapalgo>
     <dtlimit>1.5</dtlimit>
@@ -481,7 +481,7 @@
     <tintalgo>linear</tintalgo>
   </stream_info>
   <stream_info name="CORE_IAF_JRA55do.T_10">
-    <taxmode>cycle</taxmode>
+    <taxmode>limit</taxmode>
     <readmode>single</readmode>
     <mapalgo>bilinear</mapalgo>
     <dtlimit>1.5</dtlimit>
@@ -561,7 +561,7 @@
     <tintalgo>linear</tintalgo>
   </stream_info>
   <stream_info name="CORE_IAF_JRA55do.U_10">
-    <taxmode>cycle</taxmode>
+    <taxmode>limit</taxmode>
     <readmode>single</readmode>
     <mapalgo>bilinear</mapalgo>
     <dtlimit>1.5</dtlimit>
@@ -641,7 +641,7 @@
     <tintalgo>linear</tintalgo>
   </stream_info>
   <stream_info name="CORE_IAF_JRA55do.V_10">
-    <taxmode>cycle</taxmode>
+    <taxmode>limit</taxmode>
     <readmode>single</readmode>
     <mapalgo>bilinear</mapalgo>
     <dtlimit>1.5</dtlimit>

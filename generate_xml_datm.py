@@ -4,9 +4,7 @@
 
 # Contact: Ezhilsabareesh Kannadasan
 # To run:
-#   python generate_xml_datm.py <year_first> <year_last> 
-# To generate RYF xml file, set year_first == year_last. The value of year_align has no
-# effect
+#   python generate_xml_datm.py <year_first> <year_last> <year_align>
 # To generate IAF xml file, set year_first and year_last to the forcing period and
 # year_align == year_first
 
@@ -57,7 +55,7 @@ var_names = {
 # Generate stream info elements with changing years
 for stream_name in stream_info_names:
     stream_info = SubElement(root, "stream_info", name=stream_name)
-    SubElement(stream_info, "taxmode").text = "cycle"
+    SubElement(stream_info, "taxmode").text = "limit"
     SubElement(stream_info, "readmode").text = "single"
     SubElement(stream_info, "mapalgo").text = "bilinear"
     SubElement(stream_info, "dtlimit").text = "1.5"
