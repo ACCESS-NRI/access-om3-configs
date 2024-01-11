@@ -4,25 +4,27 @@
 
 # Contact: Ezhilsabareesh Kannadasan
 # To run:
-#   python generate_xml_datm.py <year_first> <year_last> <year_align>
-# To generate IAF xml file, set year_first and year_last to the forcing period and
-# year_align == year_first
+#   python generate_xml_datm.py <year_first> <year_last>
+# To generate IAF xml file, set year_first and year_last to the forcing period
+# To generate RYF xml file, set year_first==year_last
 
 from xml.etree.ElementTree import Element, SubElement, tostring
 from xml.dom import minidom
 import sys
 
-if len(sys.argv) != 4:
-    print("Usage: python generate_xml_datm.py year_first year_last year_align")
+if len(sys.argv) != 3:
+    print("Usage: python generate_xml_datm.py year_first year_last")
     sys.exit(1)
 
 try:
     year_first = int(sys.argv[1])
     year_last = int(sys.argv[2])
-    year_align = int(sys.argv[3])
+
 except ValueError:
     print("Year values must be integers")
     sys.exit(1)
+
+year_align = year_first
 
 # Create the root element
 root = Element("file", id="stream", version="2.0")
@@ -55,7 +57,10 @@ var_names = {
 # Generate stream info elements with changing years
 for stream_name in stream_info_names:
     stream_info = SubElement(root, "stream_info", name=stream_name)
-    SubElement(stream_info, "taxmode").text = "limit"
+    if year_first == year_last:
+        SubElement(stream_info, "taxmode").text = "cycle"
+    else:
+        SubElement(stream_info, "taxmode").text = "limit"
     SubElement(stream_info, "readmode").text = "single"
     SubElement(stream_info, "mapalgo").text = "bilinear"
     SubElement(stream_info, "dtlimit").text = "1.5"
@@ -69,15 +74,25 @@ for stream_name in stream_info_names:
     datafiles = SubElement(stream_info, "datafiles")
     datavars = SubElement(stream_info, "datavars")
 
-    if stream_name in [ "CORE_IAF_JRA55do.PRSN",
-                        "CORE_IAF_JRA55do.PRRN",
-                        "CORE_IAF_JRA55do.LWDN",
-                        "CORE_IAF_JRA55do.SWDN" ]:
-        SubElement(stream_info, "offset").text = "-5400"  # shift back 1.5hr to match RYF
+    if stream_name in [
+        "CORE_IAF_JRA55do.PRSN",
+        "CORE_IAF_JRA55do.PRRN",
+        "CORE_IAF_JRA55do.LWDN",
+        "CORE_IAF_JRA55do.SWDN",
+    ]:
+        SubElement(
+            stream_info, "offset"
+        ).text = "-5400"  # shift back 1.5hr to match RYF
     else:
         SubElement(stream_info, "offset").text = "0"
 
-    var_name_parts = var_names.get(stream_name, (stream_name.split('.')[-1].lower(), f"Faxa_{stream_name.split('.')[-1].lower()}"))
+    var_name_parts = var_names.get(
+        stream_name,
+        (
+            stream_name.split(".")[-1].lower(),
+            f"Faxa_{stream_name.split('.')[-1].lower()}",
+        ),
+    )
     var_element = SubElement(datavars, "var")
     var_element.text = f"{var_name_parts[0]}  {var_name_parts[1]}"
 
@@ -85,17 +100,23 @@ for stream_name in stream_info_names:
         SubElement(stream_info, "tintalgo").text = "coszen"
     else:
         SubElement(stream_info, "tintalgo").text = "linear"
-    
- 
-    for year in range(year_first, year_last + 1):
 
+    for year in range(year_first, year_last + 1):
         if year_first == year_last:
             file_element = SubElement(datafiles, "file")
-            file_element.text = f"./input/RYF.{var_name_parts[0]}.{year+90}_{year + 90 + 1}.nc"
+            file_element.text = (
+                f"./input/RYF.{var_name_parts[0]}.{year+90}_{year + 90 + 1}.nc"
+            )
         else:
             file_element = SubElement(datafiles, "file")
-            if stream_name not in ["CORE_IAF_JRA55do.SLP_10","CORE_IAF_JRA55do.T_10","CORE_IAF_JRA55do.Q_10", "CORE_IAF_JRA55do.U_10","CORE_IAF_JRA55do.V_10"]:
-                if year != 2019: 
+            if stream_name not in [
+                "CORE_IAF_JRA55do.SLP_10",
+                "CORE_IAF_JRA55do.T_10",
+                "CORE_IAF_JRA55do.Q_10",
+                "CORE_IAF_JRA55do.U_10",
+                "CORE_IAF_JRA55do.V_10",
+            ]:
+                if year != 2019:
                     file_element.text = f"./input/atmos/3hr/{var_name_parts[0]}/gr/v20190429/{var_name_parts[0]}_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_{year}01010130-{year}12312230.nc"
                 else:
                     file_element.text = f"./input/atmos/3hr/{var_name_parts[0]}/gr/v20190429/{var_name_parts[0]}_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_{year}01010130-{year}01052230.nc"
