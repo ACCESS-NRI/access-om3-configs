@@ -2,7 +2,7 @@
 ! - but rather by driver config variables
 ! See w3nmlshelmd.F90 for the definition of the data types used below
 &domain_nml
- domain%start = '00010101 0'
+ domain%start = '19000101 0'
  domain%stop  = '99990101 0'
 /
 &input_nml
@@ -17,17 +17,17 @@
 /
 &output_date_nml
   date%field%outffile  = '1'
-  date%field%start     = '00010101 0'
+  date%field%start     = '19000101 0'
   date%field%stride    = '86400'
   date%field%stop      = '99990101 0'
   date%point%outffile  = '0'
-  date%point%start     = '00010101 0'
+  date%point%start     = '19000101 0'
   date%point%stride    = '0'
   date%point%stop      = '99990101 0'  
-  date%restart%start   = '00010101 0'
+  date%restart%start   = '19000101 0'
   date%restart%stride  = '3600'
   date%restart%stop    = '99990101 0'
-  date%restart2%start  = '99990101 0'
+  date%restart2%start  = '19000101 0'
   date%restart2%stride = '0'
   date%restart2%stop   = '99990101 0'
 /
