@@ -24,7 +24,7 @@
   restart_ext = .false.
   restart_file = ""
   restart_format = "default"
-  use_leap_years = .false.
+  use_leap_years = .true.
   version_name = "undefined_version_name"
   write_ic = .false.
   year_init = 1
@@ -46,7 +46,7 @@
   kmt_file = "./input/kmt.nc"
   nblyr = 3
   ncat = 5
-  nfsd = 1
+  nfsd = 12
   nilyr = 4
   nslyr = 1
   orca_halogrid = .false.
@@ -72,7 +72,7 @@
   restart_pond_topo = .false.
   restart_snow = .false.
   tr_aero = .false.
-  tr_fsd = .false.
+  tr_fsd = .true.
   tr_fy = .true.
   tr_iage = .true.
   tr_iso = .false.
@@ -188,7 +188,7 @@
   update_ocn_f = .true.
   ustar_min = 0.005
   wave_spec_file = "unknown_wave_spec_file"
-  wave_spec_type = "none"
+  wave_spec_type = "random"
 /
 &domain_nml
   add_mpi_barriers = .false.
@@ -264,12 +264,19 @@
   f_drag = "xxxxx"
 /
 &icefields_fsd_nml
-  f_afsd = "xxxxx"
-  f_dafsd_latg = "xxxxx"
-  f_dafsd_latm = "xxxxx"
-  f_dafsd_newi = "xxxxx"
-  f_dafsd_wave = "xxxxx"
-  f_dafsd_weld = "xxxxx"
+    f_fsdrad       = 'md'
+    f_fsdperim     = 'md'
+    f_afsd         = 'md'
+    f_afsdn        = 'md'
+    f_dafsd_newi   = 'md'
+    f_dafsd_latg   = 'md'
+    f_dafsd_latm   = 'md'
+    f_dafsd_wave   = 'md'
+    f_dafsd_weld   = 'md'
+    f_wave_sig_ht  = 'md'
+    f_aice_ww      = 'md'
+    f_diam_ww      = 'md'
+    f_hice_ww      = 'md'
 /
 &icefields_mechred_nml
   f_alvl = "xxxxx"
