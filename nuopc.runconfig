@@ -137,7 +137,7 @@ ALLCOMP_attributes::
      start_type = startup
      tfreeze_option = linear_salt
      username = ds0092
-     wav_coupling_to_cice = .false.
+     wav_coupling_to_cice = .true.
      write_restart_at_endofrun = .false.
 ::
 
@@ -289,13 +289,13 @@ CLOCK_attributes::
      lnd_cpl_dt = 3600
      ocn_cpl_dt = 3600
      restart_n = 1
-     restart_option = nyears
+     restart_option = ndays
      restart_ymd = -999
      rof_cpl_dt = 3600
      start_tod = 0
      start_ymd = 19990101
-     stop_n = 2
-     stop_option = nyears
+     stop_n = 1
+     stop_option = ndays
      stop_tod = 0
      stop_ymd = -999
      tprof_n = -999
@@ -432,7 +432,7 @@ WAV_modelio::
      pio_stride = 48
      pio_typename = netcdf
      history_n = 1
-     history_option = nmonths
+     history_option = ndays
 ::
 
 ESP_modelio::
