@@ -12,7 +12,7 @@
   input%forcing%ice_conc     = 'T'
 /
 &output_type_nml
-  type%field%list = 'WND ICE HS T02 T0M1 T01 FP DIR EF USS TOC'
+  type%field%list = 'WND ICE HS T02 T0M1 T01 FP DIR EF USS TOC IC1 IC5'
   type%point%file = 'ww3_points.list'
 /
 &output_date_nml
