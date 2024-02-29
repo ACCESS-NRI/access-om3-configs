@@ -1,9 +1,9 @@
 #!/bin/bash
 # clean up cice_restarts.sh
 
-if [ -f archive/output*/GMOM_JRA.cice.r.* ] 
+if [ -f archive/output*/access-om3.cice.r.* ]
 then
-rm archive/output*/GMOM_JRA.cice.r.*
+rm archive/output*/access-om3.cice.r.*
 fi
 
 if [ -f archive/output*/input/iced.1900-01-01-10800.nc ] 
