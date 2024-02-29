@@ -4,8 +4,8 @@ version: 1.0
 work/input/JRA55do-ESMFmesh.nc:
   fullpath: /g/data/ik11/inputs/access-om3/0.x.0/share/meshes/JRA55do-ESMFmesh.nc
   hashes:
-    binhash: 5195a7517bd0905add0f97ceecc0503f
-    md5: 154215afc3b742e3da9ac77e4eac6813
+    binhash: 1147443c3fe237a480af1b4700159e21
+    md5: 1c8481b8c85f59b6cbfc2ed5bc24c77d
 work/input/RYF.friver.1990_1991.nc:
   fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/RYF.friver.1990_1991.nc
   hashes:
@@ -69,13 +69,13 @@ work/input/RYF.vas.1990_1991.nc:
 work/input/access-om2-1deg-ESMFmesh.nc:
   fullpath: /g/data/ik11/inputs/access-om3/0.x.0/1deg/share/access-om2-1deg-ESMFmesh.nc
   hashes:
-    binhash: b76768044950ac2a165e3c2cd70e2f56
-    md5: 670568bbb1f7f14c534b37ec895af118
+    binhash: c741e080783ac65f2a2e67a9cfdb7645
+    md5: 44e508ac57b244fc357faf5b12933bed
 work/input/access-om2-1deg-nomask-ESMFmesh.nc:
   fullpath: /g/data/ik11/inputs/access-om3/0.x.0/1deg/share/access-om2-1deg-nomask-ESMFmesh.nc
   hashes:
-    binhash: 25269214daf2808dbf536f434b707b71
-    md5: d40d8512d683a089b6feb343d903ad71
+    binhash: 491167fde697289421ff25be582d001d
+    md5: 9b7120a42b5cb587492e7c31791eb549
 work/input/grid.nc:
   fullpath: /g/data/ik11/inputs/access-om3/0.x.0/1deg/cice/grid.nc
   hashes:
