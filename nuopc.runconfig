@@ -89,7 +89,7 @@ ALLCOMP_attributes::
      WAV_model = ww3dev
      brnch_retain_casename = .false.
      case_desc = UNSET
-     case_name = GMOM_JRA_WD
+     case_name = access-om3
      cism_evolve = .false.
      coldair_outbreak_mod = .false.
      data_assimilation_atm = .false.
