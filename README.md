@@ -1,4 +1,4 @@
-# MOM6-CICE6 1 deg JRA55-do RYF ACCESS-OM3 configuration
+# MOM6-CICE6 025 deg JRA55-do RYF ACCESS-OM3 configuration
 
 **WARNING: This configuration is still under development and should not be used for production.**
 

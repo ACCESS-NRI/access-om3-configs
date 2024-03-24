@@ -12,7 +12,7 @@ THICKNESSDIFFUSE = True         !   [Boolean] default = False
 THICKNESSDIFFUSE_FIRST = True   !   [Boolean] default = False
                                 ! If true, do thickness diffusion or interface height smoothing before dynamics.
                                 ! This is only used if THICKNESSDIFFUSE or APPLY_INTERFACE_FILTER is true.
-DT = 1800.0                     !   [s]
+DT = 1350.0                     !   [s]
                                 ! The (baroclinic) dynamics time step.  The time-step that is actually used will
                                 ! be an integer fraction of the forcing time-step (DT_FORCING in ocean-only mode
                                 ! or the coupling timestep in coupled mode.)
@@ -63,10 +63,10 @@ SAVE_INITIAL_CONDS = True       !   [Boolean] default = False
 TRIPOLAR_N = True               !   [Boolean] default = False
                                 ! Use tripolar connectivity at the northern edge of the domain.  With
                                 ! TRIPOLAR_N, NIGLOBAL must be even.
-NIGLOBAL = 360                  !
+NIGLOBAL = 1440                 !
                                 ! The total number of thickness grid points in the x-direction in the physical
                                 ! domain. With STATIC_MEMORY_ this is set in MOM_memory.h at compile time.
-NJGLOBAL = 300                  !
+NJGLOBAL = 1080                 !
                                 ! The total number of thickness grid points in the y-direction in the physical
                                 ! domain. With STATIC_MEMORY_ this is set in MOM_memory.h at compile time.
 
@@ -119,7 +119,7 @@ MINIMUM_DEPTH = 0.5             !   [m] default = 0.0
                                 ! MASKING_DEPTH are rounded to MINIMUM_DEPTH.
 MAXIMUM_DEPTH = 6000.0          !   [m]
                                 ! The maximum depth of the ocean.
-CHANNEL_CONFIG = "global_1deg"  ! default = "none"
+CHANNEL_CONFIG = none           ! default = "none"
                                 ! A parameter that determines which set of channels are
                                 ! restricted to specific  widths.  Options are:
                                 !     none - All channels have the grid width.
@@ -588,7 +588,7 @@ HBD_LINEAR_TRANSITION = True    !   [Boolean] default = False
 ! === module ocean_stochastics_init ===
 
 ! === module ocean_model_init ===
-RESTART_CONTROL = 3             ! default = 1
+RESTART_CONTROL = 1             ! default = 1
                                 ! An integer whose bits encode which restart files are written. Add 2 (bit 1)
                                 ! for a time-stamped file, and odd (bit 0) for a non-time-stamped file.  A
                                 ! restart file will be saved at the end of the run segment for any non-negative
