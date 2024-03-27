@@ -1,0 +1,115 @@
+# WOMBATlite field table
+# ===============================================
+"namelists","ocean_mod","generic_wombatlite/*global*"
+/
+"namelists","ocean_mod","generic_wombatlite"
+init = f
+#
+no3_src_file = INPUT/GLODAPv2.2016b.NO3_fillmiss.nc
+no3_src_var_name = NO3
+no3_src_var_unit = micromoles_per_kg
+no3_dest_var_name = no3
+no3_dest_var_unit = mol kg-1
+no3_src_var_record = 1
+no3_src_var_gridspec = NONE
+no3_valid_min = 0.0
+#
+phy_src_file = INPUT/init_ocean_wombatlite.res.nc
+phy_src_var_name = phy
+phy_src_var_unit = none
+phy_dest_var_name = phy
+phy_dest_var_unit = mol kg-1
+phy_src_var_record = 1
+phy_src_var_gridspec = NONE
+phy_valid_min = 0.0
+#
+o2_src_file = INPUT/GLODAPv2.2016b.oxygen_fillmiss.nc
+o2_src_var_name = oxygen
+o2_src_var_unit = micromoles_per_kg
+o2_dest_var_name = o2
+o2_dest_var_unit = mol kg-1
+o2_src_var_record = 1
+o2_src_var_gridspec = NONE
+o2_valid_min = 0.0
+#
+zoo_src_file = INPUT/init_ocean_wombatlite.res.nc
+zoo_src_var_name = zoo
+zoo_src_var_unit = none
+zoo_dest_var_name = zoo
+zoo_dest_var_unit = mol kg-1
+zoo_src_var_record = 1
+zoo_src_var_gridspec = NONE
+zoo_valid_min = 0.0
+#
+det_src_file = INPUT/init_ocean_wombatlite.res.nc
+det_src_var_name = det
+det_src_var_unit = none
+det_dest_var_name = det
+det_dest_var_unit = mol kg-1
+det_src_var_record = 1
+det_src_var_gridspec = NONE
+det_valid_min = 0.0
+#
+caco3_src_file = INPUT/init_ocean_wombatlite.res.nc
+caco3_src_var_name = caco3
+caco3_src_var_unit = none
+caco3_dest_var_name = caco3
+caco3_dest_var_unit = mol kg-1
+caco3_src_var_record = 1
+caco3_src_var_gridspec = NONE
+caco3_valid_min = 0.0
+#
+adic_src_file = INPUT/GLODAPv2.2016b.TCO2_fillmiss.nc
+adic_src_var_name = TCO2
+adic_src_var_unit = micromoles_per_kg
+adic_dest_var_name = adic
+adic_dest_var_unit = mol kg-1
+adic_src_var_record = 1
+adic_src_var_gridspec = NONE
+adic_valid_min = 0.0
+#
+dic_src_file = INPUT/GLODAPv2.2016b.PI_TCO2_fillmiss.nc
+dic_src_var_name = PI_TCO2
+dic_src_var_unit = micromoles_per_kg
+dic_dest_var_name = dic
+dic_dest_var_unit = mol kg-1
+dic_src_var_record = 1
+dic_src_var_gridspec = NONE
+dic_valid_min = 0.0
+#
+alk_src_file = INPUT/GLODAPv2.2016b.TAlk_fillmiss.nc
+alk_src_var_name = TAlk
+alk_src_var_unit = micromoles_per_kg
+alk_dest_var_name = alk
+alk_dest_var_unit = mol kg-1
+alk_src_var_record = 1
+alk_src_var_gridspec = NONE
+alk_valid_min = 0.0
+#
+fe_src_file = INPUT/FEMIP_model_median_iron_2016_fillmiss.nc
+fe_src_var_name = IRON
+fe_src_var_unit = moles_per_liter
+fe_dest_var_name = fe
+fe_dest_var_unit = mol kg-1
+fe_src_var_record = 1
+fe_src_var_gridspec = NONE
+fe_valid_min = 0.0
+#
+caco3_sediment_src_file = INPUT/init_ocean_wombatlite.res.nc
+caco3_sediment_src_var_name = caco3_sediment
+caco3_sediment_src_var_unit = none
+caco3_sediment_dest_var_name = caco3_sediment
+caco3_sediment_dest_var_unit = mol m-2
+caco3_sediment_src_var_record = 1
+caco3_sediment_src_var_gridspec = NONE
+caco3_sediment_valid_min = 0.0
+#
+det_sediment_src_file = INPUT/init_ocean_wombatlite.res.nc
+det_sediment_src_var_name = det_sediment
+det_sediment_src_var_unit = none
+det_sediment_dest_var_name = det_sediment
+det_sediment_dest_var_unit = mol m-2
+det_sediment_src_var_record = 1
+det_sediment_src_var_gridspec = NONE
+det_sediment_valid_min = 0.0
+/

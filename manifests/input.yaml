@@ -1,6 +1,36 @@
 format: yamanifest
 version: 1.0
 ---
+work/INPUT/FEMIP_model_median_iron_2016_fillmiss.nc:
+  fullpath: /g/data/vk83/experiments/inputs/access-om3/wombat/initial_conditions/global.1deg/2021.06.07/FEMIP_model_median_iron_2016_fillmiss.nc
+  hashes:
+    binhash: d59cb334842710e7f04068db990a18ba
+    md5: b81d7ee79a6ca30bfd2e6ccc49874267
+work/INPUT/GLODAPv2.2016b.NO3_fillmiss.nc:
+  fullpath: /g/data/vk83/experiments/inputs/access-om3/wombat/initial_conditions/global.1deg/2024.04.02/GLODAPv2.2016b.NO3_fillmiss.nc
+  hashes:
+    binhash: 10c747ff00ecce9227a49e61cc5cf6af
+    md5: c5afb27948688743858ef966be81ec2e
+work/INPUT/GLODAPv2.2016b.PI_TCO2_fillmiss.nc:
+  fullpath: /g/data/vk83/experiments/inputs/access-om3/wombat/initial_conditions/global.1deg/2024.04.02/GLODAPv2.2016b.PI_TCO2_fillmiss.nc
+  hashes:
+    binhash: 890669fa1729c7e372591b4fd130bdfa
+    md5: 0aa9f4a37ff5f01cc180d85305815829
+work/INPUT/GLODAPv2.2016b.TAlk_fillmiss.nc:
+  fullpath: /g/data/vk83/experiments/inputs/access-om3/wombat/initial_conditions/global.1deg/2024.04.02/GLODAPv2.2016b.TAlk_fillmiss.nc
+  hashes:
+    binhash: 5fe4ccda4eb7db55df0d13d7a569eec9
+    md5: b84783902f2bc82711496cca49e78a16
+work/INPUT/GLODAPv2.2016b.TCO2_fillmiss.nc:
+  fullpath: /g/data/vk83/experiments/inputs/access-om3/wombat/initial_conditions/global.1deg/2024.04.02/GLODAPv2.2016b.TCO2_fillmiss.nc
+  hashes:
+    binhash: 2cc9f311509c39e42820d2f33a73d652
+    md5: 9f8ba1f96551df518e86e510a765311e
+work/INPUT/GLODAPv2.2016b.oxygen_fillmiss.nc:
+  fullpath: /g/data/vk83/experiments/inputs/access-om3/wombat/initial_conditions/global.1deg/2024.04.02/GLODAPv2.2016b.oxygen_fillmiss.nc
+  hashes:
+    binhash: 5f295cec9429b8ce7b77d8f253fc6d8d
+    md5: 1abf34fa578d0a589615d5e9a0e465ac
 work/INPUT/JRA55do-ESMFmesh.nc:
   fullpath: /g/data/vk83/experiments/inputs/access-om3/share/meshes/share/2024.01.25/JRA55do-ESMFmesh.nc
   hashes:
@@ -76,16 +106,31 @@ work/INPUT/access-om2-1deg-nomask-ESMFmesh.nc:
   hashes:
     binhash: 07cb65372f403b87b3002134ea2c31eb
     md5: 9b7120a42b5cb587492e7c31791eb549
+work/INPUT/dust.nc:
+  fullpath: /g/data/vk83/experiments/inputs/access-om3/wombat/forcing/global.1deg/2022.02.24/dust.nc
+  hashes:
+    binhash: 4bcaabf23dd4143dfb91628e800f5f3f
+    md5: b66d8d72cd49801a74da90b211e8dd21
 work/INPUT/grid.nc:
   fullpath: /g/data/vk83/experiments/inputs/access-om3/cice/grids/global.1deg/2024.05.14/grid.nc
   hashes:
     binhash: 60ac2869d4521fd6441a90b519d9bce0
     md5: 544a40b634c182f3e182da6bcbe8be7b
+work/INPUT/grid_spec.nc:
+  fullpath: /g/data/vk83/experiments/inputs/access-om3/mom/grids/mosaic/global.1deg/2024.05.08/grid_spec.nc
+  hashes:
+    binhash: 750b8808e39f28ea7c191eb448872f44
+    md5: 709268cd891e6f0e827f6de0249f1a3d
 work/INPUT/iced.1900-01-01-10800.nc:
   fullpath: /g/data/vk83/experiments/inputs/access-om3/cice/initial_conditions/global.1deg/2023.07.28/iced.1900-01-01-10800.nc
   hashes:
     binhash: a88d7f33c7eef8f6870773f7cc47fc28
     md5: 87c012d60c58c65bb56caa98779e5e51
+work/INPUT/init_ocean_wombatlite.res.nc:
+  fullpath: /g/data/vk83/experiments/inputs/access-om3/wombat/initial_conditions/global.1deg/2024.04.02/init_ocean_wombatlite.res.nc
+  hashes:
+    binhash: 89f0a0e9e6a3bfb383eb03a5784470da
+    md5: 1648193a63179513a705541d5f5f508f
 work/INPUT/kmt.nc:
   fullpath: /g/data/vk83/experiments/inputs/access-om3/cice/grids/global.1deg/2024.05.14/kmt.nc
   hashes:
@@ -96,6 +141,11 @@ work/INPUT/ocean_hgrid.nc:
   hashes:
     binhash: 81c5dd8f8e3c930827a9b4aeef23d06b
     md5: 51f58be0f4ea6da2cb438a893f95c689
+work/INPUT/ocean_mosaic.nc:
+  fullpath: /g/data/vk83/experiments/inputs/access-om3/mom/grids/mosaic/global.1deg/2020.05.30/ocean_mosaic.nc
+  hashes:
+    binhash: a471a6774df6f44947537f135d2daa64
+    md5: cb42e630ee31d3686156fcbdc2f9d07c
 work/INPUT/ocean_temp_salt.res.nc:
   fullpath: /g/data/vk83/experiments/inputs/access-om3/mom/initial_conditions/global.1deg/2020.10.22/ocean_temp_salt.res.nc
   hashes:
