@@ -5,7 +5,7 @@
 set -e
 
 branch=1deg_jra55do_ryf
-files=(config.yaml nuopc.runconfig nuopc.runseq MOM_input)
+files=(config.yaml nuopc.runconfig nuopc.runseq MOM_input ice_in)
 
 cd "`git rev-parse --show-toplevel`"  # cd to git root
 git checkout ${branch}
