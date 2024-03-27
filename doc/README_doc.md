@@ -6,3 +6,4 @@ The files in here should be the minimum required to support code search from lin
 
 ## Update history
 1. Updated Mon 12 Feb 2024 14:22:51 AEDT from branch [1deg_jra55do_ryf](https://github.com/COSIMA/MOM6-CICE6/tree/1deg_jra55do_ryf) commit [a6829f9](https://github.com/COSIMA/MOM6-CICE6/tree/a6829f9)
+1. Updated Wed 27 Mar 2024 12:59:33 AEDT from branch [1deg_jra55do_ryf](https://github.com/COSIMA/MOM6-CICE6/tree/1deg_jra55do_ryf) commit [c2585c7](https://github.com/COSIMA/MOM6-CICE6/tree/c2585c7)
