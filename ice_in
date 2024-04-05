@@ -144,6 +144,21 @@
   f_ulon         = .false. ,  f_ulat         = .false.
   f_nlon         = .false. ,  f_nlat         = .false.
   f_elon         = .false. ,  f_elat         = .false.
+  f_umask        = .false.
+  f_nmask        = .false.
+  f_emask        = .false.
+  f_narea        = .false.
+  f_earea        = .false.
+  f_dxt          = .false.
+  f_dyt          = .false.
+  f_dxu          = .false.
+  f_dyu          = .false.
+  f_dxe          = .false.
+  f_dye          = .false.
+  f_dxn          = .false.
+  f_dyn          = .false.
+  f_HTN          = .false.
+  f_HTE          = .false.
   f_albpnd = 'x'
   f_atmdir = 'x' , f_atmspd = 'x'
   f_coszen = 'x'
