@@ -10,7 +10,7 @@
   history_precision = 8
   ice_ic = 'default' 
   lcdf64 = .false.
-  npt               = 35040
+  npt = 35040
   pointer_file      = './rpointer.ice'
   print_global      = .false.
 /
