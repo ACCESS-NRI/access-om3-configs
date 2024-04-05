@@ -9,6 +9,7 @@
   histfreq = "d", "m", "x", "x", "x"
   hist_time_axis = "middle"
   history_deflate = 1
+  history_chunksize = 180, 150
   history_precision = 8
   restart_deflate = 1
   ice_ic = "./input/iced.1900-01-01-10800.nc"
