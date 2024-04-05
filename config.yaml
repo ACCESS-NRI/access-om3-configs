@@ -37,11 +37,3 @@ input:
  
 collate: false
 runlog: false
-
-modules:
-  use:
-      - /g/data/ik11/spack/0.20.1/modules/access-om3/0.x.0/linux-rocky8-cascadelake
-  load:
-      - intel-compiler/2021.6.0
-      - openmpi/4.1.4
-      - parallelio/2.5.10
