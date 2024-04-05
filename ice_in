@@ -1,8 +1,6 @@
 &setup_nml
   bfbflag = "off" 
   conserv_check = .false.
-  debug_forcing = .true.
-  debug_model = .true.
   diagfreq = 960
   dumpfreq = "y"
   dump_last = .true.
