@@ -13,7 +13,6 @@
   npt = 35040
   pointer_file = './rpointer.ice'
   print_global = .false.
-  use_leap_years = .true.
 /
 &grid_nml
   bathymetry_file = "./input/topog.nc"
