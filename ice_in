@@ -6,7 +6,9 @@
   dump_last = .true.
   histfreq = "d", "m", "x", "x", "x"
   hist_time_axis = "middle"
+  history_deflate = 1
   history_precision = 8
+  restart_deflate = 1
   ice_ic = 'default' 
   lcdf64 = .false.
   npt = 35040
