@@ -140,6 +140,10 @@
   !-----------------------------------
   ! These fields are on by default (in ice_history_shared.F90) but lets turn them off
   !-----------------------------------
+  f_tlon         = .false. , f_tlat         = .false.
+  f_ulon         = .false. ,  f_ulat         = .false.
+  f_nlon         = .false. ,  f_nlat         = .false.
+  f_elon         = .false. ,  f_elat         = .false.
   f_albpnd = 'x'
   f_atmdir = 'x' , f_atmspd = 'x'
   f_coszen = 'x'
