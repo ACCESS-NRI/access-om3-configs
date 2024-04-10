@@ -284,9 +284,9 @@ CLOCK_attributes::
      glc_avg_period = yearly
      glc_cpl_dt = 86400
      history_ymd = -999
-     ice_cpl_dt = 1350
+     ice_cpl_dt = 3600
      lnd_cpl_dt = 3600
-     ocn_cpl_dt = 1350
+     ocn_cpl_dt = 3600
      restart_n = 1
      restart_option = nyears
      restart_ymd = -999
