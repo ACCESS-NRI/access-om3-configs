@@ -278,7 +278,7 @@ MED_attributes::
 ::
 
 CLOCK_attributes::
-     atm_cpl_dt = 99999
+     atm_cpl_dt = 99999     #{model}_cpl_dt is not used as it is overridden by the overall time step in nuopc.runseq
      calendar = GREGORIAN
      end_restart = .false.
      glc_avg_period = yearly
