@@ -5,3 +5,35 @@
   dtmin = 50.
   initfile = "./input/restart.ww3"
 /
+&domain_nml
+ domain%start = '19990101 0'
+ domain%stop  = '99990101 0'
+/
+&input_nml
+  input%forcing%water_levels = 'T'
+  input%forcing%currents     = 'C'
+  input%forcing%winds        = 'C'
+  input%forcing%ice_conc     = 'C'
+  input%forcing%ice_param1   = 'C'
+  input%forcing%ice_param5   = 'C'
+/
+&output_type_nml
+  type%field%list = 'WND ICE HS T02 T0M1 T01 FP DIR EF USS TOC IC1 IC5'
+  type%point%file = 'ww3_points.list'
+/
+&output_date_nml
+  date%field%outffile  = '1'
+  date%field%start     = '19990101 0'
+  date%field%stride    = '86400'
+  date%field%stop      = '99990101 0'
+  date%point%outffile  = '0'
+  date%point%start     = '19990101 0'
+  date%point%stride    = '86400'
+  date%point%stop      = '99990101 0'
+  date%restart%start   = '19990101 0'
+  date%restart%stride  = '86400'
+  date%restart%stop    = '99990101 0'
+  date%restart2%start  = '99990101 0'
+  date%restart2%stride = '0'
+  date%restart2%stop   = '99990101 0'
+/
