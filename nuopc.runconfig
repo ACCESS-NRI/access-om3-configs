@@ -27,11 +27,11 @@ DRIVER_attributes::
 ::
 
 PELAYOUT_attributes::
-     atm_ntasks = 48
+     atm_ntasks = 240
      atm_nthreads = 1
      atm_pestride = 1
      atm_rootpe = 0
-     cpl_ntasks = 48
+     cpl_ntasks = 240
      cpl_nthreads = 1
      cpl_pestride = 1
      cpl_rootpe = 0
@@ -40,31 +40,31 @@ PELAYOUT_attributes::
      esp_nthreads = 1
      esp_pestride = 1
      esp_rootpe = 0
-     glc_ntasks = 48
+     glc_ntasks = 240
      glc_nthreads = 1
      glc_pestride = 1
      glc_rootpe = 0
-     ice_ntasks = 48
+     ice_ntasks = 240
      ice_nthreads = 1
      ice_pestride = 1
      ice_rootpe = 0
-     lnd_ntasks = 48
+     lnd_ntasks = 240
      lnd_nthreads = 1
      lnd_pestride = 1
      lnd_rootpe = 0
      ninst = 1
-     ocn_ntasks = 48
+     ocn_ntasks = 240
      ocn_nthreads = 1
      ocn_pestride = 1
      ocn_rootpe = 0
      pio_asyncio_ntasks = 0
      pio_asyncio_rootpe = 1
      pio_asyncio_stride = 0
-     rof_ntasks = 48
+     rof_ntasks = 240
      rof_nthreads = 1
      rof_pestride = 1
      rof_rootpe = 0
-     wav_ntasks = 48
+     wav_ntasks = 240
      wav_nthreads = 1
      wav_pestride = 1
      wav_rootpe = 0
@@ -116,12 +116,12 @@ ALLCOMP_attributes::
      hostname = gadi
      ice_ncat = 5
      mediator_present = true
-     mesh_atm = ./input/access-om2-1deg-nomask-ESMFmesh.nc
+     mesh_atm = ./input/access-om2-025deg-nomask-ESMFmesh.nc
      mesh_glc = UNSET
-     mesh_ice = ./input/access-om2-1deg-ESMFmesh.nc
+     mesh_ice = ./input/access-om2-025deg-ESMFmesh.nc
      mesh_lnd = UNSET
-     mesh_mask = ./input/access-om2-1deg-ESMFmesh.nc
-     mesh_ocn = ./input/access-om2-1deg-ESMFmesh.nc
+     mesh_mask = ./input/access-om2-025deg-ESMFmesh.nc
+     mesh_ocn = ./input/access-om2-025deg-ESMFmesh.nc
      model_version = unknown
      ocn2glc_coupling = .false.
      ocn2glc_levels = 1:10:19:26:30:33:35
@@ -147,8 +147,8 @@ MED_attributes::
      atm2lnd_map = unset
      atm2ocn_map = unset
      atm2wav_map = unset
-     atm_nx = 360
-     atm_ny = 300
+     atm_nx = 1440
+     atm_ny = 1080
      budget_ann = 1
      budget_daily = 0
      budget_inst = 0
@@ -253,8 +253,8 @@ MED_attributes::
      history_option_wav_inst = never
      ice2atm_map = unset
      ice2wav_smapname = unset
-     ice_nx = 360
-     ice_ny = 300
+     ice_nx = 1440
+     ice_ny = 1080
      info_debug = 1
      lnd2atm_map = unset
      lnd2rof_map = unset
@@ -263,15 +263,15 @@ MED_attributes::
      mapuv_with_cart3d = .true.
      ocn2atm_map = unset
      ocn2wav_smapname = unset
-     ocn_nx = 360
-     ocn_ny = 300
+     ocn_nx = 1440
+     ocn_ny = 1080
      ocn_surface_flux_scheme = 0
      rof2lnd_map = unset
      rof2ocn_fmapname = unset
      rof2ocn_ice_rmapname = unset
      rof2ocn_liq_rmapname = unset
-     rof_nx = 360
-     rof_ny = 300
+     rof_nx = 1440
+     rof_ny = 1080
      wav2ocn_smapname = unset
      wav_nx = 0
      wav_ny = 0
@@ -288,13 +288,13 @@ CLOCK_attributes::
      lnd_cpl_dt = 3600
      ocn_cpl_dt = 3600
      restart_n = 1
-     restart_option = nmonths
+     restart_option = nyears
      restart_ymd = -999
      rof_cpl_dt = 3600
      start_tod = 0
      start_ymd = 19000101
      stop_n = 1
-     stop_option = nmonths
+     stop_option = nyears
      stop_tod = 0
      stop_ymd = -999
      tprof_n = -999
@@ -328,7 +328,7 @@ OCN_attributes::
 
 ROF_attributes::
      Verbosity = off
-     mesh_rof = ./input/access-om2-1deg-nomask-ESMFmesh.nc
+     mesh_rof = ./input/access-om2-025deg-nomask-ESMFmesh.nc
 ::
 
 WAV_attributes::
@@ -377,9 +377,9 @@ ICE_modelio::
      logfile = ice.log
      pio_async_interface = .false.
      pio_netcdf_format = nothing
-     pio_numiotasks = 1
+     pio_numiotasks = 5
      pio_rearranger = 1
-     pio_root = 0
+     pio_root = 1
      pio_stride = 48
      pio_typename = netcdf4p
 ::
