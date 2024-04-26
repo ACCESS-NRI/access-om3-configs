@@ -34,6 +34,8 @@ input:
  
 collate: false
 runlog: false
+metadata: 
+    enable: false
 
 userscripts:
     setup: ./setup_cice_restarts.sh
