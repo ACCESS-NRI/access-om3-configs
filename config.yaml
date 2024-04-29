@@ -9,11 +9,11 @@
 # shortpath: /scratch/v45
 
 queue: normal
-ncpus: 240
+ncpus: 1296
 jobfs: 10GB
-mem: 960GB
+mem: 5184GB
 
-walltime: 48:00:00
+walltime: 24:00:00
 jobname: 025deg_jra55do_ryf
 
 model: access-om3
