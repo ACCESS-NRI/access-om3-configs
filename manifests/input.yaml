@@ -2,672 +2,112 @@ format: yamanifest
 version: 1.0
 ---
 work/input/JRA55do-ESMFmesh.nc:
-  fullpath: /g/data/ik11/inputs/access-om3/0.x.0/share/meshes/JRA55do-ESMFmesh.nc
+  fullpath: /g/data/vk83/experiments/inputs/access-om3/share/meshes/share/2024.01.25/JRA55do-ESMFmesh.nc
   hashes:
-    binhash: 1147443c3fe237a480af1b4700159e21
+    binhash: 100055c7cbb1d91ae5036ce7ba102fe0
     md5: 1c8481b8c85f59b6cbfc2ed5bc24c77d
 work/input/RYF.friver.1990_1991.nc:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/RYF.friver.1990_1991.nc
+  fullpath: /g/data/vk83/experiments/inputs/JRA-55/RYF/v1-4/data/RYF.friver.1990_1991.nc
   hashes:
     binhash: df5b6715e020f563acb65673571a565f
     md5: fa3a55aeb6706a1b422d096f61a772c1
 work/input/RYF.huss.1990_1991.nc:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/RYF.huss.1990_1991.nc
+  fullpath: /g/data/vk83/experiments/inputs/JRA-55/RYF/v1-4/data/RYF.huss.1990_1991.nc
   hashes:
     binhash: 71d6099511ebc8b43f9b86b325ecf3af
     md5: 6032d514fdfdd2b6a84bdef0a4ac3afe
 work/input/RYF.licalvf.1990_1991.nc:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/RYF.licalvf.1990_1991.nc
+  fullpath: /g/data/vk83/experiments/inputs/JRA-55/RYF/v1-4/data/RYF.licalvf.1990_1991.nc
   hashes:
     binhash: f219ce98f3fcbe6f8ec517740f01aee1
     md5: 6f927702cbc023cc20d3ddd69695f0a0
 work/input/RYF.prra.1990_1991.nc:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/RYF.prra.1990_1991.nc
+  fullpath: /g/data/vk83/experiments/inputs/JRA-55/RYF/v1-4/data/RYF.prra.1990_1991.nc
   hashes:
     binhash: 2754bd49fff02bf5330a086310f1c296
     md5: ac199086106ec4e41506e6082bccb109
 work/input/RYF.prsn.1990_1991.nc:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/RYF.prsn.1990_1991.nc
+  fullpath: /g/data/vk83/experiments/inputs/JRA-55/RYF/v1-4/data/RYF.prsn.1990_1991.nc
   hashes:
     binhash: 154a15cde4940309ac5e6fef0d7faba4
     md5: cd076c877c2c5df61615e04d71ed00e0
 work/input/RYF.psl.1990_1991.nc:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/RYF.psl.1990_1991.nc
+  fullpath: /g/data/vk83/experiments/inputs/JRA-55/RYF/v1-4/data/RYF.psl.1990_1991.nc
   hashes:
     binhash: 559b1e3183475cfb94a7f013f4acf8ea
     md5: 0dfd94a5c3234fd2016dfdd01e84a170
 work/input/RYF.rhuss.1990_1991.nc:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/RYF.rhuss.1990_1991.nc
+  fullpath: /g/data/vk83/experiments/inputs/JRA-55/RYF/v1-4/data/RYF.rhuss.1990_1991.nc
   hashes:
     binhash: 1f70c237032f7368e6f2478d2a678c99
     md5: 632519955305cb5c19e286b151439fb5
 work/input/RYF.rlds.1990_1991.nc:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/RYF.rlds.1990_1991.nc
+  fullpath: /g/data/vk83/experiments/inputs/JRA-55/RYF/v1-4/data/RYF.rlds.1990_1991.nc
   hashes:
     binhash: 9512836673a68507bed403ecd859ba38
     md5: 0ea83e107ec883c3f39a12b60ff50d8e
 work/input/RYF.rsds.1990_1991.nc:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/RYF.rsds.1990_1991.nc
+  fullpath: /g/data/vk83/experiments/inputs/JRA-55/RYF/v1-4/data/RYF.rsds.1990_1991.nc
   hashes:
     binhash: 7ff7cd79ace33fefe2b9a91ea018ea14
     md5: b74bf123f1e4557368a61732cf24f1c2
 work/input/RYF.tas.1990_1991.nc:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/RYF.tas.1990_1991.nc
+  fullpath: /g/data/vk83/experiments/inputs/JRA-55/RYF/v1-4/data/RYF.tas.1990_1991.nc
   hashes:
     binhash: 8f3c6798cc92a1d0b6573eb44b2a4dd2
     md5: 06689885f4f2f726b95a2818ab78a20d
 work/input/RYF.uas.1990_1991.nc:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/RYF.uas.1990_1991.nc
+  fullpath: /g/data/vk83/experiments/inputs/JRA-55/RYF/v1-4/data/RYF.uas.1990_1991.nc
   hashes:
     binhash: 54ede2172bf85bc861bc64c296a03f8c
     md5: 107bf9480f55597655d2d283b6f6b4ff
 work/input/RYF.vas.1990_1991.nc:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/RYF.vas.1990_1991.nc
+  fullpath: /g/data/vk83/experiments/inputs/JRA-55/RYF/v1-4/data/RYF.vas.1990_1991.nc
   hashes:
     binhash: 17224eecb745b6ce72604b41201c1fe7
     md5: 88dc8c70338bbc8f5efc48ed0009a99f
 work/input/access-om2-025deg-ESMFmesh.nc:
-  fullpath: /g/data/ik11/inputs/access-om3/0.x.0/025deg/share/access-om2-025deg-ESMFmesh.nc
+  fullpath: /g/data/vk83/experiments/inputs/access-om3/share/meshes/global.025deg/2024.03.26/access-om2-025deg-ESMFmesh.nc
   hashes:
-    binhash: 5f29f55788f9fc9732c3bd713847d27e
+    binhash: a0f24b799b0ed45ca52b673551e359e7
     md5: c006851eea2a64e881c41f3e9426e4ac
 work/input/access-om2-025deg-nomask-ESMFmesh.nc:
-  fullpath: /g/data/ik11/inputs/access-om3/0.x.0/025deg/share/access-om2-025deg-nomask-ESMFmesh.nc
+  fullpath: /g/data/vk83/experiments/inputs/access-om3/share/meshes/global.025deg/2024.03.26/access-om2-025deg-nomask-ESMFmesh.nc
   hashes:
-    binhash: 7ae247d56106c51c1f7a58deda307210
+    binhash: 29f147c299de419f5a32d129491a8ea2
     md5: db5407804d759435c6846d2d2c661a6e
 work/input/grid.nc:
-  fullpath: /g/data/ik11/inputs/access-om3/0.x.0/025deg/cice/grid.nc
+  fullpath: /g/data/vk83/experiments/inputs/access-om3/cice/grids/global.025deg/2024.03.28/grid.nc
   hashes:
-    binhash: f1239d0326cebb637d0eabc6834e00c9
+    binhash: 7cace0a81c147d2a5d64efd879ff8b43
     md5: 6946bd45cb5cbf932f869b39eb68bee2
 work/input/kmt.nc:
-  fullpath: /g/data/ik11/inputs/access-om3/0.x.0/025deg/cice/kmt.nc
+  fullpath: /g/data/vk83/experiments/inputs/access-om3/cice/grids/global.025deg/2024.03.28/kmt.nc
   hashes:
-    binhash: 52a74c8ec631ee045cf308a16af0d46c
+    binhash: 42459f59c39836197df11a44ce49c8db
     md5: d87ca7229f1a579af6f3b308af16e3d1
-work/input/make_rhuss/.git/FETCH_HEAD:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_rhuss/.git/FETCH_HEAD
-  hashes:
-    binhash: 1998779dd60450dd2566c99ef26bc8cf
-    md5: 08308ca18d82c27b2c88ae21b91135d8
-work/input/make_rhuss/.git/HEAD:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_rhuss/.git/HEAD
-  hashes:
-    binhash: 5492b62deb76530b4bd9e9356a05b769
-    md5: cf7dd3ce51958c5f13fece957cc417fb
-work/input/make_rhuss/.git/ORIG_HEAD:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_rhuss/.git/ORIG_HEAD
-  hashes:
-    binhash: 0b4bc800f3d876214560dc999b9a4261
-    md5: 2fe061bc4ba1aaf5cae494272d043ae9
-work/input/make_rhuss/.git/config:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_rhuss/.git/config
-  hashes:
-    binhash: b2dd75e6977e385ebd26c01a24b39175
-    md5: 1420414dbebe26c091dcbff2cf6c892b
-work/input/make_rhuss/.git/description:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_rhuss/.git/description
-  hashes:
-    binhash: 58200037251ec45351532e5a9da88478
-    md5: a0a7c3fff21f2aea3cfa1d0316dd816c
-work/input/make_rhuss/.git/gitk.cache:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_rhuss/.git/gitk.cache
-  hashes:
-    binhash: e28e407f2249c21702a26e475dc7255d
-    md5: fd01bb2a4941c58bf26e017b164cfcea
-work/input/make_rhuss/.git/hooks/applypatch-msg.sample:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_rhuss/.git/hooks/applypatch-msg.sample
-  hashes:
-    binhash: 04d4cc2d8d4028615e8eecca6bb73cb0
-    md5: ce562e08d8098926a3862fc6e7905199
-work/input/make_rhuss/.git/hooks/commit-msg.sample:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_rhuss/.git/hooks/commit-msg.sample
-  hashes:
-    binhash: e063133bd925e94151ba671954c746b9
-    md5: 579a3c1e12a1e74a98169175fb913012
-work/input/make_rhuss/.git/hooks/fsmonitor-watchman.sample:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_rhuss/.git/hooks/fsmonitor-watchman.sample
-  hashes:
-    binhash: af586216249ae9fc366138cf3afa0897
-    md5: ea587b0fae70333bce92257152996e70
-work/input/make_rhuss/.git/hooks/post-update.sample:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_rhuss/.git/hooks/post-update.sample
-  hashes:
-    binhash: 3e40c70b03df5ac5c6c1c0dfe8be32ac
-    md5: 2b7ea5cee3c49ff53d41e00785eb974c
-work/input/make_rhuss/.git/hooks/pre-applypatch.sample:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_rhuss/.git/hooks/pre-applypatch.sample
-  hashes:
-    binhash: 62f53793d62fb037217569477e633d2b
-    md5: 054f9ffb8bfe04a599751cc757226dda
-work/input/make_rhuss/.git/hooks/pre-commit.sample:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_rhuss/.git/hooks/pre-commit.sample
-  hashes:
-    binhash: 0714525219caaad18be0853a8708311d
-    md5: 305eadbbcd6f6d2567e033ad12aabbc4
-work/input/make_rhuss/.git/hooks/pre-merge-commit.sample:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_rhuss/.git/hooks/pre-merge-commit.sample
-  hashes:
-    binhash: dcbdcfa4b8809abd6aefc290a1725ab4
-    md5: 39cb268e2a85d436b9eb6f47614c3cbc
-work/input/make_rhuss/.git/hooks/pre-push.sample:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_rhuss/.git/hooks/pre-push.sample
-  hashes:
-    binhash: 157d0ed15dd0766504007c073158ab4c
-    md5: 2c642152299a94e05ea26eae11993b13
-work/input/make_rhuss/.git/hooks/pre-rebase.sample:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_rhuss/.git/hooks/pre-rebase.sample
-  hashes:
-    binhash: 89671879991c0e097f228e231a5c40e6
-    md5: 4e8301b0e1f0fa38d39f4b67d3dc0e3c
-work/input/make_rhuss/.git/hooks/pre-receive.sample:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_rhuss/.git/hooks/pre-receive.sample
-  hashes:
-    binhash: 9b3a5fdc7e058fb4a9c904b563199231
-    md5: 2ad18ec82c20af7b5926ed9cea6aeedd
-work/input/make_rhuss/.git/hooks/prepare-commit-msg.sample:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_rhuss/.git/hooks/prepare-commit-msg.sample
-  hashes:
-    binhash: f6f29f6c1d8dcd4eee3d9773992b8e3b
-    md5: b08d7ea56a1844e39de452bd8fb90d31
-work/input/make_rhuss/.git/hooks/push-to-checkout.sample:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_rhuss/.git/hooks/push-to-checkout.sample
-  hashes:
-    binhash: 0daa61e3c423aa977793b20e69862908
-    md5: c7ab00c7784efeadad3ae9b228d4b4db
-work/input/make_rhuss/.git/hooks/update.sample:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_rhuss/.git/hooks/update.sample
-  hashes:
-    binhash: 662b4cb7220622762af51135268c9270
-    md5: 647ae13c682f7827c22f5fc08a03674e
-work/input/make_rhuss/.git/index:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_rhuss/.git/index
-  hashes:
-    binhash: 004c905159f9bcf3527572994de01cf5
-    md5: 14529792e37002dc9b15fd192f9725a8
-work/input/make_rhuss/.git/info/exclude:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_rhuss/.git/info/exclude
-  hashes:
-    binhash: e1362057623287b0d3c47a1f70e84ca9
-    md5: 036208b4a1ab4a235d75c181e685e5a3
-work/input/make_rhuss/.git/logs/HEAD:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_rhuss/.git/logs/HEAD
-  hashes:
-    binhash: 97eb84a4748a29b8563086a954b58802
-    md5: cb8a68b8fdeb4e5e8fcebdd951d8b36e
-work/input/make_rhuss/.git/logs/refs/heads/main:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_rhuss/.git/logs/refs/heads/main
-  hashes:
-    binhash: f887d65b54c9bee47cc44ed317d02e54
-    md5: cb8a68b8fdeb4e5e8fcebdd951d8b36e
-work/input/make_rhuss/.git/logs/refs/remotes/origin/jra55_v1-3:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_rhuss/.git/logs/refs/remotes/origin/jra55_v1-3
-  hashes:
-    binhash: cd2d37ab1b4248f2c6dd5d13b8a4c8bd
-    md5: a1f5bd11f03d0e088506c248a9e85d1c
-work/input/make_rhuss/.git/logs/refs/remotes/origin/main:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_rhuss/.git/logs/refs/remotes/origin/main
-  hashes:
-    binhash: 77719c6fb984a9b7dc829faafc80e1d0
-    md5: 22073a8721cedd56de4a7f82f5e75556
-work/input/make_rhuss/.git/objects/06/a57d6ead40723e49a64a862bcdd7fb9c231e88:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_rhuss/.git/objects/06/a57d6ead40723e49a64a862bcdd7fb9c231e88
-  hashes:
-    binhash: a65187140b4bb2cad38466e6645d471c
-    md5: 404615ef656ae3230f429bb5ccb8387f
-work/input/make_rhuss/.git/objects/06/a6082634560a6a8065a8708fc1887626f7b9b3:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_rhuss/.git/objects/06/a6082634560a6a8065a8708fc1887626f7b9b3
-  hashes:
-    binhash: 87d4ec1c1bc758d2a6c7b2cc91b39069
-    md5: db14b91b932e430ed0a8d17b1ed0b4cc
-work/input/make_rhuss/.git/objects/07/1257d8985fa66adda87d5087ec50de9c66e69f:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_rhuss/.git/objects/07/1257d8985fa66adda87d5087ec50de9c66e69f
-  hashes:
-    binhash: c7e028f4e66df784ba78fe81efd079ae
-    md5: f97d94e54154b08cc55c0c5e6ead39ec
-work/input/make_rhuss/.git/objects/10/5227f58ee382b72cb487d39f4d7176d5b913b8:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_rhuss/.git/objects/10/5227f58ee382b72cb487d39f4d7176d5b913b8
-  hashes:
-    binhash: 0a213f077a6a5c9a8b3f8c6d355b0eb1
-    md5: c032cc78fafb7dab3c9dad6f9a21abe9
-work/input/make_rhuss/.git/objects/15/18e070a4fecc1a7eadd05dbef62e0182c50950:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_rhuss/.git/objects/15/18e070a4fecc1a7eadd05dbef62e0182c50950
-  hashes:
-    binhash: 33ca1a7b572293381e2fca9c6b7922fe
-    md5: 376d72e429f0476b67389632849317c0
-work/input/make_rhuss/.git/objects/1c/016ec6461230646ee3662b1689a947ab16c24e:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_rhuss/.git/objects/1c/016ec6461230646ee3662b1689a947ab16c24e
-  hashes:
-    binhash: 418ec72372429cb2e7090774c3480c36
-    md5: cc3a59f067aa88f132e19aeb95e87221
-work/input/make_rhuss/.git/objects/22/84d5265f05f38282f292e053ff226d008f8ca8:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_rhuss/.git/objects/22/84d5265f05f38282f292e053ff226d008f8ca8
-  hashes:
-    binhash: af422efb19a9827db448ad1be8158531
-    md5: d2f1daa1df7f6ddffa2915a8f8e1e216
-work/input/make_rhuss/.git/objects/52/8932729d5a366836905661940ff43369851586:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_rhuss/.git/objects/52/8932729d5a366836905661940ff43369851586
-  hashes:
-    binhash: 6f7c592c1f0dbafef3d2a9d2fa9798df
-    md5: 8d8ab494c81a1cfd58350f59489e3481
-work/input/make_rhuss/.git/objects/65/b3cf7611df8944ca33137a605814bccada90e9:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_rhuss/.git/objects/65/b3cf7611df8944ca33137a605814bccada90e9
-  hashes:
-    binhash: 2b457698d8b585c5c43792cb160cbefa
-    md5: 5aa11b04b448eb7653a655b6e6fe57bd
-work/input/make_rhuss/.git/objects/68/ce87e23ef7ac8301301f7dfa200426a4b18e56:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_rhuss/.git/objects/68/ce87e23ef7ac8301301f7dfa200426a4b18e56
-  hashes:
-    binhash: c1fcf15172dae29f5ebe38a97d715214
-    md5: 411ae10a0e2e3d51dadd93808488e68d
-work/input/make_rhuss/.git/objects/6b/de5d2fcfdecdca92a07370024310537393e93d:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_rhuss/.git/objects/6b/de5d2fcfdecdca92a07370024310537393e93d
-  hashes:
-    binhash: 216903812afcb8961b3287b25cc5dd7a
-    md5: 90d4f95a2af2791da3719e241a56ceef
-work/input/make_rhuss/.git/objects/6e/8d0443c14f105a31072204d059d70e1ce6e8a5:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_rhuss/.git/objects/6e/8d0443c14f105a31072204d059d70e1ce6e8a5
-  hashes:
-    binhash: d3dae7044a128facd26fd852a416d2a9
-    md5: c41d06b2c11dc22c6a4bb52c8bcd1ca7
-work/input/make_rhuss/.git/objects/72/5728c38094d5f64bf22f8e20530c56828ed743:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_rhuss/.git/objects/72/5728c38094d5f64bf22f8e20530c56828ed743
-  hashes:
-    binhash: cc90300ea34aaaecb8c17c9081635f79
-    md5: b7febc4e8e46f369d3f62e265a9ff758
-work/input/make_rhuss/.git/objects/85/b4c90d746c0cc3a7eb96445df2c8f14de95701:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_rhuss/.git/objects/85/b4c90d746c0cc3a7eb96445df2c8f14de95701
-  hashes:
-    binhash: bbab2ef2854eca0a5be3949f396fdcbe
-    md5: 52a3984086bca87558b8405527afae7d
-work/input/make_rhuss/.git/objects/88/74184df8b9aec7be674f0925967d30c931f652:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_rhuss/.git/objects/88/74184df8b9aec7be674f0925967d30c931f652
-  hashes:
-    binhash: 6d57997e0e4f6d5dbabb3b046c1f39eb
-    md5: 5ade4213b2ae2c21a0247a2aa7b12f5f
-work/input/make_rhuss/.git/objects/9e/f6d43e44be2c41e41a55b64a59c2bf3ad85460:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_rhuss/.git/objects/9e/f6d43e44be2c41e41a55b64a59c2bf3ad85460
-  hashes:
-    binhash: 04790c7e286283e544be934a6c95c206
-    md5: 0815b2b545ae9926aba4d8288d911e86
-work/input/make_rhuss/.git/objects/a2/b94c8596a5a02f4315ac44321b8770c5f3b97e:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_rhuss/.git/objects/a2/b94c8596a5a02f4315ac44321b8770c5f3b97e
-  hashes:
-    binhash: c01dfb62c0815dfec1df0f2da0d107fd
-    md5: e862c0f9b5cd727b3bfe28fb31c8dd02
-work/input/make_rhuss/.git/objects/a4/82ead3636bc861e5345586706833ddf0eb4d52:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_rhuss/.git/objects/a4/82ead3636bc861e5345586706833ddf0eb4d52
-  hashes:
-    binhash: 9665d10705b802e9a3dde2193650da10
-    md5: 6022b05528d55dbb38fa2566d7f0e6ab
-work/input/make_rhuss/.git/objects/c9/65cc32a6b9e0985fbee5da322a4b3bc8851d21:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_rhuss/.git/objects/c9/65cc32a6b9e0985fbee5da322a4b3bc8851d21
-  hashes:
-    binhash: d54b70387a115f81365ffd939e41e150
-    md5: c8b1b91128291f60ca227802725cd4ca
-work/input/make_rhuss/.git/objects/e4/446b41bc93e47f3d40c0c0ec6941793c8c1950:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_rhuss/.git/objects/e4/446b41bc93e47f3d40c0c0ec6941793c8c1950
-  hashes:
-    binhash: cf25841f674da6cf49213e9e7d4424dd
-    md5: fea30c63b7bc0942917be493a2d4269f
-work/input/make_rhuss/.git/objects/e4/c08dfe6690e318a6a9a33bc663158873b2c692:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_rhuss/.git/objects/e4/c08dfe6690e318a6a9a33bc663158873b2c692
-  hashes:
-    binhash: 8cdc3f08e5d27c89badcc79f03035a2d
-    md5: 2289b58e1e80522bb783e357c5085449
-work/input/make_rhuss/.git/objects/e8/9c3df9f0a9f07c4792bf6210a5d13cdcf1c911:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_rhuss/.git/objects/e8/9c3df9f0a9f07c4792bf6210a5d13cdcf1c911
-  hashes:
-    binhash: 057351027e935320da15d785892cb758
-    md5: 8822ddc8501885db80c7c582d7cd24ec
-work/input/make_rhuss/.git/objects/ed/ad7e071d1381812018967dafb6312401206ca2:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_rhuss/.git/objects/ed/ad7e071d1381812018967dafb6312401206ca2
-  hashes:
-    binhash: 1337ea545f8b3d4a389810db6ae48f90
-    md5: f3573f590f00444459111854a1f4df84
-work/input/make_rhuss/.git/objects/f3/3a98c6f5f23342d76ea7c969980ae027236995:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_rhuss/.git/objects/f3/3a98c6f5f23342d76ea7c969980ae027236995
-  hashes:
-    binhash: 02aa4bca961c6fb7e37dc9e65143a395
-    md5: 8befaba4edc97fcb834bf83d5ac7e249
-work/input/make_rhuss/.git/objects/f3/51b99b3ee370b66057b968a9d3b54729c98de8:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_rhuss/.git/objects/f3/51b99b3ee370b66057b968a9d3b54729c98de8
-  hashes:
-    binhash: 6e6fd4329244cf042d99f37b974bf807
-    md5: a6578f200de81f6ce515fbc44096a130
-work/input/make_rhuss/.git/objects/f7/27c35b86b1898f5480e43b9af7b182a76bfac9:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_rhuss/.git/objects/f7/27c35b86b1898f5480e43b9af7b182a76bfac9
-  hashes:
-    binhash: a4b3a6c8eb9eb193e4f667788618d761
-    md5: 2b246a7cf27c8830402bcaf0ae742fe0
-work/input/make_rhuss/.git/objects/ff/6d1311a286d44f865d4dfe6a0cf667c23330e7:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_rhuss/.git/objects/ff/6d1311a286d44f865d4dfe6a0cf667c23330e7
-  hashes:
-    binhash: d264470d176a00f25399bf1525dd518a
-    md5: ab685997a94b55669acf5197d6bb5765
-work/input/make_rhuss/.git/objects/pack/pack-86390fdf30e1910937fc9bb40e285c3053b826cb.idx:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_rhuss/.git/objects/pack/pack-86390fdf30e1910937fc9bb40e285c3053b826cb.idx
-  hashes:
-    binhash: f4278f27422af70a0b39da2a7730f824
-    md5: f1a574c9fc44cf5e72f361998233f572
-work/input/make_rhuss/.git/objects/pack/pack-86390fdf30e1910937fc9bb40e285c3053b826cb.pack:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_rhuss/.git/objects/pack/pack-86390fdf30e1910937fc9bb40e285c3053b826cb.pack
-  hashes:
-    binhash: 70831d381a54b0e60672c2b32927c439
-    md5: bfe85b9954cedcee78fdaee34b67fefb
-work/input/make_rhuss/.git/packed-refs:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_rhuss/.git/packed-refs
-  hashes:
-    binhash: ce2d94dd77a79e59c04bb6be60b16b8e
-    md5: a891e6bb26eb0d480aef486a7e8ea166
-work/input/make_rhuss/.git/refs/heads/main:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_rhuss/.git/refs/heads/main
-  hashes:
-    binhash: f86f83a51f907e6bde37498105a5709c
-    md5: 2fe061bc4ba1aaf5cae494272d043ae9
-work/input/make_rhuss/.git/refs/remotes/origin/jra55_v1-3:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_rhuss/.git/refs/remotes/origin/jra55_v1-3
-  hashes:
-    binhash: 259c6fc0dad326fa68d895af1bbbf81c
-    md5: d94b1a32ed9adabfee1d2d3a5ecd1dbe
-work/input/make_rhuss/.git/refs/remotes/origin/main:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_rhuss/.git/refs/remotes/origin/main
-  hashes:
-    binhash: 73e150a022148a171be177c46e28f514
-    md5: 2fe061bc4ba1aaf5cae494272d043ae9
-work/input/make_rhuss/README.md:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_rhuss/README.md
-  hashes:
-    binhash: fa17a22851464a190ace7c18e83da899
-    md5: 7f956cf019f3dc42aebe094b892d2ee8
-work/input/make_rhuss/make_rhuss.py:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_rhuss/make_rhuss.py
-  hashes:
-    binhash: 818634c5a8f5a01f8055e7481e298abc
-    md5: f1a7af45370283b994a960358817412c
-work/input/make_ryf/.git/COMMIT_EDITMSG:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_ryf/.git/COMMIT_EDITMSG
-  hashes:
-    binhash: 22ec7701562a961d8119c4af92a98044
-    md5: 9bc314d387974df26448af23836f5f23
-work/input/make_ryf/.git/HEAD:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_ryf/.git/HEAD
-  hashes:
-    binhash: 48c6644dd466a8ff8d22fbdda382e22a
-    md5: 2b74885bd597136c4af661a85538b2a3
-work/input/make_ryf/.git/config:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_ryf/.git/config
-  hashes:
-    binhash: 32ba9afcc7c19babcb8e23ac58a50942
-    md5: 1a9d093553b1c35f1c0cd0c59d2d6e99
-work/input/make_ryf/.git/description:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_ryf/.git/description
-  hashes:
-    binhash: 7ba4bb53d677d14342ad74ab446ba089
-    md5: a0a7c3fff21f2aea3cfa1d0316dd816c
-work/input/make_ryf/.git/hooks/applypatch-msg.sample:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_ryf/.git/hooks/applypatch-msg.sample
-  hashes:
-    binhash: 3b216895efccc7547aea2ae4dc166b6e
-    md5: ce562e08d8098926a3862fc6e7905199
-work/input/make_ryf/.git/hooks/commit-msg.sample:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_ryf/.git/hooks/commit-msg.sample
-  hashes:
-    binhash: f948c58eec19029dceb9ed75b62a4392
-    md5: 579a3c1e12a1e74a98169175fb913012
-work/input/make_ryf/.git/hooks/fsmonitor-watchman.sample:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_ryf/.git/hooks/fsmonitor-watchman.sample
-  hashes:
-    binhash: 73fcd833d7c378d44bb840f5b96aa5c9
-    md5: ecbb0cb5ffb7d773cd5b2407b210cc3b
-work/input/make_ryf/.git/hooks/post-update.sample:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_ryf/.git/hooks/post-update.sample
-  hashes:
-    binhash: b5e25cc894ffc74a37de1ecdd0f7a0e7
-    md5: 2b7ea5cee3c49ff53d41e00785eb974c
-work/input/make_ryf/.git/hooks/pre-applypatch.sample:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_ryf/.git/hooks/pre-applypatch.sample
-  hashes:
-    binhash: 8f5416624b15c634d82c5231b11878f3
-    md5: 054f9ffb8bfe04a599751cc757226dda
-work/input/make_ryf/.git/hooks/pre-commit.sample:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_ryf/.git/hooks/pre-commit.sample
-  hashes:
-    binhash: ee3c7d14c3892e97c9bca369122c99e2
-    md5: e4db8c12ee125a8a085907b757359ef0
-work/input/make_ryf/.git/hooks/pre-push.sample:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_ryf/.git/hooks/pre-push.sample
-  hashes:
-    binhash: 10cbe7deb233e1637dc3cbbcae9dfae4
-    md5: 3c5989301dd4b949dfa1f43738a22819
-work/input/make_ryf/.git/hooks/pre-rebase.sample:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_ryf/.git/hooks/pre-rebase.sample
-  hashes:
-    binhash: 62646ba3327237e56434a2937d3a62f5
-    md5: 56e45f2bcbc8226d2b4200f7c46371bf
-work/input/make_ryf/.git/hooks/pre-receive.sample:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_ryf/.git/hooks/pre-receive.sample
-  hashes:
-    binhash: e2b7b8a65e85a946325eda66581af919
-    md5: 2ad18ec82c20af7b5926ed9cea6aeedd
-work/input/make_ryf/.git/hooks/prepare-commit-msg.sample:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_ryf/.git/hooks/prepare-commit-msg.sample
-  hashes:
-    binhash: 5314c8c5f712a74e6c277b2ff0424654
-    md5: 2b5c047bdb474555e1787db32b2d2fc5
-work/input/make_ryf/.git/hooks/update.sample:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_ryf/.git/hooks/update.sample
-  hashes:
-    binhash: dfc2c9c3c9b6df59d3e2a959808c97fa
-    md5: 517f14b9239689dff8bda3022ebd9004
-work/input/make_ryf/.git/index:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_ryf/.git/index
-  hashes:
-    binhash: 3df8d8da75ee9b13a025a2bf64672753
-    md5: 422ebffde8d88a8dc3657f9f78f1a239
-work/input/make_ryf/.git/info/exclude:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_ryf/.git/info/exclude
-  hashes:
-    binhash: 3f129c932e144620dda7cc41c0d29a7e
-    md5: 036208b4a1ab4a235d75c181e685e5a3
-work/input/make_ryf/.git/logs/HEAD:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_ryf/.git/logs/HEAD
-  hashes:
-    binhash: b2411f6c7013509c1f9f0ac6d4bc39c9
-    md5: a7d8efd01f14333492f9f69115305239
-work/input/make_ryf/.git/logs/refs/heads/master:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_ryf/.git/logs/refs/heads/master
-  hashes:
-    binhash: 83d6be64c4fa84514f7cc30b93ab5047
-    md5: e5e2af9c4413cc0c926715856ab41676
-work/input/make_ryf/.git/logs/refs/heads/v1.4:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_ryf/.git/logs/refs/heads/v1.4
-  hashes:
-    binhash: 6c8f4a42c25172c6a51ae17693553adb
-    md5: 3ca821d821cf13e44cd0254b00cc5fab
-work/input/make_ryf/.git/logs/refs/remotes/origin/HEAD:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_ryf/.git/logs/refs/remotes/origin/HEAD
-  hashes:
-    binhash: 9d74a8f17fe272c519f62a7d50066a22
-    md5: 7e58b8e299428177c6e675458d1d6cc5
-work/input/make_ryf/.git/logs/refs/remotes/origin/v1.4:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_ryf/.git/logs/refs/remotes/origin/v1.4
-  hashes:
-    binhash: 1e6418f84744a6c8e4d5890d33759123
-    md5: 74ede82179bae2d2ac071565cb3862be
-work/input/make_ryf/.git/objects/05/6096c1d1363a92aba5e3b567e28d8f6f019d6a:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_ryf/.git/objects/05/6096c1d1363a92aba5e3b567e28d8f6f019d6a
-  hashes:
-    binhash: 1d168fcc29d22dec41fc72342dcfd975
-    md5: 765d575e7a0fe810fc9e39dad72e2605
-work/input/make_ryf/.git/objects/07/1cf138f0b5ae6fb44eb0c8f0269b4860b68ed9:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_ryf/.git/objects/07/1cf138f0b5ae6fb44eb0c8f0269b4860b68ed9
-  hashes:
-    binhash: e5b24879336cf02793ba20da48f6e46a
-    md5: dc6f96672cf67190623dd59845fa2546
-work/input/make_ryf/.git/objects/0e/bc4f420caac382f36c87630280712f40254fce:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_ryf/.git/objects/0e/bc4f420caac382f36c87630280712f40254fce
-  hashes:
-    binhash: 41dfbd697a96490365efa3e10a5cfc36
-    md5: ba6395a577672e5edcddebc5e27bd696
-work/input/make_ryf/.git/objects/0f/6646600566e4fc694807cd7955448eee8a67a2:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_ryf/.git/objects/0f/6646600566e4fc694807cd7955448eee8a67a2
-  hashes:
-    binhash: 529ac47c65b0f76844d8f2c92e2d26f7
-    md5: a034e7b56439c364fe565aabf5a69265
-work/input/make_ryf/.git/objects/2b/6081a96852ad97cdcf715807a7e72108af32d6:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_ryf/.git/objects/2b/6081a96852ad97cdcf715807a7e72108af32d6
-  hashes:
-    binhash: 4d8bd02853f416432d43fd701c9c9f80
-    md5: 2ec2965e8c6e2eb9a5059458a6b3cd33
-work/input/make_ryf/.git/objects/40/3ff41c283f110ddfc3275e3a9d6b20ea984979:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_ryf/.git/objects/40/3ff41c283f110ddfc3275e3a9d6b20ea984979
-  hashes:
-    binhash: 3890ae8b0bb3198d08668dcae41d7091
-    md5: acc4fb03ebdfc47cb0b0c3d760524982
-work/input/make_ryf/.git/objects/43/0b8fa529f4f00e64be6a40e23b09397d1d9d07:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_ryf/.git/objects/43/0b8fa529f4f00e64be6a40e23b09397d1d9d07
-  hashes:
-    binhash: f55f0886f71b20f147ef57e016bb708c
-    md5: 785d069d4724336738214a4b87c32657
-work/input/make_ryf/.git/objects/50/dfb4ba05c4b23f07f6a817c148f37e05ba6ee6:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_ryf/.git/objects/50/dfb4ba05c4b23f07f6a817c148f37e05ba6ee6
-  hashes:
-    binhash: 524002ae9dfbe4e38703063d2595f2d8
-    md5: 5ef69a4c8570eb9ff3190608b2989e21
-work/input/make_ryf/.git/objects/56/0472e9f04abcc3e3b5889cf3318f9e5f97b86d:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_ryf/.git/objects/56/0472e9f04abcc3e3b5889cf3318f9e5f97b86d
-  hashes:
-    binhash: ad784596e371383e244d94e78b47da08
-    md5: a8ce35896ee7f801e770db44afc3a52d
-work/input/make_ryf/.git/objects/64/e60431df5bea20004eb5d2f31cbe88d69c54e3:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_ryf/.git/objects/64/e60431df5bea20004eb5d2f31cbe88d69c54e3
-  hashes:
-    binhash: 9508a4856b1147d1c882f4736e454394
-    md5: 8bfe5ee1f0c775d583b158c889bb9beb
-work/input/make_ryf/.git/objects/81/d801a0b9eb52e2ce03eaa981c67b8e5605b75d:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_ryf/.git/objects/81/d801a0b9eb52e2ce03eaa981c67b8e5605b75d
-  hashes:
-    binhash: ae748f41d840124a67ce22d00cd5e3fa
-    md5: 80663129ec7f8205b6729903617f9153
-work/input/make_ryf/.git/objects/8d/83748ce1141857cf92ef03c3ffa63411092a26:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_ryf/.git/objects/8d/83748ce1141857cf92ef03c3ffa63411092a26
-  hashes:
-    binhash: 9447706336d56a47e13d03df66a380b4
-    md5: 88b151feded027f42503e9210fe35631
-work/input/make_ryf/.git/objects/90/a21a11854ba82a5726b20649152b14dbc7417a:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_ryf/.git/objects/90/a21a11854ba82a5726b20649152b14dbc7417a
-  hashes:
-    binhash: 02c2f83c2ab7076958bb5023aae6e53c
-    md5: 4b88eb1531e7c71cb2130fada33d8aae
-work/input/make_ryf/.git/objects/96/8edae060b7021128442ef0e0bb46db91170fc0:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_ryf/.git/objects/96/8edae060b7021128442ef0e0bb46db91170fc0
-  hashes:
-    binhash: 311e70042d7eb763191742d6d4426fea
-    md5: d64e68a497e34bb8fd62e34d7fe0e207
-work/input/make_ryf/.git/objects/a5/372a53c04a1803900200cd482797282eebb932:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_ryf/.git/objects/a5/372a53c04a1803900200cd482797282eebb932
-  hashes:
-    binhash: 873afb438c13bcc579d2761919a52ac8
-    md5: 03467eb3328d682457c0402b4926d037
-work/input/make_ryf/.git/objects/c2/afffb8af79ef4bb242f9c948640f50972caf7d:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_ryf/.git/objects/c2/afffb8af79ef4bb242f9c948640f50972caf7d
-  hashes:
-    binhash: e7ba75a768e482f173274d553ccdda0a
-    md5: 665bdf5109a80117f53a6508efc20a0d
-work/input/make_ryf/.git/objects/c4/b9772dbad5ac4a4525aa208e5c41e75d85a35a:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_ryf/.git/objects/c4/b9772dbad5ac4a4525aa208e5c41e75d85a35a
-  hashes:
-    binhash: b5c36df78f10dfa4dbbdd02fef534d64
-    md5: ea655ea73a2ac9b798bbb625fa7402c6
-work/input/make_ryf/.git/objects/cd/ed1e3e8dea3b9dde61d95abd8c5b5e32b0ece6:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_ryf/.git/objects/cd/ed1e3e8dea3b9dde61d95abd8c5b5e32b0ece6
-  hashes:
-    binhash: bb6fc7ae07a042fe2399e8deb29b6ae6
-    md5: c82f36e916191b6acc936179c16b9432
-work/input/make_ryf/.git/objects/d5/41eacae03f3d0d76ad4dd41e25230007019a86:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_ryf/.git/objects/d5/41eacae03f3d0d76ad4dd41e25230007019a86
-  hashes:
-    binhash: 958a03810e5baa995695762677e5ef0a
-    md5: d45704b58101a2556a49fbed11d1953f
-work/input/make_ryf/.git/objects/f2/6b62c4ef5faa2f0b9bb0c5425d1c69e4b6c18c:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_ryf/.git/objects/f2/6b62c4ef5faa2f0b9bb0c5425d1c69e4b6c18c
-  hashes:
-    binhash: 752f767cbc3ecea4d6047e169854438a
-    md5: 6d9a3140c75ed5cb97c38451ed842762
-work/input/make_ryf/.git/objects/f2/ebd6c1d75f1ed2655f59bbf714ba6ad85e78f2:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_ryf/.git/objects/f2/ebd6c1d75f1ed2655f59bbf714ba6ad85e78f2
-  hashes:
-    binhash: d2824ad56dbea5a85e9c76f6f2d62d85
-    md5: a6c97d49df62c477e36ec7f999533d81
-work/input/make_ryf/.git/objects/f5/a2c0cca6397d2d5ea45469197aed7fb61cd7c0:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_ryf/.git/objects/f5/a2c0cca6397d2d5ea45469197aed7fb61cd7c0
-  hashes:
-    binhash: 4653e5bd73264e0bc32cbf242028ac27
-    md5: d34c27b6a2d6753baadbe0b7a50590f5
-work/input/make_ryf/.git/objects/fa/d37f503a2d1b196181c5ca0c4007523ba30724:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_ryf/.git/objects/fa/d37f503a2d1b196181c5ca0c4007523ba30724
-  hashes:
-    binhash: 7e76497d02ccd56e9be9b73a163e80a1
-    md5: ccebef4e2fc0db0164d0c0f377bde714
-work/input/make_ryf/.git/packed-refs:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_ryf/.git/packed-refs
-  hashes:
-    binhash: 52c166e686dd9bb15a935dc5d60944cd
-    md5: 2523a063a2150d7411e37a6eb762647e
-work/input/make_ryf/.git/refs/heads/master:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_ryf/.git/refs/heads/master
-  hashes:
-    binhash: 754d988f84a18bb5422b2ccf6a992982
-    md5: 7aaf068f4ff3838020d7b1be8dd8dc34
-work/input/make_ryf/.git/refs/heads/v1.4:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_ryf/.git/refs/heads/v1.4
-  hashes:
-    binhash: a28aeec89d1564e8da57e6a81348f8d0
-    md5: f993b8d9186ce1fed2171845dcb203d0
-work/input/make_ryf/.git/refs/remotes/origin/HEAD:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_ryf/.git/refs/remotes/origin/HEAD
-  hashes:
-    binhash: 27a02414bfb26d19a15fc5f45f1351d5
-    md5: 73a00957034783b7b5c8294c54cd3e12
-work/input/make_ryf/.git/refs/remotes/origin/v1.4:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_ryf/.git/refs/remotes/origin/v1.4
-  hashes:
-    binhash: 0031123e5090964640bf57c84eabc6d7
-    md5: f993b8d9186ce1fed2171845dcb203d0
-work/input/make_ryf/README.md:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_ryf/README.md
-  hashes:
-    binhash: baf6d43adf3e2b159cdd302f0da1d01f
-    md5: e871fe9d8c7c439b8a917c40f9d629dd
-work/input/make_ryf/make_ryf.py:
-  fullpath: /g/data/ik11/inputs/JRA-55/RYF/v1-4/make_ryf/make_ryf.py
-  hashes:
-    binhash: 9fbb6a9f6bec50ccb2afafecae9a5ff7
-    md5: c5ef2aeff9516ec76c80e76aef08d352
 work/input/ocean_hgrid.nc:
-  fullpath: /g/data/ik11/inputs/access-om3/0.x.0/025deg/mom/ocean_hgrid.nc
+  fullpath: /g/data/vk83/experiments/inputs/access-om3/mom/grids/mosaic/global.025deg/2020.05.30/ocean_hgrid.nc
   hashes:
-    binhash: e0b2f3bb2d76badb35e2dfc07788738f
+    binhash: 44e77b800b4c68fa445a8bcb40a17fa8
     md5: 38b6f324ae16cc13c180699123ad85b5
 work/input/ocean_temp_salt.res.nc:
-  fullpath: /g/data/ik11/inputs/access-om3/0.x.0/025deg/mom/ocean_temp_salt.res.nc
+  fullpath: /g/data/vk83/experiments/inputs/access-om3/mom/initial_conditions/global.025deg/2020.10.22/ocean_temp_salt.res.nc
   hashes:
-    binhash: 1c27f9fbe2c7755e4657ed14e5e14145
+    binhash: aa38803fb03c4db72205fae72aba0986
     md5: 1797b25e6339595a320076080145fd5a
 work/input/ocean_vgrid.nc:
-  fullpath: /g/data/ik11/inputs/access-om3/0.x.0/025deg/mom/ocean_vgrid.nc
+  fullpath: /g/data/vk83/experiments/inputs/access-om3/mom/grids/vertical/global.025deg/2024.04.04/ocean_vgrid.nc
   hashes:
-    binhash: a10a26a7c361279ae0032afc8c83fadd
-    md5: e56e2936499d3ad53429d5940821118d
+    binhash: 4417877e69c96b9adc9d17cdbb03ecf3
+    md5: b74672f3e1e4d6f9f3915dd3bf1b0795
 work/input/salt_sfc_restore.nc:
-  fullpath: /g/data/ik11/inputs/access-om3/0.x.0/025deg/mom/salt_sfc_restore.nc
+  fullpath: /g/data/vk83/experiments/inputs/access-om3/mom/surface_salt_restoring/global.025deg/2020.05.30/salt_sfc_restore.nc
   hashes:
-    binhash: abaea44efc3b0b31ab1a8eb9f46da744
+    binhash: 30f40ec50ded9c51ec36bd98ca9cc304
     md5: 434b4bdb323d17e9714d02519627fea2
 work/input/topog.nc:
-  fullpath: /g/data/ik11/inputs/access-om3/0.x.0/025deg/share/topog.nc
+  fullpath: /g/data/vk83/experiments/inputs/access-om3/share/grids/global.025deg/2023.05.15/topog.nc
   hashes:
-    binhash: a46aeba8e75a3b4c8cd599e17c4dd0eb
+    binhash: a28737be8c7c628ea7be82363f26125b
     md5: fa71dfdf4a91198d651d657bcf9aadb6
