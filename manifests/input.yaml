@@ -77,15 +77,15 @@ work/input/access-om2-025deg-nomask-ESMFmesh.nc:
     binhash: 29f147c299de419f5a32d129491a8ea2
     md5: db5407804d759435c6846d2d2c661a6e
 work/input/grid.nc:
-  fullpath: /g/data/vk83/experiments/inputs/access-om3/cice/grids/global.025deg/2024.03.28/grid.nc
+  fullpath: /g/data/vk83/experiments/inputs/access-om3/cice/grids/global.025deg/2024.05.14/grid.nc
   hashes:
-    binhash: 7cace0a81c147d2a5d64efd879ff8b43
-    md5: 6946bd45cb5cbf932f869b39eb68bee2
+    binhash: 352d9abb56c3c8fefcd3748bb69fafdc
+    md5: c859e1e759f33ab39527c7b30a7dbd88
 work/input/kmt.nc:
-  fullpath: /g/data/vk83/experiments/inputs/access-om3/cice/grids/global.025deg/2024.03.28/kmt.nc
+  fullpath: /g/data/vk83/experiments/inputs/access-om3/cice/grids/global.025deg/2024.05.14/kmt.nc
   hashes:
-    binhash: 42459f59c39836197df11a44ce49c8db
-    md5: d87ca7229f1a579af6f3b308af16e3d1
+    binhash: 2e46b34c831a515bd2589fd1c2d21276
+    md5: 3b9b6269b24a33de75cef4e36fc35376
 work/input/ocean_hgrid.nc:
   fullpath: /g/data/vk83/experiments/inputs/access-om3/mom/grids/mosaic/global.025deg/2020.05.30/ocean_hgrid.nc
   hashes:

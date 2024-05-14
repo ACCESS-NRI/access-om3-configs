@@ -141,6 +141,12 @@ DTFREEZE_DP = -7.75E-08         !   [deg C Pa-1] default = 0.0
                                 ! When TFREEZE_FORM=LINEAR, this is the derivative of the freezing potential
                                 ! temperature with pressure.
 
+EPS_OMESH = 1e-13
+                                ! "default = 0.0001
+                                ! An float which sets the allowable error (in degrees) between
+                                ! grid angle defined in the ESMF mesh file used by CMEPS
+                                ! and the ocean_hgrid file used by mom
+
 ! === module MOM_tracer_flow_control ===
 USE_IDEAL_AGE_TRACER = True     !   [Boolean] default = False
                                 ! If true, use the ideal_age_example tracer package.
