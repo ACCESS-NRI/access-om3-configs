@@ -408,6 +408,12 @@ RESTART_CONTROL = 3
                                 ! restart file is saved at the end of the run segment
                                 ! for any non-negative value."
 
+EPS_OMESH = 1e-13
+                                ! "default = 0.0001
+                                ! An float which sets the allowable error (in degrees) between
+                                ! grid angle defined in the ESMF mesh file used by CMEPS
+                                ! and the ocean_hgrid file used by mom
+
 ! === module MOM_tracer_flow_control ===
 USE_IDEAL_AGE_TRACER = True
                                 ! "[Boolean] default = False
