@@ -77,20 +77,20 @@ work/input/access-om2-1deg-nomask-ESMFmesh.nc:
     binhash: 07cb65372f403b87b3002134ea2c31eb
     md5: 9b7120a42b5cb587492e7c31791eb549
 work/input/grid.nc:
-  fullpath: /g/data/vk83/experiments/inputs/access-om3/cice/grids/global.1deg/2020.05.30/grid.nc
+  fullpath: /g/data/vk83/experiments/inputs/access-om3/cice/grids/global.1deg/2024.05.14/grid.nc
   hashes:
-    binhash: c7cb377ba3a6b159b625b5fa3b6ea377
-    md5: 1213e346055ee073fe33dc12578d99c6
+    binhash: 60ac2869d4521fd6441a90b519d9bce0
+    md5: 544a40b634c182f3e182da6bcbe8be7b
 work/input/iced.1900-01-01-10800.nc:
   fullpath: /g/data/vk83/experiments/inputs/access-om3/cice/initial_conditions/global.1deg/2023.07.28/iced.1900-01-01-10800.nc
   hashes:
     binhash: a88d7f33c7eef8f6870773f7cc47fc28
     md5: 87c012d60c58c65bb56caa98779e5e51
 work/input/kmt.nc:
-  fullpath: /g/data/vk83/experiments/inputs/access-om3/cice/grids/global.1deg/2020.10.22/kmt.nc
+  fullpath: /g/data/vk83/experiments/inputs/access-om3/cice/grids/global.1deg/2024.05.14/kmt.nc
   hashes:
-    binhash: 0c0a298f90d40f05cf1893efbc2b8083
-    md5: 1f9806c646a620378e5257e480bc9df7
+    binhash: 6fd7a86039ea089fffc371390c14d77a
+    md5: 4dae75252ac93467f10ea26e833e13d2
 work/input/mod_def.ww3:
   fullpath: /g/data/vk83/experiments/inputs/access-om3/ww3/mod_def/global.1deg/2024.04.18/mod_def.ww3
   hashes:

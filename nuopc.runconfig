@@ -312,6 +312,7 @@ ATM_attributes::
 ::
 
 ICE_attributes::
+     eps_imesh = 1e-13 # allowed error between angles in mesh file and cice grid
      Verbosity = off
 ::
 
