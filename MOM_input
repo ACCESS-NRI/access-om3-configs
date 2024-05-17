@@ -259,6 +259,10 @@ Z_INIT_ALE_REMAPPING = True
                                 ! "[Boolean] default = False
                                 ! If True, then remap straight to model coordinate from file."
 
+Z_INIT_REMAP_GENERAL = True     !   [Boolean] default = False
+                                ! If false, only initializes to z* coordinates. If true, allows initialization
+                                ! directly to general coordinates.
+
 ! === module MOM_shared_initialization ===
 GRID_ROTATION_ANGLE_BUGS = False
                                 ! "[Boolean] default = True
