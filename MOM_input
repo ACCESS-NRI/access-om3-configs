@@ -297,10 +297,6 @@ FLUXCONST = 0.11
                                 ! to the relative surface anomalies (akin to a piston
                                 ! velocity).  Note the non-MKS units."
 
-MAX_DELTA_SRESTORE = 0.5
-                                ! "[PSU or g kg-1] default = 999.0
-                                ! The maximum salinity difference used in restoring terms."
-
 SRESTORE_AS_SFLUX = True
                                 ! "[Boolean] default = False
                                 ! If true, the restoring of salinity is applied as a salt
