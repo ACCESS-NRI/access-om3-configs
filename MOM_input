@@ -83,6 +83,25 @@ USE_PSURF_IN_EOS = True
 CHECK_BAD_SURFACE_VALS = True
                                 ! "[Boolean] default = False
                                 ! If true, check the surface state for ridiculous values."
+BAD_VAL_SSH_MAX = 50.0          !   [m] default = 20.0
+                                ! The value of SSH above which a bad value message is triggered, if
+                                ! CHECK_BAD_SURFACE_VALS is true.
+
+BAD_VAL_SSS_MAX = 75.0          !   [PPT] default = 45.0
+                                ! The value of SSS above which a bad value message is triggered, if
+                                ! CHECK_BAD_SURFACE_VALS is true.
+
+BAD_VAL_SST_MAX = 55.0          !   [deg C] default = 45.0
+                                ! The value of SST above which a bad value message is triggered, if
+                                ! CHECK_BAD_SURFACE_VALS is true.
+
+BAD_VAL_SST_MIN = -3.0          !   [deg C] default = -2.1
+                                ! The value of SST below which a bad value message is triggered, if
+                                ! CHECK_BAD_SURFACE_VALS is true.
+
+BAD_VAL_COLUMN_THICKNESS = 0.0  !   [m] default = 0.0
+                                ! The value of column thickness below which a bad value message is triggered, if
+                                ! CHECK_BAD_SURFACE_VALS is true.
 
 SAVE_INITIAL_CONDS = True
                                 ! "[Boolean] default = False
@@ -414,6 +433,7 @@ RESTART_CONTROL = 3
 USE_WAVES = True
                                 ! "default = False
                                 ! If true, enables surface wave modules."
+
 EPS_OMESH = 1e-13
                                 ! "default = 0.0001
                                 ! An float which sets the allowable error (in degrees) between
