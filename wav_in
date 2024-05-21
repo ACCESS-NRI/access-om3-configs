@@ -24,7 +24,7 @@
   date%field%stop      = '20190101 0'
   date%point%outffile  = '0'
   date%point%start     = '19580101 0'
-  date%point%stride    = '86400'
+  date%point%stride    = '0'
   date%point%stop      = '20190101 0'
   date%restart%start   = '19580101 0'
   date%restart%stride  = '86400'
