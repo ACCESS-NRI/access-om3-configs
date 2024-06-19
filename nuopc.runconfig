@@ -282,7 +282,7 @@ CLOCK_attributes::
      calendar = GREGORIAN
      end_restart = .false.
      glc_avg_period = yearly
-     glc_cpl_dt = 86400
+     glc_cpl_dt = 99999 #not used
      history_ymd = -999
      ice_cpl_dt = 99999 #not used
      lnd_cpl_dt = 99999 #not used
