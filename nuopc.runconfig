@@ -278,19 +278,19 @@ MED_attributes::
 ::
 
 CLOCK_attributes::
-     atm_cpl_dt = 99999       #not used
+     atm_cpl_dt = 99999 #not used
      calendar = NO_LEAP
      end_restart = .false.
      glc_avg_period = yearly
      glc_cpl_dt = 86400
      history_ymd = -999
-     ice_cpl_dt =  99999      #not used
-     lnd_cpl_dt =  99999      #not used
-     ocn_cpl_dt =  99999      #not used
+     ice_cpl_dt =  99999 #not used
+     lnd_cpl_dt =  99999 #not used
+     ocn_cpl_dt =  3600
      restart_n = 1
      restart_option = nmonths
      restart_ymd = -999
-     rof_cpl_dt =  99999      #not used
+     rof_cpl_dt =  99999 #not used
      start_tod = 0
      start_ymd = 19000101
      stop_n = 1
