@@ -1112,7 +1112,7 @@ PORBAR_ETA_INTERP = "MAX"       ! default = "MAX"
                                 !    HARMONIC - harmonic mean of the adjacent cells
 
 ! === module MOM_dynamics_split_RK2 ===
-TIDES = True                    !   [Boolean] default = False
+TIDES = False                   !   [Boolean] default = False
                                 ! If true, apply tidal momentum forcing.
 BE = 0.6                        !   [nondim] default = 0.6
                                 ! If SPLIT is true, BE determines the relative weighting of a  2nd-order
@@ -1219,7 +1219,7 @@ PV_ADV_SCHEME = "PV_ADV_CENTERED" ! default = "PV_ADV_CENTERED"
                                 !    PV_ADV_UPWIND1  - upwind, first order
 
 ! === module MOM_tidal_forcing ===
-TIDE_M2 = True                  !   [Boolean] default = False
+TIDE_M2 = False                 !   [Boolean] default = False
                                 ! If true, apply tidal momentum forcing at the M2 frequency. This is only used
                                 ! if TIDES is true.
 TIDE_S2 = False                 !   [Boolean] default = False
@@ -1255,7 +1255,7 @@ TIDAL_SAL_FROM_FILE = False     !   [Boolean] default = False
 USE_PREVIOUS_TIDES = False      !   [Boolean] default = False
                                 ! If true, use the SAL from the previous iteration of the tides to facilitate
                                 ! convergent iteration. This is only used if TIDES is true.
-TIDE_USE_SAL_SCALAR = True      !   [Boolean] default = True
+TIDE_USE_SAL_SCALAR = False     !   [Boolean] default = True
                                 ! If true and TIDES is true, use the scalar approximation when calculating
                                 ! self-attraction and loading.
 TIDE_SAL_SCALAR_VALUE = 0.094   !   [m m-1]
