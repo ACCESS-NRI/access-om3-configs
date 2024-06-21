@@ -270,12 +270,12 @@ TOPO_EDITS_FILE = ""            ! default = ""
                                 ! The file from which to read a list of i,j,z topography overrides.
 ALLOW_LANDMASK_CHANGES = False  !   [Boolean] default = False
                                 ! If true, allow topography overrides to change land mask.
-MINIMUM_DEPTH = 0.5             !   [m] default = 0.0
+MINIMUM_DEPTH = 11.8            !   [m] default = 0.0
                                 ! If MASKING_DEPTH is unspecified, then anything shallower than MINIMUM_DEPTH is
                                 ! assumed to be land and all fluxes are masked out. If MASKING_DEPTH is
                                 ! specified, then all depths shallower than MINIMUM_DEPTH but deeper than
                                 ! MASKING_DEPTH are rounded to MINIMUM_DEPTH.
-MASKING_DEPTH = -9999.0         !   [m] default = -9999.0
+MASKING_DEPTH = 0.0             !   [m] default = -9999.0
                                 ! The depth below which to mask points as land points, for which all fluxes are
                                 ! zeroed out. MASKING_DEPTH is ignored if it has the special default value.
 MAXIMUM_DEPTH = 6000.0          !   [m]
