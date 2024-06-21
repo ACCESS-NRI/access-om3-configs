@@ -1255,7 +1255,7 @@ TIDAL_SAL_FROM_FILE = False     !   [Boolean] default = False
 USE_PREVIOUS_TIDES = False      !   [Boolean] default = False
                                 ! If true, use the SAL from the previous iteration of the tides to facilitate
                                 ! convergent iteration. This is only used if TIDES is true.
-TIDE_USE_SAL_SCALAR = False     !   [Boolean] default = True
+TIDE_USE_SAL_SCALAR = True     !   [Boolean] default = True
                                 ! If true and TIDES is true, use the scalar approximation when calculating
                                 ! self-attraction and loading.
 TIDE_SAL_SCALAR_VALUE = 0.094   !   [m m-1]
