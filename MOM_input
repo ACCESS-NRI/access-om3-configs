@@ -440,16 +440,20 @@ FOX_KEMPER_ML_RESTRAT_COEF = 1.0 !   [nondim] default = 0.0
                                 ! energy to the large-scale geostrophic kinetic energy or 1 plus the square of
                                 ! the grid spacing over the deformation radius, as detailed by Fox-Kemper et al.
                                 ! (2010)
-MLE_FRONT_LENGTH = 1000.0       !   [m] default = 0.0
+MLE_FRONT_LENGTH = 500.0        !   [m] default = 0.0
                                 ! If non-zero, is the frontal-length scale used to calculate the upscaling of
                                 ! buoyancy gradients that is otherwise represented by the parameter
                                 ! FOX_KEMPER_ML_RESTRAT_COEF. If MLE_FRONT_LENGTH is non-zero, it is recommended
                                 ! to set FOX_KEMPER_ML_RESTRAT_COEF=1.0.
-MLE_MLD_DECAY_TIME = 3.456E+05  !   [s] default = 0.0
+MLE_MLD_DECAY_TIME = 2.592E+06  !   [s] default = 0.0
                                 ! The time-scale for a running-mean filter applied to the mixed-layer depth used
                                 ! in the MLE restratification parameterization. When the MLD deepens below the
                                 ! current running-mean the running-mean is instantaneously set to the current
                                 ! MLD.
+MLE_USE_PBL_MLD = True          !   [Boolean] default = False
+                                ! If true, the MLE parameterization will use the mixed-layer depth provided by
+                                ! the active PBL parameterization. If false, MLE will estimate a MLD based on a
+                                ! density difference with the surface using the parameter MLE_DENSITY_DIFF.
 
 ! === module MOM_diagnostics ===
 
