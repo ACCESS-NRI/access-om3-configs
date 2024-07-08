@@ -19,7 +19,7 @@ jobname: 1deg_jra55do_iaf
 
 model: access-om3
 
-exe: /g/data/ik11/spack/0.21.2/opt/linux-rocky8-cascadelake/intel-2021.10.0/access-om3-d6813d6b9e1df560ac3f6ba6a605daab9cfd9569_main-5pjh7z2/bin/access-om3-MOM6-CICE6-WW3
+exe: /g/data/ik11/spack/0.21.2/opt/linux-rocky8-cascadelake/intel-2021.10.0/access-om3-69f719964a27e23deae3923d60af01a081cc3fc0_main-fkzzqnp/bin/access-om3-MOM6-CICE6-WW3
 input: 
     - /g/data/vk83/experiments/inputs/access-om3/share/meshes/global.1deg/2024.01.25/access-om2-1deg-ESMFmesh.nc
     - /g/data/vk83/experiments/inputs/access-om3/share/meshes/global.1deg/2024.01.25/access-om2-1deg-nomask-ESMFmesh.nc
