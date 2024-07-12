@@ -372,15 +372,16 @@ MASS_WEIGHT_IN_PRESSURE_GRADIENT = True !   [Boolean] default = False
                                 ! bathymetry in FV pressure gradient calculations.
 
 ! === module MOM_hor_visc ===
+SMAGORINSKY_AH = True           !   [Boolean] default = False
+                                ! If true, use a biharmonic Smagorinsky nonlinear eddy viscosity.
+SMAG_BI_CONST = 0.05066         !   [nondim] default = 0.0
+                                ! The nondimensional biharmonic Smagorinsky constant, typically 0.015 - 0.06.
 LAPLACIAN = True                !   [Boolean] default = False
                                 ! If true, use a Laplacian horizontal viscosity.
-AH = 1.0E+12                    !   [m4 s-1] default = 0.0
-                                ! The background biharmonic horizontal viscosity.
-LEITH_AH = True                 !   [Boolean] default = False
-                                ! If true, use a biharmonic Leith nonlinear eddy viscosity.
-LEITH_BI_CONST = 128.0          !   [nondim] default = 0.0
-                                ! The nondimensional biharmonic Leith constant, typical values are thus far
-                                ! undetermined.
+AH_VEL_SCALE = 0.01             !   [m s-1] default = 0.0
+                                ! The velocity scale which is multiplied by the cube of the grid spacing to
+                                ! calculate the biharmonic viscosity. The final viscosity is the largest of this
+                                ! scaled viscosity, the Smagorinsky and Leith viscosities, and AH.
 
 ! === module MOM_vert_friction ===
 HMIX_FIXED = 0.5                !   [m]
