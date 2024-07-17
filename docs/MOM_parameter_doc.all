@@ -589,10 +589,10 @@ Z_INIT_ALE_REMAPPING = True     !   [Boolean] default = False
                                 ! If True, then remap straight to model coordinate from file.
 Z_INIT_REMAPPING_SCHEME = "PPM_IH4" ! default = "PPM_IH4"
                                 ! The remapping scheme to use if using Z_INIT_ALE_REMAPPING is True.
-Z_INIT_REMAP_GENERAL = False    !   [Boolean] default = False
+Z_INIT_REMAP_GENERAL = True     !   [Boolean] default = False
                                 ! If false, only initializes to z* coordinates. If true, allows initialization
                                 ! directly to general coordinates.
-Z_INIT_REMAP_FULL_COLUMN = False !   [Boolean] default = False
+Z_INIT_REMAP_FULL_COLUMN = True !   [Boolean] default = True
                                 ! If false, only reconstructs profiles for valid data points. If true, inserts
                                 ! vanished layers below the valid data.
 Z_INIT_REMAP_OLD_ALG = False    !   [Boolean] default = False
@@ -1218,69 +1218,6 @@ PV_ADV_SCHEME = "PV_ADV_CENTERED" ! default = "PV_ADV_CENTERED"
                                 !    PV_ADV_CENTERED - centered (aka Sadourny, 75)
                                 !    PV_ADV_UPWIND1  - upwind, first order
 
-! === module MOM_tidal_forcing ===
-TIDE_M2 = False                 !   [Boolean] default = False
-                                ! If true, apply tidal momentum forcing at the M2 frequency. This is only used
-                                ! if TIDES is true.
-TIDE_S2 = False                 !   [Boolean] default = False
-                                ! If true, apply tidal momentum forcing at the S2 frequency. This is only used
-                                ! if TIDES is true.
-TIDE_N2 = False                 !   [Boolean] default = False
-                                ! If true, apply tidal momentum forcing at the N2 frequency. This is only used
-                                ! if TIDES is true.
-TIDE_K2 = False                 !   [Boolean] default = False
-                                ! If true, apply tidal momentum forcing at the K2 frequency. This is only used
-                                ! if TIDES is true.
-TIDE_K1 = False                 !   [Boolean] default = False
-                                ! If true, apply tidal momentum forcing at the K1 frequency. This is only used
-                                ! if TIDES is true.
-TIDE_O1 = False                 !   [Boolean] default = False
-                                ! If true, apply tidal momentum forcing at the O1 frequency. This is only used
-                                ! if TIDES is true.
-TIDE_P1 = False                 !   [Boolean] default = False
-                                ! If true, apply tidal momentum forcing at the P1 frequency. This is only used
-                                ! if TIDES is true.
-TIDE_Q1 = False                 !   [Boolean] default = False
-                                ! If true, apply tidal momentum forcing at the Q1 frequency. This is only used
-                                ! if TIDES is true.
-TIDE_MF = False                 !   [Boolean] default = False
-                                ! If true, apply tidal momentum forcing at the MF frequency. This is only used
-                                ! if TIDES is true.
-TIDE_MM = False                 !   [Boolean] default = False
-                                ! If true, apply tidal momentum forcing at the MM frequency. This is only used
-                                ! if TIDES is true.
-TIDAL_SAL_FROM_FILE = False     !   [Boolean] default = False
-                                ! If true, read the tidal self-attraction and loading from input files,
-                                ! specified by TIDAL_INPUT_FILE. This is only used if TIDES is true.
-USE_PREVIOUS_TIDES = False      !   [Boolean] default = False
-                                ! If true, use the SAL from the previous iteration of the tides to facilitate
-                                ! convergent iteration. This is only used if TIDES is true.
-TIDE_USE_SAL_SCALAR = True     !   [Boolean] default = True
-                                ! If true and TIDES is true, use the scalar approximation when calculating
-                                ! self-attraction and loading.
-TIDE_SAL_SCALAR_VALUE = 0.094   !   [m m-1]
-                                ! The constant of proportionality between sea surface height (really it should
-                                ! be bottom pressure) anomalies and bottom geopotential anomalies. This is only
-                                ! used if TIDES and TIDE_USE_SAL_SCALAR are true.
-TIDAL_SAL_SHT = False           !   [Boolean] default = False
-                                ! If true, use the online spherical harmonics method to calculate
-                                ! self-attraction and loading term in tides.
-TIDE_REF_DATE = 0, 0, 0         ! default = 0
-                                ! Year,month,day to use as reference date for tidal forcing. If not specified,
-                                ! defaults to 0.
-TIDE_USE_EQ_PHASE = False       !   [Boolean] default = False
-                                ! Correct phases by calculating equilibrium phase arguments for TIDE_REF_DATE.
-TIDE_M2_FREQ = 1.405189E-04     !   [s-1] default = 1.405189E-04
-                                ! Frequency of the M2 tidal constituent. This is only used if TIDES and TIDE_M2
-                                ! are true, or if OBC_TIDE_N_CONSTITUENTS > 0 and M2 is in
-                                ! OBC_TIDE_CONSTITUENTS.
-TIDE_M2_AMP = 0.242334          !   [m] default = 0.242334
-                                ! Amplitude of the M2 tidal constituent. This is only used if TIDES and TIDE_M2
-                                ! are true.
-TIDE_M2_PHASE_T0 = 0.0          !   [radians] default = 0.0
-                                ! Phase of the M2 tidal constituent at time 0. This is only used if TIDES and
-                                ! TIDE_M2 are true.
-
 ! === module MOM_PressureForce ===
 ANALYTIC_FV_PGF = True          !   [Boolean] default = True
                                 ! If true the pressure gradient forces are calculated with a finite volume form
@@ -1532,10 +1469,6 @@ BAROTROPIC_ANSWER_DATE = 99991231 ! default = 99991231
                                 ! recover the answers from the end of 2018, while higher values uuse more
                                 ! efficient or general expressions.  If both BAROTROPIC_2018_ANSWERS and
                                 ! BAROTROPIC_ANSWER_DATE are specified, the latter takes precedence.
-BAROTROPIC_TIDAL_SAL_BUG = False !   [Boolean] default = False
-                                ! If true, the tidal self-attraction and loading anomaly in the barotropic
-                                ! solver has the wrong sign, replicating a long-standing bug with a scalar
-                                ! self-attraction and loading term or the SAL term from a previous simulation.
 SADOURNY = True                 !   [Boolean] default = True
                                 ! If true, the Coriolis terms are discretized with the Sadourny (1975) energy
                                 ! conserving scheme, otherwise the Arakawa & Hsu scheme is used.  If the
@@ -1693,7 +1626,7 @@ MIX_BOUNDARY_TRACERS = True     !   [Boolean] default = True
 MIX_BOUNDARY_TRACER_ALE = False !   [Boolean] default = False
                                 ! If true and in ALE mode, mix the passive tracers in massless layers at the
                                 ! bottom into the interior as though a diffusivity of KD_MIN_TR were operating.
-KD_MIN_TR = 2.0E-06             !   [m2 s-1] default = 2.0E-06
+KD_MIN_TR = 2.0E-06             !   [m2 s-1] default = 0.0
                                 ! A minimal diffusivity that should always be applied to tracers, especially in
                                 ! massless layers near the bottom. The default is 0.1*KD.
 KD_BBL_TR = 0.0                 !   [m2 s-1] default = 0.0
@@ -1883,26 +1816,18 @@ VON_KARMAN_BBL = 0.41           !   [nondim] default = 0.41
 
 ! === module MOM_bkgnd_mixing ===
 ! Adding static vertical background mixing coefficients
-KD = 2.0E-05                    !   [m2 s-1] default = 0.0
+KD = 0.0                        !   [m2 s-1] default = 0.0
                                 ! The background diapycnal diffusivity of density in the interior. Zero or the
                                 ! molecular value, ~1e-7 m2 s-1, may be used.
-KD_MIN = 2.0E-06                !   [m2 s-1] default = 2.0E-07
+KD_MIN = 0.0                    !   [m2 s-1] default = 0.0
                                 ! The minimum diapycnal diffusivity.
 BRYAN_LEWIS_DIFFUSIVITY = False !   [Boolean] default = False
                                 ! If true, use a Bryan & Lewis (JGR 1979) like tanh profile of background
                                 ! diapycnal diffusivity with depth. This is done via CVMix.
-HORIZ_VARYING_BACKGROUND = True !   [Boolean] default = False
+HORIZ_VARYING_BACKGROUND = False !   [Boolean] default = False
                                 ! If true, apply vertically uniform, latitude-dependent background diffusivity,
                                 ! as described in Danabasoglu et al., 2012
-BCKGRND_VDC1 = 1.6E-05          !   [m2 s-1] default = 1.6E-05
-                                ! Background diffusivity (Ledwell) when HORIZ_VARYING_BACKGROUND=True
-BCKGRND_VDC_EQ = 1.0E-06        !   [m2 s-1] default = 1.0E-06
-                                ! Equatorial diffusivity (Gregg) when HORIZ_VARYING_BACKGROUND=True
-BCKGRND_VDC_PSIM = 1.3E-05      !   [m2 s-1] default = 1.3E-05
-                                ! Max. PSI induced diffusivity (MacKinnon) when HORIZ_VARYING_BACKGROUND=True
-BCKGRND_VDC_BAN = 1.0E-04       !   [m2 s-1] default = 1.0E-04
-                                ! Banda Sea diffusivity (Gordon) when HORIZ_VARYING_BACKGROUND=True
-PRANDTL_BKGND = 5.0             !   [nondim] default = 1.0
+PRANDTL_BKGND = 1.0             !   [nondim] default = 1.0
                                 ! Turbulent Prandtl number used to convert vertical background diffusivities
                                 ! into viscosities.
 HENYEY_IGW_BACKGROUND = False   !   [Boolean] default = False
@@ -2215,7 +2140,7 @@ OCEAN_SURFACE_STAGGER = "A"     ! default = "C"
                                 ! A case-insensitive character string to indicate the staggering of the surface
                                 ! velocity field that is returned to the coupler.  Valid values include 'A',
                                 ! 'B', or 'C'.
-EPS_OMESH = 1.0E-04             !   [degrees] default = 1.0E-04
+EPS_OMESH = 1.0E-13             !   [degrees] default = 1.0E-04
                                 ! Maximum allowable difference between ESMF mesh and MOM6 domain coordinates in
                                 ! nuopc cap.
 RESTORE_SALINITY = True         !   [Boolean] default = False
@@ -2283,7 +2208,7 @@ SALT_RESTORE_VARIABLE = "salt"  ! default = "salt"
 SRESTORE_AS_SFLUX = True        !   [Boolean] default = False
                                 ! If true, the restoring of salinity is applied as a salt flux instead of as a
                                 ! freshwater flux.
-MAX_DELTA_SRESTORE = 0.5        !   [PSU or g kg-1] default = 999.0
+MAX_DELTA_SRESTORE = 999.0      !   [PSU or g kg-1] default = 999.0
                                 ! The maximum salinity difference used in restoring terms.
 MASK_SRESTORE_UNDER_ICE = False !   [Boolean] default = False
                                 ! If true, disables SSS restoring under sea-ice based on a frazil criteria

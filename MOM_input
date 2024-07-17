@@ -453,7 +453,9 @@ MLE_MLD_DECAY_TIME = 3.456E+05  !   [s] default = 0.0
 USE_LEGACY_DIABATIC_DRIVER = False !   [Boolean] default = True
                                 ! If true, use a legacy version of the diabatic subroutine. This is temporary
                                 ! and is needed to avoid change in answers.
-
+KD_MIN_TR = 2.0E-06             !   [m2 s-1] default = 0.0
+                                ! A minimal diffusivity that should always be applied to tracers, especially in
+                                ! massless layers near the bottom. The default is 0.1*KD.
 ! === module MOM_CVMix_KPP ===
 ! This is the MOM wrapper to CVMix:KPP
 ! See http://cvmix.github.io/
@@ -496,17 +498,8 @@ USE_LOTW_BBL_DIFFUSIVITY = True !   [Boolean] default = False
 
 ! === module MOM_bkgnd_mixing ===
 ! Adding static vertical background mixing coefficients
-KD = 2.0E-05                    !   [m2 s-1] default = 0.0
-                                ! The background diapycnal diffusivity of density in the interior. Zero or the
-                                ! molecular value, ~1e-7 m2 s-1, may be used.
-KD_MIN = 2.0E-06                !   [m2 s-1] default = 2.0E-07
+KD_MIN = 0.0                    !   [m2 s-1] default = 2.0E-07
                                 ! The minimum diapycnal diffusivity.
-HORIZ_VARYING_BACKGROUND = True !   [Boolean] default = False
-                                ! If true, apply vertically uniform, latitude-dependent background diffusivity,
-                                ! as described in Danabasoglu et al., 2012
-PRANDTL_BKGND = 5.0             !   [nondim] default = 1.0
-                                ! Turbulent Prandtl number used to convert vertical background diffusivities
-                                ! into viscosities.
 KD_MAX = 0.1                    !   [m2 s-1] default = -1.0
                                 ! The maximum permitted increment for the diapycnal diffusivity from TKE-based
                                 ! parameterizations, or a negative value for no limit.
