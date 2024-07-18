@@ -616,3 +616,5 @@ GUST_CONST = 0.02               !   [Pa] default = 0.0
 ! === module MOM_file_parser ===
 FATAL_UNUSED_PARAMS = True      !   [Boolean] default = False
                                 ! If true, kill the run if there are any unused parameters.
+AUTO_MASKTABLE = True           !   [Boolean] default = False
+                                ! Turn on automatic mask table generation to eliminate land blocks.
