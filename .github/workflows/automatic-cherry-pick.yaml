@@ -28,6 +28,12 @@ jobs:
           fetch-depth: 0
 
       - name: Parse Command
+        # Parse a command of the form:
+        #
+        #   cherry-pick <hash_1> <hash_2> ... <hash_n> into <branch_1> <branch_2> ... <branch_n>
+        #
+        # and generate lists of commits and branches for further processing.
+        #
         # TODO: make this step into a separate job, so that we can handle more than one command per comment
         id: command
         shell: bash
@@ -56,22 +62,21 @@ jobs:
           done
 
           # Check command correctness
-          errors=""
           if [[ "$has_separator" = false ]]; then
-            errors="$errors - the command is missing the \\\`into\\\` separator
-          "
-          fi
-          if [[ -z "$commits" ]]; then
-            errors="$errors - no list of commits to cherry-pick was provided
-          "
-          fi
-          if [[ -z "$branches" ]]; then
-            errors="$errors - no list of target branches was provided
-          "
+            errors="
+           - the command is missing the \\\`into\\\` separator."
+          else
+            if [[ -z "$commits" ]]; then
+              errors+="
+           - no list of commits to cherry-pick was provided"
+            fi
+            if [[ -z "$branches" ]]; then
+              errors+="
+           - no list of target branches was provided"
+            fi
           fi
           if [[ -n "$errors" ]]; then
-            errors="Incorrect cherry-pick command:
-          $errors"
+            errors="Incorrect cherry-pick command:$errors"
             printf "ERROR_MSG<<EOF\n%s\nEOF" "$errors" >> $GITHUB_ENV
           else
             # Output lists of commits and branches
@@ -97,12 +102,11 @@ jobs:
         run: |
           # Check that the commits to cherry-pick are actually part of this PRs target branch
           target=$(gh api repos/{owner}/{repo}/pulls/${{ github.event.issue.number }} -q .base.ref)
-          missing_commits=""
           for commit in ${{ steps.command.outputs.commits }}; do
             if git merge-base --is-ancestor ${commit} origin/$target; then 
               echo "Commit $commit found in $target branch."
             else
-              missing_commits="$missing_commits \\\`$commit\\\`"
+              missing_commits+=" \\\`$commit\\\`"
             fi
           done
           if [[ -n "$missing_commits" ]]; then
@@ -113,12 +117,11 @@ jobs:
         if: env.ERROR_MSG == ''
         run: |
           # Check that cherry-pick target branches actually exist
-          missing_branches=""
           for branch in ${{ steps.command.outputs.branches }}; do
             if [[ -n "$(git ls-remote --heads origin ${branch})" ]]; then
               echo "Found branch $branch in repository."
             else
-              missing_branches="$missing_branches \\\`$branch\\\`"
+              missing_branches+=" \\\`$branch\\\`"
             fi
           done
           if [[ -n "$missing_branches" ]]; then
@@ -129,22 +132,21 @@ jobs:
         if: env.ERROR_MSG == ''
         run: |
           # Check that branches with the cherry-picked commits have not been pushed to the remote yet
-          duplicated_branches=""
           for branch in ${{ steps.command.outputs.branches }}; do
             new_branch=cherry_pick_from_pr${{ github.event.issue.number }}_into_$branch
             if [[ -z "$(git ls-remote --heads origin $new_branch)" ]]; then
               echo "No previous attempt to cherry-pick commits from this PR into branch $branch found."
             else
-              duplicated_branches="$duplicated_branches $branch"
+              duplicated_branches+=" $branch"
             fi
           done
           if [[ -n "$duplicated_branches" ]]; then
             errors="It seems there are previous unfinished attempts to cherry-pick commits from this PR to the following branch(es):"
             for branch in $duplicated_branches; do
-              errors="$errors
+              errors+="
            - [$branch](https://${{ github.repository }}/tree/$branch)"
             done
-            errors="$errors
+            errors+="
           
           If the current cherry-pick attempt is for a different set of commits, make sure that the previous attempts are fully merged and that the corresponding branches have been deleted."
              printf "ERROR_MSG<<EOF\n%s\nEOF" "$errors" >> $GITHUB_ENV
@@ -192,6 +194,7 @@ jobs:
         id: cherry-pick
         continue-on-error: true
         run: |
+          # We use the github-actions bot account for creating the commits. Note that this will not work if the repository requires signed commits.
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
         
@@ -214,33 +217,35 @@ jobs:
         shell: bash
         env:
           GH_TOKEN: ${{ github.token }}
+          BODY: |
+            Automatic Git cherry-picking of commit(s) ${{ needs.process_comment.outputs.commits }} into ${{ steps.info.outputs.target_branch_url }} was successful.
+            
+            The new pull request can be reviewed and approved [here](${{ steps.open_pr.outputs.pr_url }}).
         run: |
-          body="Automatic Git cherry-picking of commit(s) ${{ needs.process_comment.outputs.commits }} into ${{ steps.info.outputs.target_branch_url }} was successful.
-          
-          The new pull request can be reviewed and approved [here](${{ steps.open_pr.outputs.pr_url }})."
-          gh pr comment ${{ github.event.issue.number }} --body "$body"
+          gh pr comment ${{ github.event.issue.number }} --body '${{ env.BODY }}'
 
       - name: Manual cherry-pick instructions
         if: steps.cherry-pick.outcome == 'failure'
         shell: bash
         env:
           GH_TOKEN: ${{ github.token }}
+          BODY: |
+            Automatic Git cherry-picking of commit(s) ${{ needs.process_comment.outputs.commits }} into ${{ steps.info.outputs.target_branch_url }} failed. This usually happens when cherry-picking results in a conflic or an empty commit. To manually cherry-pick the commits and open a pull request, please follow these instructions:
+             1. Create new branch from target branch:
+            ```console
+            git checkout ${{ matrix.branch }}
+            git pull
+            git checkout -b ${{ steps.info.outputs.new_branch }}
+            ```
+             2. Cherry-pick commits:
+            ```console
+            git cherry-pick ${{ needs.process_comment.outputs.commits }}
+            ```
+             3. Fix any conflicts and/or empty commits by following the instructions provided by Git.
+             4. Push the new branch:
+            ```console
+            git push --set-upstream origin ${{ steps.info.outputs.new_branch }}
+            ```
+             5. Open a new pull request on github making sure the target branch is set to ${{ matrix.branch }}.
         run: |
-          body="Automatic Git cherry-picking of commit(s) ${{ needs.process_comment.outputs.commits }} into ${{ steps.info.outputs.target_branch_url }} failed. This usually happens when cherry-picking results in a conflic or an empty commit. To manually cherry-pick the commits and open a pull request, please follow these instructions:
-           1. Create new branch from target branch:
-          \`\`\`console
-          git checkout ${{ matrix.branch }}
-          git pull
-          git checkout -b ${{ steps.info.outputs.new_branch }}
-          \`\`\`
-           2. Cherry-pick commits:
-          \`\`\`console
-          git cherry-pick ${{ needs.process_comment.outputs.commits }}
-          \`\`\`
-           3. Fix any conflicts and/or empty commits by following the instructions provided by Git.
-           4. Push the new branch:
-          \`\`\`console
-          git push --set-upstream origin ${{ steps.info.outputs.new_branch }}
-          \`\`\`
-           5. Open a new pull request on github making sure the target branch is set to ${{ matrix.branch }}."
-          gh pr comment ${{ github.event.issue.number }} --body "$body"
+          gh pr comment ${{ github.event.issue.number }} --body '${{ env.BODY }}'
