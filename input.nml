@@ -20,3 +20,9 @@
     cf_compliance = .true.
 /
 
+&fms2_io_nml
+    ncchksz = 4194304
+    netcdf_default_format = "netcdf4"
+    deflate_level = 4
+    shuffle = .true.
+/
