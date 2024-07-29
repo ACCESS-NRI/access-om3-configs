@@ -362,18 +362,6 @@ ATM_modelio::
      pio_typename = netcdf
 ::
 
-LND_modelio::
-     diro = ./log
-     logfile = lnd.log
-     pio_async_interface = .false.
-     pio_netcdf_format = 64bit_offset
-     pio_numiotasks = -99
-     pio_rearranger = 2
-     pio_root = 1
-     pio_stride = 48
-     pio_typename = netcdf
-::
-
 ICE_modelio::
      diro = ./log
      logfile = ice.log
@@ -389,37 +377,25 @@ ICE_modelio::
 OCN_modelio::
      diro = ./log
      logfile = ocn.log
-     pio_async_interface = .false.
-     pio_netcdf_format = 64bit_offset
-     pio_numiotasks = -99
-     pio_rearranger = 2
-     pio_root = 1
-     pio_stride = 48
-     pio_typename = netcdf
+     pio_async_interface = .false. #not used
+     pio_netcdf_format = 64bit_offset #not used
+     pio_numiotasks = -99 #not used
+     pio_rearranger = 2 #not used
+     pio_root = 1 #not used
+     pio_stride = 48 #not used
+     pio_typename = netcdf #not used, set in input.nml
 ::
 
 ROF_modelio::
      diro = ./log
      logfile = rof.log
-     pio_async_interface = .false.
-     pio_netcdf_format = 64bit_offset
-     pio_numiotasks = -99
-     pio_rearranger = 2
-     pio_root = 1
-     pio_stride = 48
-     pio_typename = netcdf
-::
-
-GLC_modelio::
-     diro = ./log
-     logfile = glc.log
-     pio_async_interface = .false.
-     pio_netcdf_format = 64bit_offset
-     pio_numiotasks = -99
-     pio_rearranger = 2
-     pio_root = 1
-     pio_stride = 48
-     pio_typename = netcdf
+     pio_async_interface = .false. #not used
+     pio_netcdf_format = 64bit_offset #not used
+     pio_numiotasks = -99 #not used
+     pio_rearranger = 2 #not used
+     pio_root = 1 #not used
+     pio_stride = 48 #not used
+     pio_typename = netcdf #not used
 ::
 
 WAV_modelio::
@@ -434,18 +410,6 @@ WAV_modelio::
      pio_typename = netcdf
      history_n = 1
      history_option = ndays
-::
-
-ESP_modelio::
-     diro = ./log
-     logfile = esp.log
-     pio_async_interface = .false.
-     pio_netcdf_format = 64bit_offset
-     pio_numiotasks = -99
-     pio_rearranger = -99
-     pio_root = -99
-     pio_stride = -99
-     pio_typename = nothing
 ::
 
 DRV_modelio::
