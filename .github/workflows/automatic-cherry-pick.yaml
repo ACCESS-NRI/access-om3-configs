@@ -10,7 +10,7 @@ jobs:
     # Ideally we want all pull requests opened from a given command to be correct and successfull, so that
     # developers don't have to reissue a cherry-pick command for a subset of the commits/branches.
     # Therefore, we do all possible sanity checks in this job, before any pull request is opened in subsequent jobs.
-    if: github.event.issue.pull_request != '' && contains(github.event.comment.body, 'cherry-pick')
+    if: github.event.issue.pull_request != '' && contains(github.event.comment.body, '!cherry-pick')
     runs-on: ubuntu-latest
     permissions:
       contents: write
