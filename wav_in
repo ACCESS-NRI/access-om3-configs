@@ -3,7 +3,7 @@
   dtcfli = 300.
   dtmax = 600.
   dtmin = 50.
-  initfile = "./input/restart.ww3"
+  initfile = "./INPUT/restart.ww3"
 /
 &input_nml
   input%forcing%water_levels = 'T'
