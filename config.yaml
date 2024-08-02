@@ -18,8 +18,8 @@ jobname: 1deg_jra55do_ryf
 
 model: access-om3
 
-exe: /g/data/ik11/spack/0.21.2/opt/linux-rocky8-cascadelake/intel-2021.10.0/access-om3-69f719964a27e23deae3923d60af01a081cc3fc0_main-fkzzqnp/bin/access-om3-MOM6-CICE6-WW3
-input: 
+exe: access-om3-MOM6-CICE6-WW3
+input:
     - /g/data/vk83/experiments/inputs/access-om3/share/meshes/global.1deg/2024.01.25/access-om2-1deg-ESMFmesh.nc
     - /g/data/vk83/experiments/inputs/access-om3/share/meshes/global.1deg/2024.01.25/access-om2-1deg-nomask-ESMFmesh.nc
     - /g/data/vk83/experiments/inputs/access-om3/share/meshes/share/2024.01.25/JRA55do-ESMFmesh.nc
@@ -40,3 +40,9 @@ runlog: false
 
 metadata: 
     enable: false
+
+modules:
+    use:
+        - /g/data/ik11/spack/0.21.2/modules/access-om3/0.x.0/linux-rocky8-cascadelake
+    load:
+        - access-om3/63ed4a4777aeac0c62720ddbe7f85e4ed16f82eb_main
