@@ -11,10 +11,10 @@
    <year_last>1900</year_last>
    <year_align>1900</year_align>
    <vectors>null</vectors>
-   <meshfile>./input/JRA55do-ESMFmesh.nc</meshfile>
+   <meshfile>./INPUT/JRA55do-ESMFmesh.nc</meshfile>
    <lev_dimname>null</lev_dimname>
    <datafiles>
-      <file>./input/RYF.friver.1990_1991.nc</file>
+      <file>./INPUT/RYF.friver.1990_1991.nc</file>
    </datafiles>
    <datavars>
       <var>friver Forr_rofl</var>
@@ -32,10 +32,10 @@
    <year_last>1900</year_last>
    <year_align>1900</year_align>
    <vectors>null</vectors>
-   <meshfile>./input/JRA55do-ESMFmesh.nc</meshfile>
+   <meshfile>./INPUT/JRA55do-ESMFmesh.nc</meshfile>
    <lev_dimname>null</lev_dimname>
    <datafiles>
-      <file>./input/RYF.licalvf.1990_1991.nc</file>
+      <file>./INPUT/RYF.licalvf.1990_1991.nc</file>
    </datafiles>
    <datavars>
       <var>licalvf Forr_rofi</var>
