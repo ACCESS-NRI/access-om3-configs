@@ -71,7 +71,7 @@ NJGLOBAL = 300                  !
                                 ! domain. With STATIC_MEMORY_ this is set in MOM_memory.h at compile time.
 
 ! === module MOM_fixed_initialization ===
-INPUTDIR = "./input/"           ! default = "."
+INPUTDIR = "./INPUT/"           ! default = "."
                                 ! The directory in which input files are found.
 
 ! === module MOM_grid_init ===
