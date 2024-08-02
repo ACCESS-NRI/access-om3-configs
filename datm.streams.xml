@@ -11,10 +11,10 @@
    <year_last>1900</year_last>
    <year_align>1900</year_align>
    <vectors>null</vectors>
-   <meshfile>./input/JRA55do-ESMFmesh.nc</meshfile>
+   <meshfile>./INPUT/JRA55do-ESMFmesh.nc</meshfile>
    <lev_dimname>null</lev_dimname>
    <datafiles>
-      <file>./input/RYF.prsn.1990_1991.nc</file>
+      <file>./INPUT/RYF.prsn.1990_1991.nc</file>
    </datafiles>
    <datavars>
       <var>prsn  Faxa_prsn</var>
@@ -32,10 +32,10 @@
    <year_last>1900</year_last>
    <year_align>1900</year_align>
    <vectors>null</vectors>
-   <meshfile>./input/JRA55do-ESMFmesh.nc</meshfile>
+   <meshfile>./INPUT/JRA55do-ESMFmesh.nc</meshfile>
    <lev_dimname>null</lev_dimname>
    <datafiles>
-      <file>./input/RYF.prra.1990_1991.nc</file>
+      <file>./INPUT/RYF.prra.1990_1991.nc</file>
    </datafiles>
    <datavars>
       <var>prra  Faxa_prrn</var>
@@ -53,10 +53,10 @@
    <year_last>1900</year_last>
    <year_align>1900</year_align>
    <vectors>null</vectors>
-   <meshfile>./input/JRA55do-ESMFmesh.nc</meshfile>
+   <meshfile>./INPUT/JRA55do-ESMFmesh.nc</meshfile>
    <lev_dimname>null</lev_dimname>
    <datafiles>
-      <file>./input/RYF.rlds.1990_1991.nc</file>
+      <file>./INPUT/RYF.rlds.1990_1991.nc</file>
    </datafiles>
    <datavars>
       <var>rlds  Faxa_lwdn</var>
@@ -75,10 +75,10 @@
    <year_last>1900</year_last>
    <year_align>1900</year_align>
    <vectors>null</vectors>
-   <meshfile>./input/JRA55do-ESMFmesh.nc</meshfile>
+   <meshfile>./INPUT/JRA55do-ESMFmesh.nc</meshfile>
    <lev_dimname>null</lev_dimname>
    <datafiles>
-      <file>./input/RYF.rsds.1990_1991.nc</file>
+      <file>./INPUT/RYF.rsds.1990_1991.nc</file>
    </datafiles>
    <datavars>
       <var>rsds  Faxa_swdn</var>
@@ -97,10 +97,10 @@
    <year_last>1900</year_last>
    <year_align>1900</year_align>
    <vectors>null</vectors>
-   <meshfile>./input/JRA55do-ESMFmesh.nc</meshfile>
+   <meshfile>./INPUT/JRA55do-ESMFmesh.nc</meshfile>
    <lev_dimname>null</lev_dimname>
    <datafiles>
-      <file>./input/RYF.huss.1990_1991.nc</file>
+      <file>./INPUT/RYF.huss.1990_1991.nc</file>
    </datafiles>
    <datavars>
       <var>huss  Sa_shum</var>
@@ -119,10 +119,10 @@
    <year_last>1900</year_last>
    <year_align>1900</year_align>
    <vectors>null</vectors>
-   <meshfile>./input/JRA55do-ESMFmesh.nc</meshfile>
+   <meshfile>./INPUT/JRA55do-ESMFmesh.nc</meshfile>
    <lev_dimname>null</lev_dimname>
    <datafiles>
-      <file>./input/RYF.psl.1990_1991.nc</file>
+      <file>./INPUT/RYF.psl.1990_1991.nc</file>
    </datafiles>
    <datavars>
       <var>psl  Sa_pslv</var>
@@ -141,10 +141,10 @@
    <year_last>1900</year_last>
    <year_align>1900</year_align>
    <vectors>null</vectors>
-   <meshfile>./input/JRA55do-ESMFmesh.nc</meshfile>
+   <meshfile>./INPUT/JRA55do-ESMFmesh.nc</meshfile>
    <lev_dimname>null</lev_dimname>
    <datafiles>
-      <file>./input/RYF.tas.1990_1991.nc</file>
+      <file>./INPUT/RYF.tas.1990_1991.nc</file>
    </datafiles>
    <datavars>
       <var>tas Sa_tbot</var>
@@ -163,10 +163,10 @@
    <year_last>1900</year_last>
    <year_align>1900</year_align>
    <vectors>null</vectors>
-   <meshfile>./input/JRA55do-ESMFmesh.nc</meshfile>
+   <meshfile>./INPUT/JRA55do-ESMFmesh.nc</meshfile>
    <lev_dimname>null</lev_dimname>
    <datafiles>
-      <file>./input/RYF.uas.1990_1991.nc</file>
+      <file>./INPUT/RYF.uas.1990_1991.nc</file>
    </datafiles>
    <datavars>
       <var>uas Sa_u</var>
@@ -185,10 +185,10 @@
    <year_last>1900</year_last>
    <year_align>1900</year_align>
    <vectors>null</vectors>
-   <meshfile>./input/JRA55do-ESMFmesh.nc</meshfile>
+   <meshfile>./INPUT/JRA55do-ESMFmesh.nc</meshfile>
    <lev_dimname>null</lev_dimname>
    <datafiles>
-      <file>./input/RYF.vas.1990_1991.nc</file>
+      <file>./INPUT/RYF.vas.1990_1991.nc</file>
    </datafiles>
    <datavars>
       <var>vas Sa_v</var>
