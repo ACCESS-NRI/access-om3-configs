@@ -41,8 +41,14 @@ runlog: false
 metadata: 
     enable: false
 
+userscripts:
+    setup: /usr/bin/bash /g/data/vk83/apps/om3-scripts/payu_config/setup.sh
+    archive: /usr/bin/bash /g/data/vk83/apps/om3-scripts/payu_config/archive.sh
+
 modules:
     use:
         - /g/data/ik11/spack/0.21.2/modules/access-om3/0.x.0/linux-rocky8-cascadelake
+        - /g/data/hh5/public/modules
     load:
         - access-om3/63ed4a4777aeac0c62720ddbe7f85e4ed16f82eb_main
+        - conda/analysis3-24.01
