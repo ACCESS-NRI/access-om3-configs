@@ -189,7 +189,7 @@ MINIMUM_DEPTH = 0.5
                                 ! MINIMUM_DEPTH."
 
 ! === module MOM_fixed_initialization ===
-INPUTDIR = "./input/"
+INPUTDIR = "./INPUT/"
                                 ! "The directory in which input files are found."
 
 CHANNEL_CONFIG = global_1deg
