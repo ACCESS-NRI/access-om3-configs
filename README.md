@@ -14,4 +14,4 @@ information.
 
 ## Requirements
 
-This configuration requires payu v1.0.29 or greater to run correctly.
+This configuration requires [Payu](https://github.com/payu-org/payu) > v1.1.3 to run.
