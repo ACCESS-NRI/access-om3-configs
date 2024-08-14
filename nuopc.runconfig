@@ -286,7 +286,7 @@ CLOCK_attributes::
      history_ymd = -999
      ice_cpl_dt = 99999 #not used
      lnd_cpl_dt = 99999 #not used
-     ocn_cpl_dt =  1800 #ignored (coupling timestep set by nuopc.runseq) unless stop_option=nsteps
+     ocn_cpl_dt =  1800 #ignored (coupling timestep set by nuopc.runseq) unless stop_option is nsteps
      restart_n = 1
      restart_option = nmonths
      restart_ymd = -999
