@@ -367,11 +367,11 @@ ICE_modelio::
      logfile = ice.log
      pio_async_interface = .false.
      pio_netcdf_format = 64bit_offset
-     pio_numiotasks = -99
-     pio_rearranger = 2
+     pio_numiotasks = 1
+     pio_rearranger = 1
      pio_root = 1
      pio_stride = 48
-     pio_typename = netcdf
+     pio_typename = netcdf4p
 ::
 
 OCN_modelio::
