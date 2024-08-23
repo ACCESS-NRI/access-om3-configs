@@ -68,18 +68,18 @@
   ustar_min = 0.0005
 /
 &domain_nml
-  block_size_x = 16
-  block_size_y = 15
+  block_size_x = 15
+  block_size_y = 20
   distribution_type = "cartesian"
   distribution_wght = "latitude"
   maskhalo_bound = .true.
   maskhalo_dyn = .true.
   maskhalo_remap = .true.
-  max_blocks = 10
+  max_blocks = 15
   ns_boundary_type = "tripole"
   nx_global = 360
   ny_global = 300
-  processor_shape = "slenderX2"
+  processor_shape = "slenderX1"
 /
 &ice_prescribed_nml
 /
