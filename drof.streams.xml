@@ -1,46 +1,48 @@
-<?xml version="1.0"?>
+<?xml version="1.0" ?>
 <file id="stream" version="2.0">
-
-  <stream_info name="rof.iaf_jra">
-   <taxmode>cycle</taxmode>
-   <tintalgo>upper</tintalgo>
-   <readmode>single</readmode>
-   <mapalgo>bilinear</mapalgo>
-   <dtlimit>3.0</dtlimit>
-   <year_first>1900</year_first>
-   <year_last>1900</year_last>
-   <year_align>1900</year_align>
-   <vectors>null</vectors>
-   <meshfile>./INPUT/JRA55do-ESMFmesh.nc</meshfile>
-   <lev_dimname>null</lev_dimname>
-   <datafiles>
+  <metadata>
+    <File_type>DROF xml file provides river runoff data</File_type>
+    <date_generated>2024-08-29 20:56:38</date_generated>
+    <history>Created by ds0092 (dougiesquire) on 2024-08-29, using https://github.com/COSIMA/om3-scripts/blob/1a1cd0a3732ccfcf49286fd1065d9da417396d5a/data_stream_xml_generation/generate_xml_drof.py: /g/data/vk83/apps/om3-scripts/data_stream_xml_generation/generate_xml_drof.py 1900 1900</history>
+  </metadata>
+  <stream_info name="JRA55do.FRIVER">
+    <taxmode>cycle</taxmode>
+    <tintalgo>upper</tintalgo>
+    <readmode>single</readmode>
+    <mapalgo>bilinear</mapalgo>
+    <dtlimit>3.0</dtlimit>
+    <year_first>1900</year_first>
+    <year_last>1900</year_last>
+    <year_align>1900</year_align>
+    <vectors>null</vectors>
+    <meshfile>./INPUT/JRA55do-drof-ESMFmesh.nc</meshfile>
+    <lev_dimname>null</lev_dimname>
+    <datafiles>
       <file>./INPUT/RYF.friver.1990_1991.nc</file>
-   </datafiles>
-   <datavars>
+    </datafiles>
+    <datavars>
       <var>friver Forr_rofl</var>
-   </datavars>
-   <offset>0</offset>
+    </datavars>
+    <offset>0</offset>
   </stream_info>
-
-   <stream_info name="rof.iaf_jra">
-   <taxmode>cycle</taxmode>
-   <tintalgo>upper</tintalgo>
-   <readmode>single</readmode>
-   <mapalgo>bilinear</mapalgo>
-   <dtlimit>3.0</dtlimit>
-   <year_first>1900</year_first>
-   <year_last>1900</year_last>
-   <year_align>1900</year_align>
-   <vectors>null</vectors>
-   <meshfile>./INPUT/JRA55do-ESMFmesh.nc</meshfile>
-   <lev_dimname>null</lev_dimname>
-   <datafiles>
+  <stream_info name="JRA55do.LICALVF">
+    <taxmode>cycle</taxmode>
+    <tintalgo>upper</tintalgo>
+    <readmode>single</readmode>
+    <mapalgo>bilinear</mapalgo>
+    <dtlimit>3.0</dtlimit>
+    <year_first>1900</year_first>
+    <year_last>1900</year_last>
+    <year_align>1900</year_align>
+    <vectors>null</vectors>
+    <meshfile>./INPUT/JRA55do-drof-ESMFmesh.nc</meshfile>
+    <lev_dimname>null</lev_dimname>
+    <datafiles>
       <file>./INPUT/RYF.licalvf.1990_1991.nc</file>
-   </datafiles>
-   <datavars>
+    </datafiles>
+    <datavars>
       <var>licalvf Forr_rofi</var>
-   </datavars>
-   <offset>0</offset>
+    </datavars>
+    <offset>0</offset>
   </stream_info>
-
 </file>
