@@ -11,7 +11,7 @@
    <year_last>1900</year_last>
    <year_align>1900</year_align>
    <vectors>null</vectors>
-   <meshfile>./INPUT/JRA55do-ESMFmesh.nc</meshfile>
+   <meshfile>./INPUT/JRA55do-drof-ESMFmesh.nc</meshfile>
    <lev_dimname>null</lev_dimname>
    <datafiles>
       <file>./INPUT/RYF.friver.1990_1991.nc</file>
@@ -32,7 +32,7 @@
    <year_last>1900</year_last>
    <year_align>1900</year_align>
    <vectors>null</vectors>
-   <meshfile>./INPUT/JRA55do-ESMFmesh.nc</meshfile>
+   <meshfile>./INPUT/JRA55do-drof-ESMFmesh.nc</meshfile>
    <lev_dimname>null</lev_dimname>
    <datafiles>
       <file>./INPUT/RYF.licalvf.1990_1991.nc</file>

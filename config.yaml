@@ -22,7 +22,8 @@ exe: access-om3-MOM6-CICE6
 input:
     - /g/data/vk83/experiments/inputs/access-om3/share/meshes/global.1deg/2024.01.25/access-om2-1deg-ESMFmesh.nc
     - /g/data/vk83/experiments/inputs/access-om3/share/meshes/global.1deg/2024.01.25/access-om2-1deg-nomask-ESMFmesh.nc
-    - /g/data/vk83/experiments/inputs/access-om3/share/meshes/share/2024.01.25/JRA55do-ESMFmesh.nc
+    - /g/data/vk83/configurations/inputs/access-om3/share/meshes/share/2024.08.31/JRA55do-datm-ESMFmesh.nc
+    - /g/data/vk83/configurations/inputs/access-om3/share/meshes/share/2024.08.31/JRA55do-drof-ESMFmesh.nc
     - /g/data/vk83/experiments/inputs/access-om3/share/grids/global.1deg/2020.10.22/topog.nc
     - /g/data/vk83/experiments/inputs/access-om3/mom/grids/mosaic/global.1deg/2020.05.30/ocean_hgrid.nc
     - /g/data/vk83/experiments/inputs/access-om3/mom/grids/vertical/global.1deg/2023.07.28/ocean_vgrid.nc
