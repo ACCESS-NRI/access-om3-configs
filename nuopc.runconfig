@@ -27,11 +27,11 @@ DRIVER_attributes::
 ::
 
 PELAYOUT_attributes::
-     atm_ntasks = 240
+     atm_ntasks = 48
      atm_nthreads = 1
      atm_pestride = 1
      atm_rootpe = 0
-     cpl_ntasks = 240
+     cpl_ntasks = 96
      cpl_nthreads = 1
      cpl_pestride = 1
      cpl_rootpe = 0
@@ -40,31 +40,31 @@ PELAYOUT_attributes::
      esp_nthreads = 1
      esp_pestride = 1
      esp_rootpe = 0
-     glc_ntasks = 240
+     glc_ntasks = 1
      glc_nthreads = 1
      glc_pestride = 1
      glc_rootpe = 0
-     ice_ntasks = 240
+     ice_ntasks = 96 #Note-Parallel I/O github.com/COSIMA/access-om3/issues/214
      ice_nthreads = 1
      ice_pestride = 1
      ice_rootpe = 0
-     lnd_ntasks = 240
+     lnd_ntasks = 1
      lnd_nthreads = 1
      lnd_pestride = 1
      lnd_rootpe = 0
      ninst = 1
-     ocn_ntasks = 240
+     ocn_ntasks = 1344
      ocn_nthreads = 1
      ocn_pestride = 1
-     ocn_rootpe = 0
+     ocn_rootpe = 96
      pio_asyncio_ntasks = 0
      pio_asyncio_rootpe = 1
      pio_asyncio_stride = 0
-     rof_ntasks = 240
+     rof_ntasks = 48
      rof_nthreads = 1
      rof_pestride = 1
      rof_rootpe = 0
-     wav_ntasks = 240
+     wav_ntasks = 1
      wav_nthreads = 1
      wav_pestride = 1
      wav_rootpe = 0
@@ -366,9 +366,9 @@ ICE_modelio::
      logfile = ice.log
      pio_async_interface = .false.
      pio_netcdf_format = nothing
-     pio_numiotasks = 5
+     pio_numiotasks = 1
      pio_rearranger = 1
-     pio_root = 1
+     pio_root = 0
      pio_stride = 48
      pio_typename = netcdf4p
 ::
