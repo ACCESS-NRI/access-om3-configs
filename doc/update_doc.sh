@@ -23,4 +23,4 @@ do
 done
 
 # update history in README_doc.md
-echo "1. Updated $(date) from branch [${branch}](https://github.com/COSIMA/MOM6-CICE6/tree/${branch}) commit [${commit}](https://github.com/COSIMA/MOM6-CICE6/tree/${commit})" >> doc/README_doc.md
+echo "1. Updated $(date) from branch [${branch}](https://github.com/ACCESS-NRI/access-om3-configs/tree/${branch}) commit [${commit}](https://github.com/ACCESS-NRI/access-om3-configs/tree/${commit})" >> doc/README_doc.md
