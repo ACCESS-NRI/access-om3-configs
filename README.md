@@ -76,7 +76,7 @@ Here is an step-by-step example of how to set up a `1deg_jra55do_ryf` experiment
 (called `my_1deg_jra55do_ryf_experiment_name`) after setting up your fork:
 
 ```bash
-$ git clone git@github.com:<username>/MOM6-CICE6.git my_1deg_jra55do_ryf_experiment_name
+$ git clone git@github.com:<username>/access-om3-configs.git my_1deg_jra55do_ryf_experiment_name
 $ cd my_1deg_jra55do_ryf_experiment_name
 $ git checkout 1deg_jra55do_ryf
 $ git checkout -b my_1deg_jra55do_ryf_experiment_name
