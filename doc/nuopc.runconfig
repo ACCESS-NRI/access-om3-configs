@@ -27,11 +27,11 @@ DRIVER_attributes::
 ::
 
 PELAYOUT_attributes::
-     atm_ntasks = 48
+     atm_ntasks = 24
      atm_nthreads = 1
      atm_pestride = 1
      atm_rootpe = 0
-     cpl_ntasks = 48
+     cpl_ntasks = 24
      cpl_nthreads = 1
      cpl_pestride = 1
      cpl_rootpe = 0
@@ -40,31 +40,31 @@ PELAYOUT_attributes::
      esp_nthreads = 1
      esp_pestride = 1
      esp_rootpe = 0
-     glc_ntasks = 48
+     glc_ntasks = 1
      glc_nthreads = 1
      glc_pestride = 1
      glc_rootpe = 0
-     ice_ntasks = 48
+     ice_ntasks = 24
      ice_nthreads = 1
      ice_pestride = 1
      ice_rootpe = 0
-     lnd_ntasks = 48
+     lnd_ntasks = 1
      lnd_nthreads = 1
      lnd_pestride = 1
      lnd_rootpe = 0
      ninst = 1
-     ocn_ntasks = 48
+     ocn_ntasks = 216
      ocn_nthreads = 1
      ocn_pestride = 1
-     ocn_rootpe = 0
+     ocn_rootpe = 24
      pio_asyncio_ntasks = 0
      pio_asyncio_rootpe = 1
      pio_asyncio_stride = 0
-     rof_ntasks = 48
+     rof_ntasks = 24
      rof_nthreads = 1
      rof_pestride = 1
      rof_rootpe = 0
-     wav_ntasks = 48
+     wav_ntasks = 1
      wav_nthreads = 1
      wav_pestride = 1
      wav_rootpe = 0
@@ -116,12 +116,12 @@ ALLCOMP_attributes::
      hostname = gadi
      ice_ncat = 5
      mediator_present = true
-     mesh_atm = ./input/access-om2-1deg-nomask-ESMFmesh.nc
+     mesh_atm = ./INPUT/access-om2-1deg-nomask-ESMFmesh.nc
      mesh_glc = UNSET
-     mesh_ice = ./input/access-om2-1deg-ESMFmesh.nc
+     mesh_ice = ./INPUT/access-om2-1deg-ESMFmesh.nc
      mesh_lnd = UNSET
-     mesh_mask = ./input/access-om2-1deg-ESMFmesh.nc
-     mesh_ocn = ./input/access-om2-1deg-ESMFmesh.nc
+     mesh_mask = ./INPUT/access-om2-1deg-ESMFmesh.nc
+     mesh_ocn = ./INPUT/access-om2-1deg-ESMFmesh.nc
      model_version = unknown
      ocn2glc_coupling = .false.
      ocn2glc_levels = 1:10:19:26:30:33:35
@@ -278,19 +278,19 @@ MED_attributes::
 ::
 
 CLOCK_attributes::
-     atm_cpl_dt = 3600
+     atm_cpl_dt = 99999 #not used
      calendar = NO_LEAP
      end_restart = .false.
      glc_avg_period = yearly
-     glc_cpl_dt = 86400
+     glc_cpl_dt = 99999 #not used
      history_ymd = -999
-     ice_cpl_dt = 3600
-     lnd_cpl_dt = 3600
-     ocn_cpl_dt = 3600
+     ice_cpl_dt = 99999 #not used
+     lnd_cpl_dt = 99999 #not used
+     ocn_cpl_dt = 3600 #ignored (coupling timestep set by nuopc.runseq) unless stop_option is nsteps
      restart_n = 1
      restart_option = nmonths
      restart_ymd = -999
-     rof_cpl_dt = 3600
+     rof_cpl_dt = 99999 #not used
      start_tod = 0
      start_ymd = 19000101
      stop_n = 1
@@ -300,7 +300,7 @@ CLOCK_attributes::
      tprof_n = -999
      tprof_option = never
      tprof_ymd = -999
-     wav_cpl_dt = 3600
+     wav_cpl_dt = 99999 #not used
 ::
 
 ATM_attributes::
@@ -311,6 +311,7 @@ ATM_attributes::
 ::
 
 ICE_attributes::
+     eps_imesh = 1e-13 # allowed error between angles in mesh file and cice grid
      Verbosity = off
 ::
 
@@ -328,7 +329,7 @@ OCN_attributes::
 
 ROF_attributes::
      Verbosity = off
-     mesh_rof = ./input/access-om2-1deg-nomask-ESMFmesh.nc
+     mesh_rof = ./INPUT/access-om2-1deg-nomask-ESMFmesh.nc
 ::
 
 WAV_attributes::
@@ -360,18 +361,6 @@ ATM_modelio::
      pio_typename = netcdf
 ::
 
-LND_modelio::
-     diro = ./log
-     logfile = lnd.log
-     pio_async_interface = .false.
-     pio_netcdf_format = 64bit_offset
-     pio_numiotasks = -99
-     pio_rearranger = 2
-     pio_root = 1
-     pio_stride = 48
-     pio_typename = netcdf
-::
-
 ICE_modelio::
      diro = ./log
      logfile = ice.log
@@ -387,37 +376,25 @@ ICE_modelio::
 OCN_modelio::
      diro = ./log
      logfile = ocn.log
-     pio_async_interface = .false.
-     pio_netcdf_format = 64bit_offset
-     pio_numiotasks = -99
-     pio_rearranger = 2
-     pio_root = 1
-     pio_stride = 48
-     pio_typename = netcdf
+     pio_async_interface = .false. #not used
+     pio_netcdf_format = 64bit_offset #not used
+     pio_numiotasks = -99 #not used
+     pio_rearranger = 2 #not used
+     pio_root = 1 #not used
+     pio_stride = 48 #not used
+     pio_typename = netcdf #not used, set in input.nml
 ::
 
 ROF_modelio::
      diro = ./log
      logfile = rof.log
-     pio_async_interface = .false.
-     pio_netcdf_format = 64bit_offset
-     pio_numiotasks = -99
-     pio_rearranger = 2
-     pio_root = 1
-     pio_stride = 48
-     pio_typename = netcdf
-::
-
-GLC_modelio::
-     diro = ./log
-     logfile = glc/log
-     pio_async_interface = .false.
-     pio_netcdf_format = 64bit_offset
-     pio_numiotasks = -99
-     pio_rearranger = 2
-     pio_root = 1
-     pio_stride = 48
-     pio_typename = netcdf
+     pio_async_interface = .false. #not used
+     pio_netcdf_format = 64bit_offset #not used
+     pio_numiotasks = -99 #not used
+     pio_rearranger = 2 #not used
+     pio_root = 1 #not used
+     pio_stride = 48 #not used
+     pio_typename = netcdf #not used
 ::
 
 WAV_modelio::
@@ -430,18 +407,6 @@ WAV_modelio::
      pio_root = 1
      pio_stride = 48
      pio_typename = netcdf
-::
-
-ESP_modelio::
-     diro = ./log
-     logfile = esp.log
-     pio_async_interface = .false.
-     pio_netcdf_format = 64bit_offset
-     pio_numiotasks = -99
-     pio_rearranger = -99
-     pio_root = -99
-     pio_stride = -99
-     pio_typename = nothing
 ::
 
 DRV_modelio::
