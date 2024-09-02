@@ -2,41 +2,50 @@
 
 # If submitting to a different project to your default, uncomment line below 
 # and change project code as appropriate; also set shortpath below
-project: x77
+# project: x77
 
 # Force payu to always find, and save, files in this scratch project directory
 # (you may need to add the corresponding PBS -l storage flag in sync_data.sh)
-shortpath: /scratch/v45
+# shortpath: /scratch/v45
 
 queue: normal
-ncpus: 48
+ncpus: 240
 jobfs: 10GB
-mem: 192GB
+mem: 960GB
 
 walltime: 01:00:00
 jobname: 1deg_jra55do_ryf
 
 model: access-om3
 
-exe: /g/data/ik11/spack/0.20.1/opt/linux-rocky8-cascadelake/intel-2021.6.0/access-om3-main-lxbeca7/bin/access-om3-MOM6-CICE6
-input: 
-    - /g/data/ik11/inputs/access-om3/0.x.0/1deg/share # shared grids and topography
-    - /g/data/ik11/inputs/access-om3/0.x.0/1deg/mom # grids, ICs etc
-    - /g/data/ik11/inputs/access-om3/0.x.0/1deg/cice # grids, ICs etc
-    - /g/data/ik11/inputs/access-om3/0.x.0/share/meshes/JRA55do-ESMFmesh.nc # mesh for JRA55-do stream
-    - /g/data/ik11/inputs/JRA-55/RYF/v1-4 # datm and drof JRA55-do streams data
+exe: access-om3-MOM6-CICE6
+input:
+    - /g/data/vk83/experiments/inputs/access-om3/share/meshes/global.1deg/2024.01.25/access-om2-1deg-ESMFmesh.nc
+    - /g/data/vk83/experiments/inputs/access-om3/share/meshes/global.1deg/2024.01.25/access-om2-1deg-nomask-ESMFmesh.nc
+    - /g/data/vk83/experiments/inputs/access-om3/share/meshes/share/2024.01.25/JRA55do-ESMFmesh.nc
+    - /g/data/vk83/experiments/inputs/access-om3/share/grids/global.1deg/2020.10.22/topog.nc
+    - /g/data/vk83/experiments/inputs/access-om3/mom/grids/mosaic/global.1deg/2020.05.30/ocean_hgrid.nc
+    - /g/data/vk83/experiments/inputs/access-om3/mom/grids/vertical/global.1deg/2023.07.28/ocean_vgrid.nc
+    - /g/data/vk83/experiments/inputs/access-om3/mom/initial_conditions/global.1deg/2020.10.22/ocean_temp_salt.res.nc
+    - /g/data/vk83/experiments/inputs/access-om3/mom/surface_salt_restoring/global.1deg/2020.05.30/salt_sfc_restore.nc
+    - /g/data/vk83/experiments/inputs/access-om3/cice/grids/global.1deg/2024.05.14/grid.nc
+    - /g/data/vk83/experiments/inputs/access-om3/cice/grids/global.1deg/2024.05.14/kmt.nc
+    - /g/data/vk83/experiments/inputs/access-om3/cice/initial_conditions/global.1deg/2023.07.28/iced.1900-01-01-10800.nc
+    - /g/data/vk83/experiments/inputs/JRA-55/RYF/v1-4/data
  
 collate: false
 runlog: false
+metadata: 
+    enable: false
 
 userscripts:
-    setup: ./setup_cice_restarts.sh
-    archive: ./archive_cice_restarts.sh
+    setup: /usr/bin/bash /g/data/vk83/apps/om3-scripts/payu_config/setup.sh
+    archive: /usr/bin/bash /g/data/vk83/apps/om3-scripts/payu_config/archive.sh
 
 modules:
-  use:
-      - /g/data/ik11/spack/0.20.1/modules/access-om3/0.x.0/linux-rocky8-cascadelake
-  load:
-      - intel-compiler/2021.6.0
-      - openmpi/4.1.4
-      - parallelio/2.5.10
+    use:
+        - /g/data/ik11/spack/0.21.2/modules/access-om3/0.x.0/linux-rocky8-cascadelake
+        - /g/data/hh5/public/modules
+    load:
+        - access-om3/63ed4a4777aeac0c62720ddbe7f85e4ed16f82eb_main
+        - conda/analysis3-24.01

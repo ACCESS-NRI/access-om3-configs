@@ -71,7 +71,7 @@ NJGLOBAL = 300                  !
                                 ! domain. With STATIC_MEMORY_ this is set in MOM_memory.h at compile time.
 
 ! === module MOM_fixed_initialization ===
-INPUTDIR = "./input/"           ! default = "."
+INPUTDIR = "./INPUT/"           ! default = "."
                                 ! The directory in which input files are found.
 
 ! === module MOM_grid_init ===
@@ -141,6 +141,12 @@ DTFREEZE_DP = -7.75E-08         !   [deg C Pa-1] default = 0.0
                                 ! When TFREEZE_FORM=LINEAR, this is the derivative of the freezing potential
                                 ! temperature with pressure.
 
+EPS_OMESH = 1e-13
+                                ! "default = 0.0001
+                                ! An float which sets the allowable error (in degrees) between
+                                ! grid angle defined in the ESMF mesh file used by CMEPS
+                                ! and the ocean_hgrid file used by mom
+
 ! === module MOM_tracer_flow_control ===
 USE_IDEAL_AGE_TRACER = True     !   [Boolean] default = False
                                 ! If true, use the ideal_age_example tracer package.
@@ -201,6 +207,9 @@ Z_INIT_FILE_PTEMP_VAR = "temp"  ! default = "ptemp"
                                 ! The name of the potential temperature variable in TEMP_Z_INIT_FILE.
 Z_INIT_ALE_REMAPPING = True     !   [Boolean] default = False
                                 ! If True, then remap straight to model coordinate from file.
+Z_INIT_REMAP_GENERAL = True     !   [Boolean] default = False
+                                ! If false, only initializes to z* coordinates. If true, allows initialization
+                                ! directly to general coordinates.
 TEMP_SALT_INIT_VERTICAL_REMAP_ONLY = True !   [Boolean] default = False
                                 ! If true, initial conditions are on the model horizontal grid. Extrapolation
                                 ! over missing ocean values is done using an ICE-9 procedure with vertical ALE
@@ -620,8 +629,6 @@ SALT_RESTORE_FILE = "salt_sfc_restore.nc" ! default = "salt_restore.nc"
 SRESTORE_AS_SFLUX = True        !   [Boolean] default = False
                                 ! If true, the restoring of salinity is applied as a salt flux instead of as a
                                 ! freshwater flux.
-MAX_DELTA_SRESTORE = 0.5        !   [PSU or g kg-1] default = 999.0
-                                ! The maximum salinity difference used in restoring terms.
 GUST_CONST = 0.02               !   [Pa] default = 0.0
                                 ! The background gustiness in the winds.
 

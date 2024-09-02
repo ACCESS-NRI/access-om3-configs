@@ -1,29 +1,32 @@
 &setup_nml
   bfbflag = "off" 
   conserv_check = .false.
-  debug_forcing = .true.
-  debug_model = .true.
   diagfreq = 960
   dumpfreq = "y"
   dump_last = .true.
   histfreq = "d", "m", "x", "x", "x"
+  hist_suffix = "", "m", "x", "x", "x" !limited to one character due to https://github.com/COSIMA/access-om3/issues/201
+  hist_time_axis = "middle"
+  history_deflate = 1
+  history_chunksize = 180, 150
   history_precision = 8
-  ice_ic = "./input/iced.1900-01-01-10800.nc"
+  restart_deflate = 1
+  ice_ic = "./INPUT/iced.1900-01-01-10800.nc"
   lcdf64 = .false.
   npt = 35040
   pointer_file      = './rpointer.ice'
   print_global      = .false.
 /
 &grid_nml
-  bathymetry_file = "./input/topog.nc"
+  bathymetry_file = "./INPUT/topog.nc"
   grid_atm = "A"
-  grid_file = "./input/grid.nc"
+  grid_file = "./INPUT/grid.nc"
   grid_format = "nc"
   grid_ice = "B"
   grid_ocn = "A"
   grid_type = "tripole"
   kcatbound = 0
-  kmt_file = "./input/kmt.nc"
+  kmt_file = "./INPUT/kmt.nc"
   nblyr = 1
   ncat = 5
   nfsd = 1
@@ -65,18 +68,18 @@
   ustar_min = 0.0005
 /
 &domain_nml
-  block_size_x = 16
-  block_size_y = 15
+  block_size_x = 15
+  block_size_y = 20
   distribution_type = "cartesian"
   distribution_wght = "latitude"
   maskhalo_bound = .true.
   maskhalo_dyn = .true.
   maskhalo_remap = .true.
-  max_blocks = 10
+  max_blocks = 15
   ns_boundary_type = "tripole"
   nx_global = 360
   ny_global = 300
-  processor_shape = "slenderX2"
+  processor_shape = "slenderX1"
 /
 &ice_prescribed_nml
 /
@@ -123,12 +126,26 @@
   f_fsurfn_ai = "m"
   f_hi = "md"
   f_hs = "md"
+  f_sifb = "md"
   f_snoice = "md"
   f_uvel = "md" , f_vvel = "md"
   f_vicen = "m"
   !-----------------------------------
   ! These fields are on by default (in ice_history_shared.F90) but lets turn them off
   !-----------------------------------
+  f_tlon         = .false. , f_tlat         = .false.
+  f_ulon         = .false. , f_ulat         = .false.
+  f_nlon         = .false. , f_nlat         = .false.
+  f_elon         = .false. , f_elat         = .false.
+  f_tmask        = .false. , f_umask        = .false.
+  f_nmask        = .false. , f_emask        = .false.
+  f_tarea        = .false. , f_uarea        = .false.
+  f_narea        = .false. , f_earea        = .false.
+  f_dxt          = .false. , f_dyt          = .false.
+  f_dxu          = .false. , f_dyu          = .false.
+  f_dxe          = .false. , f_dye          = .false.
+  f_dxn          = .false. , f_dyn          = .false.
+  f_HTN          = .false. , f_HTE          = .false.
   f_albpnd = 'x'
   f_atmdir = 'x' , f_atmspd = 'x'
   f_coszen = 'x'
