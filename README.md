@@ -55,8 +55,7 @@ These configurations should **not** be used for production runs.
 ## Setting up an experiment
 
 The first thing to do is to clone this repository. Although it is possible to
-directly clone the repository from the [COSIMA
-organization](https://github.com/COSIMA/), it is better to use a fork
+directly clone the repository from  [ACCESS-NRI/access-om3-configs](https://github.com/ACCESS-NRI/access-om3-configs), it is better to use a fork
 instead. This will allow you to push any changes you make to the configuration,
 as well as use the payu run log to keep track of your experiment in your fork on
 GitHub. Detailed instructions about how to set up a fork can be found
@@ -112,7 +111,7 @@ wiki](https://github.com/COSIMA/access-om3/wiki/Quick-start#running).
 ## Pull requests
 
 We welcome contributions from users of these configurations. If you make a
-configuration improvement which you think should be included in the COSIMA
+configuration improvement which you think should be included in the [ACCESS-NRI/access-om3-configs](https://github.com/ACCESS-NRI/access-om3-configs)
 repository, push it to your fork and then do a pull request from the relevant
-branch in your fork to the branch it originated from in the COSIMA repository
+branch in your fork to the branch it originated from in [ACCESS-NRI/access-om3-configs](https://github.com/ACCESS-NRI/access-om3-configs)
 (not `main`).
