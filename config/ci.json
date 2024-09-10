@@ -1,0 +1,23 @@
+{
+    "$schema": "https://github.com/ACCESS-NRI/schema/tree/main/au.org.access-nri/model/configuration/ci/2-0-0.json",
+    "scheduled": {
+        "default": {
+            "markers": "checksum"
+        }
+    },
+    "reproducibility": {
+        "default": {
+            "markers": "checksum"
+        }
+    },
+    "qa": {
+        "default": {
+            "markers": "access_om3 or config"
+        }
+    },
+    "default": {
+        "model-config-tests-version": "0.0.7",
+        "python-version": "3.11.0",
+        "payu-version": "1.1.5"
+    }
+}
