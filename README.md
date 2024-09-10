@@ -117,7 +117,7 @@ branch in your fork to the branch it originated from in [ACCESS-NRI/access-om3-c
 
 ### User-Dispatchable Repro-CI Workflow
 
-This repository contains a user-dispatchable workflow (minimum `Write` role required) for the generation of reproducibility checksums on a given Config Branch. The workflow requires sign off from @ACCESS-NRI/ocean to run on Gadi.
+This repository contains a user-dispatchable workflow (minimum `Write` role required) for the generation of reproducibility checksums on a given Config Branch. The workflow requires sign off from [@ACCESS-NRI/ocean](https://github.com/orgs/ACCESS-NRI/teams/ocean) to run on Gadi.
 
 Workflow inputs :
 
