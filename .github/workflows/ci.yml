@@ -32,6 +32,9 @@ jobs:
     name: PR
     if: github.event_name == 'pull_request' && github.repository != 'ACCESS-NRI/model-configs-template'
     uses: access-nri/model-config-tests/.github/workflows/config-pr-1-ci.yml@main
+    with:
+      additional-artifact-content-paths: |
+        archive/output000/MOM_parameter_doc.*
     secrets: inherit
     permissions:
       contents: write
