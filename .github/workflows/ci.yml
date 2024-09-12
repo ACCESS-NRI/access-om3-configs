@@ -28,6 +28,9 @@ on:
       - 'metadata.yaml'
 
 jobs:
+  ###########
+  # PR jobs #
+  ###########
   pr:
     name: PR
     if: github.event_name == 'pull_request' && github.repository != 'ACCESS-NRI/model-configs-template'
@@ -41,6 +44,49 @@ jobs:
       pull-requests: write  # For pull request comments denoting failure of the workflow
       checks: write  # For results of tests as a check
 
+  pr-docs:
+    name: PR Docs
+    needs:
+      - pr
+    runs-on: ubuntu-latest
+    env:
+      ARTIFACT_LOCAL_LOCATION: /opt/artifact
+    permissions:
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/download-artifact@v4
+        with:
+          name: ${{ needs.pr.outputs.repro-ci-artifact-name }}
+          path: ${{ env.ARTIFACT_LOCAL_LOCATION }}
+
+      - name: Diff docs/
+        id: diff
+        run: |
+          mv ${{ env.ARTIFACT_LOCAL_LOCATION }}/output000/* ./docs
+          git add .
+          if git diff --cached --exit-code ./docs; then
+            echo "::warning::Modification to 'docs/', need to commit with '!update docs'"
+            exit 1
+          fi
+
+      - name: Diff docs/ notifier
+        if: failure() && steps.diff.outcome == 'failure'
+        env:
+          REPO_TARGET_DOCS_URL: https://${{ github.server_url }}/${{ github.repository}}/tree/${{ github.head_ref }}/docs
+          REPO_SOURCE_ARTIFACT_URL: ${{ needs.pr.outputs.repro-ci-artifact-url }}
+        uses: access-nri/actions/.github/actions/pr-comment@main
+        with:
+          pr: ${{ github.event.issue.number }}
+          comment: |
+            The `docs` in ${{ env.REPO_TARGET_DOCS_URL }} differ from ${{ env.REPO_SOURCE_ARTIFACT_URL }} (in directory `output000`).
+
+            Comment `!update_docs` if you want these changes committed.
+
+  ###################
+  # PR Comment jobs #
+  ###################
   pr-comment:
     name: Comment
     if: github.event_name == 'issue_comment' && github.repository != 'ACCESS-NRI/model-configs-template'
@@ -50,6 +96,66 @@ jobs:
       contents: write  # For updating metadata.yaml version and committing checksums
       pull-requests: write  # For commenting on PR
 
+  pr-comment-docs:
+    name: Comment Docs
+    if: github.event_name == 'issue_comment' && github.event.comment.body == '!update_docs' && github.repository != 'ACCESS-NRI/model-configs-template'
+    runs-on: ubuntu-latest
+    env:
+      ARTIFACT_LOCAL_LOCATION: /opt/artifact
+      GH_TOKEN: ${{ github.token }}
+    permissions:
+      pull-requests: write
+    steps:
+      - uses: access-nri/actions/.github/actions/react-to-comment@main
+        with:
+          reaction: rocket
+          token: ${{ github.token }}
+
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GH_COMMIT_CHECK_TOKEN }}
+
+      - name: Checkout Associated PR ${{ github.event.issue.number }}
+        # Since the trigger for this workflow was on.issue_comment, we need
+        # to do a bit more wrangling to checkout the pull request and get the branch name
+        id: pr
+        run: |
+          gh pr checkout ${{ github.event.issue.number }}
+          echo "branch=$(git rev-parse --abbrev-ref HEAD)" >> $GITHUB_OUTPUT
+
+      - name: Download Newly Created Checksum
+        # Given the PR branch, we need to find the latest associated workflow run
+        # on this branch we can then download the associated artifact
+        run: |
+          associated_run=$(gh run list \
+            --json='databaseId,headBranch,updatedAt,status' \
+            --jq='[.[] | select(.headBranch == "${{ steps.pr.outputs.branch }}" and .status == "completed")] | sort_by(.updatedAt) | last | .databaseId')
+          gh run download $associated_run -D ${{ env.ARTIFACT_LOCAL_LOCATION }}
+
+      - name: Import Commit-Signing Key
+        uses: crazy-max/ghaction-import-gpg@01dd5d3ca463c7f10f7f4f7b4f177225ac661ee4  # v6.1.0
+        with:
+          gpg_private_key: ${{ secrets.GH_ACTIONS_BOT_GPG_PRIVATE_KEY }}
+          passphrase: ${{ secrets.GH_ACTIONS_BOT_GPG_PASSPHRASE }}
+          git_config_global: true
+          git_committer_name: ${{ vars.GH_ACTIONS_BOT_GIT_USER_NAME }}
+          git_committer_email: ${{ vars.GH_ACTIONS_BOT_GIT_USER_EMAIL }}
+          git_user_signingkey: true
+          git_commit_gpgsign: true
+
+      - name: Commit docs/
+        env:
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          mv ${{ env.ARTIFACT_LOCAL_LOCATION }}/output000/* ./docs
+          git add .
+          git commit -m "Updated docs as part of ${{ env.RUN_URL }}"
+          git push
+
+  #################
+  # Bump Tag jobs #
+  #################
   bump-tag:
     name: Tag Bump
     if: (github.event_name == 'push' || github.event_name == 'create' && github.ref_type == 'branch' && startsWith(github.ref_name, 'release-')) && github.repository != 'ACCESS-NRI/model-configs-template'
