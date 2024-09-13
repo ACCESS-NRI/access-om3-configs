@@ -22,13 +22,11 @@ according to the following naming scheme:
 Additional required information, like if the configuration includes
 biogeochemistry, is appended to the name.
 
-Currently the following configurations are available:
+Currently the following development configurations are available:
 
-FIXME: Will this be changed to `release-<config>`?
-
-- [`1deg_jra55do_ryf`](https://github.com/ACCESS-NRI/access-om3-configs/tree/1deg_jra55do_ryf)
-- [`1deg_jra55do_iaf`](https://github.com/ACCESS-NRI/access-om3-configs/tree/1deg_jra55do_iaf)
-- [`1deg_jra55do_ryf_wombatlite`](https://github.com/ACCESS-NRI/access-om3-configs/tree/1deg_jra55do_ryf_wombatlite)
+- [`dev-1deg_jra55do_ryf`](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-1deg_jra55do_ryf)
+- [`dev-1deg_jra55do_iaf`](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-1deg_jra55do_iaf)
+- [`dev-1deg_jra55do_ryf_wombatlite`](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-1deg_jra55do_ryf_wombatlite)
 - [`025deg_jra55do_ryf`](https://github.com/ACCESS-NRI/access-om3-configs/tree/025deg_jra55do_ryf)
 
 **Note that the [`main`](https://github.com/ACCESS-NRI/access-om3-configs/tree/main) branch
