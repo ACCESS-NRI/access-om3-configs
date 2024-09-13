@@ -27,7 +27,7 @@ Currently the following development configurations are available:
 - [`dev-1deg_jra55do_ryf`](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-1deg_jra55do_ryf)
 - [`dev-1deg_jra55do_iaf`](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-1deg_jra55do_iaf)
 - [`dev-1deg_jra55do_ryf_wombatlite`](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-1deg_jra55do_ryf_wombatlite)
-- [`025deg_jra55do_ryf`](https://github.com/ACCESS-NRI/access-om3-configs/tree/025deg_jra55do_ryf)
+- [`dev-025deg_jra55do_ryf`](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-025deg_jra55do_ryf)
 
 **Note that the [`main`](https://github.com/ACCESS-NRI/access-om3-configs/tree/main) branch
 does not store any configuration, only some documentation.**
@@ -43,12 +43,12 @@ These configurations should **not** be used for production runs.
 
 ## Comparison table
 
-- [`1deg_jra55do_ryf`➡️`1deg_jra55do_iaf`](https://github.com/ACCESS-NRI/access-om3-configs/compare/1deg_jra55do_ryf..1deg_jra55do_iaf)
-- [`1deg_jra55do_ryf`➡️`1deg_jra55do_ryf_wombatlite`](https://github.com/ACCESS-NRI/access-om3-configs/compare/1deg_jra55do_ryf..1deg_jra55do_ryf_wombatlite)
-- [`1deg_jra55do_ryf`➡️`025deg_jra55do_ryf`](https://github.com/ACCESS-NRI/access-om3-configs/compare/1deg_jra55do_ryf..025deg_jra55do_ryf)
-- [`1deg_jra55do_iaf`➡️`1deg_jra55do_ryf_wombatlite`](https://github.com/ACCESS-NRI/access-om3-configs/compare/1deg_jra55do_iaf..1deg_jra55do_ryf_wombatlite)
-- [`1deg_jra55do_iaf`➡️`025deg_jra55do_ryf`](https://github.com/ACCESS-NRI/access-om3-configs/compare/1deg_jra55do_iaf..025deg_jra55do_ryf)
-- [`1deg_jra55do_ryf_wombatlite`➡️`025deg_jra55do_ryf`](https://github.com/ACCESS-NRI/access-om3-configs/compare/1deg_jra55do_ryf_wombatlite..025deg_jra55do_ryf)
+- [`dev-1deg_jra55do_ryf`➡️`dev-1deg_jra55do_iaf`](https://github.com/ACCESS-NRI/access-om3-configs/compare/dev-1deg_jra55do_ryf..dev-dev-1deg_jra55do_iaf)
+- [`dev-1deg_jra55do_ryf`➡️`dev-1deg_jra55do_ryf_wombatlite`](https://github.com/ACCESS-NRI/access-om3-configs/compare/dev-1deg_jra55do_ryf..dev-1deg_jra55do_ryf_wombatlite)
+- [`dev-1deg_jra55do_ryf`➡️`dev-025deg_jra55do_ryf`](https://github.com/ACCESS-NRI/access-om3-configs/compare/dev-1deg_jra55do_ryf..dev-025deg_jra55do_ryf)
+- [`dev-1deg_jra55do_iaf`➡️`dev-1deg_jra55do_ryf_wombatlite`](https://github.com/ACCESS-NRI/access-om3-configs/compare/dev-1deg_jra55do_iaf..dev-1deg_jra55do_ryf_wombatlite)
+- [`dev-1deg_jra55do_iaf`➡️`dev-025deg_jra55do_ryf`](https://github.com/ACCESS-NRI/access-om3-configs/compare/dev-1deg_jra55do_iaf..dev-025deg_jra55do_ryf)
+- [`dev-1deg_jra55do_ryf_wombatlite`➡️`dev-025deg_jra55do_ryf`](https://github.com/ACCESS-NRI/access-om3-configs/compare/dev-1deg_jra55do_ryf_wombatlite..dev-025deg_jra55do_ryf)
 
 ## Setting up an experiment
 
@@ -114,27 +114,6 @@ branch in your fork to the branch it originated from in [ACCESS-NRI/access-om3-c
 (not `main`).
 
 ## Configuration CI
-
-### Config Branches
-
-Config branches are branches that store model configurations of the form: `release-<config>` or `dev-<config>`, for example: `release-025deg_jra55do_ryf`. For more information on creating your own config branches, or for understanding the PR process in this repository, see the [CONTRIBUTING.md](CONTRIBUTING.md).
-
-### Config Tags
-
-Config tags are specific tags on config branches, whose `MAJOR.MINOR` version compares the reproducibility of the configurations. Major version changes denote that a particular config tag breaks reproducibility with tags before it, and a minor version change does not. These have the form: `release-<config>-<tag>`, such as `release-025deg_jra55do_ryf-1.2`.
-
-So for example, say we have the following config tags:
-
-- `release-025deg_jra55do_ryf-1.0`
-- `release-025deg_jra55do_ryf-1.1`
-- `release-025deg_jra55do_ryf-2.0`
-- `release-025deg_jra55do_ryf-3.0`
-
-This means that `*-1.0` and `*-1.1` are configurations for that particular experiment type that are reproducible with each other, but not any others (namely, `*-2.0` or `*-3.0`).
-
-`*-2.0` is not reproducible with `*-1.0`, `*.1.1` or `*-3.0` configurations.
-
-Similarly, `*-3.0` is not reproducible with `*-1.0`, `*-1.1` or `*-2.0`.
 
 ### PR Repro CI
 
