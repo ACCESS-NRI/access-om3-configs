@@ -126,7 +126,7 @@ jobs:
           gh pr checkout ${{ github.event.issue.number }}
           echo "branch=$(git rev-parse --abbrev-ref HEAD)" >> $GITHUB_OUTPUT
 
-      - name: Download Newly Created Checksum
+      - name: Download Docs
         # Given the PR branch, we need to find the latest associated workflow run
         # on this branch we can then download the associated artifact
         run: |
