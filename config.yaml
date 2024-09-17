@@ -21,20 +21,20 @@ model: access-om3
 
 exe: access-om3-MOM6-CICE6-WW3
 input:
-    - /g/data/vk83/experiments/inputs/access-om3/share/meshes/global.1deg/2024.01.25/access-om2-1deg-ESMFmesh.nc
-    - /g/data/vk83/experiments/inputs/access-om3/share/meshes/global.1deg/2024.01.25/access-om2-1deg-nomask-ESMFmesh.nc
-    - /g/data/vk83/experiments/inputs/access-om3/share/meshes/share/2024.09.16/JRA55do-datm-ESMFmesh.nc
-    - /g/data/vk83/experiments/inputs/access-om3/share/meshes/share/2024.09.16/JRA55do-drof-ESMFmesh.nc
-    - /g/data/vk83/experiments/inputs/access-om3/share/grids/global.1deg/2020.10.22/topog.nc
-    - /g/data/vk83/experiments/inputs/access-om3/mom/grids/mosaic/global.1deg/2020.05.30/ocean_hgrid.nc
-    - /g/data/vk83/experiments/inputs/access-om3/mom/grids/vertical/global.1deg/2023.07.28/ocean_vgrid.nc
-    - /g/data/vk83/experiments/inputs/access-om3/mom/initial_conditions/global.1deg/2020.10.22/ocean_temp_salt.res.nc
-    - /g/data/vk83/experiments/inputs/access-om3/mom/surface_salt_restoring/global.1deg/2020.05.30/salt_sfc_restore.nc
-    - /g/data/vk83/experiments/inputs/access-om3/cice/grids/global.1deg/2024.05.14/grid.nc
-    - /g/data/vk83/experiments/inputs/access-om3/cice/grids/global.1deg/2024.05.14/kmt.nc
-    - /g/data/vk83/experiments/inputs/access-om3/cice/initial_conditions/global.1deg/2023.07.28/iced.1900-01-01-10800.nc
-    - /g/data/vk83/experiments/inputs/access-om3/ww3/initial_conditions/global.1deg/2024.04.18/restart.ww3
-    - /g/data/vk83/experiments/inputs/access-om3/ww3/mod_def/global.1deg/2024.04.18/mod_def.ww3
+    - /g/data/vk83/configurations/inputs/access-om3/share/meshes/global.1deg/2024.01.25/access-om2-1deg-ESMFmesh.nc
+    - /g/data/vk83/configurations/inputs/access-om3/share/meshes/global.1deg/2024.01.25/access-om2-1deg-nomask-ESMFmesh.nc
+    - /g/data/vk83/configurations/inputs/access-om3/share/meshes/share/2024.09.16/JRA55do-datm-ESMFmesh.nc
+    - /g/data/vk83/configurations/inputs/access-om3/share/meshes/share/2024.09.16/JRA55do-drof-ESMFmesh.nc
+    - /g/data/vk83/configurations/inputs/access-om3/share/grids/global.1deg/2020.10.22/topog.nc
+    - /g/data/vk83/configurations/inputs/access-om3/mom/grids/mosaic/global.1deg/2020.05.30/ocean_hgrid.nc
+    - /g/data/vk83/configurations/inputs/access-om3/mom/grids/vertical/global.1deg/2023.07.28/ocean_vgrid.nc
+    - /g/data/vk83/configurations/inputs/access-om3/mom/initial_conditions/global.1deg/2020.10.22/ocean_temp_salt.res.nc
+    - /g/data/vk83/configurations/inputs/access-om3/mom/surface_salt_restoring/global.1deg/2020.05.30/salt_sfc_restore.nc
+    - /g/data/vk83/configurations/inputs/access-om3/cice/grids/global.1deg/2024.05.14/grid.nc
+    - /g/data/vk83/configurations/inputs/access-om3/cice/grids/global.1deg/2024.05.14/kmt.nc
+    - /g/data/vk83/configurations/inputs/access-om3/cice/initial_conditions/global.1deg/2023.07.28/iced.1900-01-01-10800.nc
+    - /g/data/vk83/configurations/inputs/access-om3/ww3/initial_conditions/global.1deg/2024.04.18/restart.ww3
+    - /g/data/vk83/configurations/inputs/access-om3/ww3/mod_def/global.1deg/2024.04.18/mod_def.ww3
     - /g/data/qv56/replicas/input4MIPs/CMIP6/OMIP/MRI/MRI-JRA55-do-1-4-0
 
 collate: false
