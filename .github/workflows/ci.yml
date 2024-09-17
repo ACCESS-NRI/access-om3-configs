@@ -71,7 +71,7 @@ jobs:
       - name: Diff docs/
         id: diff
         run: |
-          mv ${{ env.ARTIFACT_LOCAL_LOCATION }}/${{ env.PAYU_OUTPUT_DIR }}/* ./docs
+          mv ${{ env.ARTIFACT_LOCAL_LOCATION }}/${{ env.PAYU_OUTPUT_DIR }}/MOM_parameter_doc.* ./docs
           git add .
           if git diff --cached --exit-code ./docs; then
             echo "::warning::Modification to 'docs/', need to commit with '!update docs'"
