@@ -40,6 +40,11 @@ jobs:
     with:
       additional-artifact-content-paths: |
         archive/output000/MOM_parameter_doc.*
+        archive/output000/*.err
+        archive/output000/*.log
+        archive/output000/job.yaml
+        archive/output000/env.yaml
+        archive/output000/log
     secrets: inherit
     permissions:
       contents: write
