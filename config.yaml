@@ -48,8 +48,8 @@ userscripts:
 
 modules:
     use:
-        - /g/data/ik11/spack/0.21.2/modules/access-om3/0.x.0/linux-rocky8-cascadelake
+        - /g/data/vk83/modules
         - /g/data/hh5/public/modules
     load:
-        - access-om3/96f91599f746b4866bbd3f05ee6eb192ba70d391_main
+        - access-om3/2024.09.0
         - conda/analysis3-24.01
