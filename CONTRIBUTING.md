@@ -6,7 +6,7 @@ Changes to the CI Infrastructure are made to the `main` branch in this repositor
 
 ## Dev and Release branches
 
-Each configuration has a `dev-*` and a `release-*` branch. They differ in the CI checks that are run when pull requests are made to update the branch. Any branch starting with either `dev-*` or  `release-*` are protected branches. You cannot (and should not) modify them directly or create new branches starting with either `dev-` or `release-`.
+Each configuration has a `dev-*` and a `release-*` branch. They differ in the CI checks that are run when pull requests are made to update the branch. Any branch starting with either `dev-*` or  `release-*` are protected branches. You cannot (and should not) modify them directly or create new branches with names starting with either `dev-` or `release-`.
 
 ### Dev
 

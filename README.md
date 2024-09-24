@@ -43,7 +43,7 @@ These configurations should **not** be used for production runs.
 
 ## Comparison table
 
-- [`dev-1deg_jra55do_ryf`➡️`dev-1deg_jra55do_iaf`](https://github.com/ACCESS-NRI/access-om3-configs/compare/dev-1deg_jra55do_ryf..dev-dev-1deg_jra55do_iaf)
+- [`dev-1deg_jra55do_ryf`➡️`dev-1deg_jra55do_iaf`](https://github.com/ACCESS-NRI/access-om3-configs/compare/dev-1deg_jra55do_ryf..dev-1deg_jra55do_iaf)
 - [`dev-1deg_jra55do_ryf`➡️`dev-1deg_jra55do_ryf_wombatlite`](https://github.com/ACCESS-NRI/access-om3-configs/compare/dev-1deg_jra55do_ryf..dev-1deg_jra55do_ryf_wombatlite)
 - [`dev-1deg_jra55do_ryf`➡️`dev-025deg_jra55do_ryf`](https://github.com/ACCESS-NRI/access-om3-configs/compare/dev-1deg_jra55do_ryf..dev-025deg_jra55do_ryf)
 - [`dev-1deg_jra55do_iaf`➡️`dev-1deg_jra55do_ryf_wombatlite`](https://github.com/ACCESS-NRI/access-om3-configs/compare/dev-1deg_jra55do_iaf..dev-1deg_jra55do_ryf_wombatlite)
