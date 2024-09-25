@@ -18,7 +18,7 @@ Pull requests to the `release-*` branch should be made from the respective `dev-
 
 It is expected that the version *will* be updated before the pull request can be merged. This in turn creates a new tag for that configuration branch. It can be confusing for users if there are a large number of versions of a configuration and it is of little benefit to them. For this reason the atomicity of updates to a released configuration should be minimised, i.e.  updates should be meaningful.
 
-## Creation of a new ACCESS-OM2 Config
+## Creation of a new ACCESS-OM3 Config
 
 Config branches are entirely separate from the `main` history in this repository, except for a few files in `.github`. Note, you may need to be an Administrator to commit to `release-*` or `dev-*` branches directly.
 
@@ -48,9 +48,9 @@ git checkout -b release-<config_name>
 git push release-<config_name>
 ```
 
-For the CI workflows to work correctly the `release-` branch needs to have a version set, and a reproducibility checksum committed. There is a convenience workflow for this purpose: [Generate Initial Checksums](https://github.com/ACCESS-NRI/access-om2-configs/actions/workflows/generate-initial-checksums.yml). Click the "Run workflow" menu, fill in the fields and push the green "Run workflow" button.
+For the CI workflows to work correctly the `release-` branch needs to have a version set, and a reproducibility checksum committed. There is a convenience workflow for this purpose: [Generate Initial Checksums](https://github.com/ACCESS-NRI/access-om3-configs/actions/workflows/generate-initial-checksums.yml). Click the "Run workflow" menu, fill in the fields and push the green "Run workflow" button.
 
-Once the workflow is completed there should be a new commit on the `release-*` branch, and a [tag](https://github.com/ACCESS-NRI/access-om2-configs/tags) for the specified version.
+Once the workflow is completed there should be a new commit on the `release-*` branch, and a [tag](https://github.com/ACCESS-NRI/access-om3-configs/tags) for the specified version.
 
 Once the `release-*` branch has been updated those changes need to be merged **back** into the `dev-*` branch. This step is only necessary when the `release-*` branch is updated independently of the `dev-*` branch.
 
