@@ -1,7 +1,12 @@
 <?xml version="1.0" ?>
 <file id="stream" version="2.0">
-  <stream_info name="CORE_IAF_JRA55do.PRSN">
-    <taxmode>cycle</taxmode>
+  <metadata>
+    <File_type>DATM xml file provides forcing data</File_type>
+    <date_generated>2024-09-25 15:48:10</date_generated>
+    <history>Created by as2285 (anton-seaice) on 2024-09-25, using https://github.com/COSIMA/om3-scripts/blob/b4048fd0d3230112c9572d1ad5bb5120e7ddeee9/data_stream_xml_generation/generate_xml_datm.py: /g/data/vk83/apps/om3-scripts/data_stream_xml_generation/generate_xml_datm.py 1958 2018</history>
+  </metadata>
+  <stream_info name="JRA55do.PRSN">
+    <taxmode>limit</taxmode>
     <readmode>single</readmode>
     <mapalgo>bilinear</mapalgo>
     <dtlimit>1.5</dtlimit>
@@ -9,70 +14,70 @@
     <year_last>2018</year_last>
     <year_align>1958</year_align>
     <vectors>null</vectors>
-    <meshfile>./INPUT/JRA55do-ESMFmesh.nc</meshfile>
+    <meshfile>./INPUT/JRA55do-datm-ESMFmesh.nc</meshfile>
     <lev_dimname>null</lev_dimname>
     <datafiles>
-      <file>./INPUT/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_195801010130-195812312230.nc</file>
-      <file>./INPUT/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_195901010130-195912312230.nc</file>
-      <file>./INPUT/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196001010130-196012312230.nc</file>
-      <file>./INPUT/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196101010130-196112312230.nc</file>
-      <file>./INPUT/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196201010130-196212312230.nc</file>
-      <file>./INPUT/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196301010130-196312312230.nc</file>
-      <file>./INPUT/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196401010130-196412312230.nc</file>
-      <file>./INPUT/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196501010130-196512312230.nc</file>
-      <file>./INPUT/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196601010130-196612312230.nc</file>
-      <file>./INPUT/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196701010130-196712312230.nc</file>
-      <file>./INPUT/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196801010130-196812312230.nc</file>
-      <file>./INPUT/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196901010130-196912312230.nc</file>
-      <file>./INPUT/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197001010130-197012312230.nc</file>
-      <file>./INPUT/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197101010130-197112312230.nc</file>
-      <file>./INPUT/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197201010130-197212312230.nc</file>
-      <file>./INPUT/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197301010130-197312312230.nc</file>
-      <file>./INPUT/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197401010130-197412312230.nc</file>
-      <file>./INPUT/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197501010130-197512312230.nc</file>
-      <file>./INPUT/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197601010130-197612312230.nc</file>
-      <file>./INPUT/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197701010130-197712312230.nc</file>
-      <file>./INPUT/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197801010130-197812312230.nc</file>
-      <file>./INPUT/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197901010130-197912312230.nc</file>
-      <file>./INPUT/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198001010130-198012312230.nc</file>
-      <file>./INPUT/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198101010130-198112312230.nc</file>
-      <file>./INPUT/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198201010130-198212312230.nc</file>
-      <file>./INPUT/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198301010130-198312312230.nc</file>
-      <file>./INPUT/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198401010130-198412312230.nc</file>
-      <file>./INPUT/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198501010130-198512312230.nc</file>
-      <file>./INPUT/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198601010130-198612312230.nc</file>
-      <file>./INPUT/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198701010130-198712312230.nc</file>
-      <file>./INPUT/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198801010130-198812312230.nc</file>
-      <file>./INPUT/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198901010130-198912312230.nc</file>
-      <file>./INPUT/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199001010130-199012312230.nc</file>
-      <file>./INPUT/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199101010130-199112312230.nc</file>
-      <file>./INPUT/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199201010130-199212312230.nc</file>
-      <file>./INPUT/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199301010130-199312312230.nc</file>
-      <file>./INPUT/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199401010130-199412312230.nc</file>
-      <file>./INPUT/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199501010130-199512312230.nc</file>
-      <file>./INPUT/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199601010130-199612312230.nc</file>
-      <file>./INPUT/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199701010130-199712312230.nc</file>
-      <file>./INPUT/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199801010130-199812312230.nc</file>
-      <file>./INPUT/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199901010130-199912312230.nc</file>
-      <file>./INPUT/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200001010130-200012312230.nc</file>
-      <file>./INPUT/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200101010130-200112312230.nc</file>
-      <file>./INPUT/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200201010130-200212312230.nc</file>
-      <file>./INPUT/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200301010130-200312312230.nc</file>
-      <file>./INPUT/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200401010130-200412312230.nc</file>
-      <file>./INPUT/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200501010130-200512312230.nc</file>
-      <file>./INPUT/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200601010130-200612312230.nc</file>
-      <file>./INPUT/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200701010130-200712312230.nc</file>
-      <file>./INPUT/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200801010130-200812312230.nc</file>
-      <file>./INPUT/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200901010130-200912312230.nc</file>
-      <file>./INPUT/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201001010130-201012312230.nc</file>
-      <file>./INPUT/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201101010130-201112312230.nc</file>
-      <file>./INPUT/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201201010130-201212312230.nc</file>
-      <file>./INPUT/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201301010130-201312312230.nc</file>
-      <file>./INPUT/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201401010130-201412312230.nc</file>
-      <file>./INPUT/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201501010130-201512312230.nc</file>
-      <file>./INPUT/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201601010130-201612312230.nc</file>
-      <file>./INPUT/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201701010130-201712312230.nc</file>
-      <file>./INPUT/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201801010130-201812312230.nc</file>
+      <file>./INPUT/atmos/3hr/prsn/gr/v20190429/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_195801010130-195812312230.nc</file>
+      <file>./INPUT/atmos/3hr/prsn/gr/v20190429/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_195901010130-195912312230.nc</file>
+      <file>./INPUT/atmos/3hr/prsn/gr/v20190429/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196001010130-196012312230.nc</file>
+      <file>./INPUT/atmos/3hr/prsn/gr/v20190429/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196101010130-196112312230.nc</file>
+      <file>./INPUT/atmos/3hr/prsn/gr/v20190429/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196201010130-196212312230.nc</file>
+      <file>./INPUT/atmos/3hr/prsn/gr/v20190429/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196301010130-196312312230.nc</file>
+      <file>./INPUT/atmos/3hr/prsn/gr/v20190429/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196401010130-196412312230.nc</file>
+      <file>./INPUT/atmos/3hr/prsn/gr/v20190429/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196501010130-196512312230.nc</file>
+      <file>./INPUT/atmos/3hr/prsn/gr/v20190429/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196601010130-196612312230.nc</file>
+      <file>./INPUT/atmos/3hr/prsn/gr/v20190429/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196701010130-196712312230.nc</file>
+      <file>./INPUT/atmos/3hr/prsn/gr/v20190429/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196801010130-196812312230.nc</file>
+      <file>./INPUT/atmos/3hr/prsn/gr/v20190429/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196901010130-196912312230.nc</file>
+      <file>./INPUT/atmos/3hr/prsn/gr/v20190429/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197001010130-197012312230.nc</file>
+      <file>./INPUT/atmos/3hr/prsn/gr/v20190429/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197101010130-197112312230.nc</file>
+      <file>./INPUT/atmos/3hr/prsn/gr/v20190429/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197201010130-197212312230.nc</file>
+      <file>./INPUT/atmos/3hr/prsn/gr/v20190429/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197301010130-197312312230.nc</file>
+      <file>./INPUT/atmos/3hr/prsn/gr/v20190429/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197401010130-197412312230.nc</file>
+      <file>./INPUT/atmos/3hr/prsn/gr/v20190429/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197501010130-197512312230.nc</file>
+      <file>./INPUT/atmos/3hr/prsn/gr/v20190429/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197601010130-197612312230.nc</file>
+      <file>./INPUT/atmos/3hr/prsn/gr/v20190429/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197701010130-197712312230.nc</file>
+      <file>./INPUT/atmos/3hr/prsn/gr/v20190429/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197801010130-197812312230.nc</file>
+      <file>./INPUT/atmos/3hr/prsn/gr/v20190429/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197901010130-197912312230.nc</file>
+      <file>./INPUT/atmos/3hr/prsn/gr/v20190429/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198001010130-198012312230.nc</file>
+      <file>./INPUT/atmos/3hr/prsn/gr/v20190429/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198101010130-198112312230.nc</file>
+      <file>./INPUT/atmos/3hr/prsn/gr/v20190429/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198201010130-198212312230.nc</file>
+      <file>./INPUT/atmos/3hr/prsn/gr/v20190429/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198301010130-198312312230.nc</file>
+      <file>./INPUT/atmos/3hr/prsn/gr/v20190429/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198401010130-198412312230.nc</file>
+      <file>./INPUT/atmos/3hr/prsn/gr/v20190429/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198501010130-198512312230.nc</file>
+      <file>./INPUT/atmos/3hr/prsn/gr/v20190429/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198601010130-198612312230.nc</file>
+      <file>./INPUT/atmos/3hr/prsn/gr/v20190429/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198701010130-198712312230.nc</file>
+      <file>./INPUT/atmos/3hr/prsn/gr/v20190429/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198801010130-198812312230.nc</file>
+      <file>./INPUT/atmos/3hr/prsn/gr/v20190429/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198901010130-198912312230.nc</file>
+      <file>./INPUT/atmos/3hr/prsn/gr/v20190429/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199001010130-199012312230.nc</file>
+      <file>./INPUT/atmos/3hr/prsn/gr/v20190429/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199101010130-199112312230.nc</file>
+      <file>./INPUT/atmos/3hr/prsn/gr/v20190429/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199201010130-199212312230.nc</file>
+      <file>./INPUT/atmos/3hr/prsn/gr/v20190429/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199301010130-199312312230.nc</file>
+      <file>./INPUT/atmos/3hr/prsn/gr/v20190429/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199401010130-199412312230.nc</file>
+      <file>./INPUT/atmos/3hr/prsn/gr/v20190429/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199501010130-199512312230.nc</file>
+      <file>./INPUT/atmos/3hr/prsn/gr/v20190429/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199601010130-199612312230.nc</file>
+      <file>./INPUT/atmos/3hr/prsn/gr/v20190429/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199701010130-199712312230.nc</file>
+      <file>./INPUT/atmos/3hr/prsn/gr/v20190429/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199801010130-199812312230.nc</file>
+      <file>./INPUT/atmos/3hr/prsn/gr/v20190429/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199901010130-199912312230.nc</file>
+      <file>./INPUT/atmos/3hr/prsn/gr/v20190429/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200001010130-200012312230.nc</file>
+      <file>./INPUT/atmos/3hr/prsn/gr/v20190429/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200101010130-200112312230.nc</file>
+      <file>./INPUT/atmos/3hr/prsn/gr/v20190429/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200201010130-200212312230.nc</file>
+      <file>./INPUT/atmos/3hr/prsn/gr/v20190429/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200301010130-200312312230.nc</file>
+      <file>./INPUT/atmos/3hr/prsn/gr/v20190429/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200401010130-200412312230.nc</file>
+      <file>./INPUT/atmos/3hr/prsn/gr/v20190429/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200501010130-200512312230.nc</file>
+      <file>./INPUT/atmos/3hr/prsn/gr/v20190429/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200601010130-200612312230.nc</file>
+      <file>./INPUT/atmos/3hr/prsn/gr/v20190429/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200701010130-200712312230.nc</file>
+      <file>./INPUT/atmos/3hr/prsn/gr/v20190429/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200801010130-200812312230.nc</file>
+      <file>./INPUT/atmos/3hr/prsn/gr/v20190429/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200901010130-200912312230.nc</file>
+      <file>./INPUT/atmos/3hr/prsn/gr/v20190429/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201001010130-201012312230.nc</file>
+      <file>./INPUT/atmos/3hr/prsn/gr/v20190429/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201101010130-201112312230.nc</file>
+      <file>./INPUT/atmos/3hr/prsn/gr/v20190429/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201201010130-201212312230.nc</file>
+      <file>./INPUT/atmos/3hr/prsn/gr/v20190429/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201301010130-201312312230.nc</file>
+      <file>./INPUT/atmos/3hr/prsn/gr/v20190429/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201401010130-201412312230.nc</file>
+      <file>./INPUT/atmos/3hr/prsn/gr/v20190429/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201501010130-201512312230.nc</file>
+      <file>./INPUT/atmos/3hr/prsn/gr/v20190429/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201601010130-201612312230.nc</file>
+      <file>./INPUT/atmos/3hr/prsn/gr/v20190429/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201701010130-201712312230.nc</file>
+      <file>./INPUT/atmos/3hr/prsn/gr/v20190429/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201801010130-201812312230.nc</file>
     </datafiles>
     <datavars>
       <var>prsn  Faxa_prsn</var>
@@ -80,8 +85,8 @@
     <offset>-5400</offset>
     <tintalgo>linear</tintalgo>
   </stream_info>
-  <stream_info name="CORE_IAF_JRA55do.PRRN">
-    <taxmode>cycle</taxmode>
+  <stream_info name="JRA55do.PRRN">
+    <taxmode>limit</taxmode>
     <readmode>single</readmode>
     <mapalgo>bilinear</mapalgo>
     <dtlimit>1.5</dtlimit>
@@ -89,70 +94,70 @@
     <year_last>2018</year_last>
     <year_align>1958</year_align>
     <vectors>null</vectors>
-    <meshfile>./INPUT/JRA55do-ESMFmesh.nc</meshfile>
+    <meshfile>./INPUT/JRA55do-datm-ESMFmesh.nc</meshfile>
     <lev_dimname>null</lev_dimname>
     <datafiles>
-      <file>./INPUT/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_195801010130-195812312230.nc</file>
-      <file>./INPUT/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_195901010130-195912312230.nc</file>
-      <file>./INPUT/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196001010130-196012312230.nc</file>
-      <file>./INPUT/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196101010130-196112312230.nc</file>
-      <file>./INPUT/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196201010130-196212312230.nc</file>
-      <file>./INPUT/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196301010130-196312312230.nc</file>
-      <file>./INPUT/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196401010130-196412312230.nc</file>
-      <file>./INPUT/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196501010130-196512312230.nc</file>
-      <file>./INPUT/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196601010130-196612312230.nc</file>
-      <file>./INPUT/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196701010130-196712312230.nc</file>
-      <file>./INPUT/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196801010130-196812312230.nc</file>
-      <file>./INPUT/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196901010130-196912312230.nc</file>
-      <file>./INPUT/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197001010130-197012312230.nc</file>
-      <file>./INPUT/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197101010130-197112312230.nc</file>
-      <file>./INPUT/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197201010130-197212312230.nc</file>
-      <file>./INPUT/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197301010130-197312312230.nc</file>
-      <file>./INPUT/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197401010130-197412312230.nc</file>
-      <file>./INPUT/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197501010130-197512312230.nc</file>
-      <file>./INPUT/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197601010130-197612312230.nc</file>
-      <file>./INPUT/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197701010130-197712312230.nc</file>
-      <file>./INPUT/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197801010130-197812312230.nc</file>
-      <file>./INPUT/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197901010130-197912312230.nc</file>
-      <file>./INPUT/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198001010130-198012312230.nc</file>
-      <file>./INPUT/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198101010130-198112312230.nc</file>
-      <file>./INPUT/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198201010130-198212312230.nc</file>
-      <file>./INPUT/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198301010130-198312312230.nc</file>
-      <file>./INPUT/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198401010130-198412312230.nc</file>
-      <file>./INPUT/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198501010130-198512312230.nc</file>
-      <file>./INPUT/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198601010130-198612312230.nc</file>
-      <file>./INPUT/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198701010130-198712312230.nc</file>
-      <file>./INPUT/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198801010130-198812312230.nc</file>
-      <file>./INPUT/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198901010130-198912312230.nc</file>
-      <file>./INPUT/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199001010130-199012312230.nc</file>
-      <file>./INPUT/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199101010130-199112312230.nc</file>
-      <file>./INPUT/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199201010130-199212312230.nc</file>
-      <file>./INPUT/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199301010130-199312312230.nc</file>
-      <file>./INPUT/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199401010130-199412312230.nc</file>
-      <file>./INPUT/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199501010130-199512312230.nc</file>
-      <file>./INPUT/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199601010130-199612312230.nc</file>
-      <file>./INPUT/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199701010130-199712312230.nc</file>
-      <file>./INPUT/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199801010130-199812312230.nc</file>
-      <file>./INPUT/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199901010130-199912312230.nc</file>
-      <file>./INPUT/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200001010130-200012312230.nc</file>
-      <file>./INPUT/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200101010130-200112312230.nc</file>
-      <file>./INPUT/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200201010130-200212312230.nc</file>
-      <file>./INPUT/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200301010130-200312312230.nc</file>
-      <file>./INPUT/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200401010130-200412312230.nc</file>
-      <file>./INPUT/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200501010130-200512312230.nc</file>
-      <file>./INPUT/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200601010130-200612312230.nc</file>
-      <file>./INPUT/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200701010130-200712312230.nc</file>
-      <file>./INPUT/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200801010130-200812312230.nc</file>
-      <file>./INPUT/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200901010130-200912312230.nc</file>
-      <file>./INPUT/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201001010130-201012312230.nc</file>
-      <file>./INPUT/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201101010130-201112312230.nc</file>
-      <file>./INPUT/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201201010130-201212312230.nc</file>
-      <file>./INPUT/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201301010130-201312312230.nc</file>
-      <file>./INPUT/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201401010130-201412312230.nc</file>
-      <file>./INPUT/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201501010130-201512312230.nc</file>
-      <file>./INPUT/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201601010130-201612312230.nc</file>
-      <file>./INPUT/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201701010130-201712312230.nc</file>
-      <file>./INPUT/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201801010130-201812312230.nc</file>
+      <file>./INPUT/atmos/3hr/prra/gr/v20190429/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_195801010130-195812312230.nc</file>
+      <file>./INPUT/atmos/3hr/prra/gr/v20190429/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_195901010130-195912312230.nc</file>
+      <file>./INPUT/atmos/3hr/prra/gr/v20190429/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196001010130-196012312230.nc</file>
+      <file>./INPUT/atmos/3hr/prra/gr/v20190429/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196101010130-196112312230.nc</file>
+      <file>./INPUT/atmos/3hr/prra/gr/v20190429/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196201010130-196212312230.nc</file>
+      <file>./INPUT/atmos/3hr/prra/gr/v20190429/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196301010130-196312312230.nc</file>
+      <file>./INPUT/atmos/3hr/prra/gr/v20190429/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196401010130-196412312230.nc</file>
+      <file>./INPUT/atmos/3hr/prra/gr/v20190429/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196501010130-196512312230.nc</file>
+      <file>./INPUT/atmos/3hr/prra/gr/v20190429/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196601010130-196612312230.nc</file>
+      <file>./INPUT/atmos/3hr/prra/gr/v20190429/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196701010130-196712312230.nc</file>
+      <file>./INPUT/atmos/3hr/prra/gr/v20190429/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196801010130-196812312230.nc</file>
+      <file>./INPUT/atmos/3hr/prra/gr/v20190429/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196901010130-196912312230.nc</file>
+      <file>./INPUT/atmos/3hr/prra/gr/v20190429/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197001010130-197012312230.nc</file>
+      <file>./INPUT/atmos/3hr/prra/gr/v20190429/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197101010130-197112312230.nc</file>
+      <file>./INPUT/atmos/3hr/prra/gr/v20190429/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197201010130-197212312230.nc</file>
+      <file>./INPUT/atmos/3hr/prra/gr/v20190429/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197301010130-197312312230.nc</file>
+      <file>./INPUT/atmos/3hr/prra/gr/v20190429/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197401010130-197412312230.nc</file>
+      <file>./INPUT/atmos/3hr/prra/gr/v20190429/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197501010130-197512312230.nc</file>
+      <file>./INPUT/atmos/3hr/prra/gr/v20190429/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197601010130-197612312230.nc</file>
+      <file>./INPUT/atmos/3hr/prra/gr/v20190429/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197701010130-197712312230.nc</file>
+      <file>./INPUT/atmos/3hr/prra/gr/v20190429/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197801010130-197812312230.nc</file>
+      <file>./INPUT/atmos/3hr/prra/gr/v20190429/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197901010130-197912312230.nc</file>
+      <file>./INPUT/atmos/3hr/prra/gr/v20190429/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198001010130-198012312230.nc</file>
+      <file>./INPUT/atmos/3hr/prra/gr/v20190429/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198101010130-198112312230.nc</file>
+      <file>./INPUT/atmos/3hr/prra/gr/v20190429/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198201010130-198212312230.nc</file>
+      <file>./INPUT/atmos/3hr/prra/gr/v20190429/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198301010130-198312312230.nc</file>
+      <file>./INPUT/atmos/3hr/prra/gr/v20190429/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198401010130-198412312230.nc</file>
+      <file>./INPUT/atmos/3hr/prra/gr/v20190429/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198501010130-198512312230.nc</file>
+      <file>./INPUT/atmos/3hr/prra/gr/v20190429/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198601010130-198612312230.nc</file>
+      <file>./INPUT/atmos/3hr/prra/gr/v20190429/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198701010130-198712312230.nc</file>
+      <file>./INPUT/atmos/3hr/prra/gr/v20190429/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198801010130-198812312230.nc</file>
+      <file>./INPUT/atmos/3hr/prra/gr/v20190429/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198901010130-198912312230.nc</file>
+      <file>./INPUT/atmos/3hr/prra/gr/v20190429/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199001010130-199012312230.nc</file>
+      <file>./INPUT/atmos/3hr/prra/gr/v20190429/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199101010130-199112312230.nc</file>
+      <file>./INPUT/atmos/3hr/prra/gr/v20190429/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199201010130-199212312230.nc</file>
+      <file>./INPUT/atmos/3hr/prra/gr/v20190429/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199301010130-199312312230.nc</file>
+      <file>./INPUT/atmos/3hr/prra/gr/v20190429/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199401010130-199412312230.nc</file>
+      <file>./INPUT/atmos/3hr/prra/gr/v20190429/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199501010130-199512312230.nc</file>
+      <file>./INPUT/atmos/3hr/prra/gr/v20190429/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199601010130-199612312230.nc</file>
+      <file>./INPUT/atmos/3hr/prra/gr/v20190429/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199701010130-199712312230.nc</file>
+      <file>./INPUT/atmos/3hr/prra/gr/v20190429/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199801010130-199812312230.nc</file>
+      <file>./INPUT/atmos/3hr/prra/gr/v20190429/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199901010130-199912312230.nc</file>
+      <file>./INPUT/atmos/3hr/prra/gr/v20190429/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200001010130-200012312230.nc</file>
+      <file>./INPUT/atmos/3hr/prra/gr/v20190429/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200101010130-200112312230.nc</file>
+      <file>./INPUT/atmos/3hr/prra/gr/v20190429/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200201010130-200212312230.nc</file>
+      <file>./INPUT/atmos/3hr/prra/gr/v20190429/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200301010130-200312312230.nc</file>
+      <file>./INPUT/atmos/3hr/prra/gr/v20190429/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200401010130-200412312230.nc</file>
+      <file>./INPUT/atmos/3hr/prra/gr/v20190429/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200501010130-200512312230.nc</file>
+      <file>./INPUT/atmos/3hr/prra/gr/v20190429/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200601010130-200612312230.nc</file>
+      <file>./INPUT/atmos/3hr/prra/gr/v20190429/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200701010130-200712312230.nc</file>
+      <file>./INPUT/atmos/3hr/prra/gr/v20190429/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200801010130-200812312230.nc</file>
+      <file>./INPUT/atmos/3hr/prra/gr/v20190429/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200901010130-200912312230.nc</file>
+      <file>./INPUT/atmos/3hr/prra/gr/v20190429/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201001010130-201012312230.nc</file>
+      <file>./INPUT/atmos/3hr/prra/gr/v20190429/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201101010130-201112312230.nc</file>
+      <file>./INPUT/atmos/3hr/prra/gr/v20190429/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201201010130-201212312230.nc</file>
+      <file>./INPUT/atmos/3hr/prra/gr/v20190429/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201301010130-201312312230.nc</file>
+      <file>./INPUT/atmos/3hr/prra/gr/v20190429/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201401010130-201412312230.nc</file>
+      <file>./INPUT/atmos/3hr/prra/gr/v20190429/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201501010130-201512312230.nc</file>
+      <file>./INPUT/atmos/3hr/prra/gr/v20190429/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201601010130-201612312230.nc</file>
+      <file>./INPUT/atmos/3hr/prra/gr/v20190429/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201701010130-201712312230.nc</file>
+      <file>./INPUT/atmos/3hr/prra/gr/v20190429/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201801010130-201812312230.nc</file>
     </datafiles>
     <datavars>
       <var>prra  Faxa_prrn</var>
@@ -160,8 +165,8 @@
     <offset>-5400</offset>
     <tintalgo>linear</tintalgo>
   </stream_info>
-  <stream_info name="CORE_IAF_JRA55do.LWDN">
-    <taxmode>cycle</taxmode>
+  <stream_info name="JRA55do.LWDN">
+    <taxmode>limit</taxmode>
     <readmode>single</readmode>
     <mapalgo>bilinear</mapalgo>
     <dtlimit>1.5</dtlimit>
@@ -169,70 +174,70 @@
     <year_last>2018</year_last>
     <year_align>1958</year_align>
     <vectors>null</vectors>
-    <meshfile>./INPUT/JRA55do-ESMFmesh.nc</meshfile>
+    <meshfile>./INPUT/JRA55do-datm-ESMFmesh.nc</meshfile>
     <lev_dimname>null</lev_dimname>
     <datafiles>
-      <file>./INPUT/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_195801010130-195812312230.nc</file>
-      <file>./INPUT/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_195901010130-195912312230.nc</file>
-      <file>./INPUT/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196001010130-196012312230.nc</file>
-      <file>./INPUT/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196101010130-196112312230.nc</file>
-      <file>./INPUT/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196201010130-196212312230.nc</file>
-      <file>./INPUT/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196301010130-196312312230.nc</file>
-      <file>./INPUT/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196401010130-196412312230.nc</file>
-      <file>./INPUT/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196501010130-196512312230.nc</file>
-      <file>./INPUT/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196601010130-196612312230.nc</file>
-      <file>./INPUT/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196701010130-196712312230.nc</file>
-      <file>./INPUT/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196801010130-196812312230.nc</file>
-      <file>./INPUT/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196901010130-196912312230.nc</file>
-      <file>./INPUT/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197001010130-197012312230.nc</file>
-      <file>./INPUT/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197101010130-197112312230.nc</file>
-      <file>./INPUT/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197201010130-197212312230.nc</file>
-      <file>./INPUT/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197301010130-197312312230.nc</file>
-      <file>./INPUT/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197401010130-197412312230.nc</file>
-      <file>./INPUT/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197501010130-197512312230.nc</file>
-      <file>./INPUT/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197601010130-197612312230.nc</file>
-      <file>./INPUT/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197701010130-197712312230.nc</file>
-      <file>./INPUT/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197801010130-197812312230.nc</file>
-      <file>./INPUT/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197901010130-197912312230.nc</file>
-      <file>./INPUT/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198001010130-198012312230.nc</file>
-      <file>./INPUT/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198101010130-198112312230.nc</file>
-      <file>./INPUT/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198201010130-198212312230.nc</file>
-      <file>./INPUT/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198301010130-198312312230.nc</file>
-      <file>./INPUT/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198401010130-198412312230.nc</file>
-      <file>./INPUT/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198501010130-198512312230.nc</file>
-      <file>./INPUT/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198601010130-198612312230.nc</file>
-      <file>./INPUT/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198701010130-198712312230.nc</file>
-      <file>./INPUT/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198801010130-198812312230.nc</file>
-      <file>./INPUT/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198901010130-198912312230.nc</file>
-      <file>./INPUT/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199001010130-199012312230.nc</file>
-      <file>./INPUT/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199101010130-199112312230.nc</file>
-      <file>./INPUT/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199201010130-199212312230.nc</file>
-      <file>./INPUT/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199301010130-199312312230.nc</file>
-      <file>./INPUT/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199401010130-199412312230.nc</file>
-      <file>./INPUT/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199501010130-199512312230.nc</file>
-      <file>./INPUT/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199601010130-199612312230.nc</file>
-      <file>./INPUT/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199701010130-199712312230.nc</file>
-      <file>./INPUT/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199801010130-199812312230.nc</file>
-      <file>./INPUT/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199901010130-199912312230.nc</file>
-      <file>./INPUT/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200001010130-200012312230.nc</file>
-      <file>./INPUT/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200101010130-200112312230.nc</file>
-      <file>./INPUT/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200201010130-200212312230.nc</file>
-      <file>./INPUT/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200301010130-200312312230.nc</file>
-      <file>./INPUT/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200401010130-200412312230.nc</file>
-      <file>./INPUT/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200501010130-200512312230.nc</file>
-      <file>./INPUT/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200601010130-200612312230.nc</file>
-      <file>./INPUT/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200701010130-200712312230.nc</file>
-      <file>./INPUT/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200801010130-200812312230.nc</file>
-      <file>./INPUT/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200901010130-200912312230.nc</file>
-      <file>./INPUT/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201001010130-201012312230.nc</file>
-      <file>./INPUT/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201101010130-201112312230.nc</file>
-      <file>./INPUT/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201201010130-201212312230.nc</file>
-      <file>./INPUT/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201301010130-201312312230.nc</file>
-      <file>./INPUT/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201401010130-201412312230.nc</file>
-      <file>./INPUT/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201501010130-201512312230.nc</file>
-      <file>./INPUT/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201601010130-201612312230.nc</file>
-      <file>./INPUT/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201701010130-201712312230.nc</file>
-      <file>./INPUT/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201801010130-201812312230.nc</file>
+      <file>./INPUT/atmos/3hr/rlds/gr/v20190429/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_195801010130-195812312230.nc</file>
+      <file>./INPUT/atmos/3hr/rlds/gr/v20190429/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_195901010130-195912312230.nc</file>
+      <file>./INPUT/atmos/3hr/rlds/gr/v20190429/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196001010130-196012312230.nc</file>
+      <file>./INPUT/atmos/3hr/rlds/gr/v20190429/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196101010130-196112312230.nc</file>
+      <file>./INPUT/atmos/3hr/rlds/gr/v20190429/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196201010130-196212312230.nc</file>
+      <file>./INPUT/atmos/3hr/rlds/gr/v20190429/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196301010130-196312312230.nc</file>
+      <file>./INPUT/atmos/3hr/rlds/gr/v20190429/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196401010130-196412312230.nc</file>
+      <file>./INPUT/atmos/3hr/rlds/gr/v20190429/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196501010130-196512312230.nc</file>
+      <file>./INPUT/atmos/3hr/rlds/gr/v20190429/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196601010130-196612312230.nc</file>
+      <file>./INPUT/atmos/3hr/rlds/gr/v20190429/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196701010130-196712312230.nc</file>
+      <file>./INPUT/atmos/3hr/rlds/gr/v20190429/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196801010130-196812312230.nc</file>
+      <file>./INPUT/atmos/3hr/rlds/gr/v20190429/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196901010130-196912312230.nc</file>
+      <file>./INPUT/atmos/3hr/rlds/gr/v20190429/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197001010130-197012312230.nc</file>
+      <file>./INPUT/atmos/3hr/rlds/gr/v20190429/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197101010130-197112312230.nc</file>
+      <file>./INPUT/atmos/3hr/rlds/gr/v20190429/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197201010130-197212312230.nc</file>
+      <file>./INPUT/atmos/3hr/rlds/gr/v20190429/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197301010130-197312312230.nc</file>
+      <file>./INPUT/atmos/3hr/rlds/gr/v20190429/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197401010130-197412312230.nc</file>
+      <file>./INPUT/atmos/3hr/rlds/gr/v20190429/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197501010130-197512312230.nc</file>
+      <file>./INPUT/atmos/3hr/rlds/gr/v20190429/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197601010130-197612312230.nc</file>
+      <file>./INPUT/atmos/3hr/rlds/gr/v20190429/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197701010130-197712312230.nc</file>
+      <file>./INPUT/atmos/3hr/rlds/gr/v20190429/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197801010130-197812312230.nc</file>
+      <file>./INPUT/atmos/3hr/rlds/gr/v20190429/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197901010130-197912312230.nc</file>
+      <file>./INPUT/atmos/3hr/rlds/gr/v20190429/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198001010130-198012312230.nc</file>
+      <file>./INPUT/atmos/3hr/rlds/gr/v20190429/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198101010130-198112312230.nc</file>
+      <file>./INPUT/atmos/3hr/rlds/gr/v20190429/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198201010130-198212312230.nc</file>
+      <file>./INPUT/atmos/3hr/rlds/gr/v20190429/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198301010130-198312312230.nc</file>
+      <file>./INPUT/atmos/3hr/rlds/gr/v20190429/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198401010130-198412312230.nc</file>
+      <file>./INPUT/atmos/3hr/rlds/gr/v20190429/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198501010130-198512312230.nc</file>
+      <file>./INPUT/atmos/3hr/rlds/gr/v20190429/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198601010130-198612312230.nc</file>
+      <file>./INPUT/atmos/3hr/rlds/gr/v20190429/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198701010130-198712312230.nc</file>
+      <file>./INPUT/atmos/3hr/rlds/gr/v20190429/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198801010130-198812312230.nc</file>
+      <file>./INPUT/atmos/3hr/rlds/gr/v20190429/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198901010130-198912312230.nc</file>
+      <file>./INPUT/atmos/3hr/rlds/gr/v20190429/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199001010130-199012312230.nc</file>
+      <file>./INPUT/atmos/3hr/rlds/gr/v20190429/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199101010130-199112312230.nc</file>
+      <file>./INPUT/atmos/3hr/rlds/gr/v20190429/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199201010130-199212312230.nc</file>
+      <file>./INPUT/atmos/3hr/rlds/gr/v20190429/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199301010130-199312312230.nc</file>
+      <file>./INPUT/atmos/3hr/rlds/gr/v20190429/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199401010130-199412312230.nc</file>
+      <file>./INPUT/atmos/3hr/rlds/gr/v20190429/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199501010130-199512312230.nc</file>
+      <file>./INPUT/atmos/3hr/rlds/gr/v20190429/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199601010130-199612312230.nc</file>
+      <file>./INPUT/atmos/3hr/rlds/gr/v20190429/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199701010130-199712312230.nc</file>
+      <file>./INPUT/atmos/3hr/rlds/gr/v20190429/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199801010130-199812312230.nc</file>
+      <file>./INPUT/atmos/3hr/rlds/gr/v20190429/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199901010130-199912312230.nc</file>
+      <file>./INPUT/atmos/3hr/rlds/gr/v20190429/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200001010130-200012312230.nc</file>
+      <file>./INPUT/atmos/3hr/rlds/gr/v20190429/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200101010130-200112312230.nc</file>
+      <file>./INPUT/atmos/3hr/rlds/gr/v20190429/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200201010130-200212312230.nc</file>
+      <file>./INPUT/atmos/3hr/rlds/gr/v20190429/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200301010130-200312312230.nc</file>
+      <file>./INPUT/atmos/3hr/rlds/gr/v20190429/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200401010130-200412312230.nc</file>
+      <file>./INPUT/atmos/3hr/rlds/gr/v20190429/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200501010130-200512312230.nc</file>
+      <file>./INPUT/atmos/3hr/rlds/gr/v20190429/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200601010130-200612312230.nc</file>
+      <file>./INPUT/atmos/3hr/rlds/gr/v20190429/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200701010130-200712312230.nc</file>
+      <file>./INPUT/atmos/3hr/rlds/gr/v20190429/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200801010130-200812312230.nc</file>
+      <file>./INPUT/atmos/3hr/rlds/gr/v20190429/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200901010130-200912312230.nc</file>
+      <file>./INPUT/atmos/3hr/rlds/gr/v20190429/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201001010130-201012312230.nc</file>
+      <file>./INPUT/atmos/3hr/rlds/gr/v20190429/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201101010130-201112312230.nc</file>
+      <file>./INPUT/atmos/3hr/rlds/gr/v20190429/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201201010130-201212312230.nc</file>
+      <file>./INPUT/atmos/3hr/rlds/gr/v20190429/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201301010130-201312312230.nc</file>
+      <file>./INPUT/atmos/3hr/rlds/gr/v20190429/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201401010130-201412312230.nc</file>
+      <file>./INPUT/atmos/3hr/rlds/gr/v20190429/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201501010130-201512312230.nc</file>
+      <file>./INPUT/atmos/3hr/rlds/gr/v20190429/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201601010130-201612312230.nc</file>
+      <file>./INPUT/atmos/3hr/rlds/gr/v20190429/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201701010130-201712312230.nc</file>
+      <file>./INPUT/atmos/3hr/rlds/gr/v20190429/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201801010130-201812312230.nc</file>
     </datafiles>
     <datavars>
       <var>rlds  Faxa_lwdn</var>
@@ -240,8 +245,8 @@
     <offset>-5400</offset>
     <tintalgo>linear</tintalgo>
   </stream_info>
-  <stream_info name="CORE_IAF_JRA55do.SWDN">
-    <taxmode>cycle</taxmode>
+  <stream_info name="JRA55do.SWDN">
+    <taxmode>limit</taxmode>
     <readmode>single</readmode>
     <mapalgo>bilinear</mapalgo>
     <dtlimit>1.5</dtlimit>
@@ -249,70 +254,70 @@
     <year_last>2018</year_last>
     <year_align>1958</year_align>
     <vectors>null</vectors>
-    <meshfile>./INPUT/JRA55do-ESMFmesh.nc</meshfile>
+    <meshfile>./INPUT/JRA55do-datm-ESMFmesh.nc</meshfile>
     <lev_dimname>null</lev_dimname>
     <datafiles>
-      <file>./INPUT/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_195801010130-195812312230.nc</file>
-      <file>./INPUT/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_195901010130-195912312230.nc</file>
-      <file>./INPUT/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196001010130-196012312230.nc</file>
-      <file>./INPUT/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196101010130-196112312230.nc</file>
-      <file>./INPUT/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196201010130-196212312230.nc</file>
-      <file>./INPUT/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196301010130-196312312230.nc</file>
-      <file>./INPUT/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196401010130-196412312230.nc</file>
-      <file>./INPUT/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196501010130-196512312230.nc</file>
-      <file>./INPUT/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196601010130-196612312230.nc</file>
-      <file>./INPUT/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196701010130-196712312230.nc</file>
-      <file>./INPUT/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196801010130-196812312230.nc</file>
-      <file>./INPUT/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196901010130-196912312230.nc</file>
-      <file>./INPUT/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197001010130-197012312230.nc</file>
-      <file>./INPUT/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197101010130-197112312230.nc</file>
-      <file>./INPUT/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197201010130-197212312230.nc</file>
-      <file>./INPUT/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197301010130-197312312230.nc</file>
-      <file>./INPUT/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197401010130-197412312230.nc</file>
-      <file>./INPUT/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197501010130-197512312230.nc</file>
-      <file>./INPUT/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197601010130-197612312230.nc</file>
-      <file>./INPUT/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197701010130-197712312230.nc</file>
-      <file>./INPUT/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197801010130-197812312230.nc</file>
-      <file>./INPUT/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197901010130-197912312230.nc</file>
-      <file>./INPUT/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198001010130-198012312230.nc</file>
-      <file>./INPUT/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198101010130-198112312230.nc</file>
-      <file>./INPUT/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198201010130-198212312230.nc</file>
-      <file>./INPUT/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198301010130-198312312230.nc</file>
-      <file>./INPUT/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198401010130-198412312230.nc</file>
-      <file>./INPUT/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198501010130-198512312230.nc</file>
-      <file>./INPUT/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198601010130-198612312230.nc</file>
-      <file>./INPUT/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198701010130-198712312230.nc</file>
-      <file>./INPUT/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198801010130-198812312230.nc</file>
-      <file>./INPUT/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198901010130-198912312230.nc</file>
-      <file>./INPUT/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199001010130-199012312230.nc</file>
-      <file>./INPUT/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199101010130-199112312230.nc</file>
-      <file>./INPUT/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199201010130-199212312230.nc</file>
-      <file>./INPUT/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199301010130-199312312230.nc</file>
-      <file>./INPUT/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199401010130-199412312230.nc</file>
-      <file>./INPUT/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199501010130-199512312230.nc</file>
-      <file>./INPUT/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199601010130-199612312230.nc</file>
-      <file>./INPUT/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199701010130-199712312230.nc</file>
-      <file>./INPUT/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199801010130-199812312230.nc</file>
-      <file>./INPUT/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199901010130-199912312230.nc</file>
-      <file>./INPUT/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200001010130-200012312230.nc</file>
-      <file>./INPUT/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200101010130-200112312230.nc</file>
-      <file>./INPUT/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200201010130-200212312230.nc</file>
-      <file>./INPUT/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200301010130-200312312230.nc</file>
-      <file>./INPUT/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200401010130-200412312230.nc</file>
-      <file>./INPUT/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200501010130-200512312230.nc</file>
-      <file>./INPUT/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200601010130-200612312230.nc</file>
-      <file>./INPUT/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200701010130-200712312230.nc</file>
-      <file>./INPUT/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200801010130-200812312230.nc</file>
-      <file>./INPUT/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200901010130-200912312230.nc</file>
-      <file>./INPUT/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201001010130-201012312230.nc</file>
-      <file>./INPUT/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201101010130-201112312230.nc</file>
-      <file>./INPUT/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201201010130-201212312230.nc</file>
-      <file>./INPUT/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201301010130-201312312230.nc</file>
-      <file>./INPUT/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201401010130-201412312230.nc</file>
-      <file>./INPUT/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201501010130-201512312230.nc</file>
-      <file>./INPUT/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201601010130-201612312230.nc</file>
-      <file>./INPUT/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201701010130-201712312230.nc</file>
-      <file>./INPUT/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201801010130-201812312230.nc</file>
+      <file>./INPUT/atmos/3hr/rsds/gr/v20190429/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_195801010130-195812312230.nc</file>
+      <file>./INPUT/atmos/3hr/rsds/gr/v20190429/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_195901010130-195912312230.nc</file>
+      <file>./INPUT/atmos/3hr/rsds/gr/v20190429/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196001010130-196012312230.nc</file>
+      <file>./INPUT/atmos/3hr/rsds/gr/v20190429/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196101010130-196112312230.nc</file>
+      <file>./INPUT/atmos/3hr/rsds/gr/v20190429/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196201010130-196212312230.nc</file>
+      <file>./INPUT/atmos/3hr/rsds/gr/v20190429/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196301010130-196312312230.nc</file>
+      <file>./INPUT/atmos/3hr/rsds/gr/v20190429/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196401010130-196412312230.nc</file>
+      <file>./INPUT/atmos/3hr/rsds/gr/v20190429/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196501010130-196512312230.nc</file>
+      <file>./INPUT/atmos/3hr/rsds/gr/v20190429/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196601010130-196612312230.nc</file>
+      <file>./INPUT/atmos/3hr/rsds/gr/v20190429/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196701010130-196712312230.nc</file>
+      <file>./INPUT/atmos/3hr/rsds/gr/v20190429/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196801010130-196812312230.nc</file>
+      <file>./INPUT/atmos/3hr/rsds/gr/v20190429/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196901010130-196912312230.nc</file>
+      <file>./INPUT/atmos/3hr/rsds/gr/v20190429/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197001010130-197012312230.nc</file>
+      <file>./INPUT/atmos/3hr/rsds/gr/v20190429/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197101010130-197112312230.nc</file>
+      <file>./INPUT/atmos/3hr/rsds/gr/v20190429/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197201010130-197212312230.nc</file>
+      <file>./INPUT/atmos/3hr/rsds/gr/v20190429/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197301010130-197312312230.nc</file>
+      <file>./INPUT/atmos/3hr/rsds/gr/v20190429/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197401010130-197412312230.nc</file>
+      <file>./INPUT/atmos/3hr/rsds/gr/v20190429/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197501010130-197512312230.nc</file>
+      <file>./INPUT/atmos/3hr/rsds/gr/v20190429/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197601010130-197612312230.nc</file>
+      <file>./INPUT/atmos/3hr/rsds/gr/v20190429/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197701010130-197712312230.nc</file>
+      <file>./INPUT/atmos/3hr/rsds/gr/v20190429/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197801010130-197812312230.nc</file>
+      <file>./INPUT/atmos/3hr/rsds/gr/v20190429/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197901010130-197912312230.nc</file>
+      <file>./INPUT/atmos/3hr/rsds/gr/v20190429/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198001010130-198012312230.nc</file>
+      <file>./INPUT/atmos/3hr/rsds/gr/v20190429/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198101010130-198112312230.nc</file>
+      <file>./INPUT/atmos/3hr/rsds/gr/v20190429/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198201010130-198212312230.nc</file>
+      <file>./INPUT/atmos/3hr/rsds/gr/v20190429/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198301010130-198312312230.nc</file>
+      <file>./INPUT/atmos/3hr/rsds/gr/v20190429/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198401010130-198412312230.nc</file>
+      <file>./INPUT/atmos/3hr/rsds/gr/v20190429/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198501010130-198512312230.nc</file>
+      <file>./INPUT/atmos/3hr/rsds/gr/v20190429/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198601010130-198612312230.nc</file>
+      <file>./INPUT/atmos/3hr/rsds/gr/v20190429/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198701010130-198712312230.nc</file>
+      <file>./INPUT/atmos/3hr/rsds/gr/v20190429/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198801010130-198812312230.nc</file>
+      <file>./INPUT/atmos/3hr/rsds/gr/v20190429/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198901010130-198912312230.nc</file>
+      <file>./INPUT/atmos/3hr/rsds/gr/v20190429/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199001010130-199012312230.nc</file>
+      <file>./INPUT/atmos/3hr/rsds/gr/v20190429/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199101010130-199112312230.nc</file>
+      <file>./INPUT/atmos/3hr/rsds/gr/v20190429/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199201010130-199212312230.nc</file>
+      <file>./INPUT/atmos/3hr/rsds/gr/v20190429/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199301010130-199312312230.nc</file>
+      <file>./INPUT/atmos/3hr/rsds/gr/v20190429/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199401010130-199412312230.nc</file>
+      <file>./INPUT/atmos/3hr/rsds/gr/v20190429/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199501010130-199512312230.nc</file>
+      <file>./INPUT/atmos/3hr/rsds/gr/v20190429/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199601010130-199612312230.nc</file>
+      <file>./INPUT/atmos/3hr/rsds/gr/v20190429/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199701010130-199712312230.nc</file>
+      <file>./INPUT/atmos/3hr/rsds/gr/v20190429/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199801010130-199812312230.nc</file>
+      <file>./INPUT/atmos/3hr/rsds/gr/v20190429/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199901010130-199912312230.nc</file>
+      <file>./INPUT/atmos/3hr/rsds/gr/v20190429/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200001010130-200012312230.nc</file>
+      <file>./INPUT/atmos/3hr/rsds/gr/v20190429/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200101010130-200112312230.nc</file>
+      <file>./INPUT/atmos/3hr/rsds/gr/v20190429/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200201010130-200212312230.nc</file>
+      <file>./INPUT/atmos/3hr/rsds/gr/v20190429/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200301010130-200312312230.nc</file>
+      <file>./INPUT/atmos/3hr/rsds/gr/v20190429/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200401010130-200412312230.nc</file>
+      <file>./INPUT/atmos/3hr/rsds/gr/v20190429/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200501010130-200512312230.nc</file>
+      <file>./INPUT/atmos/3hr/rsds/gr/v20190429/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200601010130-200612312230.nc</file>
+      <file>./INPUT/atmos/3hr/rsds/gr/v20190429/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200701010130-200712312230.nc</file>
+      <file>./INPUT/atmos/3hr/rsds/gr/v20190429/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200801010130-200812312230.nc</file>
+      <file>./INPUT/atmos/3hr/rsds/gr/v20190429/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200901010130-200912312230.nc</file>
+      <file>./INPUT/atmos/3hr/rsds/gr/v20190429/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201001010130-201012312230.nc</file>
+      <file>./INPUT/atmos/3hr/rsds/gr/v20190429/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201101010130-201112312230.nc</file>
+      <file>./INPUT/atmos/3hr/rsds/gr/v20190429/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201201010130-201212312230.nc</file>
+      <file>./INPUT/atmos/3hr/rsds/gr/v20190429/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201301010130-201312312230.nc</file>
+      <file>./INPUT/atmos/3hr/rsds/gr/v20190429/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201401010130-201412312230.nc</file>
+      <file>./INPUT/atmos/3hr/rsds/gr/v20190429/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201501010130-201512312230.nc</file>
+      <file>./INPUT/atmos/3hr/rsds/gr/v20190429/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201601010130-201612312230.nc</file>
+      <file>./INPUT/atmos/3hr/rsds/gr/v20190429/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201701010130-201712312230.nc</file>
+      <file>./INPUT/atmos/3hr/rsds/gr/v20190429/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201801010130-201812312230.nc</file>
     </datafiles>
     <datavars>
       <var>rsds  Faxa_swdn</var>
@@ -320,8 +325,8 @@
     <offset>-5400</offset>
     <tintalgo>coszen</tintalgo>
   </stream_info>
-  <stream_info name="CORE_IAF_JRA55do.Q_10">
-    <taxmode>cycle</taxmode>
+  <stream_info name="JRA55do.Q_10">
+    <taxmode>limit</taxmode>
     <readmode>single</readmode>
     <mapalgo>bilinear</mapalgo>
     <dtlimit>1.5</dtlimit>
@@ -329,70 +334,70 @@
     <year_last>2018</year_last>
     <year_align>1958</year_align>
     <vectors>null</vectors>
-    <meshfile>./INPUT/JRA55do-ESMFmesh.nc</meshfile>
+    <meshfile>./INPUT/JRA55do-datm-ESMFmesh.nc</meshfile>
     <lev_dimname>null</lev_dimname>
     <datafiles>
-      <file>./INPUT/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_195801010000-195812312100.nc</file>
-      <file>./INPUT/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_195901010000-195912312100.nc</file>
-      <file>./INPUT/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196001010000-196012312100.nc</file>
-      <file>./INPUT/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196101010000-196112312100.nc</file>
-      <file>./INPUT/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196201010000-196212312100.nc</file>
-      <file>./INPUT/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196301010000-196312312100.nc</file>
-      <file>./INPUT/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196401010000-196412312100.nc</file>
-      <file>./INPUT/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196501010000-196512312100.nc</file>
-      <file>./INPUT/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196601010000-196612312100.nc</file>
-      <file>./INPUT/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196701010000-196712312100.nc</file>
-      <file>./INPUT/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196801010000-196812312100.nc</file>
-      <file>./INPUT/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196901010000-196912312100.nc</file>
-      <file>./INPUT/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197001010000-197012312100.nc</file>
-      <file>./INPUT/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197101010000-197112312100.nc</file>
-      <file>./INPUT/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197201010000-197212312100.nc</file>
-      <file>./INPUT/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197301010000-197312312100.nc</file>
-      <file>./INPUT/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197401010000-197412312100.nc</file>
-      <file>./INPUT/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197501010000-197512312100.nc</file>
-      <file>./INPUT/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197601010000-197612312100.nc</file>
-      <file>./INPUT/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197701010000-197712312100.nc</file>
-      <file>./INPUT/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197801010000-197812312100.nc</file>
-      <file>./INPUT/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197901010000-197912312100.nc</file>
-      <file>./INPUT/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198001010000-198012312100.nc</file>
-      <file>./INPUT/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198101010000-198112312100.nc</file>
-      <file>./INPUT/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198201010000-198212312100.nc</file>
-      <file>./INPUT/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198301010000-198312312100.nc</file>
-      <file>./INPUT/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198401010000-198412312100.nc</file>
-      <file>./INPUT/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198501010000-198512312100.nc</file>
-      <file>./INPUT/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198601010000-198612312100.nc</file>
-      <file>./INPUT/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198701010000-198712312100.nc</file>
-      <file>./INPUT/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198801010000-198812312100.nc</file>
-      <file>./INPUT/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198901010000-198912312100.nc</file>
-      <file>./INPUT/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199001010000-199012312100.nc</file>
-      <file>./INPUT/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199101010000-199112312100.nc</file>
-      <file>./INPUT/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199201010000-199212312100.nc</file>
-      <file>./INPUT/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199301010000-199312312100.nc</file>
-      <file>./INPUT/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199401010000-199412312100.nc</file>
-      <file>./INPUT/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199501010000-199512312100.nc</file>
-      <file>./INPUT/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199601010000-199612312100.nc</file>
-      <file>./INPUT/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199701010000-199712312100.nc</file>
-      <file>./INPUT/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199801010000-199812312100.nc</file>
-      <file>./INPUT/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199901010000-199912312100.nc</file>
-      <file>./INPUT/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200001010000-200012312100.nc</file>
-      <file>./INPUT/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200101010000-200112312100.nc</file>
-      <file>./INPUT/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200201010000-200212312100.nc</file>
-      <file>./INPUT/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200301010000-200312312100.nc</file>
-      <file>./INPUT/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200401010000-200412312100.nc</file>
-      <file>./INPUT/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200501010000-200512312100.nc</file>
-      <file>./INPUT/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200601010000-200612312100.nc</file>
-      <file>./INPUT/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200701010000-200712312100.nc</file>
-      <file>./INPUT/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200801010000-200812312100.nc</file>
-      <file>./INPUT/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200901010000-200912312100.nc</file>
-      <file>./INPUT/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201001010000-201012312100.nc</file>
-      <file>./INPUT/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201101010000-201112312100.nc</file>
-      <file>./INPUT/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201201010000-201212312100.nc</file>
-      <file>./INPUT/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201301010000-201312312100.nc</file>
-      <file>./INPUT/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201401010000-201412312100.nc</file>
-      <file>./INPUT/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201501010000-201512312100.nc</file>
-      <file>./INPUT/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201601010000-201612312100.nc</file>
-      <file>./INPUT/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201701010000-201712312100.nc</file>
-      <file>./INPUT/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201801010000-201812312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/huss/gr/v20190429/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_195801010000-195812312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/huss/gr/v20190429/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_195901010000-195912312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/huss/gr/v20190429/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196001010000-196012312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/huss/gr/v20190429/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196101010000-196112312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/huss/gr/v20190429/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196201010000-196212312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/huss/gr/v20190429/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196301010000-196312312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/huss/gr/v20190429/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196401010000-196412312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/huss/gr/v20190429/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196501010000-196512312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/huss/gr/v20190429/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196601010000-196612312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/huss/gr/v20190429/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196701010000-196712312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/huss/gr/v20190429/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196801010000-196812312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/huss/gr/v20190429/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196901010000-196912312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/huss/gr/v20190429/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197001010000-197012312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/huss/gr/v20190429/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197101010000-197112312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/huss/gr/v20190429/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197201010000-197212312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/huss/gr/v20190429/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197301010000-197312312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/huss/gr/v20190429/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197401010000-197412312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/huss/gr/v20190429/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197501010000-197512312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/huss/gr/v20190429/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197601010000-197612312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/huss/gr/v20190429/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197701010000-197712312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/huss/gr/v20190429/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197801010000-197812312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/huss/gr/v20190429/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197901010000-197912312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/huss/gr/v20190429/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198001010000-198012312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/huss/gr/v20190429/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198101010000-198112312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/huss/gr/v20190429/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198201010000-198212312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/huss/gr/v20190429/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198301010000-198312312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/huss/gr/v20190429/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198401010000-198412312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/huss/gr/v20190429/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198501010000-198512312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/huss/gr/v20190429/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198601010000-198612312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/huss/gr/v20190429/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198701010000-198712312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/huss/gr/v20190429/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198801010000-198812312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/huss/gr/v20190429/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198901010000-198912312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/huss/gr/v20190429/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199001010000-199012312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/huss/gr/v20190429/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199101010000-199112312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/huss/gr/v20190429/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199201010000-199212312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/huss/gr/v20190429/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199301010000-199312312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/huss/gr/v20190429/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199401010000-199412312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/huss/gr/v20190429/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199501010000-199512312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/huss/gr/v20190429/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199601010000-199612312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/huss/gr/v20190429/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199701010000-199712312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/huss/gr/v20190429/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199801010000-199812312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/huss/gr/v20190429/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199901010000-199912312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/huss/gr/v20190429/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200001010000-200012312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/huss/gr/v20190429/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200101010000-200112312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/huss/gr/v20190429/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200201010000-200212312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/huss/gr/v20190429/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200301010000-200312312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/huss/gr/v20190429/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200401010000-200412312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/huss/gr/v20190429/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200501010000-200512312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/huss/gr/v20190429/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200601010000-200612312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/huss/gr/v20190429/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200701010000-200712312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/huss/gr/v20190429/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200801010000-200812312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/huss/gr/v20190429/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200901010000-200912312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/huss/gr/v20190429/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201001010000-201012312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/huss/gr/v20190429/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201101010000-201112312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/huss/gr/v20190429/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201201010000-201212312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/huss/gr/v20190429/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201301010000-201312312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/huss/gr/v20190429/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201401010000-201412312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/huss/gr/v20190429/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201501010000-201512312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/huss/gr/v20190429/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201601010000-201612312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/huss/gr/v20190429/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201701010000-201712312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/huss/gr/v20190429/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201801010000-201812312100.nc</file>
     </datafiles>
     <datavars>
       <var>huss  Sa_shum</var>
@@ -400,8 +405,8 @@
     <offset>0</offset>
     <tintalgo>linear</tintalgo>
   </stream_info>
-  <stream_info name="CORE_IAF_JRA55do.SLP_10">
-    <taxmode>cycle</taxmode>
+  <stream_info name="JRA55do.SLP_10">
+    <taxmode>limit</taxmode>
     <readmode>single</readmode>
     <mapalgo>bilinear</mapalgo>
     <dtlimit>1.5</dtlimit>
@@ -409,70 +414,70 @@
     <year_last>2018</year_last>
     <year_align>1958</year_align>
     <vectors>null</vectors>
-    <meshfile>./INPUT/JRA55do-ESMFmesh.nc</meshfile>
+    <meshfile>./INPUT/JRA55do-datm-ESMFmesh.nc</meshfile>
     <lev_dimname>null</lev_dimname>
     <datafiles>
-      <file>./INPUT/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_195801010000-195812312100.nc</file>
-      <file>./INPUT/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_195901010000-195912312100.nc</file>
-      <file>./INPUT/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196001010000-196012312100.nc</file>
-      <file>./INPUT/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196101010000-196112312100.nc</file>
-      <file>./INPUT/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196201010000-196212312100.nc</file>
-      <file>./INPUT/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196301010000-196312312100.nc</file>
-      <file>./INPUT/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196401010000-196412312100.nc</file>
-      <file>./INPUT/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196501010000-196512312100.nc</file>
-      <file>./INPUT/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196601010000-196612312100.nc</file>
-      <file>./INPUT/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196701010000-196712312100.nc</file>
-      <file>./INPUT/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196801010000-196812312100.nc</file>
-      <file>./INPUT/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196901010000-196912312100.nc</file>
-      <file>./INPUT/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197001010000-197012312100.nc</file>
-      <file>./INPUT/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197101010000-197112312100.nc</file>
-      <file>./INPUT/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197201010000-197212312100.nc</file>
-      <file>./INPUT/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197301010000-197312312100.nc</file>
-      <file>./INPUT/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197401010000-197412312100.nc</file>
-      <file>./INPUT/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197501010000-197512312100.nc</file>
-      <file>./INPUT/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197601010000-197612312100.nc</file>
-      <file>./INPUT/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197701010000-197712312100.nc</file>
-      <file>./INPUT/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197801010000-197812312100.nc</file>
-      <file>./INPUT/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197901010000-197912312100.nc</file>
-      <file>./INPUT/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198001010000-198012312100.nc</file>
-      <file>./INPUT/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198101010000-198112312100.nc</file>
-      <file>./INPUT/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198201010000-198212312100.nc</file>
-      <file>./INPUT/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198301010000-198312312100.nc</file>
-      <file>./INPUT/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198401010000-198412312100.nc</file>
-      <file>./INPUT/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198501010000-198512312100.nc</file>
-      <file>./INPUT/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198601010000-198612312100.nc</file>
-      <file>./INPUT/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198701010000-198712312100.nc</file>
-      <file>./INPUT/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198801010000-198812312100.nc</file>
-      <file>./INPUT/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198901010000-198912312100.nc</file>
-      <file>./INPUT/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199001010000-199012312100.nc</file>
-      <file>./INPUT/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199101010000-199112312100.nc</file>
-      <file>./INPUT/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199201010000-199212312100.nc</file>
-      <file>./INPUT/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199301010000-199312312100.nc</file>
-      <file>./INPUT/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199401010000-199412312100.nc</file>
-      <file>./INPUT/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199501010000-199512312100.nc</file>
-      <file>./INPUT/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199601010000-199612312100.nc</file>
-      <file>./INPUT/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199701010000-199712312100.nc</file>
-      <file>./INPUT/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199801010000-199812312100.nc</file>
-      <file>./INPUT/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199901010000-199912312100.nc</file>
-      <file>./INPUT/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200001010000-200012312100.nc</file>
-      <file>./INPUT/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200101010000-200112312100.nc</file>
-      <file>./INPUT/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200201010000-200212312100.nc</file>
-      <file>./INPUT/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200301010000-200312312100.nc</file>
-      <file>./INPUT/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200401010000-200412312100.nc</file>
-      <file>./INPUT/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200501010000-200512312100.nc</file>
-      <file>./INPUT/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200601010000-200612312100.nc</file>
-      <file>./INPUT/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200701010000-200712312100.nc</file>
-      <file>./INPUT/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200801010000-200812312100.nc</file>
-      <file>./INPUT/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200901010000-200912312100.nc</file>
-      <file>./INPUT/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201001010000-201012312100.nc</file>
-      <file>./INPUT/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201101010000-201112312100.nc</file>
-      <file>./INPUT/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201201010000-201212312100.nc</file>
-      <file>./INPUT/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201301010000-201312312100.nc</file>
-      <file>./INPUT/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201401010000-201412312100.nc</file>
-      <file>./INPUT/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201501010000-201512312100.nc</file>
-      <file>./INPUT/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201601010000-201612312100.nc</file>
-      <file>./INPUT/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201701010000-201712312100.nc</file>
-      <file>./INPUT/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201801010000-201812312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/psl/gr/v20190429/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_195801010000-195812312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/psl/gr/v20190429/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_195901010000-195912312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/psl/gr/v20190429/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196001010000-196012312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/psl/gr/v20190429/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196101010000-196112312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/psl/gr/v20190429/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196201010000-196212312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/psl/gr/v20190429/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196301010000-196312312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/psl/gr/v20190429/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196401010000-196412312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/psl/gr/v20190429/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196501010000-196512312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/psl/gr/v20190429/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196601010000-196612312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/psl/gr/v20190429/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196701010000-196712312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/psl/gr/v20190429/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196801010000-196812312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/psl/gr/v20190429/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196901010000-196912312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/psl/gr/v20190429/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197001010000-197012312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/psl/gr/v20190429/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197101010000-197112312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/psl/gr/v20190429/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197201010000-197212312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/psl/gr/v20190429/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197301010000-197312312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/psl/gr/v20190429/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197401010000-197412312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/psl/gr/v20190429/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197501010000-197512312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/psl/gr/v20190429/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197601010000-197612312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/psl/gr/v20190429/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197701010000-197712312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/psl/gr/v20190429/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197801010000-197812312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/psl/gr/v20190429/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197901010000-197912312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/psl/gr/v20190429/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198001010000-198012312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/psl/gr/v20190429/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198101010000-198112312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/psl/gr/v20190429/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198201010000-198212312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/psl/gr/v20190429/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198301010000-198312312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/psl/gr/v20190429/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198401010000-198412312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/psl/gr/v20190429/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198501010000-198512312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/psl/gr/v20190429/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198601010000-198612312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/psl/gr/v20190429/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198701010000-198712312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/psl/gr/v20190429/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198801010000-198812312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/psl/gr/v20190429/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198901010000-198912312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/psl/gr/v20190429/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199001010000-199012312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/psl/gr/v20190429/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199101010000-199112312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/psl/gr/v20190429/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199201010000-199212312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/psl/gr/v20190429/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199301010000-199312312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/psl/gr/v20190429/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199401010000-199412312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/psl/gr/v20190429/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199501010000-199512312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/psl/gr/v20190429/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199601010000-199612312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/psl/gr/v20190429/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199701010000-199712312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/psl/gr/v20190429/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199801010000-199812312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/psl/gr/v20190429/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199901010000-199912312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/psl/gr/v20190429/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200001010000-200012312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/psl/gr/v20190429/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200101010000-200112312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/psl/gr/v20190429/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200201010000-200212312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/psl/gr/v20190429/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200301010000-200312312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/psl/gr/v20190429/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200401010000-200412312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/psl/gr/v20190429/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200501010000-200512312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/psl/gr/v20190429/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200601010000-200612312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/psl/gr/v20190429/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200701010000-200712312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/psl/gr/v20190429/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200801010000-200812312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/psl/gr/v20190429/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200901010000-200912312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/psl/gr/v20190429/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201001010000-201012312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/psl/gr/v20190429/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201101010000-201112312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/psl/gr/v20190429/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201201010000-201212312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/psl/gr/v20190429/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201301010000-201312312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/psl/gr/v20190429/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201401010000-201412312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/psl/gr/v20190429/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201501010000-201512312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/psl/gr/v20190429/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201601010000-201612312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/psl/gr/v20190429/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201701010000-201712312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/psl/gr/v20190429/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201801010000-201812312100.nc</file>
     </datafiles>
     <datavars>
       <var>psl  Sa_pslv</var>
@@ -480,8 +485,8 @@
     <offset>0</offset>
     <tintalgo>linear</tintalgo>
   </stream_info>
-  <stream_info name="CORE_IAF_JRA55do.T_10">
-    <taxmode>cycle</taxmode>
+  <stream_info name="JRA55do.T_10">
+    <taxmode>limit</taxmode>
     <readmode>single</readmode>
     <mapalgo>bilinear</mapalgo>
     <dtlimit>1.5</dtlimit>
@@ -489,70 +494,70 @@
     <year_last>2018</year_last>
     <year_align>1958</year_align>
     <vectors>null</vectors>
-    <meshfile>./INPUT/JRA55do-ESMFmesh.nc</meshfile>
+    <meshfile>./INPUT/JRA55do-datm-ESMFmesh.nc</meshfile>
     <lev_dimname>null</lev_dimname>
     <datafiles>
-      <file>./INPUT/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_195801010000-195812312100.nc</file>
-      <file>./INPUT/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_195901010000-195912312100.nc</file>
-      <file>./INPUT/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196001010000-196012312100.nc</file>
-      <file>./INPUT/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196101010000-196112312100.nc</file>
-      <file>./INPUT/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196201010000-196212312100.nc</file>
-      <file>./INPUT/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196301010000-196312312100.nc</file>
-      <file>./INPUT/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196401010000-196412312100.nc</file>
-      <file>./INPUT/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196501010000-196512312100.nc</file>
-      <file>./INPUT/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196601010000-196612312100.nc</file>
-      <file>./INPUT/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196701010000-196712312100.nc</file>
-      <file>./INPUT/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196801010000-196812312100.nc</file>
-      <file>./INPUT/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196901010000-196912312100.nc</file>
-      <file>./INPUT/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197001010000-197012312100.nc</file>
-      <file>./INPUT/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197101010000-197112312100.nc</file>
-      <file>./INPUT/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197201010000-197212312100.nc</file>
-      <file>./INPUT/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197301010000-197312312100.nc</file>
-      <file>./INPUT/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197401010000-197412312100.nc</file>
-      <file>./INPUT/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197501010000-197512312100.nc</file>
-      <file>./INPUT/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197601010000-197612312100.nc</file>
-      <file>./INPUT/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197701010000-197712312100.nc</file>
-      <file>./INPUT/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197801010000-197812312100.nc</file>
-      <file>./INPUT/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197901010000-197912312100.nc</file>
-      <file>./INPUT/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198001010000-198012312100.nc</file>
-      <file>./INPUT/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198101010000-198112312100.nc</file>
-      <file>./INPUT/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198201010000-198212312100.nc</file>
-      <file>./INPUT/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198301010000-198312312100.nc</file>
-      <file>./INPUT/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198401010000-198412312100.nc</file>
-      <file>./INPUT/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198501010000-198512312100.nc</file>
-      <file>./INPUT/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198601010000-198612312100.nc</file>
-      <file>./INPUT/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198701010000-198712312100.nc</file>
-      <file>./INPUT/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198801010000-198812312100.nc</file>
-      <file>./INPUT/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198901010000-198912312100.nc</file>
-      <file>./INPUT/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199001010000-199012312100.nc</file>
-      <file>./INPUT/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199101010000-199112312100.nc</file>
-      <file>./INPUT/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199201010000-199212312100.nc</file>
-      <file>./INPUT/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199301010000-199312312100.nc</file>
-      <file>./INPUT/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199401010000-199412312100.nc</file>
-      <file>./INPUT/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199501010000-199512312100.nc</file>
-      <file>./INPUT/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199601010000-199612312100.nc</file>
-      <file>./INPUT/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199701010000-199712312100.nc</file>
-      <file>./INPUT/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199801010000-199812312100.nc</file>
-      <file>./INPUT/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199901010000-199912312100.nc</file>
-      <file>./INPUT/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200001010000-200012312100.nc</file>
-      <file>./INPUT/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200101010000-200112312100.nc</file>
-      <file>./INPUT/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200201010000-200212312100.nc</file>
-      <file>./INPUT/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200301010000-200312312100.nc</file>
-      <file>./INPUT/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200401010000-200412312100.nc</file>
-      <file>./INPUT/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200501010000-200512312100.nc</file>
-      <file>./INPUT/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200601010000-200612312100.nc</file>
-      <file>./INPUT/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200701010000-200712312100.nc</file>
-      <file>./INPUT/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200801010000-200812312100.nc</file>
-      <file>./INPUT/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200901010000-200912312100.nc</file>
-      <file>./INPUT/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201001010000-201012312100.nc</file>
-      <file>./INPUT/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201101010000-201112312100.nc</file>
-      <file>./INPUT/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201201010000-201212312100.nc</file>
-      <file>./INPUT/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201301010000-201312312100.nc</file>
-      <file>./INPUT/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201401010000-201412312100.nc</file>
-      <file>./INPUT/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201501010000-201512312100.nc</file>
-      <file>./INPUT/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201601010000-201612312100.nc</file>
-      <file>./INPUT/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201701010000-201712312100.nc</file>
-      <file>./INPUT/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201801010000-201812312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/tas/gr/v20190429/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_195801010000-195812312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/tas/gr/v20190429/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_195901010000-195912312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/tas/gr/v20190429/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196001010000-196012312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/tas/gr/v20190429/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196101010000-196112312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/tas/gr/v20190429/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196201010000-196212312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/tas/gr/v20190429/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196301010000-196312312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/tas/gr/v20190429/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196401010000-196412312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/tas/gr/v20190429/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196501010000-196512312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/tas/gr/v20190429/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196601010000-196612312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/tas/gr/v20190429/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196701010000-196712312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/tas/gr/v20190429/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196801010000-196812312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/tas/gr/v20190429/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196901010000-196912312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/tas/gr/v20190429/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197001010000-197012312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/tas/gr/v20190429/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197101010000-197112312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/tas/gr/v20190429/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197201010000-197212312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/tas/gr/v20190429/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197301010000-197312312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/tas/gr/v20190429/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197401010000-197412312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/tas/gr/v20190429/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197501010000-197512312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/tas/gr/v20190429/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197601010000-197612312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/tas/gr/v20190429/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197701010000-197712312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/tas/gr/v20190429/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197801010000-197812312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/tas/gr/v20190429/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197901010000-197912312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/tas/gr/v20190429/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198001010000-198012312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/tas/gr/v20190429/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198101010000-198112312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/tas/gr/v20190429/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198201010000-198212312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/tas/gr/v20190429/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198301010000-198312312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/tas/gr/v20190429/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198401010000-198412312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/tas/gr/v20190429/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198501010000-198512312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/tas/gr/v20190429/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198601010000-198612312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/tas/gr/v20190429/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198701010000-198712312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/tas/gr/v20190429/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198801010000-198812312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/tas/gr/v20190429/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198901010000-198912312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/tas/gr/v20190429/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199001010000-199012312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/tas/gr/v20190429/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199101010000-199112312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/tas/gr/v20190429/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199201010000-199212312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/tas/gr/v20190429/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199301010000-199312312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/tas/gr/v20190429/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199401010000-199412312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/tas/gr/v20190429/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199501010000-199512312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/tas/gr/v20190429/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199601010000-199612312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/tas/gr/v20190429/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199701010000-199712312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/tas/gr/v20190429/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199801010000-199812312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/tas/gr/v20190429/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199901010000-199912312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/tas/gr/v20190429/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200001010000-200012312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/tas/gr/v20190429/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200101010000-200112312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/tas/gr/v20190429/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200201010000-200212312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/tas/gr/v20190429/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200301010000-200312312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/tas/gr/v20190429/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200401010000-200412312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/tas/gr/v20190429/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200501010000-200512312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/tas/gr/v20190429/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200601010000-200612312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/tas/gr/v20190429/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200701010000-200712312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/tas/gr/v20190429/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200801010000-200812312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/tas/gr/v20190429/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200901010000-200912312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/tas/gr/v20190429/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201001010000-201012312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/tas/gr/v20190429/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201101010000-201112312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/tas/gr/v20190429/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201201010000-201212312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/tas/gr/v20190429/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201301010000-201312312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/tas/gr/v20190429/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201401010000-201412312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/tas/gr/v20190429/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201501010000-201512312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/tas/gr/v20190429/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201601010000-201612312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/tas/gr/v20190429/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201701010000-201712312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/tas/gr/v20190429/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201801010000-201812312100.nc</file>
     </datafiles>
     <datavars>
       <var>tas  Sa_tbot</var>
@@ -560,8 +565,8 @@
     <offset>0</offset>
     <tintalgo>linear</tintalgo>
   </stream_info>
-  <stream_info name="CORE_IAF_JRA55do.U_10">
-    <taxmode>cycle</taxmode>
+  <stream_info name="JRA55do.U_10">
+    <taxmode>limit</taxmode>
     <readmode>single</readmode>
     <mapalgo>bilinear</mapalgo>
     <dtlimit>1.5</dtlimit>
@@ -569,70 +574,70 @@
     <year_last>2018</year_last>
     <year_align>1958</year_align>
     <vectors>null</vectors>
-    <meshfile>./INPUT/JRA55do-ESMFmesh.nc</meshfile>
+    <meshfile>./INPUT/JRA55do-datm-ESMFmesh.nc</meshfile>
     <lev_dimname>null</lev_dimname>
     <datafiles>
-      <file>./INPUT/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_195801010000-195812312100.nc</file>
-      <file>./INPUT/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_195901010000-195912312100.nc</file>
-      <file>./INPUT/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196001010000-196012312100.nc</file>
-      <file>./INPUT/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196101010000-196112312100.nc</file>
-      <file>./INPUT/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196201010000-196212312100.nc</file>
-      <file>./INPUT/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196301010000-196312312100.nc</file>
-      <file>./INPUT/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196401010000-196412312100.nc</file>
-      <file>./INPUT/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196501010000-196512312100.nc</file>
-      <file>./INPUT/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196601010000-196612312100.nc</file>
-      <file>./INPUT/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196701010000-196712312100.nc</file>
-      <file>./INPUT/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196801010000-196812312100.nc</file>
-      <file>./INPUT/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196901010000-196912312100.nc</file>
-      <file>./INPUT/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197001010000-197012312100.nc</file>
-      <file>./INPUT/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197101010000-197112312100.nc</file>
-      <file>./INPUT/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197201010000-197212312100.nc</file>
-      <file>./INPUT/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197301010000-197312312100.nc</file>
-      <file>./INPUT/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197401010000-197412312100.nc</file>
-      <file>./INPUT/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197501010000-197512312100.nc</file>
-      <file>./INPUT/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197601010000-197612312100.nc</file>
-      <file>./INPUT/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197701010000-197712312100.nc</file>
-      <file>./INPUT/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197801010000-197812312100.nc</file>
-      <file>./INPUT/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197901010000-197912312100.nc</file>
-      <file>./INPUT/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198001010000-198012312100.nc</file>
-      <file>./INPUT/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198101010000-198112312100.nc</file>
-      <file>./INPUT/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198201010000-198212312100.nc</file>
-      <file>./INPUT/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198301010000-198312312100.nc</file>
-      <file>./INPUT/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198401010000-198412312100.nc</file>
-      <file>./INPUT/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198501010000-198512312100.nc</file>
-      <file>./INPUT/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198601010000-198612312100.nc</file>
-      <file>./INPUT/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198701010000-198712312100.nc</file>
-      <file>./INPUT/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198801010000-198812312100.nc</file>
-      <file>./INPUT/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198901010000-198912312100.nc</file>
-      <file>./INPUT/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199001010000-199012312100.nc</file>
-      <file>./INPUT/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199101010000-199112312100.nc</file>
-      <file>./INPUT/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199201010000-199212312100.nc</file>
-      <file>./INPUT/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199301010000-199312312100.nc</file>
-      <file>./INPUT/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199401010000-199412312100.nc</file>
-      <file>./INPUT/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199501010000-199512312100.nc</file>
-      <file>./INPUT/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199601010000-199612312100.nc</file>
-      <file>./INPUT/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199701010000-199712312100.nc</file>
-      <file>./INPUT/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199801010000-199812312100.nc</file>
-      <file>./INPUT/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199901010000-199912312100.nc</file>
-      <file>./INPUT/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200001010000-200012312100.nc</file>
-      <file>./INPUT/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200101010000-200112312100.nc</file>
-      <file>./INPUT/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200201010000-200212312100.nc</file>
-      <file>./INPUT/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200301010000-200312312100.nc</file>
-      <file>./INPUT/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200401010000-200412312100.nc</file>
-      <file>./INPUT/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200501010000-200512312100.nc</file>
-      <file>./INPUT/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200601010000-200612312100.nc</file>
-      <file>./INPUT/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200701010000-200712312100.nc</file>
-      <file>./INPUT/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200801010000-200812312100.nc</file>
-      <file>./INPUT/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200901010000-200912312100.nc</file>
-      <file>./INPUT/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201001010000-201012312100.nc</file>
-      <file>./INPUT/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201101010000-201112312100.nc</file>
-      <file>./INPUT/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201201010000-201212312100.nc</file>
-      <file>./INPUT/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201301010000-201312312100.nc</file>
-      <file>./INPUT/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201401010000-201412312100.nc</file>
-      <file>./INPUT/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201501010000-201512312100.nc</file>
-      <file>./INPUT/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201601010000-201612312100.nc</file>
-      <file>./INPUT/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201701010000-201712312100.nc</file>
-      <file>./INPUT/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201801010000-201812312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/uas/gr/v20190429/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_195801010000-195812312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/uas/gr/v20190429/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_195901010000-195912312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/uas/gr/v20190429/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196001010000-196012312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/uas/gr/v20190429/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196101010000-196112312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/uas/gr/v20190429/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196201010000-196212312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/uas/gr/v20190429/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196301010000-196312312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/uas/gr/v20190429/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196401010000-196412312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/uas/gr/v20190429/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196501010000-196512312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/uas/gr/v20190429/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196601010000-196612312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/uas/gr/v20190429/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196701010000-196712312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/uas/gr/v20190429/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196801010000-196812312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/uas/gr/v20190429/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196901010000-196912312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/uas/gr/v20190429/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197001010000-197012312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/uas/gr/v20190429/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197101010000-197112312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/uas/gr/v20190429/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197201010000-197212312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/uas/gr/v20190429/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197301010000-197312312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/uas/gr/v20190429/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197401010000-197412312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/uas/gr/v20190429/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197501010000-197512312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/uas/gr/v20190429/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197601010000-197612312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/uas/gr/v20190429/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197701010000-197712312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/uas/gr/v20190429/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197801010000-197812312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/uas/gr/v20190429/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197901010000-197912312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/uas/gr/v20190429/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198001010000-198012312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/uas/gr/v20190429/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198101010000-198112312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/uas/gr/v20190429/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198201010000-198212312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/uas/gr/v20190429/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198301010000-198312312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/uas/gr/v20190429/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198401010000-198412312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/uas/gr/v20190429/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198501010000-198512312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/uas/gr/v20190429/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198601010000-198612312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/uas/gr/v20190429/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198701010000-198712312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/uas/gr/v20190429/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198801010000-198812312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/uas/gr/v20190429/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198901010000-198912312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/uas/gr/v20190429/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199001010000-199012312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/uas/gr/v20190429/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199101010000-199112312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/uas/gr/v20190429/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199201010000-199212312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/uas/gr/v20190429/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199301010000-199312312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/uas/gr/v20190429/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199401010000-199412312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/uas/gr/v20190429/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199501010000-199512312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/uas/gr/v20190429/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199601010000-199612312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/uas/gr/v20190429/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199701010000-199712312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/uas/gr/v20190429/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199801010000-199812312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/uas/gr/v20190429/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199901010000-199912312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/uas/gr/v20190429/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200001010000-200012312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/uas/gr/v20190429/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200101010000-200112312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/uas/gr/v20190429/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200201010000-200212312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/uas/gr/v20190429/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200301010000-200312312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/uas/gr/v20190429/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200401010000-200412312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/uas/gr/v20190429/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200501010000-200512312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/uas/gr/v20190429/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200601010000-200612312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/uas/gr/v20190429/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200701010000-200712312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/uas/gr/v20190429/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200801010000-200812312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/uas/gr/v20190429/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200901010000-200912312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/uas/gr/v20190429/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201001010000-201012312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/uas/gr/v20190429/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201101010000-201112312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/uas/gr/v20190429/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201201010000-201212312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/uas/gr/v20190429/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201301010000-201312312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/uas/gr/v20190429/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201401010000-201412312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/uas/gr/v20190429/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201501010000-201512312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/uas/gr/v20190429/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201601010000-201612312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/uas/gr/v20190429/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201701010000-201712312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/uas/gr/v20190429/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201801010000-201812312100.nc</file>
     </datafiles>
     <datavars>
       <var>uas  Sa_u</var>
@@ -640,8 +645,8 @@
     <offset>0</offset>
     <tintalgo>linear</tintalgo>
   </stream_info>
-  <stream_info name="CORE_IAF_JRA55do.V_10">
-    <taxmode>cycle</taxmode>
+  <stream_info name="JRA55do.V_10">
+    <taxmode>limit</taxmode>
     <readmode>single</readmode>
     <mapalgo>bilinear</mapalgo>
     <dtlimit>1.5</dtlimit>
@@ -649,70 +654,70 @@
     <year_last>2018</year_last>
     <year_align>1958</year_align>
     <vectors>null</vectors>
-    <meshfile>./INPUT/JRA55do-ESMFmesh.nc</meshfile>
+    <meshfile>./INPUT/JRA55do-datm-ESMFmesh.nc</meshfile>
     <lev_dimname>null</lev_dimname>
     <datafiles>
-      <file>./INPUT/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_195801010000-195812312100.nc</file>
-      <file>./INPUT/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_195901010000-195912312100.nc</file>
-      <file>./INPUT/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196001010000-196012312100.nc</file>
-      <file>./INPUT/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196101010000-196112312100.nc</file>
-      <file>./INPUT/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196201010000-196212312100.nc</file>
-      <file>./INPUT/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196301010000-196312312100.nc</file>
-      <file>./INPUT/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196401010000-196412312100.nc</file>
-      <file>./INPUT/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196501010000-196512312100.nc</file>
-      <file>./INPUT/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196601010000-196612312100.nc</file>
-      <file>./INPUT/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196701010000-196712312100.nc</file>
-      <file>./INPUT/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196801010000-196812312100.nc</file>
-      <file>./INPUT/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196901010000-196912312100.nc</file>
-      <file>./INPUT/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197001010000-197012312100.nc</file>
-      <file>./INPUT/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197101010000-197112312100.nc</file>
-      <file>./INPUT/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197201010000-197212312100.nc</file>
-      <file>./INPUT/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197301010000-197312312100.nc</file>
-      <file>./INPUT/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197401010000-197412312100.nc</file>
-      <file>./INPUT/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197501010000-197512312100.nc</file>
-      <file>./INPUT/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197601010000-197612312100.nc</file>
-      <file>./INPUT/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197701010000-197712312100.nc</file>
-      <file>./INPUT/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197801010000-197812312100.nc</file>
-      <file>./INPUT/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197901010000-197912312100.nc</file>
-      <file>./INPUT/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198001010000-198012312100.nc</file>
-      <file>./INPUT/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198101010000-198112312100.nc</file>
-      <file>./INPUT/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198201010000-198212312100.nc</file>
-      <file>./INPUT/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198301010000-198312312100.nc</file>
-      <file>./INPUT/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198401010000-198412312100.nc</file>
-      <file>./INPUT/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198501010000-198512312100.nc</file>
-      <file>./INPUT/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198601010000-198612312100.nc</file>
-      <file>./INPUT/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198701010000-198712312100.nc</file>
-      <file>./INPUT/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198801010000-198812312100.nc</file>
-      <file>./INPUT/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198901010000-198912312100.nc</file>
-      <file>./INPUT/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199001010000-199012312100.nc</file>
-      <file>./INPUT/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199101010000-199112312100.nc</file>
-      <file>./INPUT/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199201010000-199212312100.nc</file>
-      <file>./INPUT/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199301010000-199312312100.nc</file>
-      <file>./INPUT/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199401010000-199412312100.nc</file>
-      <file>./INPUT/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199501010000-199512312100.nc</file>
-      <file>./INPUT/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199601010000-199612312100.nc</file>
-      <file>./INPUT/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199701010000-199712312100.nc</file>
-      <file>./INPUT/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199801010000-199812312100.nc</file>
-      <file>./INPUT/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199901010000-199912312100.nc</file>
-      <file>./INPUT/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200001010000-200012312100.nc</file>
-      <file>./INPUT/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200101010000-200112312100.nc</file>
-      <file>./INPUT/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200201010000-200212312100.nc</file>
-      <file>./INPUT/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200301010000-200312312100.nc</file>
-      <file>./INPUT/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200401010000-200412312100.nc</file>
-      <file>./INPUT/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200501010000-200512312100.nc</file>
-      <file>./INPUT/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200601010000-200612312100.nc</file>
-      <file>./INPUT/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200701010000-200712312100.nc</file>
-      <file>./INPUT/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200801010000-200812312100.nc</file>
-      <file>./INPUT/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200901010000-200912312100.nc</file>
-      <file>./INPUT/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201001010000-201012312100.nc</file>
-      <file>./INPUT/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201101010000-201112312100.nc</file>
-      <file>./INPUT/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201201010000-201212312100.nc</file>
-      <file>./INPUT/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201301010000-201312312100.nc</file>
-      <file>./INPUT/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201401010000-201412312100.nc</file>
-      <file>./INPUT/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201501010000-201512312100.nc</file>
-      <file>./INPUT/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201601010000-201612312100.nc</file>
-      <file>./INPUT/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201701010000-201712312100.nc</file>
-      <file>./INPUT/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201801010000-201812312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/vas/gr/v20190429/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_195801010000-195812312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/vas/gr/v20190429/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_195901010000-195912312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/vas/gr/v20190429/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196001010000-196012312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/vas/gr/v20190429/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196101010000-196112312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/vas/gr/v20190429/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196201010000-196212312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/vas/gr/v20190429/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196301010000-196312312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/vas/gr/v20190429/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196401010000-196412312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/vas/gr/v20190429/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196501010000-196512312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/vas/gr/v20190429/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196601010000-196612312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/vas/gr/v20190429/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196701010000-196712312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/vas/gr/v20190429/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196801010000-196812312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/vas/gr/v20190429/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_196901010000-196912312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/vas/gr/v20190429/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197001010000-197012312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/vas/gr/v20190429/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197101010000-197112312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/vas/gr/v20190429/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197201010000-197212312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/vas/gr/v20190429/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197301010000-197312312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/vas/gr/v20190429/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197401010000-197412312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/vas/gr/v20190429/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197501010000-197512312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/vas/gr/v20190429/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197601010000-197612312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/vas/gr/v20190429/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197701010000-197712312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/vas/gr/v20190429/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197801010000-197812312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/vas/gr/v20190429/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_197901010000-197912312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/vas/gr/v20190429/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198001010000-198012312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/vas/gr/v20190429/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198101010000-198112312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/vas/gr/v20190429/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198201010000-198212312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/vas/gr/v20190429/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198301010000-198312312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/vas/gr/v20190429/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198401010000-198412312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/vas/gr/v20190429/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198501010000-198512312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/vas/gr/v20190429/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198601010000-198612312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/vas/gr/v20190429/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198701010000-198712312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/vas/gr/v20190429/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198801010000-198812312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/vas/gr/v20190429/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_198901010000-198912312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/vas/gr/v20190429/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199001010000-199012312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/vas/gr/v20190429/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199101010000-199112312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/vas/gr/v20190429/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199201010000-199212312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/vas/gr/v20190429/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199301010000-199312312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/vas/gr/v20190429/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199401010000-199412312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/vas/gr/v20190429/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199501010000-199512312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/vas/gr/v20190429/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199601010000-199612312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/vas/gr/v20190429/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199701010000-199712312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/vas/gr/v20190429/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199801010000-199812312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/vas/gr/v20190429/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_199901010000-199912312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/vas/gr/v20190429/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200001010000-200012312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/vas/gr/v20190429/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200101010000-200112312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/vas/gr/v20190429/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200201010000-200212312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/vas/gr/v20190429/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200301010000-200312312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/vas/gr/v20190429/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200401010000-200412312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/vas/gr/v20190429/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200501010000-200512312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/vas/gr/v20190429/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200601010000-200612312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/vas/gr/v20190429/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200701010000-200712312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/vas/gr/v20190429/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200801010000-200812312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/vas/gr/v20190429/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_200901010000-200912312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/vas/gr/v20190429/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201001010000-201012312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/vas/gr/v20190429/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201101010000-201112312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/vas/gr/v20190429/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201201010000-201212312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/vas/gr/v20190429/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201301010000-201312312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/vas/gr/v20190429/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201401010000-201412312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/vas/gr/v20190429/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201501010000-201512312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/vas/gr/v20190429/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201601010000-201612312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/vas/gr/v20190429/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201701010000-201712312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/vas/gr/v20190429/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_201801010000-201812312100.nc</file>
     </datafiles>
     <datavars>
       <var>vas  Sa_v</var>
