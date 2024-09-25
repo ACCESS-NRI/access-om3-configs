@@ -387,12 +387,6 @@ USE_LEGACY_DIABATIC_DRIVER = False
                                 ! This is temporary and is needed avoid change in answers."
 
 ! === module MOM_ocean_model_nuopc ===
-DIABATIC_FIRST = True
-                                ! "[Boolean] default = False
-                                ! If true, apply diabatic and thermodynamic processes,
-                                ! including buoyancy forcing and mass gain or loss,
-                                ! before stepping the dynamics forward."
-
 OCEAN_SURFACE_STAGGER = A
                                 ! "default = 'C'
                                 ! A case-insensitive character string to indicate the
