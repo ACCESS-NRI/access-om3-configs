@@ -46,9 +46,8 @@ userscripts:
 modules:
     use:
         - /g/data/vk83/modules
-        - /g/data/hh5/public/modules
     load:
         - access-om3/2024.09.0
-        - conda/analysis3-24.01
+        - nco/5.0.5
 
 payu_minimum_version: 1.1.4
