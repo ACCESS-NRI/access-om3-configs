@@ -14,7 +14,7 @@ on:
       - config/**
       - .*
       - README.md
-  # For config-pr-2-confirm.yml
+  # For config-pr-2-confirm.yml and !repro command
   issue_comment:
     types:
       - created
@@ -103,9 +103,17 @@ jobs:
       contents: write  # For updating metadata.yaml version and committing checksums
       pull-requests: write  # For commenting on PR
 
+  pr-comment-repro:
+    name: Comment Repro
+    if: github.event_name == 'issue_comment' && github.event.issue.pull_request && startsWith(github.event.comment.body, '!repro')
+    uses: access-nri/model-config-tests/.github/workflows/config-comment-repro.yml
+    permissions:
+      contents: write
+      pull-requests: write
+
   pr-comment-docs:
     name: Comment Docs
-    if: github.event_name == 'issue_comment' && github.event.comment.body == '!update_docs' && github.repository != 'ACCESS-NRI/model-configs-template'
+    if: github.event_name == 'issue_comment' && github.event.comment.body == '!update_docs'
     runs-on: ubuntu-latest
     env:
       ARTIFACT_LOCAL_LOCATION: /opt/artifact
