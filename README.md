@@ -52,7 +52,7 @@ These configurations should **not** be used for production runs.
 
 ## Setting up an experiment
 
-The first thing to do is to clone this repository. One needs to checkout the branch corresponding to the desired
+The first thing to do is to clone this repository, checking out the branch corresponding to the desired
 configuration. It is then good practice to start a new branch with the same name
 as your directory so you can use git to easily see how your run configuration
 differs from the original.
