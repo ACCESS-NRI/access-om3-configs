@@ -105,8 +105,16 @@ jobs:
 
   pr-comment-repro:
     name: Comment Repro
-    if: github.event_name == 'issue_comment' && github.event.issue.pull_request && startsWith(github.event.comment.body, '!repro')
-    uses: access-nri/model-config-tests/.github/workflows/config-comment-repro.yml
+    if: github.event_name == 'issue_comment' && github.event.issue.pull_request && startsWith(github.event.comment.body, '!test')
+    uses: access-nri/model-config-tests/.github/workflows/config-comment-test.yml
+    with:
+      additional-artifact-content-paths: |
+        archive/output000/MOM_parameter_doc.*
+        archive/output000/*.err
+        archive/output000/*.log
+        archive/output000/job.yaml
+        archive/output000/env.yaml
+        archive/output000/log
     permissions:
       contents: write
       pull-requests: write
