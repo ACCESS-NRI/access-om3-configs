@@ -653,12 +653,12 @@ SPONGE = False                  !   [Boolean] default = False
                                 ! properties of those sponges are specified via SPONGE_CONFIG.
 
 ! === module MOM_diag_mediator ===
-NUM_DIAG_COORDS = 1             ! default = 1
+NUM_DIAG_COORDS = 2             ! default = 1
                                 ! The number of diagnostic vertical coordinates to use. For each coordinate, an
                                 ! entry in DIAG_COORDS must be provided.
 USE_GRID_SPACE_DIAGNOSTIC_AXES = False !   [Boolean] default = False
                                 ! If true, use a grid index coordinate convention for diagnostic axes.
-DIAG_COORDS = "z Z ZSTAR"       ! default = "z Z ZSTAR"
+DIAG_COORDS = "z 01 ZSTAR", "rho2 02 RHO"       ! default = "z Z ZSTAR"
                                 ! A list of string tuples associating diag_table modules to a coordinate
                                 ! definition used for diagnostics. Each string is of the form "MODULE_SUFFIX
                                 ! PARAMETER_SUFFIX COORDINATE_NAME".
@@ -670,7 +670,9 @@ DIAG_AS_CHKSUM = False          !   [Boolean] default = False
 AVAILABLE_DIAGS_FILE = "available_diags.000000" ! default = "available_diags.000000"
                                 ! A file into which to write a list of all available ocean diagnostics that can
                                 ! be included in a diag_table.
-DIAG_COORD_DEF_Z = "FILE:ocean_vgrid.nc,interfaces=zeta" ! default = "WOA09"
+DIAG_COORD_DEF_01 = "FILE:ocean_vgrid.nc,interfaces=zeta"
+DIAG_COORD_DEF_02 = "FILE:diag_rho2.nc,interfaces=rho2"  
+                                ! default = "WOA09"
                                 ! Determines how to specify the coordinate resolution. Valid options are:
                                 !  PARAM       - use the vector-parameter DIAG_COORD_RES_Z
                                 !  UNIFORM[:N] - uniformly distributed
