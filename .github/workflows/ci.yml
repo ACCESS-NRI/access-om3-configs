@@ -9,7 +9,6 @@ on:
     paths-ignore:
       # These are ignored because they don't have anything to do with the model itself
       - .github/**
-      - tools/**
       - doc/**
       - config/**
       - .*
