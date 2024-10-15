@@ -22,12 +22,12 @@ according to the following naming scheme:
 Additional required information, like if the configuration includes
 biogeochemistry, is appended to the name.
 
-Currently the following configurations are available:
+Currently the following development configurations are available:
 
-- [`1deg_jra55do_ryf`](https://github.com/ACCESS-NRI/access-om3-configs/tree/1deg_jra55do_ryf)
-- [`1deg_jra55do_iaf`](https://github.com/ACCESS-NRI/access-om3-configs/tree/1deg_jra55do_iaf)
-- [`1deg_jra55do_ryf_wombatlite`](https://github.com/ACCESS-NRI/access-om3-configs/tree/1deg_jra55do_ryf_wombatlite)
-- [`025deg_jra55do_ryf`](https://github.com/ACCESS-NRI/access-om3-configs/tree/025deg_jra55do_ryf)
+- [`dev-1deg_jra55do_ryf`](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-1deg_jra55do_ryf)
+- [`dev-1deg_jra55do_iaf`](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-1deg_jra55do_iaf)
+- [`dev-1deg_jra55do_ryf_wombatlite`](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-1deg_jra55do_ryf_wombatlite)
+- [`dev-025deg_jra55do_ryf`](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-025deg_jra55do_ryf)
 
 **Note that the [`main`](https://github.com/ACCESS-NRI/access-om3-configs/tree/main) branch
 does not store any configuration, only some documentation.**
@@ -43,12 +43,12 @@ These configurations should **not** be used for production runs.
 
 ## Comparison table
 
-- [`1deg_jra55do_ryf`➡️`1deg_jra55do_iaf`](https://github.com/ACCESS-NRI/access-om3-configs/compare/1deg_jra55do_ryf..1deg_jra55do_iaf)
-- [`1deg_jra55do_ryf`➡️`1deg_jra55do_ryf_wombatlite`](https://github.com/ACCESS-NRI/access-om3-configs/compare/1deg_jra55do_ryf..1deg_jra55do_ryf_wombatlite)
-- [`1deg_jra55do_ryf`➡️`025deg_jra55do_ryf`](https://github.com/ACCESS-NRI/access-om3-configs/compare/1deg_jra55do_ryf..025deg_jra55do_ryf)
-- [`1deg_jra55do_iaf`➡️`1deg_jra55do_ryf_wombatlite`](https://github.com/ACCESS-NRI/access-om3-configs/compare/1deg_jra55do_iaf..1deg_jra55do_ryf_wombatlite)
-- [`1deg_jra55do_iaf`➡️`025deg_jra55do_ryf`](https://github.com/ACCESS-NRI/access-om3-configs/compare/1deg_jra55do_iaf..025deg_jra55do_ryf)
-- [`1deg_jra55do_ryf_wombatlite`➡️`025deg_jra55do_ryf`](https://github.com/ACCESS-NRI/access-om3-configs/compare/1deg_jra55do_ryf_wombatlite..025deg_jra55do_ryf)
+- [`dev-1deg_jra55do_ryf`➡️`dev-1deg_jra55do_iaf`](https://github.com/ACCESS-NRI/access-om3-configs/compare/dev-1deg_jra55do_ryf..dev-1deg_jra55do_iaf)
+- [`dev-1deg_jra55do_ryf`➡️`dev-1deg_jra55do_ryf_wombatlite`](https://github.com/ACCESS-NRI/access-om3-configs/compare/dev-1deg_jra55do_ryf..dev-1deg_jra55do_ryf_wombatlite)
+- [`dev-1deg_jra55do_ryf`➡️`dev-025deg_jra55do_ryf`](https://github.com/ACCESS-NRI/access-om3-configs/compare/dev-1deg_jra55do_ryf..dev-025deg_jra55do_ryf)
+- [`dev-1deg_jra55do_iaf`➡️`dev-1deg_jra55do_ryf_wombatlite`](https://github.com/ACCESS-NRI/access-om3-configs/compare/dev-1deg_jra55do_iaf..dev-1deg_jra55do_ryf_wombatlite)
+- [`dev-1deg_jra55do_iaf`➡️`dev-025deg_jra55do_ryf`](https://github.com/ACCESS-NRI/access-om3-configs/compare/dev-1deg_jra55do_iaf..dev-025deg_jra55do_ryf)
+- [`dev-1deg_jra55do_ryf_wombatlite`➡️`dev-025deg_jra55do_ryf`](https://github.com/ACCESS-NRI/access-om3-configs/compare/dev-1deg_jra55do_ryf_wombatlite..dev-025deg_jra55do_ryf)
 
 ## Setting up an experiment
 
@@ -114,6 +114,10 @@ branch in your fork to the branch it originated from in [ACCESS-NRI/access-om3-c
 (not `main`).
 
 ## Configuration CI
+
+### PR Repro CI
+
+This Pipeline compares configurations modified in a PR (the `source` branch) against a 'ground truth' checksum, usually the `target` branch. It also verifies that commons mistakes in configurations are not made. This allows developers to know if the changes they are about to commit lead to valid and reproducible results. Either way, if the PR is merged, the new commit is tagged in such a way that we know how reproducible it is against past configurations.
 
 ### User-Dispatchable Repro-CI Workflow
 
