@@ -12,7 +12,7 @@ on:
       - doc/**
       - config/**
       - .*
-      - README.md
+      - *.md
   # For config-pr-2-confirm.yml
   issue_comment:
     types:

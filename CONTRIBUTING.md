@@ -22,9 +22,6 @@ It is expected that the version *will* be updated before the pull request can be
 
 Config branches are entirely separate from the `main` history in this repository, except for a few files in `.github`. Note, you may need to be an Administrator to commit to `release-*` or `dev-*` branches directly.
 
-### Brand new configuration
-
-If you are creating a brand new configuration, and don't have the config stored in another repository, just checkout a `dev-*` branch from `main` and delete everything except `.github/workflows/ci.yml`, then add your config.
 
 ### Config is Stored in Another Repository
 
