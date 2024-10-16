@@ -22,18 +22,16 @@ It is expected that the version *will* be updated before the pull request can be
 
 Config branches are entirely separate from the `main` history in this repository, except for a few files in `.github`. Note, you may need to be an Administrator to commit to `release-*` or `dev-*` branches directly.
 
-### Config is Stored in Another Repository
+### Create a new dev branch
 
-Create a new development branch (usually prefixed by `dev-*`) by adding the config repository as a remote and checking out the config branch:
+Create a new development branch with automated workflows (usually prefixed by `dev-*`) by adding the workflow file to the config branch:
 
 ```bash
-git remote add <config_repo> <config_repo_url>  # ex. git remote add config git@github.com/my/configs.git
-git checkout <config_repo>/<config_branch> -b <new_config_branch>  # checkout config from new remote + add to branch, ex. git checkout config/main -b dev-1deg_abc_def
+git checkout dev-<new_branch_name>
 git checkout main -- .github/workflows/ci.yml
 git add .
 git commit -m "Initial commit for config branch"
 git push
-```
 
 ### Create a new release branch
 
