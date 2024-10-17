@@ -13,7 +13,6 @@ on:
       - config/**
       - .*
       - '*.md'
-      - README.md
   # For config-pr-2-confirm.yml and '!test' comment commands
   issue_comment:
     types:
