@@ -59,6 +59,7 @@ jobs:
     permissions:
       contents: write  # for committing the result of the repro test
       pull-requests: write  # for writing comments on pull requests
+      checks: write # for adding a status badge next to the commit we are testing
 
   #################
   # Bump Tag jobs #
