@@ -52,7 +52,7 @@ jobs:
       pull-requests: write  # For commenting on PR
 
   pr-comment-test:
-    name: !test
+    name: '!test'
     if: github.event_name == 'issue_comment' && startsWith(github.event.comment.body, '!test')
     uses: access-nri/model-config-tests/.github/workflows/config-comment-test.yml@main
     secrets: inherit
