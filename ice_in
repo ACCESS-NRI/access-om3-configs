@@ -15,7 +15,6 @@
   lcdf64 = .false.
   npt = 35040
   pointer_file      = './rpointer.ice'
-  print_global      = .false.
 /
 &grid_nml
   bathymetry_file = "./INPUT/topog.nc"
