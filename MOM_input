@@ -192,19 +192,6 @@ MINIMUM_DEPTH = 0.5
 INPUTDIR = "./INPUT/"
                                 ! "The directory in which input files are found."
 
-CHANNEL_CONFIG = global_1deg
-                                ! "default = 'none'
-                                ! A parameter that determines which set of channels are
-                                ! restricted to specific  widths.  Options are:
-                                ! none - All channels have the grid width.
-                                ! global_1deg - Sets 16 specific channels appropriate
-                                ! for a 1-degree model, as used in CM2G.
-                                ! list - Read the channel locations and widths from a
-                                ! text file, like MOM_channel_list in the MOM_SIS
-                                ! test case.
-                                ! file - Read open face widths everywhere from a
-                                ! NetCDF file on the model grid."
-
 ! === module MOM_state_initialization ===
 INIT_LAYERS_FROM_Z_FILE = True
                                 ! "[Boolean] default = False
