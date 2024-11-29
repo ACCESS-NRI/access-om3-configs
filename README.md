@@ -113,13 +113,13 @@ repository, push it to your fork and then do a pull request from the relevant
 branch in your fork to the branch it originated from in [ACCESS-NRI/access-om3-configs](https://github.com/ACCESS-NRI/access-om3-configs)
 (not `main`).
 
-## Configuration CI
+## Configuration Continuous Integration (CI)
 
-### PR Repro CI
+### Pull Request Reproducibility CI
 
 This Pipeline compares configurations modified in a PR (the `source` branch) against a 'ground truth' checksum, usually the `target` branch. It also verifies that commons mistakes in configurations are not made. This allows developers to know if the changes they are about to commit lead to valid and reproducible results. Either way, if the PR is merged, the new commit is tagged in such a way that we know how reproducible it is against past configurations.
 
-For pull requests into release branches, this runs automatically, see https://github.com/ACCESS-NRI/model-config-tests?tab=readme-ov-file#config-pr-yml-pipeline
+For pull requests into _release_ branches, this runs automatically, see https://github.com/ACCESS-NRI/model-config-tests?tab=readme-ov-file#config-pr-yml-pipeline
 
 For pull requsts into other branches, it needs triggering manually, using a `!test` comment. See https://github.com/ACCESS-NRI/model-config-tests?tab=readme-ov-file#config-comment-test-reusable-workflow
 
