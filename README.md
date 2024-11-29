@@ -117,11 +117,11 @@ branch in your fork to the branch it originated from in [ACCESS-NRI/access-om3-c
 
 ### Pull Request Reproducibility CI
 
-This Pipeline compares configurations modified in a PR (the `source` branch) against a 'ground truth' checksum, usually the `target` branch. It also verifies that commons mistakes in configurations are not made. This allows developers to know if the changes they are about to commit lead to valid and reproducible results. Either way, if the PR is merged, the new commit is tagged in such a way that we know how reproducible it is against past configurations.
+This pipeline compares configurations modified in a PR against the current current configuration in the `target` branch. The pipeline does a short model run using the proposed change (the `source` branch) against a 'ground truth' checksum, stored in the `target` branch. It also verifies that commons mistakes in configurations are not made. This allows developers to know if the changes they are about to commit lead to valid and reproducible results. Either way, if the PR is merged, the new commit is tagged in such a way that we know how reproducible it is against past configurations.
 
-For pull requests into _release_ branches, this runs automatically, see https://github.com/ACCESS-NRI/model-config-tests?tab=readme-ov-file#config-pr-yml-pipeline
+For pull requests into _release_ branches, this runs automatically, see [this section in ACCESS-NRI/model-config tests readme](https://github.com/ACCESS-NRI/model-config-tests?tab=readme-ov-file#config-pr-yml-pipeline)
 
-For pull requsts into other branches, it needs triggering manually, using a `!test` comment. See https://github.com/ACCESS-NRI/model-config-tests?tab=readme-ov-file#config-comment-test-reusable-workflow
+For pull requsts into other branches, it needs triggering manually, using a `!test` comment. See [this section in model-config-tests readme](https://github.com/ACCESS-NRI/model-config-tests?tab=readme-ov-file#config-comment-test-reusable-workflow)
 
 ### User-Dispatchable Repro-CI Workflow
 
