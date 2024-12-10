@@ -36,15 +36,11 @@ PELAYOUT_attributes::
      cpl_pestride = 1
      cpl_rootpe = 0
      esmf_logging = ESMF_LOGKIND_NONE
-     ice_ntasks = 24
-     ice_nthreads = 1
-     ice_pestride = 1
-     ice_rootpe = 0
      ninst = 1
-     ocn_ntasks = 216
+     ocn_ntasks = 240
      ocn_nthreads = 1
      ocn_pestride = 1
-     ocn_rootpe = 24
+     ocn_rootpe = 0
      pio_asyncio_ntasks = 0
      pio_asyncio_rootpe = 1
      pio_asyncio_stride = 0
@@ -54,11 +50,11 @@ PELAYOUT_attributes::
      rof_rootpe = 0
 ::
 
-component_list: MED ATM ICE OCN ROF
+component_list: MED ATM OCN ROF
 ALLCOMP_attributes::
      ATM_model = datm
      GLC_model = sglc
-     ICE_model = cice
+     ICE_model = sice
      LND_model = slnd
      MED_model = cesm
      OCN_model = mom
@@ -269,13 +265,13 @@ CLOCK_attributes::
      lnd_cpl_dt = 99999 #not used
      ocn_cpl_dt = 3600 #ignored (coupling timestep set by nuopc.runseq) unless stop_option is nsteps
      restart_n = 1
-     restart_option = nyears
+     restart_option = ndays
      restart_ymd = -999
      rof_cpl_dt = 99999 #not used
      start_tod = 0
      start_ymd = 19000101
      stop_n = 1
-     stop_option = nyears
+     stop_option = ndays
      stop_tod = 0
      stop_ymd = -999
      tprof_n = -999
@@ -289,11 +285,6 @@ ATM_attributes::
      aqua_planet = .false.
      perpetual = .false.
      perpetual_ymd = -999
-::
-
-ICE_attributes::
-     eps_imesh = 1e-13 # allowed error between angles in mesh file and cice grid
-     Verbosity = off
 ::
 
 OCN_attributes::
@@ -329,18 +320,6 @@ ATM_modelio::
      pio_typename = netcdf4p
 ::
 
-ICE_modelio::
-     diro = ./log
-     logfile = ice.log
-     pio_async_interface = .false.
-     pio_netcdf_format = nothing
-     pio_numiotasks = 1
-     pio_rearranger = 1
-     pio_root = 1
-     pio_stride = 1
-     pio_typename = netcdf4p
-::
-
 OCN_modelio::
      diro = ./log
      logfile = ocn.log
@@ -356,13 +335,13 @@ OCN_modelio::
 ROF_modelio::
      diro = ./log
      logfile = rof.log
-     pio_async_interface = .false. 
-     pio_netcdf_format = nothing 
-     pio_numiotasks = 1 
-     pio_rearranger = 2 
-     pio_root = 1 
-     pio_stride = 1
-     pio_typename = netcdf4p 
+     pio_async_interface = .false. #not used
+     pio_netcdf_format = 64bit_offset #not used
+     pio_numiotasks = -99 #not used
+     pio_rearranger = 2 #not used
+     pio_root = 1 #not used
+     pio_stride = 48 #not used
+     pio_typename = netcdf #not used
 ::
 
 DRV_modelio::
