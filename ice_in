@@ -2,10 +2,9 @@
   bfbflag = "off" 
   conserv_check = .false.
   diagfreq = 960
-  dumpfreq = "y"
-  dump_last = .true.
+  dumpfreq = "x"
   histfreq = "d", "m", "x", "x", "x"
-  hist_suffix = "", "m", "x", "x", "x" !limited to one character due to https://github.com/COSIMA/access-om3/issues/201
+  hist_suffix = ".d", ".m", "x", "x", "x"
   hist_time_axis = "middle"
   history_deflate = 1
   history_chunksize = 180, 150
