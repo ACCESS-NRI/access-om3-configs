@@ -2,8 +2,7 @@
   bfbflag = "off" 
   conserv_check = .false.
   diagfreq = 960
-  dumpfreq = "y"
-  dump_last = .true.
+  dumpfreq = "x"
   histfreq = "d", "m", "x", "x", "x"
   hist_suffix = ".d", ".m", "x", "x", "x"
   hist_time_axis = "middle"
@@ -14,8 +13,8 @@
   ice_ic = 'default' 
   lcdf64 = .false.
   npt = 35040
-  pointer_file      = './rpointer.ice'
-  print_global      = .false.
+  pointer_file = './rpointer.ice'
+  print_global = .false.
 /
 &grid_nml
   bathymetry_file = "./INPUT/topog.nc"
