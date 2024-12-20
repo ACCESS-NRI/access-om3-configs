@@ -2,8 +2,7 @@
   bfbflag = "off" 
   conserv_check = .false.
   diagfreq = 960
-  dumpfreq = "y"
-  dump_last = .true.
+  dumpfreq = "x"
   histfreq = "d", "m", "x", "x", "x"
   hist_suffix = ".d", ".m", "x", "x", "x"
   hist_time_axis = "middle"
