@@ -119,6 +119,7 @@ ALLCOMP_attributes::
      tfreeze_option = linear_salt
      wav_coupling_to_cice = .false.
      write_restart_at_endofrun = .false.
+     restart_pointer_append_date = .false.
 ::
 
 MED_attributes::
