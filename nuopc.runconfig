@@ -120,6 +120,7 @@ ALLCOMP_attributes::
      wav_coupling_to_cice = .false.
      write_restart_at_endofrun = .false.
      additional_restart_dir = RESTART
+     restart_pointer_append_date = .false.
 ::
 
 MED_attributes::
