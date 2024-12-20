@@ -5,7 +5,7 @@
   dumpfreq = "y"
   dump_last = .true.
   histfreq = "d", "m", "x", "x", "x"
-  hist_suffix = "", "m", "x", "x", "x" !limited to one character due to https://github.com/COSIMA/access-om3/issues/201
+  hist_suffix = ".d", ".m", "x", "x", "x"
   hist_time_axis = "middle"
   history_deflate = 1
   history_chunksize = 720, 540
