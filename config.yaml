@@ -50,7 +50,7 @@ modules:
         # - /g/data/tm70/as2285/spack0.22/release/modules/linux-rocky8-x86_64/
     load:
         # - access-om3/2024.09.0
-        - access-om3/pr33-4
+        - access-om3/pr33-9
         # - access-om3/2024.12.0
         - nco/5.0.5
 
