@@ -610,6 +610,9 @@ ADJUST_NET_FRESH_WATER_TO_ZERO = True !   [Boolean] default = False
 ENTHALPY_FROM_COUPLER = True    !   [Boolean] default = False
                                 ! If True, the heat (enthalpy) associated with mass entering/leaving the ocean
                                 ! is provided via coupler.
+WIND_STAGGER = "A"              ! default = "C"
+                                ! A case-insensitive character string to indicate the staggering of the input
+                                ! wind stress field.  Valid values are 'A', 'B', or 'C'.
 FLUXCONST = 0.11                !   [m day-1] default = 0.0
                                 ! The constant that relates the restoring surface fluxes to the relative surface
                                 ! anomalies (akin to a piston velocity).  Note the non-MKS units.
