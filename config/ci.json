@@ -12,7 +12,7 @@
     },
     "qa": {
         "default": {
-            "markers": "access_om3 or config"
+            "markers": "access_om3" # or config"
         }
     },
     "default": {
