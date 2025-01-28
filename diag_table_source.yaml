@@ -1,0 +1,330 @@
+#######################################################################################################
+# This yaml file is used by make_diag_table.py to create a diag_table file specifying MOM5 diagnostics.
+# Latest version: https://github.com/COSIMA/make_diag_table
+#
+# Define the diagnostics you want in the diag_table section below.
+#
+# The MOM diag_table format is defined here:
+# https://github.com/mom-ocean/MOM5/blob/master/src/shared/diag_manager/diag_table.F90
+# https://mom6.readthedocs.io/en/main/api/generated/pages/Diagnostics.html
+#######################################################################################################
+
+
+# Define global default settings which will be applied to all diagnostics,
+# unless overridden in diag_table section below, either in defaults or individual fields.
+# You're unlikely to need to change any of the global_defaults.
+global_defaults:
+# global_section:
+    title: ACCESS-OM3  # any string
+    base_date: [ 1900, 1, 1, 0, 0, 0 ]  # reference time used for the time units. six integers: year, month, day, hour, minute, second
+# file section:
+    file_name:  # String, or list of components, for file name (without trailing ".nc").
+    # If a list, its elements are a mixture of strings and dictionaries.
+    # String list elements are concatenated, each preceded by file_name_separator.
+    # Dictionary list elements must have one key-value pair; the value is a list
+    # containing 1 or more strings to be concatenated, each preceded by the key
+    # (a string) instead of file_name_separator. The key may be an empty string,
+    # which is useful if file_name_date begins with %, since FMS prepends _ .
+    # All filename list string elements (other than field_name) must exist as keys in global_defaults.
+    # If file_name_date is used, it must be the last item.
+    # Key values are looked up, converted to strings and then substituted using file_name_substitutions.
+    # Empty strings (and their preceding separator) are ignored if file_name_omit_empty is true.
+    # A separator is not used prior to the first item.
+        - file_name_prefix
+        - file_name_dimension
+        - field_name  # substituted by field name in diag_table section below
+        - output_freq
+        - '':
+            - output_freq_units
+        - reduction_method
+        - file_name_date
+    output_freq: 1  # integer: output sampling frequency in output_freq_units (0: every timestep; -1: only at end of run)
+    output_freq_units: months  # time units for output: years, months, days, hours, minutes, or seconds
+    file_format: 1  # integer, must be 1, specifying NetCDF (the only format currently supported)
+    time_axis_units: days  # time units for the output file time axis: years, months, days, hours, minutes, or seconds
+    time_axis_name: time  # must be "time" (case-insensitive)
+    new_file_freq: 1  # optional integer: frequency (in new_file_freq_units) for closing the existing file, and creating a new file
+    new_file_freq_units: months  # time units for new_file_freq: years, months, days, hours, minutes, or seconds (optional; required if and only if new_file_freq specified)
+    start_time:  # Time to start the file for the first time. The format of this string is the same as base_date (optional; requires new_file_freq, new_file_freq_units)
+    file_duration:  # integer: How long file should receive data after start time (optional; requires new_file_freq, new_file_freq_units, start_time)
+    file_duration_units:  # units for file_duration: years, months, days, hours, minutes, or seconds (optional; required if and only if file_duration specified)
+# field section:
+    module_name: ocean_model
+    field_name:  # set via keys in the fields section of the diag_table section below
+    output_name:  # same as field_name unless overridden
+    # file_name:  # same as file_name in file section above unless overridden in diag_table section below
+    time_sampling: all  # Currently not used.  Please use the string "all".
+    reduction_method: snap  # mean, snap, rms, pow##, min, max, or diurnal##
+    # reduction_method options:
+    #     mean or average or true: Average from the last time written to the current time. Becomes "average" in diag_table.
+    #     snap or none or false: No reduction.  Write snapshot of current time step value only. Becomes "none" in diag_table.
+    #     rms: Calculate the root mean square from the last time written to the current time.
+    #     pow##: Calculate the mean of the power ## from the last time written to the current time.
+    #     min: Minimum value from last write to current time.
+    #     max: Maximum value from last write to current time.
+    #     diurnal##: ## diurnal averages
+    regional_section: none  # string: bounds of the regional section to capture ("none" indicates a global region). String format: lat_min, lat_max, lon_min, lon_max, vert_min, vert_max. Use vert_min = -1 and vert_max = -1 to get the entire vertical axis.
+    packing: 2
+    # packing is the Fortran number KIND of the data written:
+    #     1: double precision
+    #     2: float (single precision)
+    #     4: packed 16-bit integers
+    #     8: packed 1-byte (not tested)
+# extra things for constructing filename:
+    file_name_dimension: 3d  # descriptor for filename, e.g. 3d, 2d, scalar
+    file_name_prefix: access-om3.mom6
+    file_name_date: "%4yr%2mo"  # "%4yr%2mo" # run date/time of file opening; format: %, 1 digit (#digits), one of (yr, mo, dy, hr, mi, sc); date/time components will be separated by _ in filename.
+    file_name_separator: "."  # used to separate filename components; best not to use "_" to avoid confusion with fields and dates
+    file_name_omit_empty: true  # whether to omit empty filename components to avoid duplicate file_name_separator
+    file_name_substitutions:  # string replacements for filename components
+        years: yr
+        months: mon
+        days: day
+        hours: hr
+        none: snap  # careful! will apply to both reduction_method and regional_section
+        'False': snap
+        average: mean
+        'True': mean
+        None: ""  # for empty items
+# %yr, %mo, %dy, %hr %mi, %sc are expanded to the current year, month, day, hour, minute and second respectively,
+
+#######################################################################################################
+# diag_table section - this defines the diagnostics that will appear in diag_table.
+# 
+# Top-level categories in diag_table have arbitrary names (they're just used for
+# comments in the output diag_table). Make as many of these as you like to group
+# similar diagnostics with shared defaults. Note that each of the top-level
+# categories can have only have one instance of each field name, so if you need
+# multiple outputs of the same field (e.g. as both averages and snapshots), you’ll
+# need to make additional categories.
+# 
+# Within each top-level category there's an optional defaults section and a
+# fields section. The defaults section overrides items in global_defaults for
+# all fields in the category. The field section specifies diagnostic field
+# names. To add a new diagnostic, all you need to do is add its name to the
+# field section in the appropriate category. Each field name can be followed by
+# a dictionary overriding the category and global defaults for that field only.
+# 
+# Some of the available diagnostics are listed here:
+# https://raw.githubusercontent.com/COSIMA/access-om2/master/MOM_diags.txt
+# https://github.com/COSIMA/access-om2/wiki/Technical-documentation#MOM5-diagnostics-list
+diag_table:
+    'static 2d grid data':
+        defaults:  # these can be overridden for individual fields below
+            file_name_dimension: static  # descriptor for filename, e.g. 3d, 2d, scalar
+            file_name:  # String, or list of components, for file name (without trailing ".nc").
+            # If a list, its elements are a mixture of strings and dictionaries.
+            # String list elements are concatenated, each preceded by file_name_separator.
+            # Dictionary list elements must have one key-value pair; the value is a list
+            # containing 1 or more strings to be concatenated, each preceded by the key
+            # (a string) instead of file_name_separator. The key may be an empty string,
+            # which is useful if file_name_date begins with %, since FMS prepends _ .
+            # All filename list string elements (other than field_name) must exist as keys in global_defaults.
+            # If file_name_date is used, it must be the last item.
+            # Key values are looked up, converted to strings and then substituted using file_name_substitutions.
+            # Empty strings (and their preceding separator) are ignored if file_name_omit_empty is true.
+            # A separator is not used prior to the first item.
+                - file_name_prefix
+                - file_name_dimension
+            reduction_method: snap  # mean, snap, rms, pow##, min, max, or diurnal##
+            output_freq: -1  # Output frequency in output_freq_units (0: every timestep; -1: only at end of run)
+            output_freq_units: months  # time units for output: years, months, days, hours, minutes, or seconds
+            new_file_freq:  # optional integer: frequency (in new_file_freq_units) for closing the existing file, and creating a new file
+        fields:
+            areacello: # Surface area of tracer (T) cells
+            areacello_cu: # Surface area of x-direction flow (U) cells
+            areacello_cv: # Surface area of y-direction flow (V) cells
+            areacello_bu: # Surface area of B-grid flow (Q) cells
+            dxt: # Delta(x) at thickness/tracer points (meter)
+            dyt: # Delta(y) at thickness/tracer points (meter)
+            geolat_c: # Latitude of corner (Bu) points
+            geolat: # Latitude of tracer (T) points
+            geolat_u: # Latitude of zonal velocity (Cu) points
+            geolat_v: # Latitude of meridional velocity (Cv) points
+            geolon_c: # Longitude of corner (Bu) points
+            geolon: # Longitude of tracer (T) points
+            geolon_u: # Longitude of zonal velocity (Cu) points
+            geolon_v: # Longitude of meridional velocity (Cv) points
+            deptho: # Depth of the ocean at tracer points
+            wet: # 0 if land, 1 if ocean at tracer points
+            wet_c: # 0 if land, 1 if ocean at corner (Bu) points
+            wet_u: # 0 if land, 1 if ocean at zonal velocity (Cu) points
+            wet_v: # 0 if land, 1 if ocean at meridional velocity (Cv) points
+            Coriolis: # Coriolis parameter at corner (Bu) points
+            sin_rot: # sine of the clockwise angle of the ocean grid north to true north
+            cos_rot: # cosine of the clockwise angle of the ocean grid north to true north
+            dxCu: # dxCu is delta x at u points [L ~> m]
+            dyCu: # dyCu is delta y at u points [L ~> m]
+            dxCv: # dxCv is delta x at v points [L ~> m]
+            dyCv: # dyCv is delta y at v points [L ~> m]
+            dyCuo: # Open meridional grid spacing at u points (meter)
+            dxCvo: # Open zonal grid spacing at v points (meter)
+    'monthly 3d fields':
+        defaults:  # these can be overridden for individual fields below
+            file_name_dimension: 3d  # descriptor for filename, e.g. 3d, 2d, scalar
+            reduction_method: mean
+        fields:
+            h: # Layer Thickness
+            e: # Interface Height Relative to Mean Sea Level
+            agessc: # Sea water age since surface contact
+            difmxybo: # Biharmonic Horizontal Viscosity at h Points Ahh
+            difmxylo: # Laplacian Horizontal Viscosity at h Points Khh
+            diftrelo: # Epipycnal tracer diffusivity at tracer cell center KHTR_h
+            diftrblo: # Ocean Tracer Diffusivity due to Parameterized Mesoscale Advection KHTH_t
+            rhopot0: # Potential density referenced to surface
+            rhopot2: # Potential density referenced to 2000 dbar
+            thetao: # Potential Temperature
+            so: # Salinity
+            T_adx: # Temperature x flux (advection)
+            T_ady: # Temperature y flux (advection)
+            S_adx: # Salinity x flux (advection)
+            S_ady: # Salinity y flux (advection)
+            T_diffx: # Diffusive Zonal Flux of temperature
+            T_diffy: # Diffusive Meridional Flux of temperature
+            S_diffx: # Diffusive Zonal Flux of salinity
+            S_diffy: # Diffusive Meridional Flux of salinity
+            umo: # Ocean Mass X Transport
+            vmo: # Ocean Mass Y Transport
+            uo: # u velocity
+            vo: # v velocity
+            uh: # Zonal Thickness Flux
+            vh: # Meridional Thickness Flux
+            uhGM: # Time Mean Diffusive Zonal Thickness Flux
+            vhGM: # Time Mean Diffusive Meridional Thickness Flux
+            uhml: # Zonal Thickness Flux to Restratify Mixed Layer
+            vhml: # Meridional Thickness Flux to Restratify Mixed Layer
+            thkcello: # Cell Thickness
+            KE: # Layer Kinetic energy per unit mass
+
+    'monthly 3d squared fields':  # for calculating EKE etc
+        defaults:  # these can be overridden for individual fields below
+            file_name_dimension: 3d  # descriptor for filename, e.g. 3d, 2d, scalar
+            reduction_method: pow02  # mean, snap, rms, pow##, min, max, or diurnal##
+        fields:
+            uo:
+            vo:
+            
+    'monthly 2d fields':
+        defaults:  # these can be overridden for individual fields below
+            file_name_dimension: 2d  # descriptor for filename, e.g. 3d, 2d, scalar
+            reduction_method: mean
+        fields:
+            evs: # Evaporation/condensation at ocean surface (evaporation is negative) evap
+            ficeberg: # Frozen runoff (calving) and iceberg melt into ocean frunoff
+            friver: # Liquid runoff (rivers) into ocean lrunoff
+            fsitherm: # water flux to ocean from snow/sea ice melting(> 0) or formation(< 0) seaice_melt
+            heat_content_cond: # Heat content (relative to 0degC) of water condensing into ocean
+            heat_content_evap: # Heat content (relative to 0degC) of water evaporating from ocean
+            heat_content_fprec: # Heat content (relative to 0degC) of frozen prec entering ocean
+            heat_content_frunoff: # Heat content (relative to 0C) of solid runoff into ocean
+            heat_content_lrunoff: # Heat content (relative to 0C) of liquid runoff into ocean
+            heat_content_lprec: # Heat content (relative to 0degC) of liquid precip entering ocean
+            heat_content_vprec: # Heat content (relative to 0degC) of virtual precip entering ocean
+            hfrunoffds: # Heat content (relative to 0C) of liquid+solid runoff into ocean
+            hfrainds: # Heat content (relative to 0degC) of liquid+frozen precip entering ocean
+            hfevapds: # Heat content (relative to 0degC) of net mass leaving ocean ocean via evap and ice form heat_content_massout
+            Heat_PmE: # Heat flux into ocean from mass flux into ocean
+            net_heat_coupler: # Surface ocean heat flux from SW+LW+latent+sensible+seaice_melt_heat (via the coupler)
+            hfds: # Surface ocean heat flux from SW+LW+lat+sens+mass transfer+frazil+restore+seaice_melt_heat or flux adjustments net_heat_surface
+            hflso: # Latent heat flux into ocean due to fusion and evaporation (negative means ocean heat loss)
+            hfsifrazil: # Heat from frazil formation frazil
+            hfsnthermds: # Latent heat flux into ocean due to melting of frozen precipitation latent_fprec_diag
+            hfsso: # Sensible heat flux into ocean sensible
+            prlq: # Liquid precipitation into ocean lprec
+            prsn: # Frozen precipitation into ocean fprec
+            vprec: # Virtual liquid precip into ocean due to SSS restoring
+            wfo: # Net surface water flux (precip+melt+lrunoff+ice calving-evap) PRCmE
+            pso: # Pressure at ice-ocean or atmosphere-ocean interface p_surf
+            rlntds: # surface_net_downward_longwave_flux LW
+            rsntds: # Shortwave radiation flux into ocean
+            sfdsi: # Net salt flux into ocean at surface (restoring + sea-ice) salt_flux
+            salt_flux_added: # Salt flux into ocean at surface due to restoring or flux adjustment
+            somint: # Density weighted column integrated salinity salt_int
+            opottempmint: # Density weighted column integrated potential temperature  temp_int
+            Rd_dx: # Ratio between deformation radius and grid spacing
+            mass_wt: # The column mass for calculating mass-weighted average properties
+            mlotst: # Mixed layer depth (delta rho = 0.03) MLD_003
+            #oml: # Thickness of the surface Ocean Boundary Layer without smoothing calculated by [CVMix] KPP KPP_OBLdepth_original
+            sos: # Sea Surface Salinity
+            speed: # Sea Surface Speed
+            tos: # Sea Surface Temperature
+            SSH: # Sea Surface Height
+            SSU: # Sea Surface Zonal Velocity
+            SSV: # Sea Surface Meridional Velocity
+            T_adx_2d: # Vertically Integrated Advective Zonal Flux of Heat
+            T_ady_2d: # Vertically Integrated Advective Meridional Flux of Heat
+            T_diffx_2d: # Vertically Integrated Diffusive Zonal Flux of Heat
+            T_diffy_2d: # Vertically Integrated Diffusive Meridional Flux of Heat    
+            S_adx_2d: # Vertically Integrated Advective Zonal Flux of Salinity
+            S_ady_2d: # Vertically Integrated Advective Meridional Flux of Salinity
+            S_diffx_2d: # Vertically Integrated Diffusive Zonal Flux of Salinity
+            S_diffy_2d: # Vertically Integrated Diffusive Meridional Flux of Salinity
+            tauuo: # surface_downward_x_stress taux
+            tauvo: # surface_downward_y_stress tauy
+            uhbt: # Barotropic zonal transport averaged over a baroclinic step
+            vhbt: # Barotropic meridional transport averaged over a baroclinic step
+            ustar: # Surface friction velocity = [(gustiness + tau_magnitude)/rho0]^(1/2)
+            umo_2d: # Ocean Mass X Transport Vertical Sum
+            vmo_2d: # Ocean Mass Y Transport Vertical Sum
+            pbo: # Sea Water Pressure at Sea Floor
+
+    'monthly 2d max fields':
+        defaults:  # these can be overridden for individual fields below
+            file_name_dimension: 2d  # descriptor for filename, e.g. 3d, 2d, scalar
+            reduction_method: max  # mean, snap, rms, pow##, min, max, or diurnal##
+        fields:
+            mlotst: # Mixed layer depth (delta rho = 0.03) MLD_003
+
+    'monthly 2d min fields':
+        defaults:  # these can be overridden for individual fields below
+            file_name_dimension: 2d  # descriptor for filename, e.g. 3d, 2d, scalar
+            reduction_method: min  # mean, snap, rms, pow##, min, max, or diurnal##
+        fields:
+            tos: # Sea Surface Temperature
+
+    'daily scalar timeseries':
+        defaults:  # these can be overridden for individual fields below
+            file_name_dimension: scalar  # descriptor for filename, e.g. 3d, 2d, scalar
+            file_name:  # String, or list of components, for file name (without trailing ".nc").
+            # If a list, its elements are a mixture of strings and dictionaries.
+            # String list elements are concatenated, each preceded by file_name_separator.
+            # Dictionary list elements must have one key-value pair; the value is a list
+            # containing 1 or more strings to be concatenated, each preceded by the key
+            # (a string) instead of file_name_separator. The key may be an empty string,
+            # which is useful if file_name_date begins with %, since FMS prepends _ .
+            # All filename list string elements (other than field_name) must exist as keys in global_defaults.
+            # If file_name_date is used, it must be the last item.
+            # Key values are looked up, converted to strings and then substituted using file_name_substitutions.
+            # Empty strings (and their preceding separator) are ignored if file_name_omit_empty is true.
+            # A separator is not used prior to the first item.
+                - file_name_prefix
+                - file_name_dimension
+                - output_freq
+                - '':
+                    - output_freq_units
+                - file_name_date
+            output_freq_units: days  # time units for output: years, months, days, hours, minutes, or seconds
+            reduction_method: mean  # mean, snap, rms, pow##, min, max, or diurnal##
+            packing: 1  # double precision
+        fields:
+            soga: # Global Mean Ocean Salinity
+            thetaoga: # Global Mean Ocean Potential Temperature
+            tosga: # Global Area Average Sea Surface Temperature sst_global
+            sosga: # Global Area Average Sea Surface Salinity sss_global
+            total_salt_Flux_Added: # Area integrated surface salt flux due to restoring or flux adjustment 
+            total_salt_Flux_In: # Area integrated surface salt flux at surface from coupler
+            total_salt_flux: # Area integrated surface salt flux
+            net_fresh_water_global_adjustment: # Adjustment needed to adjust net fresh water into ocean to zero
+            vprec_global_adjustment: # Adjustment needed to adjust net vprec into ocean to zero
+            salt_flux_global_restoring_adjustment: # Adjustment needed to balance net global salt flux into ocean at surface
+            total_wfo: # Area integrated net surface water flux (precip+melt+liq runoff+ice calving-evap) total_PRCmE
+            total_evs: # Area integrated evap/condense at ocean surface total_evap
+            total_fsitherm: # Area integrated sea ice melt (>0) or form (<0) total_icemelt
+            total_precip: # Area integrated liquid+frozen precip into ocean
+            total_prsn: # Area integrated frozen precip into ocean total_fprec
+            total_lprec: # Area integrated liquid precip into ocean
+            total_vprec: # Area integrated virtual liquid precip due to SSS restoring
+            total_ficeberg: # Area integrated frozen runoff (calving) & iceberg melt into ocean total_frunoff
+            total_friver: # Area integrated liquid runoff into ocean total_lrunoff
+            total_net_massout: # Area integrated mass leaving ocean due to evap and seaice form
+            total_net_massin: # Area integrated mass entering ocean due to predip, runoff, ice melt
