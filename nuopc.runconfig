@@ -56,7 +56,7 @@ PELAYOUT_attributes::
      ocn_ntasks = 100
      ocn_nthreads = 1
      ocn_pestride = 1
-     ocn_rootpe = 24
+     ocn_rootpe = 0
      pio_asyncio_ntasks = 0
      pio_asyncio_rootpe = 1
      pio_asyncio_stride = 0
