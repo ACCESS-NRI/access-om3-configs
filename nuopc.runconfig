@@ -74,7 +74,7 @@ component_list: MED ATM OCN ROF
 ALLCOMP_attributes::
      ATM_model = datm
      GLC_model = sglc
-     ICE_model = cice
+     ICE_model = sice
      LND_model = slnd
      MED_model = cesm
      OCN_model = mom
