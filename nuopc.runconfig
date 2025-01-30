@@ -53,7 +53,7 @@ PELAYOUT_attributes::
      lnd_pestride = 1
      lnd_rootpe = 0
      ninst = 1
-     ocn_ntasks = 216
+     ocn_ntasks = 100
      ocn_nthreads = 1
      ocn_pestride = 1
      ocn_rootpe = 24
@@ -263,8 +263,8 @@ MED_attributes::
      mapuv_with_cart3d = .true.
      ocn2atm_map = unset
      ocn2wav_smapname = unset
-     ocn_nx = 360
-     ocn_ny = 300
+     ocn_nx = 10
+     ocn_ny = 10
      ocn_surface_flux_scheme = 0
      rof2lnd_map = unset
      rof2ocn_fmapname = unset
