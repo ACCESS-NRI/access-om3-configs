@@ -9,9 +9,9 @@
 # shortpath: /scratch/v45
 
 queue: normal
-ncpus: 240
+ncpus: 100
 jobfs: 10GB
-mem: 960GB
+mem: 100GB
 
 walltime: 01:00:00
 jobname: 1deg_jra55do_iaf
@@ -49,7 +49,7 @@ metadata:
     enable: false
 
 userscripts:
-    setup: /usr/bin/bash /g/data/vk83/apps/om3-scripts/payu_config/setup.sh
+        #    setup: /usr/bin/bash /g/data/vk83/apps/om3-scripts/payu_config/setup.sh
     archive: /usr/bin/bash /g/data/vk83/apps/om3-scripts/payu_config/archive.sh
 
 modules:
