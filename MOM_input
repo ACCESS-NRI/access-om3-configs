@@ -560,3 +560,13 @@ SEA_ICE_RIGID_MASS = 100.0      !   [kg m-2] default = 1000.0
 ! === module MOM_restart ===
 ! === Added with RM6 ===
 ! === Added with RM6 ===
+
+! === module MOM_surface_forcing_nuopc ===
+ENTHALPY_FROM_COUPLER = True
+                                ! "[Boolean] default = False
+                                ! If True, the heat (enthalpy) associated with mass entering/leaving
+                                ! the ocean is provided via coupler."
+
+LATENT_HEAT_FUSION = 3.337E+05  !   [J/kg] default = 3.337E+05
+
+LATENT_HEAT_VAPORIZATION = 2.501E+06 !   [J/kg] default = 2.501E+06
