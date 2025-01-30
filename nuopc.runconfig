@@ -70,7 +70,7 @@ PELAYOUT_attributes::
      wav_rootpe = 0
 ::
 
-component_list: MED ATM ICE OCN ROF
+component_list: MED ATM OCN ROF
 ALLCOMP_attributes::
      ATM_model = datm
      GLC_model = sglc
@@ -120,8 +120,8 @@ ALLCOMP_attributes::
      mesh_glc = UNSET
      mesh_ice = ./INPUT/access-om2-1deg-ESMFmesh.nc
      mesh_lnd = UNSET
-     mesh_mask = ./INPUT/access-om2-1deg-ESMFmesh.nc
-     mesh_ocn = ./INPUT/access-om2-1deg-ESMFmesh.nc
+     mesh_mask = ./INPUT/access-rom3-ESMFmesh.nc
+     mesh_ocn = ./INPUT/access-rom3-ESMFmesh.nc     
      model_version = unknown
      ocn2glc_coupling = .false.
      ocn2glc_levels = 1:10:19:26:30:33:35
