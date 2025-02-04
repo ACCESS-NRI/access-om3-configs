@@ -19,7 +19,6 @@ on:
       - created
       - edited
   # For config-pr-3-bump-tag.yml
-  create:
   push:
     branches:
       - 'release-*'
@@ -66,7 +65,7 @@ jobs:
   #################
   bump-tag:
     name: Tag Bump
-    if: (github.event_name == 'push' || github.event_name == 'create' && github.ref_type == 'branch' && startsWith(github.ref_name, 'release-')) && github.repository != 'ACCESS-NRI/model-configs-template'
+    if: github.event_name == 'push' && github.repository != 'ACCESS-NRI/model-configs-template'
     uses: access-nri/model-config-tests/.github/workflows/config-pr-3-bump-tag.yml@main
     secrets: inherit
     permissions:
