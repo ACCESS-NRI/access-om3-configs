@@ -108,6 +108,8 @@ GRID_CONFIG = "mosaic"          !
                                 !     mercator - use a Mercator spherical grid.
 GRID_FILE = "ocean_hgrid.nc"    !
                                 ! Name of the file from which to read horizontal grid data.
+RAD_EARTH = 6.371229E+06        !   [m] default = 6.378E+06
+                                ! The radius of the Earth.
 TOPO_CONFIG = "file"            !
                                 ! This specifies how bathymetry is specified:
                                 !     file - read bathymetric information from the file
