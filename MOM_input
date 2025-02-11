@@ -1,3 +1,29 @@
+! The top section contains non default debugging parameters which are set.
+
+! === module MOM_vert_friction ===
+U_TRUNC_FILE = "U_velocity_truncations" ! default = ""
+                                ! The absolute path to a file into which the accelerations leading to zonal
+                                ! velocity truncations are written. Undefine this for efficiency if this
+                                ! diagnostic is not needed.
+V_TRUNC_FILE = "V_velocity_truncations" ! default = ""
+                                ! The absolute path to a file into which the accelerations leading to meridional
+                                ! velocity truncations are written. Undefine this for efficiency if this
+                                ! diagnostic is not needed.
+
+! === module MOM_file_parser ===
+FATAL_UNUSED_PARAMS = True      !   [Boolean] default = False
+                                ! If true, kill the run if there are any unused parameters.
+
+
+! This section contains non default layout parameters which are set.
+
+! === module MOM_domains ===
+AUTO_MASKTABLE = True           !   [Boolean] default = False
+                                ! Turn on automatic mask table generation to eliminate land blocks.
+
+
+! Below this line is formatted the same as the MOM_parameter_short.doc output file
+! ------------------------
 ! This file was written by the model and records the non-default parameters used at run-time.
 
 ! === module MOM ===
@@ -9,6 +35,9 @@ THICKNESSDIFFUSE = True         !   [Boolean] default = False
 THICKNESSDIFFUSE_FIRST = True   !   [Boolean] default = False
                                 ! If true, do thickness diffusion or interface height smoothing before dynamics.
                                 ! This is only used if THICKNESSDIFFUSE or APPLY_INTERFACE_FILTER is true.
+USE_POROUS_BARRIER = True      !   [Boolean] default = False
+                                ! If true, use porous barrier to constrain the widths and face areas at the
+                                ! edges of the grid cells.
 DT = 1350.0                     !   [s]
                                 ! The (baroclinic) dynamics time step.  The time-step that is actually used will
                                 ! be an integer fraction of the forcing time-step (DT_FORCING in ocean-only mode
@@ -82,6 +111,8 @@ GRID_CONFIG = "mosaic"          !
                                 !     mercator - use a Mercator spherical grid.
 GRID_FILE = "ocean_hgrid.nc"    !
                                 ! Name of the file from which to read horizontal grid data.
+RAD_EARTH = 6.371229E+06        !   [m] default = 6.378E+06
+                                ! The radius of the Earth.
 TOPO_CONFIG = "file"            !
                                 ! This specifies how bathymetry is specified:
                                 !     file - read bathymetric information from the file
@@ -133,12 +164,6 @@ DTFREEZE_DP = -7.75E-08         !   [deg C Pa-1] default = 0.0
                                 ! When TFREEZE_FORM=LINEAR, this is the derivative of the freezing potential
                                 ! temperature with pressure.
 
-EPS_OMESH = 1e-13
-                                ! "default = 0.0001
-                                ! An float which sets the allowable error (in degrees) between
-                                ! grid angle defined in the ESMF mesh file used by CMEPS
-                                ! and the ocean_hgrid file used by mom
-
 ! === module MOM_tracer_flow_control ===
 USE_IDEAL_AGE_TRACER = True     !   [Boolean] default = False
                                 ! If true, use the ideal_age_example tracer package.
@@ -155,7 +180,6 @@ REGRIDDING_COORDINATE_MODE = "ZSTAR" ! default = "LAYER"
                                 !  RHO   - continuous isopycnal
                                 !  HYCOM1 - HyCOM-like hybrid coordinate
                                 !  HYBGEN - Hybrid coordinate from the Hycom hybgen code
-                                !  SLIGHT - stretched coordinates above continuous isopycnal
                                 !  ADAPTIVE - optimize for smooth neutral density surfaces
 ALE_COORDINATE_CONFIG = "FILE:ocean_vgrid.nc,interfaces=zeta" ! default = "UNIFORM"
                                 ! Determines how to specify the coordinate resolution. Valid options are:
@@ -174,8 +198,8 @@ ALE_COORDINATE_CONFIG = "FILE:ocean_vgrid.nc,interfaces=zeta" ! default = "UNIFO
 !ALE_RESOLUTION = 2.303499698638916, 2.6903486251831055, 3.1421399116516113, 3.6697616577148438, 4.285917282104492, 5.005424499511719, 5.845563888549805, 6.826459884643555, 7.971549987792969, 9.308074951171875, 10.867660522460938, 12.686931610107422, 14.808158874511719, 17.279945373535156, 20.157821655273438, 23.504684448242188, 27.390975952148438, 31.894271850585938, 37.097900390625, 43.088226318359375, 49.94970703125, 57.757049560546875, 66.56375122070312, 76.386962890625, 87.18865966796875, 98.85760498046875, 111.1953125, 123.914794921875, 136.6578369140625, 149.03271484375, 160.6646728515625, 171.2481689453125, 180.5816650390625, 188.5797119140625, 195.2608642578125, 200.720703125, 205.10205078125, 208.565185546875, 211.2705078125, 213.363525390625, 214.97119140625, 216.198974609375, 217.13232421875, 217.83984375, 218.37451171875, 218.7783203125, 219.08203125, 219.310546875, 219.482421875, 219.6123046875 !   [m]
 REMAPPING_SCHEME = "PPM_H4"     ! default = "PLM"
                                 ! This sets the reconstruction scheme used for vertical remapping for all
-                                ! variables. It can be one of the following schemes: PCM         (1st-order
-                                ! accurate)
+                                ! variables. It can be one of the following schemes:
+                                ! PCM         (1st-order accurate)
                                 ! PLM         (2nd-order accurate)
                                 ! PLM_HYBGEN  (2nd-order accurate)
                                 ! PPM_H4      (3rd-order accurate)
@@ -184,6 +208,11 @@ REMAPPING_SCHEME = "PPM_H4"     ! default = "PLM"
                                 ! WENO_HYBGEN (3rd-order accurate)
                                 ! PQM_IH4IH3  (4th-order accurate)
                                 ! PQM_IH6IH5  (5th-order accurate)
+REMAPPING_USE_OM4_SUBCELLS = False !   [Boolean] default = True
+                                ! This selects the remapping algorithm used in OM4 that does not use the full
+                                ! reconstruction for the top- and lower-most sub-layers, but instead assumes
+                                ! they are always vanished (untrue) and so just uses their edge values. We
+                                ! recommend setting this option to false.
 
 ! === module MOM_state_initialization ===
 INIT_LAYERS_FROM_Z_FILE = True  !   [Boolean] default = False
@@ -206,8 +235,15 @@ TEMP_SALT_INIT_VERTICAL_REMAP_ONLY = True !   [Boolean] default = False
                                 ! If true, initial conditions are on the model horizontal grid. Extrapolation
                                 ! over missing ocean values is done using an ICE-9 procedure with vertical ALE
                                 ! remapping .
-
+Z_INIT_REMAPPING_USE_OM4_SUBCELLS = False !   [Boolean] default = True
+                                ! If true, use the OM4 remapping-via-subcells algorithm for initialization. See
+                                ! REMAPPING_USE_OM4_SUBCELLS for more details. We recommend setting this option
+                                ! to false.
 ! === module MOM_diag_mediator ===
+DIAG_REMAPPING_USE_OM4_SUBCELLS = False !   [Boolean] default = True
+                                ! If true, use the OM4 remapping-via-subcells algorithm for diagnostics. See
+                                ! REMAPPING_USE_OM4_SUBCELLS for details. We recommend setting this option to
+                                ! false.
 DIAG_COORD_DEF_Z = "FILE:ocean_vgrid.nc,interfaces=zeta" ! default = "WOA09"
                                 ! Determines how to specify the coordinate resolution. Valid options are:
                                 !  PARAM       - use the vector-parameter DIAG_COORD_RES_Z
@@ -299,9 +335,16 @@ USE_STORED_SLOPES = True        !   [Boolean] default = False
                                 ! If true, the isopycnal slopes are calculated once and stored for re-use. This
                                 ! uses more memory but avoids calling the equation of state more times than
                                 ! should be necessary.
+RESOLN_N2_FILTER_DEPTH = 2000.0 !   [m] default = 2000.0
+                                ! The depth below which N2 is monotonized to avoid stratification artifacts from
+                                ! altering the equivalent barotropic mode structure.
 KH_RES_SCALE_COEF = 0.4         !   [nondim] default = 1.0
                                 ! A coefficient that determines how KhTh is scaled away if RESOLN_SCALED_... is
                                 ! true, as F = 1 / (1 + (KH_RES_SCALE_COEF*Rd/dx)^KH_RES_FN_POWER).
+EBT_REMAPPING_USE_OM4_SUBCELLS = False !   [Boolean] default = True
+                                ! If true, use the OM4 remapping-via-subcells algorithm for calculating EBT
+                                ! structure. See REMAPPING_USE_OM4_SUBCELLS for details. We recommend setting
+                                ! this option to false.
 
 ! === module MOM_set_visc ===
 CHANNEL_DRAG = True             !   [Boolean] default = False
@@ -368,6 +411,8 @@ MASS_WEIGHT_IN_PRESSURE_GRADIENT = True !   [Boolean] default = False
                                 ! If true, use mass weighting when interpolating T/S for integrals near the
                                 ! bathymetry in FV pressure gradient calculations.
 
+! === module MOM_Zanna_Bolton ===
+
 ! === module MOM_hor_visc ===
 LAPLACIAN = True                !   [Boolean] default = False
                                 ! If true, use a Laplacian horizontal viscosity.
@@ -388,14 +433,6 @@ MAXVEL = 6.0                    !   [m s-1] default = 3.0E+08
 CFL_TRUNCATE_RAMP_TIME = 7200.0 !   [s] default = 0.0
                                 ! The time over which the CFL truncation value is ramped up at the beginning of
                                 ! the run.
-U_TRUNC_FILE = "U_velocity_truncations" ! default = ""
-                                ! The absolute path to a file into which the accelerations leading to zonal
-                                ! velocity truncations are written. Undefine this for efficiency if this
-                                ! diagnostic is not needed.
-V_TRUNC_FILE = "V_velocity_truncations" ! default = ""
-                                ! The absolute path to a file into which the accelerations leading to meridional
-                                ! velocity truncations are written. Undefine this for efficiency if this
-                                ! diagnostic is not needed.
 
 ! === module MOM_barotropic ===
 BOUND_BT_CORRECTION = True      !   [Boolean] default = False
@@ -425,6 +462,8 @@ MIXEDLAYER_RESTRAT = True       !   [Boolean] default = False
                                 ! If true, a density-gradient dependent re-stratifying flow is imposed in the
                                 ! mixed layer. Can be used in ALE mode without restriction but in layer mode can
                                 ! only be used if BULKMIXEDLAYER is true.
+MLE%
+%MLE
 FOX_KEMPER_ML_RESTRAT_COEF = 1.0 !   [nondim] default = 0.0
                                 ! A nondimensional coefficient that is proportional to the ratio of the
                                 ! deformation radius to the dominant lengthscale of the submesoscale mixed layer
@@ -444,6 +483,10 @@ MLE_MLD_DECAY_TIME = 3.456E+05  !   [s] default = 0.0
                                 ! MLD.
 
 ! === module MOM_diagnostics ===
+INTWAVE_REMAPPING_USE_OM4_SUBCELLS = False !   [Boolean] default = True
+                                ! If true, use the OM4 remapping-via-subcells algorithm for calculating EBT
+                                ! structure. See REMAPPING_USE_OM4_SUBCELLS for details. We recommend setting
+                                ! this option to false.
 
 ! === module MOM_diabatic_driver ===
 ! The following parameters are used for diabatic processes.
@@ -574,6 +617,10 @@ USE_HORIZONTAL_BOUNDARY_DIFFUSION = True !   [Boolean] default = False
 HBD_LINEAR_TRANSITION = True    !   [Boolean] default = False
                                 ! If True, apply a linear transition at the base/top of the boundary.
                                 ! The flux will be fully applied at k=k_min and zero at k=k_max.
+HBD_REMAPPING_USE_OM4_SUBCELLS = False !   [Boolean] default = True
+                                ! If true, use the OM4 remapping-via-subcells algorithm for horizontal boundary
+                                ! diffusion. See REMAPPING_USE_OM4_SUBCELLS for details. We recommend setting
+                                ! this option to false.
 
 ! === module MOM_sum_output ===
 
@@ -584,6 +631,9 @@ OCEAN_SURFACE_STAGGER = "A"     ! default = "C"
                                 ! A case-insensitive character string to indicate the staggering of the surface
                                 ! velocity field that is returned to the coupler.  Valid values include 'A',
                                 ! 'B', or 'C'.
+EPS_OMESH = 1.0E-13             !   [degrees] default = 1.0E-04
+                                ! Maximum allowable difference between ESMF mesh and MOM6 domain coordinates in
+                                ! nuopc cap.
 RESTORE_SALINITY = True         !   [Boolean] default = False
                                 ! If true, the coupled driver will add a globally-balanced fresh-water flux that
                                 ! drives sea-surface salinity toward specified values.
@@ -596,6 +646,9 @@ LATENT_HEAT_VAPORIZATION = 2.501E+06 !   [J/kg] default = 2.5E+06
 ADJUST_NET_FRESH_WATER_TO_ZERO = True !   [Boolean] default = False
                                 ! If true, adjusts the net fresh-water forcing seen by the ocean (including
                                 ! restoring) to zero.
+WIND_STAGGER = "A"              ! default = "C"
+                                ! A case-insensitive character string to indicate the staggering of the input
+                                ! wind stress field.  Valid values are 'A', 'B', or 'C'.
 ENTHALPY_FROM_COUPLER = True    !   [Boolean] default = False
                                 ! If True, the heat (enthalpy) associated with mass entering/leaving the ocean
                                 ! is provided via coupler.
@@ -609,9 +662,3 @@ SRESTORE_AS_SFLUX = True        !   [Boolean] default = False
                                 ! freshwater flux.
 GUST_CONST = 0.02               !   [Pa] default = 0.0
                                 ! The background gustiness in the winds.
-
-! === module MOM_file_parser ===
-FATAL_UNUSED_PARAMS = True      !   [Boolean] default = False
-                                ! If true, kill the run if there are any unused parameters.
-AUTO_MASKTABLE = True           !   [Boolean] default = False
-                                ! Turn on automatic mask table generation to eliminate land blocks.
