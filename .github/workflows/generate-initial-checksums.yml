@@ -74,4 +74,5 @@ jobs:
       payu-version: ${{ needs.config.outputs.payu-version }}
     permissions:
       contents: write
+      checks: write
     secrets: inherit
