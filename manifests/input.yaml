@@ -116,11 +116,6 @@ work/INPUT/dust.nc:
   hashes:
     binhash: 27b85ba44177e8fdeea765179841c73c
     md5: b66d8d72cd49801a74da90b211e8dd21
-work/INPUT/grid.nc:
-  fullpath: /g/data/vk83/configurations/inputs/access-om3/cice/grids/global.1deg/2024.05.14/grid.nc
-  hashes:
-    binhash: b347eb0588291c34bb40a24a7bc45173
-    md5: 544a40b634c182f3e182da6bcbe8be7b
 work/INPUT/grid_spec.nc:
   fullpath: /g/data/vk83/experiments/inputs/access-om3/mom/grids/mosaic/global.1deg/2024.05.08/grid_spec.nc
   hashes:
