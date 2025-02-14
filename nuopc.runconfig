@@ -44,7 +44,7 @@ PELAYOUT_attributes::
      glc_nthreads = 1
      glc_pestride = 1
      glc_rootpe = 0
-     ice_ntasks = 96 #Note-Parallel I/O github.com/COSIMA/access-om3/issues/214
+     ice_ntasks = 96
      ice_nthreads = 1
      ice_pestride = 1
      ice_rootpe = 0
@@ -137,7 +137,7 @@ ALLCOMP_attributes::
      start_type = startup
      tfreeze_option = linear_salt
      wav_coupling_to_cice = .false.
-     write_restart_at_endofrun = .false.
+     restart_pointer_append_date = .false.
 ::
 
 MED_attributes::
