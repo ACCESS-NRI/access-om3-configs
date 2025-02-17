@@ -3,11 +3,23 @@
     "scheduled": {
         "default": {
             "markers": "checksum"
+        },
+        "dev-1deg_jra55do_ryf": {
+            "markers": "checksum or checksum_slow"
+        },
+        "release-1deg_jra55do_ryf": {
+            "markers": "checksum or checksum_slow"
         }
     },
     "reproducibility": {
         "default": {
             "markers": "checksum"
+        },
+        "dev-1deg_jra55do_ryf": {
+            "markers": "checksum or checksum_slow"
+        },
+        "release-1deg_jra55do_ryf": {
+            "markers": "checksum or checksum_slow"
         }
     },
     "qa": {
