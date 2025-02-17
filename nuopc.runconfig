@@ -107,7 +107,6 @@ ALLCOMP_attributes::
      flds_i2o_per_cat = .false.
      flds_r2l_stream_channel_depths = .false.
      flds_wiso = .false.
-     add_gusts = .false.
      flux_convergence = 0.01
      flux_max_iteration = 5
      glc_nec = 10
@@ -139,7 +138,6 @@ ALLCOMP_attributes::
      tfreeze_option = linear_salt
      wav_coupling_to_cice = .false.
      write_restart_at_endofrun = .false.
-     restart_pointer_append_date = .false.
 ::
 
 MED_attributes::
