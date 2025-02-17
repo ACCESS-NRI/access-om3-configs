@@ -1,5 +1,5 @@
-! The top section contains non default debugging parameters which are set.
-
+! This section contains non default debugging parameters which are set.
+! ------------------------
 ! === module MOM_vert_friction ===
 U_TRUNC_FILE = "U_velocity_truncations" ! default = ""
                                 ! The absolute path to a file into which the accelerations leading to zonal
@@ -14,8 +14,13 @@ V_TRUNC_FILE = "V_velocity_truncations" ! default = ""
 FATAL_UNUSED_PARAMS = True      !   [Boolean] default = False
                                 ! If true, kill the run if there are any unused parameters.
 
+! This section contains non default layout parameters which are set.
+! ------------------------
+! === module MOM_domains ===
+AUTO_MASKTABLE = True           !   [Boolean] default = False
+                                ! Turn on automatic mask table generation to eliminate land blocks.
 
-! Below this line is formatted the same as the MOM_parameter_short.doc output file
+! This section is formatted the same as the MOM_parameter_short.doc output file.
 ! ------------------------
 ! This file was written by the model and records the non-default parameters used at run-time.
 
@@ -147,7 +152,12 @@ NK = 50                         !   [nondim]
                                 ! The number of model layers.
 
 ! === module MOM_EOS ===
-DTFREEZE_DP = -7.75E-08         !   [deg C Pa-1] default = 0.0
+EQN_OF_STATE = "WRIGHT_REDUCED" ! default = "WRIGHT"
+                                ! EQN_OF_STATE determines which ocean equation of state should be used.
+                                ! Currently, the valid choices are "LINEAR", "UNESCO", "JACKETT_MCD", "WRIGHT",
+                                ! "WRIGHT_REDUCED", "WRIGHT_FULL", "NEMO", "ROQUET_RHO", "ROQUET_SPV" and
+                                ! "TEOS10".  This is only used if USE_EOS is true.
+DTFREEZE_DP = -7.75E-08         !   [degC Pa-1] default = 0.0
                                 ! When TFREEZE_FORM=LINEAR, this is the derivative of the freezing potential
                                 ! temperature with pressure.
 
@@ -177,6 +187,8 @@ ALE_COORDINATE_CONFIG = "FILE:ocean_vgrid.nc,interfaces=zeta" ! default = "UNIFO
                                 !                by a comma or space, e.g. FILE:lev.nc,dz
                                 !                or FILE:lev.nc,interfaces=zw
                                 !  WOA09[:N]   - the WOA09 vertical grid (approximately)
+                                !  WOA09INT[:N] - layers spanned by the WOA09 depths
+                                !  WOA23INT[:N] - layers spanned by the WOA23 depths
                                 !  FNC1:string - FNC1:dz_min,H_total,power,precision
                                 !  HYBRID:string - read from a file. The string specifies
                                 !                the filename and two variable names, separated
@@ -195,6 +207,11 @@ REMAPPING_SCHEME = "PPM_H4"     ! default = "PLM"
                                 ! WENO_HYBGEN (3rd-order accurate)
                                 ! PQM_IH4IH3  (4th-order accurate)
                                 ! PQM_IH6IH5  (5th-order accurate)
+REMAPPING_USE_OM4_SUBCELLS = False !   [Boolean] default = True
+                                ! This selects the remapping algorithm used in OM4 that does not use the full
+                                ! reconstruction for the top- and lower-most sub-layers, but instead assumes
+                                ! they are always vanished (untrue) and so just uses their edge values. We
+                                ! recommend setting this option to false.
 
 ! === module MOM_state_initialization ===
 INIT_LAYERS_FROM_Z_FILE = True  !   [Boolean] default = False
@@ -217,8 +234,16 @@ TEMP_SALT_INIT_VERTICAL_REMAP_ONLY = True !   [Boolean] default = False
                                 ! If true, initial conditions are on the model horizontal grid. Extrapolation
                                 ! over missing ocean values is done using an ICE-9 procedure with vertical ALE
                                 ! remapping .
+Z_INIT_REMAPPING_USE_OM4_SUBCELLS = False !   [Boolean] default = True
+                                ! If true, use the OM4 remapping-via-subcells algorithm for initialization. See
+                                ! REMAPPING_USE_OM4_SUBCELLS for more details. We recommend setting this option
+                                ! to false.
 
 ! === module MOM_diag_mediator ===
+DIAG_REMAPPING_USE_OM4_SUBCELLS = False !   [Boolean] default = True
+                                ! If true, use the OM4 remapping-via-subcells algorithm for diagnostics. See
+                                ! REMAPPING_USE_OM4_SUBCELLS for details. We recommend setting this option to
+                                ! false.
 DIAG_COORD_DEF_Z = "FILE:ocean_vgrid.nc,interfaces=zeta" ! default = "WOA09"
                                 ! Determines how to specify the coordinate resolution. Valid options are:
                                 !  PARAM       - use the vector-parameter DIAG_COORD_RES_Z
@@ -228,6 +253,8 @@ DIAG_COORD_DEF_Z = "FILE:ocean_vgrid.nc,interfaces=zeta" ! default = "WOA09"
                                 !                by a comma or space, e.g. FILE:lev.nc,dz
                                 !                or FILE:lev.nc,interfaces=zw
                                 !  WOA09[:N]   - the WOA09 vertical grid (approximately)
+                                !  WOA09INT[:N] - layers spanned by the WOA09 depths
+                                !  WOA23INT[:N] - layers spanned by the WOA23 depths
                                 !  FNC1:string - FNC1:dz_min,H_total,power,precision
                                 !  HYBRID:string - read from a file. The string specifies
                                 !                the filename and two variable names, separated
@@ -313,6 +340,10 @@ USE_STORED_SLOPES = True        !   [Boolean] default = False
 KH_RES_SCALE_COEF = 0.4         !   [nondim] default = 1.0
                                 ! A coefficient that determines how KhTh is scaled away if RESOLN_SCALED_... is
                                 ! true, as F = 1 / (1 + (KH_RES_SCALE_COEF*Rd/dx)^KH_RES_FN_POWER).
+EBT_REMAPPING_USE_OM4_SUBCELLS = False !   [Boolean] default = True
+                                ! If true, use the OM4 remapping-via-subcells algorithm for calculating EBT
+                                ! structure. See REMAPPING_USE_OM4_SUBCELLS for details. We recommend setting
+                                ! this option to false.
 
 ! === module MOM_set_visc ===
 CHANNEL_DRAG = True             !   [Boolean] default = False
@@ -346,13 +377,14 @@ FGNV_C_MIN = 0.01               !   [m s-1] default = 0.0
 USE_KH_IN_MEKE = True           !   [Boolean] default = False
                                 ! If true, uses the thickness diffusivity calculated here to diffuse MEKE.
 
-! === module MOM_porous_barriers ===
-
 ! === module MOM_dynamics_split_RK2 ===
 TIDES = True                    !   [Boolean] default = False
                                 ! If true, apply tidal momentum forcing.
-
-! === module MOM_continuity ===
+VISC_REM_BUG = False            !   [Boolean] default = True
+                                ! If true, visc_rem_[uv] in split mode is incorrectly calculated or accounted
+                                ! for in two places. This parameter controls the defaults of two individual
+                                ! flags, VISC_REM_TIMESTEP_BUG in MOM_dynamics_split_RK2(b) and
+                                ! VISC_REM_BT_WEIGHT_BUG in MOM_barotropic.
 
 ! === module MOM_continuity_PPM ===
 ETA_TOLERANCE = 1.0E-06         !   [m] default = 2.5E-09
@@ -372,14 +404,12 @@ BOUND_CORIOLIS = True           !   [Boolean] default = False
                                 ! option would have no effect on the SADOURNY Coriolis scheme if it were
                                 ! possible to use centered difference thickness fluxes.
 
+! === module MOM_self_attr_load ===
+
 ! === module MOM_tidal_forcing ===
 TIDE_M2 = True                  !   [Boolean] default = False
                                 ! If true, apply tidal momentum forcing at the M2 frequency. This is only used
                                 ! if TIDES is true.
-TIDE_SAL_SCALAR_VALUE = 0.094   !   [m m-1]
-                                ! The constant of proportionality between sea surface height (really it should
-                                ! be bottom pressure) anomalies and bottom geopotential anomalies. This is only
-                                ! used if TIDES and TIDE_USE_SAL_SCALAR are true.
 
 ! === module MOM_PressureForce ===
 
@@ -397,9 +427,20 @@ AH = 1.0E+12                    !   [m4 s-1] default = 0.0
                                 ! The background biharmonic horizontal viscosity.
 LEITH_AH = True                 !   [Boolean] default = False
                                 ! If true, use a biharmonic Leith nonlinear eddy viscosity.
+BACKSCATTER_UNDERBOUND = False  !   [Boolean] default = True
+                                ! If true, the bounds on the biharmonic viscosity are allowed to increase where
+                                ! the Laplacian viscosity is negative (due to backscatter parameterizations)
+                                ! beyond the largest timestep-dependent stable values of biharmonic viscosity
+                                ! when no Laplacian viscosity is applied.  The default is true for historical
+                                ! reasons, but this option probably should not be used because it can contribute
+                                ! to numerical instabilities.
 LEITH_BI_CONST = 128.0          !   [nondim] default = 0.0
                                 ! The nondimensional biharmonic Leith constant, typical values are thus far
                                 ! undetermined.
+FRICTWORK_BUG = False           !   [Boolean] default = True
+                                ! If true, retain an answer-changing bug in calculating the FrictWork, which
+                                ! cancels the h in thickness flux and the h at velocity point. This isnot
+                                ! recommended.
 
 ! === module MOM_vert_friction ===
 HMIX_FIXED = 0.5                !   [m]
@@ -447,7 +488,7 @@ FOX_KEMPER_ML_RESTRAT_COEF = 1.0 !   [nondim] default = 0.0
                                 ! instabilities, times the minimum of the ratio of the mesoscale eddy kinetic
                                 ! energy to the large-scale geostrophic kinetic energy or 1 plus the square of
                                 ! the grid spacing over the deformation radius, as detailed by Fox-Kemper et al.
-                                ! (2010)
+                                ! (2011)
 MLE_FRONT_LENGTH = 1000.0       !   [m] default = 0.0
                                 ! If non-zero, is the frontal-length scale used to calculate the upscaling of
                                 ! buoyancy gradients that is otherwise represented by the parameter
@@ -460,6 +501,10 @@ MLE_MLD_DECAY_TIME = 3.456E+05  !   [s] default = 0.0
                                 ! MLD.
 
 ! === module MOM_diagnostics ===
+INTWAVE_REMAPPING_USE_OM4_SUBCELLS = False !   [Boolean] default = True
+                                ! If true, use the OM4 remapping-via-subcells algorithm for calculating EBT
+                                ! structure. See REMAPPING_USE_OM4_SUBCELLS for details. We recommend setting
+                                ! this option to false.
 
 ! === module MOM_diabatic_driver ===
 ! The following parameters are used for diabatic processes.
@@ -590,6 +635,10 @@ USE_HORIZONTAL_BOUNDARY_DIFFUSION = True !   [Boolean] default = False
 HBD_LINEAR_TRANSITION = True    !   [Boolean] default = False
                                 ! If True, apply a linear transition at the base/top of the boundary.
                                 ! The flux will be fully applied at k=k_min and zero at k=k_max.
+HBD_REMAPPING_USE_OM4_SUBCELLS = False !   [Boolean] default = True
+                                ! If true, use the OM4 remapping-via-subcells algorithm for horizontal boundary
+                                ! diffusion. See REMAPPING_USE_OM4_SUBCELLS for details. We recommend setting
+                                ! this option to false.
 
 ! === module MOM_sum_output ===
 
@@ -636,4 +685,3 @@ SRESTORE_AS_SFLUX = True        !   [Boolean] default = False
                                 ! freshwater flux.
 GUST_CONST = 0.02               !   [Pa] default = 0.0
                                 ! The background gustiness in the winds.
-
