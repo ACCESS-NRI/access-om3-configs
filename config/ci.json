@@ -2,12 +2,20 @@
     "$schema": "https://github.com/ACCESS-NRI/schema/tree/main/au.org.access-nri/model/configuration/ci/2-0-0.json",
     "scheduled": {
         "default": {
-            "markers": "checksum"
-        }
+            "markers": "checksum or checksum_slow"
+        },
+        "dev-1deg_jra55do_ryf": {},
+        "release-1deg_jra55do_ryf": {}
     },
     "reproducibility": {
         "default": {
             "markers": "checksum"
+        },
+        "dev-1deg_jra55do_ryf": {
+            "markers": "checksum or checksum_slow"
+        },
+        "release-1deg_jra55do_ryf": {
+            "markers": "checksum or checksum_slow"
         }
     },
     "qa": {
