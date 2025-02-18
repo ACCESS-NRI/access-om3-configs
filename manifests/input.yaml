@@ -117,7 +117,7 @@ work/INPUT/dust.nc:
     binhash: 27b85ba44177e8fdeea765179841c73c
     md5: b66d8d72cd49801a74da90b211e8dd21
 work/INPUT/grid_spec.nc:
-  fullpath: /g/data/vk83/experiments/inputs/access-om3/mom/grids/mosaic/global.1deg/2024.05.08/grid_spec.nc
+  fullpath: /g/data/vk83/configurations/inputs/access-om3/mom/grids/mosaic/global.1deg/2024.05.08/grid_spec.nc
   hashes:
     binhash: a2c6813be9a75777ff6318170e5985ad
     md5: 709268cd891e6f0e827f6de0249f1a3d
@@ -142,7 +142,7 @@ work/INPUT/ocean_hgrid.nc:
     binhash: 3526d89ffb639455c6a1218f5139d5b2
     md5: 51f58be0f4ea6da2cb438a893f95c689
 work/INPUT/ocean_mosaic.nc:
-  fullpath: /g/data/vk83/experiments/inputs/access-om3/mom/grids/mosaic/global.1deg/2020.05.30/ocean_mosaic.nc
+  fullpath: /g/data/vk83/configurations/inputs/access-om3/mom/grids/mosaic/global.1deg/2020.05.30/ocean_mosaic.nc
   hashes:
     binhash: 2eff36650abbdb1e867d8300bf2710cf
     md5: cb42e630ee31d3686156fcbdc2f9d07c
