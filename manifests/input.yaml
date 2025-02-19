@@ -81,6 +81,11 @@ work/INPUT/access-om2-1deg-nomask-ESMFmesh.nc:
   hashes:
     binhash: 4b1cc45032afeaf93b4894937639f5b9
     md5: 9b7120a42b5cb587492e7c31791eb549
+work/INPUT/grid.nc:
+  fullpath: /g/data/vk83/configurations/inputs/access-om3/cice/grids/global.1deg/2024.05.14/grid.nc
+  hashes:
+    binhash: b347eb0588291c34bb40a24a7bc45173
+    md5: 544a40b634c182f3e182da6bcbe8be7b
 work/INPUT/iced.1900-01-01-10800.nc:
   fullpath: /g/data/vk83/configurations/inputs/access-om3/cice/initial_conditions/global.1deg/2023.07.28/iced.1900-01-01-10800.nc
   hashes:
