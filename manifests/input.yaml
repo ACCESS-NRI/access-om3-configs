@@ -3131,6 +3131,11 @@ work/INPUT/atmos/fx/sftof/gr/v20190429/sftof_input4MIPs_atmosphericState_OMIP_MR
   hashes:
     binhash: ef944d0b9c1d3150d113a082e268187e
     md5: 58539c1be00bb9584c404a014396ad40
+work/INPUT/grid.nc:
+  fullpath: /g/data/vk83/configurations/inputs/access-om3/cice/grids/global.1deg/2024.05.14/grid.nc
+  hashes:
+    binhash: b347eb0588291c34bb40a24a7bc45173
+    md5: 544a40b634c182f3e182da6bcbe8be7b
 work/INPUT/iced.1900-01-01-10800.nc:
   fullpath: /g/data/vk83/configurations/inputs/access-om3/cice/initial_conditions/global.1deg/2023.07.28/iced.1900-01-01-10800.nc
   hashes:
