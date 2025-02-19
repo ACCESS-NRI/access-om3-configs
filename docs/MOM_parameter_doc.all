@@ -2208,7 +2208,7 @@ SINGLE_STEPPING_CALL = True     !   [Boolean] default = True
                                 ! If true, advance the state of MOM with a single step including both dynamics
                                 ! and thermodynamics.  If false, the two phases are advanced with separate
                                 ! calls.
-RESTART_CONTROL = 3             ! default = 1
+RESTART_CONTROL = 1             ! default = 1
                                 ! An integer whose bits encode which restart files are written. Add 2 (bit 1)
                                 ! for a time-stamped file, and odd (bit 0) for a non-time-stamped file.  A
                                 ! restart file will be saved at the end of the run segment for any non-negative
