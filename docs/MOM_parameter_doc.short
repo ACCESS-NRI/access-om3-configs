@@ -354,8 +354,6 @@ USE_KH_IN_MEKE = True           !   [Boolean] default = False
                                 ! If true, uses the thickness diffusivity calculated here to diffuse MEKE.
 
 ! === module MOM_dynamics_split_RK2 ===
-TIDES = True                    !   [Boolean] default = False
-                                ! If true, apply tidal momentum forcing.
 VISC_REM_BUG = False            !   [Boolean] default = True
                                 ! If true, visc_rem_[uv] in split mode is incorrectly calculated or accounted
                                 ! for in two places. This parameter controls the defaults of two individual
@@ -379,13 +377,6 @@ BOUND_CORIOLIS = True           !   [Boolean] default = False
                                 ! (f+rv)v from the four neighboring v-points, and similarly at v-points.  This
                                 ! option would have no effect on the SADOURNY Coriolis scheme if it were
                                 ! possible to use centered difference thickness fluxes.
-
-! === module MOM_self_attr_load ===
-
-! === module MOM_tidal_forcing ===
-TIDE_M2 = True                  !   [Boolean] default = False
-                                ! If true, apply tidal momentum forcing at the M2 frequency. This is only used
-                                ! if TIDES is true.
 
 ! === module MOM_PressureForce ===
 
