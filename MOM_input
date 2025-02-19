@@ -633,11 +633,6 @@ HBD_REMAPPING_USE_OM4_SUBCELLS = False !   [Boolean] default = True
 ! === module ocean_stochastics_init ===
 
 ! === module ocean_model_init ===
-RESTART_CONTROL = 3             ! default = 1
-                                ! An integer whose bits encode which restart files are written. Add 2 (bit 1)
-                                ! for a time-stamped file, and odd (bit 0) for a non-time-stamped file.  A
-                                ! restart file will be saved at the end of the run segment for any non-negative
-                                ! value.
 OCEAN_SURFACE_STAGGER = "A"     ! default = "C"
                                 ! A case-insensitive character string to indicate the staggering of the surface
                                 ! velocity field that is returned to the coupler.  Valid values include 'A',
