@@ -1676,7 +1676,7 @@ MIX_BOUNDARY_TRACERS = True     !   [Boolean] default = True
 MIX_BOUNDARY_TRACER_ALE = False !   [Boolean] default = False
                                 ! If true and in ALE mode, mix the passive tracers in massless layers at the
                                 ! bottom into the interior as though a diffusivity of KD_MIN_TR were operating.
-KD_MIN_TR = 2.0E-06             !   [m2 s-1] default = 2.0E-06
+KD_MIN_TR = 0.0                 !   [m2 s-1] default = 0.0
                                 ! A minimal diffusivity that should always be applied to tracers, especially in
                                 ! massless layers near the bottom. The default is 0.1*KD.
 KD_BBL_TR = 0.0                 !   [m2 s-1] default = 0.0
@@ -1875,25 +1875,17 @@ DZ_BBL_AVG_MIN = 0.0            !   [m] default = 0.0
 
 ! === module MOM_bkgnd_mixing ===
 ! Adding static vertical background mixing coefficients
-KD = 2.0E-05                    !   [m2 s-1] default = 0.0
+KD = 0.0                        !   [m2 s-1] default = 0.0
                                 ! The background diapycnal diffusivity of density in the interior. Zero or the
                                 ! molecular value, ~1e-7 m2 s-1, may be used.
-KD_MIN = 2.0E-06                !   [m2 s-1] default = 2.0E-07
+KD_MIN = 0.0                    !   [m2 s-1] default = 0.0
                                 ! The minimum diapycnal diffusivity.
 BRYAN_LEWIS_DIFFUSIVITY = False !   [Boolean] default = False
                                 ! If true, use a Bryan & Lewis (JGR 1979) like tanh profile of background
                                 ! diapycnal diffusivity with depth. This is done via CVMix.
-HORIZ_VARYING_BACKGROUND = True !   [Boolean] default = False
+HORIZ_VARYING_BACKGROUND = False !   [Boolean] default = False
                                 ! If true, apply vertically uniform, latitude-dependent background diffusivity,
                                 ! as described in Danabasoglu et al., 2012
-BCKGRND_VDC1 = 1.6E-05          !   [m2 s-1] default = 1.6E-05
-                                ! Background diffusivity (Ledwell) when HORIZ_VARYING_BACKGROUND=True
-BCKGRND_VDC_EQ = 1.0E-06        !   [m2 s-1] default = 1.0E-06
-                                ! Equatorial diffusivity (Gregg) when HORIZ_VARYING_BACKGROUND=True
-BCKGRND_VDC_PSIM = 1.3E-05      !   [m2 s-1] default = 1.3E-05
-                                ! Max. PSI induced diffusivity (MacKinnon) when HORIZ_VARYING_BACKGROUND=True
-BCKGRND_VDC_BAN = 1.0E-04       !   [m2 s-1] default = 1.0E-04
-                                ! Banda Sea diffusivity (Gordon) when HORIZ_VARYING_BACKGROUND=True
 PRANDTL_BKGND = 5.0             !   [nondim] default = 1.0
                                 ! Turbulent Prandtl number used to convert vertical background diffusivities
                                 ! into viscosities.
