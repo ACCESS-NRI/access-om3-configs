@@ -530,14 +530,6 @@ USE_LOTW_BBL_DIFFUSIVITY = True !   [Boolean] default = False
 
 ! === module MOM_bkgnd_mixing ===
 ! Adding static vertical background mixing coefficients
-KD = 2.0E-05                    !   [m2 s-1] default = 0.0
-                                ! The background diapycnal diffusivity of density in the interior. Zero or the
-                                ! molecular value, ~1e-7 m2 s-1, may be used.
-KD_MIN = 2.0E-06                !   [m2 s-1] default = 2.0E-07
-                                ! The minimum diapycnal diffusivity.
-HORIZ_VARYING_BACKGROUND = True !   [Boolean] default = False
-                                ! If true, apply vertically uniform, latitude-dependent background diffusivity,
-                                ! as described in Danabasoglu et al., 2012
 PRANDTL_BKGND = 5.0             !   [nondim] default = 1.0
                                 ! Turbulent Prandtl number used to convert vertical background diffusivities
                                 ! into viscosities.
