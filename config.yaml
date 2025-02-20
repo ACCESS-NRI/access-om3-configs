@@ -13,7 +13,7 @@ ncpus: 240
 jobfs: 10GB
 mem: 960GB
 
-walltime: 01:00:00
+walltime: 02:00:00
 jobname: 1deg_jra55do_iaf
 
 model: access-om3
