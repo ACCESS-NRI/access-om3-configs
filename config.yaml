@@ -45,7 +45,7 @@ userscripts:
 
 modules:
     use:
-        - /g/data/vk83/modules
+        - /g/data/vk83/prerelease/modules
     load:
         - access-om3/2025.01.restart_legacy
         - nco/5.0.5
