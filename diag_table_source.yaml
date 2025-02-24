@@ -268,6 +268,8 @@ diag_table:
             umo_2d: # Ocean Mass X Transport Vertical Sum
             vmo_2d: # Ocean Mass Y Transport Vertical Sum
             pbo: # Sea Water Pressure at Sea Floor
+            SW_pen: # Penetrating shortwave radiation flux into ocean W m-2
+            salt_flux_in: # Salt flux into ocean at surface from coupler
 
     'monthly 2d max fields':
         defaults:  # these can be overridden for individual fields below
@@ -288,6 +290,46 @@ diag_table:
             sos: # Sea Surface Salinity
             tos: # Sea Surface Temperature
             SSH: # Sea Surface Height
+
+    'daily 2D fields':
+        defaults:
+            file_name_dimension: 2d  # descriptor for filename, e.g. 3d, 2d, scalar
+            '':
+                - output_freq_units
+            output_freq_units: days  # time units for output: years, months, days, hours, minutes, or seconds
+            reduction_method: mean # mean, snap, rms, pow##, min, max, or diurnal##
+        fields:
+            tob: # Sea Water Potential Temperature at Sea Floor
+            mlotst: # Mixed layer depth (delta rho = 0.03) MLD_003
+            e_D: # Interface Height above the Seafloor (m)
+            net_heat_coupler: # Surface ocean heat flux from SW+LW+latent+sensible+seaice_melt_heat (via the coupler)
+            heat_content_lrunoff: # Heat content (relative to 0C) of liquid runoff into ocean
+            Heat_PmE: # Heat flux into ocean from mass flux into ocean
+            tos: # Sea Surface Temperature
+            sos: # Sea Surface Salinity
+            SSU: # Sea Surface Zonal Velocity
+            SSV: # Sea Surface Meridional Velocity
+
+    'daily 2D max fields':
+        defaults:
+            file_name_dimension: 2d  # descriptor for filename, e.g. 3d, 2d, scalar
+            '':
+                - output_freq_units
+            output_freq_units: days  # time units for output: years, months, days, hours, minutes, or seconds
+            reduction_method: max # mean, snap, rms, pow##, min, max, or diurnal##
+        fields:
+            e_D: # Interface Height above the Seafloor (m)
+            tos: # Sea Surface Temperature
+
+    'daily 2D min fields':
+        defaults:
+            file_name_dimension: 2d  # descriptor for filename, e.g. 3d, 2d, scalar
+            '':
+                - output_freq_units
+            output_freq_units: days  # time units for output: years, months, days, hours, minutes, or seconds
+            reduction_method: min # mean, snap, rms, pow##, min, max, or diurnal##
+        fields:
+            tos: # Sea Surface Temperature
 
     'daily scalar timeseries':
         defaults:  # these can be overridden for individual fields below
