@@ -274,6 +274,9 @@ diag_table:
             reduction_method: max  # mean, snap, rms, pow##, min, max, or diurnal##
         fields:
             mlotst: # Mixed layer depth (delta rho = 0.03) MLD_003
+            sos: # Sea Surface Salinity
+            tos: # Sea Surface Temperature
+            SSH: # Sea Surface Height
 
     'monthly 2d min fields':
         defaults:  # these can be overridden for individual fields below
