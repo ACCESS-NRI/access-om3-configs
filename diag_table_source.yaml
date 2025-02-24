@@ -126,6 +126,7 @@ diag_table:
             # A separator is not used prior to the first item.
                 - file_name_prefix
                 - file_name_dimension
+            packing: 1 # double precision
             reduction_method: snap  # mean, snap, rms, pow##, min, max, or diurnal##
             output_freq: -1  # Output frequency in output_freq_units (0: every timestep; -1: only at end of run)
             output_freq_units: months  # time units for output: years, months, days, hours, minutes, or seconds
