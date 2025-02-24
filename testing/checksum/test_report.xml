@@ -1,6 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="1" time="923.171" timestamp="2025-02-11T14:11:54.141788+11:00" hostname="gadi-login-08.gadi.nci.org.au"><testcase classname="test-venv.lib.python3.10.site-packages.model_config_tests.test_bit_reproducibility.TestBitReproducibility" name="test_bit_repro_historical" time="922.247"><failure message="AssertionError: Checksums were not equal. The new checksums have been written to /scratch/tm70/repro-ci/experiments/access-om3-configs/dev-1deg_jra55do_iaf/checksum/historical-3hr-checksum.json.&#10;assert {'output': {'...ion': '1-0-0'} == {'output': {'...ion': '1-0-0'}&#10;  &#10;  Omitting 1 identical items, use -vv to show&#10;  Differing items:&#10;  {'output': {'CFL': ['0.00000'], 'En': ['3.1034198253312566E-23'], 'M': ['1.36404E+21'], 'Me': ['0.00E+00'], ...}} != {'output': {'CFL': ['0.00000', '0.06867'], 'En': ['3.1034198253312566E-23', '5.2770203504346890E-04'], 'M': ['1.36404E+21', '1.36404E+21'], 'Me': ['0.00E+00', '2.55E-20'], ...}}&#10;  Use -v to get more diff">self = &lt;model_config_tests.test_bit_reproducibility.TestBitReproducibility object at 0x7fe76644ee00&gt;
-output_path = PosixPath('/scratch/tm70/repro-ci/experiments/access-om3-configs/dev-1deg_jra55do_iaf')
-control_path = PosixPath('/scratch/tm70/repro-ci/experiments/access-om3-configs/dev-1deg_jra55do_iaf/base-experiment')
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="1" time="184.004" timestamp="2025-02-24T11:02:34.167144+11:00" hostname="gadi-login-08.gadi.nci.org.au"><testcase classname="test-venv.lib.python3.10.site-packages.model_config_tests.test_bit_reproducibility.TestBitReproducibility" name="test_bit_repro_historical" time="183.099"><failure message="AssertionError: Output file for the model does not exist. See the logs for more information on the experiment run&#10;assert False&#10; +  where False = output_exists()&#10; +    where output_exists = &lt;model_config_tests.models.accessom3.AccessOm3 object at 0x7f62bee3ca30&gt;.output_exists&#10; +      where &lt;model_config_tests.models.accessom3.AccessOm3 object at 0x7f62bee3ca30&gt; = &lt;model_config_tests.exp_test_helper.ExpTestHelper object at 0x7f62bee3c490&gt;.model">self = &lt;model_config_tests.test_bit_reproducibility.TestBitReproducibility object at 0x7f62b307ada0&gt;
+output_path = PosixPath('/scratch/tm70/repro-ci/experiments/access-om3-configs/255-dev-1deg_jra55do_iaf-auto_masktable_false')
+control_path = PosixPath('/scratch/tm70/repro-ci/experiments/access-om3-configs/255-dev-1deg_jra55do_iaf-auto_masktable_false/base-experiment')
 checksum_path = None, keep_archive = False
 
     @pytest.mark.checksum
@@ -54,45 +54,14 @@ checksum_path = None, keep_archive = False
             "See the logs for more infomation on the experiment run"
         )
     
-        assert exp.model.output_exists(), (
+&gt;       assert exp.model.output_exists(), (
             "Output file for the model does not exist. "
             "See the logs for more information on the experiment run"
         )
-    
-        # Set the checksum output filename using the model default runtime
-        runtime_hours = exp.model.default_runtime_seconds // HOUR_IN_SECONDS
-        checksum_filename = f"historical-{runtime_hours}hr-checksum.json"
-    
-        # Read the historical checksum file
-        hist_checksums = read_historical_checksums(
-            control_path, checksum_filename, checksum_path
-        )
-    
-        # Use historical file checksums schema version for parsing checksum,
-        # otherwise use the model default, if file does not exist
-        schema_version = (
-            hist_checksums["schema_version"]
-            if hist_checksums
-            else exp.model.default_schema_version
-        )
-    
-        # Extract checksums
-        checksums = exp.extract_checksums(schema_version=schema_version)
-    
-        # Write out checksums to output file
-        checksum_output_file = checksum_output_dir / checksum_filename
-        with open(checksum_output_file, "w") as file:
-            json.dump(checksums, file, indent=2)
-    
-&gt;       assert (
-            hist_checksums == checksums
-        ), f"Checksums were not equal. The new checksums have been written to {checksum_output_file}."
-E       AssertionError: Checksums were not equal. The new checksums have been written to /scratch/tm70/repro-ci/experiments/access-om3-configs/dev-1deg_jra55do_iaf/checksum/historical-3hr-checksum.json.
-E       assert {'output': {'...ion': '1-0-0'} == {'output': {'...ion': '1-0-0'}
-E         
-E         Omitting 1 identical items, use -vv to show
-E         Differing items:
-E         {'output': {'CFL': ['0.00000'], 'En': ['3.1034198253312566E-23'], 'M': ['1.36404E+21'], 'Me': ['0.00E+00'], ...}} != {'output': {'CFL': ['0.00000', '0.06867'], 'En': ['3.1034198253312566E-23', '5.2770203504346890E-04'], 'M': ['1.36404E+21', '1.36404E+21'], 'Me': ['0.00E+00', '2.55E-20'], ...}}
-E         Use -v to get more diff
+E       AssertionError: Output file for the model does not exist. See the logs for more information on the experiment run
+E       assert False
+E        +  where False = output_exists()
+E        +    where output_exists = &lt;model_config_tests.models.accessom3.AccessOm3 object at 0x7f62bee3ca30&gt;.output_exists
+E        +      where &lt;model_config_tests.models.accessom3.AccessOm3 object at 0x7f62bee3ca30&gt; = &lt;model_config_tests.exp_test_helper.ExpTestHelper object at 0x7f62bee3c490&gt;.model
 
-../test-venv/lib/python3.10/site-packages/model_config_tests/test_bit_reproducibility.py:131: AssertionError</failure></testcase></testsuite></testsuites>
+../test-venv/lib/python3.10/site-packages/model_config_tests/test_bit_reproducibility.py:101: AssertionError</failure></testcase></testsuite></testsuites>
