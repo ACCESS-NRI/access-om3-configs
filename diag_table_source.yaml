@@ -283,7 +283,10 @@ diag_table:
             file_name_dimension: 2d  # descriptor for filename, e.g. 3d, 2d, scalar
             reduction_method: min  # mean, snap, rms, pow##, min, max, or diurnal##
         fields:
+            mlotst: # Mixed layer depth (delta rho = 0.03) MLD_003
+            sos: # Sea Surface Salinity
             tos: # Sea Surface Temperature
+            SSH: # Sea Surface Height
 
     'daily scalar timeseries':
         defaults:  # these can be overridden for individual fields below
