@@ -18,7 +18,7 @@ jobname: 1deg_jra55do_ryf
 
 model: access-om3
 
-exe: access-om3-MOM6-CICE6
+exe: access-om3-MOM6
 input:
     - /g/data/vk83/configurations/inputs/access-om3/share/meshes/global.1deg/2024.01.25/access-om2-1deg-ESMFmesh.nc
     - /g/data/vk83/configurations/inputs/access-om3/share/meshes/global.1deg/2024.01.25/access-om2-1deg-nomask-ESMFmesh.nc
