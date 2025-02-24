@@ -311,7 +311,7 @@ diag_table:
                     - output_freq_units
                 - file_name_date
             output_freq_units: days  # time units for output: years, months, days, hours, minutes, or seconds
-            reduction_method: mean  # mean, snap, rms, pow##, min, max, or diurnal##
+            reduction_method: snap  # mean, snap, rms, pow##, min, max, or diurnal##
             packing: 1  # double precision
         fields:
             soga: # Global Mean Ocean Salinity
