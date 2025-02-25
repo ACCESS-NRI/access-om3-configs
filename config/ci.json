@@ -13,25 +13,25 @@
     },
     "reproducibility": {
         "default": {
-            "markers": "checksum",
+            "markers": "checksum"
         },
         "dev-1deg_jra55do_ryf": {
-            "markers": "checksum or checksum_slow",
+            "markers": "checksum or checksum_slow"
         },
         "release-1deg_jra55do_ryf": {
             "markers": "checksum or checksum_slow",
-            "model-config-tests-version": "0.0.12"
+            "model-config-tests-version": "0.0.12",
             "payu-version": "1.1.6"
         }
     },
     "qa": {
         "release-.*": {
             "markers": "access_om3 or config",
-            "model-config-tests-version": "0.0.12"
+            "model-config-tests-version": "0.0.12",
             "payu-version": "1.1.6"
         },
         "default": {
-            "markers": "access_om3 or dev_config",
+            "markers": "access_om3 or dev_config"
         }
     },
     "default": {
