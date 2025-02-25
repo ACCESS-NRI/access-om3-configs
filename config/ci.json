@@ -28,7 +28,7 @@
     },
     "release-.*":{
         "model-config-tests-version": "0.0.12"
-    }
+    },
     "default": {
         "model-config-tests-version": "main",
         "python-version": "3.11.0",
