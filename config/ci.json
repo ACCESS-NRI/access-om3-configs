@@ -2,9 +2,10 @@
     "$schema": "https://github.com/ACCESS-NRI/schema/tree/main/au.org.access-nri/model/configuration/ci/2-0-0.json",
     "scheduled": {
         "default": {
-            "markers": "checksum or checksum_slow"
+            "markers": "checksum or checksum_slow or access_om3 or dev_config"
         },
         "dev-1deg_jra55do_ryf": {
+            "markers": "checksum or checksum_slow or access_om3 or config"
         },
         "release-1deg_jra55do_ryf": {
             "python-version": "3.11.0",
