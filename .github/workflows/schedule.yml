@@ -3,7 +3,7 @@ run-name: Scheduled Checks (${{ github.event_name }})
 on:
   workflow_dispatch:
   schedule:
-    - cron: '0 0 1 * *'  # once a month
+    - cron: '0 0 * * 1'  # At 00:00 on Monday
 jobs:
   checks:
     uses: access-nri/model-config-tests/.github/workflows/config-schedule-1-ci.yml@main
