@@ -4,7 +4,7 @@
   diagfreq = 960
   dumpfreq = "x"
   histfreq = "d", "m", "x", "x", "x"
-  hist_suffix = ".d", ".m", "x", "x", "x"
+  hist_suffix = ".1day.mean", ".1mon.mean", "x", "x", "x"
   hist_time_axis = "middle"
   history_deflate = 1
   history_chunksize = 720, 540
