@@ -2,7 +2,9 @@
 #
 # gridname | fieldname_code            | fieldname_file | file_name                                      | ongrid    | factor
 # ---------------------------------------------------------------------------------------------------------------------------------
-"OCN"      , "co2_flux_pcair_atm"      , ""             , ""                                             , "none"    , 315.165e-06
-"OCN"      , "co2_nat_flux_pcair_atm"  , ""             , ""                                             , "none"    , 284.262e-06
+"OCN"      , "co2_flux_pcair_atm"      , ""             , ""                                             , "none"    , 284.262e-06
 "OCN"      , "o2_flux_pcair_atm"       , ""             , ""                                             , "none"    , 0.21
-"OCN"      , "dry_dep_fe_flux_ice_ocn" , "dust"         , "./INPUT/dust.nc"                              , "none"    , -1.0e-06
+"OCN"      , "runoff_alk_flux_ice_ocn" , ""             , ""                                             , "none"    , 0.5932e-3
+"OCN"      , "runoff_dic_flux_ice_ocn" , ""             , ""                                             , "none"    , 0.96e-3
+"OCN"      , "runoff_po4_flux_ice_ocn" , ""             , ""                                             , "none"    , 0.006792e-3
+"OCN"      , "dry_dep_fed_flux_ice_ocn", "FLUX"         , "./INPUT/Soluble_Fe_Flux_PI.nc"                , "bilinear",  -1.0

@@ -7,12 +7,18 @@
 
 &generic_tracer_nml
     do_generic_tracer=.true.
-    do_generic_WOMBATlite=.true.
+    do_generic_BLING=.true.
     force_update_fluxes=.false. !This has to be set for THERMO_SPANS_COUPLING to work
 /
 
-&generic_wombatlite_nml
-    co2_calc='ocmip2'
+&generic_bling_nml
+    do_14c=.false.
+    do_carbon=.true.
+    do_carbon_pre=.false.
+    do_po4_pre=.false.
+    bury_caco3=.true.
+    bury_pop=.true.
+    co2_calc='mocsy'
 /
 
 &fms_nml

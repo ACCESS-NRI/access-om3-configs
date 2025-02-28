@@ -14,7 +14,7 @@ jobfs: 10GB
 mem: 960GB
 
 walltime: 02:00:00
-jobname: 1deg_jra55do_ryf_wombatlite
+jobname: 1deg_jra55do_ryf_bling
 
 model: access-om3
 
@@ -34,14 +34,13 @@ input:
     - /g/data/vk83/configurations/inputs/access-om3/cice/grids/global.1deg/2024.05.14/grid.nc
     - /g/data/vk83/configurations/inputs/access-om3/cice/grids/global.1deg/2024.05.14/kmt.nc
     - /g/data/vk83/configurations/inputs/access-om3/cice/initial_conditions/global.1deg/2023.07.28/iced.1900-01-01-10800.nc
-    - /g/data/vk83/configurations/inputs/access-om3/wombat/forcing/global.1deg/2022.02.24/dust.nc
-    - /g/data/vk83/configurations/inputs/access-om3/wombat/initial_conditions/global.1deg/2021.06.07/FEMIP_model_median_iron_2016_fillmiss.nc
-    - /g/data/vk83/configurations/inputs/access-om3/wombat/initial_conditions/global.1deg/2024.04.02/GLODAPv2.2016b.NO3_fillmiss.nc
-    - /g/data/vk83/configurations/inputs/access-om3/wombat/initial_conditions/global.1deg/2024.04.02/GLODAPv2.2016b.oxygen_fillmiss.nc
-    - /g/data/vk83/configurations/inputs/access-om3/wombat/initial_conditions/global.1deg/2024.04.02/GLODAPv2.2016b.PI_TCO2_fillmiss.nc
-    - /g/data/vk83/configurations/inputs/access-om3/wombat/initial_conditions/global.1deg/2024.04.02/GLODAPv2.2016b.TAlk_fillmiss.nc
-    - /g/data/vk83/configurations/inputs/access-om3/wombat/initial_conditions/global.1deg/2024.04.02/GLODAPv2.2016b.TCO2_fillmiss.nc
-    - /g/data/vk83/configurations/inputs/access-om3/wombat/initial_conditions/global.1deg/2024.04.02/init_ocean_wombatlite.res.nc
+    - /g/data/vk83/prerelease/configurations/inputs/access-om3/bling/initial_conditions/global.1deg/2025.02.28/init_ocean_cobalt.res.nc
+    - /g/data/vk83/prerelease/configurations/inputs/access-om3/bling/initial_conditions/global.1deg/2025.02.28/init_ocean_cobalt_phyto_biomass.res.nc
+    - /g/data/vk83/prerelease/configurations/inputs/access-om3/bling/initial_conditions/global.1deg/2025.02.28/woa13_all_p_annual_01.nc
+    - /g/data/vk83/prerelease/configurations/inputs/access-om3/bling/initial_conditions/global.1deg/2025.02.28/woa13_all_o_annual_01.nc
+    - /g/data/vk83/prerelease/configurations/inputs/access-om3/bling/initial_conditions/global.1deg/2025.02.28/Preind_DIC.nc
+    - /g/data/vk83/prerelease/configurations/inputs/access-om3/bling/initial_conditions/global.1deg/2025.02.28/Alk.nc
+    - /g/data/vk83/prerelease/configurations/inputs/access-om3/bling/initial_conditions/global.1deg/2025.02.28/Soluble_Fe_Flux_PI.nc
     - /g/data/vk83/configurations/inputs/JRA-55/RYF/v1-4/data
  
 collate: false

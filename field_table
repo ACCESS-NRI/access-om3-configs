@@ -1,115 +1,220 @@
-# WOMBATlite field table
-# ===============================================
-"namelists","ocean_mod","generic_wombatlite/*global*"
+### BLING field table
+## Taken from https://github.com/NOAA-GFDL/CM4
+"namelists","ocean_mod","generic_bling/*global*"
 /
-"namelists","ocean_mod","generic_wombatlite"
+"namelists","ocean_mod","generic_bling"
 init = f
+ca_2_p = 1.06
 #
-no3_src_file = INPUT/GLODAPv2.2016b.NO3_fillmiss.nc
-no3_src_var_name = NO3
-no3_src_var_unit = micromoles_per_kg
-no3_dest_var_name = no3
-no3_dest_var_unit = mol kg-1
-no3_src_var_record = 1
-no3_src_var_gridspec = NONE
-no3_valid_min = 0.0
+# min = 0 from input dataset
+cased_src_file = INPUT/init_ocean_cobalt.res.nc
+cased_src_var_name = cased
+cased_src_var_unit = none
+cased_dest_var_name =  cased
+cased_dest_var_unit = mol kg-1
+cased_src_var_record = 1
+cased_src_var_gridspec = NONE
+cased_valid_min = 0.0
 #
-phy_src_file = INPUT/init_ocean_wombatlite.res.nc
-phy_src_var_name = phy
-phy_src_var_unit = none
-phy_dest_var_name = phy
-phy_dest_var_unit = mol kg-1
-phy_src_var_record = 1
-phy_src_var_gridspec = NONE
-phy_valid_min = 0.0
+# min = 0,  max = 4.446 from input dataset
+chl_src_file = INPUT/init_ocean_cobalt.res.nc
+chl_src_var_name = chl
+chl_src_var_unit = none
+chl_dest_var_name =  chl
+chl_dest_var_unit = mol kg-1
+chl_src_var_record = 1
+chl_src_var_gridspec = NONE
+chl_valid_min = 0.0
 #
-o2_src_file = INPUT/GLODAPv2.2016b.oxygen_fillmiss.nc
-o2_src_var_name = oxygen
-o2_src_var_unit = micromoles_per_kg
-o2_dest_var_name = o2
+# min = 0,  max = 3.576E-04 from input dataset
+co3_ion_src_file = INPUT/init_ocean_cobalt.res.nc
+co3_ion_src_var_name = co3_ion
+co3_ion_src_var_unit = none
+co3_ion_dest_var_name =  co3_ion
+co3_ion_dest_var_unit = mol kg-1
+co3_ion_src_var_record = 1
+co3_ion_src_var_gridspec = NONE
+co3_ion_valid_min = 0.0
+# 
+# min = -1.257E-11,  max = 3.831E-07 from input dataset
+dop_src_file = INPUT/init_ocean_cobalt.res.nc
+dop_src_var_name = srdop
+dop_src_var_unit = none
+dop_dest_var_name =  dop
+dop_dest_var_unit = mol kg-1
+dop_src_var_record = 1
+dop_src_var_gridspec = NONE
+dop_valid_min = 0.0
+#
+# min = -1.758E-11,  max = 1.758E-08 from input dataset
+fed_src_file = INPUT/init_ocean_cobalt.res.nc
+fed_src_var_name = fed
+fed_src_var_unit = none
+fed_dest_var_name =  fed
+fed_dest_var_unit = mol kg-1
+fed_src_var_record = 1
+fed_src_var_gridspec = NONE
+fed_valid_min = 0.0
+#
+# min = 10^-8.4=3.981E-09,  max = 10^-7.9 = 1.259E-08 from input dataset
+htotal_src_file = INPUT/init_ocean_cobalt.res.nc
+htotal_src_var_name = htotal
+htotal_src_var_unit = none
+htotal_dest_var_name =  htotal
+htotal_dest_var_unit = mol kg-1
+htotal_src_var_record = 1
+htotal_src_var_gridspec = NONE
+htotal_valid_min = 3.981E-09
+htotal_valid_max = 1.259E-08
+#
+# htotal_sat identical to htotal
+htotal_sat_src_file = INPUT/init_ocean_cobalt.res.nc
+htotal_sat_src_var_name = htotal
+htotal_sat_src_var_unit = none
+htotal_sat_dest_var_name =  htotal_sat
+htotal_sat_dest_var_unit = mol kg-1
+htotal_sat_src_var_record = 1
+htotal_sat_src_var_gridspec = NONE
+htotal_sat_valid_min = 3.981E-09
+htotal_sat_valid_max = 1.259E-08
+#
+# min = 0,  max = 137.7 from input dataset
+irr_mem_src_file = INPUT/init_ocean_cobalt.res.nc
+irr_mem_src_var_name = irr_mem
+irr_mem_src_var_unit = none
+irr_mem_dest_var_name =  irr_mem
+irr_mem_dest_var_unit = mol kg-1
+irr_mem_src_var_record = 1
+irr_mem_src_var_gridspec = NONE
+irr_mem_valid_min = 0.0
+#
+# phyto biomass
+biomass_p_src_file = INPUT/init_ocean_cobalt_phyto_biomass.res.nc
+biomass_p_src_var_name = phyto_biomass
+biomass_p_src_var_unit = none
+biomass_p_dest_var_name =  biomass_p
+biomass_p_dest_var_unit = mol kg-1
+biomass_p_src_var_record = 1
+biomass_p_src_var_gridspec = NONE
+biomass_p_valid_min = 0.0
+#
+# O2 from WOA2013  (/archive/mdteam/obs/NOAA-NODC/WOA13/v1.00a/woa13_all_o_annual_01.nc)
+# min = 0, max = 15.44 from input dataset
+# multiply by (1000/22391.6)/1035 to convert from ml/l to mol/kg
+o2_src_file = INPUT/woa13_all_o_annual_01.nc
+o2_src_var_name = o_an
+o2_src_var_unit = milliliters_per_liter
+o2_dest_var_name =  o2
 o2_dest_var_unit = mol kg-1
 o2_src_var_record = 1
 o2_src_var_gridspec = NONE
 o2_valid_min = 0.0
 #
-zoo_src_file = INPUT/init_ocean_wombatlite.res.nc
-zoo_src_var_name = zoo
-zoo_src_var_unit = none
-zoo_dest_var_name = zoo
-zoo_dest_var_unit = mol kg-1
-zoo_src_var_record = 1
-zoo_src_var_gridspec = NONE
-zoo_valid_min = 0.0
+# PO4 from WOA2013  (/archive/mdteam/obs/NOAA-NODC/WOA13/v1.00a/woa13_all_p_annual_01.nc)
+# min = 0, max = 9.757 from input dataset
+# divide by 1035e3 to convert from umol/l to mol/kg
+po4_src_file = INPUT/woa13_all_p_annual_01.nc
+po4_src_var_name = p_an
+po4_src_var_unit = micromoles_per_liter
+po4_dest_var_name =  po4
+po4_dest_var_unit = mol kg-1
+po4_src_var_record = 1
+po4_src_var_gridspec = NONE
+po4_valid_min = 0.0
 #
-det_src_file = INPUT/init_ocean_wombatlite.res.nc
-det_src_var_name = det
-det_src_var_unit = none
-det_dest_var_name = det
-det_dest_var_unit = mol kg-1
-det_src_var_record = 1
-det_src_var_gridspec = NONE
-det_valid_min = 0.0
+# PO4_pre from WOA2013  (/archive/mdteam/obs/NOAA-NODC/WOA13/v1.00a/woa13_all_p_annual_01.nc)
+# min = 0, max = 9.757 from input dataset
+# divide by 1035e3 to convert from umol/l to mol/kg
+po4_pre_src_file = INPUT/woa13_all_p_annual_01.nc
+po4_pre_src_var_name = p_an
+po4_pre_src_var_unit = micromoles_per_liter
+po4_pre_dest_var_name =  po4_pre
+po4_pre_dest_var_unit = mol kg-1
+po4_pre_src_var_record = 1
+po4_pre_src_var_gridspec = NONE
+po4_pre_valid_min = 0.0
 #
-caco3_src_file = INPUT/init_ocean_wombatlite.res.nc
-caco3_src_var_name = caco3
-caco3_src_var_unit = none
-caco3_dest_var_name = caco3
-caco3_dest_var_unit = mol kg-1
-caco3_src_var_record = 1
-caco3_src_var_gridspec = NONE
-caco3_valid_min = 0.0
+# Alkalinity from GLODAP  (/archive/jgj/datasets/retrospective/glodap/20151013/Alk.nc)
+# min = 2171, max = 2462 from input dataset
+# divide by 1e6 to convert from umol/kg to mol/kg
+alk_src_file = INPUT/Alk.nc
+alk_src_var_name = Alk
+alk_src_var_unit = micromoles_per_kg
+alk_dest_var_name =  alk
+alk_dest_var_unit = mol kg-1
+alk_src_var_record = 1
+alk_src_var_gridspec = NONE
+alk_valid_min = 0.0
+# 
+# alk_pre Alkalinity from GLODAP  (/archive/jgj/datasets/retrospective/glodap/20151013/Alk.nc)
+# min = 2171, max = 2462 from input dataset
+# divide by 1e6 to convert from umol/kg to mol/kg
+alk_pre_src_file = INPUT/Alk.nc
+alk_pre_src_var_name = Alk
+alk_pre_src_var_unit = micromoles_per_kg
+alk_pre_dest_var_name =  alk_pre
+alk_pre_dest_var_unit = mol kg-1
+alk_pre_src_var_record = 1
+alk_pre_src_var_gridspec = NONE
+alk_pre_valid_min = 0.0
 #
-adic_src_file = INPUT/GLODAPv2.2016b.TCO2_fillmiss.nc
-adic_src_var_name = TCO2
-adic_src_var_unit = micromoles_per_kg
-adic_dest_var_name = adic
-adic_dest_var_unit = mol kg-1
-adic_src_var_record = 1
-adic_src_var_gridspec = NONE
-adic_valid_min = 0.0
-#
-dic_src_file = INPUT/GLODAPv2.2016b.PI_TCO2_fillmiss.nc
-dic_src_var_name = PI_TCO2
+# Preind DIC from GLODAP  (/archive/jgj/datasets/retrospective/glodap/20151013/Preind_DIC.nc)
+# min = 1837, max = 2406 from input dataset
+# divide by 1e6 to convert from umol/kg to mol/kg
+dic_src_file = INPUT/Preind_DIC.nc
+dic_src_var_name = Preind_DIC
 dic_src_var_unit = micromoles_per_kg
-dic_dest_var_name = dic
+dic_dest_var_name =  dic
 dic_dest_var_unit = mol kg-1
 dic_src_var_record = 1
 dic_src_var_gridspec = NONE
 dic_valid_min = 0.0
 #
-alk_src_file = INPUT/GLODAPv2.2016b.TAlk_fillmiss.nc
-alk_src_var_name = TAlk
-alk_src_var_unit = micromoles_per_kg
-alk_dest_var_name = alk
-alk_dest_var_unit = mol kg-1
-alk_src_var_record = 1
-alk_src_var_gridspec = NONE
-alk_valid_min = 0.0
+# dic_pre from Preind DIC from GLODAP  (/archive/jgj/datasets/retrospective/glodap/20151013/Preind_DIC.nc)
+# min = 1837, max = 2406 from input dataset
+# divide by 1e6 to convert from umol/kg to mol/kg
+dic_pre_src_file = INPUT/Preind_DIC.nc
+dic_pre_src_var_name = Preind_DIC
+dic_pre_src_var_unit = micromoles_per_kg
+dic_pre_dest_var_name =  dic_pre
+dic_pre_dest_var_unit = mol kg-1
+dic_pre_src_var_record = 1
+dic_pre_src_var_gridspec = NONE
+dic_pre_valid_min = 0.0
 #
-fe_src_file = INPUT/FEMIP_model_median_iron_2016_fillmiss.nc
-fe_src_var_name = IRON
-fe_src_var_unit = moles_per_liter
-fe_dest_var_name = fe
-fe_dest_var_unit = mol kg-1
-fe_src_var_record = 1
-fe_src_var_gridspec = NONE
-fe_valid_min = 0.0
+# dic_sat from Preind DIC from GLODAP  (/archive/jgj/datasets/retrospective/glodap/20151013/Preind_DIC.nc)
+# min = 1837, max = 2406 from input dataset
+# divide by 1e6 to convert from umol/kg to mol/kg
+dic_sat_src_file = INPUT/Preind_DIC.nc
+dic_sat_src_var_name = Preind_DIC
+dic_sat_src_var_unit = micromoles_per_kg
+dic_sat_dest_var_name =  dic_sat
+dic_sat_dest_var_unit = mol kg-1
+dic_sat_src_var_record = 1
+dic_sat_src_var_gridspec = NONE
+dic_sat_valid_min = 0.0
 #
-caco3_sediment_src_file = INPUT/init_ocean_wombatlite.res.nc
-caco3_sediment_src_var_name = caco3_sediment
-caco3_sediment_src_var_unit = none
-caco3_sediment_dest_var_name = caco3_sediment
-caco3_sediment_dest_var_unit = mol m-2
-caco3_sediment_src_var_record = 1
-caco3_sediment_src_var_gridspec = NONE
-caco3_sediment_valid_min = 0.0
+# di14c from Preind DIC from GLODAP  (/archive/jgj/datasets/retrospective/glodap/20151013/Preind_DIC.nc)
+# min = 1837, max = 2406 from input dataset
+# divide by 1e6 to convert from umol/kg to mol/kg
+di14c_src_file = INPUT/Preind_DIC.nc
+di14c_src_var_name = Preind_DIC
+di14c_src_var_unit = micromoles_per_kg
+di14c_dest_var_name =  di14c
+di14c_dest_var_unit = mol kg-1
+di14c_src_var_record = 1
+di14c_src_var_gridspec = NONE
+di14c_valid_min = 0.0
 #
-det_sediment_src_file = INPUT/init_ocean_wombatlite.res.nc
-det_sediment_src_var_name = det_sediment
-det_sediment_src_var_unit = none
-det_sediment_dest_var_name = det_sediment
-det_sediment_dest_var_unit = mol m-2
-det_sediment_src_var_record = 1
-det_sediment_src_var_gridspec = NONE
-det_sediment_valid_min = 0.0
+# do14c from Preind DIC from GLODAP  (/archive/jgj/datasets/retrospective/glodap/20151013/Preind_DIC.nc)
+# min = 1837, max = 2406 from input dataset
+# divide by 1e6 to convert from umol/kg to mol/kg
+do14c_src_file = INPUT/Preind_DIC.nc
+do14c_src_var_name = Preind_DIC
+do14c_src_var_unit = micromoles_per_kg
+do14c_dest_var_name =  do14c
+do14c_dest_var_unit = mol kg-1
+do14c_src_var_record = 1
+do14c_src_var_gridspec = NONE
+do14c_valid_min = 0.0
 /

@@ -1,36 +1,11 @@
 format: yamanifest
 version: 1.0
 ---
-work/INPUT/FEMIP_model_median_iron_2016_fillmiss.nc:
-  fullpath: /g/data/vk83/configurations/inputs/access-om3/wombat/initial_conditions/global.1deg/2021.06.07/FEMIP_model_median_iron_2016_fillmiss.nc
+work/INPUT/Alk.nc:
+  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/bling/initial_conditions/global.1deg/2025.02.28/Alk.nc
   hashes:
-    binhash: 5ec9969fee40589a5083b438657de476
-    md5: b81d7ee79a6ca30bfd2e6ccc49874267
-work/INPUT/GLODAPv2.2016b.NO3_fillmiss.nc:
-  fullpath: /g/data/vk83/configurations/inputs/access-om3/wombat/initial_conditions/global.1deg/2024.04.02/GLODAPv2.2016b.NO3_fillmiss.nc
-  hashes:
-    binhash: ae70284ca4d9849e83de9ff5c30a2d61
-    md5: c5afb27948688743858ef966be81ec2e
-work/INPUT/GLODAPv2.2016b.PI_TCO2_fillmiss.nc:
-  fullpath: /g/data/vk83/configurations/inputs/access-om3/wombat/initial_conditions/global.1deg/2024.04.02/GLODAPv2.2016b.PI_TCO2_fillmiss.nc
-  hashes:
-    binhash: 6237599e013cc432a62db14c768e9b8b
-    md5: 0aa9f4a37ff5f01cc180d85305815829
-work/INPUT/GLODAPv2.2016b.TAlk_fillmiss.nc:
-  fullpath: /g/data/vk83/configurations/inputs/access-om3/wombat/initial_conditions/global.1deg/2024.04.02/GLODAPv2.2016b.TAlk_fillmiss.nc
-  hashes:
-    binhash: b73c5a628d1a5f3a2818c3061e3fddd4
-    md5: b84783902f2bc82711496cca49e78a16
-work/INPUT/GLODAPv2.2016b.TCO2_fillmiss.nc:
-  fullpath: /g/data/vk83/configurations/inputs/access-om3/wombat/initial_conditions/global.1deg/2024.04.02/GLODAPv2.2016b.TCO2_fillmiss.nc
-  hashes:
-    binhash: 39208f747b5bd9792579ede649126eb0
-    md5: 9f8ba1f96551df518e86e510a765311e
-work/INPUT/GLODAPv2.2016b.oxygen_fillmiss.nc:
-  fullpath: /g/data/vk83/configurations/inputs/access-om3/wombat/initial_conditions/global.1deg/2024.04.02/GLODAPv2.2016b.oxygen_fillmiss.nc
-  hashes:
-    binhash: 765d3d8d4d92fd4c98f25a1ca2e8a914
-    md5: 1abf34fa578d0a589615d5e9a0e465ac
+    binhash: 7a2895304fdc6ef892633752e38ef838
+    md5: eed848fda5ffec0b1bcb63c118981acc
 work/INPUT/JRA55do-datm-ESMFmesh.nc:
   fullpath: /g/data/vk83/configurations/inputs/access-om3/share/meshes/share/2024.09.16/JRA55do-datm-ESMFmesh.nc
   hashes:
@@ -41,6 +16,11 @@ work/INPUT/JRA55do-drof-ESMFmesh.nc:
   hashes:
     binhash: fa1322dbc0ab951527b165f8327c7b5b
     md5: 3b46260b8c14d12925cf70f82da6658e
+work/INPUT/Preind_DIC.nc:
+  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/bling/initial_conditions/global.1deg/2025.02.28/Preind_DIC.nc
+  hashes:
+    binhash: 267920aa4531db80a87ae18616f17c52
+    md5: 5f0017c64a6c0d1f07021b1dc22de74b
 work/INPUT/RYF.friver.1990_1991.nc:
   fullpath: /g/data/vk83/configurations/inputs/JRA-55/RYF/v1-4/data/RYF.friver.1990_1991.nc
   hashes:
@@ -101,6 +81,11 @@ work/INPUT/RYF.vas.1990_1991.nc:
   hashes:
     binhash: d15ca562e37e82fb2d31657701f0a560
     md5: 88dc8c70338bbc8f5efc48ed0009a99f
+work/INPUT/Soluble_Fe_Flux_PI.nc:
+  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/bling/initial_conditions/global.1deg/2025.02.28/Soluble_Fe_Flux_PI.nc
+  hashes:
+    binhash: 2a4f3f2429e2dee38cd5d9b3950b0b53
+    md5: d52c7823f222af983d085d38f91603df
 work/INPUT/access-om2-1deg-ESMFmesh.nc:
   fullpath: /g/data/vk83/configurations/inputs/access-om3/share/meshes/global.1deg/2024.01.25/access-om2-1deg-ESMFmesh.nc
   hashes:
@@ -111,31 +96,31 @@ work/INPUT/access-om2-1deg-nomask-ESMFmesh.nc:
   hashes:
     binhash: 4b1cc45032afeaf93b4894937639f5b9
     md5: 9b7120a42b5cb587492e7c31791eb549
-work/INPUT/dust.nc:
-  fullpath: /g/data/vk83/configurations/inputs/access-om3/wombat/forcing/global.1deg/2022.02.24/dust.nc
-  hashes:
-    binhash: 27b85ba44177e8fdeea765179841c73c
-    md5: b66d8d72cd49801a74da90b211e8dd21
-work/INPUT/grid_spec.nc:
-  fullpath: /g/data/vk83/configurations/inputs/access-om3/mom/grids/mosaic/global.1deg/2024.05.08/grid_spec.nc
-  hashes:
-    binhash: a2c6813be9a75777ff6318170e5985ad
-    md5: 709268cd891e6f0e827f6de0249f1a3d
 work/INPUT/grid.nc:
   fullpath: /g/data/vk83/configurations/inputs/access-om3/cice/grids/global.1deg/2024.05.14/grid.nc
   hashes:
     binhash: b347eb0588291c34bb40a24a7bc45173
     md5: 544a40b634c182f3e182da6bcbe8be7b
+work/INPUT/grid_spec.nc:
+  fullpath: /g/data/vk83/configurations/inputs/access-om3/mom/grids/mosaic/global.1deg/2024.05.08/grid_spec.nc
+  hashes:
+    binhash: a2c6813be9a75777ff6318170e5985ad
+    md5: 709268cd891e6f0e827f6de0249f1a3d
 work/INPUT/iced.1900-01-01-10800.nc:
   fullpath: /g/data/vk83/configurations/inputs/access-om3/cice/initial_conditions/global.1deg/2023.07.28/iced.1900-01-01-10800.nc
   hashes:
     binhash: 414174d244807698f8c919f763d3d51d
     md5: 87c012d60c58c65bb56caa98779e5e51
-work/INPUT/init_ocean_wombatlite.res.nc:
-  fullpath: /g/data/vk83/configurations/inputs/access-om3/wombat/initial_conditions/global.1deg/2024.04.02/init_ocean_wombatlite.res.nc
+work/INPUT/init_ocean_cobalt.res.nc:
+  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/bling/initial_conditions/global.1deg/2025.02.28/init_ocean_cobalt.res.nc
   hashes:
-    binhash: d90040503452b58e11de5af77f5d8c2c
-    md5: 1648193a63179513a705541d5f5f508f
+    binhash: 583452276d1e76b14b0cab2d85d59ba4
+    md5: 4e0fa0c5f1c5a344d472873f1d675e02
+work/INPUT/init_ocean_cobalt_phyto_biomass.res.nc:
+  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/bling/initial_conditions/global.1deg/2025.02.28/init_ocean_cobalt_phyto_biomass.res.nc
+  hashes:
+    binhash: dea9e77abe98f75dc919bb5ca2670997
+    md5: d4abae814fd88c7071399330ac829658
 work/INPUT/kmt.nc:
   fullpath: /g/data/vk83/configurations/inputs/access-om3/cice/grids/global.1deg/2024.05.14/kmt.nc
   hashes:
@@ -171,3 +156,13 @@ work/INPUT/topog.nc:
   hashes:
     binhash: 101cb5069e11e9f3196a5a6804fa0780
     md5: 4e13d88001b646f3cf4f1c3b8db59f91
+work/INPUT/woa13_all_o_annual_01.nc:
+  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/bling/initial_conditions/global.1deg/2025.02.28/woa13_all_o_annual_01.nc
+  hashes:
+    binhash: 2349e506d756de8780fc7e0fabfb3b8f
+    md5: bf5668431d9d4894c7ae1129dac410c6
+work/INPUT/woa13_all_p_annual_01.nc:
+  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/bling/initial_conditions/global.1deg/2025.02.28/woa13_all_p_annual_01.nc
+  hashes:
+    binhash: 30dfdef71a94748d3681f9747c411961
+    md5: c25c77690ed1265ba7a3ad6430eb7413

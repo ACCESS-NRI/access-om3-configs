@@ -40,32 +40,29 @@
     "Temp": [
       "E441AC22DEDE8930"
     ],
-    "adic": [
-      "5F317A926F3D3FFD"
-    ],
     "age": [
       "B64AD181B58D3F4B"
     ],
     "alk": [
-      "A6F925F789616225"
+      "1BE0A1F18199262"
     ],
     "ave_ssh": [
       "40E5A21D6F0D1F87"
     ],
-    "caco3": [
-      "B3A96C33775891D7"
+    "biomass_p": [
+      "E6C8E6FA73781EE1"
     ],
-    "caco3_sediment": [
-      "C46291EFC3D7490D"
+    "cased": [
+      "385E1D16040802FD"
     ],
-    "det": [
-      "3B336787E4DAE031"
+    "chl": [
+      "3CFCDA0157D051EF"
     ],
-    "det_sediment": [
-      "C9D90740AA8824EF"
+    "co3_ion": [
+      "5E249562C7AC5725"
     ],
     "dic": [
-      "7E2C111A0E8F8A67"
+      "4BB5268ACCFD468E"
     ],
     "diffu": [
       "749F723BA63A013C"
@@ -73,8 +70,11 @@
     "diffv": [
       "CD7614674E679DA8"
     ],
-    "fe": [
-      "DD1280ABB3DD0466"
+    "dop": [
+      "3EA7A97240B9A2EB"
+    ],
+    "fed": [
+      "57675B5F0ED845D5"
     ],
     "frazil": [
       "5FE9C9F905239FC4"
@@ -85,17 +85,20 @@
     "h_ML": [
       "A815BF54039C2D82"
     ],
-    "no3": [
-      "2873097DD423DE3E"
+    "htotal": [
+      "D0E323115D157D09"
+    ],
+    "irr_mem": [
+      "61642F0F4BCBE233"
     ],
     "o2": [
-      "38E2B83D6F91F745"
+      "4596FA109C8FF43E"
     ],
     "p_surf_EOS": [
       "161DADB852A006F1"
     ],
-    "phy": [
-      "FECF341D206E5BE1"
+    "po4": [
+      "5A45C4D691BF13D2"
     ],
     "sfc": [
       "68FCD5E9DE45D1DF"
@@ -117,9 +120,6 @@
     ],
     "vbtav": [
       "A6344B9A6D8CB3A9"
-    ],
-    "zoo": [
-      "774369AD9A7091AB"
     ]
   }
 }
