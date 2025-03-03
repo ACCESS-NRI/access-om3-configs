@@ -15,7 +15,7 @@
 <!-- Has the CI-testing been run? Link to results -->
 
 **6. Reproducibility**
-<!-- Is this reproducable with the previous commit? (If not, why not?) -->
+<!-- Is this reproducible with the previous commit? (If not, why not?) -->
 
 **7. Documentation**
 <!--Does this impact documentation? Has the wiki been updated? Have the `docs/MOM_*` files been updated ?-->
