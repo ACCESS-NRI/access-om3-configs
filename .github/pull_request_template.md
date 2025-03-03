@@ -24,5 +24,5 @@
 <!-- Are changes to MOM_input in the same order as docs/MOM_input? -->
 
 **9. Merge Strategy**
-<!-- What is the planned merge strategy (Rebase and merge, or squash) ?
-If rebase and merge, link to the related issue in the commit descriptions -->
+<!-- What is the planned merge strategy (Merge commit, Rebase and merge, or squash) ?
+If not squash, link to the related issue in the commit descriptions -->
