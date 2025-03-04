@@ -44,7 +44,8 @@ userscripts:
 
 modules:
     use:
-        - /g/data/vk83/modules
+        # - /g/data/vk83/modules
+        - /g/data/tm70/as2285/spack0.22/release/modules/linux-rocky8-x86_64/
     load:
         - access-om3/2025.01.0
         - nco/5.0.5
