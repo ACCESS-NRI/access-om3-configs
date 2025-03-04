@@ -45,10 +45,9 @@ userscripts:
 
 modules:
     use:
-        # - /g/data/vk83/modules
-        - /g/data/tm70/as2285/spack0.22/release/modules/linux-rocky8-x86_64/
+        - /g/data/vk83/prerelease/modules
     load:
-        - access-om3/2025.01.0
+        - access-om3/pr54-1
         - nco/5.0.5
 
 payu_minimum_version: 1.1.6
