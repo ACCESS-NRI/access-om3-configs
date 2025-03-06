@@ -409,7 +409,6 @@ ACCESS-OM3
 "ocean_model", "total_salt_Flux_In", "total_salt_Flux_In", "access-om3.mom6.scalar.1day.snap.%4yr%2mo", "all", "none", "none", 1
 "ocean_model", "total_salt_flux", "total_salt_flux", "access-om3.mom6.scalar.1day.snap.%4yr%2mo", "all", "none", "none", 1
 "ocean_model", "net_fresh_water_global_adjustment", "net_fresh_water_global_adjustment", "access-om3.mom6.scalar.1day.snap.%4yr%2mo", "all", "none", "none", 1
-"ocean_model", "vprec_global_adjustment", "vprec_global_adjustment", "access-om3.mom6.scalar.1day.snap.%4yr%2mo", "all", "none", "none", 1
 "ocean_model", "salt_flux_global_restoring_adjustment", "salt_flux_global_restoring_adjustment", "access-om3.mom6.scalar.1day.snap.%4yr%2mo", "all", "none", "none", 1
 "ocean_model", "total_wfo", "total_wfo", "access-om3.mom6.scalar.1day.snap.%4yr%2mo", "all", "none", "none", 1
 "ocean_model", "total_evs", "total_evs", "access-om3.mom6.scalar.1day.snap.%4yr%2mo", "all", "none", "none", 1
@@ -417,7 +416,6 @@ ACCESS-OM3
 "ocean_model", "total_precip", "total_precip", "access-om3.mom6.scalar.1day.snap.%4yr%2mo", "all", "none", "none", 1
 "ocean_model", "total_prsn", "total_prsn", "access-om3.mom6.scalar.1day.snap.%4yr%2mo", "all", "none", "none", 1
 "ocean_model", "total_lprec", "total_lprec", "access-om3.mom6.scalar.1day.snap.%4yr%2mo", "all", "none", "none", 1
-"ocean_model", "total_vprec", "total_vprec", "access-om3.mom6.scalar.1day.snap.%4yr%2mo", "all", "none", "none", 1
 "ocean_model", "total_ficeberg", "total_ficeberg", "access-om3.mom6.scalar.1day.snap.%4yr%2mo", "all", "none", "none", 1
 "ocean_model", "total_friver", "total_friver", "access-om3.mom6.scalar.1day.snap.%4yr%2mo", "all", "none", "none", 1
 "ocean_model", "total_net_massout", "total_net_massout", "access-om3.mom6.scalar.1day.snap.%4yr%2mo", "all", "none", "none", 1
