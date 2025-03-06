@@ -232,7 +232,6 @@ diag_table:
             hfsso: # Sensible heat flux into ocean sensible
             prlq: # Liquid precipitation into ocean lprec
             prsn: # Frozen precipitation into ocean fprec
-            vprec: # Virtual liquid precip into ocean due to SSS restoring
             wfo: # Net surface water flux (precip+melt+lrunoff+ice calving-evap) PRCmE
             pso: # Pressure at ice-ocean or atmosphere-ocean interface p_surf
             rlntds: # surface_net_downward_longwave_flux LW
