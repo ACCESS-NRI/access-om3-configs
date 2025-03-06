@@ -172,7 +172,6 @@ diag_table:
             difmxylo: # Laplacian Horizontal Viscosity at h Points Khh
             diftrelo: # Epipycnal tracer diffusivity at tracer cell center KHTR_h
             diftrblo: # Ocean Tracer Diffusivity due to Parameterized Mesoscale Advection KHTH_t
-            tnkebto: # Integrated Tendency of Ocean Mesoscale Eddy KE from Parameterized Eddy Advection GMwork
             rhopot0: # Potential density referenced to surface
             rhopot2: # Potential density referenced to 2000 dbar
             thetao: # Potential Temperature
@@ -268,6 +267,7 @@ diag_table:
             pbo: # Sea Water Pressure at Sea Floor
             SW_pen: # Penetrating shortwave radiation flux into ocean W m-2
             salt_flux_in: # Salt flux into ocean at surface from coupler
+            tnkebto: # Integrated Tendency of Ocean Mesoscale Eddy KE from Parameterized Eddy Advection GMwork
 
     'monthly 2d max fields':
         defaults:  # these can be overridden for individual fields below
