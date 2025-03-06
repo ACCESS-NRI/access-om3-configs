@@ -172,6 +172,7 @@ diag_table:
             difmxylo: # Laplacian Horizontal Viscosity at h Points Khh
             diftrelo: # Epipycnal tracer diffusivity at tracer cell center KHTR_h
             diftrblo: # Ocean Tracer Diffusivity due to Parameterized Mesoscale Advection KHTH_t
+            tnkebto: # Integrated Tendency of Ocean Mesoscale Eddy KE from Parameterized Eddy Advection GMwork
             rhopot0: # Potential density referenced to surface
             rhopot2: # Potential density referenced to 2000 dbar
             thetao: # Potential Temperature
