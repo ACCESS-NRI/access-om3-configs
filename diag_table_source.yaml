@@ -363,7 +363,6 @@ diag_table:
             total_salt_Flux_In: # Area integrated surface salt flux at surface from coupler
             total_salt_flux: # Area integrated surface salt flux
             net_fresh_water_global_adjustment: # Adjustment needed to adjust net fresh water into ocean to zero
-            vprec_global_adjustment: # Adjustment needed to adjust net vprec into ocean to zero
             salt_flux_global_restoring_adjustment: # Adjustment needed to balance net global salt flux into ocean at surface
             total_wfo: # Area integrated net surface water flux (precip+melt+liq runoff+ice calving-evap) total_PRCmE
             total_evs: # Area integrated evap/condense at ocean surface total_evap
@@ -371,7 +370,6 @@ diag_table:
             total_precip: # Area integrated liquid+frozen precip into ocean
             total_prsn: # Area integrated frozen precip into ocean total_fprec
             total_lprec: # Area integrated liquid precip into ocean
-            total_vprec: # Area integrated virtual liquid precip due to SSS restoring
             total_ficeberg: # Area integrated frozen runoff (calving) & iceberg melt into ocean total_frunoff
             total_friver: # Area integrated liquid runoff into ocean total_lrunoff
             total_net_massout: # Area integrated mass leaving ocean due to evap and seaice form
