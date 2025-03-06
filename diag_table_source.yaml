@@ -221,10 +221,8 @@ diag_table:
             heat_content_frunoff: # Heat content (relative to 0C) of solid runoff into ocean
             heat_content_lrunoff: # Heat content (relative to 0C) of liquid runoff into ocean
             heat_content_lprec: # Heat content (relative to 0degC) of liquid precip entering ocean
-            heat_content_vprec: # Heat content (relative to 0degC) of virtual precip entering ocean
             hfrunoffds: # Heat content (relative to 0C) of liquid+solid runoff into ocean
             hfrainds: # Heat content (relative to 0degC) of liquid+frozen precip entering ocean
-            hfevapds: # Heat content (relative to 0degC) of net mass leaving ocean ocean via evap and ice form heat_content_massout
             Heat_PmE: # Heat flux into ocean from mass flux into ocean
             net_heat_coupler: # Surface ocean heat flux from SW+LW+latent+sensible+seaice_melt_heat (via the coupler)
             hfds: # Surface ocean heat flux from SW+LW+lat+sens+mass transfer+frazil+restore+seaice_melt_heat or flux adjustments net_heat_surface
