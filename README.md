@@ -17,7 +17,7 @@ workflow management tool.
 Each configuration is stored as a git branch. Most of the branches are named
 according to the following naming scheme:
 
-`{nominal_resolution}deg_{forcing_data}_{forcing_method}`
+`{dev|release}-{nominal_resolution}deg_{forcing_data}_{forcing_method}`
 
 Additional required information, like if the configuration includes
 biogeochemistry, is appended to the name.
@@ -32,8 +32,8 @@ Currently the following development configurations are available:
 **Note that the [`main`](https://github.com/ACCESS-NRI/access-om3-configs/tree/main) branch
 does not store any configuration, only some documentation.**
 
-This repository also contains the following configurations that are only used
-for testing ACCESS-OM3:
+This repository also contains the following configurations that were only used
+for developing ACCESS-OM3:
 
 - [`gmom_jra`](https://github.com/ACCESS-NRI/access-om3-configs/tree/gmom_jra):
   configuration based on the `GMOM_JRA` [CESM](https://github.com/ESCOMP/CMEPS/)
@@ -84,6 +84,8 @@ See [this section of the quick start instructions in the ACCESS-OM3
 wiki](https://github.com/COSIMA/access-om3/wiki/Quick-start#customising-your-experiment).
 
 ## Running your experiment
+
+You need to be a member of the `vk83` and `xp65` [projects](https://my.nci.org.au/mancini) on [Gadi](https://nci.org.au/our-systems/hpc-systems)
 
 See [this section of the quick start instructions in the ACCESS-OM3
 wiki](https://github.com/COSIMA/access-om3/wiki/Quick-start#running).
