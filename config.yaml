@@ -20,18 +20,18 @@ model: access-om3
 
 exe: access-om3-MOM6-CICE6
 input:
-    - /g/data/vk83/configurations/inputs/access-om3/share/meshes/global.025deg/2024.03.26/access-om2-025deg-ESMFmesh.nc
-    - /g/data/vk83/configurations/inputs/access-om3/share/meshes/global.025deg/2024.03.26/access-om2-025deg-nomask-ESMFmesh.nc
+    - /g/data/vk83/prerelease/configurations/inputs/access-om3/cice/grids/global.025deg/2025.01.30/grid.nc
+    - /g/data/vk83/prerelease/configurations/inputs/access-om3/cice/grids/global.025deg/2025.02.17/kmt.nc
+    - /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/grids/mosaic/global.025deg/2025.01.30/ocean_hgrid.nc
+    - /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/grids/vertical/global.025deg/2025.03.12/ocean_vgrid.nc
+    - /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/initial_conditions/global.025deg/2025.01.30/ocean_temp_salt.res.nc
+    - /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/surface_salt_restoring/global.025deg/2025.01.30/salt_sfc_restore.nc
+    - /g/data/vk83/prerelease/configurations/inputs/access-om3/share/grids/2025.02.17/topog.nc
+    - /g/data/vk83/prerelease/configurations/inputs/access-om3/share/meshes/2025.02.17/access-om3-025deg-ESMFmesh.nc
+    - /g/data/vk83/prerelease/configurations/inputs/access-om3/share/meshes/2025.02.17/access-om3-025deg-nomask-ESMFmesh.nc
     - /g/data/vk83/configurations/inputs/access-om3/share/meshes/share/2024.09.16/JRA55do-datm-ESMFmesh.nc
     - /g/data/vk83/configurations/inputs/access-om3/share/meshes/share/2024.09.16/JRA55do-drof-ESMFmesh.nc
-    - /g/data/vk83/configurations/inputs/access-om3/share/grids/global.025deg/2023.05.15/topog.nc
-    - /g/data/vk83/configurations/inputs/access-om3/mom/grids/mosaic/global.025deg/2020.05.30/ocean_hgrid.nc
-    - /g/data/vk83/configurations/inputs/access-om3/mom/grids/vertical/global.025deg/2024.04.04/ocean_vgrid.nc
-    - /g/data/vk83/configurations/inputs/access-om3/mom/initial_conditions/global.025deg/2020.10.22/ocean_temp_salt.res.nc
-    - /g/data/vk83/configurations/inputs/access-om3/mom/surface_salt_restoring/global.025deg/2020.05.30/salt_sfc_restore.nc
-    - /g/data/vk83/configurations/inputs/access-om3/cice/grids/global.025deg/2024.05.14/grid.nc
-    - /g/data/vk83/configurations/inputs/access-om3/cice/grids/global.025deg/2024.05.14/kmt.nc
-    - /g/data/vk83/configurations/inputs/JRA-55/RYF/v1-4/data
+    - /g/data/vk83/experiments/inputs/JRA-55/RYF/v1-4/data
  
 collate: false
 runlog: false
