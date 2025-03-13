@@ -31,6 +31,7 @@ input:
     - /g/data/vk83/prerelease/configurations/inputs/access-om3/share/meshes/2025.02.17/access-om3-025deg-nomask-ESMFmesh.nc
     - /g/data/vk83/configurations/inputs/access-om3/share/meshes/share/2024.09.16/JRA55do-datm-ESMFmesh.nc
     - /g/data/vk83/configurations/inputs/access-om3/share/meshes/share/2024.09.16/JRA55do-drof-ESMFmesh.nc
+    - /g/data/vk83/prerelease/configurations/inputs/access-om3/cmeps/remap_weights/global.025deg/2025.02.17/access-om3-025deg-rof-remap-weights.nc
     - /g/data/vk83/experiments/inputs/JRA-55/RYF/v1-4/data
  
 collate: false

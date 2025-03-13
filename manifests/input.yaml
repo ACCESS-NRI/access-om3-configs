@@ -81,6 +81,11 @@ work/INPUT/access-om3-025deg-nomask-ESMFmesh.nc:
   hashes:
     binhash: d2b647dcb7a5ec752526b6085024fc3c
     md5: 8033610ed1eeca3331e350f5f8eb4ba0
+work/INPUT/access-om3-025deg-rof-remap-weights.nc:
+  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/cmeps/remap_weights/global.025deg/2025.02.17/access-om3-025deg-rof-remap-weights.nc
+  hashes:
+    binhash: 2cd1cc530556337d49a08429687b3fe5
+    md5: 4e10abac2e443fe22ab37fea40cdfc87
 work/INPUT/grid.nc:
   fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/cice/grids/global.025deg/2025.01.30/grid.nc
   hashes:
