@@ -7,7 +7,7 @@ GLOBAL_INDEXING = False         !   [Boolean] default = False
                                 ! static memory.
 
 ! === module MOM_domains ===
-!SYMMETRIC_MEMORY_ = True       !   [Boolean]
+!SYMMETRIC_MEMORY_ = False      !   [Boolean]
                                 ! If defined, the velocity point data domain includes every face of the
                                 ! thickness points. In other words, some arrays are larger than others,
                                 ! depending on where they are on the staggered grid.  Also, the starting index
@@ -38,13 +38,13 @@ MASKTABLE = "MOM_auto_mask_table" ! default = "MOM_mask_table"
                                 !  4,6
                                 !  1,2
                                 !  3,6
-NIPROC = 31                     !
+NIPROC = 45                     !
                                 ! The number of processors in the x-direction. With STATIC_MEMORY_ this is set
                                 ! in MOM_memory.h at compile time.
-NJPROC = 56                     !
+NJPROC = 40                     !
                                 ! The number of processors in the y-direction. With STATIC_MEMORY_ this is set
                                 ! in MOM_memory.h at compile time.
-LAYOUT = 31, 56                 !
+LAYOUT = 45, 40                 !
                                 ! The processor layout that was actually used.
 AUTO_IO_LAYOUT_FAC = 0          ! default = 0
                                 ! When AUTO_MASKTABLE is enabled, io layout is calculated by performing integer

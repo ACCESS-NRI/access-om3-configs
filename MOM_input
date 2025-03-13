@@ -82,7 +82,7 @@ TRIPOLAR_N = True               !   [Boolean] default = False
 NIGLOBAL = 1440                 !
                                 ! The total number of thickness grid points in the x-direction in the physical
                                 ! domain. With STATIC_MEMORY_ this is set in MOM_memory.h at compile time.
-NJGLOBAL = 1080                 !
+NJGLOBAL = 1142                 !
                                 ! The total number of thickness grid points in the y-direction in the physical
                                 ! domain. With STATIC_MEMORY_ this is set in MOM_memory.h at compile time.
 
@@ -135,7 +135,7 @@ MAXIMUM_DEPTH = 6000.0          !   [m]
 
 ! === module MOM_verticalGrid ===
 ! Parameters providing information about the vertical grid.
-NK = 50                         !   [nondim]
+NK = 75                         !   [nondim]
                                 ! The number of model layers.
 
 ! === module MOM_EOS ===
@@ -611,6 +611,11 @@ HBD_REMAPPING_USE_OM4_SUBCELLS = False !   [Boolean] default = True
                                 ! this option to false.
 
 ! === module MOM_sum_output ===
+MAXTRUNC = 10000                ! [truncations save_interval-1] default = 0
+                                ! The run will be stopped, and the day set to a very
+                                ! large value if the velocity is truncated more than
+                                ! MAXTRUNC times between energy saves.  Set MAXTRUNC to 0
+                                ! to stop if there is any truncation of velocities.
 
 ! === module ocean_stochastics_init ===
 
