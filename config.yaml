@@ -47,7 +47,8 @@ modules:
     use:
         - /g/data/vk83/prerelease/modules
     load:
-        - access-om3/pr37-13
+        - access-om3/pr37-14
+        
         - nco/5.0.5
 
 payu_minimum_version: 1.1.6
