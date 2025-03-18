@@ -17,7 +17,7 @@ workflow management tool.
 Each configuration is stored as a git branch. Most of the branches are named
 according to the following naming scheme:
 
-`{nominal_resolution}deg_{forcing_data}_{forcing_method}`
+`{dev|release}-{nominal_resolution}deg_{forcing_data}_{forcing_method}`
 
 Additional required information, like if the configuration includes
 biogeochemistry, is appended to the name.
@@ -32,8 +32,8 @@ Currently the following development configurations are available:
 **Note that the [`main`](https://github.com/ACCESS-NRI/access-om3-configs/tree/main) branch
 does not store any configuration, only some documentation.**
 
-This repository also contains the following configurations that are only used
-for testing ACCESS-OM3:
+This repository also contains the following configurations that were only used
+for developing ACCESS-OM3:
 
 - [`gmom_jra`](https://github.com/ACCESS-NRI/access-om3-configs/tree/gmom_jra):
   configuration based on the `GMOM_JRA` [CESM](https://github.com/ESCOMP/CMEPS/)
@@ -52,35 +52,17 @@ These configurations should **not** be used for production runs.
 
 ## Setting up an experiment
 
-The first thing to do is to clone this repository. Although it is possible to
-directly clone the repository from  [ACCESS-NRI/access-om3-configs](https://github.com/ACCESS-NRI/access-om3-configs), it is better to use a fork
-instead. This will allow you to push any changes you make to the configuration,
-as well as use the payu run log to keep track of your experiment in your fork on
-GitHub. Detailed instructions about how to set up a fork can be found
-[here](https://docs.github.com/en/get-started/quickstart/fork-a-repo).
-
-Once you have set up your fork, we recommend cloning to a directory with a
-unique name that reflects what you wish to run. This could simply be the name of
-the configuration you plan to run, but the more detailed the name is, the less
-likely a namespace clash will happen.
-
-Finally, one needs to checkout the branch corresponding to the desired
+The first thing to do is to clone this repository, checking out the branch corresponding to the desired
 configuration. It is then good practice to start a new branch with the same name
 as your directory so you can use git to easily see how your run configuration
 differs from the original.
 
-Here is an step-by-step example of how to set up a `1deg_jra55do_ryf` experiment
-(called `my_1deg_jra55do_ryf_experiment_name`) after setting up your fork:
+To set up a `dev-1deg_jra55do_ryf` experiment (called `my_1deg_jra55do_ryf_experiment_name`):
 
 ```bash
-git clone git@github.com:<username>/access-om3-configs.git my_1deg_jra55do_ryf_experiment_name
+payu clone -B dev-1deg_jra55do_ryf -b my_1deg_jra55do_ryf_experiment_name https://github.com/access-nri/access-om3-configs.git my_1deg_jra55do_ryf_experiment_name
 cd my_1deg_jra55do_ryf_experiment_name
-git checkout 1deg_jra55do_ryf
-git checkout -b my_1deg_jra55do_ryf_experiment_name
 ```
-
-Here `<username>` should be your GitHub user name.
-
 By default, the payu run log is turned off, but you should turn it on so that
 your configuration settings will be recorded as the run proceeds. Simply edit
 the `config.yaml` file and change the following line:
@@ -94,6 +76,7 @@ to
 ```yaml
 runlog: true
 ```
+We recommend you create your own fork of this repository, and commit your branch to that fork. Otherwise, just committing your branch to a new github repository is a good way to track provenance and history of your work.
 
 ## Customising your experiment
 
@@ -101,6 +84,8 @@ See [this section of the quick start instructions in the ACCESS-OM3
 wiki](https://github.com/COSIMA/access-om3/wiki/Quick-start#customising-your-experiment).
 
 ## Running your experiment
+
+You need to be a member of the `vk83` and `xp65` [projects](https://my.nci.org.au/mancini) on [Gadi](https://nci.org.au/our-systems/hpc-systems)
 
 See [this section of the quick start instructions in the ACCESS-OM3
 wiki](https://github.com/COSIMA/access-om3/wiki/Quick-start#running).
