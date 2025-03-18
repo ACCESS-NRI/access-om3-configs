@@ -2,29 +2,29 @@
     "$schema": "https://github.com/ACCESS-NRI/schema/tree/main/au.org.access-nri/model/configuration/ci/2-0-0.json",
     "scheduled": {
         "default": {
-            "markers": "checksum or checksum_slow or access_om3 or config"
+            "markers": "repro or access_om3 or config"
         },
         "dev-1deg_jra55do_ryf": {
-            "markers": "checksum or checksum_slow or access_om3 or dev_config"
+            "markers": "repro or access_om3 or dev_config"
         },
         "release-1deg_jra55do_ryf": { },
         "release-.*": {
-            "model-config-tests-version": "0.0.12",
+            "model-config-tests-version": "0.1.0",
             "payu-version": "1.1.6"
         }
     },
     "reproducibility": {
         "default": {
-            "markers": "checksum"
+            "markers": "repro and (not slow)"
         },
         "dev-1deg_jra55do_ryf": {
-            "markers": "checksum or checksum_slow"
+            "markers": "repro"
         },
         "release-1deg_jra55do_ryf": {
-            "markers": "checksum or checksum_slow"
+            "markers": "repro"
         },
         "release-.*": {
-            "model-config-tests-version": "0.0.12",
+            "model-config-tests-version": "0.1.0",
             "payu-version": "1.1.6"
         }
     },
@@ -34,7 +34,7 @@
         },
         "release-.*": {
             "markers": "access_om3 or config",
-            "model-config-tests-version": "0.0.12",
+            "model-config-tests-version": "0.1.0",
             "payu-version": "1.1.6"
         }
     },
