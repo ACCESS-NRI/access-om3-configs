@@ -8,7 +8,7 @@
 # (you may need to add the corresponding PBS -l storage flag in sync_data.sh)
 # shortpath: /scratch/v45
 
-queue: normal
+queue: express
 ncpus: 240
 jobfs: 10GB
 mem: 960GB
@@ -47,8 +47,7 @@ modules:
     use:
         - /g/data/vk83/prerelease/modules
     load:
-        - access-om3/pr37-14
-        
+        - access-om3/pr37-15
         - nco/5.0.5
 
 payu_minimum_version: 1.1.6
