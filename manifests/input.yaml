@@ -102,10 +102,10 @@ work/INPUT/ocean_hgrid.nc:
     binhash: 8db0d96ca905d4d327592d84d9ba847a
     md5: c65fea49f3a94530a36c53164b316dd2
 work/INPUT/ocean_temp_salt.res.nc:
-  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/initial_conditions/global.025deg/2025.01.30/ocean_temp_salt.res.nc
+  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/initial_conditions/global.025deg/2025.03.19/ocean_temp_salt.res.nc
   hashes:
-    binhash: ae2ef07d3ae8ed2baf5b6c461fa136c4
-    md5: 1d887f1723698e08f08150761b752ecc
+    binhash: 94b9748f0898ea25d0247c98762e8909
+    md5: a1b5711e7638521b0d73f648b7090650
 work/INPUT/ocean_vgrid.nc:
   fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/grids/vertical/global.025deg/2025.03.12/ocean_vgrid.nc
   hashes:

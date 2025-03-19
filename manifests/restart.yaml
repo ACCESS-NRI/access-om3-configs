@@ -1,3 +1,68 @@
 format: yamanifest
 version: 1.0
---- {}
+---
+work/access-om3.cice.r.1902-01-01-00000.nc:
+  fullpath: /scratch/tm70/ek4684/access-om3/archive/work025_config_ryf/restart001/access-om3.cice.r.1902-01-01-00000.nc
+  hashes:
+    binhash: eef9e86c7e6f5c226026bcb484e5b19c
+    md5: 4b7ac9c93812c7f702714be5033d4a54
+work/access-om3.cpl.r.1902-01-01-00000.nc:
+  fullpath: /scratch/tm70/ek4684/access-om3/archive/work025_config_ryf/restart001/access-om3.cpl.r.1902-01-01-00000.nc
+  hashes:
+    binhash: 629c16152893f9ee26e9b97000d94351
+    md5: 7676d1ae73eb0279b1ae1110489a52c3
+work/access-om3.datm.r.1902-01-01-00000.nc:
+  fullpath: /scratch/tm70/ek4684/access-om3/archive/work025_config_ryf/restart001/access-om3.datm.r.1902-01-01-00000.nc
+  hashes:
+    binhash: 48d43555c08fa8f4e50fd39e7d29b590
+    md5: c87e8ec464bbcc95cc5dc210a52d3357
+work/access-om3.drof.r.1902-01-01-00000.nc:
+  fullpath: /scratch/tm70/ek4684/access-om3/archive/work025_config_ryf/restart001/access-om3.drof.r.1902-01-01-00000.nc
+  hashes:
+    binhash: 4d5f79cc2b170910dbf0d3b07407ec63
+    md5: 477dc3b180ee4ff7b8e9c7d7ada81280
+work/access-om3.mom6.r.1902-01-01-00000.nc:
+  fullpath: /scratch/tm70/ek4684/access-om3/archive/work025_config_ryf/restart001/access-om3.mom6.r.1902-01-01-00000.nc
+  hashes:
+    binhash: 9fcc8a31e02a1985752b178810f327eb
+    md5: 5a8824c5ec99bb634767cf0b2268f18d
+work/access-om3.mom6.r.1902-01-01-00000_1.nc:
+  fullpath: /scratch/tm70/ek4684/access-om3/archive/work025_config_ryf/restart001/access-om3.mom6.r.1902-01-01-00000_1.nc
+  hashes:
+    binhash: 1aea8ff92e6727a4648377b06f81771b
+    md5: 2f30ef1ba7bf737e5ff8f9ee708f3404
+work/access-om3.mom6.r.1902-01-01-00000_2.nc:
+  fullpath: /scratch/tm70/ek4684/access-om3/archive/work025_config_ryf/restart001/access-om3.mom6.r.1902-01-01-00000_2.nc
+  hashes:
+    binhash: b45044962a3bf4b9a31af3b93c454a0d
+    md5: 2cc301da071f02ee6cab9aa2a7839d39
+work/access-om3.mom6.r.1902-01-01-00000_3.nc:
+  fullpath: /scratch/tm70/ek4684/access-om3/archive/work025_config_ryf/restart001/access-om3.mom6.r.1902-01-01-00000_3.nc
+  hashes:
+    binhash: a232e77a25397af0fa06e725948f52fe
+    md5: 71e8bca253046427208024d2728fc258
+work/rpointer.atm:
+  fullpath: /scratch/tm70/ek4684/access-om3/archive/work025_config_ryf/restart001/rpointer.atm
+  hashes:
+    binhash: 8bb776c04c8fed4693ce5efc6d903fde
+    md5: bcb92aec1d77f39f9204e1754a5e3114
+work/rpointer.cpl:
+  fullpath: /scratch/tm70/ek4684/access-om3/archive/work025_config_ryf/restart001/rpointer.cpl
+  hashes:
+    binhash: 768285f9c061d70dc1cd9ecd70d539b6
+    md5: 6948b9c48e36f90602f9cdcd1e08196a
+work/rpointer.ice:
+  fullpath: /scratch/tm70/ek4684/access-om3/archive/work025_config_ryf/restart001/rpointer.ice
+  hashes:
+    binhash: 9c3558078e055354883e4a4b0e35bbe0
+    md5: 9713ca474f93aabcde263b9339c71fab
+work/rpointer.ocn:
+  fullpath: /scratch/tm70/ek4684/access-om3/archive/work025_config_ryf/restart001/rpointer.ocn
+  hashes:
+    binhash: 579411bd938a2fc617a7ed4673cc51fa
+    md5: 071f34a268a429848c46b07ac57a4842
+work/rpointer.rof:
+  fullpath: /scratch/tm70/ek4684/access-om3/archive/work025_config_ryf/restart001/rpointer.rof
+  hashes:
+    binhash: f026e4303d145bd629f64842ccdba503
+    md5: f480de8eb0d6f8f209fb12006478055c
