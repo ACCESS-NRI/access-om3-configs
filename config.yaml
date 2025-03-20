@@ -39,15 +39,15 @@ runlog: false
 metadata: 
     enable: false
 
-userscripts:
-    setup: /usr/bin/bash /g/data/vk83/apps/om3-scripts/payu_config/setup.sh
-    archive: /usr/bin/bash /g/data/vk83/apps/om3-scripts/payu_config/archive.sh
+# userscripts:
+#     setup: /usr/bin/bash /g/data/vk83/apps/om3-scripts/payu_config/setup.sh
+#     archive: /usr/bin/bash /g/data/vk83/apps/om3-scripts/payu_config/archive.sh
 
 modules:
     use:
         - /g/data/vk83/prerelease/modules
     load:
-        - access-om3/pr68-3
+        - access-om3/pr35-37
         - nco/5.0.5
 
 payu_minimum_version: 1.1.6
