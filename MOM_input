@@ -82,7 +82,7 @@ TRIPOLAR_N = True               !   [Boolean] default = False
 NIGLOBAL = 1440                 !
                                 ! The total number of thickness grid points in the x-direction in the physical
                                 ! domain. With STATIC_MEMORY_ this is set in MOM_memory.h at compile time.
-NJGLOBAL = 1080                 !
+NJGLOBAL = 1142                 !
                                 ! The total number of thickness grid points in the y-direction in the physical
                                 ! domain. With STATIC_MEMORY_ this is set in MOM_memory.h at compile time.
 
@@ -135,7 +135,7 @@ MAXIMUM_DEPTH = 6000.0          !   [m]
 
 ! === module MOM_verticalGrid ===
 ! Parameters providing information about the vertical grid.
-NK = 50                         !   [nondim]
+NK = 75                         !   [nondim]
                                 ! The number of model layers.
 
 ! === module MOM_EOS ===
@@ -181,7 +181,7 @@ ALE_COORDINATE_CONFIG = "FILE:ocean_vgrid.nc,interfaces=zeta" ! default = "UNIFO
                                 !                the filename and two variable names, separated
                                 !                by a comma or space, for sigma-2 and dz. e.g.
                                 !                HYBRID:vgrid.nc,sigma2,dz
-!ALE_RESOLUTION = 2.303499698638916, 2.6903486251831055, 3.1421399116516113, 3.6697616577148438, 4.285917282104492, 5.005424499511719, 5.845563888549805, 6.826459884643555, 7.971549987792969, 9.308074951171875, 10.867660522460938, 12.686931610107422, 14.808158874511719, 17.279945373535156, 20.157821655273438, 23.504684448242188, 27.390975952148438, 31.894271850585938, 37.097900390625, 43.088226318359375, 49.94970703125, 57.757049560546875, 66.56375122070312, 76.386962890625, 87.18865966796875, 98.85760498046875, 111.1953125, 123.914794921875, 136.6578369140625, 149.03271484375, 160.6646728515625, 171.2481689453125, 180.5816650390625, 188.5797119140625, 195.2608642578125, 200.720703125, 205.10205078125, 208.565185546875, 211.2705078125, 213.363525390625, 214.97119140625, 216.198974609375, 217.13232421875, 217.83984375, 218.37451171875, 218.7783203125, 219.08203125, 219.310546875, 219.482421875, 219.6123046875 !   [m]
+!ALE_RESOLUTION = 1.0825614929199219, 1.1963462829589844, 1.322089672088623, 1.4610481262207031, 1.614609718322754, 1.784308910369873, 1.9718408584594727, 2.1790781021118164, 2.4080896377563477, 2.661160469055176, 2.940814971923828, 3.249845504760742, 3.591329574584961, 3.968667984008789, 4.385614395141602, 4.846321105957031, 5.355350494384766, 5.917766571044922, 6.539115905761719, 7.225547790527344, 7.983818054199219, 8.821372985839844, 9.746376037597656, 10.767845153808594, 11.895652770996094, 13.140586853027344, 14.514511108398438, 16.030319213867188, 17.7020263671875, 19.544876098632812, 21.575271606445312, 23.810821533203125, 26.270294189453125, 28.973419189453125, 31.94091796875, 35.194000244140625, 38.75390625, 42.641632080078125, 46.876739501953125, 51.476593017578125, 56.45489501953125, 61.82025146484375, 67.5743408203125, 73.70965576171875, 80.207763671875, 87.03759765625, 94.1534423828125, 101.4951171875, 108.9879150390625, 116.5452880859375, 124.0714111328125, 131.4671630859375, 138.6346435546875, 145.484130859375, 151.938232421875, 157.93701171875, 163.439697265625, 168.42431640625, 172.8876953125, 176.842041015625, 180.3125, 183.33154296875, 185.938720703125, 188.175048828125, 190.08251953125, 191.701171875
 REMAPPING_SCHEME = "PPM_H4"     ! default = "PLM"
                                 ! This sets the reconstruction scheme used for vertical remapping for all
                                 ! variables. It can be one of the following schemes:
@@ -372,7 +372,7 @@ VISC_REM_BUG = False            !   [Boolean] default = True
                                 ! VISC_REM_BT_WEIGHT_BUG in MOM_barotropic.
 
 ! === module MOM_continuity_PPM ===
-ETA_TOLERANCE = 1.0E-06         !   [m] default = 2.5E-09
+ETA_TOLERANCE = 1.0E-06         !   [m] default = 3.75E-09
                                 ! The tolerance for the differences between the barotropic and baroclinic
                                 ! estimates of the sea surface height due to the fluxes through each face.  The
                                 ! total tolerance for SSH is 4 times this value.  The default is
@@ -611,6 +611,10 @@ HBD_REMAPPING_USE_OM4_SUBCELLS = False !   [Boolean] default = True
                                 ! this option to false.
 
 ! === module MOM_sum_output ===
+MAXTRUNC = 10000                !   [truncations save_interval-1] default = 0
+                                ! The run will be stopped, and the day set to a very large value if the velocity
+                                ! is truncated more than MAXTRUNC times between energy saves.  Set MAXTRUNC to 0
+                                ! to stop if there is any truncation of velocities.
 
 ! === module ocean_stochastics_init ===
 

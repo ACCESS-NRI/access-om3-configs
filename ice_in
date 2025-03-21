@@ -77,7 +77,7 @@
   max_blocks = -1
   ns_boundary_type = "tripole"
   nx_global = 1440
-  ny_global = 1080
+  ny_global = 1142
   processor_shape = "square-ice"
 /
 &ice_prescribed_nml
