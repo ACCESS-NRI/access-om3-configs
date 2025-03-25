@@ -1,0 +1,221 @@
+site_name: ACCESS-Hive Docs
+
+# Needed to generate the canonical_url for each pages that are 
+# then used to create the sitemap for search engine indexing
+site_url: https://access-hive.org.au
+# Git repository
+# repo_url: https://github.com/ACCESS-NRI/access-hive.org.au
+# Material default to a "master" branch, need to change to "main"
+
+# Theme
+theme:
+  name: material
+  custom_dir: overrides
+  palette:
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: custom-light
+      primary: none
+      accent: none
+      toggle:
+        icon: material/theme-light-dark
+        name: Switch to dark mode
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      primary: none
+      accent: none
+      scheme: custom-dark
+      toggle:
+        icon: material/theme-light-dark
+        name: Switch to light mode
+
+  features:
+    - navigation.top
+    - navigation.instant
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.indexes
+    - navigation.footer
+    - navigation.tracking       # The URL in the address bar is automatically updated with active anchor
+    - content.code.copy         # for displaying copy icon at top right in code snippets  
+    - content.code.annotate
+    - content.tabs.link
+    - search.suggest
+    - search.highlight
+    - search.share
+    - toc.follow                # the sidebar is automatically scrolled to the active anchor
+
+  logo: assets/ACCESS_icon_HIVE.png
+  favicon: assets/ACCESS_icon_HIVE.png
+  icon:
+    edit: material/pencil
+    view: material/eye
+copyright: Copyright &copy; 2024 ACCESS-NRI
+
+plugins:
+  - git-revision-date-localized:
+      type: date
+      enable_creation_date: false
+  - search:
+      separator: '[\s\-,:!=\[\]()"/]+|(?!\b)(?=[A-Z][a-z])|\.(?!\d)|&[lg]t;'
+  - macros
+  - bibtex:
+      bib_file: "references.bib"
+  - events:
+      events_dir: community_resources/events/events
+
+# Extensions
+markdown_extensions: 
+  - attr_list
+  - abbr
+  - md_in_html
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.inlinehilite
+  - pymdownx.caret
+  - pymdownx.mark
+  - pymdownx.tilde
+  - pymdownx.snippets
+  - pymdownx.highlight
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.tabbed:
+      alternate_style: true 
+  - pymdownx.keys
+  - def_list
+  - footnotes
+  - tables
+  - toc:
+      title: On this page
+
+# Navigation
+nav:
+  - Getting Started: 
+    - getting_started/index.md
+    - Set Up your NCI Account: getting_started/set_up_nci_account.md
+    - Australian Research Environment (ARE): getting_started/are.md
+    - Set up Spack for building ACCESS models: getting_started/spack.md
+
+  - Models: 
+    - Models: models/index.md
+    - Model Configurations: 
+      - Overview: models/configurations/index.md
+      # - ACCESS-AM: models/configurations/access-am.md
+      - ACCESS-CM: models/configurations/access-cm.md
+      - ACCESS-ESM: models/configurations/access-esm.md
+      - ACCESS-OM: models/configurations/access-om.md
+    - Model Components: 
+      - Overview: models/model_components/index.md
+      - Atmosphere: models/model_components/atmosphere.md
+      - Land: models/model_components/land.md
+      - Ocean: models/model_components/ocean.md
+      - Sea Ice: models/model_components/sea-ice.md
+      - Aerosols and Atmospheric Chemistry: models/model_components/aerosols_atmospheric_chemistry.md
+      - Biogeochemistry Land: models/model_components/bgc_land.md
+      - Biogeochemistry Ocean: models/model_components/bgc_ocean.md
+      - Coupler: models/model_components/coupler.md
+
+  - Run a Model: 
+    - models/run-a-model/index.md
+    # - Run ACCESS-AM: models/run-a-model/run-access-am.md
+    - Run ACCESS-CM: models/run-a-model/run-access-cm.md
+    - Run ACCESS-ESM: models/run-a-model/run-access-esm.md
+    - Run ACCESS-OM: models/run-a-model/run-access-om.md
+    - Modify and build an ACCESS model's source code: models/run-a-model/build_a_model.md
+    - Create Prereleases and Releases for an ACCESS Model: models/run-a-model/create-a-prerelease.md
+
+  - Data and Model Evaluation:
+    - model_evaluation/index.md
+    - Data: 
+      - model_evaluation/data/index.md
+      # - model_evaluation/model_evaluation_getting_started/index.md
+      # - Model Evaluation on Gadi: model_evaluation/model_evaluation_getting_started/model_evaluation_getting_started.md
+      - Data Format and Standards: model_evaluation/data/data_format.md      
+      - Data Variables: model_evaluation/data/variables.md
+      - Observational Data: model_evaluation/data/observations.md
+      - Accessing Model Data: model_evaluation/data/model_catalogs.md
+        # - Search Model Catalog: model_evaluation/model_evaluation_model_catalogs/model_evaluation_search_models.md
+
+    - Model Evaluation: 
+      - model_evaluation/evaluation_on_gadi/index.md
+      # - Frameworks on Gadi:
+      - ESMValTool: model_evaluation/evaluation_on_gadi/esmvaltool_workflow.md     
+      - ILAMB: model_evaluation/evaluation_on_gadi/ilamb_workflow.md   
+      - COSIMA cookbook: model_evaluation/evaluation_on_gadi/cosima.md
+      - Model Live Diagnostics: model_evaluation/evaluation_on_gadi/model_live_diagnostics.md
+      - METplus: model_evaluation/evaluation_on_gadi/metplus.md
+    - Additional Resources: 
+      - Additional Resources: model_evaluation/community_med/index.md
+      - Observational Catalogues: model_evaluation/community_med/community_observational_catalogs.md
+      - Model Catalogues: model_evaluation/community_med/community_model_catalogs.md
+      - Data Formatting: model_evaluation/community_med/community_data_processing.md
+      - Evaluation Recipes: model_evaluation/community_med/community_med_recipes.md
+
+  - Tutorials:
+    - tutorials/index.md
+    - ACCESS-CM2: tutorials/models.md 
+    - ACCESS-NRI Intake catalog: tutorials/intake.md
+    - ESMValTool: tutorials/esmvaltool.md
+    - ILAMB: tutorials/ilamb.md
+    - Payu: tutorials/payu.md
+    
+  - Community Resources:
+    - community_resources/index.md
+    - Workshops and Events Archive:
+      - community_resources/workshops_events_archive/index.md
+      - ACCESS Community Workshop 2023: 
+        - Overview: community_resources/workshops_events_archive/access_workshop_2023/index.md
+        - Training materials 2023: community_resources/workshops_events_archive/access_workshop_2023/training_materials.md
+      - ACCESS Community Workshop 2024: 
+        - Overview: community_resources/workshops_events_archive/access_workshop_2024/index.md
+        - Training materials 2024: community_resources/workshops_events_archive/access_workshop_2024/training_materials.md
+    - Working Groups: community_resources/community_working_groups.md
+    - External Resources: community_resources/external_resources.md
+    - Glossaries: community_resources/glossaries.md
+  - About:
+    - about/index.md
+    - Contact: about/contact.md
+    - User Support: 
+      - about/user_support/index.md 
+      - Using the Hive Forum: about/user_support/ask_on_forum.md
+    - Contribute:
+      - about/contribute/index.md
+      - Contribute on GitHub: about/contribute/contribute_on_github.md
+    - License: about/License.md
+# Footer
+extra:
+  generator: false
+  social:
+    - icon: fontawesome/brands/twitter 
+      link: https://twitter.com/ACCESS_NRI
+      name: ACCESS-NRI on Twitter
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/access-nri
+      name: ACCESS-NRI on Linkedin
+  analytics:
+    provider: google
+    property: G-2T6SQEH2CX
+
+extra_css:
+  - "https://fonts.googleapis.com/icon?family=Material+Icons"   # Material Icons Reference - https://material.io/resources/icons/?style=baseline
+  - fontawesome-free-6.4.0-web/css/all.css
+  - fontello/css/fontello-codes.css
+  - fontello/css/fontello-ie7-codes.css
+  - fontello/css/fontello-ie7.css
+  - fontello/css/fontello.css
+  - css/access-nri.css
+
+extra_javascript:
+  - https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js     # For tablesort functionality 
+  - https://cdn.jsdelivr.net/gh/atteggiani/animated-terminal@3.0/animated-terminal.min.js # Terminal animations
+  - js/custom-tags.js
+  - js/miscellaneous.js
+
+# Automatically reload page when running `mkdocs serve`, for any 
+# of the following files outside of the 'docs' directory
+watch:
+  - mkdocs.yml
+  - overrides/
+  # - plugins/
