@@ -1,11 +1,12 @@
-# MOM6-CICE6-datm-drof configurations for ACCESS-OM3
+# ACCESS-OM3 Model Configurations
 
 This repository contains several
 [ACCESS-OM3](https://github.com/COSIMA/access-om3) configurations using the
 following components:
 
 - [MOM6](https://mom6.readthedocs.io/) ocean model
-- [CICE](https://github.com/CICE-Consortium/CICE) sea ice model
+- [CICE](https://cice-consortium-cice.readthedocs.io/en/) sea ice model
+- [WW3](https://github.com/NOAA-EMC/WW3/wiki/About-WW3) wave model
 - [DATM](https://escomp.github.io/CDEPS/versions/master/html/datm.html) atmosphere data model
 - [DROF](https://escomp.github.io/CDEPS/versions/master/html/drof.html) runoff data model
 
@@ -17,38 +18,50 @@ workflow management tool.
 Each configuration is stored as a git branch. Most of the branches are named
 according to the following naming scheme:
 
-`{nominal_resolution}deg_{forcing_data}_{forcing_method}`
+`{MODEL_COMPONENTS}_{nominal_resolution}deg_{forcing_data}_{forcing_method}[+{modifier}]`
+
+where `{MODEL_COMPONENTS}` is an acronym specifying the active model components in the following order:
+- `M`: MOM6
+- `C`: CICE
+- `W`: WW3
 
 Additional required information, like if the configuration includes
-biogeochemistry, is appended to the name.
+biogeochemistry, is appended to the name as a modifier.
 
 Currently the following development configurations are available:
 
-- [`dev-1deg_jra55do_ryf`](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-1deg_jra55do_ryf)
-- [`dev-1deg_jra55do_iaf`](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-1deg_jra55do_iaf)
-- [`dev-1deg_jra55do_ryf_wombatlite`](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-1deg_jra55do_ryf_wombatlite)
-- [`dev-025deg_jra55do_ryf`](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-025deg_jra55do_ryf)
+**MOM6-CICE6-DATM-DROF configurations**
+- [`dev-MC_1deg_jra_ryf`](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MC_1deg_jra_ryf)
+- [`dev-MC_1deg_jra_iaf`](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MC_1deg_jra_iaf)
+- [`dev-MC_1deg_jra_ryf+wombatlite`](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MC_1deg_jra_ryf+wombatlite)
+- [`dev-MC_025deg_jra_ryf`](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MC_025deg_jra_ryf)
+
+**MOM6-CICE6-WW3-DATM-DROF configurations**
+- [`dev-MCW_1deg_jra_ryf`](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MCW_1deg_jra_ryf)
+- [`dev-MCW_1deg_jra_iaf`](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MCW_1deg_jra_iaf)
 
 **Note that the [`main`](https://github.com/ACCESS-NRI/access-om3-configs/tree/main) branch
 does not store any configuration, only some documentation.**
 
-This repository also contains the following configurations that are only used
-for testing ACCESS-OM3:
-
-- [`gmom_jra`](https://github.com/ACCESS-NRI/access-om3-configs/tree/gmom_jra):
-  configuration based on the `GMOM_JRA` [CESM](https://github.com/ESCOMP/CMEPS/)
-  compset.
-
 These configurations should **not** be used for production runs.
 
 ## Comparison table
+The following links can be used to easy compare different configuration branches
 
-- [`dev-1deg_jra55do_ryf`➡️`dev-1deg_jra55do_iaf`](https://github.com/ACCESS-NRI/access-om3-configs/compare/dev-1deg_jra55do_ryf..dev-1deg_jra55do_iaf)
-- [`dev-1deg_jra55do_ryf`➡️`dev-1deg_jra55do_ryf_wombatlite`](https://github.com/ACCESS-NRI/access-om3-configs/compare/dev-1deg_jra55do_ryf..dev-1deg_jra55do_ryf_wombatlite)
-- [`dev-1deg_jra55do_ryf`➡️`dev-025deg_jra55do_ryf`](https://github.com/ACCESS-NRI/access-om3-configs/compare/dev-1deg_jra55do_ryf..dev-025deg_jra55do_ryf)
-- [`dev-1deg_jra55do_iaf`➡️`dev-1deg_jra55do_ryf_wombatlite`](https://github.com/ACCESS-NRI/access-om3-configs/compare/dev-1deg_jra55do_iaf..dev-1deg_jra55do_ryf_wombatlite)
-- [`dev-1deg_jra55do_iaf`➡️`dev-025deg_jra55do_ryf`](https://github.com/ACCESS-NRI/access-om3-configs/compare/dev-1deg_jra55do_iaf..dev-025deg_jra55do_ryf)
-- [`dev-1deg_jra55do_ryf_wombatlite`➡️`dev-025deg_jra55do_ryf`](https://github.com/ACCESS-NRI/access-om3-configs/compare/dev-1deg_jra55do_ryf_wombatlite..dev-025deg_jra55do_ryf)
+**MC → MC**
+- [`dev-MC_1deg_jra_ryf`➡️`dev-MC_1deg_jra_iaf`](https://github.com/ACCESS-NRI/access-om3-configs/compare/dev-MC_1deg_jra_ryf..dev-MC_1deg_jra_iaf)
+- [`dev-MC_1deg_jra_ryf`➡️`dev-MC_1deg_jra_ryf+wombatlite`](https://github.com/ACCESS-NRI/access-om3-configs/compare/dev-MC_1deg_jra_ryf..dev-MC_1deg_jra_ryf+wombatlite)
+- [`dev-MC_1deg_jra_ryf`➡️`dev-MC_025deg_jra_ryf`](https://github.com/ACCESS-NRI/access-om3-configs/compare/dev-MC_1deg_jra_ryf..dev-MC_025deg_jra_ryf)
+- [`dev-MC_1deg_jra_iaf`➡️`dev-MC_1deg_jra_ryf+wombatlite`](https://github.com/ACCESS-NRI/access-om3-configs/compare/dev-MC_1deg_jra_iaf..dev-MC_1deg_jra_ryf+wombatlite)
+- [`dev-MC_1deg_jra_iaf`➡️`dev-MC_025deg_jra_ryf`](https://github.com/ACCESS-NRI/access-om3-configs/compare/dev-MC_1deg_jra_iaf..dev-MC_025deg_jra_ryf)
+- [`dev-MC_1deg_jra_ryf+wombatlite`➡️`dev-MC_025deg_jra_ryf`](https://github.com/ACCESS-NRI/access-om3-configs/compare/dev-MC_1deg_jra_ryf+wombatlite..dev-MC_025deg_jra_ryf)
+
+**MCW → MCW**
+- [`dev-MCW_1deg_jra_ryf`➡️`dev-MCW_1deg_jra_iaf`](https://github.com/ACCESS-NRI/access-om3-configs/compare/dev-MCW_1deg_jra_ryf..dev-MCW_1deg_jra_iaf)
+
+**MC → MCW**
+- [`dev-MC_1deg_jra_ryf`➡️`dev-MCW_1deg_jra_ryf`](https://github.com/ACCESS-NRI/access-om3-configs/compare/dev-MC_1deg_jra_ryf..dev-MCW_1deg_jra_ryf)
+- [`dev-MC_1deg_jra_iaf`➡️`dev-MCW_1deg_jra_iaf`](https://github.com/ACCESS-NRI/access-om3-configs/compare/dev-MC_1deg_jra_iaf..dev-MCW_1deg_jra_iaf)
 
 ## Setting up an experiment
 
@@ -69,14 +82,13 @@ configuration. It is then good practice to start a new branch with the same name
 as your directory so you can use git to easily see how your run configuration
 differs from the original.
 
-Here is an step-by-step example of how to set up a `1deg_jra55do_ryf` experiment
-(called `my_1deg_jra55do_ryf_experiment_name`) after setting up your fork:
+Here is an step-by-step example of how to set up an experiment directory
+from the `dev-MC_1deg_jra_ryf` configuration on a new branch called `my_expt`.
+After setting up your fork:
 
 ```bash
-git clone git@github.com:<username>/access-om3-configs.git my_1deg_jra55do_ryf_experiment_name
-cd my_1deg_jra55do_ryf_experiment_name
-git checkout 1deg_jra55do_ryf
-git checkout -b my_1deg_jra55do_ryf_experiment_name
+payu clone --new-branch my_expt --branch dev-MC_1deg_jra_ryf git@github.com:<username>/access-om3-configs.git OM3_MC_1deg_jra_ryf
+cd OM3_MC_1deg_jra_ryf
 ```
 
 Here `<username>` should be your GitHub user name.
@@ -131,7 +143,7 @@ Workflow inputs :
 
 | Input | Type | Required | Default | Description | Example | Notes |
 | ----- | ---- | -------- | ------- | ----------- | ------- | ----- |
-| `config-branch-name` | `string` | `true` | N/A | The configuration branch that will be run that will generate the checksums | `dev-025deg_jra55do_ryf` | This can be any branch - not just `release` or `dev` branches |
+| `config-branch-name` | `string` | `true` | N/A | The configuration branch that will be run that will generate the checksums | `dev-MC_025deg_jra_ryf` | This can be any branch - not just `release` or `dev` branches |
 | `commit-checksums` | `boolean` | `true` | `false` | Whether to commit the checksums to the target branch once generated | `true` | If unchecked, the checksums are still accessible as a workflow run artifact |
 | `committed-checksum-location` | `string` | `false` | `./testing/checksum` | If checksums are being committed: Where in the repository the generated checksums should be committed | `./some/dir` | Requires the path starting with `.` |
 | `committed-checksum-tag-version` | `string` | `false` | N/A | If checksums are being committed: An optional initial version for the committed checksums as a `git tag` of the form `{config-branch-name}-{version}` | `1.0` | If left blank, no tag will be added |
