@@ -19,59 +19,28 @@ on:
         type: string
         required: false
         description: "If checksums are being committed: The initial version for the git tag associated with the committed checksums."
+      committed-checksum-create-release:
+        type: boolean
+        required: false
+        default: false
+        description: "If checksums are being committed and a tag is being created: Whether to create a GitHub Release for the committed checksums."
+      test-markers:
+        type: string
+        required: false
+        default: repro_historical
+        description: Test markers to generate checksums, in the form of pytest test marker strings
 jobs:
-  config:
-    name: Read Testing Configuration
-    runs-on: ubuntu-latest
-    outputs:
-      payu-version: ${{ steps.repro-config.outputs.payu-version }}
-      model-config-tests-version: ${{ steps.repro-config.outputs.model-config-tests-version }}
-    steps:
-      - name: Checkout main
-        uses: actions/checkout@v4
-        with:
-          ref: main
-
-      - name: Validate
-        uses: access-nri/schema/.github/actions/validate-with-schema@main
-        with:
-          schema-version: ${{ vars.CI_JSON_SCHEMA_VERSION }}
-          meta-schema-version: draft-2020-12
-          schema-location: au.org.access-nri/model/configuration/ci
-          data-location: config/ci.json
-
-      - name: Read reproducibility tests config
-        id: repro-config
-        uses: access-nri/model-config-tests/.github/actions/parse-ci-config@main
-        with:
-          check: reproducibility
-          branch-or-tag: ${{ inputs.config-branch-name }}
-          config-filepath: "config/ci.json"
-
-  log-inputs:
-    name: Log Inputs
-    needs:
-      - config
-    runs-on: ubuntu-latest
-    steps:
-      - run: |
-          echo '::notice::This deployment is using the following inputs: `config-branch-name`=`${{ inputs.config-branch-name }}`, `commit-checksums`=`${{ inputs.commit-checksums }}`, `committed-checksum-location`=`${{ inputs.committed-checksum-location }}`,`committed-checksum-tag-version`=`${{ inputs.committed-checksum-tag-version }}`.'
-          echo '::notice::This deployment is using Payu Version ${{ needs.config.outputs.payu-version }} and Model Config Tests Version ${{ needs.config.outputs.model-config-tests-version }}'
-
   generate-checksums:
     name: Generate Checksums
-    needs:
-      - log-inputs
-      - config
     uses: access-nri/model-config-tests/.github/workflows/generate-checksums.yml@main
     with:
       config-branch-name: ${{ inputs.config-branch-name }}
       commit-checksums: ${{ inputs.commit-checksums }}
       committed-checksum-location: ${{ inputs.committed-checksum-location }}
-      committed-checksum-tag: ${{ inputs.committed-checksum-tag-version != '' && format('{0}-{1}', inputs.config-branch-name, inputs.committed-checksum-tag-version) || '' }}
+      committed-checksum-tag-version: ${{ inputs.committed-checksum-tag-version }}
+      committed-checksum-create-release: ${{ inputs.committed-checksum-create-release }}
       environment-name: "Gadi Initial Checksum"
-      model-config-tests-version: ${{ needs.config.outputs.model-config-tests-version }}
-      payu-version: ${{ needs.config.outputs.payu-version }}
+      test-markers: ${{ inputs.test-markers }}
     permissions:
       contents: write
       checks: write
