@@ -115,28 +115,34 @@ jobs:
         shell: bash
         run: |
           git fetch --all -Pp
-          echo "Build main website"
-          git checkout main
+
+          git fetch --all
+          git branch -v -a
+          git checkout origin/davide/docs-setup
           mkdocs build -f mkdocs.yml -d ../website
-          echo "Build development website"
-          git checkout development
-          mkdocs build -f mkdocs.yml -d ../website/development-website
-          echo "Build PR websites"
-          # Search for open PRs, excluding PRs from forks and PRs having `development` or `main` as head
-          open_pr_info=$(gh pr list --json headRepositoryOwner,headRefOid,number,headRefName --jq '.[] | select(.headRefName!="development" and .headRefName!="main" and .headRepositoryOwner.login=="${{ github.repository_owner }}")')
-          pr_nums=($(jq '.number' <<< "$open_pr_info"))
-          pr_sha=($(jq -r '.headRefOid' <<< "$open_pr_info"))
-          if [[ -n $pr_nums ]]; then
-            echo "Found PR numbers: $(perl -pe 's/\s(?!$)/, /g' <<< ${pr_nums[@]})."
-            echo "pr_nums=[$(perl -pe 's/\s(?!$)/,/g' <<< ${pr_nums[@]})]" >> "$GITHUB_OUTPUT"
-            for i in ${!pr_nums[@]}; do
-              git checkout ${pr_sha[i]}
-              mkdocs build -f mkdocs.yml -d ../website/pr-preview/pr-${pr_nums[i]}
-            done
-          else
-            echo "No open PR found."
-          fi
-          chmod -c -R +rX ../website
+
+          #echo "Build main website"
+          #git checkout main
+          #mkdocs build -f mkdocs.yml -d ../website
+          #echo "Build development website"
+          #git checkout development
+          #mkdocs build -f mkdocs.yml -d ../website/development-website
+          #echo "Build PR websites"
+          ## Search for open PRs, excluding PRs from forks and PRs having `development` or `main` as head
+          #open_pr_info=$(gh pr list --json headRepositoryOwner,headRefOid,number,headRefName --jq '.[] | select(.headRefName!="development" and .headRefName!="main" and .headRepositoryOwner.login=="${{ github.repository_owner }}")')
+          #pr_nums=($(jq '.number' <<< "$open_pr_info"))
+          #pr_sha=($(jq -r '.headRefOid' <<< "$open_pr_info"))
+          #if [[ -n $pr_nums ]]; then
+            #echo "Found PR numbers: $(perl -pe 's/\s(?!$)/, /g' <<< ${pr_nums[@]})."
+            #echo "pr_nums=[$(perl -pe 's/\s(?!$)/,/g' <<< ${pr_nums[@]})]" >> "$GITHUB_OUTPUT"
+            #for i in ${!pr_nums[@]}; do
+              #git checkout ${pr_sha[i]}
+              #mkdocs build -f mkdocs.yml -d ../website/pr-preview/pr-${pr_nums[i]}
+            #done
+          #else
+            #echo "No open PR found."
+          #fi
+          #chmod -c -R +rX ../website
 
       - name: Create artifact for deployment to GitHub Pages
         uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa #v3.0.1
