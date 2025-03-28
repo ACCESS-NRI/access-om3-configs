@@ -102,6 +102,8 @@ jobs:
           pwd
           ls
           git branch -v
+          git fetch --all
+          git branch -v -a
           git checkout origin/davide/docs-setup
           pip install -r requirements.txt
 
