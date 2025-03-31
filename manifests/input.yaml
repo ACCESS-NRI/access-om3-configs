@@ -102,10 +102,10 @@ work/INPUT/ocean_temp_salt.res.nc:
     binhash: efb5e5e124648f2d59d4cd56b6e9a023
     md5: c5f7e60b5427a4442f111adc65a2d067
 work/INPUT/ocean_vgrid.nc:
-  fullpath: /g/data/vk83/configurations/inputs/access-om3/mom/grids/vertical/global.1deg/2023.07.28/ocean_vgrid.nc
+  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/grids/vertical/global.025deg/2025.03.12/ocean_vgrid.nc
   hashes:
-    binhash: ad5bf87f1c69ef3be1061a5c6d1d0411
-    md5: a1e0b0b0adc363506ff17a362e83f64a
+    binhash: 1a0891515558b87f200786a9ac2f7132
+    md5: 66f71f2b24bd00b1c220787505e0106e
 work/INPUT/salt_sfc_restore.nc:
   fullpath: /g/data/vk83/configurations/inputs/access-om3/mom/surface_salt_restoring/global.1deg/2020.05.30/salt_sfc_restore.nc
   hashes:
