@@ -121,11 +121,6 @@ work/INPUT/grid_spec.nc:
   hashes:
     binhash: a2c6813be9a75777ff6318170e5985ad
     md5: 709268cd891e6f0e827f6de0249f1a3d
-work/INPUT/grid.nc:
-  fullpath: /g/data/vk83/configurations/inputs/access-om3/cice/grids/global.1deg/2024.05.14/grid.nc
-  hashes:
-    binhash: b347eb0588291c34bb40a24a7bc45173
-    md5: 544a40b634c182f3e182da6bcbe8be7b
 work/INPUT/iced.1900-01-01-10800.nc:
   fullpath: /g/data/vk83/configurations/inputs/access-om3/cice/initial_conditions/global.1deg/2023.07.28/iced.1900-01-01-10800.nc
   hashes:
