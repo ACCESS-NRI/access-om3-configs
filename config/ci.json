@@ -7,6 +7,9 @@
         "dev-MC_1deg_jra_ryf": {
             "markers": "repro or access_om3 or dev_config"
         },
+        "dev-MC_1deg_jra_ryf+wombatlite": {
+            "markers": "repro or access_om3 or dev_config"
+        },
         "dev-MCW_1deg_jra_ryf": {
             "markers": "repro or access_om3 or dev_config"
         },
@@ -22,6 +25,9 @@
             "markers": "repro and (not slow)"
         },
         "dev-MC_1deg_jra_ryf": {
+            "markers": "repro"
+        },
+        "dev-MC_1deg_jra_ryf+wombatlite": {
             "markers": "repro"
         },
         "dev-MCW_1deg_jra_ryf": {
