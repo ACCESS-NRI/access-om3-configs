@@ -328,7 +328,7 @@ ANGSTROM = 1.0E-10              !   [m] default = 1.0E-10
                                 ! The minimum layer thickness, usually one-Angstrom.
 H_TO_M = 1.0                    !   [m H-1] default = 1.0
                                 ! A constant that translates the model's internal units of thickness into m.
-NK = 50                         !   [nondim]
+NK = 75                         !   [nondim]
                                 ! The number of model layers.
 
 ! === module MOM_tracer_registry ===
