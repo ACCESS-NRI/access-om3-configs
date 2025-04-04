@@ -31,14 +31,14 @@ biogeochemistry, is appended to the name as a modifier.
 Currently the following development configurations are available:
 
 **MOM6-CICE6-DATM-DROF configurations**
-- [`dev-MC_1deg_jra_ryf`](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MC_1deg_jra_ryf)
-- [`dev-MC_1deg_jra_iaf`](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MC_1deg_jra_iaf)
-- [`dev-MC_1deg_jra_ryf+wombatlite`](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MC_1deg_jra_ryf+wombatlite)
-- [`dev-MC_025deg_jra_ryf`](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MC_025deg_jra_ryf)
+- [`dev-MC_100km_jra_ryf`](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MC_100km_jra_ryf)
+- [`dev-MC_100km_jra_iaf`](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MC_100km_jra_iaf)
+- [`dev-MC_100km_jra_ryf+wombatlite`](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MC_100km_jra_ryf+wombatlite)
+- [`dev-MC_25km_jra_ryf`](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MC_25km_jra_ryf)
 
 **MOM6-CICE6-WW3-DATM-DROF configurations**
-- [`dev-MCW_1deg_jra_ryf`](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MCW_1deg_jra_ryf)
-- [`dev-MCW_1deg_jra_iaf`](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MCW_1deg_jra_iaf)
+- [`dev-MCW_100km_jra_ryf`](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MCW_100km_jra_ryf)
+- [`dev-MCW_100km_jra_iaf`](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MCW_100km_jra_iaf)
 
 **Note that the [`main`](https://github.com/ACCESS-NRI/access-om3-configs/tree/main) branch
 does not store any configuration, only some documentation.**
@@ -49,19 +49,19 @@ These configurations should **not** be used for production runs.
 The following links can be used to easy compare different configuration branches
 
 **MC → MC**
-- [`dev-MC_1deg_jra_ryf`➡️`dev-MC_1deg_jra_iaf`](https://github.com/ACCESS-NRI/access-om3-configs/compare/dev-MC_1deg_jra_ryf..dev-MC_1deg_jra_iaf)
-- [`dev-MC_1deg_jra_ryf`➡️`dev-MC_1deg_jra_ryf+wombatlite`](https://github.com/ACCESS-NRI/access-om3-configs/compare/dev-MC_1deg_jra_ryf..dev-MC_1deg_jra_ryf+wombatlite)
-- [`dev-MC_1deg_jra_ryf`➡️`dev-MC_025deg_jra_ryf`](https://github.com/ACCESS-NRI/access-om3-configs/compare/dev-MC_1deg_jra_ryf..dev-MC_025deg_jra_ryf)
-- [`dev-MC_1deg_jra_iaf`➡️`dev-MC_1deg_jra_ryf+wombatlite`](https://github.com/ACCESS-NRI/access-om3-configs/compare/dev-MC_1deg_jra_iaf..dev-MC_1deg_jra_ryf+wombatlite)
-- [`dev-MC_1deg_jra_iaf`➡️`dev-MC_025deg_jra_ryf`](https://github.com/ACCESS-NRI/access-om3-configs/compare/dev-MC_1deg_jra_iaf..dev-MC_025deg_jra_ryf)
-- [`dev-MC_1deg_jra_ryf+wombatlite`➡️`dev-MC_025deg_jra_ryf`](https://github.com/ACCESS-NRI/access-om3-configs/compare/dev-MC_1deg_jra_ryf+wombatlite..dev-MC_025deg_jra_ryf)
+- [`dev-MC_100km_jra_ryf`➡️`dev-MC_100km_jra_iaf`](https://github.com/ACCESS-NRI/access-om3-configs/compare/dev-MC_100km_jra_ryf..dev-MC_100km_jra_iaf)
+- [`dev-MC_100km_jra_ryf`➡️`dev-MC_100km_jra_ryf+wombatlite`](https://github.com/ACCESS-NRI/access-om3-configs/compare/dev-MC_100km_jra_ryf..dev-MC_100km_jra_ryf+wombatlite)
+- [`dev-MC_100km_jra_ryf`➡️`dev-MC_25km_jra_ryf`](https://github.com/ACCESS-NRI/access-om3-configs/compare/dev-MC_100km_jra_ryf..dev-MC_25km_jra_ryf)
+- [`dev-MC_100km_jra_iaf`➡️`dev-MC_100km_jra_ryf+wombatlite`](https://github.com/ACCESS-NRI/access-om3-configs/compare/dev-MC_100km_jra_iaf..dev-MC_100km_jra_ryf+wombatlite)
+- [`dev-MC_100km_jra_iaf`➡️`dev-MC_25km_jra_ryf`](https://github.com/ACCESS-NRI/access-om3-configs/compare/dev-MC_100km_jra_iaf..dev-MC_25km_jra_ryf)
+- [`dev-MC_100km_jra_ryf+wombatlite`➡️`dev-MC_25km_jra_ryf`](https://github.com/ACCESS-NRI/access-om3-configs/compare/dev-MC_100km_jra_ryf+wombatlite..dev-MC_25km_jra_ryf)
 
 **MCW → MCW**
-- [`dev-MCW_1deg_jra_ryf`➡️`dev-MCW_1deg_jra_iaf`](https://github.com/ACCESS-NRI/access-om3-configs/compare/dev-MCW_1deg_jra_ryf..dev-MCW_1deg_jra_iaf)
+- [`dev-MCW_100km_jra_ryf`➡️`dev-MCW_100km_jra_iaf`](https://github.com/ACCESS-NRI/access-om3-configs/compare/dev-MCW_100km_jra_ryf..dev-MCW_100km_jra_iaf)
 
 **MC → MCW**
-- [`dev-MC_1deg_jra_ryf`➡️`dev-MCW_1deg_jra_ryf`](https://github.com/ACCESS-NRI/access-om3-configs/compare/dev-MC_1deg_jra_ryf..dev-MCW_1deg_jra_ryf)
-- [`dev-MC_1deg_jra_iaf`➡️`dev-MCW_1deg_jra_iaf`](https://github.com/ACCESS-NRI/access-om3-configs/compare/dev-MC_1deg_jra_iaf..dev-MCW_1deg_jra_iaf)
+- [`dev-MC_100km_jra_ryf`➡️`dev-MCW_100km_jra_ryf`](https://github.com/ACCESS-NRI/access-om3-configs/compare/dev-MC_100km_jra_ryf..dev-MCW_100km_jra_ryf)
+- [`dev-MC_100km_jra_iaf`➡️`dev-MCW_100km_jra_iaf`](https://github.com/ACCESS-NRI/access-om3-configs/compare/dev-MC_100km_jra_iaf..dev-MCW_100km_jra_iaf)
 
 ## Setting up an experiment
 
@@ -83,12 +83,12 @@ as your directory so you can use git to easily see how your run configuration
 differs from the original.
 
 Here is an step-by-step example of how to set up an experiment directory
-from the `dev-MC_1deg_jra_ryf` configuration on a new branch called `my_expt`.
+from the `dev-MC_100km_jra_ryf` configuration on a new branch called `my_expt`.
 After setting up your fork:
 
 ```bash
-payu clone --new-branch my_expt --branch dev-MC_1deg_jra_ryf git@github.com:<username>/access-om3-configs.git OM3_MC_1deg_jra_ryf
-cd OM3_MC_1deg_jra_ryf
+payu clone --new-branch my_expt --branch dev-MC_100km_jra_ryf git@github.com:<username>/access-om3-configs.git OM3_MC_100km_jra_ryf
+cd OM3_MC_100km_jra_ryf
 ```
 
 Here `<username>` should be your GitHub user name.
@@ -143,7 +143,7 @@ Workflow inputs :
 
 | Input | Type | Required | Default | Description | Example | Notes |
 | ----- | ---- | -------- | ------- | ----------- | ------- | ----- |
-| `config-branch-name` | `string` | `true` | N/A | The configuration branch that will be run that will generate the checksums | `dev-MC_025deg_jra_ryf` | This can be any branch - not just `release` or `dev` branches |
+| `config-branch-name` | `string` | `true` | N/A | The configuration branch that will be run that will generate the checksums | `dev-MC_25km_jra_ryf` | This can be any branch - not just `release` or `dev` branches |
 | `commit-checksums` | `boolean` | `true` | `false` | Whether to commit the checksums to the target branch once generated | `true` | If unchecked, the checksums are still accessible as a workflow run artifact |
 | `committed-checksum-location` | `string` | `false` | `./testing/checksum` | If checksums are being committed: Where in the repository the generated checksums should be committed | `./some/dir` | Requires the path starting with `.` |
 | `committed-checksum-tag-version` | `string` | `false` | N/A | If checksums are being committed: An optional initial version for the committed checksums as a `git tag` of the form `{config-branch-name}-{version}` | `1.0` | If left blank, no tag will be added |
