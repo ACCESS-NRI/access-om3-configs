@@ -12,5 +12,3 @@ Next actions, once issue is created and if relevant to OM3 025, on the [project 
 [ ] Priority (P0, P1, P2)
 [ ] Please add issue to correct component
 [ ] Issues with dependencies are best captured by a mega-issue
-
-[ ] Please don't save changes to the 4 views (Awesome view / ByStatus / Blocked / DependentIssues)
