@@ -358,9 +358,6 @@ ACCESS-OM3
 "access-om3.mom6.2d.mlotst.1day.mean.%4yr", 1, "days", 1, "days", "time", 1, "years"
 "ocean_model", "mlotst", "mlotst", "access-om3.mom6.2d.mlotst.1day.mean.%4yr", "all", "average", "none", 2
 
-"access-om3.mom6.2d.e_D.1day.mean.%4yr", 1, "days", 1, "days", "time", 1, "years"
-"ocean_model", "e_D", "e_D", "access-om3.mom6.2d.e_D.1day.mean.%4yr", "all", "average", "none", 2
-
 "access-om3.mom6.2d.net_heat_coupler.1day.mean.%4yr", 1, "days", 1, "days", "time", 1, "years"
 "ocean_model", "net_heat_coupler", "net_heat_coupler", "access-om3.mom6.2d.net_heat_coupler.1day.mean.%4yr", "all", "average", "none", 2
 
@@ -385,14 +382,17 @@ ACCESS-OM3
 
 # daily 2D max fields
 
-"access-om3.mom6.2d.e_D.1day.max.%4yr", 1, "days", 1, "days", "time", 1, "years"
-"ocean_model", "e_D", "e_D", "access-om3.mom6.2d.e_D.1day.max.%4yr", "all", "max", "none", 2
+"access-om3.mom6.2d.tob.1day.max.%4yr", 1, "days", 1, "days", "time", 1, "years"
+"ocean_model", "tob", "tob", "access-om3.mom6.2d.tob.1day.max.%4yr", "all", "max", "none", 2
 
 "access-om3.mom6.2d.tos.1day.max.%4yr", 1, "days", 1, "days", "time", 1, "years"
 "ocean_model", "tos", "tos", "access-om3.mom6.2d.tos.1day.max.%4yr", "all", "max", "none", 2
 
 
 # daily 2D min fields
+
+"access-om3.mom6.2d.tob.1day.min.%4yr", 1, "days", 1, "days", "time", 1, "years"
+"ocean_model", "tob", "tob", "access-om3.mom6.2d.tob.1day.min.%4yr", "all", "min", "none", 2
 
 "access-om3.mom6.2d.tos.1day.min.%4yr", 1, "days", 1, "days", "time", 1, "years"
 "ocean_model", "tos", "tos", "access-om3.mom6.2d.tos.1day.min.%4yr", "all", "min", "none", 2
