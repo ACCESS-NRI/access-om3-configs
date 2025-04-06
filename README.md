@@ -10,7 +10,7 @@ following components:
 - [DATM](https://escomp.github.io/CDEPS/versions/master/html/datm.html) atmosphere data model
 - [DROF](https://escomp.github.io/CDEPS/versions/master/html/drof.html) runoff data model
 
-All the configurations use the [payu](https://payu.readthedocs.io/en/latest/)
+All the configurations use the [Payu](https://payu.readthedocs.io/en/latest/)
 workflow management tool.
 
 ## Repository structure
@@ -18,15 +18,16 @@ workflow management tool.
 Each configuration is stored as a git branch. Most of the branches are named
 according to the following naming scheme:
 
-`{MODEL_COMPONENTS}_{nominal_resolution}deg_{forcing_data}_{forcing_method}[+{modifier}]`
+`{dev|release}-{MODEL_COMPONENTS}_{nominal_resolution}km_{forcing_data}_{forcing_method}[+{modifier}]`
 
 where `{MODEL_COMPONENTS}` is an acronym specifying the active model components in the following order:
 - `M`: MOM6
 - `C`: CICE
 - `W`: WW3
 
-Additional required information, like if the configuration includes
-biogeochemistry, is appended to the name as a modifier.
+Additional configuration information, like if the configuration includes
+biogeochemistry, is appended to the name as a modifier, e.g.
+- `+wombatlite` if the configuration uses WOMBATlite
 
 Currently the following development configurations are available:
 
@@ -43,10 +44,11 @@ Currently the following development configurations are available:
 **Note that the [`main`](https://github.com/ACCESS-NRI/access-om3-configs/tree/main) branch
 does not store any configuration, only some documentation.**
 
-These configurations should **not** be used for production runs.
+> [!WARNING]
+> These configurations are still under development and should **not** be used for production runs.
 
 ## Comparison table
-The following links can be used to easy compare different configuration branches
+The following links can be used to easily compare different configuration branches
 
 **MC → MC**
 - [`dev-MC_100km_jra_ryf`➡️`dev-MC_100km_jra_iaf`](https://github.com/ACCESS-NRI/access-om3-configs/compare/dev-MC_100km_jra_ryf..dev-MC_100km_jra_iaf)
@@ -65,36 +67,19 @@ The following links can be used to easy compare different configuration branches
 
 ## Setting up an experiment
 
-The first thing to do is to clone this repository. Although it is possible to
-directly clone the repository from  [ACCESS-NRI/access-om3-configs](https://github.com/ACCESS-NRI/access-om3-configs), it is better to use a fork
-instead. This will allow you to push any changes you make to the configuration,
-as well as use the payu run log to keep track of your experiment in your fork on
-GitHub. Detailed instructions about how to set up a fork can be found
-[here](https://docs.github.com/en/get-started/quickstart/fork-a-repo).
+The configurations in this repository are intended for use with the [Payu workflow manager](https://github.com/payu-org/payu).
+A tutorial on [how to use Payu to run model experiments](https://forum.access-hive.org.au/t/running-model-experiments-with-payu-and-git/2285)
+can be found on the ACCESS-Hive Forum.
 
-Once you have set up your fork, we recommend cloning to a directory with a
-unique name that reflects what you wish to run. This could simply be the name of
-the configuration you plan to run, but the more detailed the name is, the less
-likely a namespace clash will happen.
-
-Finally, one needs to checkout the branch corresponding to the desired
-configuration. It is then good practice to start a new branch with the same name
-as your directory so you can use git to easily see how your run configuration
-differs from the original.
-
-Here is an step-by-step example of how to set up an experiment directory
-from the `dev-MC_100km_jra_ryf` configuration on a new branch called `my_expt`.
-After setting up your fork:
+As an example, to set up an experiment directory from the `dev-MC_100km_jra_ryf` configuration on a new branch called `my_expt`:
 
 ```bash
-payu clone --new-branch my_expt --branch dev-MC_100km_jra_ryf git@github.com:<username>/access-om3-configs.git OM3_MC_100km_jra_ryf
+payu clone --new-branch my_expt --branch dev-MC_100km_jra_ryf git@github.com:ACCESS-NRI/access-om3-configs.git OM3_MC_100km_jra_ryf
 cd OM3_MC_100km_jra_ryf
 ```
 
-Here `<username>` should be your GitHub user name.
-
-By default, the payu run log is turned off, but you should turn it on so that
-your configuration settings will be recorded as the run proceeds. Simply edit
+Note that, by default, the Payu run log is turned off for configurations under development. However, you
+should turn it on so that your configuration settings will be recorded as the run proceeds. Simply edit
 the `config.yaml` file and change the following line:
 
 ```yaml
@@ -114,16 +99,17 @@ wiki](https://github.com/COSIMA/access-om3/wiki/Quick-start#customising-your-exp
 
 ## Running your experiment
 
+To run the configurations in this repo, you need to be a member of the `vk83` and `xp65` [projects](https://my.nci.org.au/mancini) on [Gadi](https://nci.org.au/our-systems/hpc-systems)
+
 See [this section of the quick start instructions in the ACCESS-OM3
 wiki](https://github.com/COSIMA/access-om3/wiki/Quick-start#running).
 
-## Pull requests
+## Contributions
 
 We welcome contributions from users of these configurations. If you make a
 configuration improvement which you think should be included in the [ACCESS-NRI/access-om3-configs](https://github.com/ACCESS-NRI/access-om3-configs)
-repository, push it to your fork and then do a pull request from the relevant
-branch in your fork to the branch it originated from in [ACCESS-NRI/access-om3-configs](https://github.com/ACCESS-NRI/access-om3-configs)
-(not `main`).
+repository, please [open an issue](https://github.com/ACCESS-NRI/access-om3-configs/issues)
+in this repo describing the change.
 
 ## Configuration Continuous Integration (CI)
 
