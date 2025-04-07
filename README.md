@@ -30,6 +30,7 @@ and the nominal resolution is given in kilometers, corresponding to the nominal 
 - `25km`: 0.25°
 - `10km`: 0.1°
 - `8km`: 1/12°
+
 Additional configuration information, like if the configuration includes
 biogeochemistry, is appended to the name as a modifier, e.g.
 - `+wombatlite` if the configuration uses WOMBATlite
