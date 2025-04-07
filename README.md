@@ -25,6 +25,11 @@ where `{MODEL_COMPONENTS}` is an acronym specifying the active model components 
 - `C`: CICE6
 - `W`: WW3
 
+and the nominal resolution is given in kilometers, corresponding to the nominal resolution in degrees as follows:
+- `100km`: 1°
+- `25km`: 0.25°
+- `10km`: 0.1°
+- `8km`: 1/12°
 Additional configuration information, like if the configuration includes
 biogeochemistry, is appended to the name as a modifier, e.g.
 - `+wombatlite` if the configuration uses WOMBATlite
