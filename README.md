@@ -22,7 +22,7 @@ according to the following naming scheme:
 
 where `{MODEL_COMPONENTS}` is an acronym specifying the active model components in the following order:
 - `M`: MOM6
-- `C`: CICE
+- `C`: CICE6
 - `W`: WW3
 
 Additional configuration information, like if the configuration includes
