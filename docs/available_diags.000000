@@ -1586,7 +1586,7 @@
     ! units: m
     ! cell_methods: xh:mean yh:mean zi:point area:mean
     ! variants: {e,e_xyave}
-"e_D"  [Used]
+"e_D"  [Unused]
     ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
     ! long_name: Interface Height above the Seafloor
     ! units: m
