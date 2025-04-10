@@ -2,9 +2,9 @@
 
 The schematic below illustrates the structure of the MOM6-CICE6-WW3 ACCESS-OM3 executable. ACCESS-OM3 is a single executable, consisting of the NUOPC driver (the main program) and several model components, each wrapped in a NUOPC cap; the caps are coupled through the CMEPS mediator via NUOPC connectors (see the [coupling page](https://github.com/COSIMA/access-om3/wiki/Coupling) for more information).
 
-![ACCESS-OM3 architecture](https://github.com/COSIMA/access-om3/assets/31054815/8a438302-75a2-47c6-81dd-722a94b00333)
+![ACCESS-OM3 architecture](https://github.com/COSIMA/access-om3/assets/31054815/8a438302-75a2-47c6-81dd-722a94b00333){: loading="lazy" }
 
-# Overview of codebase
+## Overview of codebase
 
 The ACCESS-OM3 code repository consists mostly of submodules containing the code for each model component.
 
