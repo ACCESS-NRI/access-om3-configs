@@ -79,7 +79,7 @@ markdown_extensions:
   - pymdownx.snippets
   - pymdownx.highlight
   - pymdownx.emoji:
-      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:materialx.emoji.to_svg
   - pymdownx.tabbed:
       alternate_style: true 
@@ -91,20 +91,21 @@ markdown_extensions:
       title: On this page
 
 # Navigation
-Home:                  index.md
-Architecture:          pages/Architecture.md
-Building:              pages/Building.md
-Configurations:        pages/Configurations.md
-Coupling:              pages/Coupling.md
-Forcing-data-models:   pages/Forcing-data-models.md
-Git-practices:         pages/Git-practices.md
-MOM6-generic-tracers:  pages/MOM6-generic-tracers.md
-MOM6:                  pages/MOM6.md
-NUOPC-driver:          pages/NUOPC-driver.md
-Quick-start:           pages/Quick-start.md
-Releases:              pages/Releases.md
-Topography-generation: pages/Topography-generation.md
-Updating-components:   pages/Updating-components.md
+nav:
+  - Home:                  index.md
+  - Architecture:          pages/Architecture.md
+  - Building:              pages/Building.md
+  - Configurations:        pages/Configurations.md
+  - Coupling:              pages/Coupling.md
+  - Forcing-data-models:   pages/Forcing-data-models.md
+  - Git-practices:         pages/Git-practices.md
+  - MOM6-generic-tracers:  pages/MOM6-generic-tracers.md
+  - MOM6:                  pages/MOM6.md
+  - NUOPC-driver:          pages/NUOPC-driver.md
+  - Quick-start:           pages/Quick-start.md
+  - Releases:              pages/Releases.md
+  - Topography-generation: pages/Topography-generation.md
+  - Updating-components:   pages/Updating-components.md
 
 # Footer
 extra:
