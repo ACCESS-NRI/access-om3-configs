@@ -1,0 +1,199 @@
+name: Deploy to GitHub Pages
+on:
+  push: #Action fires anytime there is a push to the following branches
+    branches:
+      - main
+    paths:
+      - documentation/**
+  pull_request: #Action also fires anytime a PR is (re)opened, closed or synchronized
+    types:
+      - opened
+      - reopened
+      - synchronize
+      - closed
+    paths:
+      - documentation/**
+  workflow_dispatch: #Action can also be triggered manually
+env:
+  TZ: Australia/Canberra
+  WORKING_DIR: documentation
+  ROOT_DOMAIN: https://access-nri.github.io
+  ROOT_URL_FOLDER: access-om3-configs
+  ROOT_BUILD_DIR: ${{ github.workspace }}/website
+  COMMENT_LABEL: pr-preview
+permissions:
+  pull-requests: write # to comment on PRs
+  pages: write # to deploy to Pages
+  id-token: write # to verify the deployment originates from an appropriate source
+
+
+jobs:
+  get-date:
+    runs-on: ubuntu-latest
+    env:
+        TZ: Australia/Canberra
+    outputs:
+      date: ${{ steps.get-date.outputs.date }}
+    steps:
+      - name: Get date
+        id: get-date
+        run: echo "date=$(date '+%Y-%m-%d %H:%M %Z')" >> $GITHUB_OUTPUT
+
+  pr-preview-setup:
+    # Run this job only if the action was fired because of a PR
+    if: ${{ github.event_name == 'pull_request' }}
+    needs: get-date
+    runs-on: ubuntu-latest
+    env:
+        HEAD: ${{ github.event.pull_request.head.sha }}
+        HEAD_URL: https://github.com/${{ github.event.pull_request.head.repo.full_name }}/commit/${{ github.event.pull_request.head.sha }}
+    steps:
+      - name: Add PR preview setup comment
+        if: ${{ github.event.action != 'closed' }}
+        uses: access-nri/actions/.github/actions/comment@main
+        with:
+          message: |
+           PR Preview
+           :---:
+           🛫 The preview of commit [${{ env.HEAD }}](${{ env.HEAD_URL }}) is currently being deployed.<br>The preview URL will be available once the deployment completes.<br>For further details, please check the [Actions](https://github.com/${{ github.repository }}/actions) tab.
+           ${{ needs.get-date.outputs.date }}
+          label: ${{ env.COMMENT_LABEL }}
+      
+      - name: Remove PR preview comment
+        if: ${{ github.event.action == 'closed' }}
+        uses: access-nri/actions/.github/actions/comment@main
+        with:
+          delete: true
+          label: ${{ env.COMMENT_LABEL }}
+  
+  build:
+    # Cancel any previous build/deploy jobs that are still running (no need to build/deploy multiple times)
+    concurrency:
+      group: documentation-build-deploy
+      cancel-in-progress: true
+    runs-on: ubuntu-latest
+    outputs:
+      pr_nums_json: ${{ steps.build.outputs.pr_nums_json }}
+      url: ${{ steps.url.outputs.url }}
+    if: ${{ ! ( github.event_name == 'pull_request' && github.event.action == 'closed' ) }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@master
+
+      - name: Python setup
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.11.x
+
+      - name: Install dependencies
+        working-directory: ${{ env.WORKING_DIR }}
+        run: |
+          pip install -r requirements.txt
+
+      # Build main website and PR previews
+      - name: Build website
+        working-directory: ${{ env.WORKING_DIR }}
+        env:
+          GH_TOKEN: ${{ github.token }} # Required for gh usage
+        id: build
+        shell: bash
+        run: |
+          git fetch --all -Pp
+          echo "::group::Build main website"
+          git checkout main
+          if [[ -f mkdocs.yml ]]; then
+            command='ROOT_URL=${{ env.ROOT_DOMAIN }}/${{ env.ROOT_URL_FOLDER }} mkdocs build -f mkdocs.yml -d ${{ env.ROOT_BUILD_DIR }}/${{ env.ROOT_URL_FOLDER }}'
+            echo "$command"
+            eval "$command"
+          else
+            echo "::warning::No configuration found in the 'main' branch."
+          fi
+          echo "::endgroup::"
+          echo "::group::Build PR previews"
+          # Include only open PRs, not from forks, and whose head branch is not `main`
+          open_pr_info=$(gh pr list \
+            --state open \
+            --json headRepositoryOwner,headRefOid,number,headRefName \
+            --jq '.[] | select( .headRefName!="main" and .headRepositoryOwner.login=="ACCESS-NRI")' \
+          )
+          pr_nums=($(jq '.number' <<< "$open_pr_info"))
+          pr_sha=($(jq -r '.headRefOid' <<< "$open_pr_info"))
+          if [[ -n $pr_nums ]]; then
+            echo "Found the following open PRs: $(IFS=, ; echo "${pr_nums[*]}")."
+            for num in ${pr_nums[@]}; do
+              echo "::group::Build PR preview for PR #${num}"
+              gh pr checkout $num
+              if [[ -f mkdocs.yml ]]; then
+                pr_preview_url_folder=${{ env.ROOT_URL_FOLDER }}/pr-preview-${num}
+                ls -l
+                command="ROOT_URL=${{ env.ROOT_DOMAIN }}/${pr_preview_url_folder} mkdocs build -f mkdocs.yml -d ${{ env.ROOT_BUILD_DIR }}/${pr_preview_url_folder}"
+                echo "$command"
+                eval "$command"
+              else
+                echo "::warning::No configuration found in the PR #${num} head."
+              fi
+            done
+            echo "pr_nums_json=$(printf '%s\n' "${pr_nums[@]}" | jq -R | jq -s -c)" >> "$GITHUB_OUTPUT"
+          else
+            echo "No open PR found."
+          fi
+          chmod -c -R +rX ${{ env.ROOT_BUILD_DIR }}
+
+      - name: Create artifact for deployment to GitHub Pages
+        uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa #v3.0.1
+        with:
+          path: ${{ env.ROOT_BUILD_DIR }}
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    # Cancel any previous build/deploy jobs that are still running (no need to build/deploy multiple times)
+    concurrency:
+      group: documentation-build-deploy
+      cancel-in-progress: true
+
+    steps:
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e #v4.0.5
+
+  # Set pr-preview message
+  pr-preview:
+    needs: [get-date, build, deploy]
+    # If there are open PRs (whose head branch is neither `development` nor `main`), run this job
+    if: ${{ needs.build.outputs.pr_nums_json != '[""]' && ( github.event_name != 'pull_request' || github.event.action != 'closed' ) }}
+    runs-on: ubuntu-latest
+    # Run the same job for each of the open PRs found
+    strategy:
+      matrix:
+        pr_num: ${{fromJson(needs.build.outputs.pr_nums_json)}}
+    steps:
+      - name: Add PR preview setup comment
+        uses: access-nri/actions/.github/actions/comment@main
+        with:
+          message: |
+           PR Preview
+           :---:
+           🚀 Deployed preview to ${{ env.ROOT_DOMAIN }}/${{ env.ROOT_URL_FOLDER }}/pr-preview-${{ matrix.pr_num }}
+           ${{ needs.get-date.outputs.date }}
+           Preview generated through the '${{ github.workflow }}' workflow run [${{ github.run_id }}](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}).
+          number: ${{ matrix.pr_num }}
+          label: ${{ env.COMMENT_LABEL }}
+
+  failed-preview:
+    needs: [get-date, deploy]
+    # If any job failed (but the workflow was not cancelled) and was fired because of a pull request (not closed)
+    if: ${{ failure() }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Add PR preview failure comment
+        uses: access-nri/actions/.github/actions/comment@main
+        with:
+          message: |
+            PR Preview
+            :---:
+            ⚠️ There was an error in the pr-preview deployment.
+            For more information check the [Actions](https://github.com/${{github.repository}}/actions) tab.
+            ${{ needs.get-date.outputs.date }}
+
+          number: ${{ matrix.pr_num }}
+          label: ${{ env.COMMENT_LABEL }}

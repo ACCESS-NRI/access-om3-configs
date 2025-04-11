@@ -1,0 +1,1543 @@
+/*
+   ACCESS-Hive Docs CSS
+*/
+
+/* Import medium-weight Roboto font for tabs */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+
+:root {
+  --nri-green-color: 165, 205, 58; 
+  --nri-orange-color: 249, 166, 28; 
+  --nri-dark-blue-color: 0, 91, 148;
+  --nri-blue-color: 1, 173, 238;
+  --nri-light-blue-color: 142, 215, 248;
+  --nri-green: rgb(var(--nri-green-color)); /* rgb(166, 206, 57) */
+  --nri-orange: rgb(var(--nri-orange-color)); /* rgb(250, 166, 25) */
+  --nri-dark-blue: rgb(var(--nri-dark-blue-color)); /* rgb(17, 93, 151) */
+  --nri-blue: rgb(var(--nri-blue-color)); /* rgb(6, 174, 239) */
+  --nri-light-blue: rgb(var(--nri-light-blue-color)); /* rgb(142, 215, 248) */
+  --tab-text-color: 235, 235, 235; /* Color for text of top tab and back to top button */
+  --tab-text: rgb(var(--tab-text-color)); /*  Main text in navigation tab */
+  --tab-text-light: rgba(var(--tab-text-color),.7); /* Main text in navigation tab inactive */
+  --md-primary-fg-color: rgb(29, 29, 29); /* top banner background */
+  --md-primary-fg-color--dark: var(--nri-dark-blue); /*  top tab background */
+  --primary-bg-color: var(--tab-text-color); /* Color for top banner text */
+  --md-primary-bg-color: rgb(var(--primary-bg-color)); /*  top banner text */
+  --md-primary-bg-color--light: rgba(var(--primary-bg-color),0.5); /* search bar 'Search' text */
+  --md-accent-fg-color--transparent: rgba(var(--nri-blue-color),.05);  /* navigation bar little arrows hover */
+  --md-accent-bg-color: rgb(var(--tab-text-color)); /* back to top button text hover */
+  --md-code-hl-color: purple;
+  --md-code-hl-string-color: #1c7d4d;
+  --md-code-hl-keyword-color: #ff6fb2;
+  --md-code-hl-special-color: #db1457;
+  --md-code-hl-function-color: var(--nri-blue);
+  --md-code-hl-constant-color: #6e59d9;
+  --md-typeset-mark-color: rgba(var(--nri-orange-color),.4); /* marked text (<mark> tag)*/
+  --md-typeset-del-color: rgba(245,80,61,.15); /* deleted text (<del> tag) */
+  --md-typeset-ins-color: rgba(11,213,112,.15); /* inserted text (<ins> tag) */
+  --navigation-borders: rgba(var(--nri-orange-color),.2); /* Left border on the toc and navigation*/
+  --card-borders: rgba(var(--nri-green-color),.75); /* Borders of cards */
+  --md-typeset-table-color: var(--card-borders); /* table borders (<table> tag) */
+  --md-footer-fg-color: var(--md-primary-bg-color); /* footer link icon (social) */
+  --md-footer-fg-color--light: var(--md-primary-bg-color); /* Footer copyright text and social icons fill */
+  --md-footer-bg-color: var(--md-primary-fg-color); /* footer background color */
+  --md-footer-bg-color--dark: rgba(0,0,0,0); /* footer background color (on top of the --md-footer-bg-color) */
+  --md-shadow-z1: 0 0.2rem 0.5rem rgba(0,0,0,.05),0 0 0.05rem rgba(0,0,0,.1);
+  --md-shadow-z2: 0 0.2rem 0.5rem rgba(0,0,0,.1),0 0 0.05rem rgba(0,0,0,.25);
+  --md-shadow-z3: 0 0.2rem 0.5rem rgba(0,0,0,.2),0 0 0.05rem rgba(0,0,0,.35);
+  --card-shadows: #00000075; /* Shadows on cards and other elements */
+  --card-shadows-hover: #00000090; /* Shadows hover on cards and other elements */
+  --animated-terminal-background: var(--md-primary-fg-color);
+  --animated-terminal-directory: var(--nri-green);
+  --animated-terminal-buttons: var(--nri-orange);
+  --animated-terminal-buttons-hover: var(--nri-blue);
+  --animated-terminal-text: rgb(235, 235, 235);
+  --border-width: 0.1rem;
+  --note-color: 158, 117, 243; /* Note admonition color */
+  --note: rgb(var(--note-color)); /* Note admonition */
+  --danger-color: 255, 52, 52; /* Danger admonition color */
+  --danger: rgb(var(--danger-color)); /* Danger admonition */
+  --info-color: var(--nri-light-blue-color); /* Info admonition color */
+  --info: rgb(var(--info-color)); /* Info admonition */
+  --abstract-color: var(--nri-dark-blue-color); /* Abstract admonition color */
+  --abstract: rgb(var(--abstract-color)); /* Abstract admonition */
+  --tip-color: var(--nri-green-color); /* Tip admonition color */
+  --tip: rgb(var(--tip-color)); /* Tip admonition */
+  --success-color: var(--nri-green-color); /* Success admonition color */
+  --success: rgb(var(--success-color)); /* Success admonition */
+  --warning-color: var(--nri-orange-color); /* Warning admonition color */
+  --warning: rgb(var(--warning-color)); /* Warning admonition */
+  --failure-color: 180, 0, 0; /* Failure admonition color */
+  --failure: rgb(var(--failure-color)); /* Failure admonition */
+  --question-color: var(--nri-blue-color); /* Question admonition color */
+  --question: rgb(var(--question-color)); /* Question admonition */
+  --bug-color: 197, 75, 64; /* Bug admonition color */
+  --bug: rgb(var(--bug-color)); /* Bug admonition */
+  --example-color: 124, 77, 255; /* Example admonition color */
+  --example: rgb(var(--example-color)); /* Example admonition */
+  --quote-color: 158, 158, 158; /* Quote admonition color */
+  --quote: rgb(var(--quote-color)); /* Quote admonition */
+  --code-adm-color: 158, 158, 158; /* Code admonition (custom) color */
+  --code-adm: rgb(var(--code-adm-color)); /* Code admonition (custom) */
+  --release-color: 255, 222, 8; /* Release admonition (custom) color */
+  --release: rgb(var(--release-color)); /* Release admonition (custom) border */
+}
+
+[data-md-color-scheme="custom-dark"] {
+  --default-fg-color: 235, 235, 235;  /* Color for main text in body, navigation, table of content*/
+  --md-default-fg-color: rgb(var(--default-fg-color)); /* Main text in body, navigation, table of content*/ 
+  --md-default-fg-color--light: rgba(var(--default-fg-color),.7); /* Back to top button text, inactive tab text */
+  --md-default-fg-color--lighter: rgba(var(--default-fg-color),.4); /* pencil for editing page, passed toc items text */
+  --md-default-fg-color--lightest: rgba(var(--default-fg-color),.07);
+  --md-typeset-color: var(--md-default-fg-color); /* Color for main text */
+  --default-bg-color: 53, 54, 58; /* Color for main background */
+  --md-default-bg-color: rgb(var(--default-bg-color)); /*  Main background */
+  --md-default-bg-color--light: rgba(var(--default-bg-color),.7);
+  --md-default-bg-color--lighter: rgba(var(--default-bg-color),.3);
+  --md-default-bg-color--lightest: rgba(var(--default-bg-color),.12);
+  --md-typeset-a-color: var(--nri-light-blue); /* link text */
+  --md-accent-fg-color: var(--nri-blue); /* link text hover */
+  --md-code-fg-color: var(--md-default-fg-color); /* code element text */
+  --md-code-bg-color: rgb(41, 41, 41); /* code element background */
+  --md-code-hl-name-color: var(--md-code-fg-color);
+  --md-code-hl-operator-color: var(--md-code-fg-color);
+  --md-code-hl-punctuation-color: var(--md-code-fg-color);
+  --md-code-hl-comment-color: rgba(var(--default-fg-color), 0.5);
+  --md-code-hl-number-color: var(--nri-orange);
+  --md-code-hl-generic-color: var(--md-code-fg-color);
+  --md-code-hl-variable-color: var(--md-code-fg-color);
+  --md-typeset-kbd-color: rgb(39, 39, 39); /* keyboard key background (<kbd> tag) */
+  --md-typeset-kbd-accent-color: rgb(126, 126, 126, .16); /* keyboard key inner border (<kbd> tag) */
+  --md-typeset-kbd-border-color: rgb(30, 30, 30); /* text as keyboard outer border (<kbd> tag) */
+  --active-version-tab-color: var(--nri-green-color); /* Color for the Text and underline of active HTML tab */
+  --active-version-tab: rgb(var(--active-version-tab-color)); /* Text and underline of active HTML tab */
+  --active-version-tab-background: rgba(var(--active-version-tab-color),0.05); /* Text and underline of active HTML tab */
+  --md-admonition-fg-color: var(--md-typeset-color); /* Main text warnings */
+  --note-bg: rgba(var(--note-color),.05); /* Note admonition background */
+  --danger-bg: rgba(var(--danger-color),0.05); /* Danger admonition background */
+  --info-bg: rgba(var(--info-color),0.05); /* Info admonition background */
+  --abstract-bg: rgba(var(--abstract-color),0.05); /* Abstract admonition background */
+  --tip-bg: rgba(var(--tip-color),0.05); /* Tip admonition background */
+  --success-bg: rgba(var(--success-color),0.05); /* Success admonition background */
+  --warning-bg: rgba(var(--warning-color),0.05); /* Warning admonition background */
+  --failure-bg: rgba(var(--failure-color),0.05); /* Failure admonition background */
+  --question-bg: rgba(var(--question-color),0.05); /* Question admonition background */
+  --bug-bg: rgba(var(--bug-color),0.05); /* Bug admonition background */
+  --example-bg: rgba(var(--example-color),0.05); /* Example admonition background */
+  --quote-bg: rgba(var(--quote-color),0.05); /* Quote admonition background */
+  --code-adm-bg: rgba(var(--code-adm-color),0.05); /* Code admonition (custom) background */
+  --release-bg: rgba(var(--release-color), 0.05); /* Release admonition (custom) background */
+  --tooltip-background: #272728; /* Tooltip background */
+  --tooltip-border-color: #404041; /* Tooltip border color */
+}
+
+[data-md-color-scheme="custom-light"] {
+  --default-fg-color: 10, 10, 10;  /* Color for main text in body, navigation, table of content*/
+  --md-default-fg-color: rgb(var(--default-fg-color)); /* Main text in body, navigation, table of content*/ 
+  --md-default-fg-color--light: rgba(var(--default-fg-color),.7); /* Back to top button text, inactive tab text */
+  --md-default-fg-color--lighter: rgba(var(--default-fg-color),.4); /* pencil for editing page, passed toc items text */
+  --md-default-fg-color--lightest: rgba(var(--default-fg-color),.07);
+  --md-typeset-color: var(--md-default-fg-color); /* Color for main text */
+  --default-bg-color: 255, 255, 255; /* Color for main background */
+  --md-default-bg-color: rgb(var(--default-bg-color)); /*  Main background */
+  --md-default-bg-color--light: rgba(var(--default-bg-color),.7);
+  --md-default-bg-color--lighter: rgba(var(--default-bg-color),.3);
+  --md-default-bg-color--lightest: rgba(var(--default-bg-color),.12);
+  --md-typeset-a-color: var(--nri-dark-blue); /* link text */
+  --md-accent-fg-color: var(--nri-blue); /* link text hover */
+  --md-code-fg-color: rgb(33, 36, 44); /* code element text */
+  --md-code-bg-color: #dedede; /* code element background */
+  --md-code-hl-name-color: var(--md-code-fg-color);
+  --md-code-hl-operator-color: var(--md-code-fg-color);
+  --md-code-hl-punctuation-color: var(--md-code-fg-color);
+  --md-code-hl-comment-color: rgba(var(--default-fg-color), 0.5);
+  --md-code-hl-number-color: #d58d15;
+  --md-code-hl-generic-color: var(--md-code-fg-color);
+  --md-code-hl-variable-color: var(--md-code-fg-color);
+  --md-typeset-kbd-color: rgb(226, 226, 226); /* keyboard key background (<kbd> tag) */
+  --md-typeset-kbd-accent-color: rgb(255, 255, 255, .78); /* keyboard key inner border (<kbd> tag) */
+  --md-typeset-kbd-border-color: rgb(212, 212, 212); /* text as keyboard outer border (<kbd> tag) */
+  --active-version-tab-color: var(--nri-dark-blue-color); /* Color for the Text and underline of active HTML tab */
+  --active-version-tab: rgb(var(--active-version-tab-color)); /* Text and underline of active HTML tab */
+  --active-version-tab-background: rgba(var(--active-version-tab-color),0.05); /* Text and underline of active HTML tab */
+  --md-admonition-fg-color: var(--md-typeset-color);  /* Main text warnings */
+  --note-bg: rgba(var(--note-color),.1); /* Note admonition background */
+  --danger-bg: rgba(var(--danger-color),0.1); /* Danger admonition background */
+  --info-bg: rgba(var(--info-color),0.1); /* Info admonition background */
+  --abstract-bg: rgba(var(--abstract-color),0.1); /* Abstract admonition background */
+  --tip-bg: rgba(var(--tip-color),0.1); /* Tip admonition background */
+  --success-bg: rgba(var(--success-color),0.1); /* Success admonition background */
+  --warning-bg: rgba(var(--warning-color),0.1); /* Warning admonition background */
+  --failure-bg: rgba(var(--failure-color),0.1); /* Failure admonition background */
+  --question-bg: rgba(var(--question-color),0.1); /* Question admonition background */
+  --bug-bg: rgba(var(--bug-color),0.1); /* Bug admonition background */
+  --example-bg: rgba(var(--example-color),0.1); /* Example admonition background */
+  --quote-bg: rgba(var(--quote-color),0.1); /* Quote admonition background */
+  --code-adm-bg: rgba(var(--code-adm-color),0.1); /* Code admonition (custom) background */
+  --release-bg: rgba(var(--release-color), 0.1); /* Release admonition (custom) background */
+  --tooltip-background: #cbcdd1; /* Tooltip background */
+  --tooltip-border-color: #a3a5a9; /* Tooltip border color */
+}
+
+/* Set rem based on viewport width */
+@media (width > 500px) {
+  :root {
+    font-size: calc(16px + 9 * ((100vw - 500px) / (2000 - 500)));
+  }
+}
+@media (width <= 500px) {
+  :root {
+    font-size: 16px;
+  }
+}
+
+/* =============================================================== 
+  Cards for ACCESS-Hive Docs navigation, model components, model tabs, MED stuff
+*/
+/* Flexbox container for cards*/
+.card-container {
+  margin: 1em 0;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  align-content: center;
+  flex-wrap: wrap;
+  column-gap: 1.5rem;
+  row-gap: 0.8rem;
+}
+
+/* Single card */
+.card-container > * {
+  border: var(--border-width) solid var(--card-borders);
+  border-radius: 0.6rem;
+  box-shadow: 0.28rem 0.28rem 0.45rem var(--card-shadows);
+  overflow: hidden;
+}
+
+/* Single card hover */
+.card-container > *:hover {
+  border-color: var(--md-accent-fg-color);
+  box-shadow: 0.5rem 0.5rem 0.5rem var(--card-shadows);
+  box-shadow: 0.35rem 0.35rem 0.45rem 0.07rem var(--card-shadows);
+  transition-property: all;
+  transition-duration: 0.4s;
+}
+
+.vertical-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: clamp(100px,30%,250px);
+  min-height: 0;
+  container-type: inline-size;
+  padding: 0.4rem;
+  gap: 0.2rem;
+}
+
+.horizontal-card {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
+  width: 100%;
+  height: 6rem;
+  padding: 0.4rem;
+  gap: 0.4rem;
+}
+
+.card-text-container {
+  color: var(--md-default-fg-color);
+  font-size: 1.2em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  line-height: 1.1em;
+  width: 100%;
+  height: 100%;
+  word-break: normal;
+}
+
+.card-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  width: 100%;
+}
+
+.vertical-card > .card-image-container {
+  flex-basis: 70%;
+}
+.vertical-card > .card-text-container {
+  height: 30%;
+  flex-grow: 0;
+  flex-shrink: 0;
+  font-size: 10cqi;
+}
+
+.horizontal-card > .card-image-container {
+  flex-basis: 25%;
+}
+.horizontal-card > .card-text-container {
+  flex-basis: 75%;
+}
+
+.card-image-container > img {
+  width: 100%;
+  height: 100%;
+  border-radius: 0.35rem;
+}
+
+.horizontal-card > .card-text-container > *:first-child:not(:only-child) {
+  margin-bottom: 0.5em;
+}
+
+/* Text card */
+/* Group of text cards similar to the ones at the top of the "How to run" pages */
+.text-card-group > p {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0;
+  /* column-gap: 0.5em;
+  row-gap: 0; */
+}
+
+.text-card {
+  color: var(--md-default-fg-color) !important;
+  font-size: 1.4em;
+  border: var(--border-width) solid var(--card-borders);
+  border-radius: 0.6rem;
+  box-shadow: 0.28rem 0.28rem 0.45rem var(--card-shadows);
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.5rem;
+  width: max-content;
+  height: 2.5rem;
+  margin: 0.5em;
+}
+.text-card:hover {
+  border-color: var(--md-accent-fg-color);
+  box-shadow: 0.35rem 0.35rem 0.45rem 0.07rem var(--card-shadows);
+  transition-property: all;
+  transition-duration: 0.4s;
+}
+
+/* =============================================================== 
+  Main body
+*/
+/* Grid */
+.md-grid {
+  max-width: 87%;
+}
+/* Article */
+.md-content__inner {
+  margin: 0 1.5rem 1rem;
+}
+
+
+/* =============================================================== 
+  Main headings
+*/
+h1, h2, h3, h4, h5, h6 {
+  color: var(--md-default-fg-color) !important;
+  font-weight: 600 !important;
+  text-transform: unset !important;
+}
+
+h3 {
+  font-size: 1rem !important;
+  margin: 1.3em 0 0.4em !important;
+}
+
+h4 {
+    font-size: .85rem !important;
+    margin: 1em 0 0.35em !important;
+}
+
+h5 {
+    font-size: .8rem !important;
+    margin: 0.8em 0 0.3em !important;
+}
+
+h6 {
+    font-size: .75rem !important;
+    margin: 0.7em 0 0.3em !important;
+}
+
+/* =============================================================== 
+  Homepage
+*/
+/* Hide Title */
+h1.homepage {
+  display: none;
+}
+
+/*
+ Introductory paragraph 
+*/
+.introduction {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
+  margin-bottom: 0.8rem;
+  width: 100%;
+  text-align: center;
+}
+/* Text */
+.introduction > :first-child {
+  flex-basis: 80%;
+  font-size: 1.3rem;
+}
+.introduction > :first-child > :first-child {
+  font-weight: 600;
+  font-size: 1.8rem;
+}
+/* Logo */
+.introduction > :last-child {
+  flex-basis: 20%;
+  display: flex;
+  align-items: center;
+}
+.introduction > :last-child > img {
+  max-height: 5rem;
+  margin-left: 0.5rem;
+}
+
+
+/* Lower text on all homepage cards*/
+:is(.homepage-buttons,.homepage-navigation) .card-text-container {
+  color: var(--tab-text);
+  font-size: 12cqi;
+}
+:is(.homepage-buttons,.homepage-navigation) .card-text-container > * {
+  border-radius: 0.4rem;
+  background-color: var(--md-primary-fg-color--dark);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Buttons After introductory paragraph */
+.homepage-buttons {
+  justify-content: space-around;
+  align-items: stretch;
+  gap: 10%;
+  flex-wrap: nowrap;
+  margin-bottom: 1.5rem;
+}
+.homepage-buttons > * {
+  width: 100%;
+}
+
+.homepage-buttons > .vertical-card > :first-child {
+  color: var(--md-default-fg-color);
+  font-size: 1.2em;
+}
+.homepage-buttons .card-text-container {
+  height: 1.8em;
+  font-size: 2em;
+}
+
+/* Navigation cards in homepage */
+.homepage-navigation {
+  justify-content: space-around;
+  flex-wrap: nowrap;
+}
+
+.acknowledgement-img {
+  height: 10em !important;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 0.5rem;
+}
+
+/* =============================================================== 
+  Back to top button
+*/
+.md-top:hover {
+  background-color: var(--md-primary-fg-color--dark);
+}
+
+
+/* =============================================================== 
+  Admonitions 
+  (https://squidfunk.github.io/mkdocs-material/reference/admonitions/)
+
+/* General style admonition (In markdown --> `!!! ...`) */
+.admonition {
+  font-size: 1em !important;
+  position: relative !important;
+  padding: 0.3em 0.3em 0.3em 1.8em !important;
+  margin: 0.3em 0 0.8em 0 !important;
+  border-radius: 0.3rem !important;
+  border: solid 1.5px var(--md-primary-fg-color) !important;
+}
+.admonition > p {
+  margin: 0 !important;
+}
+/* Hide title of non expandable admonitions if present */
+.admonition > p.admonition-title {
+  display: none;
+}
+.admonition::before {
+  position: absolute;
+  left: 0.4em;
+}
+
+/* General style expandable admonitions (In markdown --> `??? ...`) */
+details {
+  font-size: 1em !important;
+  border-radius: 0.3rem !important;
+  border: solid 1.5px var(--md-primary-fg-color) !important;
+}
+details > summary {
+  border-radius: 0.3rem !important;
+}
+details[open] > summary {
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+details > summary::before {
+  background-color: transparent !important;
+  mask-image: none !important;
+}
+details > p {
+  margin: 0.3em 0 !important;
+}
+
+/* note */
+.note {
+  border-color: var(--note) !important;
+  background-color: var(--note-bg) !important;
+}
+.note > summary {
+  background-color: var(--note-bg) !important;
+}
+.note > summary::after {
+  color: var(--note) !important;
+}
+.note:not(details)::before,
+.note > summary::before {
+  font-family: "fontawesome" !important;
+  content: '\f303' !important;
+  color: var(--note) !important;
+}
+/* info */
+.info {
+  border-color: var(--info) !important;
+  background-color: var(--info-bg) !important;
+}
+.info > summary {
+  background-color: var(--info-bg) !important;
+}
+.info > summary::after {
+  color: var(--info) !important;
+}
+.info:not(details)::before,
+.info > summary::before {
+  font-family: "fontawesome" !important;
+  content: '\f05a' !important;
+  color: var(--info) !important;
+}
+/* danger */
+.danger {
+  border-color: var(--danger) !important;
+  background-color: var(--danger-bg) !important;
+}
+.danger > summary {
+  background-color: var(--danger-bg) !important;
+}
+.danger > summary::after {
+  color: var(--danger) !important;
+}
+.danger:not(details)::before,
+.danger > summary::before {
+  font-family: "fontawesome" !important;
+  content: '\f0e7' !important;
+  color: var(--danger) !important;
+}
+/* abstract */
+.abstract {
+  border-color: var(--abstract) !important;
+  background-color: var(--abstract-bg) !important;
+}
+.abstract > summary {
+  background-color: var(--abstract-bg) !important;
+}
+.abstract > summary::after {
+  color: var(--abstract) !important;
+}
+.abstract:not(details)::before,
+.abstract > summary::before {
+  font-family: "fontawesome" !important;
+  content: '\f02d' !important;
+  color: var(--abstract) !important;
+}
+/* tip */
+.tip {
+  border-color: var(--tip) !important;
+  background-color: var(--tip-bg) !important;
+}
+.tip > summary {
+  background-color: var(--tip-bg) !important;
+}
+.tip > summary::after {
+  color: var(--tip) !important;
+}
+.tip:not(details)::before,
+.tip > summary::before {
+  font-family: "fontello" !important;
+  content: "\e806" !important;
+  color: var(--tip) !important;
+}
+/* success */
+.success {
+  border-color: var(--success) !important;
+  background-color: var(--success-bg) !important;
+}
+.success > summary {
+  background-color: var(--success-bg) !important;
+}
+.success > summary::after {
+  color: var(--success) !important;
+}
+.success:not(details)::before,
+.success > summary::before {
+  font-family: "fontawesome" !important;
+  content: "\f00c" !important;
+  color: var(--success) !important;
+}
+/* warning */
+.warning {
+  border-color: var(--warning) !important;
+  background-color: var(--warning-bg) !important;
+}
+.warning > summary {
+  background-color: var(--warning-bg) !important;
+}
+.warning > summary::after {
+  color: var(--warning) !important;
+}
+.warning:not(details)::before,
+.warning > summary::before {
+  font-family: "fontello" !important;
+  content: "\e800" !important;
+  color: var(--warning) !important;
+}
+/* failure */
+.failure {
+  border-color: var(--failure) !important;
+  background-color: var(--failure-bg) !important;
+}
+.failure > summary {
+  background-color: var(--failure-bg) !important;
+}
+.failure > summary::after {
+  color: var(--failure) !important;
+}
+.failure:not(details)::before,
+.failure > summary::before {
+  font-family: "fontawesome" !important;
+  content: "\58" !important;
+  color: var(--failure) !important;
+}
+/* question */
+.question {
+  border-color: var(--question) !important;
+  background-color: var(--question-bg) !important;
+}
+.question > summary {
+  background-color: var(--question-bg) !important;
+}
+.question > summary::after {
+  color: var(--question) !important;
+}
+.question:not(details)::before,
+.question > summary::before {
+  font-family: "fontawesome" !important;
+  content: "\3f" !important;
+  color: var(--question) !important;
+}
+/* bug */
+.bug {
+  border-color: var(--bug) !important;
+  background-color: var(--bug-bg) !important;
+}
+.bug > summary {
+  background-color: var(--bug-bg) !important;
+}
+.bug > summary::after {
+  color: var(--bug) !important;
+}
+.bug:not(details)::before,
+.bug > summary::before {
+  font-family: "fontawesome" !important;
+  content: "\f188" !important;
+  color: var(--bug) !important;
+}
+/* example */
+.example {
+  border-color: var(--example) !important;
+  background-color: var(--example-bg) !important;
+}
+.example > summary {
+  background-color: var(--example-bg) !important;
+}
+.example > summary::after {
+  color: var(--example) !important;
+}
+.example:not(details)::before,
+.example > summary::before {
+  font-family: "fontawesome" !important;
+  content: "\f492" !important;
+  color: var(--example) !important;
+}
+/* quote */
+.quote {
+  border-color: var(--quote) !important;
+  background-color: var(--quote-bg) !important;
+}
+.quote > summary {
+  background-color: var(--quote-bg) !important;
+}
+.quote > summary::after {
+  color: var(--quote) !important;
+}
+.quote:not(details)::before,
+.quote > summary::before {
+  font-family: "fontawesome" !important;
+  content: "\f10e" !important;
+  color: var(--quote) !important;
+}
+/* code (custom admonition) */
+.admonition.code,
+details.code {
+  border-color: var(--code-adm) !important;
+  background-color: var(--code-adm-bg) !important;
+}
+:is(details,.admonition).code > summary {
+  background-color: var(--code-adm-bg) !important;
+}
+:is(details,.admonition).code > summary::after {
+  color: var(--code-adm) !important;
+}
+:is(details,.admonition).code:not(details)::before,
+:is(details,.admonition).code > summary::before {
+  font-family: "fontawesome" !important;
+  content: "\f121" !important;
+  color: var(--code-adm) !important;
+}
+
+/* not-supported */
+.not-supported {
+  border-color: var(--danger) !important;
+  background-color: var(--danger-bg) !important;
+}
+.not-supported > summary {
+  background-color: var(--danger-bg) !important;
+}
+.not-supported > summary::after {
+  color: var(--danger) !important;
+}
+.not-supported:not(details)::before,
+.not-supported > summary::before {
+  font-family: "fontawesome" !important;
+  content: '\f057' !important;
+  color: var(--danger) !important;
+}
+
+/* release */
+.release {
+  border-color: var(--release) !important;
+  background-color: var(--release-bg) !important;
+}
+.release > summary {
+  background-color: var(--release-bg) !important;
+}
+.release > summary::after {
+  color: var(--release) !important;
+}
+.release:not(details)::before,
+.release > summary::before {
+  font-family: "fontawesome" !important;
+  content: '\f135' !important;
+  color: var(--release) !important;
+}
+
+/* =============================================================== 
+  Left Navigation and right "On this page" navigation 
+*/
+.md-nav--primary {
+  font-size: 1.7em;
+}
+
+.md-nav--secondary {
+  font-size: 1.5em;
+}
+
+.md-nav:not(.md-nav--primary) {
+  border-left: 1px solid var(--navigation-borders);
+}
+
+/* Make passed items lighter */
+.md-nav__link--passed:not(.md-nav__link--active):not(:hover) {
+  color: var(--md-default-fg-color--lighter) !important;
+}
+
+/* Add top margin above the first child in left navigation */
+.md-nav--primary .md-nav .md-nav__item:first-child {
+  margin-top: 1em;
+}
+
+/* Hide navigation part toggling from burger menu if it has no subpages (e.g. Home) */
+.md-nav__item--active [data-md-level="1"].md-nav:not(:has(li)) {
+  visibility: hidden;
+}
+
+/* =============================================================== 
+  Main body content 
+*/
+.md-main__inner {
+  margin-top: 1.2em;
+}
+
+/* =============================================================== 
+  Footer
+*/
+.md-footer-meta.md-typeset.md-grid {
+  color: var(--md-footer-fg-color--light);
+  padding: 0.2rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: stretch;
+  gap: 0.1rem;
+}
+
+.md-footer-meta.md-typeset.md-grid > * {
+  color: var(--md-footer-fg-color--light);
+  display: inline-flex;
+  flex-direction: column;
+}
+
+/* Funding */
+.funding {
+  flex-basis: 20%;
+}
+
+/* Partners */
+.partners {
+  flex-basis: 80%;
+}
+
+/* Text */
+:is(.funding,.partners) > *:first-child {
+  font-size: 1.2em;
+  font-weight: 500;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 0;
+  height: 20%;
+}
+
+/* Logos */
+:is(.funding,.partners) > *:last-child {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+  flex-grow: 0;
+  height: 80%;
+}
+
+:is(.funding,.partners) > *:last-child a {
+  max-width: calc(3vw + 3rem);
+  max-height: 100%;
+  padding: 0.5rem;
+}
+
+:is(.funding,.partners) > *:last-child a > img {
+  margin: auto;
+  max-height: 4rem;
+}
+.md-footer-meta__inner > * {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0.5rem;
+  padding: 0;
+}
+
+.md-copyright {
+  width: auto;
+}
+
+.md-social > * {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.md-footer hr {
+  border-bottom: 0.03rem solid rgba(var(--tab-text-color),0.5);
+  display: flow-root;
+  margin: 0 0.2rem;
+}
+
+.separation {
+  height: 80%;
+  width: 0.1rem;
+  border-radius: 1rem;
+  background-color: var(--md-footer-fg-color--light);
+  align-self: center;
+}
+
+/* =============================================================== 
+  Header 
+*/
+/* Main title */
+.md-header__title {
+  margin: 0 0.2em 0 0.3em !important;
+  flex-shrink: 1;
+  position: relative;
+}
+
+/* Main logo */
+.md-header__button:hover {
+  opacity: 1;
+}
+.md-header__button.md-logo {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+.md-header__button.md-logo img {
+  height: 85%;
+}
+/* Banner */
+.md-header__inner {
+  padding: 0.5em 0;
+  height: 4rem;
+  margin: 0 auto;
+}
+
+/* Adjust anchors to links */
+:target::before {
+  content: "";
+  display: block;
+  height: 1rem; /* This identifies the distance of the element from the banner when clicking on an achor link */
+  margin-top: -1rem; /* This should be match the height with the sign switched */
+}
+
+
+/* Tab section */
+.md-tabs {
+  background-color: var(--md-primary-fg-color--dark);
+}
+
+/* Unselected tab */
+.md-tabs__item {
+  text-align: center;
+  height: min-content;
+  transition: background-color 0.5s;
+  color: var(--tab-text-light);
+}
+
+/* Headings in the nav bar */
+.md-tabs__link {
+  font-weight: 500;
+  margin-top: 0;
+  padding: 0.8em 0;
+  font-size: 1.5em;
+}
+
+/* Selected tab */
+.md-tabs__item--active {
+  color: var(--tab-text);
+}
+
+.md-tabs__item--active, .md-tabs__link {
+  opacity: 1;
+}
+
+/* Tab hover state */
+.md-tabs__item:hover {
+  transition-duration: 0.4s;
+  color: var(--tab-text);
+}
+
+/* ===============================================================
+  Header Buttons CSS - "Hive Forum", "ACCESS-NRI", "Contribute"
+*/
+.header-btn-container {
+  max-width: 20rem;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+  align-items: stretch;
+  gap: 0.8rem;
+  margin: 0 .5rem;
+}
+
+.header-btn {
+  flex-basis: 33.333%;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  gap: 0.2rem;
+  border-radius: 0.3rem;
+  border: 1px solid;
+  padding: 0 0.3em;
+  height: 1.6rem;
+  color: var(--md-primary-bg-color);
+}
+
+.header-btn:hover {
+  transition-duration: 0.3s;
+  transition-property: all;
+}
+/* Hive Forum btn */
+.header-btn:first-child {
+  border-color: var(--nri-orange);
+}
+.header-btn:first-child:hover {
+  background-color: rgba(var(--nri-orange-color),0.14);
+}
+/* ACCESS-NRI btn */
+.header-btn:nth-child(2) {
+  border-color: var(--nri-blue);
+}
+.header-btn:nth-child(2):hover {
+  background-color: rgba(var(--nri-blue-color),0.14);
+}
+/* Contribute btn */
+.header-btn:last-child {
+  border-color: var(--md-primary-bg-color);
+}
+.header-btn:last-child:hover {
+  background-color: rgba(var(--primary-bg-color),0.14);
+}
+
+/* btn logo wrapper */
+.header-btn >:first-child {
+  flex-basis: 25%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-self: center;
+}
+
+/* btn logo */
+.header-btn >:first-child > * {
+  font-size: 1.5em;
+}
+
+/* btn logo */
+.header-btn:nth-child(-n + 2) >:first-child > * {
+  height: 1em;
+  width: auto;
+}
+
+/* btn text */
+.header-btn >:last-child {
+  flex-basis: 75%;
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* =============================================================== 
+  References
+*/
+.references {
+  font-size:0.8em;
+}
+
+/* =============================================================== 
+  Show different markers for different hierarchy of points (up to 3d hierarchy)
+*/
+ul:not([class^='md-']) li {
+  list-style-type: disc;
+}
+
+ul:not([class^='md-']) li ul li {
+  list-style-type: circle;
+} 
+
+ul:not([class^='md-']) li ul li ul li {
+  list-style-type: square;
+} 
+
+/* =============================================================== 
+  Code block
+*/
+pre {
+  display: flow-root !important;
+  text-align: left !important;
+  padding: 0 !important;
+  margin: 0.5em 0 !important;
+}
+
+pre>code {
+  white-space: pre-wrap !important;
+  padding: 0.5em 0.8em !important;
+  word-break: break-all !important;
+}
+
+/* Copy icon turning orange when hovering over it*/
+pre > button:is(:hover,:focus).md-clipboard {
+  color: var(--md-primary-fg-color--dark) !important;
+}
+
+/* =============================================================== 
+  Terminal animations
+*/
+::part(terminal-window) {
+  background-color: var(--animated-terminal-background);
+  color: var(--animated-terminal-text);
+  font-family: var(--md-code-font-family);
+  font-weight: unset;
+  font-size: .7rem;
+}
+
+::part(input-character) {
+  color: var(--animated-terminal-buttons);
+}
+
+::part(directory) {
+  color: var(--animated-terminal-directory);
+}
+
+::part(fast-button), ::part(restart-button), ::part(img-icon) {
+  color: var(--animated-terminal-buttons);
+  font-weight: 700;
+}
+
+::part(fast-button):hover, ::part(restart-button):hover, ::part(img-icon):hover {
+  color: var(--animated-terminal-buttons-hover);
+}
+
+/* Try to format like the output of `ls` command */
+.ls-output-format {
+  word-spacing: 2em;
+  word-break: normal;
+}
+
+img.terminal-switch {
+  position: absolute;
+  right: 0;
+  top: -0.5em;
+  height: 1.5rem;
+  margin: 0.5rem 0.2rem;
+}
+
+img.terminal-switch:hover {
+  cursor: pointer;
+}
+
+.terminal-switch-container {
+    position: relative;
+}
+
+.terminal-switch-tooltip {
+    position: absolute;
+    display: inline-block;
+    z-index: 1;
+    right: 2em;
+    top: 2em;
+    max-width: 30vw;
+    font-size: 0.7em;
+    background-color: var(--tooltip-background);
+    border: solid 1.5px var(--tooltip-border-color);
+    border-radius: 0.3rem;
+    padding: 0.5em;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.35s ease-in-out;
+}
+
+img.terminal-switch:hover ~ .terminal-switch-tooltip {
+    visibility: visible;
+    opacity: 1;
+}
+
+.visible {
+    visibility: visible;
+    opacity: 1;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+/* =============================================================== 
+  Virtural terminal colours for Spack and Git output
+*/
+
+.spack-red {
+  color: #FF6E67;
+}
+.spack-highlighted,
+.git-highlighted {
+  color: #FFFFFF;
+  font-weight: 600;
+}
+.spack-cyan {
+  color: cyan;
+}
+.spack-indigo {
+  color: #6871FF;
+}
+.spack-green,
+.git-green {
+  color: #00C200;
+}
+.spack-pink {
+  color: #CA30C7;
+}
+.spack-grey {
+  color: #686868;
+}
+
+.spack::part(directory),
+.spack ::part(directory) {
+  color: #60FA67;
+}
+
+.git-red {
+    color: #C91A00;
+}
+.git-cyan {
+    color: #00C6C7;
+}
+
+/* =============================================================== 
+  General styling for html tabs
+*/
+.tabLabels {
+  position: relative;
+  box-shadow: 0 -0.05rem var(--md-default-fg-color--lightest) inset;
+  display: flex;
+  flex-wrap: wrap;
+  width: fit-content;
+  overflow: auto;
+  margin-top: 1em;
+  gap: 1px;
+  font-size: 0.9em;
+}
+
+/* Style the buttons that are used to open the tab content */
+.tabLabels button {
+  color: var(--md-default-fg-color--light);
+  border-bottom: 0.1rem solid transparent;
+  border-radius: 0.6rem 0.6rem 0 0;
+  cursor: pointer;
+  flex-shrink: 0;
+  font-weight: 700;
+  padding: 0.78125em 1.25em 0.625em;
+  scroll-margin-inline-start: 1rem;
+  transition: background-color .25s;
+  white-space: nowrap;
+  width: auto;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Change background color of buttons on hover */
+.tabLabels button:hover {
+  background-color: var(--active-version-tab-background);
+}
+
+/* Create an active/current tablink class */
+.tabLabels button.activeTab {
+  color: var(--active-version-tab);
+  border-bottom: solid 2px currentColor;
+  transition: border-bottom .2s;
+  background-color: var(--active-version-tab-background);
+}
+
+/* Style the tab content */
+[tabcontentfor] {
+  display: none;
+}
+[tabcontentfor].activeTab {
+  display: contents;
+}
+
+/* =============================================================== 
+  External links
+*/
+.external-link::after {
+  font-family: "fontello";
+  content: '\e804';
+  vertical-align: super;
+  font-size: 0.5em;
+  margin-left: 0.2em;
+  display: inline;
+}
+
+
+/* =============================================================== 
+  Miscellaneous
+*/
+.keep-blanks {
+  white-space: pre;
+}
+
+.centered {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+img.intro-img {
+  max-height: 12rem;
+  max-width: 40%;
+  margin: 0 0 0.5rem 1rem;
+  float: right;
+}
+
+/* Aspect ratios */
+.aspect-ratio1to1 {
+  aspect-ratio: 1/1;
+}
+
+.aspect-ratio2to1 {
+  aspect-ratio: 2/1;
+}
+
+/* Gifs, videos and example images (For example the ones in 'how to run' a model */
+.example-img {
+  display: block;
+  width: 90%;
+  border-radius: 0.2rem;
+}
+
+/* Justified text */
+.justified {
+  text-align: justify;  
+}
+
+/* Image background */
+.white-background {
+  background-color: #FFFFFF;
+}
+
+/* With borders */
+.round-edges {
+  border-radius: 0.6rem;
+}
+
+/* Add padding to image container */
+.with-padding {
+  padding: 0.4rem !important;
+}
+
+.bold {
+  font-weight: 600 !important;
+}
+
+/* image cover */
+.img-cover {
+  object-fit: cover !important;
+}
+
+.img-contain {
+  object-fit: contain !important;
+}
+
+.nri-link-color {
+  color: var(--md-typeset-a-color);
+}
+
+.nri-blue-color {
+  color: var(--nri-blue);
+}
+
+.nri-light-blue-color {
+  color: var(--nri-light-blue);
+}
+
+.nri-dark-blue-color {
+  color: var(--nri-dark-blue);
+}
+
+.nri-orange-color {
+  color: var(--nri-orange);
+}
+
+.nri-green-color {
+  color: var(--nri-green);
+}
+
+.small-text {
+  font-size: 0.92em !important;
+}
+
+.med-text {
+  font-size: 1.2em !important;
+}
+
+.large-text {
+  font-size: 1.4em !important;
+}
+
+.display-block {
+  display: block;
+}
+
+.vertical-card-half-width {
+  flex-direction: column;
+  max-width: 48%;
+  height: 20em;
+}
+
+.green_prompt_output {
+  color: #00C202
+}
+
+.red_prompt_output {
+  color: #CA1A01;
+}
+
+/* Style for icons before text (used for example in User Support and Contribute pages) */
+.icon-before-text {
+  margin-right: 0.5em;
+  font-size: 1.5rem;
+  width: 1.5rem;
+}
+/* =============================================================== 
+  Media queries for website responsiveness
+*/
+
+@media screen and (width < 800px) {
+  /* Make gap scale with viewport width */
+  .homepage-buttons {
+    gap: 5vw;
+  }
+  /* Hide upper text in homepage buttons */
+  .homepage-buttons > .vertical-card > :first-child {
+    display: none;
+  }
+  /* Lower text in homepage buttons */
+  .homepage-buttons > .vertical-card > :last-child {
+    font-size: calc(2.9vw + 0.15rem);
+  }
+  /* Homepage buttons Cards */
+  .homepage-buttons > .vertical-card {
+    background-color: var(--md-primary-fg-color--dark);
+    height: 8vw;
+    border-radius: 2vw;
+  }
+}
+
+@media screen and (width > 650px) {
+  .small-card {
+    max-height: 5rem;
+    max-width: 40%;
+  }
+}
+@media screen and (width <= 650px) {
+  .vertical-card {
+    width: 40%;
+  }
+  
+  /* Change the horizontal card to be rendered as a vertical one with aspect-ratio 1 */
+  .horizontal-card {
+    align-items: center;
+    flex-direction: column;
+    height: auto;
+    aspect-ratio: 1;
+    width: 40%;
+    container-type: inline-size;
+  }
+  .horizontal-card > .card-text-container {
+    height: 30%;
+    flex: 0 0 auto;
+    font-size: 10cqi;
+    font-weight: 600;
+  }
+  .horizontal-card > .card-text-container > *:last-child:not(:only-child) {
+    display: none;
+  }
+  .horizontal-card > .card-text-container > *:first-child:not(:only-child) {
+    margin-bottom: 0;
+  }
+  .horizontal-card > .card-image-container {
+    flex-basis: 70%;
+  }
+  /* Wrap homepage navigation cards */
+  .homepage-navigation {
+    flex-wrap: wrap;
+  }
+
+  /* Make squared btn */
+  .header-btn {
+    flex-basis: 0;
+    flex-grow: 0;
+    aspect-ratio: 1;
+    justify-self: start;
+    height: 2rem;
+  }
+  /* Increase btn Logos */
+  .header-btn > :first-child > * {
+    font-size: 1.8em;
+  }
+  /* Hide btn Text */
+  .header-btn >:last-child {
+    display: none;
+  }
+  
+  /* Homepage introduction paragraph */
+  /* Upper text */
+  .introduction > :first-child > :first-child {
+    font-size: calc(4.9vw + 0.15rem);
+  }
+  /* Lower text */
+  .introduction > :first-child > :last-child {
+    font-size: calc(2.9vw + 0.15rem);
+   }
+  
+  /* Footer */
+  :is(.funding,.partners) > *:first-child {
+    font-size: calc(1vw + 0.5rem);
+  }
+  :is(.funding,.partners) > *:last-child a {
+    max-width: calc(6vw + 2rem);
+  }
+
+  .md-footer-meta__inner {
+    flex-direction: column;
+  }
+  .md-footer-meta__inner > * {
+    gap: 1rem;
+  }
+}
+
+@media screen and (width <= 450px) {
+  /* Hide title in header */
+  .md-header__title {
+    visibility: hidden;
+  }
+}
+
+/* Keep logo always visible for mobile devices */
+@media screen and (max-width: 76.1875em) {
+  .md-header__button.md-logo {
+    display: flex;
+  }
+}
