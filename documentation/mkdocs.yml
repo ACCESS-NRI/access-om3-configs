@@ -61,7 +61,7 @@ plugins:
       separator: '[\s\-,:!=\[\]()"/]+|(?!\b)(?=[A-Z][a-z])|\.(?!\d)|&[lg]t;'
   - macros
   - bibtex:
-      bib_file: "documentation/references.bib"
+      bib_file: references.bib
   - events:
       events_dir: community_resources/events/events
 
@@ -120,11 +120,10 @@ extra:
 
 extra_css:
   - "https://fonts.googleapis.com/icon?family=Material+Icons"   # Material Icons Reference - https://material.io/resources/icons/?style=baseline
-#   - fontawesome-free-6.4.0-web/css/all.css
-#   - fontello/css/fontello-codes.css
-#   - fontello/css/fontello-ie7-codes.css
-#   - fontello/css/fontello-ie7.css
-#   - fontello/css/fontello.css
+  - fontello/css/fontello-codes.css
+  - fontello/css/fontello-ie7-codes.css
+  - fontello/css/fontello-ie7.css
+  - fontello/css/fontello.css
   - css/custom.css
 
 extra_javascript:

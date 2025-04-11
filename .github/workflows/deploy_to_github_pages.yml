@@ -129,11 +129,12 @@ jobs:
                 command="ROOT_URL=${{ env.ROOT_DOMAIN }}/${pr_preview_url_folder} mkdocs build -f mkdocs.yml -d ${{ env.ROOT_BUILD_DIR }}/${pr_preview_url_folder}"
                 echo "$command"
                 eval "$command"
+                pr_nums_for_preview+=($num)
               else
                 echo "::warning::No configuration found in the PR #${num} head."
               fi
             done
-            echo "pr_nums_json=$(printf '%s\n' "${pr_nums[@]}" | jq -R | jq -s -c)" >> "$GITHUB_OUTPUT"
+            echo "pr_nums_json=$(printf '%s\n' "${pr_nums_for_preview[@]}" | jq -R | jq -s -c)" >> "$GITHUB_OUTPUT"
           else
             echo "No open PR found."
           fi
@@ -171,11 +172,11 @@ jobs:
         uses: access-nri/actions/.github/actions/comment@main
         with:
           message: |
-           PR Preview
-           :---:
-           🚀 Deployed preview to ${{ env.ROOT_DOMAIN }}/${{ env.ROOT_URL_FOLDER }}/pr-preview-${{ matrix.pr_num }}
-           ${{ needs.get-date.outputs.date }}
-           Preview generated through the '${{ github.workflow }}' workflow run [${{ github.run_id }}](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}).
+            PR Preview
+            :---:
+            🚀 Deployed preview to ${{ env.ROOT_DOMAIN }}/${{ env.ROOT_URL_FOLDER }}/pr-preview-${{ matrix.pr_num }}
+            ${{ needs.get-date.outputs.date }}
+            Preview generated through the ${{ github.workflow }} workflow run [${{ github.run_id }}](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}).
           number: ${{ matrix.pr_num }}
           label: ${{ env.COMMENT_LABEL }}
 
