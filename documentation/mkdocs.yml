@@ -15,7 +15,7 @@ repo_name: ACCESS-NRI/access-om3-configs
 # Theme
 theme:
   name: material
-  custom_dir: overrides
+  custom_dir: ./overrides
   palette:
     # Palette toggle for light mode
     - media: "(prefers-color-scheme: light)"

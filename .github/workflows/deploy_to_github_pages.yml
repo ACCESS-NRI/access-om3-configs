@@ -101,15 +101,18 @@ jobs:
           git fetch --all -Pp
           echo "::group::Build main website"
           git checkout main
-          command='ROOT_URL=${{ env.ROOT_DOMAIN }}/${{ env.ROOT_URL_FOLDER }} mkdocs build -f mkdocs.yml -d ${{ env.ROOT_BUILD_DIR }}/${{ env.ROOT_URL_FOLDER }}'
-          echo "$command"
-          eval "$command"
+          if [[ -f mkdocs.yml ]]; then
+            command='ROOT_URL=${{ env.ROOT_DOMAIN }}/${{ env.ROOT_URL_FOLDER }} mkdocs build -f mkdocs.yml -d ${{ env.ROOT_BUILD_DIR }}/${{ env.ROOT_URL_FOLDER }}'
+            echo "$command"
+            eval "$command"
+          else
+            echo "::warning::No configuration found in the 'main' branch."
+          fi
           echo "::endgroup::"
           echo "::group::Build PR previews"
           # Include only open PRs, not from forks, and whose head branch is not `main`
           open_pr_info=$(gh pr list \
-            -- state open \
-            -- paginate \
+            --state open \
             --json headRepositoryOwner,headRefOid,number,headRefName \
             --jq '.[] | select( .headRefName!="main" and .headRepositoryOwner.login=="ACCESS-NRI")' \
           )
@@ -120,10 +123,14 @@ jobs:
             for num in ${pr_nums[@]}; do
               echo "::group::Build PR preview for PR #${num}"
               gh pr checkout $num
-              pr_preview_url_folder=${{ env.ROOT_URL_FOLDER }}/pr-preview-${num}
-              command="ROOT_URL=${{ env.ROOT_DOMAIN }}/${pr_preview_url_folder} mkdocs build -f mkdocs.yml -d ${{ env.ROOT_BUILD_DIR }}/${pr_preview_url_folder}"
-              echo "$command"
-              eval "$command"
+              if [[ -f mkdocs.yml ]]; then
+                pr_preview_url_folder=${{ env.ROOT_URL_FOLDER }}/pr-preview-${num}
+                command="ROOT_URL=${{ env.ROOT_DOMAIN }}/${pr_preview_url_folder} mkdocs build -f mkdocs.yml -d ${{ env.ROOT_BUILD_DIR }}/${pr_preview_url_folder}"
+                echo "$command"
+                eval "$command"
+              else
+                echo "::warning::No configuration found in the PR #${num} head."
+              fi
             done
             echo "pr_nums_json=$(printf '%s\n' "${pr_nums[@]}" | jq -R | jq -s -c)" >> "$GITHUB_OUTPUT"
           else
