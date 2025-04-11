@@ -166,44 +166,44 @@ diag_table:
             reduction_method: mean
         fields:
             h: # Layer Thickness
-            e: # Interface Height Relative to Mean Sea Level
+            # e: # Interface Height Relative to Mean Sea Level
             agessc: # Sea water age since surface contact
-            difmxybo: # Biharmonic Horizontal Viscosity at h Points Ahh
-            difmxylo: # Laplacian Horizontal Viscosity at h Points Khh
-            diftrelo: # Epipycnal tracer diffusivity at tracer cell center KHTR_h
-            diftrblo: # Ocean Tracer Diffusivity due to Parameterized Mesoscale Advection KHTH_t
-            rhopot0: # Potential density referenced to surface
+            # difmxybo: # Biharmonic Horizontal Viscosity at h Points Ahh
+            # difmxylo: # Laplacian Horizontal Viscosity at h Points Khh
+            # diftrelo: # Epipycnal tracer diffusivity at tracer cell center KHTR_h
+            # diftrblo: # Ocean Tracer Diffusivity due to Parameterized Mesoscale Advection KHTH_t
+            # rhopot0: # Potential density referenced to surface
             rhopot2: # Potential density referenced to 2000 dbar
             thetao: # Potential Temperature
             so: # Salinity
-            T_adx: # Temperature x flux (advection)
-            T_ady: # Temperature y flux (advection)
-            S_adx: # Salinity x flux (advection)
-            S_ady: # Salinity y flux (advection)
-            T_diffx: # Diffusive Zonal Flux of temperature
-            T_diffy: # Diffusive Meridional Flux of temperature
-            S_diffx: # Diffusive Zonal Flux of salinity
-            S_diffy: # Diffusive Meridional Flux of salinity
-            umo: # Ocean Mass X Transport
-            vmo: # Ocean Mass Y Transport
+            # T_adx: # Temperature x flux (advection)
+            # T_ady: # Temperature y flux (advection)
+            # S_adx: # Salinity x flux (advection)
+            # S_ady: # Salinity y flux (advection)
+            # T_diffx: # Diffusive Zonal Flux of temperature
+            # T_diffy: # Diffusive Meridional Flux of temperature
+            # S_diffx: # Diffusive Zonal Flux of salinity
+            # S_diffy: # Diffusive Meridional Flux of salinity
+            # umo: # Ocean Mass X Transport
+            # vmo: # Ocean Mass Y Transport
             uo: # u velocity
             vo: # v velocity
             uh: # Zonal Thickness Flux
             vh: # Meridional Thickness Flux
             uhGM: # Time Mean Diffusive Zonal Thickness Flux
             vhGM: # Time Mean Diffusive Meridional Thickness Flux
-            uhml: # Zonal Thickness Flux to Restratify Mixed Layer
-            vhml: # Meridional Thickness Flux to Restratify Mixed Layer
+            # uhml: # Zonal Thickness Flux to Restratify Mixed Layer
+            # vhml: # Meridional Thickness Flux to Restratify Mixed Layer
             thkcello: # Cell Thickness
             KE: # Layer Kinetic energy per unit mass
 
-    'monthly 3d squared fields':  # for calculating EKE etc
-        defaults:  # these can be overridden for individual fields below
-            file_name_dimension: 3d  # descriptor for filename, e.g. 3d, 2d, scalar
-            reduction_method: pow02  # mean, snap, rms, pow##, min, max, or diurnal##
-        fields:
-            uo:
-            vo:
+    # 'monthly 3d squared fields':  # for calculating EKE etc
+    #     defaults:  # these can be overridden for individual fields below
+    #         file_name_dimension: 3d  # descriptor for filename, e.g. 3d, 2d, scalar
+    #         reduction_method: pow02  # mean, snap, rms, pow##, min, max, or diurnal##
+    #     fields:
+    #         uo:
+    #         vo:
             
     'monthly 2d fields':
         defaults:  # these can be overridden for individual fields below
