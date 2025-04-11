@@ -101,7 +101,9 @@ jobs:
           git fetch --all -Pp
           echo "::group::Build main website"
           git checkout main
-          ROOT_URL=${{ env.ROOT_DOMAIN }}/${{ env.ROOT_URL_FOLDER }} mkdocs build -f mkdocs.yml -d ${{ env.ROOT_BUILD_DIR }}/${{ env.ROOT_URL_FOLDER }}
+          command='ROOT_URL=${{ env.ROOT_DOMAIN }}/${{ env.ROOT_URL_FOLDER }} mkdocs build -f mkdocs.yml -d ${{ env.ROOT_BUILD_DIR }}/${{ env.ROOT_URL_FOLDER }}'
+          echo "$command"
+          eval "$command"
           echo "::endgroup::"
           echo "::group::Build PR previews"
           # Include only open PRs, not from forks, and whose head branch is not `main`
@@ -119,7 +121,9 @@ jobs:
               echo "::group::Build PR preview for PR #${num}"
               gh pr checkout $num
               pr_preview_url_folder=${{ env.ROOT_URL_FOLDER }}/pr-preview-${num}
-              ROOT_URL=${{ env.ROOT_DOMAIN }}/${pr_preview_url_folder} mkdocs build -f mkdocs.yml -d ${{ env.ROOT_BUILD_DIR }}/${pr_preview_url_folder}
+              command="ROOT_URL=${{ env.ROOT_DOMAIN }}/${pr_preview_url_folder} mkdocs build -f mkdocs.yml -d ${{ env.ROOT_BUILD_DIR }}/${pr_preview_url_folder}"
+              echo "$command"
+              eval "$command"
             done
             echo "pr_nums_json=$(printf '%s\n' "${pr_nums[@]}" | jq -R | jq -s -c)" >> "$GITHUB_OUTPUT"
           else
@@ -167,26 +171,21 @@ jobs:
           number: ${{ matrix.pr_num }}
           label: ${{ env.COMMENT_LABEL }}
 
-#   # Change preview message if deployment fails
-#   failed-preview:
-#     needs: [get-date, deploy]
-#     # If any job failed (but the workflow was not cancelled) and was fired because of a pull request (not closed)
-#     if: ${{ always() && '!cancelled()' && github.event_name == 'pull_request' && github.event.action != 'closed' && needs.deploy.outputs.success != '1' }}
-#     runs-on: ubuntu-latest
-#     steps:
-#       - name: Change pr-preview message
-#         if: ${{ github.event.pull_request.head.ref != 'development' }}
-#         uses: thollander/actions-comment-pull-request@v2.4.3
-#         with:
-#           comment_tag: pr-preview
-#           pr_number: ${{ github.event.number }}
-#           message: "\
-#             PR preview
+  failed-preview:
+    needs: [get-date, deploy]
+    # If any job failed (but the workflow was not cancelled) and was fired because of a pull request (not closed)
+    if: ${{ failure() }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Add PR preview failure comment
+        uses: access-nri/actions/.github/actions/comment@main
+        with:
+          message: |
+            PR Preview
+            :---:
+            ⚠️ There was an error in the pr-preview deployment.
+            For more information check the [Actions](https://github.com/${{github.repository}}/actions) tab.
+            ${{ needs.get-date.outputs.date }}
 
-#             :---:
-
-#             ⚠️ There was an error in the pr-preview deployment.
-#             For more information, please check the [Actions](https://github.com/${{github.repository}}/actions) tab.
-
-#             ${{ env.DATE }}
-#             "
+          number: ${{ matrix.pr_num }}
+          label: ${{ env.COMMENT_LABEL }}
