@@ -92,19 +92,19 @@ markdown_extensions:
 
 # Navigation
 Home:                  index.md
-Architecture:          Architecture.md
-Building:              Building.md
-Configurations:        Configurations.md
-Coupling:              Coupling.md
-Forcing-data-models:   Forcing-data-models.md
-Git-practices:         Git-practices.md
-MOM6-generic-tracers:  MOM6-generic-tracers.md
-MOM6:                  MOM6.md
-NUOPC-driver:          NUOPC-driver.md
-Quick-start:           Quick-start.md
-Releases:              Releases.md
-Topography-generation: Topography-generation.md
-Updating-components:   Updating-components.md
+Architecture:          pages/Architecture.md
+Building:              pages/Building.md
+Configurations:        pages/Configurations.md
+Coupling:              pages/Coupling.md
+Forcing-data-models:   pages/Forcing-data-models.md
+Git-practices:         pages/Git-practices.md
+MOM6-generic-tracers:  pages/MOM6-generic-tracers.md
+MOM6:                  pages/MOM6.md
+NUOPC-driver:          pages/NUOPC-driver.md
+Quick-start:           pages/Quick-start.md
+Releases:              pages/Releases.md
+Topography-generation: pages/Topography-generation.md
+Updating-components:   pages/Updating-components.md
 
 # Footer
 extra:
