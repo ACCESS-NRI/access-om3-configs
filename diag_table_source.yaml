@@ -210,62 +210,62 @@ diag_table:
             file_name_dimension: 2d  # descriptor for filename, e.g. 3d, 2d, scalar
             reduction_method: mean
         fields:
-            evs: # Evaporation/condensation at ocean surface (evaporation is negative) evap
-            ficeberg: # Frozen runoff (calving) and iceberg melt into ocean frunoff
-            friver: # Liquid runoff (rivers) into ocean lrunoff
-            fsitherm: # water flux to ocean from snow/sea ice melting(> 0) or formation(< 0) seaice_melt
-            heat_content_cond: # Heat content (relative to 0degC) of water condensing into ocean
-            heat_content_evap: # Heat content (relative to 0degC) of water evaporating from ocean
-            heat_content_fprec: # Heat content (relative to 0degC) of frozen prec entering ocean
-            heat_content_frunoff: # Heat content (relative to 0C) of solid runoff into ocean
-            heat_content_lrunoff: # Heat content (relative to 0C) of liquid runoff into ocean
-            heat_content_lprec: # Heat content (relative to 0degC) of liquid precip entering ocean
+            # evs: # Evaporation/condensation at ocean surface (evaporation is negative) evap
+            # ficeberg: # Frozen runoff (calving) and iceberg melt into ocean frunoff
+            # friver: # Liquid runoff (rivers) into ocean lrunoff
+            # fsitherm: # water flux to ocean from snow/sea ice melting(> 0) or formation(< 0) seaice_melt
+            # heat_content_cond: # Heat content (relative to 0degC) of water condensing into ocean
+            # heat_content_evap: # Heat content (relative to 0degC) of water evaporating from ocean
+            # heat_content_fprec: # Heat content (relative to 0degC) of frozen prec entering ocean
+            # heat_content_frunoff: # Heat content (relative to 0C) of solid runoff into ocean
+            # heat_content_lrunoff: # Heat content (relative to 0C) of liquid runoff into ocean
+            # heat_content_lprec: # Heat content (relative to 0degC) of liquid precip entering ocean
             hfrunoffds: # Heat content (relative to 0C) of liquid+solid runoff into ocean
             hfrainds: # Heat content (relative to 0degC) of liquid+frozen precip entering ocean
-            Heat_PmE: # Heat flux into ocean from mass flux into ocean
+            #Heat_PmE: # Heat flux into ocean from mass flux into ocean
             net_heat_coupler: # Surface ocean heat flux from SW+LW+latent+sensible+seaice_melt_heat (via the coupler)
             hfds: # Surface ocean heat flux from SW+LW+lat+sens+mass transfer+frazil+restore+seaice_melt_heat or flux adjustments net_heat_surface
-            hflso: # Latent heat flux into ocean due to fusion and evaporation (negative means ocean heat loss)
-            hfsifrazil: # Heat from frazil formation frazil
-            hfsnthermds: # Latent heat flux into ocean due to melting of frozen precipitation latent_fprec_diag
-            hfsso: # Sensible heat flux into ocean sensible
-            prlq: # Liquid precipitation into ocean lprec
-            prsn: # Frozen precipitation into ocean fprec
+            #hflso: # Latent heat flux into ocean due to fusion and evaporation (negative means ocean heat loss)
+            #hfsifrazil: # Heat from frazil formation frazil
+            #hfsnthermds: # Latent heat flux into ocean due to melting of frozen precipitation latent_fprec_diag
+            #hfsso: # Sensible heat flux into ocean sensible
+            # prlq: # Liquid precipitation into ocean lprec
+            # prsn: # Frozen precipitation into ocean fprec
             wfo: # Net surface water flux (precip+melt+lrunoff+ice calving-evap) PRCmE
             pso: # Pressure at ice-ocean or atmosphere-ocean interface p_surf
-            rlntds: # surface_net_downward_longwave_flux LW
-            rsntds: # Shortwave radiation flux into ocean
+            #rlntds: # surface_net_downward_longwave_flux LW
+            #rsntds: # Shortwave radiation flux into ocean
             sfdsi: # Net salt flux into ocean at surface (restoring + sea-ice) salt_flux
             salt_flux_added: # Salt flux into ocean at surface due to restoring or flux adjustment
-            somint: # Density weighted column integrated salinity salt_int
-            opottempmint: # Density weighted column integrated potential temperature  temp_int
+            #somint: # Density weighted column integrated salinity salt_int
+            #opottempmint: # Density weighted column integrated potential temperature  temp_int
             Rd_dx: # Ratio between deformation radius and grid spacing
-            mass_wt: # The column mass for calculating mass-weighted average properties
+            #mass_wt: # The column mass for calculating mass-weighted average properties
             mlotst: # Mixed layer depth (delta rho = 0.03) MLD_003
             #oml: # Thickness of the surface Ocean Boundary Layer without smoothing calculated by [CVMix] KPP KPP_OBLdepth_original
-            sos: # Sea Surface Salinity
+            #sos: # Sea Surface Salinity
             speed: # Sea Surface Speed
-            tos: # Sea Surface Temperature
+            #tos: # Sea Surface Temperature
             SSH: # Sea Surface Height
-            SSU: # Sea Surface Zonal Velocity
-            SSV: # Sea Surface Meridional Velocity
-            T_adx_2d: # Vertically Integrated Advective Zonal Flux of Heat
-            T_ady_2d: # Vertically Integrated Advective Meridional Flux of Heat
-            T_diffx_2d: # Vertically Integrated Diffusive Zonal Flux of Heat
-            T_diffy_2d: # Vertically Integrated Diffusive Meridional Flux of Heat    
-            S_adx_2d: # Vertically Integrated Advective Zonal Flux of Salinity
-            S_ady_2d: # Vertically Integrated Advective Meridional Flux of Salinity
-            S_diffx_2d: # Vertically Integrated Diffusive Zonal Flux of Salinity
-            S_diffy_2d: # Vertically Integrated Diffusive Meridional Flux of Salinity
+            #SSU: # Sea Surface Zonal Velocity
+            #SSV: # Sea Surface Meridional Velocity
+            # T_adx_2d: # Vertically Integrated Advective Zonal Flux of Heat
+            # T_ady_2d: # Vertically Integrated Advective Meridional Flux of Heat
+            # T_diffx_2d: # Vertically Integrated Diffusive Zonal Flux of Heat
+            # T_diffy_2d: # Vertically Integrated Diffusive Meridional Flux of Heat
+            # S_adx_2d: # Vertically Integrated Advective Zonal Flux of Salinity
+            # S_ady_2d: # Vertically Integrated Advective Meridional Flux of Salinity
+            # S_diffx_2d: # Vertically Integrated Diffusive Zonal Flux of Salinity
+            # S_diffy_2d: # Vertically Integrated Diffusive Meridional Flux of Salinity
             tauuo: # surface_downward_x_stress taux
             tauvo: # surface_downward_y_stress tauy
-            uhbt: # Barotropic zonal transport averaged over a baroclinic step
-            vhbt: # Barotropic meridional transport averaged over a baroclinic step
-            ustar: # Surface friction velocity = [(gustiness + tau_magnitude)/rho0]^(1/2)
+            # uhbt: # Barotropic zonal transport averaged over a baroclinic step
+            # vhbt: # Barotropic meridional transport averaged over a baroclinic step
+            # ustar: # Surface friction velocity = [(gustiness + tau_magnitude)/rho0]^(1/2)
             umo_2d: # Ocean Mass X Transport Vertical Sum
             vmo_2d: # Ocean Mass Y Transport Vertical Sum
             pbo: # Sea Water Pressure at Sea Floor
-            SW_pen: # Penetrating shortwave radiation flux into ocean W m-2
+            #SW_pen: # Penetrating shortwave radiation flux into ocean W m-2
             salt_flux_in: # Salt flux into ocean at surface from coupler
             tnkebto: # Integrated Tendency of Ocean Mesoscale Eddy KE from Parameterized Eddy Advection GMwork
 
@@ -306,6 +306,7 @@ diag_table:
             sos: # Sea Surface Salinity
             SSU: # Sea Surface Zonal Velocity
             SSV: # Sea Surface Meridional Velocity
+            speed: # Sea Surface Speed
 
     'daily 2D max fields':
         defaults:
