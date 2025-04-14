@@ -1,12 +1,12 @@
 
 # This file uses the following environment variables set within the build workflow:
-# - ROOT_URL: the URL of the site (Falls back to the default URL)
-# For example, for PR-previews, ROOT_URL is set to <default_URL>/pr-preview/pr-NUM
+# - SITE_URL: the URL of the site (Falls back to the default URL)
+# For example, for PR-previews, SITE_URL is set to <default_URL>/pr-preview-NUM
 
 site_name: ACCESS-OM3-configs
 
 # Site URL
-site_url: !ENV [ROOT_URL, "http://access-nri.github.io/access-om3-configs/"]
+site_url: !ENV [SITE_URL, "http://access-nri.github.io/access-om3-configs/"]
 
 # Git repository (Adds a link to the GitHub repository at the top)
 repo_url: https://github.com/ACCESS-NRI/access-om3-configs
@@ -95,7 +95,9 @@ nav:
   - Home:                  index.md
   - Architecture:          pages/Architecture.md
   - Building:              pages/Building.md
-  - Configurations:        pages/Configurations.md
+  - Configurations:
+    - pages/configurations/Configurations.md
+    # At build time other configurations are added here by the mkdocs-include-configurations plugin
   - Coupling:              pages/Coupling.md
   - Forcing-data-models:   pages/Forcing-data-models.md
   - Git-practices:         pages/Git-practices.md

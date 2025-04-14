@@ -16,11 +16,10 @@ on:
   workflow_dispatch: #Action can also be triggered manually
 env:
   TZ: Australia/Canberra
-  WORKING_DIR: documentation
-  ROOT_DOMAIN: https://access-nri.github.io
-  ROOT_URL_FOLDER: access-om3-configs
+  DOC_DIR: documentation
   ROOT_BUILD_DIR: ${{ github.workspace }}/website
   COMMENT_LABEL: pr-preview
+  ROOT_DOMAIN: https://access-nri.github.io
 permissions:
   pull-requests: write # to comment on PRs
   pages: write # to deploy to Pages
@@ -28,6 +27,22 @@ permissions:
 
 
 jobs:
+  set-root-url:
+    runs-on: ubuntu-latest
+    outputs:
+      root_url: ${{ steps.set-root-url.outputs.root_url }}
+    steps:
+      - name: Set root url
+        id: set-root-url
+        run: |
+          if [[ ${{ env.ROOT_DOMAIN }} == https://access-nri.github.io ]]; then
+            root_url=${{ env.ROOT_DOMAIN }}/${{ github.event.repository.name }}
+          else
+            root_url=${{ env.ROOT_DOMAIN }}
+          fi
+          echo "Root url set to ${root_url}"
+          echo "root_url=${root_url}" >> $GITHUB_OUTPUT
+  
   get-date:
     runs-on: ubuntu-latest
     env:
@@ -72,9 +87,9 @@ jobs:
       group: documentation-build-deploy
       cancel-in-progress: true
     runs-on: ubuntu-latest
+    needs: set-root-url
     outputs:
-      pr_nums_json: ${{ steps.build.outputs.pr_nums_json }}
-      url: ${{ steps.url.outputs.url }}
+      matrix_include: ${{ steps.build.outputs.matrix_include }}
     if: ${{ ! ( github.event_name == 'pull_request' && github.event.action == 'closed' ) }}
     steps:
       - name: Checkout
@@ -86,23 +101,23 @@ jobs:
           python-version: 3.11.x
 
       - name: Install dependencies
-        working-directory: ${{ env.WORKING_DIR }}
+        working-directory: ${{ env.DOC_DIR }}
         run: |
           pip install -r requirements.txt
 
       # Build main website and PR previews
       - name: Build website
-        working-directory: ${{ env.WORKING_DIR }}
+        working-directory: ${{ env.DOC_DIR }}
         env:
           GH_TOKEN: ${{ github.token }} # Required for gh usage
+          ROOT_URL: ${{ needs.set-root-url.outputs.root_url }}
         id: build
-        shell: bash
         run: |
           git fetch --all -Pp
           echo "::group::Build main website"
           git checkout main
           if [[ -f mkdocs.yml ]]; then
-            command='ROOT_URL=${{ env.ROOT_DOMAIN }}/${{ env.ROOT_URL_FOLDER }} mkdocs build -f mkdocs.yml -d ${{ env.ROOT_BUILD_DIR }}/${{ env.ROOT_URL_FOLDER }}'
+            command="SITE_URL=${{ env.ROOT_URL }} mkdocs build -f mkdocs.yml -d ${{ env.ROOT_BUILD_DIR }}"
             echo "$command"
             eval "$command"
           else
@@ -117,28 +132,36 @@ jobs:
             --jq '.[] | select( .headRefName!="main" and .headRepositoryOwner.login=="ACCESS-NRI")' \
           )
           pr_nums=($(jq '.number' <<< "$open_pr_info"))
-          pr_sha=($(jq -r '.headRefOid' <<< "$open_pr_info"))
           if [[ -n $pr_nums ]]; then
             echo "Found the following open PRs: $(IFS=, ; echo "${pr_nums[*]}")."
             for num in ${pr_nums[@]}; do
               echo "::group::Build PR preview for PR #${num}"
               gh pr checkout $num
               if [[ -f mkdocs.yml ]]; then
-                pr_preview_url_folder=${{ env.ROOT_URL_FOLDER }}/pr-preview-${num}
-                ls -l
-                command="ROOT_URL=${{ env.ROOT_DOMAIN }}/${pr_preview_url_folder} mkdocs build -f mkdocs.yml -d ${{ env.ROOT_BUILD_DIR }}/${pr_preview_url_folder}"
+                pr_preview_dir=pr-preview-${num}
+                site_url=${{ env.ROOT_URL }}/${pr_preview_dir}
+                command="SITE_URL=${site_url} mkdocs build -f mkdocs.yml -d ${{ env.ROOT_BUILD_DIR }}/${pr_preview_dir}"
                 echo "$command"
                 eval "$command"
-                pr_nums_for_preview+=($num)
+                # Defining the json string for the matrix.include field used in the pr-preview job
+                # Defining the following fields:
+                # - pr_num: the PR number
+                # - pr_preview_url: the URL of the PR preview
+                # - pr_head_sha: the SHA of the commit in the PR head
+                json_array+=("{\"pr_num\":${num},\"pr_preview_url\":\"${site_url}\",\"pr_head_sha\":\"$(git rev-parse HEAD)\"}")
               else
                 echo "::warning::No configuration found in the PR #${num} head."
               fi
+              echo '::endgroup::'
             done
-            echo "pr_nums_json=$(printf '%s\n' "${pr_nums_for_preview[@]}" | jq -R | jq -s -c)" >> "$GITHUB_OUTPUT"
+            # Create the json for the matrix.include from the json_array
+            matrix_include=$(jq -c <<< "[$(IFS=, ; echo "${json_array[*]}")]")
+            echo "matrix_include=${matrix_include}" >> "$GITHUB_OUTPUT"
           else
             echo "No open PR found."
           fi
           chmod -c -R +rX ${{ env.ROOT_BUILD_DIR }}
+          echo '::endgroup::'
 
       - name: Create artifact for deployment to GitHub Pages
         uses: actions/upload-pages-artifact@56afc609e74202658d3ffba0e8f6dda462b719fa #v3.0.1
@@ -161,12 +184,12 @@ jobs:
   pr-preview:
     needs: [get-date, build, deploy]
     # If there are open PRs (whose head branch is neither `development` nor `main`), run this job
-    if: ${{ needs.build.outputs.pr_nums_json != '[""]' && ( github.event_name != 'pull_request' || github.event.action != 'closed' ) }}
+    if: ${{ needs.build.outputs.matrix_include != '[]' && ( github.event_name != 'pull_request' || github.event.action != 'closed' ) }}
     runs-on: ubuntu-latest
     # Run the same job for each of the open PRs found
     strategy:
       matrix:
-        pr_num: ${{fromJson(needs.build.outputs.pr_nums_json)}}
+        include: ${{ fromJson(needs.build.outputs.matrix_include) }}
     steps:
       - name: Add PR preview setup comment
         uses: access-nri/actions/.github/actions/comment@main
@@ -174,7 +197,7 @@ jobs:
           message: |
             PR Preview
             :---:
-            🚀 Deployed preview to ${{ env.ROOT_DOMAIN }}/${{ env.ROOT_URL_FOLDER }}/pr-preview-${{ matrix.pr_num }}
+            🚀 Preview of PR head ${{ matrix.pr_head_sha }} deployed to ${{ matrix.pr_preview_url }}
             ${{ needs.get-date.outputs.date }}
             Preview generated through the ${{ github.workflow }} workflow run [${{ github.run_id }}](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}).
           number: ${{ matrix.pr_num }}
@@ -183,7 +206,7 @@ jobs:
   failed-preview:
     needs: [get-date, deploy]
     # If any job failed (but the workflow was not cancelled) and was fired because of a pull request (not closed)
-    if: ${{ failure() }}
+    if: ${{ github.event_name == 'pull_request' && failure() }}
     runs-on: ubuntu-latest
     steps:
       - name: Add PR preview failure comment
