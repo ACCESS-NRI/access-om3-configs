@@ -7,5 +7,5 @@ files in the diag_table_source directory via the make_diag_table.py script. To c
 2. Make modifications to the new `diag_table_source.yaml`
 3. Run the make_diag_table.py script, which will produce a new diagnostic table `diag_table` based on 
    diag_table_source.yaml.
-4. Place the new `diag_table` file in the `diagnostic_requests` directory, and provide an informative name.
+4. Place the new `diag_table` file in the `diagnostic_profiles` directory, and provide an informative name.
 5. Modify the <control_directory>/ocean/diag_table symlink to point to the new diagnostic table.
