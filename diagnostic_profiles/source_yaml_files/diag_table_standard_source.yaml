@@ -160,112 +160,48 @@ diag_table:
             dyCv: # dyCv is delta y at v points [L ~> m]
             dyCuo: # Open meridional grid spacing at u points (meter)
             dxCvo: # Open zonal grid spacing at v points (meter)
+
     'monthly 3d fields':
         defaults:  # these can be overridden for individual fields below
             file_name_dimension: 3d  # descriptor for filename, e.g. 3d, 2d, scalar
             reduction_method: mean
         fields:
             h: # Layer Thickness
-            # e: # Interface Height Relative to Mean Sea Level
             agessc: # Sea water age since surface contact
-            # difmxybo: # Biharmonic Horizontal Viscosity at h Points Ahh
-            # difmxylo: # Laplacian Horizontal Viscosity at h Points Khh
-            # diftrelo: # Epipycnal tracer diffusivity at tracer cell center KHTR_h
-            # diftrblo: # Ocean Tracer Diffusivity due to Parameterized Mesoscale Advection KHTH_t
-            # rhopot0: # Potential density referenced to surface
             rhopot2: # Potential density referenced to 2000 dbar
             thetao: # Potential Temperature
             so: # Salinity
-            # T_adx: # Temperature x flux (advection)
-            # T_ady: # Temperature y flux (advection)
-            # S_adx: # Salinity x flux (advection)
-            # S_ady: # Salinity y flux (advection)
-            # T_diffx: # Diffusive Zonal Flux of temperature
-            # T_diffy: # Diffusive Meridional Flux of temperature
-            # S_diffx: # Diffusive Zonal Flux of salinity
-            # S_diffy: # Diffusive Meridional Flux of salinity
-            # umo: # Ocean Mass X Transport
-            # vmo: # Ocean Mass Y Transport
             uo: # u velocity
             vo: # v velocity
             uh: # Zonal Thickness Flux
             vh: # Meridional Thickness Flux
             uhGM: # Time Mean Diffusive Zonal Thickness Flux
             vhGM: # Time Mean Diffusive Meridional Thickness Flux
-            # uhml: # Zonal Thickness Flux to Restratify Mixed Layer
-            # vhml: # Meridional Thickness Flux to Restratify Mixed Layer
             thkcello: # Cell Thickness
             KE: # Layer Kinetic energy per unit mass
 
-    # 'monthly 3d squared fields':  # for calculating EKE etc
-    #     defaults:  # these can be overridden for individual fields below
-    #         file_name_dimension: 3d  # descriptor for filename, e.g. 3d, 2d, scalar
-    #         reduction_method: pow02  # mean, snap, rms, pow##, min, max, or diurnal##
-    #     fields:
-    #         uo:
-    #         vo:
-            
     'monthly 2d fields':
         defaults:  # these can be overridden for individual fields below
             file_name_dimension: 2d  # descriptor for filename, e.g. 3d, 2d, scalar
             reduction_method: mean
         fields:
-            # evs: # Evaporation/condensation at ocean surface (evaporation is negative) evap
-            # ficeberg: # Frozen runoff (calving) and iceberg melt into ocean frunoff
-            # friver: # Liquid runoff (rivers) into ocean lrunoff
-            # fsitherm: # water flux to ocean from snow/sea ice melting(> 0) or formation(< 0) seaice_melt
-            # heat_content_cond: # Heat content (relative to 0degC) of water condensing into ocean
-            # heat_content_evap: # Heat content (relative to 0degC) of water evaporating from ocean
-            # heat_content_fprec: # Heat content (relative to 0degC) of frozen prec entering ocean
-            # heat_content_frunoff: # Heat content (relative to 0C) of solid runoff into ocean
-            # heat_content_lrunoff: # Heat content (relative to 0C) of liquid runoff into ocean
-            # heat_content_lprec: # Heat content (relative to 0degC) of liquid precip entering ocean
             hfrunoffds: # Heat content (relative to 0C) of liquid+solid runoff into ocean
             hfrainds: # Heat content (relative to 0degC) of liquid+frozen precip entering ocean
-            #Heat_PmE: # Heat flux into ocean from mass flux into ocean
             net_heat_coupler: # Surface ocean heat flux from SW+LW+latent+sensible+seaice_melt_heat (via the coupler)
             hfds: # Surface ocean heat flux from SW+LW+lat+sens+mass transfer+frazil+restore+seaice_melt_heat or flux adjustments net_heat_surface
-            #hflso: # Latent heat flux into ocean due to fusion and evaporation (negative means ocean heat loss)
-            #hfsifrazil: # Heat from frazil formation frazil
-            #hfsnthermds: # Latent heat flux into ocean due to melting of frozen precipitation latent_fprec_diag
-            #hfsso: # Sensible heat flux into ocean sensible
-            # prlq: # Liquid precipitation into ocean lprec
-            # prsn: # Frozen precipitation into ocean fprec
             wfo: # Net surface water flux (precip+melt+lrunoff+ice calving-evap) PRCmE
             pso: # Pressure at ice-ocean or atmosphere-ocean interface p_surf
-            #rlntds: # surface_net_downward_longwave_flux LW
-            #rsntds: # Shortwave radiation flux into ocean
             sfdsi: # Net salt flux into ocean at surface (restoring + sea-ice) salt_flux
             salt_flux_added: # Salt flux into ocean at surface due to restoring or flux adjustment
-            #somint: # Density weighted column integrated salinity salt_int
-            #opottempmint: # Density weighted column integrated potential temperature  temp_int
             Rd_dx: # Ratio between deformation radius and grid spacing
-            #mass_wt: # The column mass for calculating mass-weighted average properties
             mlotst: # Mixed layer depth (delta rho = 0.03) MLD_003
-            #oml: # Thickness of the surface Ocean Boundary Layer without smoothing calculated by [CVMix] KPP KPP_OBLdepth_original
-            #sos: # Sea Surface Salinity
             speed: # Sea Surface Speed
-            #tos: # Sea Surface Temperature
             SSH: # Sea Surface Height
-            #SSU: # Sea Surface Zonal Velocity
-            #SSV: # Sea Surface Meridional Velocity
-            # T_adx_2d: # Vertically Integrated Advective Zonal Flux of Heat
-            # T_ady_2d: # Vertically Integrated Advective Meridional Flux of Heat
-            # T_diffx_2d: # Vertically Integrated Diffusive Zonal Flux of Heat
-            # T_diffy_2d: # Vertically Integrated Diffusive Meridional Flux of Heat
-            # S_adx_2d: # Vertically Integrated Advective Zonal Flux of Salinity
-            # S_ady_2d: # Vertically Integrated Advective Meridional Flux of Salinity
-            # S_diffx_2d: # Vertically Integrated Diffusive Zonal Flux of Salinity
-            # S_diffy_2d: # Vertically Integrated Diffusive Meridional Flux of Salinity
             tauuo: # surface_downward_x_stress taux
             tauvo: # surface_downward_y_stress tauy
-            # uhbt: # Barotropic zonal transport averaged over a baroclinic step
-            # vhbt: # Barotropic meridional transport averaged over a baroclinic step
-            # ustar: # Surface friction velocity = [(gustiness + tau_magnitude)/rho0]^(1/2)
             umo_2d: # Ocean Mass X Transport Vertical Sum
             vmo_2d: # Ocean Mass Y Transport Vertical Sum
             pbo: # Sea Water Pressure at Sea Floor
-            #SW_pen: # Penetrating shortwave radiation flux into ocean W m-2
             salt_flux_in: # Salt flux into ocean at surface from coupler
             tnkebto: # Integrated Tendency of Ocean Mesoscale Eddy KE from Parameterized Eddy Advection GMwork
 
@@ -275,9 +211,6 @@ diag_table:
             reduction_method: max  # mean, snap, rms, pow##, min, max, or diurnal##
         fields:
             mlotst: # Mixed layer depth (delta rho = 0.03) MLD_003
-            # sos: # Sea Surface Salinity
-            # tos: # Sea Surface Temperature
-            # SSH: # Sea Surface Height
 
     'monthly 2d min fields':
         defaults:  # these can be overridden for individual fields below
@@ -285,9 +218,6 @@ diag_table:
             reduction_method: min  # mean, snap, rms, pow##, min, max, or diurnal##
         fields:
             mlotst: # Mixed layer depth (delta rho = 0.03) MLD_003
-            # sos: # Sea Surface Salinity
-            # tos: # Sea Surface Temperature
-            # SSH: # Sea Surface Height
 
     'daily 2D fields':
         defaults:
@@ -299,36 +229,9 @@ diag_table:
         fields:
             tob: # Sea Water Potential Temperature at Sea Floor
             mlotst: # Mixed layer depth (delta rho = 0.03) MLD_003
-            # net_heat_coupler: # Surface ocean heat flux from SW+LW+latent+sensible+seaice_melt_heat (via the coupler)
-            # heat_content_lrunoff: # Heat content (relative to 0C) of liquid runoff into ocean
-            # Heat_PmE: # Heat flux into ocean from mass flux into ocean
             tos: # Sea Surface Temperature
             sos: # Sea Surface Salinity
-            # SSU: # Sea Surface Zonal Velocity
-            # SSV: # Sea Surface Meridional Velocity
             speed: # Sea Surface Speed
-
-    # 'daily 2D max fields':
-    #     defaults:
-    #         file_name_dimension: 2d  # descriptor for filename, e.g. 3d, 2d, scalar
-    #         '':
-    #             - output_freq_units
-    #         output_freq_units: days  # time units for output: years, months, days, hours, minutes, or seconds
-    #         reduction_method: max # mean, snap, rms, pow##, min, max, or diurnal##
-    #     fields:
-    #         tob: # Sea Water Potential Temperature at Sea Floor
-    #         tos: # Sea Surface Temperature
-
-    # 'daily 2D min fields':
-    #     defaults:
-    #         file_name_dimension: 2d  # descriptor for filename, e.g. 3d, 2d, scalar
-    #         '':
-    #             - output_freq_units
-    #         output_freq_units: days  # time units for output: years, months, days, hours, minutes, or seconds
-    #         reduction_method: min # mean, snap, rms, pow##, min, max, or diurnal##
-    #     fields:
-    #         tob: # Sea Water Potential Temperature at Sea Floor
-    #         tos: # Sea Surface Temperature
 
     'daily scalar timeseries':
         defaults:  # these can be overridden for individual fields below
