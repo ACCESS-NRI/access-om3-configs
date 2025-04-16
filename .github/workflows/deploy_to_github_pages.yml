@@ -20,11 +20,6 @@ env:
   ROOT_BUILD_DIR: ${{ github.workspace }}/website
   COMMENT_LABEL: pr-preview
   ROOT_DOMAIN: https://access-nri.github.io
-permissions:
-  pull-requests: write # to comment on PRs
-  pages: write # to deploy to Pages
-  id-token: write # to verify the deployment originates from an appropriate source
-
 
 jobs:
   set-root-url:
@@ -62,6 +57,8 @@ jobs:
     env:
         HEAD: ${{ github.event.pull_request.head.sha }}
         HEAD_URL: https://github.com/${{ github.event.pull_request.head.repo.full_name }}/commit/${{ github.event.pull_request.head.sha }}
+    permissions:
+      pull-requests: write
     steps:
       - name: Add PR preview setup comment
         if: ${{ github.event.action != 'closed' }}
@@ -184,7 +181,9 @@ jobs:
     concurrency:
       group: documentation-build-deploy
       cancel-in-progress: true
-
+    permissions:
+      pages: write # to deploy to Pages
+      id-token: write # to verify the deployment originates from an appropriate source
     steps:
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@d6db90164ac5ed86f2b6aed7e0febac5b3c0c03e #v4.0.5
@@ -199,6 +198,8 @@ jobs:
     strategy:
       matrix:
         include: ${{ fromJson(needs.build.outputs.matrix_include) }}
+    permissions:
+      pull-requests: write
     steps:
       - name: Add PR preview setup comment
         uses: access-nri/actions/.github/actions/comment@main
@@ -217,6 +218,8 @@ jobs:
     # If any job failed (but the workflow was not cancelled) and was fired because of a pull request (not closed)
     if: ${{ github.event_name == 'pull_request' && failure() }}
     runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
     steps:
       - name: Add PR preview failure comment
         uses: access-nri/actions/.github/actions/comment@main
@@ -227,6 +230,5 @@ jobs:
             ⚠️ There was an error in the pr-preview deployment.
             For more information check the [Actions](https://github.com/${{github.repository}}/actions) tab.
             ${{ needs.get-date.outputs.date }}
-
           number: ${{ matrix.pr_num }}
           label: ${{ env.COMMENT_LABEL }}
