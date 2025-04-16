@@ -112,7 +112,10 @@ jobs:
           git fetch origin main
           git checkout main
           if [[ -f mkdocs.yml ]]; then
-            command="SITE_URL=${{ env.ROOT_URL }} mkdocs build -f mkdocs.yml -d ${{ env.ROOT_BUILD_DIR }}"
+            dir=
+            site_url=${{ env.ROOT_URL }}/${dir}
+            build_dir=${{ env.ROOT_BUILD_DIR }}/${dir}
+            command="SITE_URL=${site_url} mkdocs build -f mkdocs.yml -d ${build_dir}"
             echo "$command"
             eval "$command"
           else
@@ -142,9 +145,10 @@ jobs:
               echo "::group::Build PR preview for PR #${num}"
               gh pr checkout $num
               if [[ -f mkdocs.yml ]]; then
-                pr_preview_dir=pr-preview-${num}
-                site_url=${{ env.ROOT_URL }}/${pr_preview_dir}
-                command="SITE_URL=${site_url} mkdocs build -f mkdocs.yml -d ${{ env.ROOT_BUILD_DIR }}/${pr_preview_dir}"
+                dir=pr-preview-${num}
+                site_url=${{ env.ROOT_URL }}/${dir}
+                build_dir=${{ env.ROOT_BUILD_DIR }}/${dir}
+                command="SITE_URL=${site_url} mkdocs build -f mkdocs.yml -d ${build_dir}"
                 echo "$command"
                 eval "$command"
                 # Defining the json string for the matrix.include field used in the pr-preview job
