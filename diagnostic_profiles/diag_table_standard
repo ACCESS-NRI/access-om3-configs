@@ -1,0 +1,197 @@
+ACCESS-OM3
+1900 1 1 0 0 0
+
+#########################################################################################################
+#                                                                                                       #
+# DO NOT EDIT! Instead, edit diag_table_source.yaml and run make_diag_table.py to re-generate this file #
+#                                                                                                       #
+#########################################################################################################
+
+
+# static 2d grid data
+
+"access-om3.mom6.static", -1, "months", 1, "days", "time"
+"ocean_model", "areacello", "areacello", "access-om3.mom6.static", "all", "none", "none", 1
+"ocean_model", "areacello_cu", "areacello_cu", "access-om3.mom6.static", "all", "none", "none", 1
+"ocean_model", "areacello_cv", "areacello_cv", "access-om3.mom6.static", "all", "none", "none", 1
+"ocean_model", "areacello_bu", "areacello_bu", "access-om3.mom6.static", "all", "none", "none", 1
+"ocean_model", "dxt", "dxt", "access-om3.mom6.static", "all", "none", "none", 1
+"ocean_model", "dyt", "dyt", "access-om3.mom6.static", "all", "none", "none", 1
+"ocean_model", "geolat_c", "geolat_c", "access-om3.mom6.static", "all", "none", "none", 1
+"ocean_model", "geolat", "geolat", "access-om3.mom6.static", "all", "none", "none", 1
+"ocean_model", "geolat_u", "geolat_u", "access-om3.mom6.static", "all", "none", "none", 1
+"ocean_model", "geolat_v", "geolat_v", "access-om3.mom6.static", "all", "none", "none", 1
+"ocean_model", "geolon_c", "geolon_c", "access-om3.mom6.static", "all", "none", "none", 1
+"ocean_model", "geolon", "geolon", "access-om3.mom6.static", "all", "none", "none", 1
+"ocean_model", "geolon_u", "geolon_u", "access-om3.mom6.static", "all", "none", "none", 1
+"ocean_model", "geolon_v", "geolon_v", "access-om3.mom6.static", "all", "none", "none", 1
+"ocean_model", "deptho", "deptho", "access-om3.mom6.static", "all", "none", "none", 1
+"ocean_model", "wet", "wet", "access-om3.mom6.static", "all", "none", "none", 1
+"ocean_model", "wet_c", "wet_c", "access-om3.mom6.static", "all", "none", "none", 1
+"ocean_model", "wet_u", "wet_u", "access-om3.mom6.static", "all", "none", "none", 1
+"ocean_model", "wet_v", "wet_v", "access-om3.mom6.static", "all", "none", "none", 1
+"ocean_model", "Coriolis", "Coriolis", "access-om3.mom6.static", "all", "none", "none", 1
+"ocean_model", "sin_rot", "sin_rot", "access-om3.mom6.static", "all", "none", "none", 1
+"ocean_model", "cos_rot", "cos_rot", "access-om3.mom6.static", "all", "none", "none", 1
+"ocean_model", "dxCu", "dxCu", "access-om3.mom6.static", "all", "none", "none", 1
+"ocean_model", "dyCu", "dyCu", "access-om3.mom6.static", "all", "none", "none", 1
+"ocean_model", "dxCv", "dxCv", "access-om3.mom6.static", "all", "none", "none", 1
+"ocean_model", "dyCv", "dyCv", "access-om3.mom6.static", "all", "none", "none", 1
+"ocean_model", "dyCuo", "dyCuo", "access-om3.mom6.static", "all", "none", "none", 1
+"ocean_model", "dxCvo", "dxCvo", "access-om3.mom6.static", "all", "none", "none", 1
+
+
+# monthly 3d fields
+
+"access-om3.mom6.3d.h.1mon.mean.%4yr", 1, "months", 1, "days", "time", 1, "years"
+"ocean_model", "h", "h", "access-om3.mom6.3d.h.1mon.mean.%4yr", "all", "average", "none", 2
+
+"access-om3.mom6.3d.agessc.1mon.mean.%4yr", 1, "months", 1, "days", "time", 1, "years"
+"ocean_model", "agessc", "agessc", "access-om3.mom6.3d.agessc.1mon.mean.%4yr", "all", "average", "none", 2
+
+"access-om3.mom6.3d.rhopot2.1mon.mean.%4yr", 1, "months", 1, "days", "time", 1, "years"
+"ocean_model", "rhopot2", "rhopot2", "access-om3.mom6.3d.rhopot2.1mon.mean.%4yr", "all", "average", "none", 2
+
+"access-om3.mom6.3d.thetao.1mon.mean.%4yr", 1, "months", 1, "days", "time", 1, "years"
+"ocean_model", "thetao", "thetao", "access-om3.mom6.3d.thetao.1mon.mean.%4yr", "all", "average", "none", 2
+
+"access-om3.mom6.3d.so.1mon.mean.%4yr", 1, "months", 1, "days", "time", 1, "years"
+"ocean_model", "so", "so", "access-om3.mom6.3d.so.1mon.mean.%4yr", "all", "average", "none", 2
+
+"access-om3.mom6.3d.uo.1mon.mean.%4yr", 1, "months", 1, "days", "time", 1, "years"
+"ocean_model", "uo", "uo", "access-om3.mom6.3d.uo.1mon.mean.%4yr", "all", "average", "none", 2
+
+"access-om3.mom6.3d.vo.1mon.mean.%4yr", 1, "months", 1, "days", "time", 1, "years"
+"ocean_model", "vo", "vo", "access-om3.mom6.3d.vo.1mon.mean.%4yr", "all", "average", "none", 2
+
+"access-om3.mom6.3d.uh.1mon.mean.%4yr", 1, "months", 1, "days", "time", 1, "years"
+"ocean_model", "uh", "uh", "access-om3.mom6.3d.uh.1mon.mean.%4yr", "all", "average", "none", 2
+
+"access-om3.mom6.3d.vh.1mon.mean.%4yr", 1, "months", 1, "days", "time", 1, "years"
+"ocean_model", "vh", "vh", "access-om3.mom6.3d.vh.1mon.mean.%4yr", "all", "average", "none", 2
+
+"access-om3.mom6.3d.uhGM.1mon.mean.%4yr", 1, "months", 1, "days", "time", 1, "years"
+"ocean_model", "uhGM", "uhGM", "access-om3.mom6.3d.uhGM.1mon.mean.%4yr", "all", "average", "none", 2
+
+"access-om3.mom6.3d.vhGM.1mon.mean.%4yr", 1, "months", 1, "days", "time", 1, "years"
+"ocean_model", "vhGM", "vhGM", "access-om3.mom6.3d.vhGM.1mon.mean.%4yr", "all", "average", "none", 2
+
+"access-om3.mom6.3d.thkcello.1mon.mean.%4yr", 1, "months", 1, "days", "time", 1, "years"
+"ocean_model", "thkcello", "thkcello", "access-om3.mom6.3d.thkcello.1mon.mean.%4yr", "all", "average", "none", 2
+
+"access-om3.mom6.3d.KE.1mon.mean.%4yr", 1, "months", 1, "days", "time", 1, "years"
+"ocean_model", "KE", "KE", "access-om3.mom6.3d.KE.1mon.mean.%4yr", "all", "average", "none", 2
+
+
+# monthly 2d fields
+
+"access-om3.mom6.2d.hfrunoffds.1mon.mean.%4yr", 1, "months", 1, "days", "time", 1, "years"
+"ocean_model", "hfrunoffds", "hfrunoffds", "access-om3.mom6.2d.hfrunoffds.1mon.mean.%4yr", "all", "average", "none", 2
+
+"access-om3.mom6.2d.hfrainds.1mon.mean.%4yr", 1, "months", 1, "days", "time", 1, "years"
+"ocean_model", "hfrainds", "hfrainds", "access-om3.mom6.2d.hfrainds.1mon.mean.%4yr", "all", "average", "none", 2
+
+"access-om3.mom6.2d.net_heat_coupler.1mon.mean.%4yr", 1, "months", 1, "days", "time", 1, "years"
+"ocean_model", "net_heat_coupler", "net_heat_coupler", "access-om3.mom6.2d.net_heat_coupler.1mon.mean.%4yr", "all", "average", "none", 2
+
+"access-om3.mom6.2d.hfds.1mon.mean.%4yr", 1, "months", 1, "days", "time", 1, "years"
+"ocean_model", "hfds", "hfds", "access-om3.mom6.2d.hfds.1mon.mean.%4yr", "all", "average", "none", 2
+
+"access-om3.mom6.2d.wfo.1mon.mean.%4yr", 1, "months", 1, "days", "time", 1, "years"
+"ocean_model", "wfo", "wfo", "access-om3.mom6.2d.wfo.1mon.mean.%4yr", "all", "average", "none", 2
+
+"access-om3.mom6.2d.pso.1mon.mean.%4yr", 1, "months", 1, "days", "time", 1, "years"
+"ocean_model", "pso", "pso", "access-om3.mom6.2d.pso.1mon.mean.%4yr", "all", "average", "none", 2
+
+"access-om3.mom6.2d.sfdsi.1mon.mean.%4yr", 1, "months", 1, "days", "time", 1, "years"
+"ocean_model", "sfdsi", "sfdsi", "access-om3.mom6.2d.sfdsi.1mon.mean.%4yr", "all", "average", "none", 2
+
+"access-om3.mom6.2d.salt_flux_added.1mon.mean.%4yr", 1, "months", 1, "days", "time", 1, "years"
+"ocean_model", "salt_flux_added", "salt_flux_added", "access-om3.mom6.2d.salt_flux_added.1mon.mean.%4yr", "all", "average", "none", 2
+
+"access-om3.mom6.2d.Rd_dx.1mon.mean.%4yr", 1, "months", 1, "days", "time", 1, "years"
+"ocean_model", "Rd_dx", "Rd_dx", "access-om3.mom6.2d.Rd_dx.1mon.mean.%4yr", "all", "average", "none", 2
+
+"access-om3.mom6.2d.mlotst.1mon.mean.%4yr", 1, "months", 1, "days", "time", 1, "years"
+"ocean_model", "mlotst", "mlotst", "access-om3.mom6.2d.mlotst.1mon.mean.%4yr", "all", "average", "none", 2
+
+"access-om3.mom6.2d.speed.1mon.mean.%4yr", 1, "months", 1, "days", "time", 1, "years"
+"ocean_model", "speed", "speed", "access-om3.mom6.2d.speed.1mon.mean.%4yr", "all", "average", "none", 2
+
+"access-om3.mom6.2d.SSH.1mon.mean.%4yr", 1, "months", 1, "days", "time", 1, "years"
+"ocean_model", "SSH", "SSH", "access-om3.mom6.2d.SSH.1mon.mean.%4yr", "all", "average", "none", 2
+
+"access-om3.mom6.2d.tauuo.1mon.mean.%4yr", 1, "months", 1, "days", "time", 1, "years"
+"ocean_model", "tauuo", "tauuo", "access-om3.mom6.2d.tauuo.1mon.mean.%4yr", "all", "average", "none", 2
+
+"access-om3.mom6.2d.tauvo.1mon.mean.%4yr", 1, "months", 1, "days", "time", 1, "years"
+"ocean_model", "tauvo", "tauvo", "access-om3.mom6.2d.tauvo.1mon.mean.%4yr", "all", "average", "none", 2
+
+"access-om3.mom6.2d.umo_2d.1mon.mean.%4yr", 1, "months", 1, "days", "time", 1, "years"
+"ocean_model", "umo_2d", "umo_2d", "access-om3.mom6.2d.umo_2d.1mon.mean.%4yr", "all", "average", "none", 2
+
+"access-om3.mom6.2d.vmo_2d.1mon.mean.%4yr", 1, "months", 1, "days", "time", 1, "years"
+"ocean_model", "vmo_2d", "vmo_2d", "access-om3.mom6.2d.vmo_2d.1mon.mean.%4yr", "all", "average", "none", 2
+
+"access-om3.mom6.2d.pbo.1mon.mean.%4yr", 1, "months", 1, "days", "time", 1, "years"
+"ocean_model", "pbo", "pbo", "access-om3.mom6.2d.pbo.1mon.mean.%4yr", "all", "average", "none", 2
+
+"access-om3.mom6.2d.salt_flux_in.1mon.mean.%4yr", 1, "months", 1, "days", "time", 1, "years"
+"ocean_model", "salt_flux_in", "salt_flux_in", "access-om3.mom6.2d.salt_flux_in.1mon.mean.%4yr", "all", "average", "none", 2
+
+"access-om3.mom6.2d.tnkebto.1mon.mean.%4yr", 1, "months", 1, "days", "time", 1, "years"
+"ocean_model", "tnkebto", "tnkebto", "access-om3.mom6.2d.tnkebto.1mon.mean.%4yr", "all", "average", "none", 2
+
+
+# monthly 2d max fields
+
+"access-om3.mom6.2d.mlotst.1mon.max.%4yr", 1, "months", 1, "days", "time", 1, "years"
+"ocean_model", "mlotst", "mlotst", "access-om3.mom6.2d.mlotst.1mon.max.%4yr", "all", "max", "none", 2
+
+
+# monthly 2d min fields
+
+"access-om3.mom6.2d.mlotst.1mon.min.%4yr", 1, "months", 1, "days", "time", 1, "years"
+"ocean_model", "mlotst", "mlotst", "access-om3.mom6.2d.mlotst.1mon.min.%4yr", "all", "min", "none", 2
+
+
+# daily 2D fields
+
+"access-om3.mom6.2d.tob.1day.mean.%4yr", 1, "days", 1, "days", "time", 1, "years"
+"ocean_model", "tob", "tob", "access-om3.mom6.2d.tob.1day.mean.%4yr", "all", "average", "none", 2
+
+"access-om3.mom6.2d.mlotst.1day.mean.%4yr", 1, "days", 1, "days", "time", 1, "years"
+"ocean_model", "mlotst", "mlotst", "access-om3.mom6.2d.mlotst.1day.mean.%4yr", "all", "average", "none", 2
+
+"access-om3.mom6.2d.tos.1day.mean.%4yr", 1, "days", 1, "days", "time", 1, "years"
+"ocean_model", "tos", "tos", "access-om3.mom6.2d.tos.1day.mean.%4yr", "all", "average", "none", 2
+
+"access-om3.mom6.2d.sos.1day.mean.%4yr", 1, "days", 1, "days", "time", 1, "years"
+"ocean_model", "sos", "sos", "access-om3.mom6.2d.sos.1day.mean.%4yr", "all", "average", "none", 2
+
+"access-om3.mom6.2d.speed.1day.mean.%4yr", 1, "days", 1, "days", "time", 1, "years"
+"ocean_model", "speed", "speed", "access-om3.mom6.2d.speed.1day.mean.%4yr", "all", "average", "none", 2
+
+
+# daily scalar timeseries
+
+"access-om3.mom6.scalar.1day.snap.%4yr", 1, "days", 1, "days", "time", 1, "years"
+"ocean_model", "soga", "soga", "access-om3.mom6.scalar.1day.snap.%4yr", "all", "none", "none", 1
+"ocean_model", "thetaoga", "thetaoga", "access-om3.mom6.scalar.1day.snap.%4yr", "all", "none", "none", 1
+"ocean_model", "tosga", "tosga", "access-om3.mom6.scalar.1day.snap.%4yr", "all", "none", "none", 1
+"ocean_model", "sosga", "sosga", "access-om3.mom6.scalar.1day.snap.%4yr", "all", "none", "none", 1
+"ocean_model", "total_salt_Flux_Added", "total_salt_Flux_Added", "access-om3.mom6.scalar.1day.snap.%4yr", "all", "none", "none", 1
+"ocean_model", "total_salt_Flux_In", "total_salt_Flux_In", "access-om3.mom6.scalar.1day.snap.%4yr", "all", "none", "none", 1
+"ocean_model", "total_salt_flux", "total_salt_flux", "access-om3.mom6.scalar.1day.snap.%4yr", "all", "none", "none", 1
+"ocean_model", "net_fresh_water_global_adjustment", "net_fresh_water_global_adjustment", "access-om3.mom6.scalar.1day.snap.%4yr", "all", "none", "none", 1
+"ocean_model", "salt_flux_global_restoring_adjustment", "salt_flux_global_restoring_adjustment", "access-om3.mom6.scalar.1day.snap.%4yr", "all", "none", "none", 1
+"ocean_model", "total_wfo", "total_wfo", "access-om3.mom6.scalar.1day.snap.%4yr", "all", "none", "none", 1
+"ocean_model", "total_evs", "total_evs", "access-om3.mom6.scalar.1day.snap.%4yr", "all", "none", "none", 1
+"ocean_model", "total_fsitherm", "total_fsitherm", "access-om3.mom6.scalar.1day.snap.%4yr", "all", "none", "none", 1
+"ocean_model", "total_precip", "total_precip", "access-om3.mom6.scalar.1day.snap.%4yr", "all", "none", "none", 1
+"ocean_model", "total_prsn", "total_prsn", "access-om3.mom6.scalar.1day.snap.%4yr", "all", "none", "none", 1
+"ocean_model", "total_lprec", "total_lprec", "access-om3.mom6.scalar.1day.snap.%4yr", "all", "none", "none", 1
+"ocean_model", "total_ficeberg", "total_ficeberg", "access-om3.mom6.scalar.1day.snap.%4yr", "all", "none", "none", 1
+"ocean_model", "total_friver", "total_friver", "access-om3.mom6.scalar.1day.snap.%4yr", "all", "none", "none", 1
+"ocean_model", "total_net_massout", "total_net_massout", "access-om3.mom6.scalar.1day.snap.%4yr", "all", "none", "none", 1
+"ocean_model", "total_net_massin", "total_net_massin", "access-om3.mom6.scalar.1day.snap.%4yr", "all", "none", "none", 1
