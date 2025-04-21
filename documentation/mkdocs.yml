@@ -1,0 +1,140 @@
+# This file uses the following environment variables set within the build workflow:
+# - SITE_URL: the URL of the site (Falls back to the default URL)
+# For example, for PR-previews, SITE_URL is set to <default_URL>/pr-preview-NUM
+
+site_name: ACCESS-OM3-configs
+
+# Site URL
+site_url: !ENV [SITE_URL, "http://access-nri.github.io/access-om3-configs/"]
+
+# Git repository (Adds a link to the GitHub repository at the top)
+repo_url: https://github.com/ACCESS-NRI/access-om3-configs
+repo_name: ACCESS-NRI/access-om3-configs
+
+# Theme
+theme:
+  name: material
+  custom_dir: overrides
+  palette:
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: custom-light
+      primary: none
+      accent: none
+      toggle:
+        icon: material/theme-light-dark
+        name: Switch to dark mode
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      primary: none
+      accent: none
+      scheme: custom-dark
+      toggle:
+        icon: material/theme-light-dark
+        name: Switch to light mode
+
+  features:
+    - navigation.instant
+    - navigation.tracking       # The URL in the address bar is automatically updated with active anchor
+    - navigation.indexes
+    # - navigation.tabs         # Tabs at the top
+    # - navigation.tabs.sticky
+    - search.suggest
+    - search.highlight
+    - search.share
+    - content.code.copy         # for displaying copy icon at top right in code snippets
+    - toc.follow                # the sidebar is automatically scrolled to the active anchor
+
+  logo: assets/ACCESS_icon_HIVE.png
+  favicon: assets/ACCESS_icon_HIVE.png
+  icon:
+    edit: material/pencil
+    view: material/eye
+copyright: Copyright &copy; 2025 ACCESS-NRI
+
+plugins:
+  - git-revision-date-localized:
+      type: date
+      enable_creation_date: false
+  - search:
+      separator: '[\s\-,:!=\[\]()"/]+|(?!\b)(?=[A-Z][a-z])|\.(?!\d)|&[lg]t;'
+  - macros
+  - bibtex:
+      bib_file: references.bib
+  - events:
+      events_dir: community_resources/events/events
+
+markdown_extensions: 
+  - attr_list
+  - abbr
+  - md_in_html
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.inlinehilite
+  - pymdownx.caret
+  - pymdownx.mark
+  - pymdownx.tilde
+  - pymdownx.snippets
+  - pymdownx.highlight
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - pymdownx.tabbed:
+      alternate_style: true 
+  - pymdownx.keys
+  - def_list
+  - footnotes
+  - tables
+  - toc:
+      title: On this page
+
+# Navigation
+nav:
+  - Home:                  index.md
+  - Architecture:          pages/Architecture.md
+  - Building:              pages/Building.md
+  - Configurations:
+    - pages/configurations/Configurations.md
+    # At build time other configurations are added here by the mkdocs-include-configurations plugin
+  - Coupling:              pages/Coupling.md
+  - Forcing-data-models:   pages/Forcing-data-models.md
+  - Git-practices:         pages/Git-practices.md
+  - MOM6-generic-tracers:  pages/MOM6-generic-tracers.md
+  - MOM6:                  pages/MOM6.md
+  - NUOPC-driver:          pages/NUOPC-driver.md
+  - Quick-start:           pages/Quick-start.md
+  - Releases:              pages/Releases.md
+  - Topography-generation: pages/Topography-generation.md
+  - Updating-components:   pages/Updating-components.md
+
+# Footer
+extra:
+  generator: false
+  social:
+    - icon: fontawesome/brands/bluesky
+      link: https://bsky.app/profile/access-nri.bsky.social
+      name: ACCESS-NRI on Bluesky
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/access-nri
+      name: ACCESS-NRI on Linkedin
+
+extra_css:
+  - "https://fonts.googleapis.com/icon?family=Material+Icons"   # Material Icons Reference - https://material.io/resources/icons/?style=baseline
+  - fontello/css/fontello-codes.css
+  - fontello/css/fontello-ie7-codes.css
+  - fontello/css/fontello-ie7.css
+  - fontello/css/fontello.css
+  - css/custom.css
+
+extra_javascript:
+  - https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js     # For tablesort functionality 
+  - https://cdn.jsdelivr.net/gh/atteggiani/animated-terminal@3.0/animated-terminal.min.js # Terminal animations
+  # - js/custom-tags.js
+  # - js/miscellaneous.js
+
+# Automatically reload page when running `mkdocs serve`, for any 
+# of the following files outside of the 'docs' directory
+watch:
+  - mkdocs.yml
+  - overrides/
