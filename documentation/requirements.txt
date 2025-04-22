@@ -3,4 +3,4 @@ mkdocs-git-revision-date-localized-plugin==1.2.0
 mkdocs-macros-plugin==1.0.4
 mkdocs-bibtex==4.2.5
 git+https://github.com/rbeucher/mkdocs_events_plugin.git
-# mkdocs-include-configurations-plugin==1.0.0
+git+https://github.com/ACCESS-NRI/mkdocs_include_configurations_plugin.git
