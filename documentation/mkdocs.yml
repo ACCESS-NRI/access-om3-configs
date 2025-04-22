@@ -63,6 +63,7 @@ plugins:
       bib_file: references.bib
   - events:
       events_dir: community_resources/events/events
+  - include-configurations
 
 markdown_extensions: 
   - attr_list
@@ -92,21 +93,21 @@ markdown_extensions:
 # Navigation
 nav:
   - Home:                  index.md
-  - Architecture:          pages/Architecture.md
-  - Building:              pages/Building.md
+  - Architecture:          architecture.md
+  - Building:              building.md
   - Configurations:
-    - pages/configurations/Configurations.md
+    - configurations/index.md
     # At build time other configurations are added here by the mkdocs-include-configurations plugin
-  - Coupling:              pages/Coupling.md
-  - Forcing-data-models:   pages/Forcing-data-models.md
-  - Git-practices:         pages/Git-practices.md
-  - MOM6-generic-tracers:  pages/MOM6-generic-tracers.md
-  - MOM6:                  pages/MOM6.md
-  - NUOPC-driver:          pages/NUOPC-driver.md
-  - Quick-start:           pages/Quick-start.md
-  - Releases:              pages/Releases.md
-  - Topography-generation: pages/Topography-generation.md
-  - Updating-components:   pages/Updating-components.md
+  - Coupling:              coupling.md
+  - Forcing-data-models:   forcing-data-models.md
+  - Git-practices:         git-practices.md
+  - MOM6-generic-tracers:  MOM6-generic-tracers.md
+  - MOM6:                  MOM6.md
+  - NUOPC-driver:          NUOPC-driver.md
+  - Quick-start:           quick-start.md
+  - Releases:              releases.md
+  - Topography-generation: topography-generation.md
+  - Updating-components:   updating-components.md
 
 # Footer
 extra:
