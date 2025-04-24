@@ -372,12 +372,11 @@ LAPLACIAN = True                !   [Boolean] default = False
                                 ! If true, use a Laplacian horizontal viscosity.
 AH = 1.0E+12                    !   [m4 s-1] default = 0.0
                                 ! The background biharmonic horizontal viscosity.
-AH_VEL_SCALE = 0.01             !   [m s-1] default = 0.0
-                                ! The velocity scale which is multiplied by the cube of the grid spacing to
-                                ! calculate the biharmonic viscosity. The final viscosity is the largest of this
-                                ! scaled viscosity, the Smagorinsky and Leith viscosities, and AH.
-SMAGORINSKY_AH = True           !   [Boolean] default = False
-                                ! If true, use a biharmonic Smagorinsky nonlinear eddy viscosity.
+LEITH_AH = True                 !   [Boolean] default = False
+                                ! If true, use a biharmonic Leith nonlinear eddy viscosity.
+USE_LEITHY = True               !   [Boolean] default = False
+                                ! If true, use a biharmonic Leith nonlinear eddy viscosity together with a
+                                ! harmonic backscatter.
 BACKSCATTER_UNDERBOUND = False  !   [Boolean] default = True
                                 ! If true, the bounds on the biharmonic viscosity are allowed to increase where
                                 ! the Laplacian viscosity is negative (due to backscatter parameterizations)
@@ -385,8 +384,9 @@ BACKSCATTER_UNDERBOUND = False  !   [Boolean] default = True
                                 ! when no Laplacian viscosity is applied.  The default is true for historical
                                 ! reasons, but this option probably should not be used because it can contribute
                                 ! to numerical instabilities.
-SMAG_BI_CONST = 0.05066         !   [nondim] default = 0.0
-                                ! The nondimensional biharmonic Smagorinsky constant, typically 0.015 - 0.06.
+LEITH_BI_CONST = 128.0          !   [nondim] default = 0.0
+                                ! The nondimensional biharmonic Leith constant, typical values are thus far
+                                ! undetermined.
 FRICTWORK_BUG = False           !   [Boolean] default = True
                                 ! If true, retain an answer-changing bug in calculating the FrictWork, which
                                 ! cancels the h in thickness flux and the h at velocity point. This isnot
@@ -583,6 +583,10 @@ HBD_REMAPPING_USE_OM4_SUBCELLS = False !   [Boolean] default = True
                                 ! this option to false.
 
 ! === module MOM_sum_output ===
+MAXTRUNC = 10000                !   [truncations save_interval-1] default = 0
+                                ! The run will be stopped, and the day set to a very large value if the velocity
+                                ! is truncated more than MAXTRUNC times between energy saves.  Set MAXTRUNC to 0
+                                ! to stop if there is any truncation of velocities.
 
 ! === module ocean_stochastics_init ===
 
