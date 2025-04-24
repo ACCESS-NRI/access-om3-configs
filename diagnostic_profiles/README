@@ -1,0 +1,11 @@
+Preset diag_table files for MOM6 diagnostic requests. 
+
+diag_table_<standard/detailed> files are generated from the diag_table_<standard/detaild>_source.yaml
+files in the diag_table_source directory via the make_diag_table.py script. To create and use a custom diag_table:
+
+1. Copy either `diag_table_<standard/detailed>_source.yaml` files to a new file named `diag_table_source.yaml`
+2. Make modifications to the new `diag_table_source.yaml`
+3. Run the make_diag_table.py script at https://github.com/COSIMA/make_diag_table,
+   which will produce a new diagnostic table `diag_table` based on diag_table_source.yaml.
+4. Place the new `diag_table` file in the `diagnostic_profiles` directory, and provide an informative name.
+5. Modify the <control_directory>/ocean/diag_table symlink to point to the new diagnostic table.
