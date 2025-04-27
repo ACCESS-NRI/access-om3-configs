@@ -398,6 +398,9 @@ AH = 1.0E+12                    !   [m4 s-1] default = 0.0
                                 ! The background biharmonic horizontal viscosity.
 LEITH_AH = True                 !   [Boolean] default = False
                                 ! If true, use a biharmonic Leith nonlinear eddy viscosity.
+USE_LEITHY = True               !   [Boolean] default = False
+                                ! If true, use a biharmonic Leith nonlinear eddy viscosity together with a
+                                ! harmonic backscatter.
 BACKSCATTER_UNDERBOUND = False  !   [Boolean] default = True
                                 ! If true, the bounds on the biharmonic viscosity are allowed to increase where
                                 ! the Laplacian viscosity is negative (due to backscatter parameterizations)
@@ -604,6 +607,10 @@ HBD_REMAPPING_USE_OM4_SUBCELLS = False !   [Boolean] default = True
                                 ! this option to false.
 
 ! === module MOM_sum_output ===
+MAXTRUNC = 10000                !   [truncations save_interval-1] default = 0
+                                ! The run will be stopped, and the day set to a very large value if the velocity
+                                ! is truncated more than MAXTRUNC times between energy saves.  Set MAXTRUNC to 0
+                                ! to stop if there is any truncation of velocities.
 
 ! === module ocean_stochastics_init ===
 
