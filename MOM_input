@@ -155,7 +155,7 @@ NJGLOBAL = 300
                                 ! The processor layout that was acutally used."
 
 ! === module MOM_verticalGrid ===
-NK = 50
+NK = 75
                                 ! "[nondim]
                                 ! The number of model layers."
 
