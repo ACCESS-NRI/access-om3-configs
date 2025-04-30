@@ -65,11 +65,12 @@ plugins:
   - include-configuration-stubs:
       repo: ACCESS-NRI/access-om3-configs
       main_website:
-        pattern: release-*
-        ref_type: tag
-        branch: davide/527-include_configurations_stubs
+        pattern: davide/test_release-*
+        ref_type: branch
+        # branch: davide/527-include_configurations_stubs
+        branch: bubbi
       preview_website:
-        pattern: dev-*
+        pattern: davide/test_dev-*
         ref_type: branch
         no_main: false
       stubs_dir: documentation
@@ -112,6 +113,7 @@ nav:
   - Building:              building.md
   - Configurations:
     - configurations/index.md
+    - Test_static: configurations/test_1.md
     # At build time other configurations are added here by the mkdocs-include-configurations plugin
   - Coupling:              coupling.md
   - Forcing-data-models:   forcing-data-models.md
