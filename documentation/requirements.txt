@@ -1,6 +1,7 @@
 mkdocs-material==9.6.11
 mkdocs-git-revision-date-localized-plugin==1.2.0
 mkdocs-macros-plugin==1.0.4
-mkdocs-bibtex==4.2.5
+git+https://github.com/atteggiani/mkdocs-bibtex.git@309-resolve-bib_file
+# mkdocs-bibtex==4.2.5
 git+https://github.com/rbeucher/mkdocs_events_plugin.git
-git+https://github.com/ACCESS-NRI/mkdocs_include_configurations_plugin.git
+git+https://github.com/ACCESS-NRI/mkdocs_include_configuration_stubs_plugin.git

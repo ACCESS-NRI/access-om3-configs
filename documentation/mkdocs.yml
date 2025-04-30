@@ -55,17 +55,25 @@ theme:
 copyright: Copyright &copy; 2025 ACCESS-NRI
 
 plugins:
+  - include-configuration-stubs:
+      main_website:
+        pattern: davide/test_release-*
+        ref_type: branch
+        branch: davide/527-include_configuration_stub
+      preview_website:
+        pattern: davide/test_dev-*
+        ref_type: branch
   - git-revision-date-localized:
       type: date
       enable_creation_date: false
   - search:
       separator: '[\s\-,:!=\[\]()"/]+|(?!\b)(?=[A-Z][a-z])|\.(?!\d)|&[lg]t;'
-  - macros
   - bibtex:
       bib_file: references.bib
   - events:
       events_dir: community_resources/events/events
-  - include-configurations
+  - macros
+
 
 markdown_extensions: 
   - attr_list
@@ -97,7 +105,7 @@ nav:
   - Home:                  index.md
   - Quick start:           Quick-start.md
   - Configurations:
-    - configurations/Overview.md
+    - configurations/index.md
     # At build time other configurations are added here by the mkdocs-include-configurations plugin
   - Architecture:          Architecture.md
   - NUOPC driver:          NUOPC-driver.md
