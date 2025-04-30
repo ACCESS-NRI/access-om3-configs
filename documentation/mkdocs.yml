@@ -58,12 +58,27 @@ plugins:
       enable_creation_date: false
   - search:
       separator: '[\s\-,:!=\[\]()"/]+|(?!\b)(?=[A-Z][a-z])|\.(?!\d)|&[lg]t;'
-  - macros
   - bibtex:
       bib_file: references.bib
   - events:
       events_dir: community_resources/events/events
-  - include-configurations
+  - include-configuration-stubs:
+      repo: ACCESS-NRI/access-om3-configs
+      main_website:
+        pattern: release-*
+        ref_type: tag
+        branch: davide/527-include_configurations_stubs
+      preview_website:
+        pattern: dev-*
+        ref_type: branch
+        no_main: false
+      stubs_dir: documentation
+      stubs_site_dir: configurations
+      supported_file_formats:
+        - .md
+        - .html
+  - macros
+
 
 markdown_extensions: 
   - attr_list
