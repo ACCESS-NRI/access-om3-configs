@@ -17,7 +17,7 @@ FATAL_UNUSED_PARAMS = True      !   [Boolean] default = False
 ! This section contains non default layout parameters which are set.
 ! ------------------------
 ! === module MOM_domains ===
-AUTO_MASKTABLE = True           !   [Boolean] default = False
+!AUTO_MASKTABLE = True           !   [Boolean] default = False
                                 ! Turn on automatic mask table generation to eliminate land blocks.
 
 ! This section is formatted the same as the MOM_parameter_short.doc output file.
