@@ -1,6 +1,6 @@
 # ACCESS-OM3 architecture
 
-The schematic below illustrates the structure of the MOM6-CICE6-WW3 ACCESS-OM3 executable. ACCESS-OM3 is a single executable, consisting of the NUOPC driver (the main program) and several model components, each wrapped in a NUOPC cap; the caps are coupled through the CMEPS mediator via NUOPC connectors (see the [coupling page](pages/Coupling) for more information).
+The schematic below illustrates the structure of the MOM6-CICE6-WW3 ACCESS-OM3 executable. ACCESS-OM3 is a single executable, consisting of the NUOPC driver (the main program) and several model components, each wrapped in a NUOPC cap; the caps are coupled through the CMEPS mediator via NUOPC connectors (see the [coupling page](Coupling) for more information).
 
 ![ACCESS-OM3 architecture](https://github.com/COSIMA/access-om3/assets/31054815/8a438302-75a2-47c6-81dd-722a94b00333){: loading="lazy" }
 
@@ -10,7 +10,7 @@ The ACCESS-OM3 code repository consists mostly of submodules containing the code
 
 The top level code (main program) for an ACCESS-OM3 executable is the CMEPS NUOPC driver [`CMEPS/CMEPS/cesm/driver/esmApp.F90`](https://github.com/ESCOMP/CMEPS/blob/606eb397d4e66f8fa3417e7e8fd2b2b4b3c222b4/cesm/driver/esmApp.F90).
 
-The [build system](pages/Building) compiles a set of executables containing the driver, [CMEPS](https://github.com/access-nri/access-om3/tree/master/CMEPS) NUOPC mediator and different selections of these model components:
+The [build system](Building) compiles a set of executables containing the driver, [CMEPS](https://github.com/access-nri/access-om3/tree/master/CMEPS) NUOPC mediator and different selections of these model components:
 - ocean: [MOM6](https://github.com/access-nri/access-om3/tree/master/MOM6) active model or DOCN prescribed data model from [CDEPS](https://github.com/access-nri/access-om3/tree/master/CDEPS) or nothing (stub)
 - sea ice: [CICE6](https://github.com/access-nri/access-om3/tree/master/CICE) active model or DICE prescribed data model from [CDEPS](https://github.com/access-nri/access-om3/tree/master/CDEPS) or nothing (stub)
 - waves: [WW3](https://github.com/access-nri/access-om3/tree/master/WW3) active model or nothing (stub)

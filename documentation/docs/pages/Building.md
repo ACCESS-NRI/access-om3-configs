@@ -1,4 +1,4 @@
-If you don't want to use a precompiled executable from an [ACCESS-OM3 release](pages/Releases), you can build it yourself.
+If you don't want to use a precompiled executable from an [ACCESS-OM3 release](Releases), you can build it yourself.
 
 Building access-om3 requires membership of the `ik11` project - apply at https://my.nci.org.au/mancini/project/ik11 if needed.
 
