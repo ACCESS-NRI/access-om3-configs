@@ -24,7 +24,7 @@ First the grid was created using the python [Ocean Model Grid Generator](https:/
 to generate a MOM supergrid file. The MOM supergrid splits each model cell into four supergrid cells. 
 Secondly, an _ESMF Mesh_ file is [derived](https://github.com/COSIMA/om3-scripts/blob/main/mesh_generation/generate_mesh.py) using the MOM supergrid. 
 The MOM supergrid file is used by the MOM and CICE model components, whilst the ESMF Mesh file is used in the coupler. 
-(Additional ESMF mesh files exist for the data atmosphere and runoff components). How to configure these in the model is captured in the [configurations](pages/configurations/Configurations.md) page.
+(Additional ESMF mesh files exist for the data atmosphere and runoff components). How to configure these in the model is captured in the [configurations](configurations/Configurations.md) page.
 
 For analysis, it's best to use model grids output by the models:
 
