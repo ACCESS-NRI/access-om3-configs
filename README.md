@@ -101,14 +101,15 @@ runlog: true
 ## Customising your experiment
 
 See [this section of the quick start instructions in the ACCESS-OM3
-wiki](https://github.com/COSIMA/access-om3/wiki/Quick-start#customising-your-experiment).
+wiki](https://access-nri.github.io/access-om3-configs/pages/Quick-start/#customising-your-experiment).
+
 
 ## Running your experiment
 
 To run the configurations in this repo, you need to be a member of the `vk83` and `xp65` [projects](https://my.nci.org.au/mancini) on [Gadi](https://nci.org.au/our-systems/hpc-systems)
 
 See [this section of the quick start instructions in the ACCESS-OM3
-wiki](https://github.com/COSIMA/access-om3/wiki/Quick-start#running).
+wiki](https://access-nri.github.io/access-om3-configs/pages/Quick-start/#running).
 
 ## Contributions
 
