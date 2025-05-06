@@ -27,7 +27,7 @@ The three CMEPS-coupled configurations have much in common. Here we provide a qu
 
 ### Where to set parameters
 #### Model executable
-  - [`exe`](https://github.com/search?q=repo%3AACCESS-NRI%2Faccess-om3-configs+path%3Adoc%2Fconfig.yaml+exe:&type=code) in `config.yaml`. Pre-built executables are available in `/g/data/ik11/inputs/access-om3/bin/` or you can [build your own](../Building). Executable names indicate the available model components and the [git hash of the source code](https://github.com/COSIMA/access-om3/commits/) used. Avoid using the `Debug` versions for production runs as they are much slower.
+  - [`exe`](https://github.com/search?q=repo%3AACCESS-NRI%2Faccess-om3-configs+path%3Adoc%2Fconfig.yaml+exe:&type=code) in `config.yaml`. Pre-built executables are available in `/g/data/ik11/inputs/access-om3/bin/` or you can [build your own](../Building.md). Executable names indicate the available model components and the [git hash of the source code](https://github.com/COSIMA/access-om3/commits/) used. Avoid using the `Debug` versions for production runs as they are much slower.
 #### Coupling
 - **active model components**
   - [`component_list`](https://github.com/search?q=repo%3AACCESS-NRI%2Faccess-om3-configs+path%3Adoc%2Fnuopc.runconfig+component_list&type=code) and entries in [`ALLCOMP_attributes`](https://github.com/search?q=repo%3AACCESS-NRI%2Faccess-om3-configs+path%3Adoc%2Fnuopc.runconfig+ALLCOMP_attributes&type=code) section in `nuopc.runconfig`, e.g.
