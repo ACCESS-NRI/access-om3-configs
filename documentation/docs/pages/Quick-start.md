@@ -1,13 +1,13 @@
 ## Building `access-om3` executable (optional)
 
-You probably won't need to build the model yourself. ACCESS-OM3 configurations are already set up to use precompiled executables from the latest stable release. Precompiled executables from other [releases](Releases) are also available.
+You probably won't need to build the model yourself. ACCESS-OM3 configurations are already set up to use precompiled executables from the latest stable release. Precompiled executables from other [releases](Releases.md) are also available.
 
-However, if you want to make code changes you'll need to [build access-om3](Building) yourself.
+However, if you want to make code changes you'll need to [build access-om3](Building.md) yourself.
 
 
 ## Downloading a configuration
 
-Configurations that use the same combination of model components (MOM6, CICE6 and/or WW3) are stored as separate branches in a single repository, as [listed here](configurations/Configurations).
+Configurations that use the same combination of model components (MOM6, CICE6 and/or WW3) are stored as separate branches in a single repository, as [listed here](configurations/Configurations.md).
 The main branch within each of these repositories is just documentation. To get a working configuration you need to check out one of the branches with the resolution and forcing details you need, as explained in the README of the configuration repo. It's also best to create your own fork and clone that, so you can back up your work there.
 
 For example, to run a `MOM6-CICE6` configuration under RYF JRA55-do forcing (i.e. the `1deg_jra55do_ryf` branch):
@@ -28,7 +28,7 @@ metadata:
 
 ## Customising your experiment
 You may want change the run length. This is determined by [`stop_n`](https://github.com/search?q=repo%3AACCESS-NRI%2Faccess-om3-configs+path%3Adoc%2Fnuopc.runconfig+stop_n&type=code) and [`stop_option`](https://github.com/search?q=repo%3AACCESS-NRI%2Faccess-om3-configs+path%3Adoc%2Fnuopc.runconfig+stop_option&type=code) in `CLOCK_attributes` in `nuopc.runconfig`; available units for `stop_option` are listed [here](https://escomp.github.io/CMEPS/versions/master/html/generic.html).
-See the [Configurations](configurations/Configurations) section to find out how to set other parameters.
+See the [Configurations](configurations/Configurations.md) section to find out how to set other parameters.
 
 Before running, commit your changes with an informative message, e.g. `git commit -am "initial setup for experiment to test... bla bla"`
 

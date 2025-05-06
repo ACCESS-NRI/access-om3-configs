@@ -45,7 +45,7 @@ ALLCOMP_attributes::
      ...
 ```
 - **components and fields to couple**
-  - See the coupling architecture [here](../Architecture)
+  - See the coupling architecture [here](../Architecture.md)
   - Coupling is [negotiated between model components during initialization](https://earthsystemmodeling.org/nuopc/) of a model run. See [here](https://escomp.github.io/CMEPS/versions/master/html/esmflds.html): "_CMEPS advertises all possible fields that can be imported to and exported by the mediator for the target coupled system. Not all of these fields will be connected to the various components. The connections will be determined by what the components advertise in their respective advertise phase._"
   - [`fd.yaml`](https://github.com/ACCESS-NRI/access-om3-configs/blob/1deg_jra55do_ryf/fd.yaml): NUOPC [field dictionary](https://earthsystemmodeling.org/docs/release/ESMF_8_3_1/NUOPC_refdoc/node3.html#SECTION00032000000000000000) defines standard metadata for fields that may be available for import and/or export from model components; standard_names are used for [field pairing](https://earthsystemmodeling.org/docs/release/ESMF_8_4_2/NUOPC_refdoc/node3.html#SECTION00034200000000000000) during initialisation
   - the fields available to be imported/exported for coupling are determined by the NUOPC cap code for [MOM6](https://github.com/mom-ocean/MOM6/tree/main/config_src/drivers/nuopc_cap), [CICE6](https://github.com/ESCOMP/CICE/tree/main/cicecore/drivers/nuopc/cmeps), [WW3](https://github.com/ESCOMP/WW3/blob/dev/unified/model/src/wav_import_export.F90), [DATM](https://github.com/ESCOMP/CDEPS/tree/main/datm) and [DROF](https://github.com/ESCOMP/CDEPS/tree/main/drof) and recorded in the mediator log output file: `grep Advert archive/output000/log/med.log`
@@ -98,15 +98,15 @@ ALLCOMP_attributes::
 #### restart frequency
   - [`restart_n`](https://github.com/search?q=repo%3AACCESS-NRI%2Faccess-om3-configs+path%3Adoc%2Fnuopc.runconfig+restart_n&type=code) and [`restart_option`](https://github.com/search?q=repo%3AACCESS-NRI%2Faccess-om3-configs+path%3Adoc%2Fnuopc.runconfig+restart_option&type=code) in `CLOCK_attributes` in `nuopc.runconfig`; available units for `restart_option` are listed [here](https://escomp.github.io/CMEPS/versions/master/html/generic.html)
 #### timesteps
-  - there is a complex set of interrelated timesteps - see [here](../NUOPC-driver#time-steps) and [here](https://earthsystemmodeling.org/docs/release/ESMF_8_3_1/NUOPC_refdoc/node3.html#SECTION00035000000000000000) to understand how they interact
-  - coupling and driver timesteps - see [here](../NUOPC-driver#coupling-and-driver-time-step)
+  - there is a complex set of interrelated timesteps - see [here](../NUOPC-driver.md#time-steps) and [here](https://earthsystemmodeling.org/docs/release/ESMF_8_3_1/NUOPC_refdoc/node3.html#SECTION00035000000000000000) to understand how they interact
+  - coupling and driver timesteps - see [here](../NUOPC-driver.md#coupling-and-driver-time-step)
     - [`*_cpl_dt`](https://github.com/search?q=repo%3AACCESS-NRI%2Faccess-om3-configs+path%3Adoc%2Fnuopc.runconfig+_cpl_dt&type=code) in `CLOCK_attributes` in `nuopc.runconfig`
     - [`nuopc.runseq`](https://github.com/ACCESS-NRI/access-om3-configs/blob/1deg_jra55do_ryf/nuopc.runseq)
-  - MOM6 timestepping - see [here](../NUOPC-driver#mom6-time-steps)
+  - MOM6 timestepping - see [here](../NUOPC-driver.md#mom6-time-steps)
     - There are 4 timesteps. From shortest to longest they are: barotropic, baroclinic (Lagrangian), tracer, vertical remapping - see [here](https://youtu.be/JKMwd8VXYcU?t=383) and [here](https://youtu.be/JKMwd8VXYcU?t=2165) and [here](https://mom6.readthedocs.io/en/main/api/generated/pages/Timestep_Overview.html)
-  - CICE6 timestepping - see [here](../NUOPC-driver#cice6-time-steps)
+  - CICE6 timestepping - see [here](../NUOPC-driver.md#cice6-time-steps)
     - There are 3 timesteps. From shortest to longest they are elastic, dynamic and thermodynamic - see [here](https://cice-consortium-cice.readthedocs.io/en/cice6.5.0/user_guide/ug_implementation.html#choosing-an-appropriate-time-step)
-    - The thermodynamic timestep is determined by the coupling (and driver) timestep (so _`dt` should **not** be explicitly set in `ice_in`_ - see [here](../NUOPC-driver#cice6-time-steps))
+    - The thermodynamic timestep is determined by the coupling (and driver) timestep (so _`dt` should **not** be explicitly set in `ice_in`_ - see [here](../NUOPC-driver.md#cice6-time-steps))
     - [`ndtd`](https://github.com/search?q=repo%3AACCESS-NRI%2Faccess-om3-configs+path%3Adoc%2Fice_in+ndtd&type=code) in `ice_in` sets the number of dynamic timesteps in each thermodynamic timestep; increasing this can resolve "bad departure points" CFL errors
     - [`ndte`](https://github.com/search?q=repo%3AACCESS-NRI%2Faccess-om3-configs+path%3Adoc%2Fice_in+ndte&type=code) in `ice_in` sets the number of elastic timesteps in each dynamic timestep if the classic EVP or EAP method is used ([`kdyn`](https://github.com/search?q=repo%3AACCESS-NRI%2Faccess-om3-configs+path%3Adoc%2Fice_in+kdyn&type=code) = 1 or 2, [`revised_evp`](https://github.com/search?q=repo%3AACCESS-NRI%2Faccess-om3-configs+path%3Adoc%2Fice_in+revised_evp&type=code) = false)
 #### walltime limit
@@ -114,7 +114,7 @@ ALLCOMP_attributes::
 #### number of ensemble members
   - [`ninst`](https://github.com/search?q=repo%3AACCESS-NRI%2Faccess-om3-configs+path%3Adoc%2Fnuopc.runconfig+ninst&type=code) in `PELAYOUT_attributes` in `nuopc.runconfig`
 #### forcing data
-  - see the [Forcing](../Forcing-data-models) page
+  - see the [Forcing](../Forcing-data-models.md) page
   - atmospheric forcing
     - [`datm.streams.xml`](https://github.com/ACCESS-NRI/access-om3-configs/blob/1deg_jra55do_ryf/datm.streams.xml) sets individual file paths relative to [this entry](https://github.com/search?q=repo%3AACCESS-NRI%2Faccess-om3-configs+path%3Adoc%2Fconfig.yaml+"datm+and+drof"&type=code) in the `input` section of [`config.yaml`](https://github.com/ACCESS-NRI/access-om3-configs/blob/1deg_jra55do_ryf/config.yaml); see [DATM](https://escomp.github.io/CDEPS/versions/master/html/datm.html) and [streams](https://escomp.github.io/CDEPS/versions/master/html/streams.html) docs
   - runoff
