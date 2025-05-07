@@ -71,33 +71,33 @@ work/INPUT/RYF.vas.1990_1991.nc:
   hashes:
     binhash: d15ca562e37e82fb2d31657701f0a560
     md5: 88dc8c70338bbc8f5efc48ed0009a99f
-work/INPUT/access-om2-1deg-ESMFmesh.nc:
-  fullpath: /g/data/vk83/configurations/inputs/access-om3/share/meshes/global.1deg/2024.01.25/access-om2-1deg-ESMFmesh.nc
+work/INPUT/access-om2-100km-ESMFmesh.nc:
+  fullpath: /g/data/vk83/configurations/inputs/access-om3/share/meshes/global.100km/2024.01.25/access-om2-100km-ESMFmesh.nc
   hashes:
-    binhash: aa3b7d102b4069d5a5ed9446d857f1a4
+    binhash: 1ef89b82613d3ef0e903df4aeeb395ce
     md5: 44e508ac57b244fc357faf5b12933bed
-work/INPUT/access-om2-1deg-nomask-ESMFmesh.nc:
-  fullpath: /g/data/vk83/configurations/inputs/access-om3/share/meshes/global.1deg/2024.01.25/access-om2-1deg-nomask-ESMFmesh.nc
+work/INPUT/access-om2-100km-nomask-ESMFmesh.nc:
+  fullpath: /g/data/vk83/configurations/inputs/access-om3/share/meshes/global.100km/2024.01.25/access-om2-100km-nomask-ESMFmesh.nc
   hashes:
-    binhash: 4b1cc45032afeaf93b4894937639f5b9
+    binhash: 38605aedd850ec5c9d208258f2030166
     md5: 9b7120a42b5cb587492e7c31791eb549
 work/INPUT/iced.1900-01-01-10800.nc:
-  fullpath: /g/data/vk83/configurations/inputs/access-om3/cice/initial_conditions/global.1deg/2023.07.28/iced.1900-01-01-10800.nc
+  fullpath: /g/data/vk83/configurations/inputs/access-om3/cice/initial_conditions/global.100km/2023.07.28/iced.1900-01-01-10800.nc
   hashes:
     binhash: 414174d244807698f8c919f763d3d51d
     md5: 87c012d60c58c65bb56caa98779e5e51
 work/INPUT/kmt.nc:
-  fullpath: /g/data/vk83/configurations/inputs/access-om3/cice/grids/global.1deg/2024.05.14/kmt.nc
+  fullpath: /g/data/vk83/configurations/inputs/access-om3/cice/grids/global.100km/2024.05.14/kmt.nc
   hashes:
     binhash: 670a7fb52cdc440673304d9a775b3dac
     md5: 4dae75252ac93467f10ea26e833e13d2
 work/INPUT/ocean_hgrid.nc:
-  fullpath: /g/data/vk83/configurations/inputs/access-om3/mom/grids/mosaic/global.1deg/2020.05.30/ocean_hgrid.nc
+  fullpath: /g/data/vk83/configurations/inputs/access-om3/mom/grids/mosaic/global.100km/2020.05.30/ocean_hgrid.nc
   hashes:
     binhash: 3526d89ffb639455c6a1218f5139d5b2
     md5: 51f58be0f4ea6da2cb438a893f95c689
 work/INPUT/ocean_temp_salt.res.nc:
-  fullpath: /g/data/vk83/configurations/inputs/access-om3/mom/initial_conditions/global.1deg/2020.10.22/ocean_temp_salt.res.nc
+  fullpath: /g/data/vk83/configurations/inputs/access-om3/mom/initial_conditions/global.100km/2020.10.22/ocean_temp_salt.res.nc
   hashes:
     binhash: efb5e5e124648f2d59d4cd56b6e9a023
     md5: c5f7e60b5427a4442f111adc65a2d067
@@ -107,12 +107,12 @@ work/INPUT/ocean_vgrid.nc:
     binhash: 1a0891515558b87f200786a9ac2f7132
     md5: 66f71f2b24bd00b1c220787505e0106e
 work/INPUT/salt_sfc_restore.nc:
-  fullpath: /g/data/vk83/configurations/inputs/access-om3/mom/surface_salt_restoring/global.1deg/2020.05.30/salt_sfc_restore.nc
+  fullpath: /g/data/vk83/configurations/inputs/access-om3/mom/surface_salt_restoring/global.100km/2020.05.30/salt_sfc_restore.nc
   hashes:
     binhash: 425ccc4989dc3e1acdecc6ffd7e9a870
     md5: b2bd35c44017597ba99b85fb61ed4d72
 work/INPUT/topog.nc:
-  fullpath: /g/data/vk83/configurations/inputs/access-om3/share/grids/global.1deg/2020.10.22/topog.nc
+  fullpath: /g/data/vk83/configurations/inputs/access-om3/share/grids/global.100km/2020.10.22/topog.nc
   hashes:
     binhash: 101cb5069e11e9f3196a5a6804fa0780
     md5: 4e13d88001b646f3cf4f1c3b8db59f91
