@@ -11,15 +11,15 @@ work/INPUT/JRA55do-drof-ESMFmesh.nc:
   hashes:
     binhash: fa1322dbc0ab951527b165f8327c7b5b
     md5: 3b46260b8c14d12925cf70f82da6658e
-work/INPUT/access-om2-1deg-ESMFmesh.nc:
-  fullpath: /g/data/vk83/configurations/inputs/access-om3/share/meshes/global.1deg/2024.01.25/access-om2-1deg-ESMFmesh.nc
+work/INPUT/access-om2-100km-ESMFmesh.nc:
+  fullpath: /g/data/vk83/configurations/inputs/access-om3/share/meshes/global.100km/2024.01.25/access-om2-100km-ESMFmesh.nc
   hashes:
-    binhash: aa3b7d102b4069d5a5ed9446d857f1a4
+    binhash: 1ef89b82613d3ef0e903df4aeeb395ce
     md5: 44e508ac57b244fc357faf5b12933bed
-work/INPUT/access-om2-1deg-nomask-ESMFmesh.nc:
-  fullpath: /g/data/vk83/configurations/inputs/access-om3/share/meshes/global.1deg/2024.01.25/access-om2-1deg-nomask-ESMFmesh.nc
+work/INPUT/access-om2-100km-nomask-ESMFmesh.nc:
+  fullpath: /g/data/vk83/configurations/inputs/access-om3/share/meshes/global.100km/2024.01.25/access-om2-100km-nomask-ESMFmesh.nc
   hashes:
-    binhash: 4b1cc45032afeaf93b4894937639f5b9
+    binhash: 38605aedd850ec5c9d208258f2030166
     md5: 9b7120a42b5cb587492e7c31791eb549
 ? work/INPUT/atmos/3hr/prra/gr/v20190429/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_195801010130-195812312230.nc
 : fullpath: /g/data/qv56/replicas/input4MIPs/CMIP6/OMIP/MRI/MRI-JRA55-do-1-4-0/atmos/3hr/prra/gr/v20190429/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-4-0_gr_195801010130-195812312230.nc
@@ -3132,12 +3132,12 @@ work/INPUT/atmos/fx/sftof/gr/v20190429/sftof_input4MIPs_atmosphericState_OMIP_MR
     binhash: ef944d0b9c1d3150d113a082e268187e
     md5: 58539c1be00bb9584c404a014396ad40
 work/INPUT/iced.1900-01-01-10800.nc:
-  fullpath: /g/data/vk83/configurations/inputs/access-om3/cice/initial_conditions/global.1deg/2023.07.28/iced.1900-01-01-10800.nc
+  fullpath: /g/data/vk83/configurations/inputs/access-om3/cice/initial_conditions/global.100km/2023.07.28/iced.1900-01-01-10800.nc
   hashes:
     binhash: 414174d244807698f8c919f763d3d51d
     md5: 87c012d60c58c65bb56caa98779e5e51
 work/INPUT/kmt.nc:
-  fullpath: /g/data/vk83/configurations/inputs/access-om3/cice/grids/global.1deg/2024.05.14/kmt.nc
+  fullpath: /g/data/vk83/configurations/inputs/access-om3/cice/grids/global.100km/2024.05.14/kmt.nc
   hashes:
     binhash: 670a7fb52cdc440673304d9a775b3dac
     md5: 4dae75252ac93467f10ea26e833e13d2
@@ -4092,12 +4092,12 @@ work/INPUT/ocean/yrC/vos/gr/v20190429/vos_input4MIPs_atmosphericState_OMIP_MRI-J
     binhash: 285b9561db14aa78236c5a6a96ebc681
     md5: 017073d6e701f3df36729bc428ceffa1
 work/INPUT/ocean_hgrid.nc:
-  fullpath: /g/data/vk83/configurations/inputs/access-om3/mom/grids/mosaic/global.1deg/2020.05.30/ocean_hgrid.nc
+  fullpath: /g/data/vk83/configurations/inputs/access-om3/mom/grids/mosaic/global.100km/2020.05.30/ocean_hgrid.nc
   hashes:
     binhash: 3526d89ffb639455c6a1218f5139d5b2
     md5: 51f58be0f4ea6da2cb438a893f95c689
 work/INPUT/ocean_temp_salt.res.nc:
-  fullpath: /g/data/vk83/configurations/inputs/access-om3/mom/initial_conditions/global.1deg/2020.10.22/ocean_temp_salt.res.nc
+  fullpath: /g/data/vk83/configurations/inputs/access-om3/mom/initial_conditions/global.100km/2020.10.22/ocean_temp_salt.res.nc
   hashes:
     binhash: efb5e5e124648f2d59d4cd56b6e9a023
     md5: c5f7e60b5427a4442f111adc65a2d067
@@ -4107,7 +4107,7 @@ work/INPUT/ocean_vgrid.nc:
     binhash: 9c1f82b7ea91a8647c8857c02676a7a5
     md5: 66f71f2b24bd00b1c220787505e0106e
 work/INPUT/salt_sfc_restore.nc:
-  fullpath: /g/data/vk83/configurations/inputs/access-om3/mom/surface_salt_restoring/global.1deg/2020.05.30/salt_sfc_restore.nc
+  fullpath: /g/data/vk83/configurations/inputs/access-om3/mom/surface_salt_restoring/global.100km/2020.05.30/salt_sfc_restore.nc
   hashes:
     binhash: 425ccc4989dc3e1acdecc6ffd7e9a870
     md5: b2bd35c44017597ba99b85fb61ed4d72
@@ -4732,7 +4732,7 @@ work/INPUT/salt_sfc_restore.nc:
     binhash: c3b3c539d9196169d519f4f7254b04c5
     md5: d06a458c05de881d6f43306e6ade7b2a
 work/INPUT/topog.nc:
-  fullpath: /g/data/vk83/configurations/inputs/access-om3/share/grids/global.1deg/2020.10.22/topog.nc
+  fullpath: /g/data/vk83/configurations/inputs/access-om3/share/grids/global.100km/2020.10.22/topog.nc
   hashes:
     binhash: 101cb5069e11e9f3196a5a6804fa0780
     md5: 4e13d88001b646f3cf4f1c3b8db59f91
