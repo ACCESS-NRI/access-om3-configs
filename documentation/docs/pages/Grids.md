@@ -17,6 +17,16 @@ meridional spacing scales as the cosine of latitude) between
 65&deg; N and 65&deg; S; south of 65&deg; S, the meridional grid spacing
 is held at the same value as at 65&deg; S.
 
+At the time of writing, the grid was generated using these arguments:
+
+```python
+ocean_grid_generator.py -r 4 --no_south_cap --ensure_nj_even --bipolar_lower_lat 65 --mercator_lower_lat -75 --mercator_upper_lat 65 --match_dy so --shift_equator_to_u_point --south_ocean_lower_lat -81
+```
+
+However refer to the metadata of the latest `ocean_hgrid.py` to find the latest setup.
+
+
+
 ### File formats
 
 The grid is defined in two file formats, however they represent the same grid.
