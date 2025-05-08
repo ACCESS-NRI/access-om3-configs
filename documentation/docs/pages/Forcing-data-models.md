@@ -7,12 +7,12 @@ Forcing is provided via [CDEPS](https://github.com/ESCOMP/CDEPS) data models [do
 
 ## Coupling
 
-- DATM and DROF are coupled to the other components via the mediator - see the [coupling architecture here](https://github.com/COSIMA/access-om3/wiki/Architecture).
+- DATM and DROF are coupled to the other components via the mediator - see the [coupling architecture here](Architecture.md).
 - The coupled fields and remapping methods used are recorded in the mediator log output file and can be found with `grep '^ mapping' archive/output000/log/med.log`; see [here](https://escomp.github.io/CMEPS/versions/master/html/esmflds.html) for how to decode this.
-- See [the Configurations page](https://github.com/COSIMA/access-om3/wiki/Configurations#coupling) for details on how the coupling is determined.
+- See [the Configurations page](configurations/Configurations.md#coupling) for details on how the coupling is determined.
 
 ## Input data
-[`datm.streams.xml`](https://github.com/ACCESS-NRI/access-om3-configs/blob/1deg_jra55do_ryf/datm.streams.xml) and [`drof.streams.xml`](https://github.com/ACCESS-NRI/access-om3-configs/blob/1deg_jra55do_ryf/drof.streams.xml) set individual input file paths for DATM and DROF respectively, relative to [this entry](https://github.com/search?q=repo%3AACCESS-NRI%2Faccess-om3-configs+path%3Adoc%2Fconfig.yaml+"datm+and+drof"&type=code) in the `input` section of [`config.yaml`](https://github.com/ACCESS-NRI/access-om3-configs/blob/1deg_jra55do_ryf/config.yaml) (see [the Configurations page](https://github.com/COSIMA/access-om3/wiki/Configurations#forcing-data)).
+[`datm.streams.xml`](https://github.com/ACCESS-NRI/access-om3-configs/blob/1deg_jra55do_ryf/datm.streams.xml) and [`drof.streams.xml`](https://github.com/ACCESS-NRI/access-om3-configs/blob/1deg_jra55do_ryf/drof.streams.xml) set individual input file paths for DATM and DROF respectively, relative to [this entry](https://github.com/search?q=repo%3AACCESS-NRI%2Faccess-om3-configs+path%3Adoc%2Fconfig.yaml+"datm+and+drof"&type=code) in the `input` section of [`config.yaml`](https://github.com/ACCESS-NRI/access-om3-configs/blob/1deg_jra55do_ryf/config.yaml) (see [the Configurations page](configurations/Configurations.md#forcing-data)).
 
 ## Ice surface wind stress
 
