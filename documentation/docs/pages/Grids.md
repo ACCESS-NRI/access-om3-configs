@@ -1,4 +1,4 @@
-## Grids
+## Horizontal grid
 
 All ACCESS global ocean and sea-ice models use a tripolar grid.
 For ACCESS-OM3, new grids will be created from scratch for all resolutions. So-far a new grid  (1142 x 1440 cells) has been created for 25km configurations. 
@@ -18,17 +18,13 @@ meridional spacing scales as the cosine of latitude) between
 is held at the same value as at 65&deg; S.
 
 
-### Vertical grid
-
-In the ocean model, we use a [75 level vertical grid](https://github.com/COSIMA/om3-scripts/blob/main/grid_generation/generate_vertical_grid.py) unchanged from many OM2 configurations, following Stewart et al 2017.
-
 ### File formats
 
 The grid is defined in two file formats, the MOM supergrid and the ESMF mesh, however they represent the same grid.
-First the grid was created using the python [Ocean Model Grid Generator](https://github.com/ACCESS-NRI/ocean_model_grid_generator/), 
+First the grid is created using the python [Ocean Model Grid Generator](https://github.com/ACCESS-NRI/ocean_model_grid_generator/), 
 to generate a MOM supergrid file. The MOM supergrid splits each model cell into four supergrid cells. 
 
-At the time of writing, the 25km grid was generated using the python based ocean model grid generator using these arguments:
+At the time of writing, the 25km grid is generated using the python based ocean model grid generator using these arguments:
 
 ```python
 ocean_grid_generator.py -r 4 --no_south_cap --ensure_nj_even --bipolar_lower_lat 65 --mercator_lower_lat -75 --mercator_upper_lat 65 --match_dy so --shift_equator_to_u_point --south_ocean_lower_lat -81
@@ -36,7 +32,7 @@ ocean_grid_generator.py -r 4 --no_south_cap --ensure_nj_even --bipolar_lower_lat
 
 However refer to the metadata of the latest `ocean_hgrid.py` to find the latest setup.
 
-Secondly, an _ESMF Mesh_ file was [derived](https://github.com/COSIMA/om3-scripts/blob/main/mesh_generation/generate_mesh.py) from the MOM supergrid. 
+Secondly, an _ESMF Mesh_ file is [derived](https://github.com/COSIMA/om3-scripts/blob/main/mesh_generation/generate_mesh.py) from the MOM supergrid. 
 The MOM supergrid file is used by the MOM and CICE model components, whilst the ESMF Mesh file is used in the coupler. 
 (Additional ESMF mesh files exist for the data atmosphere and runoff components). How to configure these in the model is captured in the [configurations](configurations/Configurations.md) page.
 
@@ -49,7 +45,22 @@ If you are using coupler diagnostics (off by default), note that the grid areas 
 are subtly different to the grid areas used in the model components. The model component caps [apply a correction](https://escomp.github.io/CMEPS/versions/master/html/introduction.html#area-corrections) between
 model areas and mediator areas. 
 
-### Aditional reading:
+## Vertical grid
+
+In the ocean model, we use a [75 level vertical grid](https://github.com/COSIMA/om3-scripts/blob/main/grid_generation/generate_vertical_grid.py) unchanged from many OM2 configurations, following Stewart et al 2017.
+
+## Aditional reading:
 
 - [Cheat sheet for using a Mosaic grid with MOM6 output](https://gist.github.com/adcroft/c1e207024fe1189b43dddc5f1fe7dd6c#file-cheat-sheet-for-using-a-mosaic-grid-with-mom6-output-ipynb)
 - [Gridspec: A standard for the description of grids used in Earth System models](https://extranet.gfdl.noaa.gov/~vb/pdf/gridstd.pdf)
+
+## References
+
+K.D. Stewart, A.McC. Hogg, S.M. Griffies, A.P. Heerdegen, M.L. Ward, P. Spence, M.H. England,
+Vertical resolution of baroclinic modes in global ocean models,
+Ocean Modelling,
+Volume 113,
+2017,
+Pages 50-65,
+ISSN 1463-5003,
+https://doi.org/10.1016/j.ocemod.2017.03.012.
