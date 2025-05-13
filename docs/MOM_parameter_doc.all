@@ -1150,7 +1150,7 @@ ETA_TOLERANCE = 1.0E-06         !   [m] default = 3.75E-09
                                 ! total tolerance for SSH is 4 times this value.  The default is
                                 ! 0.5*NK*ANGSTROM, and this should not be set less than about
                                 ! 10^-15*MAXIMUM_DEPTH.
-VELOCITY_TOLERANCE = 1.0E-04    !   [m s-1] default = 3.0E+08
+VELOCITY_TOLERANCE = 3.0E+08    !   [m s-1] default = 3.0E+08
                                 ! The tolerance for barotropic velocity discrepancies between the barotropic
                                 ! solution and  the sum of the layer thicknesses.
 CONT_PPM_AGGRESS_ADJUST = False !   [Boolean] default = False

@@ -303,9 +303,6 @@ ETA_TOLERANCE = 1.0E-06         !   [m] default = 3.75E-09
                                 ! total tolerance for SSH is 4 times this value.  The default is
                                 ! 0.5*NK*ANGSTROM, and this should not be set less than about
                                 ! 10^-15*MAXIMUM_DEPTH.
-VELOCITY_TOLERANCE = 1.0E-04    !   [m s-1] default = 3.0E+08
-                                ! The tolerance for barotropic velocity discrepancies between the barotropic
-                                ! solution and  the sum of the layer thicknesses.
 
 ! === module MOM_CoriolisAdv ===
 BOUND_CORIOLIS = True           !   [Boolean] default = False
