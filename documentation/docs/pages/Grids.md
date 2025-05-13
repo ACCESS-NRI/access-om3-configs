@@ -9,7 +9,7 @@ with updates for the OM3 grids:
 
 Ocean cells cover the global ocean from the North Pole to
 south of the Antarctic ice shelf edge (81&deg; S). The longitude range is −280 to +80&deg; E,
-placing the join in the middle of the Indian Ocean. The grid is defined using the conventional triplar definition (Murray, 1996) 
+placing the join in the middle of the Indian Ocean. The grid is defined using the conventional tripolar definition (Murray, 1996) 
 in all configurations, with two northern poles placed on land at 65&deg; N, −100&deg; E and 65&deg; N, 80&deg; E,
 and a third pole at the South Pole; consequently, the grid
 directions are zonal and meridional only south of 65&deg; N. The grid is Mercator (i.e. the
@@ -24,7 +24,7 @@ The grid is defined in two file formats, the MOM supergrid and the ESMF mesh, ho
 First the grid is created using the python [Ocean Model Grid Generator](https://github.com/ACCESS-NRI/ocean_model_grid_generator/), 
 to generate a MOM supergrid file. The MOM supergrid splits each model cell into four supergrid cells. 
 
-At the time of writing, the 25km grid is generated using the python based ocean model grid generator using these arguments:
+As an example, the 25km grid was once generated using the python based ocean model grid generator using these arguments:
 
 ```python
 ocean_grid_generator.py -r 4 --no_south_cap --ensure_nj_even --bipolar_lower_lat 65 --mercator_lower_lat -75 --mercator_upper_lat 65 --match_dy so --shift_equator_to_u_point --south_ocean_lower_lat -81
@@ -56,6 +56,15 @@ In the ocean model, we use a [75 level vertical grid](https://github.com/COSIMA/
 
 ## References
 
+Ross J. Murray,
+Explicit Generation of Orthogonal Grids for Ocean Models,
+Journal of Computational Physics,
+Volume 126, Issue 2,
+1996,
+Pages 251-273,
+ISSN 0021-9991,
+https://doi.org/10.1006/jcph.1996.0136.
+
 K.D. Stewart, A.McC. Hogg, S.M. Griffies, A.P. Heerdegen, M.L. Ward, P. Spence, M.H. England,
 Vertical resolution of baroclinic modes in global ocean models,
 Ocean Modelling,
@@ -64,3 +73,4 @@ Volume 113,
 Pages 50-65,
 ISSN 1463-5003,
 https://doi.org/10.1016/j.ocemod.2017.03.012.
+
