@@ -11,7 +11,9 @@ following components:
 - [DROF](https://escomp.github.io/CDEPS/versions/master/html/drof.html) runoff data model
 
 All the configurations use the [Payu](https://payu.readthedocs.io/en/latest/)
-workflow management tool.
+workflow management tool, and pre-built executables available on [NCI](https://nci.org.au/).
+
+Documentation on the configurations is provided [here](http://access-om3-configs.access-hive.org.au/).
 
 ## Repository structure
 
