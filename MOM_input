@@ -272,19 +272,22 @@ RESOLN_SCALED_KH = True         !   [Boolean] default = False
 RESOLN_SCALED_KHTH = True       !   [Boolean] default = False
                                 ! If true, the interface depth diffusivity is scaled away when the first
                                 ! baroclinic deformation radius is well resolved.
-KHTH_USE_EBT_STRUCT = True      !   [Boolean] default = False
-                                ! If true, uses the equivalent barotropic structure as the vertical structure of
-                                ! thickness diffusivity.
-KHTH_SLOPE_CFF = 0.01           !   [nondim] default = 0.0
-                                ! The nondimensional coefficient in the Visbeck formula for the interface depth
+KHTR_SLOPE_CFF = 0.25           !   [nondim] default = 0.0
+                                ! The nondimensional coefficient in the Visbeck formula for the epipycnal tracer
                                 ! diffusivity
 USE_STORED_SLOPES = True        !   [Boolean] default = False
                                 ! If true, the isopycnal slopes are calculated once and stored for re-use. This
                                 ! uses more memory but avoids calling the equation of state more times than
                                 ! should be necessary.
-KH_RES_SCALE_COEF = 0.4         !   [nondim] default = 1.0
-                                ! A coefficient that determines how KhTh is scaled away if RESOLN_SCALED_... is
-                                ! true, as F = 1 / (1 + (KH_RES_SCALE_COEF*Rd/dx)^KH_RES_FN_POWER).
+INTERPOLATE_RES_FN = False      !   [Boolean] default = True
+                                ! If true, interpolate the resolution function to the velocity points from the
+                                ! thickness points; otherwise interpolate the wave speed and calculate the
+                                ! resolution function independently at each point.
+GILL_EQUATORIAL_LD = True       !   [Boolean] default = False
+                                ! If true, uses Gill's definition of the baroclinic equatorial deformation
+                                ! radius, otherwise, if false, use Pedlosky's definition. These definitions
+                                ! differ by a factor of 2 in front of the beta term in the denominator. Gill's
+                                ! is the more appropriate definition.
 EBT_REMAPPING_USE_OM4_SUBCELLS = False !   [Boolean] default = True
                                 ! If true, use the OM4 remapping-via-subcells algorithm for calculating EBT
                                 ! structure. See REMAPPING_USE_OM4_SUBCELLS for details. We recommend setting
