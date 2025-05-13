@@ -221,55 +221,20 @@ DIAG_COORD_DEF_Z = "FILE:ocean_vgrid.nc,interfaces=zeta" ! default = "WOA09"
 USE_MEKE = True                 !   [Boolean] default = False
                                 ! If true, turns on the MEKE scheme which calculates a sub-grid mesoscale eddy
                                 ! kinetic energy budget.
-MEKE_GMCOEFF = 0.0              !   [nondim] default = -1.0
+MEKE_GMCOEFF = 1.0              !   [nondim] default = -1.0
                                 ! The efficiency of the conversion of potential energy into MEKE by the
                                 ! thickness mixing parameterization. If MEKE_GMCOEFF is negative, this
                                 ! conversion is not used or calculated.
-MEKE_GEOMETRIC = True           !   [Boolean] default = False
-                                ! If MEKE_GEOMETRIC is true, uses the GM coefficient formulation from the
-                                ! GEOMETRIC framework (Marshall et al., 2012).
-MEKE_EQUILIBRIUM_ALT = True     !   [Boolean] default = False
-                                ! If true, use an alternative formula for computing the (equilibrium)initial
-                                ! value of MEKE.
-MEKE_EQUILIBRIUM_RESTORING = True !   [Boolean] default = False
-                                ! If true, restore MEKE back to its equilibrium value, which is calculated at
-                                ! each time step.
-MEKE_RESTORING_TIMESCALE = 1.0E+07 !   [s] default = 1.0E+06
-                                ! The timescale used to nudge MEKE toward its equilibrium value.
-MEKE_VISC_DRAG = False          !   [Boolean] default = True
-                                ! If true, use the vertvisc_type to calculate the bottom drag acting on MEKE.
-MEKE_KHTH_FAC = 1.0             !   [nondim] default = 0.0
-                                ! A factor that maps MEKE%Kh to KhTh.
-MEKE_KHTR_FAC = 1.0             !   [nondim] default = 0.0
-                                ! A factor that maps MEKE%Kh to KhTr.
-MEKE_KHMEKE_FAC = 0.5           !   [nondim] default = 0.0
+MEKE_BGSRC = 1.0E-13            !   [W kg-1] default = 0.0
+                                ! A background energy source for MEKE.
+MEKE_KHMEKE_FAC = 1.0           !   [nondim] default = 0.0
                                 ! A factor that maps MEKE%Kh to Kh for MEKE itself.
-MEKE_MIN_LSCALE = True          !   [Boolean] default = False
-                                ! If true, use a strict minimum of provided length scales rather than harmonic
-                                ! mean.
-MEKE_VISCOSITY_COEFF_KU = 0.2   !   [nondim] default = 0.0
-                                ! If non-zero, is the scaling coefficient in the expression forviscosity used to
-                                ! parameterize harmonic lateral momentum mixing byunresolved eddies represented
-                                ! by MEKE. Can be negative torepresent backscatter from the unresolved eddies.
-MEKE_ALPHA_DEFORM = 1.0         !   [nondim] default = 0.0
-                                ! If positive, is a coefficient weighting the deformation scale in the
-                                ! expression for mixing length used in MEKE-derived diffusivity.
-MEKE_ALPHA_RHINES = 1.0         !   [nondim] default = 0.0
+MEKE_ALPHA_RHINES = 0.15        !   [nondim] default = 0.0
                                 ! If positive, is a coefficient weighting the Rhines scale in the expression for
                                 ! mixing length used in MEKE-derived diffusivity.
-MEKE_ALPHA_EADY = 1.0           !   [nondim] default = 0.0
+MEKE_ALPHA_EADY = 0.15          !   [nondim] default = 0.0
                                 ! If positive, is a coefficient weighting the Eady length scale in the
                                 ! expression for mixing length used in MEKE-derived diffusivity.
-MEKE_ALPHA_FRICT = 1.0          !   [nondim] default = 0.0
-                                ! If positive, is a coefficient weighting the frictional arrest scale in the
-                                ! expression for mixing length used in MEKE-derived diffusivity.
-MEKE_ALPHA_GRID = 1.0           !   [nondim] default = 0.0
-                                ! If positive, is a coefficient weighting the grid-spacing as a scale in the
-                                ! expression for mixing length used in MEKE-derived diffusivity.
-MEKE_ADVECTION_FACTOR = 1.0     !   [nondim] default = 0.0
-                                ! A scale factor in front of advection of eddy energy. Zero turns advection off.
-                                ! Using unity would be normal but other values could accommodate a mismatch
-                                ! between the advecting barotropic flow and the vertical structure of MEKE.
 
 ! === module MOM_lateral_mixing_coeffs ===
 USE_VARIABLE_MIXING = True      !   [Boolean] default = False
@@ -324,14 +289,11 @@ KV = 1.0E-04                    !   [m2 s-1]
                                 ! m2 s-1, may be used.
 
 ! === module MOM_thickness_diffuse ===
-KHTH_USE_FGNV_STREAMFUNCTION = True !   [Boolean] default = False
-                                ! If true, use the streamfunction formulation of Ferrari et al., 2010, which
-                                ! effectively emphasizes graver vertical modes by smoothing in the vertical.
-FGNV_C_MIN = 0.01               !   [m s-1] default = 0.0
-                                ! A minium wave speed used in the Ferrari et al., 2010, streamfunction
-                                ! formulation.
-USE_KH_IN_MEKE = True           !   [Boolean] default = False
-                                ! If true, uses the thickness diffusivity calculated here to diffuse MEKE.
+KHTH_MAX_CFL = 0.1              !   [nondimensional] default = 0.8
+                                ! The maximum value of the local diffusive CFL ratio that is permitted for the
+                                ! thickness diffusivity. 1.0 is the marginally unstable value in a pure layered
+                                ! model, but much smaller numbers (e.g. 0.1) seem to work better for ALE-based
+                                ! models.
 
 ! === module MOM_dynamics_split_RK2 ===
 VISC_REM_BUG = False            !   [Boolean] default = True
