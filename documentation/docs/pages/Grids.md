@@ -30,7 +30,7 @@ As an example, the 25km grid was once generated using the python based ocean mod
 ocean_grid_generator.py -r 4 --no_south_cap --ensure_nj_even --bipolar_lower_lat 65 --mercator_lower_lat -75 --mercator_upper_lat 65 --match_dy so --shift_equator_to_u_point --south_ocean_lower_lat -81
 ```
 
-However refer to the metadata of the latest `ocean_hgrid.py` to find the latest setup.
+However refer to the metadata of the latest `ocean_hgrid.nc` to find the latest setup.
 
 Secondly, an _ESMF Mesh_ file is [derived](https://github.com/COSIMA/om3-scripts/blob/main/mesh_generation/generate_mesh.py) from the MOM supergrid. 
 The MOM supergrid file is used by the MOM and CICE model components, whilst the ESMF Mesh file is used in the coupler. 
