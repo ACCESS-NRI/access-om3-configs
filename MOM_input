@@ -618,15 +618,6 @@ CHECK_DIFFUSIVE_CFL = True      !   [Boolean] default = False
 
 ! === module MOM_hor_bnd_diffusion ===
 ! This module implements horizontal diffusion of tracers near boundaries
-USE_HORIZONTAL_BOUNDARY_DIFFUSION = True !   [Boolean] default = False
-                                ! If true, enables the horizonal boundary tracer's diffusion module.
-HBD_LINEAR_TRANSITION = True    !   [Boolean] default = False
-                                ! If True, apply a linear transition at the base/top of the boundary.
-                                ! The flux will be fully applied at k=k_min and zero at k=k_max.
-HBD_REMAPPING_USE_OM4_SUBCELLS = False !   [Boolean] default = True
-                                ! If true, use the OM4 remapping-via-subcells algorithm for horizontal boundary
-                                ! diffusion. See REMAPPING_USE_OM4_SUBCELLS for details. We recommend setting
-                                ! this option to false.
 
 ! === module MOM_sum_output ===
 
