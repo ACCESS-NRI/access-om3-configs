@@ -2142,35 +2142,8 @@ USE_NEUTRAL_DIFFUSION = False   !   [Boolean] default = False
 
 ! === module MOM_hor_bnd_diffusion ===
 ! This module implements horizontal diffusion of tracers near boundaries
-USE_HORIZONTAL_BOUNDARY_DIFFUSION = True !   [Boolean] default = False
+USE_HORIZONTAL_BOUNDARY_DIFFUSION = False !   [Boolean] default = False
                                 ! If true, enables the horizonal boundary tracer's diffusion module.
-HBD_LINEAR_TRANSITION = True    !   [Boolean] default = False
-                                ! If True, apply a linear transition at the base/top of the boundary.
-                                ! The flux will be fully applied at k=k_min and zero at k=k_max.
-APPLY_LIMITER = True            !   [Boolean] default = True
-                                ! If True, apply a flux limiter in the native grid.
-APPLY_LIMITER_REMAP = False     !   [Boolean] default = False
-                                ! If True, apply a flux limiter in the remapped grid.
-HBD_BOUNDARY_EXTRAP = False     !   [Boolean] default = False
-                                ! Use boundary extrapolation in HBD code
-HBD_REMAPPING_SCHEME = "PLM"    ! default = "PLM"
-                                ! This sets the reconstruction scheme used for vertical remapping for all
-                                ! variables. It can be one of the following schemes: PCM         (1st-order
-                                ! accurate)
-                                ! PLM         (2nd-order accurate)
-                                ! PLM_HYBGEN  (2nd-order accurate)
-                                ! PPM_H4      (3rd-order accurate)
-                                ! PPM_IH4     (3rd-order accurate)
-                                ! PPM_HYBGEN  (3rd-order accurate)
-                                ! WENO_HYBGEN (3rd-order accurate)
-                                ! PQM_IH4IH3  (4th-order accurate)
-                                ! PQM_IH6IH5  (5th-order accurate)
-HBD_REMAPPING_USE_OM4_SUBCELLS = False !   [Boolean] default = True
-                                ! If true, use the OM4 remapping-via-subcells algorithm for horizontal boundary
-                                ! diffusion. See REMAPPING_USE_OM4_SUBCELLS for details. We recommend setting
-                                ! this option to false.
-HBD_DEBUG = False               !   [Boolean] default = False
-                                ! If true, write out verbose debugging data in the HBD module.
 OBSOLETE_DIAGNOSTIC_IS_FATAL = True !   [Boolean] default = True
                                 ! If an obsolete diagnostic variable appears in the diag_table, cause a FATAL
                                 ! error rather than issue a WARNING.
