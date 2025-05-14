@@ -2161,6 +2161,18 @@
     ! units: m2 s-2
     ! cell_methods: xh:mean yh:mean zi:point area:mean
     ! variants: {TKE_shear,TKE_shear_xyave}
+"KT_extra"  [Unused]
+    ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
+    ! long_name: Double-diffusive diffusivity for temperature
+    ! units: m2 s-1
+    ! cell_methods: xh:mean yh:mean zi:point area:mean
+    ! variants: {KT_extra,KT_extra_xyave}
+"KS_extra"  [Unused]
+    ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
+    ! long_name: Double-diffusive diffusivity for salinity
+    ! units: m2 s-1
+    ! cell_methods: xh:mean yh:mean zi:point area:mean
+    ! variants: {KS_extra,KS_extra_xyave}
 "created_H"  [Unused]
     ! modules: {ocean_model,ocean_model_d2}
     ! long_name: The volume flux added to stop the ocean from drying out and becoming negative in depth
