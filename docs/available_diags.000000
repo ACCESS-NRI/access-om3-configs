@@ -1450,6 +1450,26 @@
     ! long_name: Surface meridional velocity component of mixed layer restratification
     ! units: m s-1
     ! cell_methods: xh:mean yq:point
+"MLE_wpup"  [Unused]
+    ! modules: {ocean_model,ocean_model_d2}
+    ! long_name: Vertical turbulent momentum flux in Bodner mixed layer restratification parameterization
+    ! units: m2 s-2
+    ! cell_methods: xh:mean yh:mean area:mean
+"MLE_ustar"  [Unused]
+    ! modules: {ocean_model,ocean_model_d2}
+    ! long_name: Surface turbulent friction velocity, u*, in Bodner mixed layer restratification parameterization
+    ! units: m s-1
+    ! cell_methods: xh:mean yh:mean area:mean
+"MLE_bflux"  [Unused]
+    ! modules: {ocean_model,ocean_model_d2}
+    ! long_name: Surface buoyancy flux, B0, in Bodner mixed layer restratification parameterization
+    ! units: m2 s-3
+    ! cell_methods: xh:mean yh:mean area:mean
+"lf_bodner"  [Unused]
+    ! modules: {ocean_model,ocean_model_d2}
+    ! long_name: Front length in Bodner mixed layer restratificiation parameterization
+    ! units: m
+    ! cell_methods: xh:mean yh:mean area:mean
 "masscello"  [Unused]
     ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
     ! long_name: Mass per unit area of liquid ocean grid cell
@@ -1975,6 +1995,12 @@
     ! units: m2 s-1
     ! cell_methods: xh:mean yh:mean zi:point area:mean
     ! variants: {Kd_interface,Kd_interface_xyave}
+"Kd_ePBL"  [Unused]
+    ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
+    ! long_name: ePBL diapycnal diffusivity at interfaces
+    ! units: m2 s-1
+    ! cell_methods: xh:mean yh:mean zi:point area:mean
+    ! variants: {Kd_ePBL,Kd_ePBL_xyave}
 "Kd_heat"  [Unused] (CMOR equivalent is "difvho")
     ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
     ! long_name: Total diapycnal diffusivity for heat at interfaces
@@ -1987,150 +2013,6 @@
     ! units: m2 s-1
     ! cell_methods: xh:mean yh:mean zi:point area:mean
     ! variants: {Kd_salt,Kd_salt_xyave,difvso,difvso_xyave}
-"KPP_OBLdepth"  [Unused] (CMOR equivalent is "oml")
-    ! modules: {ocean_model,ocean_model_d2}
-    ! long_name: Thickness of the surface Ocean Boundary Layer calculated by [CVMix] KPP
-    ! units: meter
-    ! cell_methods: xh:mean yh:mean area:mean
-    ! variants: {KPP_OBLdepth,oml}
-"KPP_OBLdepth_original"  [Unused] (CMOR equivalent is "oml")
-    ! modules: {ocean_model,ocean_model_d2}
-    ! long_name: Thickness of the surface Ocean Boundary Layer without smoothing calculated by [CVMix] KPP
-    ! units: meter
-    ! cell_methods: xh:mean yh:mean area:mean
-    ! variants: {KPP_OBLdepth_original,oml}
-"KPP_BulkDrho"  [Unused]
-    ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
-    ! long_name: Bulk difference in density used in Bulk Richardson number, as used by [CVMix] KPP
-    ! units: kg/m3
-    ! cell_methods: xh:mean yh:mean zl:mean area:mean
-    ! variants: {KPP_BulkDrho,KPP_BulkDrho_xyave}
-"KPP_BulkUz2"  [Unused]
-    ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
-    ! long_name: Square of bulk difference in resolved velocity used in Bulk Richardson number via [CVMix] KPP
-    ! units: m2/s2
-    ! cell_methods: xh:mean yh:mean zl:mean area:mean
-    ! variants: {KPP_BulkUz2,KPP_BulkUz2_xyave}
-"KPP_BulkRi"  [Unused]
-    ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
-    ! long_name: Bulk Richardson number used to find the OBL depth used by [CVMix] KPP
-    ! units: nondim
-    ! cell_methods: xh:mean yh:mean zl:mean area:mean
-    ! variants: {KPP_BulkRi,KPP_BulkRi_xyave}
-"KPP_sigma"  [Unused]
-    ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
-    ! long_name: Sigma coordinate used by [CVMix] KPP
-    ! units: nondim
-    ! cell_methods: xh:mean yh:mean zi:point area:mean
-    ! variants: {KPP_sigma,KPP_sigma_xyave}
-"KPP_Ws"  [Unused]
-    ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
-    ! long_name: Turbulent vertical velocity scale for scalars used by [CVMix] KPP
-    ! units: m/s
-    ! cell_methods: xh:mean yh:mean zl:mean area:mean
-    ! variants: {KPP_Ws,KPP_Ws_xyave}
-"KPP_N"  [Unused]
-    ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
-    ! long_name: (Adjusted) Brunt-Vaisala frequency used by [CVMix] KPP
-    ! units: 1/s
-    ! cell_methods: xh:mean yh:mean zi:point area:mean
-    ! variants: {KPP_N,KPP_N_xyave}
-"KPP_N2"  [Unused]
-    ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
-    ! long_name: Square of Brunt-Vaisala frequency used by [CVMix] KPP
-    ! units: 1/s2
-    ! cell_methods: xh:mean yh:mean zi:point area:mean
-    ! variants: {KPP_N2,KPP_N2_xyave}
-"KPP_Vt2"  [Unused]
-    ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
-    ! long_name: Unresolved shear turbulence used by [CVMix] KPP
-    ! units: m2/s2
-    ! cell_methods: xh:mean yh:mean zl:mean area:mean
-    ! variants: {KPP_Vt2,KPP_Vt2_xyave}
-"KPP_uStar"  [Unused]
-    ! modules: {ocean_model,ocean_model_d2}
-    ! long_name: Friction velocity, u*, as used by [CVMix] KPP
-    ! units: m/s
-    ! cell_methods: xh:mean yh:mean area:mean
-"KPP_buoyFlux"  [Unused]
-    ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
-    ! long_name: Surface (and penetrating) buoyancy flux, as used by [CVMix] KPP
-    ! units: m2/s3
-    ! cell_methods: xh:mean yh:mean zi:point area:mean
-    ! variants: {KPP_buoyFlux,KPP_buoyFlux_xyave}
-"KPP_Kheat"  [Unused]
-    ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
-    ! long_name: Heat diffusivity due to KPP, as calculated by [CVMix] KPP
-    ! units: m2/s
-    ! cell_methods: xh:mean yh:mean zi:point area:mean
-    ! variants: {KPP_Kheat,KPP_Kheat_xyave}
-"KPP_Kd_in"  [Unused]
-    ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
-    ! long_name: Diffusivity passed to KPP
-    ! units: m2/s
-    ! cell_methods: xh:mean yh:mean zi:point area:mean
-    ! variants: {KPP_Kd_in,KPP_Kd_in_xyave}
-"KPP_Ksalt"  [Unused]
-    ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
-    ! long_name: Salt diffusivity due to KPP, as calculated by [CVMix] KPP
-    ! units: m2/s
-    ! cell_methods: xh:mean yh:mean zi:point area:mean
-    ! variants: {KPP_Ksalt,KPP_Ksalt_xyave}
-"KPP_Kv"  [Unused]
-    ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
-    ! long_name: Vertical viscosity due to KPP, as calculated by [CVMix] KPP
-    ! units: m2/s
-    ! cell_methods: xh:mean yh:mean zi:point area:mean
-    ! variants: {KPP_Kv,KPP_Kv_xyave}
-"KPP_NLtransport_heat"  [Unused]
-    ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
-    ! long_name: Non-local transport (Cs*G(sigma)) for heat, as calculated by [CVMix] KPP
-    ! units: nondim
-    ! cell_methods: xh:mean yh:mean zi:point area:mean
-    ! variants: {KPP_NLtransport_heat,KPP_NLtransport_heat_xyave}
-"KPP_NLtransport_salt"  [Unused]
-    ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
-    ! long_name: Non-local tranpsort (Cs*G(sigma)) for scalars, as calculated by [CVMix] KPP
-    ! units: nondim
-    ! cell_methods: xh:mean yh:mean zi:point area:mean
-    ! variants: {KPP_NLtransport_salt,KPP_NLtransport_salt_xyave}
-"KPP_Tsurf"  [Unused]
-    ! modules: {ocean_model,ocean_model_d2}
-    ! long_name: Temperature of surface layer (10% of OBL depth) as passed to [CVMix] KPP
-    ! units: C
-    ! cell_methods: xh:mean yh:mean area:mean
-"KPP_Ssurf"  [Unused]
-    ! modules: {ocean_model,ocean_model_d2}
-    ! long_name: Salinity of surface layer (10% of OBL depth) as passed to [CVMix] KPP
-    ! units: ppt
-    ! cell_methods: xh:mean yh:mean area:mean
-"KPP_Usurf"  [Unused]
-    ! modules: {ocean_model,ocean_model_d2}
-    ! long_name: i-component flow of surface layer (10% of OBL depth) as passed to [CVMix] KPP
-    ! units: m/s
-    ! cell_methods: xq:point yh:mean
-"KPP_Vsurf"  [Unused]
-    ! modules: {ocean_model,ocean_model_d2}
-    ! long_name: j-component flow of surface layer (10% of OBL depth) as passed to [CVMix] KPP
-    ! units: m/s
-    ! cell_methods: xh:mean yq:point
-"EnhK"  [Unused]
-    ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
-    ! long_name: Langmuir number enhancement to K as used by [CVMix] KPP
-    ! units: nondim
-    ! cell_methods: xh:mean yh:mean zi:point area:mean
-    ! variants: {EnhK,EnhK_xyave}
-"EnhVt2"  [Unused]
-    ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
-    ! long_name: Langmuir number enhancement to Vt2 as used by [CVMix] KPP
-    ! units: nondim
-    ! cell_methods: xh:mean yh:mean zl:mean area:mean
-    ! variants: {EnhVt2,EnhVt2_xyave}
-"KPP_La_SL"  [Unused]
-    ! modules: {ocean_model,ocean_model_d2}
-    ! long_name: Surface-layer Langmuir number computed in [CVMix] KPP
-    ! units: nondim
-    ! cell_methods: xh:mean yh:mean area:mean
 "diabatic_diff_h"  [Unused]
     ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
     ! long_name: Cell thickness used during diabatic diffusion
@@ -2243,24 +2125,6 @@
     ! long_name: Depth integrated heat tendency due to frazil formation
     ! units: W m-2
     ! cell_methods: xh:mean yh:mean area:mean
-"N2_conv"  [Unused]
-    ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
-    ! long_name: Square of Brunt-Vaisala frequency used by MOM_CVMix_conv module
-    ! units: 1/s2
-    ! cell_methods: xh:mean yh:mean zi:point area:mean
-    ! variants: {N2_conv,N2_conv_xyave}
-"kd_conv"  [Unused]
-    ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
-    ! long_name: Additional diffusivity added by MOM_CVMix_conv module
-    ! units: m2/s
-    ! cell_methods: xh:mean yh:mean zi:point area:mean
-    ! variants: {kd_conv,kd_conv_xyave}
-"kv_conv"  [Unused]
-    ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
-    ! long_name: Additional viscosity added by MOM_CVMix_conv module
-    ! units: m2/s
-    ! cell_methods: xh:mean yh:mean zi:point area:mean
-    ! variants: {kv_conv,kv_conv_xyave}
 "Kd_BBL"  [Unused]
     ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
     ! long_name: Bottom Boundary Layer Diffusivity
@@ -2285,60 +2149,18 @@
     ! units: m2 s-1
     ! cell_methods: xh:mean yh:mean zl:mean area:mean
     ! variants: {Kd_layer,Kd_layer_xyave}
-"N2_shear"  [Unused]
+"Kd_shear"  [Unused]
     ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
-    ! long_name: Square of Brunt-Vaisala frequency used by MOM_CVMix_shear module
-    ! units: 1/s2
-    ! cell_methods: xh:mean yh:mean zi:point area:mean
-    ! variants: {N2_shear,N2_shear_xyave}
-"S2_shear"  [Unused]
-    ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
-    ! long_name: Square of vertical shear used by MOM_CVMix_shear module
-    ! units: 1/s2
-    ! cell_methods: xh:mean yh:mean zi:point area:mean
-    ! variants: {S2_shear,S2_shear_xyave}
-"ri_grad_shear"  [Unused]
-    ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
-    ! long_name: Gradient Richarson number used by MOM_CVMix_shear module
-    ! units: nondim
-    ! cell_methods: xh:mean yh:mean zi:point area:mean
-    ! variants: {ri_grad_shear,ri_grad_shear_xyave}
-"ri_grad_shear_orig"  [Unused]
-    ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
-    ! long_name: Original gradient Richarson number, before smoothing was applied. This is part of the MOM_CVMix_shear module and only available when N_SMOOTH_RI > 0
-    ! units: nondim
-    ! cell_methods: xh:mean yh:mean zi:point area:mean
-    ! variants: {ri_grad_shear_orig,ri_grad_shear_orig_xyave}
-"kd_shear_CVMix"  [Unused]
-    ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
-    ! long_name: Vertical diffusivity added by MOM_CVMix_shear module
-    ! units: m2/s
-    ! cell_methods: xh:mean yh:mean zi:point area:mean
-    ! variants: {kd_shear_CVMix,kd_shear_CVMix_xyave}
-"kv_shear_CVMix"  [Unused]
-    ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
-    ! long_name: Vertical viscosity added by MOM_CVMix_shear module
-    ! units: m2/s
-    ! cell_methods: xh:mean yh:mean zi:point area:mean
-    ! variants: {kv_shear_CVMix,kv_shear_CVMix_xyave}
-"KT_extra"  [Unused]
-    ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
-    ! long_name: Double-diffusive diffusivity for temperature
+    ! long_name: Shear-driven Diapycnal Diffusivity
     ! units: m2 s-1
     ! cell_methods: xh:mean yh:mean zi:point area:mean
-    ! variants: {KT_extra,KT_extra_xyave}
-"KS_extra"  [Unused]
+    ! variants: {Kd_shear,Kd_shear_xyave}
+"TKE_shear"  [Unused]
     ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
-    ! long_name: Double-diffusive diffusivity for salinity
-    ! units: m2 s-1
+    ! long_name: Shear-driven Turbulent Kinetic Energy
+    ! units: m2 s-2
     ! cell_methods: xh:mean yh:mean zi:point area:mean
-    ! variants: {KS_extra,KS_extra_xyave}
-"R_rho"  [Unused]
-    ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
-    ! long_name: Double-diffusion density ratio
-    ! units: nondim
-    ! cell_methods: xh:mean yh:mean zi:point area:mean
-    ! variants: {R_rho,R_rho_xyave}
+    ! variants: {TKE_shear,TKE_shear_xyave}
 "created_H"  [Unused]
     ! modules: {ocean_model,ocean_model_d2}
     ! long_name: The volume flux added to stop the ocean from drying out and becoming negative in depth
@@ -2363,6 +2185,83 @@
     ! long_name: Non-downwelling SW radiation (i.e., SW absorbed in ocean surface with LW,SENS,LAT)
     ! units: W m-2
     ! standard_name: nondownwelling_shortwave_flux_in_sea_water
+    ! cell_methods: xh:mean yh:mean area:mean
+"ePBL_h_ML"  [Unused]
+    ! modules: {ocean_model,ocean_model_d2}
+    ! long_name: Surface boundary layer depth
+    ! units: m
+    ! cell_methods: xh:mean yh:mean area:mean
+"h_ML"  [Unused]
+    ! modules: {ocean_model,ocean_model_d2}
+    ! long_name: Surface mixed layer depth based on active turbulence
+    ! units: m
+    ! cell_methods: xh:mean yh:mean area:mean
+"ePBL_TKE_wind"  [Unused]
+    ! modules: {ocean_model,ocean_model_d2}
+    ! long_name: Wind-stirring source of mixed layer TKE
+    ! units: W m-2
+    ! cell_methods: xh:mean yh:mean area:mean
+"ePBL_TKE_MKE"  [Unused]
+    ! modules: {ocean_model,ocean_model_d2}
+    ! long_name: Mean kinetic energy source of mixed layer TKE
+    ! units: W m-2
+    ! cell_methods: xh:mean yh:mean area:mean
+"ePBL_TKE_conv"  [Unused]
+    ! modules: {ocean_model,ocean_model_d2}
+    ! long_name: Convective source of mixed layer TKE
+    ! units: W m-2
+    ! cell_methods: xh:mean yh:mean area:mean
+"ePBL_TKE_forcing"  [Unused]
+    ! modules: {ocean_model,ocean_model_d2}
+    ! long_name: TKE consumed by mixing surface forcing or penetrative shortwave radation through model layers
+    ! units: W m-2
+    ! cell_methods: xh:mean yh:mean area:mean
+"ePBL_TKE_mixing"  [Unused]
+    ! modules: {ocean_model,ocean_model_d2}
+    ! long_name: TKE consumed by mixing that deepens the mixed layer
+    ! units: W m-2
+    ! cell_methods: xh:mean yh:mean area:mean
+"ePBL_TKE_mech_decay"  [Unused]
+    ! modules: {ocean_model,ocean_model_d2}
+    ! long_name: Mechanical energy decay sink of mixed layer TKE
+    ! units: W m-2
+    ! cell_methods: xh:mean yh:mean area:mean
+"ePBL_TKE_conv_decay"  [Unused]
+    ! modules: {ocean_model,ocean_model_d2}
+    ! long_name: Convective energy decay sink of mixed layer TKE
+    ! units: W m-2
+    ! cell_methods: xh:mean yh:mean area:mean
+"Mixing_Length"  [Unused]
+    ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
+    ! long_name: Mixing Length that is used
+    ! units: m
+    ! cell_methods: xh:mean yh:mean zi:point area:mean
+    ! variants: {Mixing_Length,Mixing_Length_xyave}
+"Velocity_Scale"  [Unused]
+    ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
+    ! long_name: Velocity Scale that is used.
+    ! units: m s-1
+    ! cell_methods: xh:mean yh:mean zi:point area:mean
+    ! variants: {Velocity_Scale,Velocity_Scale_xyave}
+"MSTAR"  [Unused]
+    ! modules: {ocean_model,ocean_model_d2}
+    ! long_name: Total mstar that is used.
+    ! units: nondim
+    ! cell_methods: xh:mean yh:mean area:mean
+"LA"  [Unused]
+    ! modules: {ocean_model,ocean_model_d2}
+    ! long_name: Langmuir number.
+    ! units: nondim
+    ! cell_methods: xh:mean yh:mean area:mean
+"LA_MOD"  [Unused]
+    ! modules: {ocean_model,ocean_model_d2}
+    ! long_name: Modified Langmuir number.
+    ! units: nondim
+    ! cell_methods: xh:mean yh:mean area:mean
+"MSTAR_LT"  [Unused]
+    ! modules: {ocean_model,ocean_model_d2}
+    ! long_name: Increase in mstar due to Langmuir Turbulence.
+    ! units: nondim
     ! cell_methods: xh:mean yh:mean area:mean
 "SW_pen"  [Unused]
     ! modules: {ocean_model,ocean_model_d2}
@@ -2748,23 +2647,6 @@
     ! units: degC2 s-1
     ! cell_methods: xh:mean yh:mean zl:mean area:mean
     ! variants: {T_vardec,T_vardec_xyave}
-"KPP_QminusSW"  [Unused]
-    ! modules: {ocean_model,ocean_model_d2}
-    ! long_name: Net temperature flux ignoring short-wave, as used by [CVMix] KPP
-    ! units: degC m s-1
-    ! cell_methods: xh:mean yh:mean area:mean
-"KPP_NLT_dTdt"  [Unused]
-    ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
-    ! long_name: Potential Temperature tendency due to non-local transport of heat, as calculated by [CVMix] KPP
-    ! units: degC s-1
-    ! cell_methods: xh:mean yh:mean zl:mean area:mean
-    ! variants: {KPP_NLT_dTdt,KPP_NLT_dTdt_xyave}
-"KPP_NLT_temp_budget"  [Unused]
-    ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
-    ! long_name: Heat content change due to non-local transport, as calculated by [CVMix] KPP
-    ! units: W m-2
-    ! cell_methods: xh:mean yh:mean zl:sum area:mean
-    ! variants: {KPP_NLT_temp_budget,KPP_NLT_temp_budget_xyave}
 "salt"  [Used] (CMOR equivalent is "so")
     ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
     ! long_name: Salinity
@@ -2930,23 +2812,6 @@
     ! units: psu2 s-1
     ! cell_methods: xh:mean yh:mean zl:mean area:mean
     ! variants: {S_vardec,S_vardec_xyave}
-"KPP_netSalt"  [Unused]
-    ! modules: {ocean_model,ocean_model_d2}
-    ! long_name: Effective net surface salt flux, as used by [CVMix] KPP
-    ! units: psu m s-1
-    ! cell_methods: xh:mean yh:mean area:mean
-"KPP_NLT_dSdt"  [Unused]
-    ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
-    ! long_name: Salinity tendency due to non-local transport of salt, as calculated by [CVMix] KPP
-    ! units: psu s-1
-    ! cell_methods: xh:mean yh:mean zl:mean area:mean
-    ! variants: {KPP_NLT_dSdt,KPP_NLT_dSdt_xyave}
-"KPP_NLT_saln_budget"  [Unused]
-    ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
-    ! long_name: Salt content change due to non-local transport, as calculated by [CVMix] KPP
-    ! units: kg m-2 s-1
-    ! cell_methods: xh:mean yh:mean zl:sum area:mean
-    ! variants: {KPP_NLT_saln_budget,KPP_NLT_saln_budget_xyave}
 "age"  [Used] (CMOR equivalent is "agessc")
     ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
     ! long_name: Ideal Age Tracer
@@ -3110,23 +2975,6 @@
     ! units: yr2 s-1
     ! cell_methods: xh:mean yh:mean zl:mean area:mean
     ! variants: {age_vardec,age_vardec_xyave}
-"KPP_netage"  [Unused]
-    ! modules: {ocean_model,ocean_model_d2}
-    ! long_name: Effective net surface ideal age tracer flux, as used by [CVMix] KPP
-    ! units: yr m s-1
-    ! cell_methods: xh:mean yh:mean area:mean
-"KPP_NLT_dagedt"  [Unused]
-    ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
-    ! long_name: Ideal Age Tracer tendency due to non-local transport of ideal age tracer, as calculated by [CVMix] KPP
-    ! units: yr s-1
-    ! cell_methods: xh:mean yh:mean zl:mean area:mean
-    ! variants: {KPP_NLT_dagedt,KPP_NLT_dagedt_xyave}
-"KPP_NLT_age_budget"  [Unused]
-    ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
-    ! long_name: Ideal Age Tracer content change due to non-local transport, as calculated by [CVMix] KPP
-    ! units: yr m s-1
-    ! cell_methods: xh:mean yh:mean zl:sum area:mean
-    ! variants: {KPP_NLT_age_budget,KPP_NLT_age_budget_xyave}
 "u_preale"  [Unused]
     ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
     ! long_name: Zonal velocity before remapping
