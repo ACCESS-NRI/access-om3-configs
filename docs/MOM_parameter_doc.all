@@ -1715,7 +1715,7 @@ ML_RADIATION = False            !   [Boolean] default = False
                                 ! If true, allow a fraction of TKE available from wind work to penetrate below
                                 ! the base of the mixed layer with a vertical decay scale determined by the
                                 ! minimum of: (1) The depth of the mixed layer, (2) an Ekman length scale.
-BBL_EFFIC = 0.2                 !   [nondim] default = 0.2
+BBL_EFFIC = 0.01                !   [nondim] default = 0.2
                                 ! The efficiency with which the energy extracted by bottom drag drives BBL
                                 ! diffusion.  This is only used if BOTTOMDRAGLAW is true.
 BBL_MIXING_MAX_DECAY = 200.0    !   [m] default = 200.0
