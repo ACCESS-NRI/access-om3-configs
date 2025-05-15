@@ -2228,7 +2228,7 @@ LATENT_HEAT_FUSION = 3.337E+05  !   [J/kg] default = 3.34E+05
                                 ! The latent heat of fusion.
 LATENT_HEAT_VAPORIZATION = 2.501E+06 !   [J/kg] default = 2.5E+06
                                 ! The latent heat of fusion.
-MAX_P_SURF = -1.0               !   [Pa] default = -1.0
+MAX_P_SURF = 0.0                !   [Pa] default = -1.0
                                 ! The maximum surface pressure that can be exerted by the atmosphere and
                                 ! floating sea-ice or ice shelves. This is needed because the FMS coupling
                                 ! structure does not limit the water that can be frozen out of the ocean and the
@@ -2296,14 +2296,23 @@ UTIDE = 0.0                     !   [m s-1] default = 0.0
                                 ! The constant tidal amplitude used with INT_TIDE_DISSIPATION.
 READ_GUST_2D = False            !   [Boolean] default = False
                                 ! If true, use a 2-dimensional gustiness supplied from an input file
-GUST_CONST = 0.02               !   [Pa] default = 0.0
+GUST_CONST = 0.0                !   [Pa] default = 0.0
                                 ! The background gustiness in the winds.
 USTAR_GUSTLESS_BUG = False      !   [Boolean] default = False
                                 ! If true include a bug in the time-averaging of the gustless wind friction
                                 ! velocity
-USE_RIGID_SEA_ICE = False       !   [Boolean] default = False
+USE_RIGID_SEA_ICE = True        !   [Boolean] default = False
                                 ! If true, sea-ice is rigid enough to exert a nonhydrostatic pressure that
                                 ! resist vertical motion.
+SEA_ICE_MEAN_DENSITY = 900.0    !   [kg m-3] default = 900.0
+                                ! A typical density of sea ice, used with the kinematic viscosity, when
+                                ! USE_RIGID_SEA_ICE is true.
+SEA_ICE_VISCOSITY = 1.0E+09     !   [m2 s-1] default = 1.0E+09
+                                ! The kinematic viscosity of sufficiently thick sea ice for use in calculating
+                                ! the rigidity of sea ice.
+SEA_ICE_RIGID_MASS = 100.0      !   [kg m-2] default = 1000.0
+                                ! The mass of sea-ice per unit area at which the sea-ice starts to exhibit
+                                ! rigidity
 ALLOW_ICEBERG_FLUX_DIAGNOSTICS = False !   [Boolean] default = False
                                 ! If true, makes available diagnostics of fluxes from icebergs as seen by MOM6.
 ALLOW_FLUX_ADJUSTMENTS = False  !   [Boolean] default = False
