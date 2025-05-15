@@ -605,6 +605,12 @@ LATENT_HEAT_FUSION = 3.337E+05  !   [J/kg] default = 3.34E+05
                                 ! The latent heat of fusion.
 LATENT_HEAT_VAPORIZATION = 2.501E+06 !   [J/kg] default = 2.5E+06
                                 ! The latent heat of fusion.
+MAX_P_SURF = 0.0                !   [Pa] default = -1.0
+                                ! The maximum surface pressure that can be exerted by the atmosphere and
+                                ! floating sea-ice or ice shelves. This is needed because the FMS coupling
+                                ! structure does not limit the water that can be frozen out of the ocean and the
+                                ! ice-ocean heat fluxes are treated explicitly.  No limit is applied if a
+                                ! negative value is used.
 ADJUST_NET_FRESH_WATER_TO_ZERO = True !   [Boolean] default = False
                                 ! If true, adjusts the net fresh-water forcing seen by the ocean (including
                                 ! restoring) to zero.
@@ -622,5 +628,9 @@ SALT_RESTORE_FILE = "salt_sfc_restore.nc" ! default = "salt_restore.nc"
 SRESTORE_AS_SFLUX = True        !   [Boolean] default = False
                                 ! If true, the restoring of salinity is applied as a salt flux instead of as a
                                 ! freshwater flux.
-GUST_CONST = 0.02               !   [Pa] default = 0.0
-                                ! The background gustiness in the winds.
+USE_RIGID_SEA_ICE = True        !   [Boolean] default = False
+                                ! If true, sea-ice is rigid enough to exert a nonhydrostatic pressure that
+                                ! resist vertical motion.
+SEA_ICE_RIGID_MASS = 100.0      !   [kg m-2] default = 1000.0
+                                ! The mass of sea-ice per unit area at which the sea-ice starts to exhibit
+                                ! rigidity
