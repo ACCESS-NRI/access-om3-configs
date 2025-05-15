@@ -1347,7 +1347,7 @@ SMAGORINSKY_AH = False          !   [Boolean] default = False
                                 ! If true, use a biharmonic Smagorinsky nonlinear eddy viscosity.
 LEITH_AH = True                 !   [Boolean] default = False
                                 ! If true, use a biharmonic Leith nonlinear eddy viscosity.
-USE_LEITHY = False              !   [Boolean] default = False
+USE_LEITHY = True               !   [Boolean] default = False
                                 ! If true, use a biharmonic Leith nonlinear eddy viscosity together with a
                                 ! harmonic backscatter.
 BOUND_AH = True                 !   [Boolean] default = True
@@ -1389,6 +1389,11 @@ FRICTWORK_BUG = False           !   [Boolean] default = True
                                 ! If true, retain an answer-changing bug in calculating the FrictWork, which
                                 ! cancels the h in thickness flux and the h at velocity point. This isnot
                                 ! recommended.
+LEITHY_CK = 1.0                 !   [nondim] default = 1.0
+                                ! Fraction of biharmonic dissipation that gets backscattered, in Leith+E.
+SMOOTH_AH = True                !   [Boolean] default = True
+                                ! If true, Ah and m_leithy are smoothed within Leith+E.  This requires lots of
+                                ! blocking communications, which can be expensive
 
 ! === module MOM_vert_friction ===
 VERT_FRICTION_ANSWER_DATE = 99991231 ! default = 99991231
@@ -2158,7 +2163,7 @@ CALCULATE_APE = True            !   [Boolean] default = True
 WRITE_STOCKS = True             !   [Boolean] default = True
                                 ! If true, write the integrated tracer amounts to stdout when the energy files
                                 ! are written.
-MAXTRUNC = 0                    !   [truncations save_interval-1] default = 0
+MAXTRUNC = 10000                !   [truncations save_interval-1] default = 0
                                 ! The run will be stopped, and the day set to a very large value if the velocity
                                 ! is truncated more than MAXTRUNC times between energy saves.  Set MAXTRUNC to 0
                                 ! to stop if there is any truncation of velocities.
