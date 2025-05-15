@@ -71,48 +71,48 @@ work/INPUT/RYF.vas.1990_1991.nc:
   hashes:
     binhash: d15ca562e37e82fb2d31657701f0a560
     md5: 88dc8c70338bbc8f5efc48ed0009a99f
-work/INPUT/access-om3-025deg-ESMFmesh.nc:
-  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/share/meshes/2025.02.17/access-om3-025deg-ESMFmesh.nc
+work/INPUT/access-om3-025deg-ESMFmesh_cropped.nc:
+  fullpath: /g/data/x77/cy8964/mom6/input/input-25km/access-om3-025deg-ESMFmesh_cropped.nc
   hashes:
-    binhash: b15378690083ed168bd6c7f7006f6741
-    md5: 29dfaf047f574b052e4421cc43bd91fe
-work/INPUT/access-om3-025deg-nomask-ESMFmesh.nc:
-  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/share/meshes/2025.02.17/access-om3-025deg-nomask-ESMFmesh.nc
+    binhash: 7e01586034645eff228288c909f738ca
+    md5: dc0b3305d125995c671ed39603c28f5d
+work/INPUT/access-om3-025deg-nomask-ESMFmesh_cropped.nc:
+  fullpath: /g/data/x77/cy8964/mom6/input/input-25km/access-om3-025deg-nomask-ESMFmesh_cropped.nc
   hashes:
-    binhash: d2b647dcb7a5ec752526b6085024fc3c
-    md5: 8033610ed1eeca3331e350f5f8eb4ba0
-work/INPUT/access-om3-025deg-rof-remap-weights.nc:
-  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/cmeps/remap_weights/global.025deg/2025.02.17/access-om3-025deg-rof-remap-weights.nc
+    binhash: 8c384eeacadbe759130115c6da351032
+    md5: ac068279df92427f174f1cf6068e6504
+work/INPUT/access-om3-025deg-rof-remap-weights_cropped.nc:
+  fullpath: /g/data/x77/cy8964/mom6/input/input-25km/access-om3-025deg-rof-remap-weights_cropped.nc
   hashes:
-    binhash: 2cd1cc530556337d49a08429687b3fe5
-    md5: 4e10abac2e443fe22ab37fea40cdfc87
-work/INPUT/kmt.nc:
-  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/cice/grids/global.025deg/2025.02.17/kmt.nc
+    binhash: 4828aac79eb34d38efec992ba602c6ff
+    md5: 16c83e9b9862387a66e1868b7970e77f
+work/INPUT/kmt_cropped.nc:
+  fullpath: /g/data/x77/cy8964/mom6/input/input-25km/kmt_cropped.nc
   hashes:
-    binhash: 3bf322991e061e0641f877da497dc73b
-    md5: fbe8cfd3ccc0d42637b180d39471867f
-work/INPUT/ocean_hgrid.nc:
-  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/grids/mosaic/global.025deg/2025.01.30/ocean_hgrid.nc
+    binhash: 1846d6785dd57fbadcd03e2f709b22e9
+    md5: 3d4361463f27a327aa28dd84e11b9737
+work/INPUT/ocean_hgrid_cropped.nc:
+  fullpath: /g/data/x77/cy8964/mom6/input/input-25km/ocean_hgrid_cropped.nc
   hashes:
-    binhash: 8db0d96ca905d4d327592d84d9ba847a
-    md5: c65fea49f3a94530a36c53164b316dd2
-work/INPUT/ocean_temp_salt.res.nc:
-  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/initial_conditions/global.025deg/2025.03.19/ocean_temp_salt.res.nc
+    binhash: d86e53ce2b74ffa79bd4b8a5fab36b4a
+    md5: f826f0e0ce1c5e77afbd6d7f1db766b8
+work/INPUT/ocean_temp_salt.res_cropped.nc:
+  fullpath: /g/data/x77/cy8964/mom6/input/input-25km/ocean_temp_salt.res_cropped.nc
   hashes:
-    binhash: 94b9748f0898ea25d0247c98762e8909
-    md5: a1b5711e7638521b0d73f648b7090650
-work/INPUT/ocean_vgrid.nc:
-  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/grids/vertical/global.025deg/2025.03.12/ocean_vgrid.nc
+    binhash: 2f2ad513ea3c364269accb69ba053098
+    md5: 1172a844bcae20cc878cacd7124d7af1
+work/INPUT/ocean_vgrid_cropped.nc:
+  fullpath: /g/data/x77/cy8964/mom6/input/input-25km/ocean_vgrid_cropped.nc
   hashes:
-    binhash: 1a0891515558b87f200786a9ac2f7132
+    binhash: 979091ff05542b01b39345ec6bdd2e03
     md5: 66f71f2b24bd00b1c220787505e0106e
-work/INPUT/salt_sfc_restore.nc:
-  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/surface_salt_restoring/global.025deg/2025.01.30/salt_sfc_restore.nc
+work/INPUT/salt_sfc_restore_cropped.nc:
+  fullpath: /g/data/x77/cy8964/mom6/input/input-25km/salt_sfc_restore_cropped.nc
   hashes:
-    binhash: a5bf255da3f43e764cc25469bfe816e3
-    md5: 6e37313d88f867af9f1d9f656ab633c9
-work/INPUT/topog.nc:
-  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/share/grids/2025.02.17/topog.nc
+    binhash: 2cea3bbde0bfc9b814066bb5abeddbac
+    md5: d0f70925f7dde070471fbca9ffb26798
+work/INPUT/topog_cropped.nc:
+  fullpath: /g/data/x77/cy8964/mom6/input/input-25km/topog_cropped.nc
   hashes:
-    binhash: e29ed0f6e62bff2c838741d39a00c9e9
-    md5: ae77c5dda079ebc1a7ada45fbb1edb35
+    binhash: b296afc3fa52ba4e30ef5de6bc83bb65
+    md5: 6f01c100eb0af707fb3dd4d7bc9e9925

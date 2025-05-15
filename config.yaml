@@ -2,7 +2,7 @@
 
 # If submitting to a different project to your default, uncomment line below 
 # and change project code as appropriate; also set shortpath below
-# project: x77
+project: x77
 
 # Force payu to always find, and save, files in this scratch project directory
 # (you may need to add the corresponding PBS -l storage flag in sync_data.sh)
@@ -14,27 +14,27 @@ jobfs: 10GB
 mem: 5760GB
 
 walltime: 24:00:00
-jobname: 025deg_jra55do_ryf
+jobname: 025deg_panAn
 
 model: access-om3
 
 exe: access-om3-MOM6-CICE6
 input:
-    - /g/data/vk83/prerelease/configurations/inputs/access-om3/cice/grids/global.025deg/2025.02.17/kmt.nc
-    - /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/grids/mosaic/global.025deg/2025.01.30/ocean_hgrid.nc
-    - /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/grids/vertical/global.025deg/2025.03.12/ocean_vgrid.nc
-    - /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/initial_conditions/global.025deg/2025.03.19/ocean_temp_salt.res.nc
-    - /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/surface_salt_restoring/global.025deg/2025.01.30/salt_sfc_restore.nc
-    - /g/data/vk83/prerelease/configurations/inputs/access-om3/share/grids/2025.02.17/topog.nc
-    - /g/data/vk83/prerelease/configurations/inputs/access-om3/share/meshes/2025.02.17/access-om3-025deg-ESMFmesh.nc
-    - /g/data/vk83/prerelease/configurations/inputs/access-om3/share/meshes/2025.02.17/access-om3-025deg-nomask-ESMFmesh.nc
+    - /g/data/x77/cy8964/mom6/input/input-25km/kmt_cropped.nc
+    - /g/data/x77/cy8964/mom6/input/input-25km/ocean_hgrid_cropped.nc
+    - /g/data/x77/cy8964/mom6/input/input-25km/ocean_vgrid_cropped.nc
+    - /g/data/x77/cy8964/mom6/input/input-25km/ocean_temp_salt.res_cropped.nc
+    - /g/data/x77/cy8964/mom6/input/input-25km/salt_sfc_restore_cropped.nc
+    - /g/data/x77/cy8964/mom6/input/input-25km/topog_cropped.nc
+    - /g/data/x77/cy8964/mom6/input/input-25km/access-om3-025deg-ESMFmesh_cropped.nc 
+    - /g/data/x77/cy8964/mom6/input/input-25km/access-om3-025deg-nomask-ESMFmesh_cropped.nc 
     - /g/data/vk83/configurations/inputs/access-om3/share/meshes/share/2024.09.16/JRA55do-datm-ESMFmesh.nc
     - /g/data/vk83/configurations/inputs/access-om3/share/meshes/share/2024.09.16/JRA55do-drof-ESMFmesh.nc
-    - /g/data/vk83/prerelease/configurations/inputs/access-om3/cmeps/remap_weights/global.025deg/2025.02.17/access-om3-025deg-rof-remap-weights.nc
+    - /g/data/x77/cy8964/mom6/input/input-25km/access-om3-025deg-rof-remap-weights_cropped.nc
     - /g/data/vk83/experiments/inputs/JRA-55/RYF/v1-4/data
  
 collate: false
-runlog: false
+runlog: true
 metadata: 
     enable: false
 
@@ -44,9 +44,9 @@ userscripts:
 
 modules:
     use:
-        - /g/data/vk83/modules
+        - /g/data/vk83/prerelease/modules
     load:
-        - access-om3/2025.01.2
+        - access-om3/pr75-1
         - nco/5.0.5
 
 payu_minimum_version: 1.1.6
