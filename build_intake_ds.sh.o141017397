@@ -1,0 +1,15 @@
+LOG: Building intake-esm datastore
+Successfully wrote ESM catalog json file to: file:///home/156/cy8964/mom6-control/access-rom3/25km_jra_ryf/archive/intake_esm_ds.json
+
+======================================================================================
+                  Resource Usage on 2025-05-15 13:36:38:
+   Job Id:             141017397.gadi-pbs
+   Project:            x77
+   Exit Status:        0
+   Service Units:      1.03
+   NCPUs Requested:    24                     NCPUs Used: 24              
+                                           CPU Time Used: 00:10:49        
+   Memory Requested:   96.0GB                Memory Used: 22.71GB         
+   Walltime requested: 02:00:00            Walltime Used: 00:01:17        
+   JobFS requested:    100.0MB                JobFS used: 532.0B          
+======================================================================================
