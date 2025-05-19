@@ -39,7 +39,7 @@ The MOM supergrid file is used by the MOM and CICE model components, whilst the 
 For analysis, it's best to use model grids output by the models:
 
 - MOM6 outputs the model grid, [typically](https://github.com/ACCESS-NRI/access-om3-configs/blob/6c0942224adf8cd4644927ad357b68827e837dd9/diagnostic_profiles/diag_table_standard#L13C2-L13C24) in a file named _access-mom6.static..._
-- The [next release](https://github.com/ACCESS-NRI/access-om3-configs/issues/470) of CICE6 will also output the model grid into a seperate file.
+- CICE6 also outputs the model grid, in a file name `access-om3.cice_grid.nc`
 
 If you are using coupler diagnostics (off by default), note that the grid areas used in the coupler are calculated internally, 
 are subtly different to the grid areas used in the model components. The model component caps [apply a correction](https://escomp.github.io/CMEPS/versions/master/html/introduction.html#area-corrections) between
