@@ -24,6 +24,7 @@
   grid_ice = "B"
   grid_ocn = "A"
   grid_type = "tripole"
+  grid_outfile = .true.
   kcatbound = 0
   kmt_file = "./INPUT/kmt.nc"
   nblyr = 1
