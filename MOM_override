@@ -2,7 +2,7 @@
 !       This provides a clear record of how your configuration differs from the standard
 
 #override TOPO_FILE = "topog_cropped.nc"
-#
+
 ! === module MOM_open_boundary ===
 OBC_NUMBER_OF_SEGMENTS = 1
 OBC_FREESLIP_VORTICITY = True
