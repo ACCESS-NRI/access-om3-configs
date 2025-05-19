@@ -86,6 +86,11 @@ work/INPUT/access-om3-025deg-rof-remap-weights_cropped.nc:
   hashes:
     binhash: 4828aac79eb34d38efec992ba602c6ff
     md5: 16c83e9b9862387a66e1868b7970e77f
+work/INPUT/forcing_access_yr2_25km_fill.nc:
+  fullpath: /g/data/x77/cy8964/mom6/input/input-25km/forcing_access_yr2_25km_fill.nc
+  hashes:
+    binhash: 35d85ae35048f328dc0af9a8b90e6b2b
+    md5: 917cfc92cf9d3cede66b22c3ee392b31
 work/INPUT/kmt_cropped.nc:
   fullpath: /g/data/x77/cy8964/mom6/input/input-25km/kmt_cropped.nc
   hashes:

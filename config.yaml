@@ -32,6 +32,7 @@ input:
     - /g/data/vk83/configurations/inputs/access-om3/share/meshes/share/2024.09.16/JRA55do-drof-ESMFmesh.nc
     - /g/data/x77/cy8964/mom6/input/input-25km/access-om3-025deg-rof-remap-weights_cropped.nc
     - /g/data/vk83/experiments/inputs/JRA-55/RYF/v1-4/data
+    - /g/data/x77/cy8964/mom6/input/input-25km/forcing_access_yr2_25km_fill.nc
  
 collate: false
 runlog: true
