@@ -42,6 +42,7 @@ DT_THERM = 3600.0               !   [s] default = 1800.0
                                 ! an integer multiple of DT and less than the forcing or coupling time-step,
                                 ! unless THERMO_SPANS_COUPLING is true, in which case DT_THERM can be an integer
                                 ! multiple of the coupling timestep.  By default DT_THERM is set to DT.
+THERMO_SPANS_COUPLING = True
 HFREEZE = 10.0                  !   [m] default = -1.0
                                 ! If HFREEZE > 0, melt potential will be computed. The actual depth over which
                                 ! melt potential is computed will be min(HFREEZE, OBLD), where OBLD is the
@@ -396,7 +397,7 @@ LAPLACIAN = True                !   [Boolean] default = False
                                 ! If true, use a Laplacian horizontal viscosity.
 AH = 1.0E+12                    !   [m4 s-1] default = 0.0
                                 ! The background biharmonic horizontal viscosity.
-LEITH_AH = True                 !   [Boolean] default = False
+!LEITH_AH = True                 !   [Boolean] default = False
                                 ! If true, use a biharmonic Leith nonlinear eddy viscosity.
 BACKSCATTER_UNDERBOUND = False  !   [Boolean] default = True
                                 ! If true, the bounds on the biharmonic viscosity are allowed to increase where
@@ -405,7 +406,7 @@ BACKSCATTER_UNDERBOUND = False  !   [Boolean] default = True
                                 ! when no Laplacian viscosity is applied.  The default is true for historical
                                 ! reasons, but this option probably should not be used because it can contribute
                                 ! to numerical instabilities.
-LEITH_BI_CONST = 128.0          !   [nondim] default = 0.0
+!LEITH_BI_CONST = 128.0          !   [nondim] default = 0.0
                                 ! The nondimensional biharmonic Leith constant, typical values are thus far
                                 ! undetermined.
 FRICTWORK_BUG = False           !   [Boolean] default = True
