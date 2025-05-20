@@ -253,11 +253,6 @@
     ! long_name: Meridional diffusivity of MEKE
     ! units: m2 s-1
     ! cell_methods: xh:mean yq:point
-"MEKE_equilibrium"  [Unused]
-    ! modules: {ocean_model,ocean_model_d2}
-    ! long_name: Equilibrated Mesoscale Eddy Kinetic Energy
-    ! units: m2 s-2
-    ! cell_methods: xh:mean yh:mean area:mean
 "SN_u"  [Unused]
     ! modules: {ocean_model,ocean_model_d2}
     ! long_name: Inverse eddy time-scale, S*N, at u-points
@@ -284,12 +279,6 @@
     ! units: nondim
     ! cell_methods: xh:mean yh:mean zl:mean area:mean
     ! variants: {sqg_struct,sqg_struct_xyave}
-"khth_struct"  [Unused]
-    ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
-    ! long_name: Vertical structure of thickness diffusivity
-    ! units: nondim
-    ! cell_methods: xh:mean yh:mean zl:mean area:mean
-    ! variants: {khth_struct,khth_struct_xyave}
 "N2_u"  [Unused]
     ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
     ! long_name: Square of Brunt-Vaisala frequency, N^2, at u-points, as used in Visbeck et al.

@@ -722,24 +722,22 @@ MEKE_MIN_GAMMA2 = 1.0E-04       !   [nondim] default = 1.0E-04
 MEKE_CT = 50.0                  !   [nondim] default = 50.0
                                 ! A coefficient in the expression for the ratio of barotropic eddy energy and
                                 ! mean column energy (see Jansen et al. 2015).
-MEKE_GMCOEFF = 0.0              !   [nondim] default = -1.0
+MEKE_GMCOEFF = 1.0              !   [nondim] default = -1.0
                                 ! The efficiency of the conversion of potential energy into MEKE by the
                                 ! thickness mixing parameterization. If MEKE_GMCOEFF is negative, this
                                 ! conversion is not used or calculated.
-MEKE_GEOMETRIC = True           !   [Boolean] default = False
+MEKE_GEOMETRIC = False          !   [Boolean] default = False
                                 ! If MEKE_GEOMETRIC is true, uses the GM coefficient formulation from the
                                 ! GEOMETRIC framework (Marshall et al., 2012).
 MEKE_GEOMETRIC_ALPHA = 0.05     !   [nondim] default = 0.05
                                 ! The nondimensional coefficient governing the efficiency of the GEOMETRIC
                                 ! thickness diffusion.
-MEKE_EQUILIBRIUM_ALT = True     !   [Boolean] default = False
+MEKE_EQUILIBRIUM_ALT = False    !   [Boolean] default = False
                                 ! If true, use an alternative formula for computing the (equilibrium)initial
                                 ! value of MEKE.
-MEKE_EQUILIBRIUM_RESTORING = True !   [Boolean] default = False
+MEKE_EQUILIBRIUM_RESTORING = False !   [Boolean] default = False
                                 ! If true, restore MEKE back to its equilibrium value, which is calculated at
                                 ! each time step.
-MEKE_RESTORING_TIMESCALE = 1.0E+07 !   [s] default = 1.0E+06
-                                ! The timescale used to nudge MEKE toward its equilibrium value.
 MEKE_FRCOEFF = -1.0             !   [nondim] default = -1.0
                                 ! The efficiency of the conversion of mean energy into MEKE.  If MEKE_FRCOEFF is
                                 ! negative, this conversion is not used or calculated.
@@ -750,7 +748,7 @@ MEKE_BHFRCOEFF = -1.0           !   [nondim] default = -1.0
 MEKE_GMECOEFF = -1.0            !   [nondim] default = -1.0
                                 ! The efficiency of the conversion of MEKE into mean energy by GME.  If
                                 ! MEKE_GMECOEFF is negative, this conversion is not used or calculated.
-MEKE_BGSRC = 0.0                !   [W kg-1] default = 0.0
+MEKE_BGSRC = 1.0E-13            !   [W kg-1] default = 0.0
                                 ! A background energy source for MEKE.
 MEKE_KH = -1.0                  !   [m2 s-1] default = -1.0
                                 ! A background lateral diffusivity of MEKE. Use a negative value to not apply
@@ -771,29 +769,24 @@ MEKE_USCALE = 0.0               !   [m s-1] default = 0.0
 MEKE_GM_SRC_ALT = False         !   [Boolean] default = False
                                 ! If true, use the GM energy conversion form S^2*N^2*kappa rather than the
                                 ! streamfunction for the MEKE GM source term.
-MEKE_VISC_DRAG = False          !   [Boolean] default = True
+MEKE_VISC_DRAG = True           !   [Boolean] default = True
                                 ! If true, use the vertvisc_type to calculate the bottom drag acting on MEKE.
-MEKE_KHTH_FAC = 1.0             !   [nondim] default = 0.0
+MEKE_KHTH_FAC = 0.0             !   [nondim] default = 0.0
                                 ! A factor that maps MEKE%Kh to KhTh.
-MEKE_KHTR_FAC = 1.0             !   [nondim] default = 0.0
+MEKE_KHTR_FAC = 0.0             !   [nondim] default = 0.0
                                 ! A factor that maps MEKE%Kh to KhTr.
-MEKE_KHMEKE_FAC = 0.5           !   [nondim] default = 0.0
+MEKE_KHMEKE_FAC = 1.0           !   [nondim] default = 0.0
                                 ! A factor that maps MEKE%Kh to Kh for MEKE itself.
 MEKE_OLD_LSCALE = False         !   [Boolean] default = False
                                 ! If true, use the old formula for length scale which is a function of grid
                                 ! spacing and deformation radius.
-MEKE_MIN_LSCALE = True          !   [Boolean] default = False
+MEKE_MIN_LSCALE = False         !   [Boolean] default = False
                                 ! If true, use a strict minimum of provided length scales rather than harmonic
                                 ! mean.
-MEKE_LSCALE_MAX_VAL = 1.0E+07   !   [m] default = 1.0E+07
-                                ! The ceiling on the value of the MEKE length scale when MEKE_MIN_LSCALE=True.
-                                ! The default is the distance from the equator to the pole on Earth, as
-                                ! estimated by enlightenment era scientists, but should probably scale with
-                                ! RAD_EARTH.
 MEKE_RD_MAX_SCALE = False       !   [Boolean] default = False
                                 ! If true, the length scale used by MEKE is the minimum of the deformation
                                 ! radius or grid-spacing. Only used if MEKE_OLD_LSCALE=True
-MEKE_VISCOSITY_COEFF_KU = 0.2   !   [nondim] default = 0.0
+MEKE_VISCOSITY_COEFF_KU = 0.0   !   [nondim] default = 0.0
                                 ! If non-zero, is the scaling coefficient in the expression forviscosity used to
                                 ! parameterize harmonic lateral momentum mixing byunresolved eddies represented
                                 ! by MEKE. Can be negative torepresent backscatter from the unresolved eddies.
@@ -808,19 +801,19 @@ MEKE_FIXED_MIXING_LENGTH = 0.0  !   [m] default = 0.0
 MEKE_FIXED_TOTAL_DEPTH = True   !   [Boolean] default = True
                                 ! If true, use the nominal bathymetric depth as the estimate of the time-varying
                                 ! ocean depth.  Otherwise base the depth on the total ocean massper unit area.
-MEKE_ALPHA_DEFORM = 1.0         !   [nondim] default = 0.0
+MEKE_ALPHA_DEFORM = 0.0         !   [nondim] default = 0.0
                                 ! If positive, is a coefficient weighting the deformation scale in the
                                 ! expression for mixing length used in MEKE-derived diffusivity.
-MEKE_ALPHA_RHINES = 1.0         !   [nondim] default = 0.0
+MEKE_ALPHA_RHINES = 0.15        !   [nondim] default = 0.0
                                 ! If positive, is a coefficient weighting the Rhines scale in the expression for
                                 ! mixing length used in MEKE-derived diffusivity.
-MEKE_ALPHA_EADY = 1.0           !   [nondim] default = 0.0
+MEKE_ALPHA_EADY = 0.15          !   [nondim] default = 0.0
                                 ! If positive, is a coefficient weighting the Eady length scale in the
                                 ! expression for mixing length used in MEKE-derived diffusivity.
-MEKE_ALPHA_FRICT = 1.0          !   [nondim] default = 0.0
+MEKE_ALPHA_FRICT = 0.0          !   [nondim] default = 0.0
                                 ! If positive, is a coefficient weighting the frictional arrest scale in the
                                 ! expression for mixing length used in MEKE-derived diffusivity.
-MEKE_ALPHA_GRID = 1.0           !   [nondim] default = 0.0
+MEKE_ALPHA_GRID = 0.0           !   [nondim] default = 0.0
                                 ! If positive, is a coefficient weighting the grid-spacing as a scale in the
                                 ! expression for mixing length used in MEKE-derived diffusivity.
 MEKE_COLD_START = False         !   [Boolean] default = False
@@ -833,14 +826,10 @@ MEKE_BACKSCAT_RO_C = 0.0        !   [nondim] default = 0.0
 MEKE_BACKSCAT_RO_POW = 0.0      !   [nondim] default = 0.0
                                 ! The power in the Rossby number function for scaling the biharmonic frictional
                                 ! energy source.
-MEKE_ADVECTION_FACTOR = 1.0     !   [nondim] default = 0.0
+MEKE_ADVECTION_FACTOR = 0.0     !   [nondim] default = 0.0
                                 ! A scale factor in front of advection of eddy energy. Zero turns advection off.
                                 ! Using unity would be normal but other values could accommodate a mismatch
                                 ! between the advecting barotropic flow and the vertical structure of MEKE.
-MEKE_ADVECTION_BUG = False      !   [Boolean] default = False
-                                ! If true, recover a bug in the calculation of the barotropic transport for the
-                                ! advection of MEKE.  With the bug, only the transports in the deepest layer are
-                                ! used.
 MEKE_TOPOGRAPHIC_BETA = 0.0     !   [nondim] default = 0.0
                                 ! A scale factor to determine how much topographic beta is weighed in computing
                                 ! beta in the expression of Rhines scale. Use 1 if full topographic beta effect
@@ -889,7 +878,7 @@ BS_USE_SQG_STRUCT = False       !   [Boolean] default = False
 SQG_EXPO = 1.0                  !   [nondim] default = 1.0
                                 ! Nondimensional exponent coeffecient of the SQG mode that is used for the
                                 ! vertical struture of diffusivities.
-KHTH_USE_EBT_STRUCT = True      !   [Boolean] default = False
+KHTH_USE_EBT_STRUCT = False     !   [Boolean] default = False
                                 ! If true, uses the equivalent barotropic structure as the vertical structure of
                                 ! thickness diffusivity.
 KHTH_USE_SQG_STRUCT = False     !   [Boolean] default = False
@@ -907,10 +896,10 @@ KD_GL90_USE_EBT_STRUCT = False  !   [Boolean] default = False
 KD_GL90_USE_SQG_STRUCT = False  !   [Boolean] default = False
                                 ! If true, uses the equivalent barotropic structure as the vertical structure of
                                 ! diffusivity in the GL90 scheme.
-KHTH_SLOPE_CFF = 0.01           !   [nondim] default = 0.0
+KHTH_SLOPE_CFF = 0.0            !   [nondim] default = 0.0
                                 ! The nondimensional coefficient in the Visbeck formula for the interface depth
                                 ! diffusivity
-KHTR_SLOPE_CFF = 0.0            !   [nondim] default = 0.0
+KHTR_SLOPE_CFF = 0.25           !   [nondim] default = 0.0
                                 ! The nondimensional coefficient in the Visbeck formula for the epipycnal tracer
                                 ! diffusivity
 USE_STORED_SLOPES = True        !   [Boolean] default = False
@@ -923,10 +912,6 @@ VERY_SMALL_FREQUENCY = 1.0E-17  !   [s-1] default = 1.0E-17
 USE_STANLEY_ISO = False         !   [Boolean] default = False
                                 ! If true, turn on Stanley SGS T variance parameterization in isopycnal slope
                                 ! code.
-RESOLN_N2_FILTER_DEPTH = -1.0   !   [m] default = -1.0
-                                ! The depth below which N2 is monotonized to avoid stratification artifacts from
-                                ! altering the equivalent barotropic mode structure.  This monotonzization is
-                                ! disabled if this parameter is negative.
 VISBECK_MAX_SLOPE = 0.0         !   [nondim] default = 0.0
                                 ! If non-zero, is an upper bound on slopes used in the Visbeck formula for
                                 ! diffusivity. This does not affect the isopycnal slope calculation used within
@@ -943,14 +928,14 @@ VARMIX_KTOP = 2                 !   [nondim] default = 2
 VISBECK_L_SCALE = 0.0           !   [m or nondim] default = 0.0
                                 ! The fixed length scale in the Visbeck formula, or if negative a nondimensional
                                 ! scaling factor relating this length scale squared to the cell areas.
-KH_RES_SCALE_COEF = 0.4         !   [nondim] default = 1.0
+KH_RES_SCALE_COEF = 1.0         !   [nondim] default = 1.0
                                 ! A coefficient that determines how KhTh is scaled away if RESOLN_SCALED_... is
                                 ! true, as F = 1 / (1 + (KH_RES_SCALE_COEF*Rd/dx)^KH_RES_FN_POWER).
 KH_RES_FN_POWER = 2             ! default = 2
                                 ! The power of dx/Ld in the Kh resolution function.  Any positive integer may be
                                 ! used, although even integers are more efficient to calculate.  Setting this
                                 ! greater than 100 results in a step-function being used.
-VISC_RES_SCALE_COEF = 0.4       !   [nondim] default = 0.4
+VISC_RES_SCALE_COEF = 1.0       !   [nondim] default = 1.0
                                 ! A coefficient that determines how Kh is scaled away if RESOLN_SCALED_... is
                                 ! true, as F = 1 / (1 + (KH_RES_SCALE_COEF*Rd/dx)^KH_RES_FN_POWER). This
                                 ! function affects lateral viscosity, Kh, and not KhTh.
@@ -1036,12 +1021,12 @@ HTBL_SHELF_MIN = 0.1            !   [m] default = 0.1
 HTBL_SHELF = 10.0               !   [m] default = 10.0
                                 ! The thickness over which near-surface velocities are averaged for the drag law
                                 ! under an ice shelf.  By default this is the same as HBBL
-KV = 1.0E-04                    !   [m2 s-1]
+KV = 0.0                        !   [m2 s-1]
                                 ! The background kinematic viscosity in the interior. The molecular value, ~1e-6
                                 ! m2 s-1, may be used.
-KV_BBL_MIN = 1.0E-04            !   [m2 s-1] default = 1.0E-04
+KV_BBL_MIN = 0.0                !   [m2 s-1] default = 0.0
                                 ! The minimum viscosities in the bottom boundary layer.
-KV_TBL_MIN = 1.0E-04            !   [m2 s-1] default = 1.0E-04
+KV_TBL_MIN = 0.0                !   [m2 s-1] default = 0.0
                                 ! The minimum viscosities in the top boundary layer.
 CORRECT_BBL_BOUNDS = False      !   [Boolean] default = False
                                 ! If true, uses the correct bounds on the BBL thickness and viscosity so that
@@ -1070,7 +1055,7 @@ KHTH_MIN = 0.0                  !   [m2 s-1] default = 0.0
                                 ! The minimum horizontal thickness diffusivity.
 KHTH_MAX = 0.0                  !   [m2 s-1] default = 0.0
                                 ! The maximum horizontal thickness diffusivity.
-KHTH_MAX_CFL = 0.8              !   [nondimensional] default = 0.8
+KHTH_MAX_CFL = 0.1              !   [nondimensional] default = 0.8
                                 ! The maximum value of the local diffusive CFL ratio that is permitted for the
                                 ! thickness diffusivity. 1.0 is the marginally unstable value in a pure layered
                                 ! model, but much smaller numbers (e.g. 0.1) seem to work better for ALE-based
@@ -1090,33 +1075,13 @@ DETANGLE_INTERFACES = False     !   [Boolean] default = False
 KHTH_SLOPE_MAX = 0.01           !   [nondim] default = 0.01
                                 ! A slope beyond which the calculated isopycnal slope is not reliable and is
                                 ! scaled away.
-KHTH_USE_FGNV_STREAMFUNCTION = True !   [Boolean] default = False
+KHTH_USE_FGNV_STREAMFUNCTION = False !   [Boolean] default = False
                                 ! If true, use the streamfunction formulation of Ferrari et al., 2010, which
                                 ! effectively emphasizes graver vertical modes by smoothing in the vertical.
-FGNV_FILTER_SCALE = 1.0         !   [nondim] default = 1.0
-                                ! A coefficient scaling the vertical smoothing term in the Ferrari et al., 2010,
-                                ! streamfunction formulation.
-FGNV_C_MIN = 0.01               !   [m s-1] default = 0.0
-                                ! A minium wave speed used in the Ferrari et al., 2010, streamfunction
-                                ! formulation.
-FGNV_STRAT_FLOOR = 1.0E-15      !   [nondim] default = 1.0E-15
-                                ! A floor for Brunt-Vasaila frequency in the Ferrari et al., 2010,
-                                ! streamfunction formulation, expressed as a fraction of planetary rotation,
-                                ! OMEGA. This should be tiny but non-zero to avoid degeneracy.
 USE_STANLEY_GM = False          !   [Boolean] default = False
                                 ! If true, turn on Stanley SGS T variance parameterization in GM code.
-MEKE_GEOMETRIC_EPSILON = 1.0E-07 !   [s-1] default = 1.0E-07
-                                ! Minimum Eady growth rate used in the calculation of GEOMETRIC thickness
-                                ! diffusivity.
-MEKE_GEOMETRIC_ANSWER_DATE = 99991231 ! default = 99991231
-                                ! The vintage of the expressions in the MEKE_GEOMETRIC calculation.  Values
-                                ! below 20190101 recover the answers from the original implementation, while
-                                ! higher values use expressions that satisfy rotational symmetry.
-USE_KH_IN_MEKE = True           !   [Boolean] default = False
+USE_KH_IN_MEKE = False          !   [Boolean] default = False
                                 ! If true, uses the thickness diffusivity calculated here to diffuse MEKE.
-MEKE_MIN_DEPTH_DIFF = 1.0       !   [m] default = 1.0
-                                ! The minimum total depth over which to average the diffusivity used for MEKE.
-                                ! When the total depth is less than this, the diffusivity is scaled away.
 USE_GME = False                 !   [Boolean] default = False
                                 ! If true, use the GM+E backscatter scheme in association with the Gent and
                                 ! McWilliams parameterization.
@@ -1333,9 +1298,9 @@ ADD_LES_VISCOSITY = False       !   [Boolean] default = False
 BIHARMONIC = True               !   [Boolean] default = True
                                 ! If true, use a biharmonic horizontal viscosity. BIHARMONIC may be used with
                                 ! LAPLACIAN.
-AH = 1.0E+12                    !   [m4 s-1] default = 0.0
+AH = 0.0                        !   [m4 s-1] default = 0.0
                                 ! The background biharmonic horizontal viscosity.
-AH_VEL_SCALE = 0.0              !   [m s-1] default = 0.0
+AH_VEL_SCALE = 0.01             !   [m s-1] default = 0.0
                                 ! The velocity scale which is multiplied by the cube of the grid spacing to
                                 ! calculate the biharmonic viscosity. The final viscosity is the largest of this
                                 ! scaled viscosity, the Smagorinsky and Leith viscosities, and AH.
@@ -1343,9 +1308,9 @@ AH_TIME_SCALE = 0.0             !   [s] default = 0.0
                                 ! A time scale whose inverse is multiplied by the fourth power of the grid
                                 ! spacing to calculate biharmonic viscosity. The final viscosity is the largest
                                 ! of all viscosity formulations in use. 0.0 means that it's not used.
-SMAGORINSKY_AH = False          !   [Boolean] default = False
+SMAGORINSKY_AH = True           !   [Boolean] default = False
                                 ! If true, use a biharmonic Smagorinsky nonlinear eddy viscosity.
-LEITH_AH = True                 !   [Boolean] default = False
+LEITH_AH = False                !   [Boolean] default = False
                                 ! If true, use a biharmonic Leith nonlinear eddy viscosity.
 USE_LEITHY = False              !   [Boolean] default = False
                                 ! If true, use a biharmonic Leith nonlinear eddy viscosity together with a
@@ -1365,16 +1330,18 @@ BACKSCATTER_UNDERBOUND = False  !   [Boolean] default = True
                                 ! when no Laplacian viscosity is applied.  The default is true for historical
                                 ! reasons, but this option probably should not be used because it can contribute
                                 ! to numerical instabilities.
-USE_BETA_IN_LEITH = False       !   [Boolean] default = False
-                                ! If true, include the beta term in the Leith nonlinear eddy viscosity.
-MODIFIED_LEITH = False          !   [Boolean] default = False
-                                ! If true, add a term to Leith viscosity which is proportional to the gradient
-                                ! of divergence.
-USE_QG_LEITH_VISC = False       !   [Boolean] default = False
-                                ! If true, use QG Leith nonlinear eddy viscosity.
-LEITH_BI_CONST = 128.0          !   [nondim] default = 0.0
-                                ! The nondimensional biharmonic Leith constant, typical values are thus far
-                                ! undetermined.
+SMAG_BI_CONST = 0.06            !   [nondim] default = 0.0
+                                ! The nondimensional biharmonic Smagorinsky constant, typically 0.015 - 0.06.
+BOUND_CORIOLIS_BIHARM = True    !   [Boolean] default = True
+                                ! If true use a viscosity that increases with the square of the velocity shears,
+                                ! so that the resulting viscous drag is of comparable magnitude to the Coriolis
+                                ! terms when the velocity differences between adjacent grid points is
+                                ! 0.5*BOUND_CORIOLIS_VEL.  The default is the value of BOUND_CORIOLIS (or
+                                ! false).
+BOUND_CORIOLIS_VEL = 6.0        !   [m s-1] default = 6.0
+                                ! The velocity scale at which BOUND_CORIOLIS_BIHARM causes the biharmonic drag
+                                ! to have comparable magnitude to the Coriolis acceleration.  The default is set
+                                ! by MAXVEL.
 USE_LAND_MASK_FOR_HVISC = True  !   [Boolean] default = True
                                 ! If true, use the land mask for the computation of thicknesses at velocity
                                 ! locations. This eliminates the dependence on arbitrary values over land or
