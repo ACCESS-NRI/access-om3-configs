@@ -230,3 +230,38 @@ The 25km panAn ran in 2.5 hours and used 6.9 kSU.
 The default CICE IC is "default" which has full ice cover below 60S (and above 60N). Since starting in January, makes more sense to start with zero ice cover. I haven't done this but imagine it is controlled in `ice_in` with
 
 `setup_nml`: `ice_ic` to `'none'` instread of `'deafult'`.
+
+### OBC instructions
+
+Firstly, generate file using script. Needs hh5 analysis-22.10 at the moment. https://github.com/claireyung/mom6-panAn-iceshelf-tools/blob/main/generate-obcs/ACCESS-OM2_panan_boundary_forcing_005.ipynb
+
+Check files, sensible numbers e.g. temperature in celcius.
+
+Then add file to `config.yaml`:
+```
+input:
+   - /g/data/x77/cy8964/mom6/input/input-25km/forcing_access_yr2_25km_fill.nc
+```
+
+Then add to `MOM_override`:
+```
+! === module MOM_open_boundary ===
+OBC_NUMBER_OF_SEGMENTS = 1
+OBC_FREESLIP_VORTICITY = True
+OBC_FREESLIP_STRAIN = True
+!OBC_COMPUTED_VORTICITY = True
+OBC_ZERO_BIHARMONIC = True
+
+OBC_SEGMENT_001 = "J=N,I=N:0,FLATHER,ORLANSKI,NUDGED"
+OBC_SEGMENT_001_VELOCITY_NUDGING_TIMESCALES = .3, 360.0 ! inflow and outflow timescales
+BRUSHCUTTER_MODE = True ! read data on supergrid
+OBC_SEGMENT_001_DATA = "U=file:forcing_access_yr2_25km_fill.nc(u),V=file:forcing_access_yr2_25km_fill.nc(v),SSH=file:forcing_access_yr2_25km_fill.nc(eta_t),TEMP=file:forcing_access_yr2_25km_fill.nc(pot_temp),SALT=file:forcing_access_yr2_25km_fill.nc(salt)"
+!RAMP_OBCS = True
+
+OBC_TRACER_RESERVOIR_LENGTH_SCALE_OUT = 30000
+OBC_TRACER_RESERVOIR_LENGTH_SCALE_IN = 3000
+
+! sponges
+SPONGE = False
+```
+These are copied from MOM6-SIS2 panantarctic: https://github.com/COSIMA/mom6-panan/blob/panan-005/MOM_input

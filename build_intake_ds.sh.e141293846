@@ -1,0 +1,12 @@
+Loading conda/analysis3-25.02
+  Loading requirement: singularity
+/g/data/xp65/public/apps/med_conda/envs/analysis3-25.02/lib/python3.11/site-packages/access_nri_intake/source/utils.py:140: UserWarning: Time coordinate does not include bounds information. Guessing start and end times.
+  warnings.warn(
+/g/data/xp65/public/apps/med_conda/envs/analysis3-25.02/lib/python3.11/site-packages/access_nri_intake/source/builders.py:200: UserWarning: Unable to parse 1 assets. A list of these assets can be found in `.invalid_assets` attribute.
+  self.get_assets().validate_parser().parse().clean_dataframe()
+/g/data/vk83/apps/om3-scripts/payu_config/archive_scripts/build_intake_ds.py:38: UserWarning: metadata.yaml not found in config folder
+  warn(f"{METADATA_FILENAME} not found in config folder")
+/g/data/vk83/apps/om3-scripts/scripts_common.py:127: UserWarning: /g/data/vk83/apps/om3-scripts/payu_config/archive_scripts/build_intake_ds.py not under git version control! Add your file to a repository before generating any production output.
+  warn(
+/g/data/xp65/public/apps/med_conda/envs/analysis3-25.02/lib/python3.11/site-packages/pydantic/deprecated/decorator.py:226: UserWarning: Unable to parse 1 assets/files. A list of these assets can be found in /jobfs/141293846.gadi-pbs/intake_esm_ds_invalid_assets.csv.
+  return self.raw_function(**d, **var_kwargs)
