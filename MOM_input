@@ -396,7 +396,7 @@ LAPLACIAN = True                !   [Boolean] default = False
                                 ! If true, use a Laplacian horizontal viscosity.
 AH = 1.0E+12                    !   [m4 s-1] default = 0.0
                                 ! The background biharmonic horizontal viscosity.
-LEITH_AH = True                 !   [Boolean] default = False
+!LEITH_AH = True                 !   [Boolean] default = False
                                 ! If true, use a biharmonic Leith nonlinear eddy viscosity.
 BACKSCATTER_UNDERBOUND = False  !   [Boolean] default = True
                                 ! If true, the bounds on the biharmonic viscosity are allowed to increase where
@@ -405,7 +405,7 @@ BACKSCATTER_UNDERBOUND = False  !   [Boolean] default = True
                                 ! when no Laplacian viscosity is applied.  The default is true for historical
                                 ! reasons, but this option probably should not be used because it can contribute
                                 ! to numerical instabilities.
-LEITH_BI_CONST = 128.0          !   [nondim] default = 0.0
+!LEITH_BI_CONST = 128.0          !   [nondim] default = 0.0
                                 ! The nondimensional biharmonic Leith constant, typical values are thus far
                                 ! undetermined.
 FRICTWORK_BUG = False           !   [Boolean] default = True
