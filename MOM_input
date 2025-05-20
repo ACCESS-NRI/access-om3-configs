@@ -451,33 +451,9 @@ USE_LEGACY_DIABATIC_DRIVER = False !   [Boolean] default = True
 ! === module MOM_CVMix_KPP ===
 ! This is the MOM wrapper to CVMix:KPP
 ! See http://cvmix.github.io/
-USE_KPP = True                  !   [Boolean] default = False
-                                ! If true, turns on the [CVMix] KPP scheme of Large et al., 1994, to calculate
-                                ! diffusivities and non-local transport in the OBL.
-KPP%
-N_SMOOTH = 3                    ! default = 0
-                                ! The number of times the 1-1-4-1-1 Laplacian filter is applied on OBL depth.
-MATCH_TECHNIQUE = "MatchGradient" ! default = "SimpleShapes"
-                                ! CVMix method to set profile function for diffusivity and NLT, as well as
-                                ! matching across OBL base. Allowed values are:
-                                !    SimpleShapes      = sigma*(1-sigma)^2 for both diffusivity and NLT
-                                !    MatchGradient     = sigma*(1-sigma)^2 for NLT; diffusivity profile from
-                                !      matching
-                                !    MatchBoth         = match gradient for both diffusivity and NLT
-                                !    ParabolicNonLocal = sigma*(1-sigma)^2 for diffusivity; (1-sigma)^2 for NLT
-KPP_IS_ADDITIVE = False         !   [Boolean] default = True
-                                ! If true, adds KPP diffusivity to diffusivity from other schemes.
-                                ! If false, KPP is the only diffusivity wherever KPP is non-zero.
-%KPP
 
 ! === module MOM_CVMix_conv ===
 ! Parameterization of enhanced mixing due to convection via CVMix
-USE_CVMix_CONVECTION = True     !   [Boolean] default = False
-                                ! If true, turns on the enhanced mixing due to convection via CVMix. This scheme
-                                ! increases diapycnal diffs./viscs. at statically unstable interfaces. Relevant
-                                ! parameters are contained in the CVMix_CONVECTION% parameter block.
-CVMix_CONVECTION%
-%CVMix_CONVECTION
 
 ! === module MOM_set_diffusivity ===
 BBL_MIXING_AS_MAX = False       !   [Boolean] default = True
@@ -499,21 +475,9 @@ KD_MAX = 0.1                    !   [m2 s-1] default = -1.0
 
 ! === module MOM_CVMix_shear ===
 ! Parameterization of shear-driven turbulence via CVMix (various options)
-USE_LMD94 = True                !   [Boolean] default = False
-                                ! If true, use the Large-McWilliams-Doney (JGR 1994) shear mixing
-                                ! parameterization.
-N_SMOOTH_RI = 1                 ! default = 0
-                                ! If > 0, vertically smooth the Richardson number by applying a 1-2-1 filter
-                                ! N_SMOOTH_RI times.
 
 ! === module MOM_CVMix_ddiff ===
 ! Parameterization of mixing due to double diffusion processes via CVMix
-USE_CVMIX_DDIFF = True          !   [Boolean] default = False
-                                ! If true, turns on double diffusive processes via CVMix. Note that double
-                                ! diffusive processes on viscosity are ignored in CVMix, see
-                                ! http://cvmix.github.io/ for justification.
-CVMIX_DDIFF%
-%CVMIX_DDIFF
 
 ! === module MOM_diabatic_aux ===
 ! The following parameters are used for auxiliary diabatic processes.
