@@ -71,53 +71,48 @@ work/INPUT/RYF.vas.1990_1991.nc:
   hashes:
     binhash: d15ca562e37e82fb2d31657701f0a560
     md5: 88dc8c70338bbc8f5efc48ed0009a99f
-work/INPUT/access-om3-025deg-ESMFmesh_cropped.nc:
-  fullpath: /g/data/x77/cy8964/mom6/input/input-25km/access-om3-025deg-ESMFmesh_cropped.nc
+work/INPUT/WOA_IC_bfilled_smoothedland.nc:
+  fullpath: /g/data/x77/cy8964/mom6/input/input-8km/WOA_IC_bfilled_smoothedland.nc
   hashes:
-    binhash: 7e01586034645eff228288c909f738ca
-    md5: dc0b3305d125995c671ed39603c28f5d
-work/INPUT/access-om3-025deg-nomask-ESMFmesh_cropped.nc:
-  fullpath: /g/data/x77/cy8964/mom6/input/input-25km/access-om3-025deg-nomask-ESMFmesh_cropped.nc
+    binhash: d329bbacb3c99d02cb802e8e950e5b87
+    md5: 7f23826da79f77f99df54495d78ea46a
+work/INPUT/access-om3-8km-ESMFmesh_cropped.nc:
+  fullpath: /g/data/x77/cy8964/mom6/input/input-8km/access-om3-8km-ESMFmesh_cropped.nc
   hashes:
-    binhash: 8c384eeacadbe759130115c6da351032
-    md5: ac068279df92427f174f1cf6068e6504
-work/INPUT/access-om3-025deg-rof-remap-weights_cropped.nc:
-  fullpath: /g/data/x77/cy8964/mom6/input/input-25km/access-om3-025deg-rof-remap-weights_cropped.nc
+    binhash: 71342df00c81cd5946b9b56efbd908f0
+    md5: 3c9890eb438dfc2a35017541e547d4ed
+work/INPUT/access-om3-8km-nomask-ESMFmesh_cropped.nc:
+  fullpath: /g/data/x77/cy8964/mom6/input/input-8km/access-om3-8km-nomask-ESMFmesh_cropped.nc
   hashes:
-    binhash: 4828aac79eb34d38efec992ba602c6ff
-    md5: 16c83e9b9862387a66e1868b7970e77f
-work/INPUT/forcing_access_yr2_25km_fill.nc:
-  fullpath: /g/data/x77/cy8964/mom6/input/input-25km/forcing_access_yr2_25km_fill.nc
+    binhash: 955083ce17ed01a2c7f47228d1dc7d50
+    md5: 751232a27de1ef02ae97f7e36b34b6a5
+work/INPUT/access-om3-8km-rof-remap-weights_cropped.nc:
+  fullpath: /g/data/x77/cy8964/mom6/input/input-8km/access-om3-8km-rof-remap-weights_cropped.nc
   hashes:
-    binhash: 04dba0dd933d4d29c734a43d32fe41d3
-    md5: 58e0f8ba245b954ddaadef9b3f0bd09b
+    binhash: 807a40ecf02e67d342a35ab3b0fb079e
+    md5: 4e2ec7b3494d8145d1a42b31adc14e59
+work/INPUT/forcing_access_yr2_8km_fill.nc:
+  fullpath: /g/data/x77/cy8964/mom6/input/input-8km/forcing_access_yr2_8km_fill.nc
+  hashes:
+    binhash: 4b6a25ba94219b0f0a990fa089fa7ca4
+    md5: 99224c9adef929cfa13ff81e055ea69c
 work/INPUT/kmt_cropped.nc:
-  fullpath: /g/data/x77/cy8964/mom6/input/input-25km/kmt_cropped.nc
+  fullpath: /g/data/x77/cy8964/mom6/input/input-8km/kmt_cropped.nc
   hashes:
-    binhash: 1846d6785dd57fbadcd03e2f709b22e9
-    md5: 3d4361463f27a327aa28dd84e11b9737
+    binhash: 8539604adf102bbc9fe862d6c3440555
+    md5: 265a150d3da871c67864548175aa6441
 work/INPUT/ocean_hgrid_cropped.nc:
-  fullpath: /g/data/x77/cy8964/mom6/input/input-25km/ocean_hgrid_cropped.nc
+  fullpath: /g/data/x77/cy8964/mom6/input/input-8km/ocean_hgrid_cropped.nc
   hashes:
-    binhash: d86e53ce2b74ffa79bd4b8a5fab36b4a
-    md5: f826f0e0ce1c5e77afbd6d7f1db766b8
-work/INPUT/ocean_temp_salt.res_cropped.nc:
-  fullpath: /g/data/x77/cy8964/mom6/input/input-25km/ocean_temp_salt.res_cropped.nc
-  hashes:
-    binhash: 2f2ad513ea3c364269accb69ba053098
-    md5: 1172a844bcae20cc878cacd7124d7af1
+    binhash: b981dac8b68d62e6c12aeaa2a4182b58
+    md5: a1876832e039ca9bf761b8c16a08449e
 work/INPUT/ocean_vgrid_cropped.nc:
-  fullpath: /g/data/x77/cy8964/mom6/input/input-25km/ocean_vgrid_cropped.nc
+  fullpath: /g/data/x77/cy8964/mom6/input/input-8km/ocean_vgrid_cropped.nc
   hashes:
-    binhash: 979091ff05542b01b39345ec6bdd2e03
+    binhash: 6b10f9ec68f261ef37f4e9d79df73460
     md5: 66f71f2b24bd00b1c220787505e0106e
-work/INPUT/salt_sfc_restore_cropped.nc:
-  fullpath: /g/data/x77/cy8964/mom6/input/input-25km/salt_sfc_restore_cropped.nc
-  hashes:
-    binhash: 2cea3bbde0bfc9b814066bb5abeddbac
-    md5: d0f70925f7dde070471fbca9ffb26798
 work/INPUT/topog_cropped.nc:
-  fullpath: /g/data/x77/cy8964/mom6/input/input-25km/topog_cropped.nc
+  fullpath: /g/data/x77/cy8964/mom6/input/input-8km/topog_cropped.nc
   hashes:
-    binhash: b296afc3fa52ba4e30ef5de6bc83bb65
-    md5: 6f01c100eb0af707fb3dd4d7bc9e9925
+    binhash: 9f9b78f3d2e2ec12af63635f86d29ce8
+    md5: 416e0aa41fc080db875ed5ce699ab8f7

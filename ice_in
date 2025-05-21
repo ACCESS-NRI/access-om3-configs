@@ -76,8 +76,8 @@
   maskhalo_remap = .true.
   max_blocks = -1
   ns_boundary_type = "open"
-  nx_global = 1440
-  ny_global = 395
+  nx_global = 4320
+  ny_global = 1442
   processor_shape = "square-ice"
 /
 &ice_prescribed_nml
