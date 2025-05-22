@@ -25,3 +25,4 @@ SPONGE = False
 #override RESTORE_SALINITY = False
 
 #override FATAL_UNUSED_PARAMS = False
+#override DT = 360
