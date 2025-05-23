@@ -27,31 +27,31 @@ DRIVER_attributes::
 ::
 
 PELAYOUT_attributes::
-     atm_ntasks = 48
-     atm_nthreads = 1
-     atm_pestride = 1
-     atm_rootpe = 0
-     cpl_ntasks = 96
-     cpl_nthreads = 1
-     cpl_pestride = 1
-     cpl_rootpe = 0
-     esmf_logging = ESMF_LOGKIND_NONE
-     ice_ntasks = 96
-     ice_nthreads = 1
-     ice_pestride = 1
-     ice_rootpe = 0
-     ninst = 1
-     ocn_ntasks = 1344
-     ocn_nthreads = 1
-     ocn_pestride = 1
-     ocn_rootpe = 96
-     pio_asyncio_ntasks = 0
-     pio_asyncio_rootpe = 1
-     pio_asyncio_stride = 0
-     rof_ntasks = 48
-     rof_nthreads = 1
-     rof_pestride = 1
-     rof_rootpe = 0
+  atm_ntasks = 416
+  atm_nthreads = 1
+  atm_pestride = 1
+  atm_rootpe = 0
+  cpl_ntasks = 416
+  cpl_nthreads = 1
+  cpl_pestride = 1
+  cpl_rootpe = 0
+  esmf_logging = ESMF_LOGKIND_NONE
+  ice_ntasks = 416
+  ice_nthreads = 1
+  ice_pestride = 1
+  ice_rootpe = 0
+  ninst = 1
+  ocn_ntasks = 1560
+  ocn_nthreads = 1
+  ocn_pestride = 1
+  ocn_rootpe = 416
+  pio_asyncio_ntasks = 0
+  pio_asyncio_rootpe = 1
+  pio_asyncio_stride = 0
+  rof_ntasks = 416
+  rof_nthreads = 1
+  rof_pestride = 1
+  rof_rootpe = 0
 ::
 
 component_list: MED ATM ICE OCN ROF

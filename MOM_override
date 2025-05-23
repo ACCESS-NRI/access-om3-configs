@@ -27,4 +27,4 @@ SPONGE = False
 #override FATAL_UNUSED_PARAMS = False
 #override DT = 360
 #override DT_THERM = 3600 
-#override DEBUG = True
+!#override DEBUG = True
