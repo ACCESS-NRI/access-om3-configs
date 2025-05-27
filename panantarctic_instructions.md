@@ -265,3 +265,82 @@ OBC_TRACER_RESERVOIR_LENGTH_SCALE_IN = 3000
 SPONGE = False
 ```
 These are copied from MOM6-SIS2 panantarctic: https://github.com/COSIMA/mom6-panan/blob/panan-005/MOM_input
+
+
+# Moving to 8km domain
+
+Thus far I've used the [25km domain](https://github.com/claireyung/access-om3-configs/tree/25km_jra_ryf-obc) subsetted from the [global 25km dev model](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MC_25km_jra_ryf). 
+
+Now we want to use an 8km model domain.
+
+First, we use the 8km [global grid that Angus made](https://github.com/claireyung/mom6-panAn-iceshelf-tools/issues/7). Copy files from Angus `/g/data/x77/ahg157/inputs/mom6/global-8km/`
+
+As before, this is a global grid so we truncate to get the desired grid size. I chose the top boundary to be so the top `nyp` `y` value is -37.4627 (which matches the [initial conditions Wilton has set up](https://github.com/claireyung/mom6-panAn-iceshelf-tools/issues/3)).
+
+```
+ncks -d nyp,0,2884 -d ny,0,2883 ocean_hgrid.nc ocean_hgrid_cropped.nc
+ncdump -v "y" ocean_hgrid_cropped.nc | tail -5
+```
+We do the same for `ocean_mask` and `topog` with the different smaller numbers since it's not on the supergrid
+```
+ncks -d ny,0,1441 topog.nc topog_cropped.nc
+ncks -d ny,0,1441 ocean_mask.nc ocean_mask_cropped.nc
+```
+
+Copy the vertical grid from the 25km model **thoughts??**
+```
+cp ../input-25km/ocean_vgrid_cropped.nc .
+```
+
+The kmt (sea ice mask file) is in this case the same as ocean_mask (**it won't be with ice shelf cavities!**) so rename it:
+```
+ncrename -O -v mask,kmt ocean_mask_cropped.nc kmt_cropped.nc
+ncks -O -x -v geolon_t,geolat_t kmt_cropped.nc kmt_cropped.nc
+```
+Then follow the previous pipeline in `make_OM3_025deg_topo` to generate the new mesh files. I did this in a PBS script with the following commands.
+
+```
+python3 /home/156/cy8964/model-tools/om3-scripts/mesh_generation/generate_mesh.py --grid-type=mom --grid-filename=/g/data/x77/cy8964/mom6/input/input-8km/ocean_hgrid_cropped.nc --mesh-filename=/g/data/x77/cy8964/mom6/input/input-8km/access-om3-8km-ESMFmesh_cropped.nc --mask-filename=/g/data/x77/cy8964/mom6/input/input-8km/ocean_mask_cropped.nc --wrap-lons
+
+python3 /home/156/cy8964/model-tools/om3-scripts/mesh_generation/generate_mesh.py --grid-type=mom --grid-filename=/g/data/x77/cy8964/mom6/input/input-8km/ocean_hgrid_cropped.nc --mesh-filename=/g/data/x77/cy8964/mom6/input/input-8km/access-om3-8km-nomask-ESMFmesh_cropped.nc --wrap-lons
+
+python3 ./om3-scripts/mesh_generation/generate_rof_weights.py --mesh_filename=/g/data/x77/cy8964/mom6/input/input-8km/access-om3-8km-ESMFmesh_cropped.nc --weights_filename=/g/data/x77/cy8964/mom6/input/input-8km/access-om3-8km-rof-remap-weights_cropped.nc
+```
+
+I also repeated the OBC script as for 8km.
+
+Next step was to modify all the names in `config.yaml` to point to the correct, new files. 
+
+Then, change the latitude AND longitude size numbers in `datm_in`, `drof_in`, `ice_in`, `nuopc.runcofig` as well as update names. (**note in previous 25km I didn't change any sizes of lat/lon in nuopc.runconfig and that for some reason didn't cause issues???**)
+
+I also turned salt restoring OFF since I didn't manage to generate the file yet in the `MOM_override` and decreased the timesteps `DT` and `DT_THERM` by 3 (25km/8km ~ 3).
+
+```
+#override RESTORE_SALINITY = False
+
+#override FATAL_UNUSED_PARAMS = False ! because there are a bunch of salt restoring stuff in the MOM_input
+#override DT = 360
+#override DT_THERM = 3600 
+!#override DEBUG = True
+```
+
+Finally, I updated the `nuopc.runconfig` to have an updated `PELAYOUT_attributes::` section based on what Minghang has been working on. Since that has more processors going to ocean than current CPUs, I also increased the number of CPUs to 2016 (a multiple of 48) **but this choice was arbirary and I don't know what to choose**.
+
+To run for a shorter time (since it is expensive) I changed `nuopc.runconfig` `CLOCK_attributes` section to have `nmonths`. `ndays` probably works too. Killing the job early still allowed me to look at output netcdf files.
+
+```
+restart_n = 1
+restart_option = nmonths
+restart_ymd = -999
+rof_cpl_dt = 99999 #not used
+start_tod = 0
+start_ymd = 19000101
+stop_n = 1
+stop_option = nmonths
+```
+
+To monitor the progress of the job after submitting it via `payu` I did
+```
+tail -f work/log/ocn.log
+```
+which updates with some information every day.
