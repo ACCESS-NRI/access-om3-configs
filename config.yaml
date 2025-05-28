@@ -8,10 +8,10 @@ project: x77
 # (you may need to add the corresponding PBS -l storage flag in sync_data.sh)
 # shortpath: /scratch/v45
 
-queue: normal
-ncpus: 2016
+queue: normalsr
+ncpus: 1976
 jobfs: 10GB
-mem: 8064GB
+mem: 7904GB
 
 walltime: 2:00:00
 jobname: 8km_panAn
@@ -49,5 +49,12 @@ modules:
     load:
         - access-om3/pr75-1
         - nco/5.0.5
+        - intel-vtune/2025.0.1
 
 payu_minimum_version: 1.1.6
+
+platform:
+  nodesize: 104
+  nodemem: 512
+
+exe_prefix: aps
