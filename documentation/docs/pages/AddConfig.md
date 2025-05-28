@@ -11,6 +11,13 @@ We need to produce protocol and guidance on how to include a regional configurat
 
  - Length of time we provide support / updates for
 
+## OSIT thoughts
+ - If they have submitted data to intake/shared data?
+ - an ACCESS-NRI executable
+ - input files with provenance (e.g. metadata that help you make the file)
+ - community interest/engagement in the application
+ - doc description of what they are providing (stubby system)
+
 ## Steps
 
 @claireyung / @helenmacdonald to fill in please!
