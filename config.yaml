@@ -8,10 +8,10 @@
 # (you may need to add the corresponding PBS -l storage flag in sync_data.sh)
 # shortpath: /scratch/v45
 
-queue: normal
-ncpus: 1440
+queue: normalsr
+ncpus: 1664
 jobfs: 10GB
-mem: 5760GB
+mem: 8000GB
 
 walltime: 24:00:00
 jobname: 025deg_jra55do_ryf
@@ -37,6 +37,10 @@ collate: false
 runlog: false
 metadata: 
     enable: false
+
+platform:
+    nodesize: 104
+    nodemem: 512
 
 userscripts:
     setup: /usr/bin/bash /g/data/vk83/apps/om3-scripts/payu_config/setup.sh
