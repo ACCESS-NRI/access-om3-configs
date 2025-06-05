@@ -76,6 +76,11 @@ work/INPUT/access-om2-100km-nomask-ESMFmesh.nc:
   hashes:
     binhash: 38605aedd850ec5c9d208258f2030166
     md5: 9b7120a42b5cb587492e7c31791eb549
+work/INPUT/bottom_roughness.nc:
+  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/tidal_external_files/global.100km/2025.09.22/bottom_roughness.nc
+  hashes:
+    binhash: e28f832d8cf239fb52e8a835047c9529
+    md5: 014f9b95036b9e5a54a24e3643de675b
 work/INPUT/iced.1900-01-01-10800.nc:
   fullpath: /g/data/vk83/configurations/inputs/access-om3/cice/initial_conditions/global.100km/2023.07.28/iced.1900-01-01-10800.nc
   hashes:
@@ -106,6 +111,11 @@ work/INPUT/salt_sfc_restore.nc:
   hashes:
     binhash: 425ccc4989dc3e1acdecc6ffd7e9a870
     md5: b2bd35c44017597ba99b85fb61ed4d72
+work/INPUT/tideamp.nc:
+  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/tidal_external_files/global.100km/2025.09.22/tideamp.nc
+  hashes:
+    binhash: 10931d9f5303f728e1bf796b8736613a
+    md5: 9bcd9d203632a58221a53b3f7ca51622
 work/INPUT/topog.nc:
   fullpath: /g/data/vk83/configurations/inputs/access-om3/share/grids/global.100km/2020.10.22/topog.nc
   hashes:
