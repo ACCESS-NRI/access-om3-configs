@@ -25,6 +25,8 @@ input:
     - /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/grids/vertical/global.025deg/2025.03.12/ocean_vgrid.nc
     - /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/initial_conditions/global.025deg/2025.03.19/ocean_temp_salt.res.nc
     - /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/surface_salt_restoring/global.025deg/2025.01.30/salt_sfc_restore.nc
+    - /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/tidal_external_files/global.25km/2025.05.15/bottom_roughness.nc
+    - /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/tidal_external_files/global.25km/2025.05.15/tideamp.nc
     - /g/data/vk83/prerelease/configurations/inputs/access-om3/share/grids/global.25km/2025.05.15/topog.nc
     - /g/data/vk83/prerelease/configurations/inputs/access-om3/share/meshes/global.25km/2025.05.15/access-om3-025deg-ESMFmesh.nc
     - /g/data/vk83/prerelease/configurations/inputs/access-om3/share/meshes/global.25km/2025.05.15/access-om3-025deg-nomask-ESMFmesh.nc
