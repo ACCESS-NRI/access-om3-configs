@@ -42,6 +42,15 @@ platform:
     nodesize: 104
     nodemem: 512
 
+collate:
+  restart: true
+  mpi: true
+  walltime: 1:00:00
+  mem: 30GB
+  ncpus: 4
+  queue: normal
+  exe: /g/data/vk83/apps/mppnccombine-fast/0.2/bin/mppnccombine-fast
+
 userscripts:
     setup: /usr/bin/bash /g/data/vk83/apps/om3-scripts/payu_config/setup.sh
     archive: /usr/bin/bash /g/data/vk83/apps/om3-scripts/payu_config/archive.sh
