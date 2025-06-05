@@ -86,6 +86,11 @@ work/INPUT/access-om3-025deg-rof-remap-weights.nc:
   hashes:
     binhash: 72b02f07b141ec1471c7bd3d41498863
     md5: 41657fc054785cc0e1741dd3639c3c16
+work/INPUT/bottom_roughness.nc:
+  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/tidal_external_files/global.25km/2025.05.15/bottom_roughness.nc
+  hashes:
+    binhash: 2107d37df1e8695f44b552645440aa1f
+    md5: 061dec8e4022c0dadccd10db8d31c567
 work/INPUT/kmt.nc:
   fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/cice/grids/global.25km/2025.05.15/kmt.nc
   hashes:
@@ -111,6 +116,11 @@ work/INPUT/salt_sfc_restore.nc:
   hashes:
     binhash: a5bf255da3f43e764cc25469bfe816e3
     md5: 6e37313d88f867af9f1d9f656ab633c9
+work/INPUT/tideamp.nc:
+  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/tidal_external_files/global.25km/2025.05.15/tideamp.nc
+  hashes:
+    binhash: 1e061e784b1302304c67a1d6c23360a7
+    md5: dc4b570589028ce3d09d55d64a7153f5
 work/INPUT/topog.nc:
   fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/share/grids/global.25km/2025.05.15/topog.nc
   hashes:

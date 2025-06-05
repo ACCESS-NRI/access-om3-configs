@@ -383,6 +383,8 @@ BT_PROJECT_VELOCITY = True      !   [Boolean] default = False
                                 ! use a predictor continuity step to find the pressure field, and then to do a
                                 ! corrector continuity step using a weighted average of the old and new
                                 ! velocities, with weights of (1-BEBT) and BEBT.
+DYNAMIC_SURFACE_PRESSURE = True !   [Boolean] default = False
+                                ! If true, add a dynamic pressure due to a viscous ice shelf, for instance.
 BEBT = 0.2                      !   [nondim] default = 0.1
                                 ! BEBT determines whether the barotropic time stepping uses the forward-backward
                                 ! time-stepping scheme or a backward Euler scheme. BEBT is valid in the range
@@ -446,6 +448,36 @@ EPBL_IS_ADDITIVE = False        !   [Boolean] default = True
                                 ! Otherwise, the larger of kappa-shear and ePBL diffusivities are used.
 
 ! === module MOM_set_diffusivity ===
+
+! === module MOM_tidal_mixing ===
+! Vertical Tidal Mixing Parameterization
+INT_TIDE_DISSIPATION = True     !   [Boolean] default = False
+                                ! If true, use an internal tidal dissipation scheme to drive diapycnal mixing,
+                                ! along the lines of St. Laurent et al. (2002) and Simmons et al. (2004).
+INT_TIDE_PROFILE = "POLZIN_09"  ! default = "STLAURENT_02"
+                                ! INT_TIDE_PROFILE selects the vertical profile of energy dissipation with
+                                ! INT_TIDE_DISSIPATION. Valid values are:
+                                !    STLAURENT_02 - Use the St. Laurent et al exponential
+                                !                   decay profile.
+                                !    POLZIN_09 - Use the Polzin WKB-stretched algebraic
+                                !                   decay profile.
+INT_TIDE_DECAY_SCALE = 300.3003003003003 !   [m] default = 500.0
+                                ! The decay scale away from the bottom for tidal TKE with the new coding when
+                                ! INT_TIDE_DISSIPATION is used.
+KAPPA_ITIDES = 6.28319E-04      !   [m-1] default = 6.283185307179586E-04
+                                ! A topographic wavenumber used with INT_TIDE_DISSIPATION. The default is 2pi/10
+                                ! km, as in St.Laurent et al. 2002.
+KAPPA_H2_FACTOR = 0.84          !   [nondim] default = 1.0
+                                ! A scaling factor for the roughness amplitude with INT_TIDE_DISSIPATION.
+TKE_ITIDE_MAX = 0.1             !   [W m-2] default = 1000.0
+                                ! The maximum internal tide energy source available to mix above the bottom
+                                ! boundary layer with INT_TIDE_DISSIPATION.
+READ_TIDEAMP = True             !   [Boolean] default = False
+                                ! If true, read a file (given by TIDEAMP_FILE) containing the tidal amplitude
+                                ! with INT_TIDE_DISSIPATION.
+H2_FILE = "bottom_roughness.nc" !
+                                ! The path to the file containing the sub-grid-scale topographic roughness
+                                ! amplitude with INT_TIDE_DISSIPATION.
 BBL_EFFIC = 0.01                !   [nondim] default = 0.2
                                 ! The efficiency with which the energy extracted by bottom drag drives BBL
                                 ! diffusion.  This is only used if BOTTOMDRAGLAW is true.
@@ -456,6 +488,10 @@ USE_LOTW_BBL_DIFFUSIVITY = True !   [Boolean] default = False
                                 ! If true, uses a simple, imprecise but non-coordinate dependent, model of BBL
                                 ! mixing diffusivity based on Law of the Wall. Otherwise, uses the original BBL
                                 ! scheme.
+SIMPLE_TKE_TO_KD = True         !   [Boolean] default = False
+                                ! If true, uses a simple estimate of Kd/TKE that will work for arbitrary
+                                ! vertical coordinates. If false, calculates Kd/TKE and bounds based on exact
+                                ! energetics for an isopycnal layer-formulation.
 
 ! === module MOM_bkgnd_mixing ===
 ! Adding static vertical background mixing coefficients
