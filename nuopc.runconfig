@@ -98,11 +98,11 @@ ALLCOMP_attributes::
      hostname = gadi
      ice_ncat = 5
      mediator_present = true
-     mesh_atm = ./INPUT/access-om2-1deg-nomask-ESMFmesh.nc
-     mesh_ice = ./INPUT/access-om2-1deg-ESMFmesh.nc
+     mesh_atm = ./INPUT/access-om2-100km-nomask-ESMFmesh.nc
+     mesh_ice = ./INPUT/access-om2-100km-ESMFmesh.nc
      mesh_lnd = UNSET
-     mesh_mask = ./INPUT/access-om2-1deg-ESMFmesh.nc
-     mesh_ocn = ./INPUT/access-om2-1deg-ESMFmesh.nc
+     mesh_mask = ./INPUT/access-om2-100km-ESMFmesh.nc
+     mesh_ocn = ./INPUT/access-om2-100km-ESMFmesh.nc
      model_version = unknown
      ocn2glc_coupling = .false.
      ocn2glc_levels = 1:10:19:26:30:33:35
@@ -303,7 +303,7 @@ OCN_attributes::
 
 ROF_attributes::
      Verbosity = off
-     mesh_rof = ./INPUT/access-om2-1deg-nomask-ESMFmesh.nc
+     mesh_rof = ./INPUT/access-om2-100km-nomask-ESMFmesh.nc
 ::
 
 MED_modelio::
