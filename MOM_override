@@ -22,7 +22,8 @@ OBC_TRACER_RESERVOIR_LENGTH_SCALE_IN = 3000
 ! sponges
 SPONGE = False
 
-#override RESTORE_SALINITY = False
+!#override RESTORE_SALINITY = False
+#override SALT_RESTORE_FILE = "salt_restore_interpolated_nearest.nc"
 
 #override FATAL_UNUSED_PARAMS = False
 #override DT = 360

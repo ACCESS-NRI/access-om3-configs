@@ -111,6 +111,11 @@ work/INPUT/ocean_vgrid_cropped.nc:
   hashes:
     binhash: 6b10f9ec68f261ef37f4e9d79df73460
     md5: 66f71f2b24bd00b1c220787505e0106e
+work/INPUT/salt_restore_interpolated_nearest.nc:
+  fullpath: /g/data/x77/cy8964/mom6/input/input-8km/salt_restore_interpolated_nearest.nc
+  hashes:
+    binhash: 970b42aef5c771810c4b9a376713876e
+    md5: f7f396a714aede65510f8eec20b9a885
 work/INPUT/topog_cropped.nc:
   fullpath: /g/data/x77/cy8964/mom6/input/input-8km/topog_cropped.nc
   hashes:

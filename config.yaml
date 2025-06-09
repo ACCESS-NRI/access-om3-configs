@@ -24,7 +24,7 @@ input:
     - /g/data/x77/cy8964/mom6/input/input-8km/ocean_hgrid_cropped.nc
     - /g/data/x77/cy8964/mom6/input/input-8km/ocean_vgrid_cropped.nc
     - /g/data/x77/cy8964/mom6/input/input-8km/WOA_IC_bfilled_smoothedland.nc
-      #    - /g/data/x77/cy8964/mom6/input/input-8km/salt_sfc_restore_cropped.nc
+    - /g/data/x77/cy8964/mom6/input/input-8km/salt_restore_interpolated_nearest.nc
     - /g/data/x77/cy8964/mom6/input/input-8km/topog_cropped.nc
     - /g/data/x77/cy8964/mom6/input/input-8km/access-om3-8km-ESMFmesh_cropped.nc 
     - /g/data/x77/cy8964/mom6/input/input-8km/access-om3-8km-nomask-ESMFmesh_cropped.nc 
