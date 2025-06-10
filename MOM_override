@@ -1,7 +1,7 @@
 ! NOTE: User made changes to this file override the settings in MOM_input
 !       This provides a clear record of how your configuration differs from the standard
 
-#override TOPO_FILE = "topog_cropped.nc"
+#override TOPO_FILE = "topog_Charrassin_nocavity_cropped.nc"
 
 ! === module MOM_open_boundary ===
 OBC_NUMBER_OF_SEGMENTS = 1
