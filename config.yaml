@@ -13,7 +13,7 @@ ncpus: 240
 jobfs: 10GB
 mem: 960GB
 
-walltime: 02:00:00
+walltime: 04:00:00
 jobname: 100km_jra55do_ryf_wombatlite
 
 model: access-om3
@@ -40,7 +40,7 @@ input:
     - /g/data/vk83/configurations/inputs/access-om3/wombat/initial_conditions/global.100km/2024.04.02/GLODAPv2.2016b.PI_TCO2_fillmiss.nc
     - /g/data/vk83/configurations/inputs/access-om3/wombat/initial_conditions/global.100km/2024.04.02/GLODAPv2.2016b.TAlk_fillmiss.nc
     - /g/data/vk83/configurations/inputs/access-om3/wombat/initial_conditions/global.100km/2024.04.02/GLODAPv2.2016b.TCO2_fillmiss.nc
-    - /g/data/vk83/configurations/inputs/access-om3/wombat/initial_conditions/global.100km/2024.04.02/init_ocean_wombatlite.res.nc
+    - /g/data/vk83/prerelease/configurations/inputs/access-om3/wombat/initial_conditions/global.100km/2025.06.06/init_ocean_wombatlite.res.nc
     - /g/data/vk83/configurations/inputs/JRA-55/RYF/v1-4/data
  
 collate: false
