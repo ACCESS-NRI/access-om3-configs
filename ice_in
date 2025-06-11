@@ -14,6 +14,7 @@
   ice_ic = 'none' 
   lcdf64 = .false.
   npt = 35040
+  dt = 360
   pointer_file = './rpointer.ice'
   print_global = .false.
 /
