@@ -10,6 +10,7 @@
   history_chunksize = 720, 186
   history_precision = 8
   restart_deflate = 1
+  restart_ext = .true.
   ice_ic = 'none' 
   lcdf64 = .false.
   npt = 35040
@@ -24,7 +25,6 @@
   grid_ice = "B"
   grid_ocn = "A"
   grid_type = "regional"
-  grid_outfile = .true.
   kcatbound = 0
   kmt_file = "./INPUT/kmt_Charrassin_nocavity_cropped.nc"
   nblyr = 1
