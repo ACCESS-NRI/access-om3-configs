@@ -2,124 +2,148 @@
   "schema_version": "1-0-0",
   "output": {
     "CAu": [
-      "3C491730FA9AFE5E"
+      "86D4DE9C409DDCAA"
     ],
     "CAv": [
-      "33870E441F9A4AF9"
+      "C6819775655D7983"
     ],
     "DTBT": [
-      "4055968028C53AB4"
+      "4055967FC237A37B"
     ],
     "First_direction": [
       "0"
     ],
     "Kd_shear": [
-      "6C2C55FFA034EBA8"
+      "956DDEBCBA51072D"
     ],
     "Kv_shear": [
-      "53F39BD8B289970F"
+      "641931D2E2F6D4F0"
     ],
     "MEKE": [
-      "F3C98DCDC73AEBD"
+      "F9A0639E9AE257BF"
     ],
     "MEKE_Kh": [
-      "B8DF6D7D851DA904"
+      "5DABBC9861C3BF64"
     ],
     "MEKE_Kh_diff": [
-      "FBC0BAE5DC6D0EE3"
+      "27D604546787954F"
     ],
     "MEKE_Ku": [
-      "45F434F38E2518E8"
+      "C6BE870C5C84EA42"
     ],
     "MLD_MLE_filtered": [
-      "AD8B7C848A8DCEE4"
+      "708D93937AFF56F5"
     ],
     "Salt": [
-      "4C667A55AC80677B"
+      "2AD086F8863E667D"
     ],
     "Temp": [
-      "17D3E1BC5A40EA0"
-    ],
-    "adic": [
-      "348FD6A9DF7E3CE8"
+      "B3A2C16B086BD130"
     ],
     "age": [
-      "A7E172D2EF641BCA"
+      "1F1F32057683FE5E"
     ],
     "alk": [
-      "40D62D3D78DB288"
+      "10C76D732D698229"
     ],
     "ave_ssh": [
-      "5A2446E2FCC3105F"
+      "46762129F7D1BE35"
     ],
     "caco3": [
-      "EA82C5ADBEC24A47"
+      "540331A1CE7CF26"
     ],
     "caco3_sediment": [
-      "C47C74282C4E0013"
+      "199CC47B6A67E9DA"
+    ],
+    "caco3bury": [
+      "0"
     ],
     "det": [
-      "F4671D80E0558AF5"
+      "9C6FC25D82BAC702"
     ],
     "det_sediment": [
-      "CB279D442D7FD06A"
+      "83E1B879684B32DF"
+    ],
+    "detbury": [
+      "0"
+    ],
+    "detfe": [
+      "E6F57D3528852B1C"
+    ],
+    "detfe_sediment": [
+      "CEF4A8020B191A85"
     ],
     "dic": [
-      "963EE0E7721C44E8"
+      "548152716B6EBFE3"
+    ],
+    "dicp": [
+      "E465DE5B0A841865"
+    ],
+    "dicr": [
+      "EEA236B1C49047FB"
     ],
     "diffu": [
-      "9FE35249DF2FD01C"
+      "A3A75A3172B19497"
     ],
     "diffv": [
-      "9400A45EB2DF392D"
+      "405C8026262B1B5C"
     ],
     "fe": [
-      "35441EBE2AAE4245"
+      "B83C3F85B5291B45"
     ],
     "frazil": [
-      "8DF9F80BBADD0CF8"
+      "D3BF09E7FF667191"
     ],
     "h": [
-      "BAB92BA9B5036EC"
+      "23F27761FB2D996"
     ],
     "h_ML": [
-      "212A1346A7BCF352"
+      "B603290624FE9742"
     ],
     "no3": [
-      "7C17B7F335D90C7E"
+      "5DA0C34FC546B070"
     ],
     "o2": [
-      "D8B17B19A5825434"
+      "117DFA141A1BBF7F"
     ],
     "p_surf_EOS": [
-      "161DADB852A006F1"
+      "15625563E8141921"
+    ],
+    "pchl": [
+      "E3B22E51ABEAA747"
     ],
     "phy": [
-      "B38D371A836EB376"
+      "EDE51936D4110425"
+    ],
+    "phyfe": [
+      "4A6668B684D1891C"
     ],
     "sfc": [
-      "1AAE812F5AA1FCF"
+      "4A5909F1DCB3B41B"
     ],
     "u": [
-      "8355072B501045ED"
+      "A7BE44343752DEAD"
     ],
     "u2": [
-      "AE19F7326325F899"
+      "FC30AD53245544DC"
     ],
     "ubtav": [
-      "FD7A4EFA0B73CD3F"
+      "7F24C589D7B7C500"
     ],
     "v": [
-      "263E66CAE980D53E"
+      "6AC8DE6694BE5D59"
     ],
     "v2": [
-      "44FCE560F40E7126"
+      "7F58F44299974883"
     ],
     "vbtav": [
-      "97B0A7D3045E34E9"
+      "565BD414FF349F48"
     ],
     "zoo": [
-      "7A15542F718C142C"
+      "1549AA31B43AC5F3"
+    ],
+    "zoofe": [
+      "BB2DB4F4AC9B30DF"
     ]
   }
 }
