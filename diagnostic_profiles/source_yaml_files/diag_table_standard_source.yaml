@@ -285,22 +285,74 @@ diag_table:
             reduction_method: mean
             module_name: generic_wombatlite
         fields:
-            radbio3d: # Photosynthetically active radiation for phytoplankton growth (W m-2)
-            npp3d: # Net primary productivity (mol/kg/s)
-            pprod_gross: # Gross phytoplankton production (mol/kg/s)
-            zprod_gross: # Gross zooplankton production (mol/kg/s)
-            no3: # Nitrate (mol/kg)
-            phy: # Phytoplankton (mol/kg)
-            o2: # Oxygen (mol/kg)
-            zoo: # Zooplankton (mol/kg)
-            det: # Detritus (mol/kg)
-            caco3: # CaCO3 (mol/kg)
-            adic: # Natural + anthropogenic Dissolved Inorganic Carbon (mol/kg)
-            dic: # Natural Dissolved Inorganic Carbon (mol/kg)
-            alk: # Alkalinity (mol/kg)
-            fe: # Dissolved Iron (mol/kg)
-            det_sediment: # Detritus at base of column as sediment (mol m-2)
-            caco3_sediment: # CaCO3 at base of column as sediment (mol m-2)
+            no3:
+            o2:
+            phy:
+            det:
+            zoo:
+            phyfe:
+            detfe:
+            zoofe:
+            pchl:
+            caco3:
+            dic:
+            alk:
+            dicr:
+            dicp:
+            fe:
+            pprod_gross:
+            zprod_gross:
+            radbio:
+            radmid:
+            radmld:
+            phy_mu:
+            phy_mumax:
+            pchl_mu:
+            pchl_lpar:
+            phy_kni:
+            phy_kfe:
+            phy_lpar:
+            phy_lnit:
+            phy_lfer:
+            phy_dfeupt:
+            phy_feupreg:
+            phy_fedoreg:
+            feIII:
+            felig:
+            fecol:
+            fesources:
+            fesinks:
+            feprecip:
+            fescaven:
+            fescadet:
+            feloss:
+            fecoag2det:
+            htotal:
+            ahtotal:
+            phygrow:
+            phyresp:
+            phymort:
+            zooeps:
+            zoograzphy:
+            zoograzdet:
+            zooresp:
+            zoomort:
+            zooslopphy:
+            zooslopdet:
+            zooexcrphy:
+            zooexcrdet:
+            reminr:
+            detremi:
+            caldiss:
+            pic2poc:
+            omega_ara:
+            omega_cal:
+            co3:
+            co2_star:
+            htotal:
+            det_vmove:
+            alk_correct:
+            dic_correct:
 
     'monthly 2d BGC fields':
         defaults:  # these can be overridden for individual fields below
@@ -308,66 +360,22 @@ diag_table:
             reduction_method: mean
             module_name: generic_wombatlite
         fields:
-            pco2: # Surface aqueous partial pressure of CO2 (uatm)
-            paco2: # Surface aqueous partial pressure of CO2 inc. anthropogenic (uatm)
-            light_limit: # Integrated light limitation of phytoplankton growth (m)
-            radbio1: # Photosynthetically active radiation for phytoplankton growth at surface (W m-2)
-            det_sed_remin: # Rate of remineralisation of detritus in accumulated sediment (mol/m^2/s)
-            det_sed_depst: # Rate of deposition of detritus to sediment at base of water column (mol/m^2/s)
-            caco3_sed_remin: # Rate of remineralisation of CaCO3 in accumulated sediment (mol/m^2/s)
-            caco3_sed_depst: # Rate of deposition of CaCO3 to sediment at base of water column (mol/m^2/s)
-            wdet100: # Detritus export at 100 m (det*sinking rate) (mol/m^2/s)
-            npp2d: # Vertically integrated net primary productivity (mol/m^2/s)
-            npp1: # Net primary productivity in the first ocean layer (mol/kg/s)
-            pprod_gross_2d: # Vertically integrated gross phytoplankton production (mol/m^2/s)
-            dic_intmld: # MLD-integrated natural dissolved inorganic carbon (mol/m^2)
-            adic_intmld: # MLD-integrated natural + anthropogenic dissolved inorganic carbon (mol/m^2)
-            o2_intmld: # MLD-integrated dissolved oxygen (mol/m^2)
-            no3_intmld: # MLD-integrated nitrate (mol/m^2)
-            fe_intmld: # MLD-integrated iron (mol/m^2)
-            phy_intmld: # MLD-integrated phytoplankton (mol/m^2)
-            det_intmld: # MLD-integrated detritus (mol/m^2)
-            pprod_gross_intmld: # MLD-integrated gross phytoplankton production (mol/m^2/s)
-            npp_intmld: # MLD-integrated net primary productivity (mol/m^2/s)
-            radbio_intmld: # MLD-integrated photosynthetically active radiation for phytoplankton growth (W m-1)
-            dic_int100: # 100m-integrated natural dissolved inorganic carbon (mol/m^2)
-            adic_int100: # 100m-integrated natural + anthropogenic dissolved inorganic carbon (mol/m^2)
-            o2_int100: # 100m-integrated dissolved oxygen (mol/m^2)
-            no3_int100: # 100m-integrated nitrate (mol/m^2)
-            fe_int100: # 100m-integrated iron (mol/m^2)
-            phy_int100: # 100m-integrated phytoplankton (mol/m^2)
-            det_int100: # 100m-integrated detritus (mol/m^2)
-            pprod_gross_int100: # 100m-integrated gross phytoplankton production (mol/m^2/s)
-            npp_int100: # 100m-integrated net primary productivity (mol/m^2/s)
-            radbio_int100: # 100m-integrated photosynthetically active radiation for phytoplankton growth (W m-1)
-            no3_stf: # Total flux of no3 into Ocean Surface (mole/m^2/sec)
-            no3_vstf: # Virtual flux of nitrate into ocean due to salinity restoring/correction (mol/m^2/s)
-            no3_btf: # Total flux of no3 into Ocean Bottom (mole/m^2/sec)
-            phy_stf: # Total flux of phy into Ocean Surface (mole/m^2/sec)
-            phy_trunoff: # River concentration of phy (mol/kg)
-            o2_stf: # Total flux of o2 into Ocean Surface (mole/m^2/sec)
-            o2_stf_gas: # Gas exchange flux of o2 into Ocean Surface (mole/m^2/sec)
-            o2_btf: # Total flux of o2 into Ocean Bottom (mole/m^2/sec)
-            o2_alpha: # Atmospheric saturation for o2 (mol/kg)
-            o2_csurf: # Ocean surface gas concentration of o2 (mol/kg)
-            o2_sc_no: # Ocean surface Schmidt Number for o2 (mol/kg)
-            adic_stf: # Total flux of adic into Ocean Surface (mole/m^2/sec)
-            adic_stf_gas: # Gas exchange flux of adic into Ocean Surface (mole/m^2/sec)
-            adic_vstf: # Virtual flux of natural + anthropogenic dissolved inorganic carbon into ocean due to salinity restoring/correction (mol/m^2/s)
-            alk_vstf: # Virtual flux of alkalinity into ocean due to salinity restoring/correction (mol/m^2/s)
-            adic_btf: # Total flux of adic into Ocean Bottom (mole/m^2/sec)
-            adic_alpha: # Atmospheric saturation for adic (mol/kg)
-            adic_csurf: # Ocean surface gas concentration of adic (mol/kg)
-            adic_sc_no: # Ocean surface Schmidt Number for adic (mol/kg)
-            dic_stf: # Total flux of dic into Ocean Surface (mole/m^2/sec)
-            dic_stf_gas: # Gas exchange flux of dic into Ocean Surface (mole/m^2/sec)
-            dic_vstf: # Virtual flux of natural dissolved inorganic carbon into ocean due to salinity restoring/correction (mol/m^2/s)
-            dic_btf: # Total flux of dic into Ocean Bottom (mole/m^2/sec)
-            dic_alpha: # Atmospheric saturation for dic (mol/kg)
-            dic_csurf: # Ocean surface gas concentration of dic (mol/kg)
-            dic_sc_no: # Ocean surface Schmidt Number for dic (mol/kg)
-            alk_stf: # Total flux of alk into Ocean Surface (mole/m^2/sec)
-            alk_vstf: # Virtual flux of alkalinity into ocean due to salinity restoring/correction (mol/m^2/s)
-            alk_btf: # Total flux of alk into Ocean Bottom (mole/m^2/sec)
-            fe_stf: # Total flux of fe into Ocean Surface (mole/m^2/sec)
-            fe_btf: # Total flux of fe into Ocean Bottom (mole/m^2/sec)
+            o2_stf:
+            dic_stf:
+            dicp_stf:
+            fe_stf:
+            pco2:
+            paco2:
+            pprod_gross_2d:
+            export_prod:
+            export_inorg:
+            det_sediment:
+            detfe_sediment:
+            caco3_sediment:
+            det_sed_depst:
+            detfe_sed_depst:
+            caco3_sed_depst:
+            det_sed_bury:
+            detfe_sed_bury:
+            caco3_sed_bury:
+            zeuphot:
