@@ -7,11 +7,12 @@ However, if you want to make code changes you'll need to [build access-om3](Buil
 
 ## Downloading a configuration
 
-Configurations that use the same combination of model components (MOM6, CICE6 and/or WW3) are stored as separate branches in a single repository, as [listed here](configurations/Configurations.md).
-The main branch within each of these repositories is just documentation. To get a working configuration you need to check out one of the branches with the resolution and forcing details you need, as explained in the README of the configuration repo. It's also best to create your own fork and clone that, so you can back up your work there.
+Configurations that use the same combination of model components (MOM6, CICE6 and/or WW3) are stored as separate branches in a single repository, as [explained here](configurations/Overview.md).
+The main branch within each of these repositories is just documentation. To get a working configuration you need to check out one of the branches with the resolution and forcing details you need, as explained in the [README](https://github.com/ACCESS-NRI/access-om3-configs/blob/main/README.md) of the configuration repository. It's also best to create your own fork and clone that, so you can back up your work there.
 
 For example, to run a `MOM6-CICE6` configuration under RYF JRA55-do forcing (i.e. the `1deg_jra55do_ryf` branch):
-1. [fork](https://docs.github.com/en/get-started/quickstart/fork-a-repo) the repo https://github.com/ACCESS-NRI/access-om3-configs on GitHub (if you haven't already), unchecking the "Copy the main branch only" box so you get all the configuration branches
+
+1. [fork](https://docs.github.com/en/get-started/quickstart/fork-a-repo) the repo [https://github.com/ACCESS-NRI/access-om3-configs](https://github.com/ACCESS-NRI/access-om3-configs) on GitHub (if you haven't already), unchecking the "Copy the main branch only" box so you get all the configuration branches
 2. choose a unique name for your experiment, e.g. `my_1deg_jra55do_ryf_experiment_name`
 3. `cd` to somewhere in your `/home` directory on Gadi (since this is [the only filesystem that's backed up](https://opus.nci.org.au/pages/viewpage.action?pageId=90308816))
 4. clone the config from your fork: `git clone git@github.com:<username>/access-om3-configs.git my_1deg_jra55do_ryf_experiment_name` (where `<username>` is your GitHub user name)
@@ -28,7 +29,7 @@ metadata:
 
 ## Customising your experiment
 You may want change the run length. This is determined by [`stop_n`](https://github.com/search?q=repo%3AACCESS-NRI%2Faccess-om3-configs+path%3Adoc%2Fnuopc.runconfig+stop_n&type=code) and [`stop_option`](https://github.com/search?q=repo%3AACCESS-NRI%2Faccess-om3-configs+path%3Adoc%2Fnuopc.runconfig+stop_option&type=code) in `CLOCK_attributes` in `nuopc.runconfig`; available units for `stop_option` are listed [here](https://escomp.github.io/CMEPS/versions/master/html/generic.html).
-See the [Configurations](configurations/Configurations.md) section to find out how to set other parameters.
+See the [Configurations](configurations/Overview.md) section to find out how to set other parameters.
 
 Before running, commit your changes with an informative message, e.g. `git commit -am "initial setup for experiment to test... bla bla"`
 
@@ -74,5 +75,6 @@ See the [payu documentation](http://payu.readthedocs.io/en/latest) for more info
 
 If the run fails, the `work` directory will be retained. You can find diagnostic messages in `access-om3.*`, `MOM6-CICE6.[oe]*`, `work/log/*`, `work/logfile*` and other files in `work`. You will need to do `payu sweep` to delete the `work` directory before you will be able to do another `payu run`. This will also save copies of the PBS logs into `archive/pbs_logs`.
 
-**WARNING** restarts and outputs are stored on `/scratch` and will therefore [be deleted if unread for 100 days](https://opus.nci.org.au/pages/viewpage.action?pageId=156434436), so if you value them you should move them somewhere safer, e.g. `/g/data`. Note that `/home` is the only filesystem that is backed up, so your configuration should live there, but you probably won't have room for outputs and restarts.
-If you put a [`sync`](https://payu.readthedocs.io/en/latest/config.html#postprocessing) section in `config.yaml`, payu will automatically copy your files to a safe location you specify.
+!!! warning
+    **WARNING** restarts and outputs are stored on `/scratch` and will therefore [be deleted if unread for 100 days](https://opus.nci.org.au/pages/viewpage.action?pageId=156434436), so if you value them you should move them somewhere safer, e.g. `/g/data`. Note that `/home` is the only filesystem that is backed up, so your configuration should live there, but you probably won't have room for outputs and restarts.
+    If you put a [`sync`](https://payu.readthedocs.io/en/latest/config.html#postprocessing) section in `config.yaml`, payu will automatically copy your files to a safe location you specify.

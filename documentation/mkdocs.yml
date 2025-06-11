@@ -92,22 +92,22 @@ markdown_extensions:
 # Navigation
 nav:
   - Home:                  index.md
-  - Architecture:          pages/Architecture.md
-  - Building:              pages/Building.md
+  - Quick start:           pages/Quick-start.md
   - Configurations:
-    - pages/configurations/Configurations.md
+    - pages/configurations/Overview.md
     # At build time other configurations are added here by the mkdocs-include-configurations plugin
+  - Architecture:          pages/Architecture.md
+  - NUOPC driver:          pages/NUOPC-driver.md
   - Coupling:              pages/Coupling.md
-  - Forcing-data-models:   pages/Forcing-data-models.md
-  - Git-practices:         pages/Git-practices.md
-  - MOM6-generic-tracers:  pages/MOM6-generic-tracers.md
+  - Forcing data models:   pages/Forcing-data-models.md
   - MOM6:                  pages/MOM6.md
-  - NUOPC-driver:          pages/NUOPC-driver.md
-  - Quick-start:           pages/Quick-start.md
-  - Releases:              pages/Releases.md
+  - MOM6 generic tracers:  pages/MOM6-generic-tracers.md
   - Grids:                 pages/Grids.md
-  - Topography-generation: pages/Topography-generation.md
-  - Updating-components:   pages/Updating-components.md
+  - Topography generation: pages/Topography-generation.md
+  - Git practices:         pages/Git-practices.md
+  - Building:              pages/Building.md
+  - Updating components:   pages/Updating-components.md
+  - Releases:              pages/Releases.md
 
 # Footer
 extra:

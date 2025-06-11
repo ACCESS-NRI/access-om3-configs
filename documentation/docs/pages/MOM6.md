@@ -6,9 +6,10 @@
 - [MOM6 discussion forum](https://bb.cgd.ucar.edu/cesm/forums/mom6.148/)
 
 ## Related projects
-We draw on experience from our other MOM6 projects, e.g.
-- our global MOM6 configuration https://github.com/COSIMA/mom6-om4-025
-- MOM6 regional configuration generator https://github.com/COSIMA/mom6-regional
-- our MOM6 PanAntarctic regional configuration https://github.com/COSIMA/mom6-panan
-- our MOM6 EAC regional configuration https://github.com/COSIMA/mom6-eac
-- Claire Yung's ice shelf tools https://github.com/claireyung/mom6-panAn-iceshelf-tools
+We draw on experience from [COSIMA's](https://cosima.org.au/) other MOM6 projects, e.g.
+
+- our [global MOM6 configuration](https://github.com/COSIMA/mom6-om4-025)
+- our [MOM6 regional configuration generator](https://github.com/COSIMA/mom6-regional)
+- our [MOM6 PanAntarctic regional configurations](https://github.com/COSIMA/mom6-panan)
+- our [MOM6 EAC regional configuration](https://github.com/COSIMA/mom6-eac)
+- Claire Yung's [ice shelf tools](https://github.com/claireyung/mom6-panAn-iceshelf-tools)
