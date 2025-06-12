@@ -68,5 +68,5 @@ env:
 payu_minimum_version: 1.1.6
 
 restart: 
-  /g/data/tm70/ml0072/COMMON/git_repos/control_runs/ctrl_25km_1st_version/ctrl_run_25km_0.5/archive/restart009
+  /g/data/tm70/ml0072/COMMON/git_repos/control_runs/ctrl_25km_1st_version/ctrl_run_25km_0.5_tm70/archive/restart001
 restart_freq: 1
