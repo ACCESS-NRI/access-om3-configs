@@ -34,6 +34,7 @@ theme:
         name: Switch to light mode
 
   features:
+    - content.action.edit       # if works, will turn on the "edit on GitHub feature" https://github.com/squidfunk/mkdocs-material/issues/5261
     - navigation.instant
     - navigation.tracking       # The URL in the address bar is automatically updated with active anchor
     - navigation.indexes
