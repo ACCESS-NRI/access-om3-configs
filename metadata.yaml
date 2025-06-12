@@ -1,0 +1,21 @@
+experiment_uuid: bec48651-b56e-4299-a3aa-eeaafd1cff5c
+created: '2025-06-12'
+name: perturb_base-submeso-parameterisation1-bec48651
+model: ACCESS-OM3
+url: git@github.com:minghangli-uni/access-om3-configs.git
+contact: minghangli-uni
+email: 24727729+minghangli-uni@users.noreply.github.com
+schema_version:  # The version of the schema (string)
+description: # Short description of the experiment (string, < 150 char)
+long_description: # Long description of the experiment (string)
+realm: # The realm(s) included in the experiment (string)
+frequency: # The frequency(/ies) included in the experiment (string)
+variable: # The variable(s) included in the experiment (string)
+nominal_resolution: # The nominal resolution(s) of model(s) used in the experiment (string)
+version: # The version of the experiment (number, string)
+reference: # Citation or reference information (string)
+license: # License of the experiment (string)
+parent_experiment: # experiment_uuid for parent experiment if appropriate (string)
+related_experiments: # experiment_uuids for any related experiment(s) (string)
+notes: # Additional notes (string)
+keywords: # Keywords to associated with experiment (string)
