@@ -7,8 +7,7 @@ However, if you want to make code changes you'll need to [build access-om3](Buil
 
 ## Downloading a configuration
 
-Configurations that use the same combination of model components (MOM6, CICE6 and/or WW3) are stored as separate branches in a single repository, as [explained here](configurations/Overview.md).
-The main branch within each of these repositories is just documentation. To get a working configuration you need to check out one of the branches with the resolution and forcing details you need, as explained in the [README](https://github.com/ACCESS-NRI/access-om3-configs/blob/main/README.md) of the configuration repository. It's also best to create your own fork and clone that, so you can back up your work there.
+The main branch in [github.com/ACCESS-NRI/access-om3-configs](https://github.com/ACCESS-NRI/access-om3-configs) is just documentation. To get a working configuration you need to check out one of the branches with the resolution and forcing details you need, as explained in the [README](https://github.com/ACCESS-NRI/access-om3-configs/blob/main/README.md) of that repository. It's also best to create your own fork and clone that, so you can back up your work there.
 
 For example, to run a `MOM6-CICE6` configuration under RYF JRA55-do forcing (i.e. the `1deg_jra55do_ryf` branch):
 
