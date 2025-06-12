@@ -10,6 +10,7 @@ site_url: !ENV [SITE_URL, "http://access-nri.github.io/access-om3-configs/"]
 # Git repository (Adds a link to the GitHub repository at the top)
 repo_url: https://github.com/ACCESS-NRI/access-om3-configs
 repo_name: ACCESS-NRI/access-om3-configs
+edit_uri: ./main/documentation/docs/ #hopefully will fix the edit button from 404'ing, https://github.com/mkdocs/mkdocs/issues/2416
 
 # Theme
 theme:
