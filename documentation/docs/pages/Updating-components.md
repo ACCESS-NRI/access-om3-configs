@@ -1,8 +1,11 @@
+
 All the components that make up OM3 (models, coupler, etc) are currently included as [git submodules](https://git-scm.com/book/en/v2/Git-Tools-Submodules) and built using [CMake](https://cmake.org/). This means that, in a nutshell, updating a given component usually requires updating the git submodule and the CMake build system.
 
 ## Step by step instructions
 
 ### Submodule update
+!!! warning
+      **This page is out of date, and needs to be updated to the new Spack-based build process! We no longer use the COSIMA respository for ACCESS-OM3 builds**
 
 Although not required, we recommend starting the process from a clean git repository:
 ```console
