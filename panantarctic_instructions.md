@@ -1,5 +1,14 @@
 # Instructions to generate pan-Antarctic regional domain from global ACCESS-OM3 Configuration
 
+Contents:
+
+1. Make 25km panan from 25km OM3 and add boundary conditions
+2. Convert to 8km panan using GEBCO bathy
+3. Use Charrassin bathy instead
+4. Use new parameters
+
+# 1.  Make 25km panan from 25km OM3 and add boundary conditions
+
 These instructions were used by Claire and Helen to make a 25km pan-An regional config. There are no open boundary conditions yet. We start with a global domain, truncate it, and then change configuration files as required. This is a work in progress!!
 
 First, we load modules so that we can use `payu`:
@@ -267,7 +276,7 @@ SPONGE = False
 These are copied from MOM6-SIS2 panantarctic: https://github.com/COSIMA/mom6-panan/blob/panan-005/MOM_input
 
 
-# Moving to 8km domain
+# 2. Moving to 8km domain
 
 Thus far I've used the [25km domain](https://github.com/claireyung/access-om3-configs/tree/25km_jra_ryf-obc) subsetted from the [global 25km dev model](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MC_25km_jra_ryf). 
 
@@ -344,3 +353,136 @@ To monitor the progress of the job after submitting it via `payu` I did
 tail -f work/log/ocn.log
 ```
 which updates with some information every day.
+
+# Optimisation
+
+It is slow. Some suggestions from Manodeep, Minghang and Anton on optimisation.
+
+1. use sapphire rapids. requires extra lines in `config.yaml`
+
+```
+platform:
+  nodesize: 104
+  nodemem: 512
+```
+
+2. try to monitor state using aps profiler
+requires adding
+`modules: load: - intel-vtune/2025.0.1` in `config.yaml`, and `exe_prefix: aps`.
+
+This seems to slow the model down.... but you can look at output by following instructions here https://www.intel.com/content/www/us/en/docs/vtune-profiler/cookbook/2025-0/profiling-mpi-applications.html
+
+```
+module load intel-vtune/2025.0.1
+aps --report ./work/aps_result_20250528_141890971.gadi-pbs
+```
+
+and then download the .html file produced and look at it
+(requries model to not crash during run - having problems with the restart generation in runtime and timestep not consistent- try modifying ocn_cpl_dt and runtime in nuopc.runconfig)
+
+3. try sea ice settings
+`ice.log` tells you about blocks
+maybe block sizes are too small - ideal is 3-8
+
+chance `domain_nml` block size in `ice_in` 
+
+Unfortunately when I changed it it crashed - maybe a specific number is required.
+
+
+# 3. Step 3: add Charrassin bathymetry (still no ice shelves)
+
+Follow notebooks in https://github.com/claireyung/mom6-panAn-iceshelf-tools/generate-draft/Generate-Charrassin-bathy.ipynb and https://github.com/claireyung/mom6-panAn-iceshelf-tools/generate-draft/process-topo.ipynb.These notebooks also generate files for ice shelf cavities opened.
+
+As before, truncate files, and regenerate mesh files. Rename in config.yaml, and other files, no other changes needed since same grid size
+
+Copy config dir 
+```
+cp -r 8km_jra_ryf_obc2-sapphirerapid 8km_jra_ryf_obc2-sapphirerapid-Charrassin
+cd 8km_jra_ryf_obc2-sapphirerapid-Charrassin
+ls
+module use /g/data/vk83/modules
+module load payu
+payu checkout -b 8km_jra_ryf_obc2-sapphirerapid-Charrassin
+```
+
+Now crop files (`cd /g/data/x77/cy8964/mom6/input/input-8km`)
+
+```
+ncks -d ny,0,1441 topog_Charrassin_nocavity.nc topog_Charrassin_nocavity_cropped.nc
+ncks -d ny,0,1441 ocean_mask_Charrassin_nocavity.nc ocean_mask_Charrassin_nocavity_cropped.nc
+ncks -d ny,0,1441 kmt_Charrassin_nocavity.nc kmt_Charrassin_nocavity_cropped.nc
+```
+
+and make rof, mask files etc (`cd /home/156/cy8964/model-tools/make_OM3_8k_topo`)
+
+```
+# Copyright 2025 ACCESS-NRI and contributors. See the top-level COPYRIGHT file for details.
+# SPDX-License-Identifier: Apache-2.0
+
+#PBS -q normal
+#PBS -l walltime=4:00:00,mem=10GB
+#PBS -l wd
+#PBS -l storage=gdata/hh5+gdata/ik11+gdata/tm70+gdata/vk83+gdata/x77
+
+# Input files - Using the environment variables passed via -v
+INPUT_HGRID=$INPUT_HGRID
+INPUT_VGRID=$INPUT_VGRID
+INPUT_GBCO=$INPUT_GBCO
+# Minimum allowed y-size for a cell (in m)
+CUTOFF_VALUE=6000
+# Output filenames
+ESMF_MESH_FILE='access-om3-8km-ESMFmesh.nc'
+ESMF_NO_MASK_MESH_FILE='access-om3-8km-nomask-ESMFmesh.nc'
+ROF_WEIGHTS_FILE='access-om3-8km-rof-remap-weights.nc'
+
+# Build bathymetry-tools
+./build.sh
+
+module purge
+module use /g/data/hh5/public/modules
+module load conda/analysis3
+module load nco
+
+set -x #print commands to e file
+set -e #exit on error
+
+python3 /home/156/cy8964/model-tools/om3-scripts/mesh_generation/generate_mesh.py --grid-type=mom --grid-filename=/g/data/x77/cy8964/mom6/input/input-8km/ocean_hgrid_cropped.nc --mesh-filename=/g/data/x77/cy8964/mom6/input/input-8km/access-om3-8km-ESMFmesh_Charrassin_nocavity_cropped.nc --mask-filename=/g/data/x77/cy8964/mom6/input/input-8km/ocean_mask_Charrassin_nocavity_cropped.nc --wrap-lons
+
+python3 /home/156/cy8964/model-tools/om3-scripts/mesh_generation/generate_mesh.py --grid-type=mom --grid-filename=/g/data/x77/cy8964/mom6/input/input-8km/ocean_hgrid_cropped.nc --mesh-filename=/g/data/x77/cy8964/mom6/input/input-8km/access-om3-8km-nomask-ESMFmesh_Charrassin_nocavity_cropped.nc --wrap-lons
+
+python3 ./om3-scripts/mesh_generation/generate_rof_weights.py --mesh_filename=/g/data/x77/cy8964/mom6/input/input-8km/access-om3-8km-ESMFmesh_Charrassin_nocavity_cropped.nc --weights_filename=/g/data/x77/cy8964/mom6/input/input-8km/access-om3-8km-rof-remap-weights_Charrassin_nocavity_cropped.nc
+
+```
+
+Added files and renamed netcdf names to `config.yaml`, `datm_in`, `ice_in`, `drof_in`, `nuopc.runconfig`, `MOM_override`
+
+# 4. Add new parameters
+Firstly, note that the coupling timestep is actually controlled in `nuopc.runseq` by the number in the top right hand corner. Making this not a ratio of 3x the timestep makes it work i.e. produces restart files
+
+Also, using cascade lake nodes removes the segfault from running from a restart
+
+I updated MOM_input to match the new OM3 parameters (similar to GFDL OM5). Requires some changes mentioned in `MOM_override`
+
+Changes that I want to make to these parameters for a high res model setup are in `MOM_override_newparams`
+
+The new internal tide mixing scheme requires two new files with roughness and tidal amplitude. I found Minghang's script through the netcdf metadata of OM3 versions, and am reproducing them:
+
+https://github.com/ACCESS-NRI/om3-scripts/pull/53 
+
+```
+qsub -I -P x77 -q normalbw -l ncpus=28,mem=120G,walltime=05:00:00,storage=gdata/hh5+gdata/ik11+gdata/x77+scratch/x77+gdata/xp65
+module use /g/data/xp65/public/modules
+module load conda/analysis3
+
+cd /home/156/cy8964/model-tools/om3-scripts/external_tidal_generation
+
+mpirun -n 28 python3 generate_bottom_roughness_polyfit.py --topo-file=/g/data/ik11/inputs/SYNBATH/SYNBATH.nc --hgrid-file=/g/data/x77/cy8964/mom6/input/input-8km/ocean_hgrid_cropped.nc --mask-file=/g/data/x77/cy8964/mom6/input/input-8km/ocean_mask_Charrassin_nocavity_cropped.nc --chunk-lat=800 --chunk-lon=1600 --output=/g/data/x77/cy8964/mom6/input/input-8km/bottom_roughness_Charrassin_nocavity_cropped.nc
+
+python3 generate_tide_amplitude.py --hgrid-file=/g/data/x77/cy8964/mom6/input/input-8km/ocean_hgrid_cropped.nc --mask-file=/g/data/x77/cy8964/mom6/input/input-8km/ocean_mask_Charrassin_nocavity_cropped.nc --method=conservative_normed --data-path=/g/data/ik11/inputs/TPXO10_atlas_v2 --output=/g/data/x77/cy8964/mom6/input/input-8km/tideamp_Charrassin_nocavity_cropped.nc
+```
+
+**Do these work with cavities?** No: https://github.com/claireyung/mom6-panAn-iceshelf-tools/issues/8
+
+Also aiming to increase the  timestep after a few days of spinup.
+
+Also copied diag rho coordinates from the panan.
