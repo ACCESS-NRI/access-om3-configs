@@ -2,7 +2,7 @@
 
 Welcome to the documentation for the [ACCESS-OM3 ice-ocean model configurations](https://github.com/ACCESS-NRI/access-om3-configs)!
 
-See the links on the left, particularly the [quick start](pages/Quick-start.md).
+See the links on the left, particularly the [quick start](/Quick-start.md).
 
 ## Contributions welcome 🙏
 This documentation is a work in progress, and we welcome any contributions, including corrections and suggestions.
