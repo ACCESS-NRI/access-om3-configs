@@ -196,10 +196,26 @@ ACCESS-OM3
 "ocean_model", "total_net_massout", "total_net_massout", "access-om3.mom6.scalar.1day.snap.%4yr", "all", "none", "none", 1
 "ocean_model", "total_net_massin", "total_net_massin", "access-om3.mom6.scalar.1day.snap.%4yr", "all", "none", "none", 1
 
-# density coords
+# density coords from https://github.com/COSIMA/mom6-panan/blob/panan-01/diag_table
 
-"ocean_daily_rho2%4yr_%3dy",    1, "days",   1, "days", "time", 1, "days"
+"access-om3.mom6.ocean_daily_rho2%4yr_%3dy",    1, "days",   1, "days", "time", 1, "days"
 "ocean_model_rho2","umo",       "umo",              "ocean_daily_rho2%4yr_%3dy",   "all", "mean", "none",2
 "ocean_model_rho2","vmo",       "vmo",              "ocean_daily_rho2%4yr_%3dy",   "all", "mean", "none",2
 "ocean_model_rho2", "volcello",  "volcello",         "ocean_daily_rho2%4yr_%3dy",    "all", "mean", "none",2
 
+"access-om3.mom6.ocean_month_rho2",             1, "months", 1, "days", "time"
+"ocean_model_rho2", "volcello",  "volcello",         "ocean_month_rho2",    "all", "mean", "none",2
+"ocean_model_rho2","umo",       "umo",              "ocean_month_rho2",   "all", "mean", "none",2
+"ocean_model_rho2","vmo",       "vmo",              "ocean_month_rho2",   "all", "mean", "none",2
+# Total diapycnal diffusivity, this diagnostic is not correct
+# "ocean_model_rho2", "Kd_interface",  "Kd_interface",  "ocean_month_rho2",      "all", "mean", "none",2
+# Total diapycnal diffusivity for heat at interfaces
+"ocean_model_rho2", "Kd_heat",  "Kd_heat",  "ocean_month_rho2",      "all", "mean", "none",2
+# Total diapycnal diffusivity for salt at interfaces
+"ocean_model_rho2", "Kd_salt",  "Kd_salt",  "ocean_month_rho2",      "all", "mean", "none",2
+# ePBL diapycnal diffusivity at interfaces
+"ocean_model_rho2", "Kd_ePBL",  "Kd_ePBL",  "ocean_month_rho2",      "all", "mean", "none",2
+# Shear-driven Diapycnal Diffusivity
+"ocean_model_rho2", "Kd_shear",  "Kd_shear",  "ocean_month_rho2",      "all", "mean", "none",2
+# Bottom Boundary Layer Diffusivity
+"ocean_model_rho2", "Kd_BBL",  "Kd_BBL",  "ocean_month_rho2",      "all", "mean", "none",2

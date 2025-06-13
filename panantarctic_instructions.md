@@ -483,6 +483,8 @@ python3 generate_tide_amplitude.py --hgrid-file=/g/data/x77/cy8964/mom6/input/in
 
 **Do these work with cavities?** No: https://github.com/claireyung/mom6-panAn-iceshelf-tools/issues/8
 
-Also aiming to increase the  timestep after a few days of spinup.
+bottom_roughness took about an hour, tideamp half an hour
 
-Also copied diag rho coordinates from the panan.
+Also aiming to increase the  timestep after a few days of spinup. However, also need to make sure dt_therm not too big: https://bb.cgd.ucar.edu/cesm/threads/limit-on-dt_therm-in-regional-configs.8226/
+
+Also copied diag rho coordinates from the panan. not sure about the formatting....
