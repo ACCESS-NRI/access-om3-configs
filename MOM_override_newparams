@@ -1,0 +1,42 @@
+
+#override THICKNESS_DIFFUSE = False
+#override USE_POROUS_BARRIER = False
+#override DTBT_RESET_PERIOD = 1800
+#override CHECK_BAD_SURFACE_VALS = False
+! Answer dates? OK I THINK
+#override EQN_OF_STATE = "ROQUET_RHO"
+! Ask Olga about fr point eqn of state
+#override PARALLEL_RESTARTFILES = True !Check IO LAYOUT
+! #override MIN_THICKNESS = 1.0E-12
+! Diag mediator - copy panan stuff here
+#override NUM_DIAG_COORDS = 2
+#override DIAG_COORDS = "z Z ZSTAR", "rho2 RHO2 RHO"
+!#override DIAG_COORD_DEF_Z = "FILE:vcoord.nc,interfaces=st_edges_ocean"
+! drho (arg 5) is a bit magic and has a big impact on
+! the tail of the coord...
+#override DIAG_COORD_DEF_RHO2 = "FILE:diag_rho2.nc,interfaces=rho2"
+
+
+
+#override USE_MEKE = False
+#override USE_VARIABLE_MIXING = False
+#override RESOLN_SCALED_KH = False
+#override RESOLN_SCALED_KHTH = False
+#override USE_STORED_SLOPES = False
+#override KV = 1E-6
+#override KV_BBL_MIN = 1E-6
+#override KV_TBL_MIN = 1E-6
+#override KD_MIN_TR = 1.5E-06 
+! NEED TIDEAMP AND H2 FILES #override INT_TIDE_DISSIPATION = True
+#override BBL_EFFIC = 0.01
+#override KD = 1.5E-05                    
+#override KD_MIN = 2.0E-06                
+!?? JACKON PARAM OR NOT??
+#override USE_JACKSON_PARAM = True
+#override VERTEX_SHEAR = True             
+#override PRESSURE_DEPENDENT_FRAZIL = True 
+#override ADJUST_NET_SRESTORE_TO_ZERO = False
+#override ADJUST_NET_FRESH_WATER_TO_ZERO = False
+!#override FLUXCONST = 0.1667 !consider a smaller number
+#override MASK_SRESTORE_UNDER_ICE = True
+

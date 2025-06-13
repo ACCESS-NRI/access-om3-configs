@@ -91,6 +91,11 @@ work/INPUT/access-om3-8km-rof-remap-weights_Charrassin_nocavity_cropped.nc:
   hashes:
     binhash: 317d1b70351671f8b8fbfca8dd02333e
     md5: 978cc319f1c193f10afa9fdae167138b
+work/INPUT/diag_rho2.nc:
+  fullpath: /g/data/x77/cy8964/mom6/input/input-8km/diag_rho2.nc
+  hashes:
+    binhash: 7525f695b0adef86fb7b32849d114652
+    md5: b8abcb148bb3ef71282d6be4531e491e
 work/INPUT/forcing_access_yr2_8km_fill.nc:
   fullpath: /g/data/x77/cy8964/mom6/input/input-8km/forcing_access_yr2_8km_fill.nc
   hashes:
