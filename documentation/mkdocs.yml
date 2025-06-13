@@ -10,6 +10,7 @@ site_url: !ENV [SITE_URL, "http://access-nri.github.io/access-om3-configs/"]
 # Git repository (Adds a link to the GitHub repository at the top)
 repo_url: https://github.com/ACCESS-NRI/access-om3-configs
 repo_name: ACCESS-NRI/access-om3-configs
+edit_uri: blob/main/documentation/docs/ #hopefully will fix the edit button from 404'ing, https://github.com/mkdocs/mkdocs/issues/2416
 
 # Theme
 theme:
@@ -34,6 +35,7 @@ theme:
         name: Switch to light mode
 
   features:
+    - content.action.edit       # if works, will turn on the "edit on GitHub feature" https://github.com/squidfunk/mkdocs-material/issues/5261
     - navigation.instant
     - navigation.tracking       # The URL in the address bar is automatically updated with active anchor
     - navigation.indexes
@@ -92,22 +94,22 @@ markdown_extensions:
 # Navigation
 nav:
   - Home:                  index.md
-  - Architecture:          pages/Architecture.md
-  - Building:              pages/Building.md
+  - Quick start:           pages/Quick-start.md
   - Configurations:
-    - pages/configurations/Configurations.md
+    - pages/configurations/Overview.md
     # At build time other configurations are added here by the mkdocs-include-configurations plugin
+  - Architecture:          pages/Architecture.md
+  - NUOPC driver:          pages/NUOPC-driver.md
   - Coupling:              pages/Coupling.md
-  - Forcing-data-models:   pages/Forcing-data-models.md
-  - Git-practices:         pages/Git-practices.md
-  - MOM6-generic-tracers:  pages/MOM6-generic-tracers.md
+  - Forcing data models:   pages/Forcing-data-models.md
   - MOM6:                  pages/MOM6.md
-  - NUOPC-driver:          pages/NUOPC-driver.md
-  - Quick-start:           pages/Quick-start.md
-  - Releases:              pages/Releases.md
+  - MOM6 generic tracers:  pages/MOM6-generic-tracers.md
   - Grids:                 pages/Grids.md
-  - Topography-generation: pages/Topography-generation.md
-  - Updating-components:   pages/Updating-components.md
+  - Topography generation: pages/Topography-generation.md
+  - Git practices:         pages/Git-practices.md
+  - Building:              pages/Building.md
+  - Updating components:   pages/Updating-components.md
+  - Releases:              pages/Releases.md
 
 # Footer
 extra:
