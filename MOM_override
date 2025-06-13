@@ -29,3 +29,12 @@ SPONGE = False
 #override DT = 360
 #override DT_THERM = 3600 
 !#override DEBUG = True
+
+#override NIGLOBAL = 4320
+#override NJGLOBAL = 1442
+#override GRID_FILE = "ocean_hgrid_cropped.nc"
+#override ALE_COORDINATE_CONFIG = "FILE:ocean_vgrid_cropped.nc,interfaces=zeta" ! default = "UNIFORM"
+#override TEMP_SALT_Z_INIT_FILE = "WOA_IC_bfilled_smoothedland.nc" ! default = "temp_salt_z.nc"
+#override DIAG_COORD_DEF_Z = "FILE:ocean_vgrid_cropped.nc,interfaces=zeta" ! default = "WOA09"
+#override SALT_RESTORE_FILE = "salt_sfc_restore_cropped.nc" ! default = "salt_restore.nc"
+#override TRIPOLAR_N = False
