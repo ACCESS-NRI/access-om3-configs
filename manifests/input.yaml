@@ -91,6 +91,11 @@ work/INPUT/access-om3-8km-rof-remap-weights_Charrassin_nocavity_cropped.nc:
   hashes:
     binhash: 317d1b70351671f8b8fbfca8dd02333e
     md5: 978cc319f1c193f10afa9fdae167138b
+work/INPUT/bottom_roughness_Charrassin_nocavity_cropped.nc:
+  fullpath: /g/data/x77/cy8964/mom6/input/input-8km/bottom_roughness_Charrassin_nocavity_cropped.nc
+  hashes:
+    binhash: 9c2c146d506f80413a63aa3562e67ca6
+    md5: c172360d26674ade54b621f0c23055e9
 work/INPUT/diag_rho2.nc:
   fullpath: /g/data/x77/cy8964/mom6/input/input-8km/diag_rho2.nc
   hashes:
@@ -121,6 +126,11 @@ work/INPUT/salt_restore_interpolated_nearest.nc:
   hashes:
     binhash: 03977c7f9816ac995b5e0374dfe92412
     md5: bb9d24170b4525864b933b72803df984
+work/INPUT/tideamp_Charrassin_nocavity_cropped.nc:
+  fullpath: /g/data/x77/cy8964/mom6/input/input-8km/tideamp_Charrassin_nocavity_cropped.nc
+  hashes:
+    binhash: 32d14c88a10935acf83d73e2abaa7916
+    md5: e714813b1e4bd46dff7936cd86b15366
 work/INPUT/topog_Charrassin_nocavity_cropped.nc:
   fullpath: /g/data/x77/cy8964/mom6/input/input-8km/topog_Charrassin_nocavity_cropped.nc
   hashes:
