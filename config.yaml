@@ -18,7 +18,7 @@ ncpus: 2016
 jobfs: 10GB
 mem: 8064GB
 
-walltime: 2:00:00
+walltime: 10:00:00
 jobname: 8km_panAn
 
 model: access-om3
@@ -63,4 +63,6 @@ payu_minimum_version: 1.1.6
 #platform:
 #  nodesize: 104
 #  nodemem: 512
+
+qsub_flags: -M claire.yung@anu.edu.au
 
