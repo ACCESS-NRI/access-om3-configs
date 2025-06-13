@@ -30,6 +30,7 @@ SPONGE = False
 #override DT_THERM = 3600 
 !#override DEBUG = True
 
+!8k specific params
 #override NIGLOBAL = 4320
 #override NJGLOBAL = 1442
 #override GRID_FILE = "ocean_hgrid_cropped.nc"
@@ -39,4 +40,7 @@ SPONGE = False
 #override SALT_RESTORE_FILE = "salt_sfc_restore_cropped.nc" ! default = "salt_restore.nc"
 #override TRIPOLAR_N = False
 #override AUTO_IO_LAYOUT_FAC = 0
+
+!missing file
 #override READ_TIDEAMP = False
+#override INT_TIDE_DISSIPATION = False
