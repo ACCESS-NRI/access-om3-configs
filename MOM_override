@@ -26,8 +26,8 @@ SPONGE = False
 #override SALT_RESTORE_FILE = "salt_restore_interpolated_nearest.nc"
 
 #override FATAL_UNUSED_PARAMS = False
-#override DT = 600
-#override DT_THERM = 1200 !ideally shorten from 3600 due to adele's OBC issue
+#override DT = 720
+#override DT_THERM = 1440 !ideally shorten from 3600 due to adele's OBC issue
 !#override DEBUG = True
 
 !8k specific params
@@ -41,11 +41,12 @@ SPONGE = False
 #override TRIPOLAR_N = False
 #override AUTO_IO_LAYOUT_FAC = 0
 
-!missing file
+!if missing files
 !#override READ_TIDEAMP = False
 !#override INT_TIDE_DISSIPATION = False
 
 #override H2_FILE = "bottom_roughness_Charrassin_nocavity_cropped.nc"
 #override TIDEAMP_FILE = "tideamp_Charrassin_nocavity_cropped.nc" 
 
+!save time for restart runs
 #override SAVE_INITIAL_CONDS = False
