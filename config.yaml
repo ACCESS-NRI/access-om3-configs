@@ -64,5 +64,5 @@ payu_minimum_version: 1.1.6
 #  nodesize: 104
 #  nodemem: 512
 
-qsub_flags: -M claire.yung@anu.edu.au -m abe
+qsub_flags: -M claire.yung@anu.edu.au -m ae
 
