@@ -101,11 +101,11 @@ work/INPUT/diag_rho2.nc:
   hashes:
     binhash: 7525f695b0adef86fb7b32849d114652
     md5: b8abcb148bb3ef71282d6be4531e491e
-work/INPUT/forcing_access_yr2_8km_fill.nc:
-  fullpath: /g/data/x77/cy8964/mom6/input/input-8km/forcing_access_yr2_8km_fill.nc
+work/INPUT/forcing_access_yr2_8km_fill_testlandboundaryinterpolation.nc:
+  fullpath: /g/data/x77/cy8964/mom6/input/input-8km/forcing_access_yr2_8km_fill_testlandboundaryinterpolation.nc
   hashes:
-    binhash: 4b6a25ba94219b0f0a990fa089fa7ca4
-    md5: 99224c9adef929cfa13ff81e055ea69c
+    binhash: bb9fa9e4a870809f410a6dbad68e46bf
+    md5: 6f2b42f8bd200f1f03d8fdc48f0ebfbe
 work/INPUT/kmt_Charrassin_nocavity_cropped.nc:
   fullpath: /g/data/x77/cy8964/mom6/input/input-8km/kmt_Charrassin_nocavity_cropped.nc
   hashes:

@@ -37,7 +37,7 @@ input:
     - /g/data/vk83/configurations/inputs/access-om3/share/meshes/share/2024.09.16/JRA55do-drof-ESMFmesh.nc
     - /g/data/x77/cy8964/mom6/input/input-8km/access-om3-8km-rof-remap-weights_Charrassin_nocavity_cropped.nc
     - /g/data/vk83/experiments/inputs/JRA-55/RYF/v1-4/data
-    - /g/data/x77/cy8964/mom6/input/input-8km/forcing_access_yr2_8km_fill.nc
+    - /g/data/x77/cy8964/mom6/input/input-8km/forcing_access_yr2_8km_fill_testlandboundaryinterpolation.nc
     - /g/data/x77/cy8964/mom6/input/input-8km/diag_rho2.nc 
     - /g/data/x77/cy8964/mom6/input/input-8km/bottom_roughness_Charrassin_nocavity_cropped.nc
     - /g/data/x77/cy8964/mom6/input/input-8km/tideamp_Charrassin_nocavity_cropped.nc
