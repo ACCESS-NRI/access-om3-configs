@@ -13,7 +13,7 @@ OBC_ZERO_BIHARMONIC = True
 OBC_SEGMENT_001 = "J=N,I=N:0,FLATHER,ORLANSKI,NUDGED"
 OBC_SEGMENT_001_VELOCITY_NUDGING_TIMESCALES = .3, 360.0 ! inflow and outflow timescales
 BRUSHCUTTER_MODE = True ! read data on supergrid
-OBC_SEGMENT_001_DATA = "U=file:forcing_access_yr2_8km_fill_testlandboundaryinterpolation.nc(u),V=file:forcing_access_yr2_8km_fill_testlandboundaryinterpolation.nc(v),SSH=file:forcing_access_yr2_8km_fill_testlandboundaryinterpolation.nc(eta_t),TEMP=file:forcing_access_yr2_8km_fill_testlandboundaryinterpolation.nc(pot_temp),SALT=file:forcing_access_yr2_8km_fill_testlandboundaryinterpolation.nc(salt)"
+OBC_SEGMENT_001_DATA = "U=file:forcing_access_yr2_8km_fill.nc(u),V=file:forcing_access_yr2_8km_fill.nc(v),SSH=file:forcing_access_yr2_8km_fill.nc(eta_t),TEMP=file:forcing_access_yr2_8km_fill.nc(pot_temp),SALT=file:forcing_access_yr2_8km_fill.nc(salt)"
 !RAMP_OBCS = True
 
 OBC_TRACER_RESERVOIR_LENGTH_SCALE_OUT = 30000

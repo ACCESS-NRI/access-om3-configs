@@ -219,3 +219,20 @@ ACCESS-OM3
 "ocean_model_rho2", "Kd_shear",  "Kd_shear",  "access-om3.mom6.ocean_month_rho2",      "all", "mean", "none",2
 # Bottom Boundary Layer Diffusivity
 "ocean_model_rho2", "Kd_BBL",  "Kd_BBL",  "access-om3.mom6.ocean_month_rho2",      "all", "mean", "none",2
+
+"ocean_month_z",          1, "months", 1, "days", "time"
+"ocean_model_z", "volcello",     "volcello",         "ocean_month_z",       "all", "mean", "none",2
+# Zonal/Meridional velocity
+"ocean_model_z","uo",           "uo",               "ocean_month_z",      "all", "mean", "none",2
+"ocean_model_z","vo",           "vo",               "ocean_month_z",      "all", "mean", "none",2
+# Potential Temperature
+"ocean_model_z", "thetao",       "thetao",           "ocean_month_z",       "all", "mean", "none",2  # if use pre-TEOS10
+# Salinity
+"ocean_model_z", "so",           "so",               "ocean_month_z",       "all", "mean", "none",2
+# Potential Density referenced to 2000 dbar
+"ocean_model_z", "rhopot2",      "rhopot2",          "ocean_month_z",      "all", "mean", "none", 2
+# Potential Density referenced to 0 dbar
+"ocean_model_z", "rhopot0",      "rhopot0",          "ocean_month_z",      "all", "mean", "none", 2
+# Ideal age
+"ocean_model_z", "agessc",      "agessc",          "ocean_month_z",      "all", "mean", "none", 2
+
