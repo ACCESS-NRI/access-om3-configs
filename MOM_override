@@ -47,3 +47,5 @@ SPONGE = False
 
 #override H2_FILE = "bottom_roughness_Charrassin_nocavity_cropped.nc"
 #override TIDEAMP_FILE = "tideamp_Charrassin_nocavity_cropped.nc" 
+
+#override SAVE_INITIAL_CONDS = False
