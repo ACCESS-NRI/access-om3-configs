@@ -16,6 +16,7 @@
   npt = 35040
   pointer_file = './rpointer.ice'
   print_global = .false.
+  ndtd = 2
 /
 &grid_nml
   bathymetry_file = "./INPUT/topog_Charrassin_nocavity_cropped.nc"
