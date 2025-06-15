@@ -8,15 +8,15 @@ project: x77
 # (you may need to add the corresponding PBS -l storage flag in sync_data.sh)
 # shortpath: /scratch/v45
 
-#queue: normalsr
-#ncpus: 1976
-#jobfs: 10GB
-#mem: 7904GB
-
-queue: normal
-ncpus: 2016
+queue: normalsr
+ncpus: 1976
 jobfs: 10GB
-mem: 8064GB
+mem: 7904GB
+
+#queue: normal
+#ncpus: 2016
+#jobfs: 10GB
+#mem: 8064GB
 
 walltime: 5:00:00
 jobname: 8km_panAn
@@ -60,9 +60,9 @@ modules:
 
 payu_minimum_version: 1.1.6
 
-#platform:
-#  nodesize: 104
-#  nodemem: 512
+platform:
+  nodesize: 104
+  nodemem: 512
 
 qsub_flags: -M claire.yung@anu.edu.au -m ae
 
