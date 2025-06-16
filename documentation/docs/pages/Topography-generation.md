@@ -76,7 +76,9 @@ Add any additional storage paths your data resides in.
 
 4. Run the coupler restart fix script
 
+```bash
 cd om3-scripts/restart_modifications
+python3 remask_cpl_restart.py --input_file /path/to/access-om3.cpl.r.0000-01-01-00000.nc --output_file /path/to/access-om3.cpl.r.0000-01-01-00000.nc --mask_file /path/to/kmt.nc --mask_var kmt
 
 `python3 remask_cpl_restart.py --input_file /path/to/access-om3.cpl.r.0000-01-01-00000.nc --output_file /path/to/access-om3.cpl.r.0000-01-01-00000.nc --mask_file /path/to/kmt.nc --mask_var kmt`
 
