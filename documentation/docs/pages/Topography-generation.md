@@ -55,7 +55,7 @@ python apply_bathy_mom_restarts.py --template_dir new_restart_dir --old_dir old_
 ```
 This can take quite a while. Note that `apply_bathy_mom_restarts.py` requires Python 3 -- you might need to do `module use /g/data/xp65/public/modules; module load conda/analysis3` first.
 
-5. The patched restart files will be written to the directory given by --output_dir (e.g., patched_restart_dir). These files are updated versions of the template restarts, with valid ocean data from the old restarts inserted where applicable.
+5. The patched restart files will be written to the directory given by `--output_dir` (e.g., patched_restart_dir). These files are updated versions of the template restarts, with valid ocean data from the old restarts inserted where applicable.
 
 ### Updating Coupler Restart Files 
 
