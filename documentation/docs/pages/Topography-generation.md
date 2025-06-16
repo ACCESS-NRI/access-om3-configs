@@ -104,4 +104,4 @@ access-om3.datm.r.1900-01-01-00000.nc
 access-om3.drof.r.1900-01-01-00000.nc  
 ```
 
-This ensures the new restart directory contains a complete, consistent set of restart files with updates only to MOM6 and coupler components.
+This ensures the new restart directory contains a complete, consistent set of restart files with updates only to MOM6 and the coupled components.
