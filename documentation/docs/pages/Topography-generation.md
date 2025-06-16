@@ -53,7 +53,7 @@ cd om3-scripts/restart_modifications
 python apply_bathy_mom_restarts.py --help
 python apply_bathy_mom_restarts.py --template_dir new_restart_dir --old_dir old_restart_dir --output_dir patched_restart_dir --template_prefix access-om3.mom6.r.1900-01-01-00000 --old_prefix access-om3.mom6.r.1900-01-01-00000 --nprocs 4
 ```
-This can take quite a while. Note that apply_bathy_mom_restarts.py requires Python 3 - you might need to do module use /g/data/xp65/public/modules; module load conda/analysis3 first.
+This can take quite a while. Note that `apply_bathy_mom_restarts.py` requires Python 3 -- you might need to do `module use /g/data/xp65/public/modules; module load conda/analysis3` first.
 
 5. The patched restart files will be written to the directory given by --output_dir (e.g., patched_restart_dir). These files are updated versions of the template restarts, with valid ocean data from the old restarts inserted where applicable.
 
