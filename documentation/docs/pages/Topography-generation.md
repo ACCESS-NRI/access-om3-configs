@@ -85,6 +85,7 @@ python3 remask_cpl_restart.py --input_file /path/to/access-om3.cpl.r.0000-01-01-
 You may need to load a compatible Python module, e.g.: `module use /g/data/xp65/public/modules && module load conda/analysis3`
 
 5. Check the output
+
 The script will produce a new coupler restart file in the filename as specified by --output_file, 
 
 This file contains surface-level fields where missing values have been filled and re-masked using kmt.nc. It is now ready for use in your ACCESS-OM3 simulation with updated bathymetry.
