@@ -60,6 +60,7 @@ This can take quite a while. Note that `apply_bathy_mom_restarts.py` requires Py
 ### Updating Coupler Restart Files 
 
 1. Prepare required files
+
 Ensure you have the following:
 
 The old coupler restart file from the run using the old bathymetry (e.g., access-om3.cpl.r.0000-01-01-00000.nc)
