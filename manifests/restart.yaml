@@ -1,3 +1,68 @@
 format: yamanifest
 version: 1.0
---- {}
+---
+work/access-om3.cice.r.1975-01-01-00000.nc:
+  fullpath: /g/data/tm70/ml0072/COMMON/git_repos/control_runs/ctrl_25km_1st_version/ctrl_run_25km_0.5_tm70/archive/restart001/access-om3.cice.r.1975-01-01-00000.nc
+  hashes:
+    binhash: 5814763d93b362c27d249a5991e4ed54
+    md5: 55f2f938ef4452a3ae9596509f3add19
+work/access-om3.cpl.r.1975-01-01-00000.nc:
+  fullpath: /g/data/tm70/ml0072/COMMON/git_repos/control_runs/ctrl_25km_1st_version/ctrl_run_25km_0.5_tm70/archive/restart001/access-om3.cpl.r.1975-01-01-00000.nc
+  hashes:
+    binhash: 10914b5d64eae9265cd702017db5a858
+    md5: 86da160e20f308e9142a57dffbaac2d6
+work/access-om3.datm.r.1975-01-01-00000.nc:
+  fullpath: /g/data/tm70/ml0072/COMMON/git_repos/control_runs/ctrl_25km_1st_version/ctrl_run_25km_0.5_tm70/archive/restart001/access-om3.datm.r.1975-01-01-00000.nc
+  hashes:
+    binhash: fe36962d45cd4ba5192d3e214aaf3ea3
+    md5: 8d528085ff5790ab2b6f513d7cf9a0a3
+work/access-om3.drof.r.1975-01-01-00000.nc:
+  fullpath: /g/data/tm70/ml0072/COMMON/git_repos/control_runs/ctrl_25km_1st_version/ctrl_run_25km_0.5_tm70/archive/restart001/access-om3.drof.r.1975-01-01-00000.nc
+  hashes:
+    binhash: ee29dbe161076cf62c444cc9a9d7a6a0
+    md5: 477dc3b180ee4ff7b8e9c7d7ada81280
+work/access-om3.mom6.r.1975-01-01-00000.nc:
+  fullpath: /g/data/tm70/ml0072/COMMON/git_repos/control_runs/ctrl_25km_1st_version/ctrl_run_25km_0.5_tm70/archive/restart001/access-om3.mom6.r.1975-01-01-00000.nc
+  hashes:
+    binhash: ea4c885d0f0f72ab224573fd6b997fed
+    md5: 49b4c1e36da99fe4cbcafa7812e2bd09
+work/access-om3.mom6.r.1975-01-01-00000_1.nc:
+  fullpath: /g/data/tm70/ml0072/COMMON/git_repos/control_runs/ctrl_25km_1st_version/ctrl_run_25km_0.5_tm70/archive/restart001/access-om3.mom6.r.1975-01-01-00000_1.nc
+  hashes:
+    binhash: b78e5c54ac5463828c4bf89f0367e11e
+    md5: 2cd0002e0825cbe9377e85061a7692e4
+work/access-om3.mom6.r.1975-01-01-00000_2.nc:
+  fullpath: /g/data/tm70/ml0072/COMMON/git_repos/control_runs/ctrl_25km_1st_version/ctrl_run_25km_0.5_tm70/archive/restart001/access-om3.mom6.r.1975-01-01-00000_2.nc
+  hashes:
+    binhash: 31c6ddadfb656a41146e812401c55c5d
+    md5: 427fbd83e17dca8369e108ad0aaa97fc
+work/access-om3.mom6.r.1975-01-01-00000_3.nc:
+  fullpath: /g/data/tm70/ml0072/COMMON/git_repos/control_runs/ctrl_25km_1st_version/ctrl_run_25km_0.5_tm70/archive/restart001/access-om3.mom6.r.1975-01-01-00000_3.nc
+  hashes:
+    binhash: 1bb5ddea7118eaa1982705f235f534a7
+    md5: 67562937ca5c089d233580e861619714
+work/rpointer.atm:
+  fullpath: /g/data/tm70/ml0072/COMMON/git_repos/control_runs/ctrl_25km_1st_version/ctrl_run_25km_0.5_tm70/archive/restart001/rpointer.atm
+  hashes:
+    binhash: 97ef623eca59770b4e52fcbd0372c5f5
+    md5: 089289acd60fb7426f902976dca9abc7
+work/rpointer.cpl:
+  fullpath: /g/data/tm70/ml0072/COMMON/git_repos/control_runs/ctrl_25km_1st_version/ctrl_run_25km_0.5_tm70/archive/restart001/rpointer.cpl
+  hashes:
+    binhash: cc0686a21444b5b4127bfa60061c535e
+    md5: efc149cabeb04ccc1fef8d9a8eeabed2
+work/rpointer.ice:
+  fullpath: /g/data/tm70/ml0072/COMMON/git_repos/control_runs/ctrl_25km_1st_version/ctrl_run_25km_0.5_tm70/archive/restart001/rpointer.ice
+  hashes:
+    binhash: ab2ad55e67f32d3380cadd5838c46189
+    md5: 26eedba470a5f6431bce5f522bbc4420
+work/rpointer.ocn:
+  fullpath: /g/data/tm70/ml0072/COMMON/git_repos/control_runs/ctrl_25km_1st_version/ctrl_run_25km_0.5_tm70/archive/restart001/rpointer.ocn
+  hashes:
+    binhash: abea7f75061be0246325fb75e9e9f524
+    md5: 271b1eafa6e2b3c54c0edac85de6b41e
+work/rpointer.rof:
+  fullpath: /g/data/tm70/ml0072/COMMON/git_repos/control_runs/ctrl_25km_1st_version/ctrl_run_25km_0.5_tm70/archive/restart001/rpointer.rof
+  hashes:
+    binhash: ae64ad6ef4469adb3506d71ad95d3448
+    md5: 089a5c5e596c6056c59d34466dda6384

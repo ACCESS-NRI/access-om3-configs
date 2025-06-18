@@ -12,7 +12,7 @@ ncpus: 1664
 jobfs: 10GB
 mem: 8000GB
 
-walltime: 24:00:00
+walltime: 5:00:00
 jobname: perturb_base
 
 model: access-om3
@@ -34,7 +34,7 @@ input:
 - /g/data/vk83/prerelease/configurations/inputs/access-om3/cmeps/remap_weights/global.25km/2025.05.15/access-om3-25km-rof-remap-weights.nc
 - /g/data/vk83/experiments/inputs/JRA-55/RYF/v1-4/data
 
-runlog: false
+runlog: true
 metadata:
   enable: true
 
@@ -52,7 +52,7 @@ collate:
   exe: /g/data/vk83/apps/mppnccombine-fast/0.2/bin/mppnccombine-fast
 
 userscripts:
-  setup: /usr/bin/bash /g/data/tm70/ml0072/COMMON/git_repos/COSIMA_om3-scripts/payu_config/setup.sh
+  # setup: /usr/bin/bash /g/data/tm70/ml0072/COMMON/git_repos/COSIMA_om3-scripts/payu_config/setup.sh
   archive: /usr/bin/bash /g/data/tm70/ml0072/COMMON/git_repos/COSIMA_om3-scripts/payu_config/archive.sh
 
 modules:
@@ -62,8 +62,8 @@ modules:
   - access-om3/2025.05.001
   - nco/5.0.5
 
-env:
-  OMPI_MCA_io: '^ompio'
+# env:
+#   OMPI_MCA_io: '^ompio'
 
 payu_minimum_version: 1.1.6
 
