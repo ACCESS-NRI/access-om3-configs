@@ -1,10 +1,11 @@
-experiment_uuid: bec48651-b56e-4299-a3aa-eeaafd1cff5c
-created: '2025-06-12'
-name: perturb_base-submeso-parameterisation1-bec48651
+experiment_uuid: 6a99090b-9953-4b64-a038-7d7962b71125
+created: '2025-06-18'
+name: perturb_base-submeso-parameterisation1-6a99090b
 model: ACCESS-OM3
-url: git@github.com:minghangli-uni/access-om3-configs.git
-contact: minghangli-uni
-email: 24727729+minghangli-uni@users.noreply.github.com
+url: 
+  /g/data/tm70/ml0072/COMMON/git_repos/access-experiment-generator/Perturbation_runs/perturb_base
+contact: anton-seaice
+email: anton.steketee@anu.edu.au
 schema_version:  # The version of the schema (string)
 description: # Short description of the experiment (string, < 150 char)
 long_description: # Long description of the experiment (string)
