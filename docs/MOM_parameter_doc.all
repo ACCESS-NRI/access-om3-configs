@@ -144,13 +144,13 @@ CHECK_BAD_SURFACE_VALS = True   !   [Boolean] default = False
 BAD_VAL_SSH_MAX = 50.0          !   [m] default = 20.0
                                 ! The value of SSH above which a bad value message is triggered, if
                                 ! CHECK_BAD_SURFACE_VALS is true.
-BAD_VAL_SSS_MAX = 75.0          !   [PPT] default = 45.0
+BAD_VAL_SSS_MAX = 100.0         !   [PPT] default = 45.0
                                 ! The value of SSS above which a bad value message is triggered, if
                                 ! CHECK_BAD_SURFACE_VALS is true.
-BAD_VAL_SST_MAX = 55.0          !   [deg C] default = 45.0
+BAD_VAL_SST_MAX = 100.0         !   [deg C] default = 45.0
                                 ! The value of SST above which a bad value message is triggered, if
                                 ! CHECK_BAD_SURFACE_VALS is true.
-BAD_VAL_SST_MIN = -3.0          !   [deg C] default = -2.1
+BAD_VAL_SST_MIN = -10.0         !   [deg C] default = -2.1
                                 ! The value of SST below which a bad value message is triggered, if
                                 ! CHECK_BAD_SURFACE_VALS is true.
 BAD_VAL_COLUMN_THICKNESS = 0.0  !   [m] default = 0.0
@@ -165,7 +165,7 @@ SURFACE_ANSWER_DATE = 99991231  ! default = 99991231
 USE_DIABATIC_TIME_BUG = False   !   [Boolean] default = False
                                 ! If true, uses the wrong calendar time for diabatic processes, as was done in
                                 ! MOM6 versions prior to February 2018. This is not recommended.
-SAVE_INITIAL_CONDS = True       !   [Boolean] default = False
+SAVE_INITIAL_CONDS = False      !   [Boolean] default = False
                                 ! If true, write the initial conditions to a file given by IC_OUTPUT_FILE.
 IC_OUTPUT_FILE = "MOM_IC"       ! default = "MOM_IC"
                                 ! The file into which to write the initial conditions.
@@ -572,85 +572,10 @@ FATAL_INCONSISTENT_RESTART_TIME = False !   [Boolean] default = False
                                 ! If true and a time_in value is provided to MOM_initialize_state, verify that
                                 ! the time read from a restart file is the same as time_in, and issue a fatal
                                 ! error if it is not.  Otherwise, simply set the time to time_in if present.
-INIT_LAYERS_FROM_Z_FILE = True  !   [Boolean] default = False
-                                ! If true, initialize the layer thicknesses, temperatures, and salinities from a
-                                ! Z-space file on a latitude-longitude grid.
-
-! === module MOM_initialize_layers_from_Z ===
-TEMP_SALT_Z_INIT_FILE = "ocean_temp_salt.res.nc" ! default = "temp_salt_z.nc"
-                                ! The name of the z-space input file used to initialize temperatures (T) and
-                                ! salinities (S). If T and S are not in the same file, TEMP_Z_INIT_FILE and
-                                ! SALT_Z_INIT_FILE must be set.
-TEMP_Z_INIT_FILE = "ocean_temp_salt.res.nc" ! default = "ocean_temp_salt.res.nc"
-                                ! The name of the z-space input file used to initialize temperatures, only.
-SALT_Z_INIT_FILE = "ocean_temp_salt.res.nc" ! default = "ocean_temp_salt.res.nc"
-                                ! The name of the z-space input file used to initialize temperatures, only.
-Z_INIT_FILE_PTEMP_VAR = "temp"  ! default = "ptemp"
-                                ! The name of the potential temperature variable in TEMP_Z_INIT_FILE.
-Z_INIT_FILE_SALT_VAR = "salt"   ! default = "salt"
-                                ! The name of the salinity variable in SALT_Z_INIT_FILE.
-Z_INIT_HOMOGENIZE = False       !   [Boolean] default = False
-                                ! If True, then horizontally homogenize the interpolated initial conditions.
-Z_INIT_ALE_REMAPPING = True     !   [Boolean] default = False
-                                ! If True, then remap straight to model coordinate from file.
-Z_INIT_REMAPPING_SCHEME = "PPM_IH4" ! default = "PPM_IH4"
-                                ! The remapping scheme to use if using Z_INIT_ALE_REMAPPING is True.
-Z_INIT_REMAP_GENERAL = True     !   [Boolean] default = False
-                                ! If false, only initializes to z* coordinates. If true, allows initialization
-                                ! directly to general coordinates.
-Z_INIT_REMAP_FULL_COLUMN = True !   [Boolean] default = True
-                                ! If false, only reconstructs profiles for valid data points. If true, inserts
-                                ! vanished layers below the valid data.
-Z_INIT_REMAP_OLD_ALG = False    !   [Boolean] default = False
-                                ! If false, uses the preferred remapping algorithm for initialization. If true,
-                                ! use an older, less robust algorithm for remapping.
-TEMP_SALT_INIT_VERTICAL_REMAP_ONLY = True !   [Boolean] default = False
-                                ! If true, initial conditions are on the model horizontal grid. Extrapolation
-                                ! over missing ocean values is done using an ICE-9 procedure with vertical ALE
-                                ! remapping .
 Z_INIT_REMAPPING_USE_OM4_SUBCELLS = False !   [Boolean] default = True
                                 ! If true, use the OM4 remapping-via-subcells algorithm for initialization. See
                                 ! REMAPPING_USE_OM4_SUBCELLS for more details. We recommend setting this option
                                 ! to false.
-HOR_REGRID_ANSWER_DATE = 99991231 ! default = 99991231
-                                ! The vintage of the order of arithmetic for horizontal regridding.  Dates
-                                ! before 20190101 give the same answers as the code did in late 2018, while
-                                ! later versions add parentheses for rotational symmetry.  Dates after 20230101
-                                ! use reproducing sums for global averages.
-LAND_FILL_TEMP = 0.0            !   [degC] default = 0.0
-                                ! A value to use to fill in ocean temperatures on land points.
-LAND_FILL_SALIN = 35.0          !   [ppt] default = 35.0
-                                ! A value to use to fill in ocean salinities on land points.
-HORIZ_INTERP_TOL_TEMP = 0.001   !   [degC] default = 0.001
-                                ! The tolerance in temperature changes between iterations when interpolating
-                                ! from an input dataset using horiz_interp_and_extrap_tracer.  This routine
-                                ! converges slowly, so an overly small tolerance can get expensive.
-HORIZ_INTERP_TOL_SALIN = 0.001  !   [ppt] default = 0.001
-                                ! The tolerance in salinity changes between iterations when interpolating from
-                                ! an input dataset using horiz_interp_and_extrap_tracer.  This routine converges
-                                ! slowly, so an overly small tolerance can get expensive.
-DEPRESS_INITIAL_SURFACE = False !   [Boolean] default = False
-                                ! If true,  depress the initial surface to avoid huge tsunamis when a large
-                                ! surface pressure is applied.
-TRIM_IC_FOR_P_SURF = False      !   [Boolean] default = False
-                                ! If true, cuts way the top of the column for initial conditions at the depth
-                                ! where the hydrostatic pressure matches the imposed surface pressure which is
-                                ! read from file.
-REGRID_ACCELERATE_INIT = False  !   [Boolean] default = False
-                                ! If true, runs REGRID_ACCELERATE_ITERATIONS iterations of the regridding
-                                ! algorithm to push the initial grid to be consistent with the initial
-                                ! condition. Useful only for state-based and iterative coordinates.
-VELOCITY_CONFIG = "zero"        ! default = "zero"
-                                ! A string that determines how the initial velocities are specified for a new
-                                ! run:
-                                !     file - read velocities from the file specified
-                                !       by (VELOCITY_FILE).
-                                !     zero - the fluid is initially at rest.
-                                !     uniform - the flow is uniform (determined by
-                                !       parameters INITIAL_U_CONST and INITIAL_V_CONST).
-                                !     rossby_front - a mixed layer front in thermal wind balance.
-                                !     soliton - Equatorial Rossby soliton.
-                                !     USER - call a user modified routine.
 ODA_INCUPD = False              !   [Boolean] default = False
                                 ! If true, oda incremental updates will be applied everywhere in the domain.
 SPONGE = False                  !   [Boolean] default = False
@@ -1558,60 +1483,58 @@ MIXEDLAYER_RESTRAT = True       !   [Boolean] default = False
                                 ! mixed layer. Can be used in ALE mode without restriction but in layer mode can
                                 ! only be used if BULKMIXEDLAYER is true.
 MLE%
-USE_BODNER23 = True             !   [Boolean] default = False
+USE_BODNER23 = False            !   [Boolean] default = False
                                 ! If true, use the Bodner et al., 2023, formulation of the re-stratifying
                                 ! mixed-layer restratification parameterization. This only works in ALE mode.
-CR = 0.0175                     !   [nondim] default = 0.0
-                                ! The efficiency coefficient in eq 27 of Bodner et al., 2023.
-BODNER_NSTAR = 0.066            !   [nondim] default = 0.066
-                                ! The n* value used to estimate the turbulent vertical momentum flux in Bodner
-                                ! et al., 2023, eq. 18. This is independent of the value used in the PBL scheme
-                                ! but should be set to be the same for consistency.
-BODNER_MSTAR = 0.5              !   [nondim] default = 0.5
-                                ! The m* value used to estimate the turbulent vertical momentum flux in Bodner
-                                ! et al., 2023, eq. 18. This is independent of the value used in the PBL scheme
-                                ! but should be set to be the same for consistency.
-BLD_GROWING_TFILTER = 0.0       !   [s] default = 0.0
-                                ! The time-scale for a running-mean filter applied to the boundary layer depth
-                                ! (BLD) when the BLD is deeper than the running mean. A value of 0
-                                ! instantaneously sets the running mean to the current value of BLD.
-BLD_DECAYING_TFILTER = 8.64E+04 !   [s] default = 0.0
-                                ! The time-scale for a running-mean filter applied to the boundary layer depth
-                                ! (BLD) when the BLD is shallower than the running mean. A value of 0
-                                ! instantaneously sets the running mean to the current value of BLD.
-MLD_GROWING_TFILTER = 0.0       !   [s] default = 0.0
-                                ! The time-scale for a running-mean filter applied to the time-filtered BLD,
-                                ! when the latter is deeper than the running mean. A value of 0 instantaneously
-                                ! sets the running mean to the current value filtered BLD.
-MLD_DECAYING_TFILTER = 2.592E+06 !   [s] default = 0.0
-                                ! The time-scale for a running-mean filter applied to the time-filtered BLD,
-                                ! when the latter is shallower than the running mean. A value of 0
-                                ! instantaneously sets the running mean to the current value filtered BLD.
-ML_RESTRAT_ANSWER_DATE = 99991231 ! default = 99991231
-                                ! The vintage of the order of arithmetic and expressions in the mixed layer
-                                ! restrat calculations.  Values below 20240201 recover the answers from the end
-                                ! of 2023, while higher values use the new cuberoot function in the Bodner code
-                                ! to avoid needing to undo dimensional rescaling.
-MIN_WSTAR2 = 1.0E-09            !   [m2 s-2] default = 1.0E-24
-                                ! The minimum lower bound to apply to the vertical momentum flux, w'u', in the
-                                ! Bodner et al., restratification parameterization. This avoids a
-                                ! division-by-zero in the limit when u* and the buoyancy flux are zero.  The
-                                ! default is less than the molecular viscosity of water times the Coriolis
-                                ! parameter a micron away from the equator.
-TAIL_DH = 0.0                   !   [nondim] default = 0.0
-                                ! Fraction by which to extend the mixed-layer restratification depth used for a
-                                ! smoother stream function at the base of the mixed-layer.
-USE_STANLEY_TVAR = False        !   [Boolean] default = False
-                                ! If true, turn on Stanley SGS T variance parameterization in ML restrat code.
-USE_CR_GRID = False             !   [Boolean] default = False
-                                ! If true, read in a spatially varying Cr field.
-USE_MLD_GRID = False            !   [Boolean] default = False
-                                ! If true, read in a spatially varying MLD_decaying_Tfilt field.
 %MLE
-MLE_USE_PBL_MLD = True          !   [Boolean] default = False
+FOX_KEMPER_ML_RESTRAT_COEF = 1.0 !   [nondim] default = 0.0
+                                ! A nondimensional coefficient that is proportional to the ratio of the
+                                ! deformation radius to the dominant lengthscale of the submesoscale mixed layer
+                                ! instabilities, times the minimum of the ratio of the mesoscale eddy kinetic
+                                ! energy to the large-scale geostrophic kinetic energy or 1 plus the square of
+                                ! the grid spacing over the deformation radius, as detailed by Fox-Kemper et al.
+                                ! (2011)
+USE_STANLEY_ML = False          !   [Boolean] default = False
+                                ! If true, turn on Stanley SGS T variance parameterization in ML restrat code.
+FOX_KEMPER_ML_RESTRAT_COEF2 = 0.0 !   [nondim] default = 0.0
+                                ! As for FOX_KEMPER_ML_RESTRAT_COEF but used in a second application of the MLE
+                                ! restratification parameterization.
+MLE_FRONT_LENGTH = 1000.0       !   [m] default = 0.0
+                                ! If non-zero, is the frontal-length scale used to calculate the upscaling of
+                                ! buoyancy gradients that is otherwise represented by the parameter
+                                ! FOX_KEMPER_ML_RESTRAT_COEF. If MLE_FRONT_LENGTH is non-zero, it is recommended
+                                ! to set FOX_KEMPER_ML_RESTRAT_COEF=1.0.
+MLE_USE_PBL_MLD = False         !   [Boolean] default = False
                                 ! If true, the MLE parameterization will use the mixed-layer depth provided by
                                 ! the active PBL parameterization. If false, MLE will estimate a MLD based on a
                                 ! density difference with the surface using the parameter MLE_DENSITY_DIFF.
+MLE_MLD_DECAY_TIME = 3.456E+05  !   [s] default = 0.0
+                                ! The time-scale for a running-mean filter applied to the mixed-layer depth used
+                                ! in the MLE restratification parameterization. When the MLD deepens below the
+                                ! current running-mean the running-mean is instantaneously set to the current
+                                ! MLD.
+MLE_MLD_DECAY_TIME2 = 0.0       !   [s] default = 0.0
+                                ! The time-scale for a running-mean filter applied to the filtered mixed-layer
+                                ! depth used in a second MLE restratification parameterization. When the MLD
+                                ! deepens below the current running-mean the running-mean is instantaneously set
+                                ! to the current MLD.
+MLE_DENSITY_DIFF = 0.03         !   [kg/m3] default = 0.03
+                                ! Density difference used to detect the mixed-layer depth used for the
+                                ! mixed-layer eddy parameterization by Fox-Kemper et al. (2011)
+MLE_TAIL_DH = 0.0               !   [nondim] default = 0.0
+                                ! Fraction by which to extend the mixed-layer restratification depth used for a
+                                ! smoother stream function at the base of the mixed-layer.
+MLE_MLD_STRETCH = 1.0           !   [nondim] default = 1.0
+                                ! A scaling coefficient for stretching/shrinking the MLD used in the MLE scheme.
+                                ! This simply multiplies MLD wherever used.
+KV_RESTRAT = 0.0                !   [m2 s-1] default = 0.0
+                                ! A small viscosity that sets a floor on the momentum mixing rate during
+                                ! restratification.  If this is positive, it will prevent some possible
+                                ! divisions by zero even if ustar, RESTRAT_USTAR_MIN, and f are all 0.
+RESTRAT_USTAR_MIN = 1.45842E-18 !   [m s-1] default = 1.45842E-18
+                                ! The minimum value of ustar that will be used by the mixed layer
+                                ! restratification module.  This can be tiny, but if this is greater than 0, it
+                                ! will prevent divisions by zero when f and KV_RESTRAT are zero.
 
 ! === module MOM_diagnostics ===
 DIAG_EBT_MONO_N2_COLUMN_FRACTION = 0.0 !   [nondim] default = 0.0
