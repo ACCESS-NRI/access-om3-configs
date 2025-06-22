@@ -3,8 +3,8 @@
   conserv_check = .false.
   diagfreq = 960
   dumpfreq = "x"
-  histfreq = "d", "m", "x", "x", "x"
-  hist_suffix = ".1day.mean", ".1mon.mean", "x", "x", "x"
+  histfreq = "d", "m", "1", "x", "x"
+  hist_suffix = ".1day.mean", ".1mon.mean", ".1.snap", "x", "x"
   hist_time_axis = "middle"
   history_deflate = 1
   history_chunksize = 720, 540
@@ -110,7 +110,7 @@
   f_smassliq = "m"
 /
 &icefields_nml
-  f_aice = "md"
+  f_aice = "md1"
   f_aicen = "m"
   f_bounds = .false.
   f_fcondtopn_ai = "m"
@@ -152,11 +152,11 @@
   f_dsnow = 'x'
   f_evap = 'x'
   f_fbot = 'x'
-  f_fhocn = 'x'
-  f_flat = 'x'
+  f_fhocn = '1'
+  f_flat = '1'
   f_fresh = 'x'
   f_fswthru = 'x'
-  f_fsurf_ai = 'x'
+  f_fsurf_ai = '1'
   f_hisnap = 'x', f_aisnap = 'x',
   f_icedir = 'x'
   f_icespd = 'x'
@@ -168,8 +168,8 @@
   f_sig1 = 'x', f_sig2 = 'x'
   f_sigP = 'x'
   f_snow = 'x'
-  f_sst = 'x'
-  f_sss = 'x'
+  f_sst = '1'
+  f_sss = '1'
   f_fswabs = 'x'
   f_taubx = 'x' , f_tauby = 'x'
   f_Tref = 'x', f_Qref = 'x'
