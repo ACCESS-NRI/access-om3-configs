@@ -12,6 +12,7 @@
   restart_deflate = 1
   restart_ext = .true.
   ice_ic = 'none' 
+  ndtd = 4
   lcdf64 = .false.
   npt = 35040
   pointer_file = './rpointer.ice'

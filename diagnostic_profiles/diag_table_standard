@@ -230,7 +230,7 @@ ACCESS-OM3
 # Bottom Boundary Layer Diffusivity
 #"ocean_model_rho2", "Kd_BBL",  "Kd_BBL",  "access-om3.mom6.ocean_month_rho2",      "all", "mean", "none",2
 
-"ocean_month_z",          1, "days", 1, "days", "time"
+"ocean_month_z",          1, "months", 1, "days", "time"
 "ocean_model_z", "volcello",     "volcello",         "ocean_month_z",       "all", "mean", "none",2
 # Zonal/Meridional velocity
 "ocean_model_z","uo",           "uo",               "ocean_month_z",      "all", "mean", "none",2

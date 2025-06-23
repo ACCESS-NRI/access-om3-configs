@@ -488,3 +488,5 @@ bottom_roughness took about an hour, tideamp half an hour
 Also aiming to increase the  timestep after a few days of spinup. However, also need to make sure dt_therm not too big: https://bb.cgd.ucar.edu/cesm/threads/limit-on-dt_therm-in-regional-configs.8226/
 
 Also copied diag rho coordinates from the panan. not sure about the formatting....
+
+Northern boundary issue resolved by reverting to `WRIGHT_REDUCED` EOS
