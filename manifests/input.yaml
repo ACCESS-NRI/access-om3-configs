@@ -71,11 +71,11 @@ work/INPUT/RYF.vas.1990_1991.nc:
   hashes:
     binhash: d15ca562e37e82fb2d31657701f0a560
     md5: 88dc8c70338bbc8f5efc48ed0009a99f
-work/INPUT/WOA_IC_bfilled_smoothedland.nc:
-  fullpath: /g/data/x77/cy8964/mom6/input/input-8km/WOA_IC_bfilled_smoothedland.nc
+work/INPUT/WOA_IC_bfilled_smoothedland_pottemp.nc:
+  fullpath: /g/data/x77/cy8964/mom6/input/input-8km/WOA_IC_bfilled_smoothedland_pottemp.nc
   hashes:
-    binhash: d329bbacb3c99d02cb802e8e950e5b87
-    md5: 7f23826da79f77f99df54495d78ea46a
+    binhash: e59f6e23c11541ecd711c831cc7eec6a
+    md5: 37ab9c7c2d5d94c5768d400653818875
 work/INPUT/access-om3-8km-ESMFmesh_Charrassin_nocavity_cropped.nc:
   fullpath: /g/data/x77/cy8964/mom6/input/input-8km/access-om3-8km-ESMFmesh_Charrassin_nocavity_cropped.nc
   hashes:
