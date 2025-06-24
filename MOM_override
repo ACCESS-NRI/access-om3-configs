@@ -49,4 +49,4 @@ SPONGE = False
 #override TIDEAMP_FILE = "tideamp_Charrassin_nocavity_cropped.nc" 
 
 !save time for restart runs
-!#override SAVE_INITIAL_CONDS = False
+#override SAVE_INITIAL_CONDS = False
