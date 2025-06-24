@@ -26,8 +26,8 @@ SPONGE = False
 #override SALT_RESTORE_FILE = "salt_restore_interpolated_nearest.nc"
 
 #override FATAL_UNUSED_PARAMS = False
-#override DT = 600 !450
-#override DT_THERM =1200 !900 !ideally shorten from 3600 due to adele's OBC issue
+#override DT = 450 ! 600 !450
+#override DT_THERM = 900 !1200 !900 !ideally shorten from 3600 due to adele's OBC issue
 !#override DEBUG = True
 
 !8k specific params
@@ -35,7 +35,7 @@ SPONGE = False
 #override NJGLOBAL = 1442
 #override GRID_FILE = "ocean_hgrid_cropped.nc"
 #override ALE_COORDINATE_CONFIG = "FILE:ocean_vgrid_cropped.nc,interfaces=zeta" ! default = "UNIFORM"
-#override TEMP_SALT_Z_INIT_FILE = "WOA_IC_bfilled_smoothedland.nc" ! default = "temp_salt_z.nc"
+#override TEMP_SALT_Z_INIT_FILE = "WOA_IC_bfilled_smoothedland_pottemp.nc" ! default = "temp_salt_z.nc"
 #override DIAG_COORD_DEF_Z = "FILE:ocean_vgrid_cropped.nc,interfaces=zeta" ! default = "WOA09"
 !#override SALT_RESTORE_FILE = "salt_sfc_restore_cropped.nc" ! default = "salt_restore.nc"
 #override TRIPOLAR_N = False
@@ -49,4 +49,4 @@ SPONGE = False
 #override TIDEAMP_FILE = "tideamp_Charrassin_nocavity_cropped.nc" 
 
 !save time for restart runs
-#override SAVE_INITIAL_CONDS = False
+!#override SAVE_INITIAL_CONDS = False
