@@ -41,7 +41,7 @@ input:
     - /g/data/vk83/configurations/inputs/access-om3/wombat/initial_conditions/global.100km/2024.04.02/GLODAPv2.2016b.TAlk_fillmiss.nc
     - /g/data/vk83/configurations/inputs/access-om3/wombat/initial_conditions/global.100km/2024.04.02/GLODAPv2.2016b.TCO2_fillmiss.nc
     - /g/data/vk83/prerelease/configurations/inputs/access-om3/wombat/initial_conditions/global.100km/2025.06.06/init_ocean_wombatlite.res.nc
-    - /g/data/vk83/configurations/inputs/JRA-55/RYF/v1-4/data
+    - /g/data/vk83/prerelease/configurations/inputs/share/JRA-55/RYF/v1-6/data
  
 collate: false
 runlog: false
