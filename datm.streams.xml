@@ -2,14 +2,14 @@
 <file id="stream" version="2.0">
   <metadata>
     <File_type>DATM xml file provides forcing data</File_type>
-    <date_generated>2024-09-16 13:44:43</date_generated>
-    <history>Created by aek156 (Andrew Kiss) on 2024-09-16, using https://github.com/COSIMA/om3-scripts/blob/b4048fd0d3230112c9572d1ad5bb5120e7ddeee9/data_stream_xml_generation/generate_xml_datm.py: /g/data/vk83/apps/om3-scripts/data_stream_xml_generation/generate_xml_datm.py 1900 1900</history>
+    <date_generated>2025-06-26 09:10:06</date_generated>
+    <history>Created by as2285 (anton-seaice) on 2025-06-26, using https://github.com/COSIMA/om3-scripts/blob/a27a8925d880e65c05b018abef3a74ad1af894f9generate_xml_datm.py: generate_xml_datm.py 1900 1900</history>
   </metadata>
   <stream_info name="JRA55do.PRSN">
     <taxmode>cycle</taxmode>
     <readmode>single</readmode>
     <mapalgo>bilinear</mapalgo>
-    <dtlimit>1.5</dtlimit>
+    <dtlimit>1.0</dtlimit>
     <year_first>1900</year_first>
     <year_last>1900</year_last>
     <year_align>1900</year_align>
@@ -29,7 +29,7 @@
     <taxmode>cycle</taxmode>
     <readmode>single</readmode>
     <mapalgo>bilinear</mapalgo>
-    <dtlimit>1.5</dtlimit>
+    <dtlimit>1.0</dtlimit>
     <year_first>1900</year_first>
     <year_last>1900</year_last>
     <year_align>1900</year_align>
@@ -49,7 +49,7 @@
     <taxmode>cycle</taxmode>
     <readmode>single</readmode>
     <mapalgo>bilinear</mapalgo>
-    <dtlimit>1.5</dtlimit>
+    <dtlimit>1.0</dtlimit>
     <year_first>1900</year_first>
     <year_last>1900</year_last>
     <year_align>1900</year_align>
@@ -69,7 +69,7 @@
     <taxmode>cycle</taxmode>
     <readmode>single</readmode>
     <mapalgo>bilinear</mapalgo>
-    <dtlimit>1.5</dtlimit>
+    <dtlimit>1.0</dtlimit>
     <year_first>1900</year_first>
     <year_last>1900</year_last>
     <year_align>1900</year_align>
@@ -82,14 +82,14 @@
     <datavars>
       <var>rsds  Faxa_swdn</var>
     </datavars>
-    <offset>0</offset>
+    <offset>-5400</offset>
     <tintalgo>coszen</tintalgo>
   </stream_info>
   <stream_info name="JRA55do.Q_10">
     <taxmode>cycle</taxmode>
     <readmode>single</readmode>
     <mapalgo>bilinear</mapalgo>
-    <dtlimit>1.5</dtlimit>
+    <dtlimit>1.0</dtlimit>
     <year_first>1900</year_first>
     <year_last>1900</year_last>
     <year_align>1900</year_align>
@@ -109,7 +109,7 @@
     <taxmode>cycle</taxmode>
     <readmode>single</readmode>
     <mapalgo>bilinear</mapalgo>
-    <dtlimit>1.5</dtlimit>
+    <dtlimit>1.0</dtlimit>
     <year_first>1900</year_first>
     <year_last>1900</year_last>
     <year_align>1900</year_align>
@@ -129,7 +129,7 @@
     <taxmode>cycle</taxmode>
     <readmode>single</readmode>
     <mapalgo>bilinear</mapalgo>
-    <dtlimit>1.5</dtlimit>
+    <dtlimit>1.0</dtlimit>
     <year_first>1900</year_first>
     <year_last>1900</year_last>
     <year_align>1900</year_align>
@@ -149,7 +149,7 @@
     <taxmode>cycle</taxmode>
     <readmode>single</readmode>
     <mapalgo>bilinear</mapalgo>
-    <dtlimit>1.5</dtlimit>
+    <dtlimit>1.0</dtlimit>
     <year_first>1900</year_first>
     <year_last>1900</year_last>
     <year_align>1900</year_align>
@@ -169,7 +169,7 @@
     <taxmode>cycle</taxmode>
     <readmode>single</readmode>
     <mapalgo>bilinear</mapalgo>
-    <dtlimit>1.5</dtlimit>
+    <dtlimit>1.0</dtlimit>
     <year_first>1900</year_first>
     <year_last>1900</year_last>
     <year_align>1900</year_align>
