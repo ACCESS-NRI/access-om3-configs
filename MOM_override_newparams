@@ -5,6 +5,7 @@
 #override CHECK_BAD_SURFACE_VALS = False
 ! Answer dates? OK I THINK
 !#override EQN_OF_STATE = "ROQUET_RHO"
+#override EQN_OF_STATE = "WRIGHT_FULL"
 ! Ask Olga about fr point eqn of state
 #override PARALLEL_RESTARTFILES = True !Check IO LAYOUT
 ! #override MIN_THICKNESS = 1.0E-12

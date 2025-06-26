@@ -1,6 +1,11 @@
 format: yamanifest
 version: 1.0
 ---
+work/INPUT/ACCESS-OM2_IC_bfilled_smoothedland.nc:
+  fullpath: /g/data/x77/cy8964/mom6/input/input-8km/ACCESS-OM2_IC_bfilled_smoothedland.nc
+  hashes:
+    binhash: 000e6d518a7c9d6b37ee583fd3af564a
+    md5: 91bc9681d5267ea5ac6e1e9aa4986be3
 work/INPUT/JRA55do-datm-ESMFmesh.nc:
   fullpath: /g/data/vk83/configurations/inputs/access-om3/share/meshes/share/2024.09.16/JRA55do-datm-ESMFmesh.nc
   hashes:
@@ -71,11 +76,6 @@ work/INPUT/RYF.vas.1990_1991.nc:
   hashes:
     binhash: d15ca562e37e82fb2d31657701f0a560
     md5: 88dc8c70338bbc8f5efc48ed0009a99f
-work/INPUT/WOA_IC_bfilled_smoothedland_pottemp.nc:
-  fullpath: /g/data/x77/cy8964/mom6/input/input-8km/WOA_IC_bfilled_smoothedland_pottemp.nc
-  hashes:
-    binhash: be58ad9e8a983951720573f7e8bda957
-    md5: 50a6a31c84b5b000a064af7336e36eb8
 work/INPUT/access-om3-8km-ESMFmesh_Charrassin_nocavity_cropped.nc:
   fullpath: /g/data/x77/cy8964/mom6/input/input-8km/access-om3-8km-ESMFmesh_Charrassin_nocavity_cropped.nc
   hashes:

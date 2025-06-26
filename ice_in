@@ -25,10 +25,10 @@
   grid_ice = "B"
   grid_ocn = "A"
   grid_type = "regional"
-  kcatbound = 0
+  kcatbound = 2
   kmt_file = "./INPUT/kmt_Charrassin_nocavity_cropped.nc"
   nblyr = 1
-  ncat = 5
+  ncat = 7
   nfsd = 1
   nilyr = 4
   nslyr = 1
