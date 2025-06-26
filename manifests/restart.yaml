@@ -1,3 +1,143 @@
 format: yamanifest
 version: 1.0
---- {}
+---
+work/access-om3.cice.r.1900-02-01-00000.nc:
+  fullpath: /scratch/x77/cy8964/access-om3/archive/8km_jra_ryf_obc2-cascadelake-Charrassin-newparams-rerun-Wright-spinup-accessom2IC/restart000/access-om3.cice.r.1900-02-01-00000.nc
+  hashes:
+    binhash: 81dc334c90636ad20ef7c8a66c3c1fde
+    md5: 4cfa4fd9dcd4786da6de8dd07297e8f3
+work/access-om3.cpl.r.1900-02-01-00000.nc:
+  fullpath: /scratch/x77/cy8964/access-om3/archive/8km_jra_ryf_obc2-cascadelake-Charrassin-newparams-rerun-Wright-spinup-accessom2IC/restart000/access-om3.cpl.r.1900-02-01-00000.nc
+  hashes:
+    binhash: c2bee01010a56c08e5b7ac5e65c39dce
+    md5: acb3161a6c4aca1704e1f9123d9b9d76
+work/access-om3.datm.r.1900-02-01-00000.nc:
+  fullpath: /scratch/x77/cy8964/access-om3/archive/8km_jra_ryf_obc2-cascadelake-Charrassin-newparams-rerun-Wright-spinup-accessom2IC/restart000/access-om3.datm.r.1900-02-01-00000.nc
+  hashes:
+    binhash: 825707bdd37d12d425a69639002d1840
+    md5: c87e8ec464bbcc95cc5dc210a52d3357
+work/access-om3.drof.r.1900-02-01-00000.nc:
+  fullpath: /scratch/x77/cy8964/access-om3/archive/8km_jra_ryf_obc2-cascadelake-Charrassin-newparams-rerun-Wright-spinup-accessom2IC/restart000/access-om3.drof.r.1900-02-01-00000.nc
+  hashes:
+    binhash: 7f3bd06d3c96d0594cd307818f4af9c4
+    md5: 477dc3b180ee4ff7b8e9c7d7ada81280
+work/access-om3.mom6.r.1900-02-01-00000.nc:
+  fullpath: /scratch/x77/cy8964/access-om3/archive/8km_jra_ryf_obc2-cascadelake-Charrassin-newparams-rerun-Wright-spinup-accessom2IC/restart000/access-om3.mom6.r.1900-02-01-00000.nc
+  hashes:
+    binhash: 2aa3202751cc10169842fdacaccd0328
+    md5: 1c09ed97446e43e726b77b2594e7baeb
+work/access-om3.mom6.r.1900-02-01-00000_1.nc:
+  fullpath: /scratch/x77/cy8964/access-om3/archive/8km_jra_ryf_obc2-cascadelake-Charrassin-newparams-rerun-Wright-spinup-accessom2IC/restart000/access-om3.mom6.r.1900-02-01-00000_1.nc
+  hashes:
+    binhash: df52a1f098ba38957f1204b25aec1aef
+    md5: b1efcee701d81bc1f10be81a7cae2e64
+work/access-om3.mom6.r.1900-02-01-00000_10.nc:
+  fullpath: /scratch/x77/cy8964/access-om3/archive/8km_jra_ryf_obc2-cascadelake-Charrassin-newparams-rerun-Wright-spinup-accessom2IC/restart000/access-om3.mom6.r.1900-02-01-00000_10.nc
+  hashes:
+    binhash: b8fbc3633303c1f4391cde8c02fae448
+    md5: 5704148f2821bebbcf703f71b609d9dc
+work/access-om3.mom6.r.1900-02-01-00000_11.nc:
+  fullpath: /scratch/x77/cy8964/access-om3/archive/8km_jra_ryf_obc2-cascadelake-Charrassin-newparams-rerun-Wright-spinup-accessom2IC/restart000/access-om3.mom6.r.1900-02-01-00000_11.nc
+  hashes:
+    binhash: 6f48592bd08d24e1dc7c7885aa981524
+    md5: e7fc218046dd5aa32df40ae209153e83
+work/access-om3.mom6.r.1900-02-01-00000_12.nc:
+  fullpath: /scratch/x77/cy8964/access-om3/archive/8km_jra_ryf_obc2-cascadelake-Charrassin-newparams-rerun-Wright-spinup-accessom2IC/restart000/access-om3.mom6.r.1900-02-01-00000_12.nc
+  hashes:
+    binhash: 117fe4eeab5865cc9c66865282fd5abf
+    md5: 6a116119e36b17b13e2c5b58775669c7
+work/access-om3.mom6.r.1900-02-01-00000_13.nc:
+  fullpath: /scratch/x77/cy8964/access-om3/archive/8km_jra_ryf_obc2-cascadelake-Charrassin-newparams-rerun-Wright-spinup-accessom2IC/restart000/access-om3.mom6.r.1900-02-01-00000_13.nc
+  hashes:
+    binhash: 5ffd4883dd25ac16fac2a7f276391687
+    md5: b9ed77a09a8fce1c2d3921deb910c849
+work/access-om3.mom6.r.1900-02-01-00000_14.nc:
+  fullpath: /scratch/x77/cy8964/access-om3/archive/8km_jra_ryf_obc2-cascadelake-Charrassin-newparams-rerun-Wright-spinup-accessom2IC/restart000/access-om3.mom6.r.1900-02-01-00000_14.nc
+  hashes:
+    binhash: 46c07216b07b0395d1f6ce3e8c27a879
+    md5: 7127d291190e483a59efc5a86a06948f
+work/access-om3.mom6.r.1900-02-01-00000_15.nc:
+  fullpath: /scratch/x77/cy8964/access-om3/archive/8km_jra_ryf_obc2-cascadelake-Charrassin-newparams-rerun-Wright-spinup-accessom2IC/restart000/access-om3.mom6.r.1900-02-01-00000_15.nc
+  hashes:
+    binhash: b3dc4360eeac2887d5e20f946446accf
+    md5: 998277426cfe1d681fc78c9b5b5b87cf
+work/access-om3.mom6.r.1900-02-01-00000_16.nc:
+  fullpath: /scratch/x77/cy8964/access-om3/archive/8km_jra_ryf_obc2-cascadelake-Charrassin-newparams-rerun-Wright-spinup-accessom2IC/restart000/access-om3.mom6.r.1900-02-01-00000_16.nc
+  hashes:
+    binhash: e6aefd9ce99dc1527ebe63f0c1640bbd
+    md5: cc8caa07dc50dcc6528c92e3e7a1e40d
+work/access-om3.mom6.r.1900-02-01-00000_17.nc:
+  fullpath: /scratch/x77/cy8964/access-om3/archive/8km_jra_ryf_obc2-cascadelake-Charrassin-newparams-rerun-Wright-spinup-accessom2IC/restart000/access-om3.mom6.r.1900-02-01-00000_17.nc
+  hashes:
+    binhash: a27f5d10fdd1889187328d757bef908b
+    md5: a688deb85abd100752b76d5e1dc2b0a8
+work/access-om3.mom6.r.1900-02-01-00000_18.nc:
+  fullpath: /scratch/x77/cy8964/access-om3/archive/8km_jra_ryf_obc2-cascadelake-Charrassin-newparams-rerun-Wright-spinup-accessom2IC/restart000/access-om3.mom6.r.1900-02-01-00000_18.nc
+  hashes:
+    binhash: 838dd388de8959fd8536eb01efcc7636
+    md5: 7af0ad048e67fa5f9d4054a31435c833
+work/access-om3.mom6.r.1900-02-01-00000_2.nc:
+  fullpath: /scratch/x77/cy8964/access-om3/archive/8km_jra_ryf_obc2-cascadelake-Charrassin-newparams-rerun-Wright-spinup-accessom2IC/restart000/access-om3.mom6.r.1900-02-01-00000_2.nc
+  hashes:
+    binhash: 1fbef9c5f462f793d63c2232be439e94
+    md5: e855b32a84cdb401ab756fce3fed7414
+work/access-om3.mom6.r.1900-02-01-00000_3.nc:
+  fullpath: /scratch/x77/cy8964/access-om3/archive/8km_jra_ryf_obc2-cascadelake-Charrassin-newparams-rerun-Wright-spinup-accessom2IC/restart000/access-om3.mom6.r.1900-02-01-00000_3.nc
+  hashes:
+    binhash: b031101c0a6f061a063d797ddd5f9083
+    md5: a15780baff59c0010fd9d1dd57ce386b
+work/access-om3.mom6.r.1900-02-01-00000_4.nc:
+  fullpath: /scratch/x77/cy8964/access-om3/archive/8km_jra_ryf_obc2-cascadelake-Charrassin-newparams-rerun-Wright-spinup-accessom2IC/restart000/access-om3.mom6.r.1900-02-01-00000_4.nc
+  hashes:
+    binhash: 4c5d104ecf8f20647ab7bb64532cf14d
+    md5: 4fad05a063c6134ea597d182a3c7583e
+work/access-om3.mom6.r.1900-02-01-00000_5.nc:
+  fullpath: /scratch/x77/cy8964/access-om3/archive/8km_jra_ryf_obc2-cascadelake-Charrassin-newparams-rerun-Wright-spinup-accessom2IC/restart000/access-om3.mom6.r.1900-02-01-00000_5.nc
+  hashes:
+    binhash: 1f7d85f407c7d2ad73f80dff62423eb3
+    md5: 5490a0573c28f90a5d468975cd6b67b1
+work/access-om3.mom6.r.1900-02-01-00000_6.nc:
+  fullpath: /scratch/x77/cy8964/access-om3/archive/8km_jra_ryf_obc2-cascadelake-Charrassin-newparams-rerun-Wright-spinup-accessom2IC/restart000/access-om3.mom6.r.1900-02-01-00000_6.nc
+  hashes:
+    binhash: 27104ab2583059c6d278ffea48d1de3f
+    md5: 129495aa67d47599ebe6c6bcc743475a
+work/access-om3.mom6.r.1900-02-01-00000_7.nc:
+  fullpath: /scratch/x77/cy8964/access-om3/archive/8km_jra_ryf_obc2-cascadelake-Charrassin-newparams-rerun-Wright-spinup-accessom2IC/restart000/access-om3.mom6.r.1900-02-01-00000_7.nc
+  hashes:
+    binhash: 823f779ffe0e4f79679cff136a4e3112
+    md5: d1cb8b11c8a69d0cbf362cfb13089c76
+work/access-om3.mom6.r.1900-02-01-00000_8.nc:
+  fullpath: /scratch/x77/cy8964/access-om3/archive/8km_jra_ryf_obc2-cascadelake-Charrassin-newparams-rerun-Wright-spinup-accessom2IC/restart000/access-om3.mom6.r.1900-02-01-00000_8.nc
+  hashes:
+    binhash: 0fb48916e87848b494d1b840c3ba4df1
+    md5: 470fc9d3bcb1b4850309c631641d56f0
+work/access-om3.mom6.r.1900-02-01-00000_9.nc:
+  fullpath: /scratch/x77/cy8964/access-om3/archive/8km_jra_ryf_obc2-cascadelake-Charrassin-newparams-rerun-Wright-spinup-accessom2IC/restart000/access-om3.mom6.r.1900-02-01-00000_9.nc
+  hashes:
+    binhash: ca79050cbbe6c11dca3d32aa539eab30
+    md5: 142bd98b939bbe8b47fe9a4d0c77a5cf
+work/rpointer.atm:
+  fullpath: /scratch/x77/cy8964/access-om3/archive/8km_jra_ryf_obc2-cascadelake-Charrassin-newparams-rerun-Wright-spinup-accessom2IC/restart000/rpointer.atm
+  hashes:
+    binhash: f860f38348c87ae4c5bad749ac5a1653
+    md5: bd9e55d4c79406b2b0d0b49972b19138
+work/rpointer.cpl:
+  fullpath: /scratch/x77/cy8964/access-om3/archive/8km_jra_ryf_obc2-cascadelake-Charrassin-newparams-rerun-Wright-spinup-accessom2IC/restart000/rpointer.cpl
+  hashes:
+    binhash: 7e7d2b92454dc081c0cdc6d83c878072
+    md5: f78aca9a14d6fdea61e3325944957e72
+work/rpointer.ice:
+  fullpath: /scratch/x77/cy8964/access-om3/archive/8km_jra_ryf_obc2-cascadelake-Charrassin-newparams-rerun-Wright-spinup-accessom2IC/restart000/rpointer.ice
+  hashes:
+    binhash: bc9d61e0f076e32fc736c8ac7fbea4d4
+    md5: 959e57bc31b34017a11eb8ff594844e6
+work/rpointer.ocn:
+  fullpath: /scratch/x77/cy8964/access-om3/archive/8km_jra_ryf_obc2-cascadelake-Charrassin-newparams-rerun-Wright-spinup-accessom2IC/restart000/rpointer.ocn
+  hashes:
+    binhash: 81ce295018d42c58dde5a1b63de44a83
+    md5: c103b6e038574d01f651ae746316c3eb
+work/rpointer.rof:
+  fullpath: /scratch/x77/cy8964/access-om3/archive/8km_jra_ryf_obc2-cascadelake-Charrassin-newparams-rerun-Wright-spinup-accessom2IC/restart000/rpointer.rof
+  hashes:
+    binhash: 5ff67a70b440427d2e366c30c3aadc95
+    md5: 7a832b03e631c040a77aa0458e041ab1
