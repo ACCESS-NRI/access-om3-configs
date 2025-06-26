@@ -58,12 +58,9 @@ You must regenerate WW3 binary files when:
 
 ### Guidance for Users and Best Practices
 
-* **Familiarize with WW3 Tools:** Learn to use `ww3_grid` and `ww3_strt`.
 * **Plan Changes Carefully:** Know what will require rebuilds or input regeneration.
 * **Maintain Input-Executable Consistency:** Always regenerate inputs with the correct WW3 build.
 * **Verify Logs and Output:** Check `log.ww3`, `test.ww3` for namelist effectiveness.
-* **Change One Thing at a Time:** Easier debugging and validation.
-* **Use Community Resources:** ACCESS-Hive, GitHub issues, etc.
 
 ---
 

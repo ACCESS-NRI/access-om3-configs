@@ -1,6 +1,6 @@
 # Running the MOM6–CICE6–WW3 Coupled Model
 
-This guide provides a clear and simplified workflow for running the coupled **MOM6–CICE6–WW3** model in ACCESS-OM3 using **prebuilt executables** and existing configuration repositories. It assumes **no local builds or compilation**.
+This guide provides a workflow for running the coupled **MOM6–CICE6–WW3** model in ACCESS-OM3 using **prebuilt executables** and existing configuration input files. It assumes **no local builds or compilation**.
 
 ---
 
@@ -41,7 +41,7 @@ This step is **only required** if you modify the WW3 pre-processing inputs:
 - `WW3_PreProc/ww3_strt.inp` — to change restart/initialization setup
 
 > **Important:**  
-> If you modify `namelists_Global.nml`, this affects WW3 physics and **requires recompiling ACCESS-OM3** with matching WW3 compile-time switches. This cannot be handled by namelists alone.
+> If you modify `namelists_Global.nml` in `WW3_PreProc`, this affects WW3 physics and **requires recompiling ACCESS-OM3** with matching WW3 compile-time switches. This cannot be handled by namelists alone.
 
 ### To regenerate input files:
 
@@ -71,11 +71,6 @@ This creates updated `mod_def.ww3` and `restart.ww3` in the `WW3_PreProc` direct
 ## 4. Modify `config.yaml` (if using regenerated WW3 files)
 
 If you regenerated WW3 input files, update your `config.yaml` file:
-
-### Update the `exe:` field to match the executable version:
-```yaml
-exe: /g/data/vk83/compiled_bins/access-om3-MOM6-CICE6-WW3
-```
 
 ### Replace the default WW3 input paths with the regenerated ones:
 ```yaml
