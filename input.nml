@@ -12,7 +12,10 @@
 /
 
 &generic_wombatlite_nml
-    co2_calc='ocmip2'
+    co2_calc='mocsy'
+    do_caco3_dynamics=.true.
+    do_burial=.false.
+    do_conserve_tracers=.false.
 /
 
 &fms_nml
