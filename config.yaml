@@ -14,7 +14,7 @@ jobfs: 10GB
 mem: 8000GB
 
 walltime: 24:00:00
-jobname: 025km_jra55do_ryf
+jobname: 25km_jra55do_ryf_wombatlite
 
 model: access-om3
 
@@ -22,6 +22,8 @@ exe: access-om3-MOM6-CICE6
 input:
     - /g/data/vk83/prerelease/configurations/inputs/access-om3/cice/grids/global.25km/2025.05.15/kmt.nc
     - /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/grids/mosaic/global.25km/2025.05.15/ocean_hgrid.nc
+    - /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/grids/mosaic/global.25km/2025.05.15/ocean_mosaic.nc
+    - /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/grids/mosaic/share/2024.05.08/grid_spec.nc
     - /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/grids/vertical/global.25km/2025.03.12/ocean_vgrid.nc
     - /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/initial_conditions/global.25km/2025.06.17/ocean_temp_salt.res.nc
     - /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/surface_salt_restoring/global.25km/2025.06.17/salt_sfc_restore.nc
@@ -33,6 +35,14 @@ input:
     - /g/data/vk83/configurations/inputs/access-om3/share/meshes/share/2024.09.16/JRA55do-datm-ESMFmesh.nc
     - /g/data/vk83/configurations/inputs/access-om3/share/meshes/share/2024.09.16/JRA55do-drof-ESMFmesh.nc
     - /g/data/vk83/prerelease/configurations/inputs/access-om3/cmeps/remap_weights/global.25km/2025.05.15/access-om3-25km-rof-remap-weights.nc
+    - /g/data/vk83/prerelease/configurations/inputs/access-om3/wombat/forcing/global.25km/2025.06.24/dust.nc
+    - /g/data/vk83/prerelease/configurations/inputs/access-om3/wombat/initial_conditions/share/2021.06.07/FEMIP_model_median_iron_2016_fillmiss.nc
+    - /g/data/vk83/prerelease/configurations/inputs/access-om3/wombat/initial_conditions/share/2024.04.02/GLODAPv2.2016b.NO3_fillmiss.nc
+    - /g/data/vk83/prerelease/configurations/inputs/access-om3/wombat/initial_conditions/share/2024.04.02/GLODAPv2.2016b.oxygen_fillmiss.nc
+    - /g/data/vk83/prerelease/configurations/inputs/access-om3/wombat/initial_conditions/share/2024.04.02/GLODAPv2.2016b.PI_TCO2_fillmiss.nc
+    - /g/data/vk83/prerelease/configurations/inputs/access-om3/wombat/initial_conditions/share/2024.04.02/GLODAPv2.2016b.TAlk_fillmiss.nc
+    - /g/data/vk83/prerelease/configurations/inputs/access-om3/wombat/initial_conditions/share/2024.04.02/GLODAPv2.2016b.TCO2_fillmiss.nc
+    - /g/data/vk83/prerelease/configurations/inputs/access-om3/wombat/initial_conditions/global.25km/2025.06.16/init_ocean_wombatlite.res.nc
     - /g/data/vk83/experiments/inputs/JRA-55/RYF/v1-4/data
  
 runlog: false
@@ -46,7 +56,7 @@ platform:
 collate:
   restart: true
   mpi: true
-  walltime: 1:00:00
+  walltime: 3:00:00
   mem: 30GB
   ncpus: 4
   queue: normal
@@ -58,9 +68,9 @@ userscripts:
 
 modules:
     use:
-        - /g/data/vk83/modules
+        - /g/data/vk83/prerelease/modules
     load:
-        - access-om3/2025.05.001
+        - access-om3/pr116-3 # access-om3/2025.05.001 with gtracers updated to dev-2025.06.002
         - nco/5.0.5
 
 payu_minimum_version: 1.1.6

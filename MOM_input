@@ -168,8 +168,13 @@ DTFREEZE_DP = -7.75E-08         !   [degC Pa-1] default = 0.0
 ! === module MOM_tracer_flow_control ===
 USE_IDEAL_AGE_TRACER = True     !   [Boolean] default = False
                                 ! If true, use the ideal_age_example tracer package.
+USE_generic_tracer = True       !   [Boolean] default = False
+                                ! If true and _USE_GENERIC_TRACER is defined as a preprocessor macro, use the
+                                ! MOM_generic_tracer packages.
 
 ! === module ideal_age_example ===
+
+! === module register_MOM_generic_tracer ===
 
 ! === module MOM_coord_initialization ===
 REGRIDDING_COORDINATE_MODE = "ZSTAR" ! default = "LAYER"

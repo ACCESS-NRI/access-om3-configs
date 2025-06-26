@@ -278,3 +278,104 @@ diag_table:
             total_friver: # Area integrated liquid runoff into ocean total_lrunoff
             total_net_massout: # Area integrated mass leaving ocean due to evap and seaice form
             total_net_massin: # Area integrated mass entering ocean due to predip, runoff, ice melt
+
+    'monthly 3d BGC fields':
+        defaults:  # these can be overridden for individual fields below
+            file_name_dimension: 3d  # descriptor for filename, e.g. 3d, 2d, scalar
+            reduction_method: mean
+            module_name: generic_wombatlite
+        fields:
+            no3:
+            o2:
+            phy:
+            det:
+            zoo:
+            phyfe:
+            detfe:
+            zoofe:
+            pchl:
+            caco3:
+            dic:
+            alk:
+            dicr:
+            dicp:
+            fe:
+            pprod_gross:
+            zprod_gross:
+            radbio:
+            radmid:
+            radmld:
+            phy_mu:
+            phy_mumax:
+            pchl_mu:
+            pchl_lpar:
+            phy_kni:
+            phy_kfe:
+            phy_lpar:
+            phy_lnit:
+            phy_lfer:
+            phy_dfeupt:
+            phy_feupreg:
+            phy_fedoreg:
+            feIII:
+            felig:
+            fecol:
+            fesources:
+            fesinks:
+            feprecip:
+            fescaven:
+            fescadet:
+            feloss:
+            fecoag2det:
+            htotal:
+            ahtotal:
+            phygrow:
+            phyresp:
+            phymort:
+            zooeps:
+            zoograzphy:
+            zoograzdet:
+            zooresp:
+            zoomort:
+            zooslopphy:
+            zooslopdet:
+            zooexcrphy:
+            zooexcrdet:
+            reminr:
+            detremi:
+            caldiss:
+            pic2poc:
+            omega_ara:
+            omega_cal:
+            co3:
+            co2_star:
+            htotal:
+            det_vmove:
+            alk_correct:
+            dic_correct:
+
+    'monthly 2d BGC fields':
+        defaults:  # these can be overridden for individual fields below
+            file_name_dimension: 2d  # descriptor for filename, e.g. 3d, 2d, scalar
+            reduction_method: mean
+            module_name: generic_wombatlite
+        fields:
+            o2_stf:
+            dic_stf:
+            dicp_stf:
+            fe_stf:
+            pco2:
+            paco2:
+            pprod_gross_2d:
+            export_prod:
+            export_inorg:
+            det_sediment:
+            detfe_sediment:
+            caco3_sediment:
+            det_sed_depst:
+            detfe_sed_depst:
+            caco3_sed_depst:
+            det_sed_bury:
+            detfe_sed_bury:
+            caco3_sed_bury:
+            zeuphot:
