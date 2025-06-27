@@ -71,8 +71,52 @@ If PR3 is adopted, these values can be set as based on the Grid resolution:
 ```fortran
 &PRO3 WDTHCG = <value>, WDTHTH = <value> /
 ```
-
----
->📚 Reference
+>📚 Reference:
 >Arun Chawla, Hendrik L. Tolman (2008), **Obstruction grids for spectral wave models**, *Ocean Modelling*, Volume 22, Issues 1–2, Pages 12–25,[doi.org/10.1016/j.ocemod.2008.01.003](https://doi.org/10.1016/j.ocemod.2008.01.003)
 
+---
+
+## 🌊 WW3 Langmuir Mixing Parameterization (`&LMPN`)
+
+The **Langmuir Mixing Parameterization** (LMP) in WAVEWATCH III (WW3) accounts for additional vertical mixing in the ocean surface boundary layer induced by Langmuir turbulence—a phenomenon caused by the interaction between surface waves and wind-driven currents.
+
+This feature is especially relevant when WW3 is **coupled to an active ocean model**, such as MOM6 or POP2, to improve realism in air-sea fluxes and surface mixing processes in Earth System Models.
+
+The configuration is controlled using the `&LMPN` namelist group.
+
+## Key Parameters
+
+| Parameter     | Description                                                                                           | Typical Values |
+|---------------|-------------------------------------------------------------------------------------------------------|----------------|
+| `LMPENABLED`  | Enables Langmuir mixing parameterization                                                              | `T` or `F`     |
+| `SDTAIL`      | Includes spectral tail contribution to Stokes drift (used for enhanced mixing in high-frequency tail),|                |
+|               | set to false by default                                                                               | `T` or `F`     | 
+| `HSLMODE`     | Controls how the **surface layer depth (HSL)** is defined:                                            | `0` or `1`     |
+|               | - `0`: Fixed uniform 10m depth (testing mode)                                                         |                |
+|               | - `1`: Dynamically received from ocean model via coupler                                              |                |
+
+## Current ACCESS-OM3 Coupled Model Configuration
+
+In the MOM6–CICE6–WW3 coupled setup, we use:
+
+```fortran
+&LMPN
+  LMPENABLED = T,
+  HSLMODE = 1,
+/
+```
+
+- `LMPENABLED = T`  
+  Activates the Langmuir mixing scheme, improving surface mixing representation in coupled runs.
+
+- `HSLMODE = 1`  
+  Ensures that the **surface layer depth (HSL)** is dynamically received from the active ocean model (MOM6) via the coupler.
+
+> ⚠️ `SDTAIL` is **not enabled** in the current setup, meaning spectral tail contributions are excluded.
+
+This implementation is based on:
+
+> **Li, Qing, et al. (2016)**.  
+> *Langmuir mixing effects on global climate: WAVEWATCH III in CESM.*  
+> Ocean Modelling, **103**, 145–160.  
+> [https://doi.org/10.1016/j.ocemod.2015.08.013](https://doi.org/10.1016/j.ocemod.2015.08.013)
