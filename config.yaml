@@ -2,7 +2,7 @@
 
 # If submitting to a different project to your default, uncomment line below 
 # and change project code as appropriate; also set shortpath below
-project: ol01
+project: tm70
 
 # Force payu to always find, and save, files in this scratch project directory
 # (you may need to add the corresponding PBS -l storage flag in sync_data.sh)
