@@ -489,4 +489,14 @@ Also aiming to increase the  timestep after a few days of spinup. However, also 
 
 Also copied diag rho coordinates from the panan. not sure about the formatting....
 
+And diag z coordinates regridded (ocean_month_z) since I spent a good morning freaking out about warm western boundary currents that were actually vanished.
+
 Northern boundary issue resolved by reverting to `WRIGHT_REDUCED` EOS
+
+Just kidding, not resolved. Need to use ACCESS-OM2-01 second year output https://github.com/claireyung/mom6-panAn-iceshelf-tools/blob/claire_working/initial-conditions/ACCESSOM2_IC_into_8km_grid.ipynb 
+
+Also changed to `WRIGHT_FULL` (https://github.com/claireyung/mom6-panAn-iceshelf-tools/issues/13)
+
+And added Stewart Allen's suggested Antarctic ice thickness categories ("I might suggest ncat=7, with similar spacing (kcatbound=2), but that has it's highest at about 2.2m.")
+
+
