@@ -1,26 +1,8 @@
 # WW3 Parameter Choices
 
-The current configuration of **WAVEWATCH III (WW3)** in ACCESS-OM3 uses parameter values for the **ST6 source term package**, selected following discussions with the WW3 community. These settings reflect commonly used values that are aligned with best practices in recent applications.
+The current configuration of **WAVEWATCH III (WW3)** in ACCESS-OM3 uses parameter values for the **ST6 source term package** in `WW3_PreProc/namelists_Global.nml`, selected following discussions with the WW3 community. These settings reflect commonly used values that are aligned with best practices in recent applications.
 
 ## 🌊 What is the ST6 Source Term?
-
-**ST6** is an observation-based source term package for deep-water wave modeling in WW3. It includes:
-
-- **Wind input** (positive and negative)
-- **Whitecapping dissipation**
-- **Swell–turbulence interaction (swell dissipation)**
-
-The parameterizations are derived from:
-
-- Field measurements at **Lake George, Australia** (wind input and whitecapping)
-- Laboratory and field studies of **swell decay**
-- **Negative wind input** based on lab testing
-
-ST6 also imposes a physical constraint on total wind energy input using the **independently known wind stress**, improving realism and consistency in wave growth and dissipation behavior.
-
-# ST6 Source Term and SINA0 Parameter in WW3
-
-## What is the ST6 Source Term?
 
 **ST6** is an observation-based source term package for deep-water wave modeling in WW3. It includes:
 
@@ -91,10 +73,6 @@ If PR3 is adopted, these values can be set as based on the Grid resolution:
 ```
 
 ---
-
-## 📚 Reference
-
-Arun Chawla, Hendrik L. Tolman (2008).  
-**Obstruction grids for spectral wave models**, *Ocean Modelling*, Volume 22, Issues 1–2, Pages 12–25.  
-[https://doi.org/10.1016/j.ocemod.2008.01.003](https://doi.org/10.1016/j.ocemod.2008.01.003)
+>📚 Reference
+>Arun Chawla, Hendrik L. Tolman (2008), **Obstruction grids for spectral wave models**, *Ocean Modelling*, Volume 22, Issues 1–2, Pages 12–25,[doi.org/10.1016/j.ocemod.2008.01.003](https://doi.org/10.1016/j.ocemod.2008.01.003)
 
