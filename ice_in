@@ -68,8 +68,8 @@
   ustar_min = 0.0005
 /
 &domain_nml
-  block_size_x = 60
-  block_size_y = 54
+  block_size_x = 30
+  block_size_y = 27
   distribution_type = "roundrobin"
   distribution_wght = "latitude"
   maskhalo_bound = .true.
