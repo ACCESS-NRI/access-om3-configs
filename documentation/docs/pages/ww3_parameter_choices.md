@@ -24,7 +24,7 @@ ST6 also imposes a physical constraint on total wind energy input using the **in
 > J. Atmos. Oceanic Techn., 29, 1329–1346.  
 > [https://doi.org/10.1175/JTECH-D-11-00092.1](https://doi.org/10.1175/JTECH-D-11-00092.1)
 
-## Current ST6 Parameters
+### Current ST6 Parameters
 
 ```
 &SIN6 SINA0=0.04 /
@@ -36,7 +36,7 @@ These parameters configure wind input (`SIN6`), swell dissipation (`SWL6`), and 
 
 ---
 
-## SINA0
+### SINA0
 `SINA0` is a tuning parameter in the `&SIN6` namelist that controls the **damping effect of adverse winds** in the ST6 wind input scheme. It scales the negative input term that reduces wave growth when the wind opposes wave direction, helping to prevent unrealistic wave energy buildup.
 
 Current setting:
@@ -46,7 +46,7 @@ Current setting:
 ```
 ---
 
-## PR3 Tuning (Not Currently Used)
+## 🌊 PR3 Tuning (Not Currently Used)
 
 The ACCESS-OM3 WW3 configuration currently uses the **PR1** propagation scheme. However, if switching to **PR3** in the future, tuning is required to mitigate the **garden sprinkler effect (GSE)**. This tuning is done using the `&PRO3` namelist.
 
@@ -54,7 +54,7 @@ Recommendations for the appropriate `WDTHCG` and `WDTHTH` values are given in **
 
 ---
 
-## Recommended Tuning Factors for PR3
+### Recommended Tuning Factors for PR3
 
 From Table A.1 in Chawla and Tolman (2008):
 
@@ -84,7 +84,7 @@ This feature is especially relevant when WW3 is **coupled to an active ocean mod
 
 The configuration is controlled using the `&LMPN` namelist group.
 
-## Key Parameters
+### Key Parameters
 
 | Parameter     | Description                                                                                           | Typical Values |
 |---------------|-------------------------------------------------------------------------------------------------------|----------------|
@@ -95,7 +95,7 @@ The configuration is controlled using the `&LMPN` namelist group.
 |               | - `0`: Fixed uniform 10m depth (testing mode)                                                         |                |
 |               | - `1`: Dynamically received from ocean model via coupler                                              |                |
 
-## Current ACCESS-OM3 Coupled Model Configuration
+### Current ACCESS-OM3 Coupled Model Configuration
 
 In the MOM6–CICE6–WW3 coupled setup, we use:
 
