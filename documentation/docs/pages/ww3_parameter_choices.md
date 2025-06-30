@@ -149,7 +149,7 @@ This implementation is based on:
 > **Li, Qing, et al. (2016)**.  
 > *Langmuir mixing effects on global climate: WAVEWATCH III in CESM.*  
 > Ocean Modelling, **103**, 145–160.  
-> [https://doi.org/10.1016/j.ocemod.2015.08.013](https://doi.org/10.1016/j.ocemod.2015.08.013)
+> [https://doi.org/10.1016/j.ocemod.2015.07.020](https://doi.org/10.1016/j.ocemod.2015.07.020)
 
 
 ## Wave-Ice Interaction: IC3 and IC4M2 Parameterizations
@@ -210,5 +210,5 @@ WW3 must be compiled with the `IC4` switch to use this wave attenuation scheme.
 
 #### Reference:
 Meylan, M. H., Bennetts, L. G., & Kohout, A. L. (2014). *In situ measurements and analysis of ocean waves in the Antarctic marginal ice zone*.  
-[https://doi.org/10.3189/2014AoG66A125](https://doi.org/10.3189/2014AoG66A125)
+[https://doi.org/10.1002/2014GL060809](https://doi.org/10.1002/2014GL060809)
 
