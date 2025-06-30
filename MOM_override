@@ -26,8 +26,8 @@ SPONGE = False
 #override SALT_RESTORE_FILE = "salt_restore_interpolated_nearest.nc"
 
 #override FATAL_UNUSED_PARAMS = False
-#override DT = 450 ! 600 !450
-#override DT_THERM = 900 !1200 !900 !ideally shorten from 3600 due to adele's OBC issue
+#override DT = 600 ! 450 ! 600 !450
+#override DT_THERM = 1200 !900 !1200 !900 !ideally shorten from 3600 due to adele's OBC issue
 !#override DEBUG = True
 
 !8k specific params
