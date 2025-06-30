@@ -46,6 +46,36 @@ Current setting:
 ```
 ---
 
+### Swell Dissipation in WW3 (`&SWL6`)
+
+Swell dissipation in WW3 accounts for wave energy loss due to interactions with oceanic turbulence, especially in non-breaking swell conditions. While its effect is small in regions dominated by wind waves, it becomes significant for long swells or parts of the wave spectrum below the breaking threshold.
+
+The dissipation is controlled through the `&SWL6` namelist group in `namelists_Global.nml`.
+
+### Parameters Used
+
+```
+&SWL6 SWLB1 = 0.22E-03, CSTB1 = T /
+```
+
+- SWLB1: Sets the dissipation coefficient for swell energy loss.
+
+- CSTB1: Enables a steepness-based formulation for improved spatial consistency in wave heights.
+
+---
+
+### Nonlinear Interactions (`&SNL1`)
+
+The `&SNL1` namelist configures nonlinear wave–wave interactions, which redistribute energy within the wave spectrum.
+
+```
+&SNL1 LAMBDA = 0.237, NLPROP = 2.13E+07 /
+```
+LAMBDA: Tuning factor for interaction strength.
+
+NLPROP: Constant in the nonlinear source term.
+
+---
 ## 🌊 PR3 Tuning (Not Currently Used)
 
 The ACCESS-OM3 WW3 configuration currently uses the **PR1** propagation scheme. However, if switching to **PR3** in the future, tuning is required to mitigate the **garden sprinkler effect (GSE)**. This tuning is done using the `&PRO3` namelist.
@@ -120,3 +150,65 @@ This implementation is based on:
 > *Langmuir mixing effects on global climate: WAVEWATCH III in CESM.*  
 > Ocean Modelling, **103**, 145–160.  
 > [https://doi.org/10.1016/j.ocemod.2015.08.013](https://doi.org/10.1016/j.ocemod.2015.08.013)
+
+
+## Wave-Ice Interaction: IC3 and IC4M2 Parameterizations
+
+The coupled MOM6–CICE6–WW3 configuration primarily uses **IC3**, a visco-elastic wave–ice interaction scheme. This document summarizes the parameter choices and also describes an alternative empirical scheme, **IC4M2**, that has been tested.
+
+---
+
+### IC3: Visco-Elastic Model (Wang and Shen, 2010)
+
+IC3 treats sea ice as a **visco-elastic layer**, accounting for:
+- Ice thickness
+- Effective viscosity
+- Ice density
+- Effective shear modulus
+
+This method attenuates wave energy as it propagates into ice-covered regions.
+
+#### Parameters Used in ACCESS Configuration:
+
+```
+&SIC3
+  IC3CHENG = .TRUE.,
+  USECGICE = .FALSE.,
+  IC3VISC  = 1.0e3,
+  IC3DENS  = 917.0,
+  IC3ELAS  = 1.0e3 /
+```
+
+- `IC3CHENG`: Enables a stable numerical solver.
+- `USECGICE`: When `FALSE`, group velocity is not affected by ice.
+- `IC3VISC`: Effective viscosity (m²/s)
+- `IC3DENS`: Ice density (kg/m³)
+- `IC3ELAS`: Effective shear modulus (Pa)
+
+#### Reference:
+>Wang, R., & Shen, H. H. (2010). *Gravity waves propagating into an ice-covered ocean: A viscoelastic model*.  
+>[https://doi.org/10.1029/2009JC005591](https://doi.org/10.1029/2009JC005591)
+
+---
+
+### IC4M2: Empirical Wave Attenuation Scheme (Meylan et al., 2014)
+
+IC4M2 is an empirical scheme based on polynomial fits to observational data, including a roll-over effect where attenuation levels off at high frequencies.
+
+#### Equation:
+The attenuation α is given by:
+
+α = C₁ + C₂·σ/2π + C₃·(σ/2π)² + C₄·(σ/2π)³ + C₅·(σ/2π)⁴
+
+Recommended coefficients (from Meylan et al. 2014):
+
+```
+Cice,1...5 = [0, 0, 2.12 × 10⁻³, 0, 4.59 × 10⁻²]
+```
+
+WW3 must be compiled with the `IC4` switch to use this wave attenuation scheme.
+
+#### Reference:
+Meylan, M. H., Bennetts, L. G., & Kohout, A. L. (2014). *In situ measurements and analysis of ocean waves in the Antarctic marginal ice zone*.  
+[https://doi.org/10.3189/2014AoG66A125](https://doi.org/10.3189/2014AoG66A125)
+
