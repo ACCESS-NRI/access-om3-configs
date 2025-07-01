@@ -1,3 +1,143 @@
 format: yamanifest
 version: 1.0
---- {}
+---
+work/access-om3.cice.r.1900-01-11-00000.nc:
+  fullpath: /scratch/tm70/ey7514/access-om3/archive/access-om3-configs/restart000/access-om3.cice.r.1900-01-11-00000.nc
+  hashes:
+    binhash: a1d007df3560c8984c65f9dd3d400c1f
+    md5: 348d4965e5f21501ba315a48d277b8b2
+work/access-om3.cpl.r.1900-01-11-00000.nc:
+  fullpath: /scratch/tm70/ey7514/access-om3/archive/access-om3-configs/restart000/access-om3.cpl.r.1900-01-11-00000.nc
+  hashes:
+    binhash: 620f2502982338776d41a314c552baf3
+    md5: 4983ec3241dbdeee93de0c7ffe49baf3
+work/access-om3.datm.r.1900-01-11-00000.nc:
+  fullpath: /scratch/tm70/ey7514/access-om3/archive/access-om3-configs/restart000/access-om3.datm.r.1900-01-11-00000.nc
+  hashes:
+    binhash: d4a6275d94d5d5823a6d93511bd20d9f
+    md5: c87e8ec464bbcc95cc5dc210a52d3357
+work/access-om3.drof.r.1900-01-11-00000.nc:
+  fullpath: /scratch/tm70/ey7514/access-om3/archive/access-om3-configs/restart000/access-om3.drof.r.1900-01-11-00000.nc
+  hashes:
+    binhash: c7cd37ac0d5758af79cfbe475e615b2b
+    md5: 477dc3b180ee4ff7b8e9c7d7ada81280
+work/access-om3.mom6.r.1900-01-11-00000.nc:
+  fullpath: /scratch/tm70/ey7514/access-om3/archive/access-om3-configs/restart000/access-om3.mom6.r.1900-01-11-00000.nc
+  hashes:
+    binhash: a404c81fd46d42c2ef6375e77ef2ec1d
+    md5: e9b9e60262b01c59617ad5d9b61a5c08
+work/access-om3.mom6.r.1900-01-11-00000_1.nc:
+  fullpath: /scratch/tm70/ey7514/access-om3/archive/access-om3-configs/restart000/access-om3.mom6.r.1900-01-11-00000_1.nc
+  hashes:
+    binhash: 0c36e7ae3bd7c989932656a0f6d1a66d
+    md5: c4d28c0c6a314d1f9228da659d292088
+work/access-om3.mom6.r.1900-01-11-00000_10.nc:
+  fullpath: /scratch/tm70/ey7514/access-om3/archive/access-om3-configs/restart000/access-om3.mom6.r.1900-01-11-00000_10.nc
+  hashes:
+    binhash: bb930cccf4a19536b99c270f3aa259ae
+    md5: 1e8cc798b43bf9080f076deefa05e836
+work/access-om3.mom6.r.1900-01-11-00000_11.nc:
+  fullpath: /scratch/tm70/ey7514/access-om3/archive/access-om3-configs/restart000/access-om3.mom6.r.1900-01-11-00000_11.nc
+  hashes:
+    binhash: 1109aae354907758ee229c329951e157
+    md5: 6578def023695b50f2f5f9896b8e7644
+work/access-om3.mom6.r.1900-01-11-00000_12.nc:
+  fullpath: /scratch/tm70/ey7514/access-om3/archive/access-om3-configs/restart000/access-om3.mom6.r.1900-01-11-00000_12.nc
+  hashes:
+    binhash: 97572eee13a78e98209561c046fa370c
+    md5: d72fa3f83122de4b0475f6d5597422e0
+work/access-om3.mom6.r.1900-01-11-00000_13.nc:
+  fullpath: /scratch/tm70/ey7514/access-om3/archive/access-om3-configs/restart000/access-om3.mom6.r.1900-01-11-00000_13.nc
+  hashes:
+    binhash: b81ea2efc3a2a5671e1fe16578487ec7
+    md5: 699a98404a44e879f47d63d3c76bf2e0
+work/access-om3.mom6.r.1900-01-11-00000_14.nc:
+  fullpath: /scratch/tm70/ey7514/access-om3/archive/access-om3-configs/restart000/access-om3.mom6.r.1900-01-11-00000_14.nc
+  hashes:
+    binhash: 7470cf726d40029eb53373983d323cde
+    md5: ba1b88384ed921adc36bce206d9c9930
+work/access-om3.mom6.r.1900-01-11-00000_15.nc:
+  fullpath: /scratch/tm70/ey7514/access-om3/archive/access-om3-configs/restart000/access-om3.mom6.r.1900-01-11-00000_15.nc
+  hashes:
+    binhash: 31e93d77ce907c2d543a7d0ba5efc150
+    md5: d0daa767cd01e7d5075176ea36c1fcdb
+work/access-om3.mom6.r.1900-01-11-00000_16.nc:
+  fullpath: /scratch/tm70/ey7514/access-om3/archive/access-om3-configs/restart000/access-om3.mom6.r.1900-01-11-00000_16.nc
+  hashes:
+    binhash: ab2cd79be7cea34bf4e803b49397e574
+    md5: 7af9f6c0542167eece731f7ab74fa0dc
+work/access-om3.mom6.r.1900-01-11-00000_17.nc:
+  fullpath: /scratch/tm70/ey7514/access-om3/archive/access-om3-configs/restart000/access-om3.mom6.r.1900-01-11-00000_17.nc
+  hashes:
+    binhash: f00a51ed81388d1fb885c97f8fe42558
+    md5: 0ef3dc0eaa1ea1747a27809e06ed83b0
+work/access-om3.mom6.r.1900-01-11-00000_18.nc:
+  fullpath: /scratch/tm70/ey7514/access-om3/archive/access-om3-configs/restart000/access-om3.mom6.r.1900-01-11-00000_18.nc
+  hashes:
+    binhash: 1891ae9a07c430d587a6da6c2d819c17
+    md5: 355dc2a542ac3a1d6e8ea9bb849d64a4
+work/access-om3.mom6.r.1900-01-11-00000_2.nc:
+  fullpath: /scratch/tm70/ey7514/access-om3/archive/access-om3-configs/restart000/access-om3.mom6.r.1900-01-11-00000_2.nc
+  hashes:
+    binhash: b9b619b106589f1e41bf73d3bf76bd38
+    md5: 5d761adc76620b51c4374258a51ff2a6
+work/access-om3.mom6.r.1900-01-11-00000_3.nc:
+  fullpath: /scratch/tm70/ey7514/access-om3/archive/access-om3-configs/restart000/access-om3.mom6.r.1900-01-11-00000_3.nc
+  hashes:
+    binhash: e757d20d089ab531e89585c3bf562bd7
+    md5: 05f7b7f15a7595746df5f410eb07955e
+work/access-om3.mom6.r.1900-01-11-00000_4.nc:
+  fullpath: /scratch/tm70/ey7514/access-om3/archive/access-om3-configs/restart000/access-om3.mom6.r.1900-01-11-00000_4.nc
+  hashes:
+    binhash: e7a92067b90bd9ac3f4dd43f9e5a4b41
+    md5: e1ce66a90ceb5c389cc2ca3b239ac9a9
+work/access-om3.mom6.r.1900-01-11-00000_5.nc:
+  fullpath: /scratch/tm70/ey7514/access-om3/archive/access-om3-configs/restart000/access-om3.mom6.r.1900-01-11-00000_5.nc
+  hashes:
+    binhash: aea227b7266086c11b2aa60d1eb4e4e5
+    md5: e54db4b86453a244582f6e9954c2c53c
+work/access-om3.mom6.r.1900-01-11-00000_6.nc:
+  fullpath: /scratch/tm70/ey7514/access-om3/archive/access-om3-configs/restart000/access-om3.mom6.r.1900-01-11-00000_6.nc
+  hashes:
+    binhash: 6fbf97290eae709e047b32b6165d024a
+    md5: 72f5a3b9e5ac5e7b6c8eb5991f357196
+work/access-om3.mom6.r.1900-01-11-00000_7.nc:
+  fullpath: /scratch/tm70/ey7514/access-om3/archive/access-om3-configs/restart000/access-om3.mom6.r.1900-01-11-00000_7.nc
+  hashes:
+    binhash: 9710d783a3973bc1c5636bcad6019a2b
+    md5: 96ccc234337ef56be7ef3474df0689a4
+work/access-om3.mom6.r.1900-01-11-00000_8.nc:
+  fullpath: /scratch/tm70/ey7514/access-om3/archive/access-om3-configs/restart000/access-om3.mom6.r.1900-01-11-00000_8.nc
+  hashes:
+    binhash: e036661d41383d978ec5b33dac015159
+    md5: 2542f9755d6f01a92cb018f2188838fc
+work/access-om3.mom6.r.1900-01-11-00000_9.nc:
+  fullpath: /scratch/tm70/ey7514/access-om3/archive/access-om3-configs/restart000/access-om3.mom6.r.1900-01-11-00000_9.nc
+  hashes:
+    binhash: a95790c877153eac8735ccb62a958ef0
+    md5: facf2020d2f45fd3d24be8f5960a88c0
+work/rpointer.atm:
+  fullpath: /scratch/tm70/ey7514/access-om3/archive/access-om3-configs/restart000/rpointer.atm
+  hashes:
+    binhash: c4ae89875576de845607fa414e450b73
+    md5: ccbb9a938d6b81bc88c44f1ed1e2befa
+work/rpointer.cpl:
+  fullpath: /scratch/tm70/ey7514/access-om3/archive/access-om3-configs/restart000/rpointer.cpl
+  hashes:
+    binhash: b0704f7bf501c51e8fe73d7034a94322
+    md5: 630df92e1e97e7498ad787aa197c19c4
+work/rpointer.ice:
+  fullpath: /scratch/tm70/ey7514/access-om3/archive/access-om3-configs/restart000/rpointer.ice
+  hashes:
+    binhash: e3d71bf604fa8c7b474d1aadce8a2631
+    md5: 2066eb8eb1ddacb4010db758da8a5032
+work/rpointer.ocn:
+  fullpath: /scratch/tm70/ey7514/access-om3/archive/access-om3-configs/restart000/rpointer.ocn
+  hashes:
+    binhash: 2b01211416720d58549ac2f147c89366
+    md5: 16abf0dec892d3cfc1fa0c46e197c2f7
+work/rpointer.rof:
+  fullpath: /scratch/tm70/ey7514/access-om3/archive/access-om3-configs/restart000/rpointer.rof
+  hashes:
+    binhash: de9cb798429727ec49fcb1b0c26f1ded
+    md5: 347c5705973690e24d1f733e02c7b8d8
