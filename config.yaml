@@ -24,6 +24,9 @@ jobname: 8km_panAn_sr
 model: access-om3
 
 exe: access-om3-MOM6-CICE6
+exe_prefix: aps -r aps-output-dir
+env:
+    APS_STAT_LEVEL: 4
 input:
     - /g/data/tm70/cy8964/mom6/input/input-8km/kmt_Charrassin_nocavity_cropped.nc
     - /g/data/tm70/cy8964/mom6/input/input-8km/ocean_hgrid_cropped.nc
@@ -57,8 +60,9 @@ modules:
     use:
         - /g/data/vk83/prerelease/modules
     load:
-        - access-om3/pr75-1
+        - access-om3/pr75-1 # pr75-1: helens, 113-2: ey's base
         - nco/5.0.5
+        - intel-vtune/2025.0.1
 
 payu_minimum_version: 1.1.6
 
