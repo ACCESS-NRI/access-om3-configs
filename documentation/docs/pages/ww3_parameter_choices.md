@@ -212,3 +212,31 @@ WW3 must be compiled with the `IC4` switch to use this wave attenuation scheme.
 Meylan, M. H., Bennetts, L. G., & Kohout, A. L. (2014). *In situ measurements and analysis of ocean waves in the Antarctic marginal ice zone*.  
 [https://doi.org/10.1002/2014GL060809](https://doi.org/10.1002/2014GL060809)
 
+---
+
+### Wave-Ice Interaction:  Floe-size dependent Scattering and dissipation (IS2)
+
+The **IS2** source term in WAVEWATCH III accounts for wave scattering and dissipation by sea ice floes. This implementation is based on the approach by Meylan and Masson (2006), with additional processes including:
+
+- **Floe size–dependent scattering**
+- **Wave-induced ice breakup** (updating maximum floe diameter)
+- **Anelastic dissipation**, representing internal energy loss in sea ice due to stress oscillations.
+
+#### Parameters Used
+
+```
+&IS2ANDISB = .TRUE.,
+IS2BACKSCAT = 0.2,
+```
+
+#### Description
+
+- `IS2ANDISB = .TRUE.` enables anelastic dissipation, allowing energy loss from wave-induced cyclic stress in sea ice.
+- `IS2BACKSCAT = 0.2` sets the fraction of wave energy that is backscattered by ice. Default is 1.0.
+
+#### Notes
+
+- `IS2UPDATE` is set to `.FALSE.` by default in our configuration, so maximum floe diameter is updated dynamically at every time step.
+- `IS2UPDATE`  `TRUE` – updates the maximum floe diameter based on external forcing only.
+               `FALSE`– updates the maximum floe diameter at every model time step.
+---
