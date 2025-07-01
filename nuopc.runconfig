@@ -274,7 +274,7 @@ CLOCK_attributes::
      rof_cpl_dt = 99999 #not used
      start_tod = 0
      start_ymd = 19000101
-     stop_n = 5
+     stop_n = 10
      stop_option = ndays
      stop_tod = 0
      stop_ymd = -999
