@@ -21,7 +21,7 @@ AUTO_MASKTABLE = True           !   [Boolean] default = False
                                 ! Turn on automatic mask table generation to eliminate land blocks.
 AUTO_IO_LAYOUT_FAC = 6          ! default = 0
                                 ! When AUTO_MASKTABLE is enabled, io layout is calculated by performing integer
-                                ! division of the runtime-determined domain layout with this factor. If the 
+                                ! division of the runtime-determined domain layout with this factor. If the
                                 ! factor is set to 0 (default), the io layout is set to 1,1.
 
 ! This section is formatted the same as the MOM_parameter_short.doc output file.
@@ -244,13 +244,41 @@ Z_INIT_REMAPPING_USE_OM4_SUBCELLS = False !   [Boolean] default = True
                                 ! to false.
 
 ! === module MOM_diag_mediator ===
+NUM_DIAG_COORDS = 2             ! default = 1
+                                ! The number of diagnostic vertical coordinates to use. For each coordinate, an
+                                ! entry in DIAG_COORDS must be provided.
 DIAG_REMAPPING_USE_OM4_SUBCELLS = False !   [Boolean] default = True
                                 ! If true, use the OM4 remapping-via-subcells algorithm for diagnostics. See
                                 ! REMAPPING_USE_OM4_SUBCELLS for details. We recommend setting this option to
                                 ! false.
+DIAG_COORDS = "z Z ZSTAR", "rho2 RHO2 RHO" !
+                                ! A list of string tuples associating diag_table modules to a coordinate
+                                ! definition used for diagnostics. Each string is of the form
+                                ! "MODULE_SUFFIX,PARAMETER_SUFFIX,COORDINATE_NAME".
 DIAG_COORD_DEF_Z = "FILE:ocean_vgrid.nc,interfaces=zeta" ! default = "WOA09"
                                 ! Determines how to specify the coordinate resolution. Valid options are:
                                 !  PARAM       - use the vector-parameter DIAG_COORD_RES_Z
+                                !  UNIFORM[:N] - uniformly distributed
+                                !  FILE:string - read from a file. The string specifies
+                                !                the filename and variable name, separated
+                                !                by a comma or space, e.g. FILE:lev.nc,dz
+                                !                or FILE:lev.nc,interfaces=zw
+                                !  WOA09[:N]   - the WOA09 vertical grid (approximately)
+                                !  WOA09INT[:N] - layers spanned by the WOA09 depths
+                                !  WOA23INT[:N] - layers spanned by the WOA23 depths
+                                !  FNC1:string - FNC1:dz_min,H_total,power,precision
+                                !  HYBRID:string - read from a file. The string specifies
+                                !                the filename and two variable names, separated
+                                !                by a comma or space, for sigma-2 and dz. e.g.
+                                !                HYBRID:vgrid.nc,sigma2,dz
+REGRIDDING_ANSWER_DATE = 99991231 ! default = 20181231
+                                ! The vintage of the expressions and order of arithmetic to use for regridding.
+                                ! Values below 20190101 result in the use of older, less accurate expressions
+                                ! that were in use at the end of 2018.  Higher values result in the use of more
+                                ! robust and accurate forms of mathematically equivalent expressions.
+DIAG_COORD_DEF_RHO2 = "RFNC1:76,999.5,1020.,1034.1,3.1,1041.,0.002" ! default = "WOA09"
+                                ! Determines how to specify the coordinate resolution. Valid options are:
+                                !  PARAM       - use the vector-parameter DIAG_COORD_RES_RHO2
                                 !  UNIFORM[:N] - uniformly distributed
                                 !  FILE:string - read from a file. The string specifies
                                 !                the filename and variable name, separated
@@ -277,10 +305,10 @@ MEKE_BGSRC = 1.0E-13            !   [W kg-1] default = 0.0
                                 ! A background energy source for MEKE.
 MEKE_KHMEKE_FAC = 1.0           !   [nondim] default = 0.0
                                 ! A factor that maps MEKE%Kh to Kh for MEKE itself.
-MEKE_ALPHA_RHINES = 0.15        !   [nondim] default = 0.05
+MEKE_ALPHA_RHINES = 0.15        !   [nondim] default = 0.0
                                 ! If positive, is a coefficient weighting the Rhines scale in the expression for
                                 ! mixing length used in MEKE-derived diffusivity.
-MEKE_ALPHA_EADY = 0.15          !   [nondim] default = 0.05
+MEKE_ALPHA_EADY = 0.15          !   [nondim] default = 0.0
                                 ! If positive, is a coefficient weighting the Eady length scale in the
                                 ! expression for mixing length used in MEKE-derived diffusivity.
 
@@ -303,15 +331,6 @@ USE_STORED_SLOPES = True        !   [Boolean] default = False
                                 ! If true, the isopycnal slopes are calculated once and stored for re-use. This
                                 ! uses more memory but avoids calling the equation of state more times than
                                 ! should be necessary.
-INTERPOLATE_RES_FN = False      !   [Boolean] default = True
-                                ! If true, interpolate the resolution function to the velocity points from the
-                                ! thickness points; otherwise interpolate the wave speed and calculate the
-                                ! resolution function independently at each point.
-GILL_EQUATORIAL_LD = True       !   [Boolean] default = False
-                                ! If true, uses Gill's definition of the baroclinic equatorial deformation
-                                ! radius, otherwise, if false, use Pedlosky's definition. These definitions
-                                ! differ by a factor of 2 in front of the beta term in the denominator. Gill's
-                                ! is the more appropriate definition.
 EBT_REMAPPING_USE_OM4_SUBCELLS = False !   [Boolean] default = True
                                 ! If true, use the OM4 remapping-via-subcells algorithm for calculating EBT
                                 ! structure. See REMAPPING_USE_OM4_SUBCELLS for details. We recommend setting
@@ -338,6 +357,7 @@ BBL_THICK_MIN = 0.1             !   [m] default = 0.0
 KV = 0.0                        !   [m2 s-1]
                                 ! The background kinematic viscosity in the interior. The molecular value, ~1e-6
                                 ! m2 s-1, may be used.
+
 ! === module MOM_thickness_diffuse ===
 KHTH_MAX_CFL = 0.1              !   [nondimensional] default = 0.8
                                 ! The maximum value of the local diffusive CFL ratio that is permitted for the
@@ -385,8 +405,6 @@ AH_VEL_SCALE = 0.01             !   [m s-1] default = 0.0
                                 ! scaled viscosity, the Smagorinsky and Leith viscosities, and AH.
 SMAGORINSKY_AH = True           !   [Boolean] default = False
                                 ! If true, use a biharmonic Smagorinsky nonlinear eddy viscosity.
-SMAG_BI_CONST = 0.06            !   [nondim] default = 0.0
-                                ! The nondimensional biharmonic Smagorinsky constant, typically 0.015 - 0.06.
 BACKSCATTER_UNDERBOUND = False  !   [Boolean] default = True
                                 ! If true, the bounds on the biharmonic viscosity are allowed to increase where
                                 ! the Laplacian viscosity is negative (due to backscatter parameterizations)
@@ -394,6 +412,8 @@ BACKSCATTER_UNDERBOUND = False  !   [Boolean] default = True
                                 ! when no Laplacian viscosity is applied.  The default is true for historical
                                 ! reasons, but this option probably should not be used because it can contribute
                                 ! to numerical instabilities.
+SMAG_BI_CONST = 0.06            !   [nondim] default = 0.0
+                                ! The nondimensional biharmonic Smagorinsky constant, typically 0.015 - 0.06.
 FRICTWORK_BUG = False           !   [Boolean] default = True
                                 ! If true, retain an answer-changing bug in calculating the FrictWork, which
                                 ! cancels the h in thickness flux and the h at velocity point. This isnot
@@ -439,25 +459,27 @@ MIXEDLAYER_RESTRAT = True       !   [Boolean] default = False
                                 ! If true, a density-gradient dependent re-stratifying flow is imposed in the
                                 ! mixed layer. Can be used in ALE mode without restriction but in layer mode can
                                 ! only be used if BULKMIXEDLAYER is true.
-MLE%USE_BODNER23 = True         !   [Boolean] default = False
+MLE%
+USE_BODNER23 = True             !   [Boolean] default = False
                                 ! If true, use the Bodner et al., 2023, formulation of the re-stratifying
                                 ! mixed-layer restratification parameterization. This only works in ALE mode.
-MLE%CR = 0.0175                 !   [nondim] default = 0.0
+CR = 0.0175                     !   [nondim] default = 0.0
                                 ! The efficiency coefficient in eq 27 of Bodner et al., 2023.
-MLE%BLD_DECAYING_TFILTER = 8.64E+04 !   [s] default = 0.0
+BLD_DECAYING_TFILTER = 8.64E+04 !   [s] default = 0.0
                                 ! The time-scale for a running-mean filter applied to the boundary layer depth
                                 ! (BLD) when the BLD is shallower than the running mean. A value of 0
                                 ! instantaneously sets the running mean to the current value of BLD.
-MLE%MLD_DECAYING_TFILTER = 2.592E+06 !   [s] default = 0.0
+MLD_DECAYING_TFILTER = 2.592E+06 !   [s] default = 0.0
                                 ! The time-scale for a running-mean filter applied to the time-filtered BLD,
                                 ! when the latter is shallower than the running mean. A value of 0
                                 ! instantaneously sets the running mean to the current value filtered BLD.
-MLE%MIN_WSTAR2 = 1.0E-09        !   [m2 s-2] default = 1.0E-24
+MIN_WSTAR2 = 1.0E-09            !   [m2 s-2] default = 1.0E-24
                                 ! The minimum lower bound to apply to the vertical momentum flux, w'u', in the
                                 ! Bodner et al., restratification parameterization. This avoids a
                                 ! division-by-zero in the limit when u* and the buoyancy flux are zero.  The
                                 ! default is less than the molecular viscosity of water times the Coriolis
                                 ! parameter a micron away from the equator.
+%MLE
 MLE_USE_PBL_MLD = True          !   [Boolean] default = False
                                 ! If true, the MLE parameterization will use the mixed-layer depth provided by
                                 ! the active PBL parameterization. If false, MLE will estimate a MLD based on a
@@ -481,28 +503,7 @@ EPBL_IS_ADDITIVE = False        !   [Boolean] default = True
                                 ! If true, the diffusivity from ePBL is added to all other diffusivities.
                                 ! Otherwise, the larger of kappa-shear and ePBL diffusivities are used.
 
-! === module MOM_CVMix_KPP ===
-! This is the MOM wrapper to CVMix:KPP
-! See http://cvmix.github.io/
-
-! === module MOM_CVMix_conv ===
-! Parameterization of enhanced mixing due to convection via CVMix
-
 ! === module MOM_set_diffusivity ===
-BBL_EFFIC = 0.01                !   [nondim] default = 0.2
-                                ! The efficiency with which the energy extracted by bottom drag drives BBL
-                                ! diffusion.  This is only used if BOTTOMDRAGLAW is true.
-BBL_MIXING_AS_MAX = False       !   [Boolean] default = True
-                                ! If true, take the maximum of the diffusivity from the BBL mixing and the other
-                                ! diffusivities. Otherwise, diffusivity from the BBL_mixing is simply added.
-USE_LOTW_BBL_DIFFUSIVITY = True !   [Boolean] default = False
-                                ! If true, uses a simple, imprecise but non-coordinate dependent, model of BBL
-                                ! mixing diffusivity based on Law of the Wall. Otherwise, uses the original BBL
-                                ! scheme.
-SIMPLE_TKE_TO_KD = True         !   [Boolean] default = False
-                                ! If true, uses a simple estimate of Kd/TKE that will work for arbitrary
-                                ! vertical coordinates. If false, calculates Kd/TKE and bounds based on exact
-                                ! energetics for an isopycnal layer-formulation.
 
 ! === module MOM_tidal_mixing ===
 ! Vertical Tidal Mixing Parameterization
@@ -533,10 +534,24 @@ READ_TIDEAMP = True             !   [Boolean] default = False
 H2_FILE = "bottom_roughness.nc" !
                                 ! The path to the file containing the sub-grid-scale topographic roughness
                                 ! amplitude with INT_TIDE_DISSIPATION.
+BBL_EFFIC = 0.01                !   [nondim] default = 0.2
+                                ! The efficiency with which the energy extracted by bottom drag drives BBL
+                                ! diffusion.  This is only used if BOTTOMDRAGLAW is true.
+BBL_MIXING_AS_MAX = False       !   [Boolean] default = True
+                                ! If true, take the maximum of the diffusivity from the BBL mixing and the other
+                                ! diffusivities. Otherwise, diffusivity from the BBL_mixing is simply added.
+USE_LOTW_BBL_DIFFUSIVITY = True !   [Boolean] default = False
+                                ! If true, uses a simple, imprecise but non-coordinate dependent, model of BBL
+                                ! mixing diffusivity based on Law of the Wall. Otherwise, uses the original BBL
+                                ! scheme.
+SIMPLE_TKE_TO_KD = True         !   [Boolean] default = False
+                                ! If true, uses a simple estimate of Kd/TKE that will work for arbitrary
+                                ! vertical coordinates. If false, calculates Kd/TKE and bounds based on exact
+                                ! energetics for an isopycnal layer-formulation.
 
 ! === module MOM_bkgnd_mixing ===
 ! Adding static vertical background mixing coefficients
-KD = 1.5E-05                    !   [m2 s-1]
+KD = 1.5E-05                    !   [m2 s-1] default = 0.0
                                 ! The background diapycnal diffusivity of density in the interior. Zero or the
                                 ! molecular value, ~1e-7 m2 s-1, may be used.
 KD_MIN = 2.0E-06                !   [m2 s-1] default = 1.5E-07
@@ -563,7 +578,7 @@ USE_JACKSON_PARAM = True        !   [Boolean] default = False
                                 ! parameterization.
 VERTEX_SHEAR = True             !   [Boolean] default = False
                                 ! If true, do the calculations of the shear-driven mixing at the cell vertices
-                                ! (i.e., the vorticity points)
+                                ! (i.e., the vorticity points).
 MAX_RINO_IT = 25                !   [nondim] default = 50
                                 ! The maximum number of iterations that may be used to estimate the Richardson
                                 ! number driven mixing.
@@ -571,12 +586,6 @@ USE_RESTRICTIVE_TOLERANCE_CHECK = True !   [Boolean] default = False
                                 ! If true, uses the more restrictive tolerance check to determine if a timestep
                                 ! is acceptable for the KS_it outer iteration loop.  False uses the original
                                 ! less restrictive check.
-
-! === module MOM_CVMix_shear ===
-! Parameterization of shear-driven turbulence via CVMix (various options)
-
-! === module MOM_CVMix_ddiff ===
-! Parameterization of mixing due to double diffusion processes via CVMix
 
 ! === module MOM_diabatic_aux ===
 ! The following parameters are used for auxiliary diabatic processes.
@@ -596,7 +605,7 @@ TKE_DECAY = 0.01                !   [nondim] default = 2.5
 EPBL_MSTAR_SCHEME = "OM4"       ! default = "CONSTANT"
                                 ! EPBL_MSTAR_SCHEME selects the method for setting mstar.  Valid values are:
                                 !    CONSTANT   - Use a fixed mstar given by MSTAR
-                                !    OM4        - Use L_Ekman/L_Obukhov in the sabilizing limit, as in OM4
+                                !    OM4        - Use L_Ekman/L_Obukhov in the stabilizing limit, as in OM4
                                 !    REICHL_H18 - Use the scheme documented in Reichl & Hallberg, 2018.
 MSTAR_CAP = 1.25                !   [nondim] default = -1.0
                                 ! If this value is positive, it sets the maximum value of mstar allowed in ePBL.
@@ -614,9 +623,6 @@ NSTAR = 0.06                    !   [nondim] default = 0.2
 MSTAR_CONV_ADJ = 0.667          !   [nondim] default = 0.0
                                 ! Coefficient used for reducing mstar during convection due to reduction of
                                 ! stable density gradient.
-USE_MLD_ITERATION = True        !   [Boolean] default = False
-                                ! A logical that specifies whether or not to use the distance to the bottom of
-                                ! the actively turbulent boundary layer to help set the EPBL length scale.
 EPBL_TRANSITION_SCALE = 0.01    !   [nondim] default = 0.1
                                 ! A scale for the mixing length in the transition layer at the edge of the
                                 ! boundary layer as a fraction of the boundary layer thickness.
@@ -624,7 +630,7 @@ MIX_LEN_EXPONENT = 1.0          !   [nondim] default = 2.0
                                 ! The exponent applied to the ratio of the distance to the MLD and the MLD depth
                                 ! which determines the shape of the mixing length. This is only used if
                                 ! USE_MLD_ITERATION is True.
-USE_LA_LI2016 = True            !   [nondim] default = False
+USE_LA_LI2016 = True            !   [Boolean] default = False
                                 ! A logical to use the Li et al. 2016 (submitted) formula to determine the
                                 ! Langmuir number.
 EPBL_LANGMUIR_SCHEME = "ADDITIVE" ! default = "NONE"
@@ -669,12 +675,6 @@ CHECK_DIFFUSIVE_CFL = True      !   [Boolean] default = False
                                 ! equivalent of the CFL limit is not violated.  If false, always use the greater
                                 ! of 1 or MAX_TR_DIFFUSION_CFL iteration.
 
-! === module MOM_neutral_diffusion ===
-! This module implements neutral diffusion of tracers
-
-! === module MOM_hor_bnd_diffusion ===
-! This module implements horizontal diffusion of tracers near boundaries
-
 ! === module MOM_sum_output ===
 MAXTRUNC = 10000                !   [truncations save_interval-1] default = 0
                                 ! The run will be stopped, and the day set to a very large value if the velocity
@@ -696,23 +696,16 @@ RESTORE_SALINITY = True         !   [Boolean] default = False
                                 ! drives sea-surface salinity toward specified values.
 
 ! === module MOM_surface_forcing_nuopc ===
+LATENT_HEAT_FUSION = 3.337E+05  !   [J/kg] default = 3.34E+05
+                                ! The latent heat of fusion.
+LATENT_HEAT_VAPORIZATION = 2.501E+06 !   [J/kg] default = 2.5E+06
+                                ! The latent heat of fusion.
 MAX_P_SURF = 0.0                !   [Pa] default = -1.0
                                 ! The maximum surface pressure that can be exerted by the atmosphere and
                                 ! floating sea-ice or ice shelves. This is needed because the FMS coupling
                                 ! structure does not limit the water that can be frozen out of the ocean and the
                                 ! ice-ocean heat fluxes are treated explicitly.  No limit is applied if a
                                 ! negative value is used.
-USE_RIGID_SEA_ICE = True        !   [Boolean] default = False
-                                ! If true, sea-ice is rigid enough to exert a nonhydrostatic pressure that
-                                ! resist vertical motion.
-SEA_ICE_RIGID_MASS = 100.0      !   [kg m-2] default = 1000.0
-                                ! The mass of sea-ice per unit area at which the sea-ice starts to exhibit
-                                ! rigidity
-
-LATENT_HEAT_FUSION = 3.337E+05  !   [J/kg] default = 3.34E+05
-                                ! The latent heat of fusion.
-LATENT_HEAT_VAPORIZATION = 2.501E+06 !   [J/kg] default = 2.5E+06
-                                ! The latent heat of fusion.
 ADJUST_NET_FRESH_WATER_TO_ZERO = True !   [Boolean] default = False
                                 ! If true, adjusts the net fresh-water forcing seen by the ocean (including
                                 ! restoring) to zero.
@@ -730,3 +723,9 @@ SALT_RESTORE_FILE = "salt_sfc_restore.nc" ! default = "salt_restore.nc"
 SRESTORE_AS_SFLUX = True        !   [Boolean] default = False
                                 ! If true, the restoring of salinity is applied as a salt flux instead of as a
                                 ! freshwater flux.
+USE_RIGID_SEA_ICE = True        !   [Boolean] default = False
+                                ! If true, sea-ice is rigid enough to exert a nonhydrostatic pressure that
+                                ! resist vertical motion.
+SEA_ICE_RIGID_MASS = 100.0      !   [kg m-2] default = 1000.0
+                                ! The mass of sea-ice per unit area at which the sea-ice starts to exhibit
+                                ! rigidity
