@@ -237,6 +237,5 @@ IS2BACKSCAT = 0.2,
 #### Notes
 
 - `IS2UPDATE` is set to `.FALSE.` by default in our configuration, so maximum floe diameter is updated dynamically at every time step.
-- `IS2UPDATE`  `TRUE` – updates the maximum floe diameter based on external forcing only.
-               `FALSE`– updates the maximum floe diameter at every model time step.
+- `IS2UPDATE` `TRUE` – updates the maximum floe diameter based on external forcing only, and `FALSE` – updates the maximum floe diameter at every model time step.
 ---
