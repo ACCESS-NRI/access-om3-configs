@@ -39,7 +39,6 @@ metadata:
     enable: false
 
 userscripts:
-    setup: /usr/bin/bash /g/data/vk83/apps/om3-scripts/payu_config/setup.sh
     archive: /usr/bin/bash /g/data/vk83/apps/om3-scripts/payu_config/archive.sh
 
 modules:
