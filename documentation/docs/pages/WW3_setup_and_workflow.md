@@ -1,6 +1,6 @@
 ## MOM6-CICE6-WW3 in ACCESS-OM3
 
-### Overview: Traditional vs Coupled Configurations
+### Overview: Typical vs Wave-coupled Configurations
 
 In the ACCESS-OM3, the traditional configuration includes the ocean model (MOM6) coupled with the sea-ice model (CICE6). Introducing the wave model (WAVEWATCH III, or WW3) as a third component adds additional complexity to the coupled system. This documentation outlines how the **MOM6–CICE6–WW3 coupled system** differs from the standard MOM6–CICE6 setup, focusing on the additional intricacies introduced by WW3. Key differences include:
 
