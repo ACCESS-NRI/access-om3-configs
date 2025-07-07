@@ -16,14 +16,14 @@ Forcing is provided via [CDEPS](https://github.com/ESCOMP/CDEPS) data models [do
 [JRA55do v1.6](https://climate.mri-jma.go.jp/pub/ocean/JRA55-do/), [replicated by NCI](https://dx.doi.org/10.25914/AT4E-Q668), is used as input data for DATM and DROF, following convention used in OMIP2 and drafted for OMIP3. For interannual-forcing experiments, this data is available from 1958 until January 2024. For repeat-year-forcing (RYF) experiments, a single year of atmosphere and runoff data is selected (Jan-Apr 1991 and May-Dec 1990) using the `make_ryf.py` script in [om3-scripts](https://github.com/ACCESS-NRI/om3-scripts/blob/main/make_ryf/make_ryf.py) to generate the input files. This input data is repeated to produce the same input forcing in every model year. _Stewart et al._ (2020) describe the selected 12-month period to be one of the most neutral across the major climate modes of variability and less affected by the anthropogenic warming found in later years of the dataset. The work does however remind us that the resoluting model is an idealised numerical experiments and not a representation of climatology. 
 
 JRA55-do atmosphere provides **3-hourly instantenous**:
- * sea level pressure;
- * 10m wind velocity components;
- * 10m specific humidity;
- * 10m air temperature.
+- sea level pressure;
+- 10m wind velocity components;
+- 10m specific humidity;
+- 10m air temperature.
     
 and **3-hourly averaged**:
- * liquid and solid precipitation;
- * downwelling surface long-wave and shortwave radiation. 
+- liquid and solid precipitation;
+- downwelling surface long-wave and shortwave radiation. 
       
 JRA55-do runoff provides 12-hourly averaged liquid and frozen runoff fields. In the source data, all frozen run-off is distributed at the ocean surface of the Antarctic/Greenland coastlines without spreading (see [404](https://github.com/ACCESS-NRI/access-om3-configs/issues/404)). 
 
