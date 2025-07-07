@@ -13,9 +13,19 @@ Forcing is provided via [CDEPS](https://github.com/ESCOMP/CDEPS) data models [do
 
 ## Input data
 
-[JRA55do v1.6](https://climate.mri-jma.go.jp/pub/ocean/JRA55-do/), replicated by NCI, is used as input data for DATM and DROF, following convention used in OMIP2 and drafted for OMIP3. For interannual-forcing experiments, this data is available from 1958 until January 2024. For repeat-year-forcing (RYF) experiments, a single year of atmoshpere and runoff data is selected (Jan-Apr 1991 and May-Dec 1990) following Stewart et al. 2020 and using the code in [om3-scripts](https://github.com/ACCESS-NRI/om3-scripts/blob/main/make_ryf/make_ryf.py) to generate the input files. This input data is repeated to produce the same input forcing in every model year.
+[JRA55do v1.6](https://climate.mri-jma.go.jp/pub/ocean/JRA55-do/), replicated by NCI, is used as input data for DATM and DROF, following convention used in OMIP2 and drafted for OMIP3. For interannual-forcing experiments, this data is available from 1958 until January 2024. For repeat-year-forcing (RYF) experiments, a single year of atmosphere and runoff data is selected (Jan-Apr 1991 and May-Dec 1990) following _Stewart et al._ (2020) and using the `make_ryf.py` script in [om3-scripts](https://github.com/ACCESS-NRI/om3-scripts/blob/main/make_ryf/make_ryf.py) to generate the input files. This input data is repeated to produce the same input forcing in every model year.
 
-JRA55-do atmosphere provides 3-hourly instantenous sea level pressure, 10m wind velocity components, 10m specific humidity and 10m air temperature and 3-hourly averaged liquid and solid precipitation, downwelling surface long-wave and shortwave radiation. JRA55-do runoff provides seperate liquid and frozen runoff fields. All frozen run-off is distributed at the ocean surface of the Antarctic/Greenland coastlines without spreading (see [404](https://github.com/ACCESS-NRI/access-om3-configs/issues/404])). All input data is remapped from the source grid (~55km resolution) to the access-om3 grid using bilinear interpolation spatially, and linear interpolation in time (except for downwelling shortwave, which uses "coszen" - cosine of the solar zenith angle). Where differences in landmask between the incoming data on the JRA grid and the om3-grids cause runoff to be interpolated to land cells in om3, the volume of runoff is crudely moved to the nearest ocean cell.
+JRA55-do atmosphere provides 3-hourly instantenous:
+ - sea level pressure;
+  - 10m wind velocity components;
+   - 10m specific humidity;
+    - 10m air temperature.
+    
+    3-hourly averaged:
+     - liquid and solid precipitation;
+      - downwelling surface long-wave and shortwave radiation. 
+      
+      JRA55-do runoff provides seperate liquid and frozen runoff fields. All frozen run-off is distributed at the ocean surface of the Antarctic/Greenland coastlines without spreading (see [404](https://github.com/ACCESS-NRI/access-om3-configs/issues/404])). All input data is remapped from the source grid (~55km resolution) to the access-om3 grid using bilinear interpolation spatially, and linear interpolation in time (except for downwelling shortwave, which uses "coszen" - cosine of the solar zenith angle). Where differences in landmask between the incoming data on the JRA grid and the om3-grids cause runoff to be interpolated to land cells in om3, the volume of runoff is crudely moved to the nearest ocean cell.
 
 [`datm.streams.xml`](https://github.com/ACCESS-NRI/access-om3-configs/blob/1deg_jra55do_ryf/datm.streams.xml) and [`drof.streams.xml`](https://github.com/ACCESS-NRI/access-om3-configs/blob/1deg_jra55do_ryf/drof.streams.xml) set individual input file paths for DATM and DROF respectively, relative to [this entry](https://github.com/search?q=repo%3AACCESS-NRI%2Faccess-om3-configs+path%3Adoc%2Fconfig.yaml+"datm+and+drof"&type=code) in the `input` section of [`config.yaml`](https://github.com/ACCESS-NRI/access-om3-configs/blob/1deg_jra55do_ryf/config.yaml) (see [the Configurations Overview page](configurations/Overview.md#forcing-data)).
 
