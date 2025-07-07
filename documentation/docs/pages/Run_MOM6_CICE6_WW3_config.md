@@ -73,7 +73,7 @@ This creates updated `mod_def.ww3` and `restart.ww3` in the `WW3_PreProc` direct
 If you regenerated WW3 input files, update your `config.yaml` file:
 
 ### Replace the default WW3 input paths with the regenerated ones:
-```yaml
+```
 input:
   - /g/data/$PROJECT/$USER/<wave_config_directory>/WW3_PreProc/restart.ww3
   - /g/data/$PROJECT/$USER/<wave_config_directory>/WW3_PreProc/mod_def.ww3
@@ -81,10 +81,12 @@ input:
 
 > Replace `<wave_config_directory>`, `$PROJECT`, and `$USER` with your actual path values.
 
-### Remove any default module loading like:
-```yaml
+### (Only if you recompiled ACCESS-OM3) Remove any default module loading like:
+``
 - access-om3/2024.09.0
 ```
+
+> This step is only necessary if you're using your own compiled version of ACCESS-OM3 instead of a prebuilt module
 
 If you **haven’t changed anything** in `WW3_PreProc`, you can skip steps 3 and 4 entirely.
 
