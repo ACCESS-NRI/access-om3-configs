@@ -39,7 +39,7 @@ To use full-depth data with **monthly resolution**, `inte.csh` reconstructs it b
 1. **Extract salinity (`s_an`)** from seasonal full-depth data and expand it to monthly resolution.
 2. Use `ncks --mk_rec time` to add an unlimited time dimension to make the NetCDF files record-aware.
 3. **Rename the salinity variable** from `s_an` to `practical_salinity` for compatibility with the processing pipeline.
-4. Run `setup_WOA_initial_conditions.py` to process **conservative temperature** from WOA23.
+4. Run `setup_WOA_initial_conditions.py` to combine monthly upper ocean and seasonal lower ocean data, then convert WOA23 practical salinity and in-situ temperature to absolute salinity and conservative temperature, respectively.
 
 The processed monthly files are output to:
 ```
