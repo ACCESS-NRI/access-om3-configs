@@ -17,7 +17,7 @@ A recursive clone is needed because this repository includes Nic Hannah’s [oce
 
 ## Step 1: (Optional) Regenerate Temperature & Salinity from Raw WOA23
 
-Use this step **only** if you want to regenerate T/S fields from a **different version** of world of Atlas dataset.
+Use this step **only** if you want to regenerate T/S fields from a **different version** of World Ocean Atlas dataset.
 
 ```
 ./inte.csh
