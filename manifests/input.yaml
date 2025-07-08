@@ -1,11 +1,11 @@
 format: yamanifest
 version: 1.0
 ---
-work/INPUT/JRA55do-datm-ESMFmesh.nc:
-  fullpath: /g/data/vk83/configurations/inputs/access-om3/share/meshes/share/2024.09.16/JRA55do-datm-ESMFmesh.nc
+work/INPUT/ERA5-datm-ESMFmesh.nc:
+  fullpath: /g/data/tm70/ek4684/om3-scripts/mesh_generation/ERA5-datm-ESMFmesh.nc
   hashes:
-    binhash: 3aa7bd11a69390ed8739af63e41462fd
-    md5: f583b0fc505afc28f1d7c949a715cccb
+    binhash: fd9ba9fcd1cc5e7aa0533ba6e7d8fcfc
+    md5: e71cdbce1a638db3223b59edadb27e85
 work/INPUT/JRA55do-drof-ESMFmesh.nc:
   fullpath: /g/data/vk83/configurations/inputs/access-om3/share/meshes/share/2024.09.16/JRA55do-drof-ESMFmesh.nc
   hashes:
