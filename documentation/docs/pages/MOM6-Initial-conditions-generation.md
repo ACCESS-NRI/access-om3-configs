@@ -11,7 +11,7 @@ git clone --recursive https://github.com/ACCESS-NRI/initial_conditions_access-om
 cd initial_conditions_access-om3
 ```
 
-This repository uses **Nic Hannah’s ocean-ic code** to interpolate WOA23 data onto MOM6 3D grids.
+A recursive clone is needed because this repository includes Nic Hannah’s [ocean-ic](https://github.com/COSIMA/ocean-ic) code as a submodule, used to interpolate WOA23 data onto MOM6 3D grids.
 
 ---
 
