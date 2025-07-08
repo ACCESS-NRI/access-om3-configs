@@ -1,6 +1,6 @@
 # Generating MOM6 Initial Conditions Using WOA23 dataset
 
-This guide outlines the steps to generate conservative **temperature** and **salinity** fields for MOM6 using **World Ocean Atlas 2023 (WOA23)** data, suitable for ACCESS-OM3 simulations.
+This guide outlines the steps to generate **conservative temperature** and **salinity** fields for MOM6 using **World Ocean Atlas 2023 (WOA23)** data, suitable for ACCESS-OM3 simulations.
 
 ## Repository and Requirements
 
