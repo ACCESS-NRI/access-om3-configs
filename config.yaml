@@ -31,7 +31,7 @@ input:
     - /g/data/vk83/configurations/inputs/access-om3/mom/surface_salt_restoring/global.100km/2020.05.30/salt_sfc_restore.nc
     - /g/data/vk83/configurations/inputs/access-om3/cice/grids/global.100km/2024.05.14/kmt.nc
     - /g/data/vk83/configurations/inputs/access-om3/cice/initial_conditions/global.100km/2023.07.28/iced.1900-01-01-10800.nc
-    - /g/data/qv56/replicas/input4MIPs/CMIP6/OMIP/MRI/MRI-JRA55-do-1-4-0
+    - /g/data/qv56/replicas/input4MIPs/CMIP6Plus/OMIP/MRI/MRI-JRA55-do-1-6-0/
  
 collate: false
 runlog: false
@@ -39,7 +39,6 @@ metadata:
     enable: false
 
 userscripts:
-    setup: /usr/bin/bash /g/data/vk83/apps/om3-scripts/payu_config/setup.sh
     archive: /usr/bin/bash /g/data/vk83/apps/om3-scripts/payu_config/archive.sh
 
 modules:
