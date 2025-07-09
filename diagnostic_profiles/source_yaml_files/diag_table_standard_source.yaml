@@ -202,29 +202,20 @@ diag_table:
             pso: # Pressure at ice-ocean or atmosphere-ocean interface p_surf
             sfdsi: # Net salt flux into ocean at surface (restoring + sea-ice) salt_flux
             salt_flux_added: # Salt flux into ocean at surface due to restoring or flux adjustment
-            Rd_dx: # Ratio between deformation radius and grid spacing
             mlotst: # Mixed layer depth (delta rho = 0.03) MLD_003
             speed: # Sea Surface Speed
-            SSH: # Sea Surface Height
+            zos: # Sea surface height above geoid
+            zossq: # Square of sea surface height above geoid
             tauuo: # surface_downward_x_stress taux
             tauvo: # surface_downward_y_stress tauy
             umo_2d: # Ocean Mass X Transport Vertical Sum
             vmo_2d: # Ocean Mass Y Transport Vertical Sum
             pbo: # Sea Water Pressure at Sea Floor
-            salt_flux_in: # Salt flux into ocean at surface from coupler
-            tnkebto: # Integrated Tendency of Ocean Mesoscale Eddy KE from Parameterized Eddy Advection GMwork
 
     'monthly 2d max fields':
         defaults:  # these can be overridden for individual fields below
             file_name_dimension: 2d  # descriptor for filename, e.g. 3d, 2d, scalar
             reduction_method: max  # mean, snap, rms, pow##, min, max, or diurnal##
-        fields:
-            mlotst: # Mixed layer depth (delta rho = 0.03) MLD_003
-
-    'monthly 2d min fields':
-        defaults:  # these can be overridden for individual fields below
-            file_name_dimension: 2d  # descriptor for filename, e.g. 3d, 2d, scalar
-            reduction_method: min  # mean, snap, rms, pow##, min, max, or diurnal##
         fields:
             mlotst: # Mixed layer depth (delta rho = 0.03) MLD_003
 
