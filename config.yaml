@@ -60,7 +60,7 @@ modules:
     use:
         - /g/data/vk83/prerelease/modules
     load:
-        - access-om3/pr75-1 # pr75-1: helens, 113-2: ey's base, 113-3: ey O3
+        - access-om3/pr113-27
         - nco/5.0.5
         - intel-vtune/2025.0.1
 

@@ -7,7 +7,7 @@
 !#override EQN_OF_STATE = "ROQUET_RHO"
 #override EQN_OF_STATE = "WRIGHT_FULL"
 ! Ask Olga about fr point eqn of state
-#override PARALLEL_RESTARTFILES = True !Check IO LAYOUT
+#override PARALLEL_RESTARTFILES = False !Check IO LAYOUT
 ! #override MIN_THICKNESS = 1.0E-12
 ! Diag mediator - copy panan stuff here
 #override NUM_DIAG_COORDS = 2
