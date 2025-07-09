@@ -32,7 +32,7 @@ By default, WOA23 provides:
 - **Monthly** data (`XX = 01–12`) only for the **upper 1500 m**
 - **Seasonal** data (`XX = 13–16`) covering **full depth**
 
-To use full-depth data with **monthly resolution**, `inte.csh` reconstructs it by combining seasonal deep data with monthly shallow data.
+To use full-depth data with **monthly resolution**, `inte.csh` reconstructs it by combining seasonal deep data with monthly shallow data. The WOA23 dataset is based on oceanographic observations collected over the period 1955 to 2022.
 
 ### What the Script Does
 
@@ -65,6 +65,7 @@ Replace the variables with your grid and directory paths:
 - `INPUT_DIR`: Directory with processed WOA23 monthly files
 - `OUTPUT_DIR`: Where regridded output will be saved
 
+> Note: This code is not parallelized and may take approximately 24 hours to run for the 25km (0.25°) resolution grid.
 ---
 
 ## Step 3: Finalize & Tag Metadata

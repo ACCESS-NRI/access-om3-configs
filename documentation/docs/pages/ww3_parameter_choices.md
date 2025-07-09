@@ -239,6 +239,6 @@ IS2BACKSCAT = 0.2,
 - `IS2UPDATE` is set to `.FALSE.` by default in our configuration, so maximum floe diameter is updated dynamically at every time step.
 - `IS2UPDATE` `TRUE` – updates the maximum floe diameter based on external forcing only, and `FALSE` – updates the maximum floe diameter at every model time step.
 
-#### Reference
-> Meylan, M. H., & Masson, D. (2006). A linear Boltzmann equation to model wave scattering in the marginal ice zone. Ocean Modelling, 11(3-4), 417-427.
+#### Reference:
+>Meylan, M. H., & Masson, D. (2006). A linear Boltzmann equation to model wave scattering in the marginal ice zone. Ocean Modelling, 11(3-4), 417-427.
 ---
