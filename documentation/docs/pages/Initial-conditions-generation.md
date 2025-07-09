@@ -77,7 +77,7 @@ Once satisfied with the output, run:
 ```
 
 This:
-- Commits any changes `git`
+- Commits any changes with `git`
 - Adds Git metadata to the NetCDF metadata
 
 ---
