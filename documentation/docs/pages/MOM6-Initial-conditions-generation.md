@@ -76,13 +76,13 @@ Once satisfied with the output, run:
 ```
 
 This:
-- Commits the results using `git`
-- Adds Git metadata to the NetCDF file headers
+- Commits any changes `git`
+- Adds Git metadata to the NetCDF metadata
 
 ---
 
 ##  Notes
 
 - Make sure to adjust paths in `inte.csh` if you change the WOA23 dataset.
-- You can repeat Step 2 to generate initial conditions for any resolution, as long as you reuse the same WOA23 inputs.
+- You can repeat Step 2 to generate initial conditions for any resolution. Step 1 is agnostic of the model resolution as the data is on the WOA23 grid.
 

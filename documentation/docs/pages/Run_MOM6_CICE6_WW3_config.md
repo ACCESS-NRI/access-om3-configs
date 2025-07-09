@@ -41,7 +41,7 @@ This step is **only required** if you modify the WW3 pre-processing inputs:
 - `WW3_PreProc/ww3_strt.inp` — to change restart/initialization setup
 
 > **Important:**  
-> If you modify `namelists_Global.nml` in `WW3_PreProc`, this affects WW3 physics and **requires recompiling ACCESS-OM3** with matching WW3 compile-time switches. This cannot be handled by namelists alone.
+> If you modify `WW3_PreProc/namelists_Global.nml`, this affects WW3 physics and **requires recompiling ACCESS-OM3** with matching WW3 compile-time switches. This cannot be handled by namelists alone.
 
 ### To regenerate input files:
 
