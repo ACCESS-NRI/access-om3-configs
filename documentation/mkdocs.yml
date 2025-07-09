@@ -108,14 +108,11 @@ nav:
   - Topography generation: pages/Topography-generation.md
   - Git practices:         pages/Git-practices.md
   - Building:              pages/Building.md
-  - Initial condition generation: pages/MOM6-Initial-conditions-generation.md
-  - WW3 config: pages/Run_MOM6_CICE6_WW3_config.md
-  - WW3 workflow: pages/WW3_setup_and_workflow.md
- - WW3:
-  - pages/WW3-overview.md
-  - config: pages/Run_MOM6_CICE6_WW3_config.md
-  - workflow: pages/WW3_setup_and_workflow.md
-  - parameter choices: pages/ww3_parameter_choices.md 
+  - Initial condition generation: pages/Initial-conditions-generation.md
+  - WW3:
+        - config: pages/Run_MOM6_CICE6_WW3_config.md
+        - workflow: pages/WW3_setup_and_workflow.md
+        - parameter choices: pages/ww3_parameter_choices.md 
   - Updating components:   pages/Updating-components.md
   - Releases:              pages/Releases.md
 
