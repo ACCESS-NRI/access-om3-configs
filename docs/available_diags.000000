@@ -382,7 +382,7 @@
     ! long_name: Resolution function for scaling diffusivities
     ! units: nondim
     ! cell_methods: xh:mean yh:mean area:mean
-"Rd_dx"  [Used]
+"Rd_dx"  [Unused]
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
     ! long_name: Ratio between deformation radius and grid spacing
@@ -452,7 +452,7 @@
     ! units: kg s-1
     ! cell_methods: xh:sum yq:point zl:sum
     ! variants: {vhGM,vhGM_xyave}
-"GMwork"  [Used] (CMOR equivalent is "tnkebto")
+"GMwork"  [Unused] (CMOR equivalent is "tnkebto")
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
     ! long_name: Integrated Tendency of Ocean Mesoscale Eddy KE from Parameterized Eddy Advection
@@ -3478,21 +3478,21 @@
     ! long_name: Total volume of liquid ocean
     ! units: m3
     ! standard_name: sea_water_volume
-"zos"  [Unused]
+"zos"  [Used]
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
     ! long_name: Sea surface height above geoid
     ! units: m
     ! standard_name: sea_surface_height_above_geoid
     ! cell_methods: xh:mean yh:mean area:mean
-"zossq"  [Unused]
+"zossq"  [Used]
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
     ! long_name: Square of sea surface height above geoid
     ! units: m2
     ! standard_name: square_of_sea_surface_height_above_geoid
     ! cell_methods: xh:mean yh:mean area:mean
-"SSH"  [Used]
+"SSH"  [Unused]
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
     ! long_name: Sea Surface Height
@@ -5156,7 +5156,7 @@
     ! units: kg m-2 s-1
     ! cell_methods: xh:mean yh:mean area:mean
     ! variants: {salt_flux,sfdsi}
-"salt_flux_in"  [Used]
+"salt_flux_in"  [Unused]
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
     ! long_name: Salt flux into ocean at surface from coupler
