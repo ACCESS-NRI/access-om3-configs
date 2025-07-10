@@ -70,7 +70,7 @@
 &domain_nml
   block_size_x = 60
   block_size_y = 54
-  distribution_type = "roundrobin"
+  distribution_type = "sectrobin"
   distribution_wght = "latitude"
   maskhalo_bound = .true.
   maskhalo_dyn = .true.
