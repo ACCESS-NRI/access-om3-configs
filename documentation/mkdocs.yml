@@ -57,11 +57,11 @@ copyright: Copyright &copy; 2025 ACCESS-NRI
 plugins:
   - include-configuration-stubs:
       main_website:
-        pattern: release-*
+        pattern: "{release-*,dev-*}"
         ref_type: branch
         branch: main
       preview_website:
-        pattern: dev-*
+        pattern: "{release-*,dev-*}"
         ref_type: branch
   - git-revision-date-localized:
       type: date
@@ -102,23 +102,23 @@ markdown_extensions:
 
 # Navigation
 nav:
-  - Home:                  index.md
-  - Quick start:           quick-start.md
+  - Home: index.md
+  - Quick start: quick-start.md
   - Configurations:
     - configurations/index.md
     # At build time other configurations are added here by the mkdocs-include-configurations plugin
-  - Architecture:          architecture.md
-  - NUOPC driver:          NUOPC-driver.md
-  - Coupling:              coupling.md
-  - Forcing data models:   forcing-data-models.md
-  - MOM6:                  MOM6.md
-  - MOM6 generic tracers:  MOM6-generic-tracers.md
-  - Grids:                 grids.md
+  - Architecture: architecture.md
+  - NUOPC driver: NUOPC-driver.md
+  - Coupling: coupling.md
+  - Forcing data models: forcing-data-models.md
+  - MOM6: MOM6.md
+  - MOM6 generic tracers: MOM6-generic-tracers.md
+  - Grids: grids.md
   - Topography generation: topography-generation.md
-  - Git practices:         git-practices.md
-  - Building:              building.md
-  - Updating components:   updating-components.md
-  - Releases:              releases.md
+  - Git practices: git-practices.md
+  - Building: building.md
+  - Updating components: updating-components.md
+  - Releases: releases.md
 
 # Footer
 extra:
