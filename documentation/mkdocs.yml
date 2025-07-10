@@ -108,6 +108,11 @@ nav:
   - Topography generation: pages/Topography-generation.md
   - Git practices:         pages/Git-practices.md
   - Building:              pages/Building.md
+  - Initial condition generation: pages/Initial-conditions-generation.md
+  - WW3:
+        - config: pages/MOM6-CICE6-WW3-quickstart.md
+        - workflow: pages/WW3_setup_and_workflow.md
+        - parameter choices: pages/ww3_parameter_choices.md 
   - Updating components:   pages/Updating-components.md
   - Releases:              pages/Releases.md
 
