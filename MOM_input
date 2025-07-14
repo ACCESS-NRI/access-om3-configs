@@ -705,12 +705,6 @@ LATENT_HEAT_FUSION = 3.337E+05  !   [J/kg] default = 3.34E+05
                                 ! The latent heat of fusion.
 LATENT_HEAT_VAPORIZATION = 2.501E+06 !   [J/kg] default = 2.5E+06
                                 ! The latent heat of fusion.
-MAX_P_SURF = 0.0                !   [Pa] default = -1.0
-                                ! The maximum surface pressure that can be exerted by the atmosphere and
-                                ! floating sea-ice or ice shelves. This is needed because the FMS coupling
-                                ! structure does not limit the water that can be frozen out of the ocean and the
-                                ! ice-ocean heat fluxes are treated explicitly.  No limit is applied if a
-                                ! negative value is used.
 ADJUST_NET_FRESH_WATER_TO_ZERO = True !   [Boolean] default = False
                                 ! If true, adjusts the net fresh-water forcing seen by the ocean (including
                                 ! restoring) to zero.
