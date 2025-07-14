@@ -18,7 +18,7 @@ USE_EOS = True                  !   [Boolean] default = True
 DIABATIC_FIRST = False          !   [Boolean] default = False
                                 ! If true, apply diabatic and thermodynamic processes, including buoyancy
                                 ! forcing and mass gain or loss, before stepping the dynamics forward.
-USE_CONTEMP_ABSSAL = False      !   [Boolean] default = False
+USE_CONTEMP_ABSSAL = True       !   [Boolean] default = False
                                 ! If true, the prognostics T&S are the conservative temperature and absolute
                                 ! salinity. Care should be taken to convert them to potential temperature and
                                 ! practical salinity before exchanging them with the coupler and/or reporting
@@ -123,7 +123,7 @@ C_P = 3992.0                    !   [J kg-1 K-1] default = 3991.86795711963
                                 ! The heat capacity of sea water, approximated as a constant. This is only used
                                 ! if ENABLE_THERMODYNAMICS is true. The default value is from the TEOS-10
                                 ! definition of conservative temperature.
-USE_PSURF_IN_EOS = False        !   [Boolean] default = True
+USE_PSURF_IN_EOS = True         !   [Boolean] default = True
                                 ! If true, always include the surface pressure contributions in equation of
                                 ! state calculations.
 P_REF = 2.0E+07                 !   [Pa] default = 2.0E+07
@@ -334,27 +334,18 @@ NK = 75                         !   [nondim]
 ! === module MOM_tracer_registry ===
 
 ! === module MOM_EOS ===
-EQN_OF_STATE = "WRIGHT_REDUCED" ! default = "WRIGHT"
+EQN_OF_STATE = "ROQUET_RHO"     ! default = "WRIGHT"
                                 ! EQN_OF_STATE determines which ocean equation of state should be used.
                                 ! Currently, the valid choices are "LINEAR", "UNESCO", "JACKETT_MCD", "WRIGHT",
                                 ! "WRIGHT_REDUCED", "WRIGHT_FULL", "NEMO", "ROQUET_RHO", "ROQUET_SPV" and
                                 ! "TEOS10".  This is only used if USE_EOS is true.
-EOS_QUADRATURE = False          !   [Boolean] default = False
+EOS_QUADRATURE = True           !   [Boolean] default = True
                                 ! If true, always use the generic (quadrature) code code for the integrals of
                                 ! density.
-TFREEZE_FORM = "LINEAR"         ! default = "LINEAR"
+TFREEZE_FORM = "TEOS_POLY"      ! default = "TEOS10"
                                 ! TFREEZE_FORM determines which expression should be used for the freezing
                                 ! point.  Currently, the valid choices are "LINEAR", "MILLERO_78", "TEOS_POLY",
                                 ! "TEOS10"
-TFREEZE_S0_P0 = 0.0             !   [degC] default = 0.0
-                                ! When TFREEZE_FORM=LINEAR, this is the freezing potential temperature at S=0,
-                                ! P=0.
-DTFREEZE_DS = -0.054            !   [degC ppt-1] default = -0.054
-                                ! When TFREEZE_FORM=LINEAR, this is the derivative of the freezing potential
-                                ! temperature with salinity.
-DTFREEZE_DP = -7.75E-08         !   [degC Pa-1] default = 0.0
-                                ! When TFREEZE_FORM=LINEAR, this is the derivative of the freezing potential
-                                ! temperature with pressure.
 
 ! === module MOM_restart ===
 PARALLEL_RESTARTFILES = False   !   [Boolean] default = False
@@ -2371,7 +2362,7 @@ LATENT_HEAT_FUSION = 3.337E+05  !   [J/kg] default = 3.34E+05
                                 ! The latent heat of fusion.
 LATENT_HEAT_VAPORIZATION = 2.501E+06 !   [J/kg] default = 2.5E+06
                                 ! The latent heat of fusion.
-MAX_P_SURF = 0.0                !   [Pa] default = -1.0
+MAX_P_SURF = -1.0               !   [Pa] default = -1.0
                                 ! The maximum surface pressure that can be exerted by the atmosphere and
                                 ! floating sea-ice or ice shelves. This is needed because the FMS coupling
                                 ! structure does not limit the water that can be frozen out of the ocean and the
@@ -2404,7 +2395,7 @@ WIND_STAGGER = "A"              ! default = "C"
 WIND_STRESS_MULTIPLIER = 1.0    !   [nondim] default = 1.0
                                 ! A factor multiplying the wind-stress given to the ocean by the coupler. This
                                 ! is used for testing and should be =1.0 for any production runs.
-ENTHALPY_FROM_COUPLER = True    !   [Boolean] default = False
+ENTHALPY_FROM_COUPLER = False   !   [Boolean] default = False
                                 ! If True, the heat (enthalpy) associated with mass entering/leaving the ocean
                                 ! is provided via coupler.
 FLUXCONST = 0.11                !   [m day-1] default = 0.0

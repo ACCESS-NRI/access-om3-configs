@@ -306,7 +306,7 @@
     ! long_name: Resolution function for scaling diffusivities
     ! units: nondim
     ! cell_methods: xh:mean yh:mean area:mean
-"Rd_dx"  [Used]
+"Rd_dx"  [Unused]
     ! modules: {ocean_model,ocean_model_d2}
     ! long_name: Ratio between deformation radius and grid spacing
     ! units: m m-1
@@ -365,7 +365,7 @@
     ! units: kg s-1
     ! cell_methods: xh:sum yq:point zl:sum
     ! variants: {vhGM,vhGM_xyave}
-"GMwork"  [Used] (CMOR equivalent is "tnkebto")
+"GMwork"  [Unused] (CMOR equivalent is "tnkebto")
     ! modules: {ocean_model,ocean_model_d2}
     ! long_name: Integrated Tendency of Ocean Mesoscale Eddy KE from Parameterized Eddy Advection
     ! units: W m-2
@@ -1495,6 +1495,18 @@
     ! units: m
     ! cell_methods: xh:mean yh:mean zl:sum area:mean
     ! variants: {h_pre_sync,h_pre_sync_xyave}
+"temp"  [Used]
+    ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
+    ! long_name: Potential Temperature
+    ! units: degC
+    ! cell_methods: xh:mean yh:mean zl:mean area:mean
+    ! variants: {temp,temp_xyave}
+"salt"  [Used]
+    ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
+    ! long_name: Salinity
+    ! units: psu
+    ! cell_methods: xh:mean yh:mean zl:mean area:mean
+    ! variants: {salt,salt_xyave}
 "tob"  [Used]
     ! modules: {ocean_model,ocean_model_d2}
     ! long_name: Sea Water Potential Temperature at Sea Floor
@@ -2425,19 +2437,19 @@
     ! long_name: Total volume of liquid ocean
     ! units: m3
     ! standard_name: sea_water_volume
-"zos"  [Unused]
+"zos"  [Used]
     ! modules: {ocean_model,ocean_model_d2}
     ! long_name: Sea surface height above geoid
     ! units: m
     ! standard_name: sea_surface_height_above_geoid
     ! cell_methods: xh:mean yh:mean area:mean
-"zossq"  [Unused]
+"zossq"  [Used]
     ! modules: {ocean_model,ocean_model_d2}
     ! long_name: Square of sea surface height above geoid
     ! units: m2
     ! standard_name: square_of_sea_surface_height_above_geoid
     ! cell_methods: xh:mean yh:mean area:mean
-"SSH"  [Used]
+"SSH"  [Unused]
     ! modules: {ocean_model,ocean_model_d2}
     ! long_name: Sea Surface Height
     ! units: m
@@ -2496,6 +2508,16 @@
     ! units: psu2
     ! cell_methods: xh:mean yh:mean area:mean
     ! variants: {SSS_sq,sossq}
+"conSST"  [Unused]
+    ! modules: {ocean_model,ocean_model_d2}
+    ! long_name: Sea Surface Conservative Temperature
+    ! units: Celsius
+    ! cell_methods: xh:mean yh:mean area:mean
+"absSSS"  [Unused]
+    ! modules: {ocean_model,ocean_model_d2}
+    ! long_name: Sea Surface Absolute Salinity
+    ! units: g kg-1
+    ! cell_methods: xh:mean yh:mean area:mean
 "frazil"  [Unused] (CMOR equivalent is "hfsifrazil")
     ! modules: {ocean_model,ocean_model_d2}
     ! long_name: Heat from frazil formation
@@ -2590,18 +2612,18 @@
     ! units: m s-1
     ! cell_methods: xh:mean yh:mean zl:sum area:mean
     ! variants: {dynamics_h_tendency,dynamics_h_tendency_xyave}
-"temp"  [Used] (CMOR equivalent is "thetao")
+"contemp"  [Unused] (CMOR equivalent is "bigthetao")
     ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
-    ! long_name: Potential Temperature
-    ! units: degC
+    ! long_name: Conservative Temperature
+    ! units: Celsius
     ! cell_methods: xh:mean yh:mean zl:mean area:mean
-    ! variants: {temp,temp_xyave,thetao,thetao_xyave}
-"temp_post_horzn"  [Unused]
+    ! variants: {contemp,contemp_xyave,bigthetao,bigthetao_xyave}
+"contemp_post_horzn"  [Unused]
     ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
-    ! long_name: Potential Temperature after horizontal transport (advection/diffusion) has occurred
-    ! units: degC
+    ! long_name: Conservative Temperature after horizontal transport (advection/diffusion) has occurred
+    ! units: Celsius
     ! cell_methods: xh:mean yh:mean zl:mean area:mean
-    ! variants: {temp_post_horzn,temp_post_horzn_xyave}
+    ! variants: {contemp_post_horzn,contemp_post_horzn_xyave}
 "T_adx"  [Unused]
     ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
     ! long_name: Advective (by residual mean) Zonal Flux of Heat
@@ -2681,8 +2703,8 @@
     ! cell_methods: xh:mean yh:mean area:mean
 "T_tendency"  [Unused]
     ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
-    ! long_name: Net time tendency for potential temperature
-    ! units: degC s-1
+    ! long_name: Net time tendency for conservative temperature
+    ! units: Celsius s-1
     ! cell_methods: xh:mean yh:mean zl:mean area:mean
     ! variants: {T_tendency,T_tendency_xyave}
 "T_dfxy_cont_tendency"  [Unused] (CMOR equivalent is "opottemppmdiff")
@@ -2711,13 +2733,13 @@
 "T_dfxy_conc_tendency"  [Unused]
     ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
     ! long_name: Neutral diffusion tracer concentration tendency for T
-    ! units: degC s-1
+    ! units: Celsius s-1
     ! cell_methods: xh:mean yh:mean zl:mean area:mean
     ! variants: {T_dfxy_conc_tendency,T_dfxy_conc_tendency_xyave}
 "T_hbdxy_conc_tendency"  [Unused]
     ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
     ! long_name: Horizontal diffusion tracer concentration tendency for T
-    ! units: degC s-1
+    ! units: Celsius s-1
     ! cell_methods: xh:mean yh:mean zl:mean area:mean
     ! variants: {T_hbdxy_conc_tendency,T_hbdxy_conc_tendency_xyave}
 "Th_tendency"  [Unused] (CMOR equivalent is "opottemptend")
@@ -2734,8 +2756,8 @@
     ! variants: {Th_tendency_2d,opottemptend_2d}
 "T_tendency_vert_remap"  [Unused]
     ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
-    ! long_name: Vertical remapping tracer concentration tendency for temp
-    ! units: degC s-1
+    ! long_name: Vertical remapping tracer concentration tendency for contemp
+    ! units: Celsius s-1
     ! cell_methods: xh:mean yh:mean zl:mean area:mean
     ! variants: {T_tendency_vert_remap,T_tendency_vert_remap_xyave}
 "Th_tendency_vert_remap"  [Unused]
@@ -2751,22 +2773,22 @@
     ! cell_methods: xh:mean yh:mean area:mean
 "T_vardec"  [Unused]
     ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
-    ! long_name: ALE variance decay for potential temperature
-    ! units: degC2 s-1
+    ! long_name: ALE variance decay for conservative temperature
+    ! units: Celsius2 s-1
     ! cell_methods: xh:mean yh:mean zl:mean area:mean
     ! variants: {T_vardec,T_vardec_xyave}
-"salt"  [Used] (CMOR equivalent is "so")
+"abssalt"  [Unused] (CMOR equivalent is "absso")
     ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
-    ! long_name: Salinity
-    ! units: psu
+    ! long_name: Absolute Salinity
+    ! units: g kg-1
     ! cell_methods: xh:mean yh:mean zl:mean area:mean
-    ! variants: {salt,salt_xyave,so,so_xyave}
-"salt_post_horzn"  [Unused]
+    ! variants: {abssalt,abssalt_xyave,absso,absso_xyave}
+"abssalt_post_horzn"  [Unused]
     ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
-    ! long_name: Salinity after horizontal transport (advection/diffusion) has occurred
-    ! units: psu
+    ! long_name: Absolute Salinity after horizontal transport (advection/diffusion) has occurred
+    ! units: g kg-1
     ! cell_methods: xh:mean yh:mean zl:mean area:mean
-    ! variants: {salt_post_horzn,salt_post_horzn_xyave}
+    ! variants: {abssalt_post_horzn,abssalt_post_horzn_xyave}
 "S_adx"  [Unused]
     ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
     ! long_name: Advective (by residual mean) Zonal Flux of Salt
@@ -2846,8 +2868,8 @@
     ! cell_methods: xh:mean yh:mean area:mean
 "S_tendency"  [Unused]
     ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
-    ! long_name: Net time tendency for salinity
-    ! units: psu s-1
+    ! long_name: Net time tendency for absolute salinity
+    ! units: g kg-1 s-1
     ! cell_methods: xh:mean yh:mean zl:mean area:mean
     ! variants: {S_tendency,S_tendency_xyave}
 "S_dfxy_cont_tendency"  [Unused] (CMOR equivalent is "osaltpmdiff")
@@ -2876,13 +2898,13 @@
 "S_dfxy_conc_tendency"  [Unused]
     ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
     ! long_name: Neutral diffusion tracer concentration tendency for S
-    ! units: psu s-1
+    ! units: g kg-1 s-1
     ! cell_methods: xh:mean yh:mean zl:mean area:mean
     ! variants: {S_dfxy_conc_tendency,S_dfxy_conc_tendency_xyave}
 "S_hbdxy_conc_tendency"  [Unused]
     ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
     ! long_name: Horizontal diffusion tracer concentration tendency for S
-    ! units: psu s-1
+    ! units: g kg-1 s-1
     ! cell_methods: xh:mean yh:mean zl:mean area:mean
     ! variants: {S_hbdxy_conc_tendency,S_hbdxy_conc_tendency_xyave}
 "Sh_tendency"  [Unused] (CMOR equivalent is "osalttend")
@@ -2899,8 +2921,8 @@
     ! variants: {Sh_tendency_2d,osalttend_2d}
 "S_tendency_vert_remap"  [Unused]
     ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
-    ! long_name: Vertical remapping tracer concentration tendency for salt
-    ! units: psu s-1
+    ! long_name: Vertical remapping tracer concentration tendency for abssalt
+    ! units: g kg-1 s-1
     ! cell_methods: xh:mean yh:mean zl:mean area:mean
     ! variants: {S_tendency_vert_remap,S_tendency_vert_remap_xyave}
 "Sh_tendency_vert_remap"  [Unused]
@@ -2916,8 +2938,8 @@
     ! cell_methods: xh:mean yh:mean area:mean
 "S_vardec"  [Unused]
     ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
-    ! long_name: ALE variance decay for salinity
-    ! units: psu2 s-1
+    ! long_name: ALE variance decay for absolute salinity
+    ! units: (g kg-1)2 s-1
     ! cell_methods: xh:mean yh:mean zl:mean area:mean
     ! variants: {S_vardec,S_vardec_xyave}
 "age"  [Used] (CMOR equivalent is "agessc")
@@ -3624,7 +3646,7 @@
     ! units: kg m-2 s-1
     ! cell_methods: xh:mean yh:mean area:mean
     ! variants: {salt_flux,sfdsi}
-"salt_flux_in"  [Used]
+"salt_flux_in"  [Unused]
     ! modules: {ocean_model,ocean_model_d2}
     ! long_name: Salt flux into ocean at surface from coupler
     ! units: kg m-2 s-1
