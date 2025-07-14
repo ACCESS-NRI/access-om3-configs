@@ -49,11 +49,11 @@ ACCESS-OM3
 "access-om3.mom6.3d.rhopot2.z.1mon.mean.%4yr", 1, "months", 1, "days", "time", 1, "years"
 "ocean_model_z", "rhopot2", "rhopot2", "access-om3.mom6.3d.rhopot2.z.1mon.mean.%4yr", "all", "average", "none", 2
 
-"access-om3.mom6.3d.thetao.z.1mon.mean.%4yr", 1, "months", 1, "days", "time", 1, "years"
-"ocean_model_z", "thetao", "thetao", "access-om3.mom6.3d.thetao.z.1mon.mean.%4yr", "all", "average", "none", 2
+"access-om3.mom6.3d.temp.z.1mon.mean.%4yr", 1, "months", 1, "days", "time", 1, "years"
+"ocean_model_z", "temp", "temp", "access-om3.mom6.3d.temp.z.1mon.mean.%4yr", "all", "average", "none", 2
 
-"access-om3.mom6.3d.so.z.1mon.mean.%4yr", 1, "months", 1, "days", "time", 1, "years"
-"ocean_model_z", "so", "so", "access-om3.mom6.3d.so.z.1mon.mean.%4yr", "all", "average", "none", 2
+"access-om3.mom6.3d.salt.z.1mon.mean.%4yr", 1, "months", 1, "days", "time", 1, "years"
+"ocean_model_z", "salt", "salt", "access-om3.mom6.3d.salt.z.1mon.mean.%4yr", "all", "average", "none", 2
 
 "access-om3.mom6.3d.uo.z.1mon.mean.%4yr", 1, "months", 1, "days", "time", 1, "years"
 "ocean_model_z", "uo", "uo", "access-om3.mom6.3d.uo.z.1mon.mean.%4yr", "all", "average", "none", 2
