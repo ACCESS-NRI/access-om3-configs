@@ -57,11 +57,10 @@ copyright: Copyright &copy; 2025 ACCESS-NRI
 plugins:
   - include-configuration-stubs:
       main_website:
-        pattern: "{release-*,dev-*}"
+        pattern: "release-* dev-*"
         ref_type: branch
-        branch: main
       preview_website:
-        pattern: "{release-*,dev-*}"
+        pattern: "release-* dev-*"
         ref_type: branch
   - git-revision-date-localized:
       type: date
