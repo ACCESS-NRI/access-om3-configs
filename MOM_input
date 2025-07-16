@@ -29,6 +29,11 @@ AUTO_IO_LAYOUT_FAC = 6          ! default = 0
 ! This file was written by the model and records the non-default parameters used at run-time.
 
 ! === module MOM ===
+USE_CONTEMP_ABSSAL = True       !   [Boolean] default = False
+                                ! If true, the prognostics T&S are the conservative temperature and absolute
+                                ! salinity. Care should be taken to convert them to potential temperature and
+                                ! practical salinity before exchanging them with the coupler and/or reporting
+                                ! T&S diagnostics.
 USE_REGRIDDING = True           !   [Boolean] default = False
                                 ! If True, use the ALE algorithm (regridding/remapping). If False, use the
                                 ! layered isopycnal algorithm.
@@ -72,9 +77,6 @@ C_P = 3992.0                    !   [J kg-1 K-1] default = 3991.86795711963
                                 ! The heat capacity of sea water, approximated as a constant. This is only used
                                 ! if ENABLE_THERMODYNAMICS is true. The default value is from the TEOS-10
                                 ! definition of conservative temperature.
-USE_PSURF_IN_EOS = False        !   [Boolean] default = True
-                                ! If true, always include the surface pressure contributions in equation of
-                                ! state calculations.
 CHECK_BAD_SURFACE_VALS = True   !   [Boolean] default = False
                                 ! If true, check the surface state for ridiculous values.
 BAD_VAL_SSH_MAX = 50.0          !   [m] default = 20.0
@@ -156,14 +158,15 @@ NK = 75                         !   [nondim]
                                 ! The number of model layers.
 
 ! === module MOM_EOS ===
-EQN_OF_STATE = "WRIGHT_REDUCED" ! default = "WRIGHT"
+EQN_OF_STATE = "ROQUET_RHO"     ! default = "WRIGHT"
                                 ! EQN_OF_STATE determines which ocean equation of state should be used.
                                 ! Currently, the valid choices are "LINEAR", "UNESCO", "JACKETT_MCD", "WRIGHT",
                                 ! "WRIGHT_REDUCED", "WRIGHT_FULL", "NEMO", "ROQUET_RHO", "ROQUET_SPV" and
                                 ! "TEOS10".  This is only used if USE_EOS is true.
-DTFREEZE_DP = -7.75E-08         !   [degC Pa-1] default = 0.0
-                                ! When TFREEZE_FORM=LINEAR, this is the derivative of the freezing potential
-                                ! temperature with pressure.
+TFREEZE_FORM = "TEOS_POLY"      ! default = "TEOS10"
+                                ! TFREEZE_FORM determines which expression should be used for the freezing
+                                ! point.  Currently, the valid choices are "LINEAR", "MILLERO_78", "TEOS_POLY",
+                                ! "TEOS10"
 
 ! === module MOM_tracer_flow_control ===
 USE_IDEAL_AGE_TRACER = True     !   [Boolean] default = False
@@ -700,21 +703,12 @@ LATENT_HEAT_FUSION = 3.337E+05  !   [J/kg] default = 3.34E+05
                                 ! The latent heat of fusion.
 LATENT_HEAT_VAPORIZATION = 2.501E+06 !   [J/kg] default = 2.5E+06
                                 ! The latent heat of fusion.
-MAX_P_SURF = 0.0                !   [Pa] default = -1.0
-                                ! The maximum surface pressure that can be exerted by the atmosphere and
-                                ! floating sea-ice or ice shelves. This is needed because the FMS coupling
-                                ! structure does not limit the water that can be frozen out of the ocean and the
-                                ! ice-ocean heat fluxes are treated explicitly.  No limit is applied if a
-                                ! negative value is used.
 ADJUST_NET_FRESH_WATER_TO_ZERO = True !   [Boolean] default = False
                                 ! If true, adjusts the net fresh-water forcing seen by the ocean (including
                                 ! restoring) to zero.
 WIND_STAGGER = "A"              ! default = "C"
                                 ! A case-insensitive character string to indicate the staggering of the input
                                 ! wind stress field.  Valid values are 'A', 'B', or 'C'.
-ENTHALPY_FROM_COUPLER = True    !   [Boolean] default = False
-                                ! If True, the heat (enthalpy) associated with mass entering/leaving the ocean
-                                ! is provided via coupler.
 FLUXCONST = 0.11                !   [m day-1] default = 0.0
                                 ! The constant that relates the restoring surface fluxes to the relative surface
                                 ! anomalies (akin to a piston velocity).  Note the non-MKS units.
