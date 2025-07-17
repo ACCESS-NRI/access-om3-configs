@@ -188,6 +188,8 @@ diag_table:
             e: # Interface height relative to mean sea level
             umo: # Ocean Mass X Transport
             vmo: # Ocean Mass Y Transport
+            uhGM: # Time Mean Diffusive Zonal Thickness Flux
+            vhGM: # Time Mean Diffusive Meridional Thickness Flux
 
     'monthly 2d fields':
         defaults:  # these can be overridden for individual fields below
