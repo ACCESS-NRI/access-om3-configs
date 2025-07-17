@@ -96,7 +96,6 @@ nav:
   - Home:                  index.md
   - Quick start:           pages/Quick-start.md
   - Architecture:          pages/Architecture.md
-  - Coupling:              pages/Coupling.md
   - NUOPC driver:          pages/NUOPC-driver.md
   - Forcing data models:   pages/Forcing-data-models.md
   - Configurations:
@@ -111,7 +110,7 @@ nav:
         - workflow: pages/WW3_setup_and_workflow.md
         - parameter choices: pages/ww3_parameter_choices.md 
   - Git practices:         pages/Git-practices.md
-  - Online Resources:      pages/MOM6.md
+  - Online Resources:      pages/onlineresources.md
 #  turned off for beta release, need to be updated later...
 #  - Building:              pages/Building.md
 #  - Updating components:   pages/Updating-components.md
