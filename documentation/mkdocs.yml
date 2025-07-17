@@ -94,7 +94,6 @@ markdown_extensions:
 # Navigation
 nav:
   - Home:                  index.md
-  - Quick start:           pages/Quick-start.md
   - Architecture:          pages/Architecture.md
   - NUOPC driver:          pages/NUOPC-driver.md
   - Forcing data models:   pages/Forcing-data-models.md
