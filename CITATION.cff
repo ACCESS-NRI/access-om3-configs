@@ -1,0 +1,39 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: 'ACCESS-OM3, Configuration release-25km_jra_ryf-1.0-beta'
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - given-names: Anton
+    family-names: Steketee
+    email: anton.steketee@anu.edu.au
+    affiliation: ACCESS-NRI
+    orcid: 'https://orcid.org/0009-0002-9081-4106'
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.???????
+repository-code: 'https://github.com/accESS-NRI/access-om3-configs'
+url: 'https://access-om3-configs.access-hive.org.au/'
+repository-artifact: >-
+  https://github.com/ACCESS-NRI/access-om3-configs/archive/refs/tags/release-MC_25km_jra55_ryf_1.0-beta.tar.gz
+abstract: >-
+  This is an initial beta prerelease of a model
+  configuration of ACCESS-OM3. This uses a release of the
+  ACCESS-OM3 software (version 2025.05.001), a global grid
+  with 25km nominal resolution, bathymetry generated from
+  GEBCO 2024 and initial conditions generated from WOA2023.
+
+
+  ACCESS-OM3 is the third generation of the ACCESS global
+  ocean-seaice model. It uses up to date releases of the
+  MOM6 ocean mode and CICE6 sea-ice model. It is the first
+  ACCESS model release using CMEPS (Community Mediator for
+  Earth Prediction Systems), built on top of NUOPC (
+  National Unified Operational Prediction Capability),
+  infrastructure to connect these model components.
+license: CC-BY-4.0
+version: release-MC_25km_jra_ryf-1.0-beta
