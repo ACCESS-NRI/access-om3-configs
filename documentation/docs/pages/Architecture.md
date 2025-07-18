@@ -13,11 +13,11 @@ The top level code (main program) for an ACCESS-OM3 executable is the CMEPS NUOP
 
 The [software deployment](https://github.com/accESS-NRI/access-om3) compiles a single executable for the model. Each single exectuable contains the driver, [CMEPS](https://github.com/access-nri/access-om3/tree/master/CMEPS) NUOPC mediator and different selections of these model components:
 
-- ocean: [MOM6](https://github.com/access-nri/access-om3/tree/master/MOM6) active model or DOCN prescribed data model from [CDEPS](https://github.com/access-nri/access-om3/tree/master/CDEPS) or nothing (stub)
-- sea ice: [CICE6](https://github.com/access-nri/access-om3/tree/master/CICE) active model or DICE prescribed data model from [CDEPS](https://github.com/access-nri/access-om3/tree/master/CDEPS) or nothing (stub)
-- waves: [WW3](https://github.com/access-nri/access-om3/tree/master/WW3) active model or DWAV prescribed data model or nothing (stub)
-- atmosphere: DATM prescribed data model from [CDEPS](https://github.com/access-nri/access-om3/tree/master/CDEPS)
-- runoff: DROF prescribed data model from [CDEPS](https://github.com/access-nri/access-om3/tree/master/CDEPS)
+- ocean: [MOM6](https://github.com/access-nri/MOM6) active model or DOCN prescribed data model from [CDEPS](https://github.com/access-nri/access-om3/tree/master/CDEPS) or nothing (stub)
+- sea ice: [CICE6](https://github.com/access-nri/CICE) active model or DICE prescribed data model from [CDEPS](https://github.com/access-nri/access-om3/tree/master/CDEPS) or nothing (stub)
+- waves: [WW3](https://github.com/access-nri/WW3) active model or DWAV prescribed data model or nothing (stub)
+- atmosphere: DATM prescribed data model from [CDEPS](https://github.com/access-nri/access3-share/tree/master/CDEPS)
+- runoff: DROF prescribed data model from [CDEPS](https://github.com/access-nri/access3-share/tree/master/CDEPS)
 
 The default deployment [contains two builds](https://github.com/search?q=repo%3AACCESS-NRI%2FACCESS-OM3%20configurations%3D&type=code), the `access-OM3-MOM6-CICE6` executable contains the active ocean and sea ice model and no waves, and the `access-OM3-MOM6-CICE6-WW3` executable contains the active ocean, seaice and wave models. Other combinations of prescribed and active model components are possible but not probided by default.
 
