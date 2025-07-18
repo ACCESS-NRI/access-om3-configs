@@ -76,6 +76,12 @@ ACCESS-OM3
 "access-om3.mom6.3d.vmo.rho2.1mon.mean.%4yr", 1, "months", 1, "days", "time", 1, "years"
 "ocean_model_rho2", "vmo", "vmo", "access-om3.mom6.3d.vmo.rho2.1mon.mean.%4yr", "all", "average", "none", 2
 
+"access-om3.mom6.3d.uhGM.rho2.1mon.mean.%4yr", 1, "months", 1, "days", "time", 1, "years"
+"ocean_model_rho2", "uhGM", "uhGM", "access-om3.mom6.3d.uhGM.rho2.1mon.mean.%4yr", "all", "average", "none", 2
+
+"access-om3.mom6.3d.vhGM.rho2.1mon.mean.%4yr", 1, "months", 1, "days", "time", 1, "years"
+"ocean_model_rho2", "vhGM", "vhGM", "access-om3.mom6.3d.vhGM.rho2.1mon.mean.%4yr", "all", "average", "none", 2
+
 
 # monthly 2d fields
 
