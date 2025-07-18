@@ -49,4 +49,4 @@ In the ocean model, we use a [75 level vertical grid](https://github.com/COSIMA/
 ## Aditional reading:
 
 - [Cheat sheet for using a Mosaic grid with MOM6 output](https://gist.github.com/adcroft/c1e207024fe1189b43dddc5f1fe7dd6c#file-cheat-sheet-for-using-a-mosaic-grid-with-mom6-output-ipynb)
-- [Gridspec: A standard for the description of grids used in Earth System models](https://extranet.gfdl.noaa.gov/~vb/pdf/gridstd.pdf)
+- [Gridspec: A standard for the description of grids used in Earth System models](https://www.researchgate.net/publication/228641121_Gridspec_A_standard_for_the_description_of_grids_used_in_Earth_System_models) <!-- https://extranet.gfdl.noaa.gov/~vb/pdf/gridstd.pdf is busted? -->
