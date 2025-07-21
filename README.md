@@ -13,7 +13,7 @@ following components:
 All the configurations use the [Payu](https://payu.readthedocs.io/en/latest/)
 workflow management tool, and pre-built executables available on [NCI](https://nci.org.au/).
 
-Detailed documentation on the configurations is provided [here](http://access-om3-configs.access-hive.org.au/).
+Detailed documentation on the configurations is provided at [https://access-om3-configs.access-hive.org.au](https://access-om3-configs.access-hive.org.au/).
 
 ## Running OM3 and the configurations in this repository
 
