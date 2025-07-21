@@ -8,11 +8,98 @@ message: >-
   metadata from this file.
 type: software
 authors:
+  - given-names: Jo
+    family-names: Basevi
+    email: Jo.Basevi@anu.edu.au
+    affiliation: ACCESS-NRI
+  - given-names: Chris
+    family-names: Bull
+    email: chris.bull@anu.edu.au
+    affiliation: ACCESS-NRI
+  - given-names: Martin
+    family-names: Dix
+    email: Martin.Dix@anu.edu.au
+    affiliation: ACCESS-NRI
+    orcid: 'https://orcid.org/0000-0002-7534-0654'
+  - given-names: Tommy
+    family-names: Gatti
+    email: Tommy.Gatti@anu.edu.au
+    affiliation: ACCESS-NRI
+  - given-names: Aidan
+    family-names: Heerdegen
+    email: Aidan.Heerdegen@anu.edu.au
+    affiliation: ACCESS-NRI
+    orcid: 'https://orcid.org/0000-0002-4481-4896'
+  - given-names: Andy
+    family-names: Hogg
+    email: Andy.Hogg@anu.edu.au
+    affiliation: ACCESS-NRI
+    orcid: 'https://orcid.org/0000-0001-5898-7635'
+  - given-names: Harshula
+    family-names: Jayasuriya
+    email: Harshula.Jayasuriya@anu.edu.au
+    affiliation: ACCESS-NRI
+    orcid: 'https://orcid.org/0009-0009-2679-050X'
+  - given-names: Ezhilsabareesh
+    family-names: Kannadasan
+    affiliation: ACCESS-NRI
+    orcid: 'https://orcid.org/0000-0003-1441-4311'
+  - given-names: Andrew
+    family-names: Kiss
+    email: andrew.kiss@anu.edu.au
+    affiliation: Research School of Earth Sciences, Australian National University
+    orcid: 'https://orcid.org/0000-0001-8960-9557'
+  - given-names: Minghang
+    family-names: Li
+    email: Minghang.Li1@anu.edu.au
+    affiliation: ACCESS-NRI
+  - given-names: Davide
+    family-names: Marchegiani
+    email: Davide.Marchegiani@anu.edu.au
+    affiliation: ACCESS-NRI
+    orcid: 'https://orcid.org/0000-0002-7619-7976'
+  - given-names: Adele
+    family-names: Morrison
+    email: Adele.Morrison@anu.edu.au
+    affiliation: Research School of Earth Sciences, Australian National University
+    orcid: 'https://orcid.org/0000-0002-9904-4980'
+  - given-names: Siobhan
+    family-names: O'Farrell
+    email: Siobhan.O'Farrell@csiro.au
+    affiliation: Commonwealth Scientific and Industrial Research
+    orcid: 'https://orcid.org/0000-0002-9019-6136'
+  - given-names: Micael
+    family-names: Oliveria
+    email: Micael.Oliveria@anu.edu.au
+    affiliation: ACCESS-NRI
+    orcid: 'https://orcid.org/0000-0003-1364-0907'
+  - given-names: Kieran
+    family-names: Ricardo
+    email: Kieran.Ricardo@anu.edu.au
+    affiliation: ACCESS-NRI
+  - given-names: Manodeep
+    family-names: Sinha
+    email: Manodeep.Sinha@anu.edu.au
+    affiliation: ACCESS-NRI
+    orcid: 'https://orcid.org/0000-0002-4845-1228'
+  - given-names: Dougie
+    family-names: Squire
+    email: Dougie.Squire@anu.edu.au
+    affiliation: ACCESS-NRI
+    orcid: 'https://orcid.org/0000-0003-3271-6874'
   - given-names: Anton
     family-names: Steketee
     email: anton.steketee@anu.edu.au
     affiliation: ACCESS-NRI
     orcid: 'https://orcid.org/0009-0002-9081-4106'
+  - given-names: Spencer
+    family-names: Wong
+    email: spencer.wong@anu.edu.au
+    affiliation: ACCESS-NRI
+  - given-names: Luwei
+    family-names: Yang
+    email: Luwei.Yang@anu.edu.au
+    affiliation: Research School of Earth Sciences, Australian National University
 identifiers:
   - type: doi
     value: 10.5281/zenodo.???????
