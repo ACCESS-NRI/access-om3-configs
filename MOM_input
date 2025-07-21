@@ -723,3 +723,14 @@ USE_RIGID_SEA_ICE = True        !   [Boolean] default = False
 SEA_ICE_RIGID_MASS = 100.0      !   [kg m-2] default = 1000.0
                                 ! The mass of sea-ice per unit area at which the sea-ice starts to exhibit
                                 ! rigidity
+KHTH_USE_FGNV_STREAMFUNCTION = True
+FGNV_FILTER_SCALE = 0.1        
+MEKE_KHTH_FAC = 0.5            
+MEKE_KHTR_FAC = 0.5            
+MEKE_VISCOSITY_COEFF_KU = 1.0  
+KHTH_USE_EBT_STRUCT = True     
+KH_RES_FN_POWER = 100
+KH_VEL_SCALE = 0.01            
+KH_SIN_LAT = 2000.0            
+KHTR = 50                      
+USE_NEUTRAL_DIFFUSION = True   
