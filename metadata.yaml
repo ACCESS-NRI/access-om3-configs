@@ -22,8 +22,8 @@ nominal_resolution: 25 km
 license: CC-BY-4.0
 model: ACCESS-OM3
 url: git@github.com:ACCESS-NRI/access-om3-configs.git
-experiment_uuid: 3e508316-e329-4fc5-b528-bdcb217c184b
-name: test_current_config_0.0-test-3e508316
+experiment_uuid: d1608d74-1fde-47b8-9a0c-91fb4c43fe85
+name: test_current_config_0.0_no_rho_coord_no_GM-test-d1608d74
 schema_version:  # The version of the schema (string)
 long_description: # Long description of the experiment (string)
 frequency: # The frequency(/ies) included in the experiment (string)
