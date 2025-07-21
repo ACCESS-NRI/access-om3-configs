@@ -27,28 +27,28 @@ DRIVER_attributes::
 ::
 
 PELAYOUT_attributes::
-  atm_ntasks = 416
+  atm_ntasks = 254
   atm_nthreads = 1
   atm_pestride = 1
   atm_rootpe = 0
-  cpl_ntasks = 416
+  cpl_ntasks = 254
   cpl_nthreads = 1
   cpl_pestride = 1
   cpl_rootpe = 0
   esmf_logging = ESMF_LOGKIND_NONE
-  ice_ntasks = 416
+  ice_ntasks = 254
   ice_nthreads = 1
   ice_pestride = 1
   ice_rootpe = 0
   ninst = 1
-  ocn_ntasks = 1560
+  ocn_ntasks = 1410
   ocn_nthreads = 1
   ocn_pestride = 1
-  ocn_rootpe = 416
+  ocn_rootpe = 254
   pio_asyncio_ntasks = 0
   pio_asyncio_rootpe = 1
   pio_asyncio_stride = 0
-  rof_ntasks = 416
+  rof_ntasks = 254
   rof_nthreads = 1
   rof_pestride = 1
   rof_rootpe = 0
@@ -267,7 +267,7 @@ CLOCK_attributes::
      history_ymd = -999
      ice_cpl_dt = 99999 #not used
      lnd_cpl_dt = 99999 #not used
-     ocn_cpl_dt = 1200 #720 # 360 #1080 #ignored (coupling timestep set by nuopc.runseq) unless stop_option is nsteps
+     ocn_cpl_dt = 1200# 900 #1200 #720 # 360 #1080 #ignored (coupling timestep set by nuopc.runseq) unless stop_option is nsteps
      restart_n = 1
      restart_option = nmonths
      restart_ymd = -999
