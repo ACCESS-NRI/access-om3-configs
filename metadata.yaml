@@ -1,20 +1,34 @@
-contact: Add your name here
-email: Add your email address here
-created: Add the date you started the experiment here (YYYY-MM-DD)
-description: "25km ACCESS-OM3 global configuration under the RYF9091 Repeat\nYear Forcing strategy outlined by Stewart et al. (2020), \nhttps://doi.org/10.1016/j.ocemod.2019.101557.\n Initial conditions are WOA23 potential temperature and practical salinity.\nRun with JRA55-do v1.6.0 RYF9091 (1 May 1990 - 30 April 1991) repeated forcing\nSpin up starts from a nominal year of 1 Jan 1900."
+contact: minghangli-uni
+email: 24727729+minghangli-uni@users.noreply.github.com
+created: '2025-07-22'
+description: "25km ACCESS-OM3 global configuration under the RYF9091 Repeat\nYear
+  Forcing strategy outlined by Stewart et al. (2020), \nhttps://doi.org/10.1016/j.ocemod.2019.101557.\n\
+  \ Initial conditions are WOA23 potential temperature and practical salinity.\nRun
+  with JRA55-do v1.6.0 RYF9091 (1 May 1990 - 30 April 1991) repeated forcing\nSpin
+  up starts from a nominal year of 1 Jan 1900."
 notes: |-
   ACCESS-NRI and COSIMA request that users of this model acknowledge those organisations 
   following the examples at https://www.access-nri.org.au/resources/acknowledging-us/ 
   and https://cosima.org.au/index.php/get-involved/
 keywords:
-  - JRA55
-  - access-om3
-  - repeat-year
-  - global
+- JRA55
+- access-om3
+- repeat-year
+- global
 realm:
-  - ocean
-  - seaIce
+- ocean
+- seaIce
 nominal_resolution: 25 km
 license: CC-BY-4.0
 model: ACCESS-OM3
-url: https://github.com/ACCESS-NRI/access-om3-configs/tree/release-MC_25km_jra_ryf
+url: git@github.com:ACCESS-NRI/access-om3-configs.git
+experiment_uuid: cdfb3543-9948-4830-b109-841b9adbda91
+name: test_current_config_0.0_w_rho_coord_with_GM_RR-RR_w_gm_w_rho-cdfb3543
+schema_version:  # The version of the schema (string)
+long_description: # Long description of the experiment (string)
+frequency: # The frequency(/ies) included in the experiment (string)
+variable: # The variable(s) included in the experiment (string)
+version: # The version of the experiment (number, string)
+reference: # Citation or reference information (string)
+parent_experiment: # experiment_uuid for parent experiment if appropriate (string)
+related_experiments: # experiment_uuids for any related experiment(s) (string)
