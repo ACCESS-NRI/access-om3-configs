@@ -42,4 +42,4 @@
 #override MASK_SRESTORE_UNDER_ICE = True
 
 ! Just for restart of new SR run
-#override RESTART_CHECKSUMS_REQUIRED = False
+!#override RESTART_CHECKSUMS_REQUIRED = False
