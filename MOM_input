@@ -158,15 +158,17 @@ NK = 75                         !   [nondim]
                                 ! The number of model layers.
 
 ! === module MOM_EOS ===
-EQN_OF_STATE = "ROQUET_RHO"     ! default = "WRIGHT"
+!EQN_OF_STATE = "ROQUET_RHO"     ! default = "WRIGHT"
                                 ! EQN_OF_STATE determines which ocean equation of state should be used.
                                 ! Currently, the valid choices are "LINEAR", "UNESCO", "JACKETT_MCD", "WRIGHT",
                                 ! "WRIGHT_REDUCED", "WRIGHT_FULL", "NEMO", "ROQUET_RHO", "ROQUET_SPV" and
                                 ! "TEOS10".  This is only used if USE_EOS is true.
-TFREEZE_FORM = "TEOS_POLY"      ! default = "TEOS10"
+!TFREEZE_FORM = "TEOS_POLY"      ! default = "TEOS10"
                                 ! TFREEZE_FORM determines which expression should be used for the freezing
                                 ! point.  Currently, the valid choices are "LINEAR", "MILLERO_78", "TEOS_POLY",
                                 ! "TEOS10"
+EQN_OF_STATE = "WRIGHT_REDUCED"
+DTFREEZE_DP = -7.75E-08
 
 ! === module MOM_tracer_flow_control ===
 USE_IDEAL_AGE_TRACER = True     !   [Boolean] default = False
@@ -247,14 +249,14 @@ Z_INIT_REMAPPING_USE_OM4_SUBCELLS = False !   [Boolean] default = True
                                 ! to false.
 
 ! === module MOM_diag_mediator ===
-NUM_DIAG_COORDS = 2             ! default = 1
+!NUM_DIAG_COORDS = 2             ! default = 1
                                 ! The number of diagnostic vertical coordinates to use. For each coordinate, an
                                 ! entry in DIAG_COORDS must be provided.
 DIAG_REMAPPING_USE_OM4_SUBCELLS = False !   [Boolean] default = True
                                 ! If true, use the OM4 remapping-via-subcells algorithm for diagnostics. See
                                 ! REMAPPING_USE_OM4_SUBCELLS for details. We recommend setting this option to
                                 ! false.
-DIAG_COORDS = "z Z ZSTAR", "rho2 RHO2 RHO" !
+DIAG_COORDS = "z Z ZSTAR" !
                                 ! A list of string tuples associating diag_table modules to a coordinate
                                 ! definition used for diagnostics. Each string is of the form
                                 ! "MODULE_SUFFIX,PARAMETER_SUFFIX,COORDINATE_NAME".
@@ -279,7 +281,7 @@ REGRIDDING_ANSWER_DATE = 99991231 ! default = 20181231
                                 ! Values below 20190101 result in the use of older, less accurate expressions
                                 ! that were in use at the end of 2018.  Higher values result in the use of more
                                 ! robust and accurate forms of mathematically equivalent expressions.
-DIAG_COORD_DEF_RHO2 = "RFNC1:76,999.5,1020.,1034.1,3.1,1041.,0.002" ! default = "WOA09"
+!DIAG_COORD_DEF_RHO2 = "RFNC1:76,999.5,1020.,1034.1,3.1,1041.,0.002" ! default = "WOA09"
                                 ! Determines how to specify the coordinate resolution. Valid options are:
                                 !  PARAM       - use the vector-parameter DIAG_COORD_RES_RHO2
                                 !  UNIFORM[:N] - uniformly distributed
@@ -723,3 +725,15 @@ USE_RIGID_SEA_ICE = True        !   [Boolean] default = False
 SEA_ICE_RIGID_MASS = 100.0      !   [kg m-2] default = 1000.0
                                 ! The mass of sea-ice per unit area at which the sea-ice starts to exhibit
                                 ! rigidity
+
+KHTH_USE_FGNV_STREAMFUNCTION = True
+FGNV_FILTER_SCALE = 0.1        
+MEKE_KHTH_FAC = 0.5            
+MEKE_KHTR_FAC = 0.5            
+MEKE_VISCOSITY_COEFF_KU = 1.0  
+KHTH_USE_EBT_STRUCT = True     
+KH_RES_FN_POWER = 100
+KH_VEL_SCALE = 0.01            
+KH_SIN_LAT = 2000.0            
+KHTR = 50                      
+USE_NEUTRAL_DIFFUSION = True   
