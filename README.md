@@ -13,7 +13,11 @@ following components:
 All the configurations use the [Payu](https://payu.readthedocs.io/en/latest/)
 workflow management tool, and pre-built executables available on [NCI](https://nci.org.au/).
 
-Documentation on the configurations is provided [here](http://access-om3-configs.access-hive.org.au/).
+Detailed documentation on the configurations, including how to make modifications, is provided at [https://access-om3-configs.access-hive.org.au](https://access-om3-configs.access-hive.org.au/).
+
+## Running OM3 and the configurations in this repository
+
+If you would like to run the model, see the [How to Run ACCESS OM3 documentation](https://docs.access-hive.org.au/models/run-a-model/run-access-om3/).
 
 ## Repository structure
 
@@ -72,45 +76,6 @@ The following links can be used to easily compare different configuration branch
 **MC → MCW**
 - [`dev-MC_100km_jra_ryf`➡️`dev-MCW_100km_jra_ryf`](https://github.com/ACCESS-NRI/access-om3-configs/compare/dev-MC_100km_jra_ryf..dev-MCW_100km_jra_ryf)
 - [`dev-MC_100km_jra_iaf`➡️`dev-MCW_100km_jra_iaf`](https://github.com/ACCESS-NRI/access-om3-configs/compare/dev-MC_100km_jra_iaf..dev-MCW_100km_jra_iaf)
-
-## Setting up an experiment
-
-The configurations in this repository are intended for use with the [Payu workflow manager](https://github.com/payu-org/payu).
-A tutorial on [how to use Payu to run model experiments](https://forum.access-hive.org.au/t/running-model-experiments-with-payu-and-git/2285)
-can be found on the ACCESS-Hive Forum.
-
-As an example, to set up an experiment directory from the `dev-MC_100km_jra_ryf` configuration on a new branch called `my_expt`:
-
-```bash
-payu clone --new-branch my_expt --branch dev-MC_100km_jra_ryf git@github.com:ACCESS-NRI/access-om3-configs.git OM3_MC_100km_jra_ryf
-cd OM3_MC_100km_jra_ryf
-```
-
-Note that, by default, the Payu run log is turned off for configurations under development. However, you
-should turn it on so that your configuration settings will be recorded as the run proceeds. Simply edit
-the `config.yaml` file and change the following line:
-
-```yaml
-runlog: false
-```
-
-to
-
-```yaml
-runlog: true
-```
-
-## Customising your experiment
-
-See [this section of the quick start instructions in the ACCESS-OM3
-docs](https://access-nri.github.io/access-om3-configs/pages/Quick-start/#customising-your-experiment).
-
-## Running your experiment
-
-To run the configurations in this repo, you need to be a member of the `vk83` and `xp65` [projects](https://my.nci.org.au/mancini) on [Gadi](https://nci.org.au/our-systems/hpc-systems)
-
-See [this section of the quick start instructions in the ACCESS-OM3
-docs](https://access-nri.github.io/access-om3-configs/pages/Quick-start/#running).
 
 ## Contributions
 
