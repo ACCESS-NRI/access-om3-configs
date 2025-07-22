@@ -25,22 +25,22 @@ model: access-om3
 
 exe: access-om3-MOM6-CICE6
 input:
-    - /g/data/x77/cy8964/mom6/input/input-8km/kmt_Charrassin_nocavity_cropped.nc
-    - /g/data/x77/cy8964/mom6/input/input-8km/ocean_hgrid_cropped.nc
-    - /g/data/x77/cy8964/mom6/input/input-8km/ocean_vgrid_cropped.nc
-    - /g/data/x77/cy8964/mom6/input/input-8km/ACCESS-OM2_IC_bfilled_smoothedland.nc
-    - /g/data/x77/cy8964/mom6/input/input-8km/salt_restore_interpolated_nearest.nc
-    - /g/data/x77/cy8964/mom6/input/input-8km/topog_Charrassin_nocavity_cropped.nc
-    - /g/data/x77/cy8964/mom6/input/input-8km/access-om3-8km-ESMFmesh_Charrassin_nocavity_cropped.nc 
-    - /g/data/x77/cy8964/mom6/input/input-8km/access-om3-8km-nomask-ESMFmesh_Charrassin_nocavity_cropped.nc 
+    - /g/data/tm70/cy8964/mom6/input/input-8km/kmt_Charrassin_nocavity_cropped.nc
+    - /g/data/tm70/cy8964/mom6/input/input-8km/ocean_hgrid_cropped.nc
+    - /g/data/tm70/cy8964/mom6/input/input-8km/ocean_vgrid_cropped.nc
+    - /g/data/tm70/cy8964/mom6/input/input-8km/ACCESS-OM2_IC_bfilled_smoothedland.nc
+    - /g/data/tm70/cy8964/mom6/input/input-8km/salt_restore_interpolated_nearest.nc
+    - /g/data/tm70/cy8964/mom6/input/input-8km/topog_Charrassin_nocavity_cropped.nc
+    - /g/data/tm70/cy8964/mom6/input/input-8km/access-om3-8km-ESMFmesh_Charrassin_nocavity_cropped.nc 
+    - /g/data/tm70/cy8964/mom6/input/input-8km/access-om3-8km-nomask-ESMFmesh_Charrassin_nocavity_cropped.nc 
     - /g/data/vk83/configurations/inputs/access-om3/share/meshes/share/2024.09.16/JRA55do-datm-ESMFmesh.nc
     - /g/data/vk83/configurations/inputs/access-om3/share/meshes/share/2024.09.16/JRA55do-drof-ESMFmesh.nc
-    - /g/data/x77/cy8964/mom6/input/input-8km/access-om3-8km-rof-remap-weights_Charrassin_nocavity_cropped.nc
+    - /g/data/tm70/cy8964/mom6/input/input-8km/access-om3-8km-rof-remap-weights_Charrassin_nocavity_cropped.nc
     - /g/data/vk83/experiments/inputs/JRA-55/RYF/v1-4/data
-    - /g/data/x77/cy8964/mom6/input/input-8km/forcing_access_yr2_8km_fill.nc
-    - /g/data/x77/cy8964/mom6/input/input-8km/diag_rho2.nc 
-    - /g/data/x77/cy8964/mom6/input/input-8km/bottom_roughness_Charrassin_nocavity_cropped.nc
-    - /g/data/x77/cy8964/mom6/input/input-8km/tideamp_Charrassin_nocavity_cropped.nc
+    - /g/data/tm70/cy8964/mom6/input/input-8km/forcing_access_yr2_8km_fill.nc
+    - /g/data/tm70/cy8964/mom6/input/input-8km/diag_rho2.nc 
+    - /g/data/tm70/cy8964/mom6/input/input-8km/bottom_roughness_Charrassin_nocavity_cropped.nc
+    - /g/data/tm70/cy8964/mom6/input/input-8km/tideamp_Charrassin_nocavity_cropped.nc
  
 collate: false
 runlog: true
