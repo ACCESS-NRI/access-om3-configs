@@ -1,2 +1,35 @@
-! NOTE: User made changes to this file override the settings in MOM_input
-!       This provides a clear record of how your configuration differs from the standard
+#override DT=50
+#override DT_THERM=300
+! === Added with RM6 ===
+#override MINIMUM_DEPTH = 4.5 !None
+#override NK = 75 !None
+#override OBC_NUMBER_OF_SEGMENTS = 4 !None
+#override OBC_FREESLIP_VORTICITY = False !None
+#override OBC_FREESLIP_STRAIN = False !None
+#override OBC_COMPUTED_VORTICITY = True !None
+#override OBC_COMPUTED_STRAIN = True !None
+#override OBC_ZERO_BIHARMONIC = True !None
+#override OBC_TRACER_RESERVOIR_LENGTH_SCALE_OUT = 3.0E+04 !None
+#override OBC_TRACER_RESERVOIR_LENGTH_SCALE_IN = 3000.0 !None
+#override BRUSHCUTTER_MODE = True !None
+#override OBC_SEGMENT_001 = "J=N,I=N:0,FLATHER,ORLANSKI,NUDGED,ORLANSKI_TAN,NUDGED_TAN" !None
+#override OBC_SEGMENT_001_VELOCITY_NUDGING_TIMESCALES = 0.3, 360.0 !None
+#override OBC_SEGMENT_001_DATA = "U=file:obgc_obc.nc(u),V=file:obgc_obc.nc(v),SSH=file:obgc_obc.nc(eta),TEMP=file:obgc_obc.nc(temp),SALT=file:obgc_obc.nc(salt)"
+#override OBC_SEGMENT_002 = "J=0,I=0:N,FLATHER,ORLANSKI,NUDGED,ORLANSKI_TAN,NUDGED_TAN" !None
+#override OBC_SEGMENT_002_VELOCITY_NUDGING_TIMESCALES = 0.3, 360.0 !None
+#override OBC_SEGMENT_002_DATA = "U=file:obgc_obc.nc(u),V=file:obgc_obc.nc(v),SSH=file:obgc_obc.nc(eta),TEMP=file:obgc_obc.nc(temp),SALT=file:obgc_obc.nc(salt)"
+#override OBC_SEGMENT_003 = "I=N,J=0:N,FLATHER,ORLANSKI,NUDGED,ORLANSKI_TAN,NUDGED_TAN" !None
+#override OBC_SEGMENT_003_VELOCITY_NUDGING_TIMESCALES = 0.3, 360.0 !None
+#override OBC_SEGMENT_003_DATA = "U=file:obgc_obc.nc(u),V=file:obgc_obc.nc(v),SSH=file:obgc_obc.nc(eta),TEMP=file:obgc_obc.nc(temp),SALT=file:obgc_obc.nc(salt)"
+#override OBC_SEGMENT_004 = "I=0,J=N:0,FLATHER,ORLANSKI,NUDGED,ORLANSKI_TAN,NUDGED_TAN" !None
+#override OBC_SEGMENT_004_VELOCITY_NUDGING_TIMESCALES = 0.3, 360.0 !None
+#override OBC_SEGMENT_004_DATA = "U=file:obgc_obc.nc(u),V=file:obgc_obc.nc(v),SSH=file:obgc_obc.nc(eta),TEMP=file:obgc_obc.nc(temp),SALT=file:obgc_obc.nc(salt)"
+#override TIDES = False !None
+#override OBC_TIDE_ADD_EQ_PHASE = False !None
+#override OBC_TIDE_N_CONSTITUENTS = 0 !None
+#override OBC_TIDE_CONSTITUENTS = "0" !None
+#override OBC_TIDE_REF_DATE = 2017, 1, 1 !None
+
+&MOM_memory_nml
+    SYMMETRIC_MEMORY = True
+/

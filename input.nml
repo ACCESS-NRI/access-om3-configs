@@ -2,7 +2,17 @@
     output_directory = './'
     restart_input_dir = './'
     restart_output_dir = './'
-    parameter_filename = 'MOM_input', 'MOM_override'
+    parameter_filename = 'MOM_input', 'MOM_override', 'MOM_layout'
+/
+
+&generic_tracer_nml
+    do_generic_tracer=.true.
+    do_generic_WOMBATlite=.true.
+    force_update_fluxes=.false. !This has to be set for THERMO_SPANS_COUPLING to work
+/
+
+&generic_wombatlite_nml
+    co2_calc='ocmip2'
 /
 
 &fms_nml
@@ -24,6 +34,7 @@
 /
 
 &fms2_io_nml
+    ncchksz = 4194304
     netcdf_default_format = "netcdf4"
     deflate_level = 4
     shuffle = .true.

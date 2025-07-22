@@ -8,10 +8,10 @@
   flds_preso3 = .false.
   flds_wiso = .false.
   iradsw = 1
-  model_maskfile = "./INPUT/access-om2-100km-nomask-ESMFmesh.nc"
-  model_meshfile = "./INPUT/access-om2-100km-nomask-ESMFmesh.nc"
-  nx_global = 360
-  ny_global = 300
+  model_maskfile = "./INPUT/access-rom3-nomask-ESMFmesh.nc"
+  model_meshfile = "./INPUT/access-rom3-nomask-ESMFmesh.nc"
+  nx_global = 140
+  ny_global = 249
   restfilm = "null"
   skip_restart_read = .false.
 /

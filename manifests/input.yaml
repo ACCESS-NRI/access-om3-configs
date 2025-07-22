@@ -11,16 +11,16 @@ work/INPUT/JRA55do-drof-ESMFmesh.nc:
   hashes:
     binhash: fa1322dbc0ab951527b165f8327c7b5b
     md5: 3b46260b8c14d12925cf70f82da6658e
-work/INPUT/access-om2-100km-ESMFmesh.nc:
-  fullpath: /g/data/vk83/configurations/inputs/access-om3/share/meshes/global.100km/2024.01.25/access-om2-100km-ESMFmesh.nc
+work/INPUT/access-rom3-ESMFmesh.nc:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/access-rom3-ESMFmesh.nc
   hashes:
-    binhash: 1ef89b82613d3ef0e903df4aeeb395ce
-    md5: 44e508ac57b244fc357faf5b12933bed
-work/INPUT/access-om2-100km-nomask-ESMFmesh.nc:
-  fullpath: /g/data/vk83/configurations/inputs/access-om3/share/meshes/global.100km/2024.01.25/access-om2-100km-nomask-ESMFmesh.nc
+    binhash: ec17750bbb37b2011a3ce84e336cc831
+    md5: 2624e59de7320b1be0818b5150663151
+work/INPUT/access-rom3-nomask-ESMFmesh.nc:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/access-rom3-nomask-ESMFmesh.nc
   hashes:
-    binhash: 38605aedd850ec5c9d208258f2030166
-    md5: 9b7120a42b5cb587492e7c31791eb549
+    binhash: 8b2a2832c6a55f79ee673eeadddfae0f
+    md5: e4f6e01a4088f44828cf7d6f4a863760
 ? work/INPUT/atmos/3hr/prra/gr/v20240531/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-6-0_gr_195801010130-195812312230.nc
 : fullpath: /g/data/qv56/replicas/input4MIPs/CMIP6Plus/OMIP/MRI/MRI-JRA55-do-1-6-0/atmos/3hr/prra/gr/v20240531/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-6-0_gr_195801010130-195812312230.nc
   hashes:
@@ -3381,16 +3381,41 @@ work/INPUT/atmos/fx/sftof/gr/v20240531/sftof_input4MIPs_atmosphericState_OMIP_MR
   hashes:
     binhash: 7f98fc486410cff8df3232d390e5a05b
     md5: f5034ec4d5228d648be6375b13ed2c98
-work/INPUT/iced.1900-01-01-10800.nc:
-  fullpath: /g/data/vk83/configurations/inputs/access-om3/cice/initial_conditions/global.100km/2023.07.28/iced.1900-01-01-10800.nc
+work/INPUT/bathymetry.nc:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/bathymetry.nc
   hashes:
-    binhash: 414174d244807698f8c919f763d3d51d
-    md5: 87c012d60c58c65bb56caa98779e5e51
-work/INPUT/kmt.nc:
-  fullpath: /g/data/vk83/configurations/inputs/access-om3/cice/grids/global.100km/2024.05.14/kmt.nc
+    binhash: 18e59225f17304237f54bc2fc93f9c5a
+    md5: ea895d1c28887f28194e13d01906ed54
+work/INPUT/dust_model_year.nc:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/modifiedfiles/dust_model_year.nc
   hashes:
-    binhash: 670a7fb52cdc440673304d9a775b3dac
-    md5: 4dae75252ac93467f10ea26e833e13d2
+    binhash: c7cd572945423581c0c27987233d907b
+    md5: 41a4ca25f99703f392e373a66624d8c5
+work/INPUT/grid_spec.nc:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/grid_spec.nc
+  hashes:
+    binhash: 7122b969a913d1d04785300cdeca4fbf
+    md5: 889c707bfd24001af0ca9dbe0d3fd5b1
+work/INPUT/hgrid.nc:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/hgrid.nc
+  hashes:
+    binhash: 4d1df49c018c13c71fbc02dab5016d4c
+    md5: 5c13f96da6f81dc47fb8496872f6335b
+work/INPUT/init_eta.nc:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/init_eta.nc
+  hashes:
+    binhash: 2ed9e771a5859c6dedf4bebd8d4bce11
+    md5: ac513ed38027ddb183b5f281e14060e1
+work/INPUT/init_tracers_mod.nc:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/modifiedfiles/init_tracers_mod.nc
+  hashes:
+    binhash: 93d56276ead82c1bc1c0098c85d2743f
+    md5: ddc0d88b9d9c2968b26af2be146e8a41
+work/INPUT/init_vel.nc:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/init_vel.nc
+  hashes:
+    binhash: 39ba1f02a9d1b9bc19bf1da2f664632f
+    md5: d5886076b37464b816635228e61cefce
 work/INPUT/land/day/friver/gr/v20240531/friver_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-6-0_gr_19580101-19581231.nc:
   fullpath: /g/data/qv56/replicas/input4MIPs/CMIP6Plus/OMIP/MRI/MRI-JRA55-do-1-6-0/land/day/friver/gr/v20240531/friver_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-6-0_gr_19580101-19581231.nc
   hashes:
@@ -4061,6 +4086,11 @@ work/INPUT/land/day/friver/gr/v20240531/friver_input4MIPs_atmosphericState_OMIP_
   hashes:
     binhash: fb4da82e21b01ccd4ef5e7a99f31f4e5
     md5: 6838f869a96238b2b162103794739519
+work/INPUT/obgc_obc.nc:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/modifiedfiles/obgc_obc.nc
+  hashes:
+    binhash: 06f051e6f809ed8d504a8c574cc3f7e2
+    md5: 58fe0d8219bae376f0d971334861f05f
 work/INPUT/ocean/day/tos/gn/v20240531/tos_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-6-0_gn_19580101-19581231.nc:
   fullpath: /g/data/qv56/replicas/input4MIPs/CMIP6Plus/OMIP/MRI/MRI-JRA55-do-1-6-0/ocean/day/tos/gn/v20240531/tos_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-6-0_gn_19580101-19581231.nc
   hashes:
@@ -4416,26 +4446,11 @@ work/INPUT/ocean/yrC/vos/gr/v20240531/vos_input4MIPs_atmosphericState_OMIP_MRI-J
   hashes:
     binhash: a38d3b8f25e2f9d6fa8274227d4981fc
     md5: 73930e505055b301e7b452389a95f995
-work/INPUT/ocean_hgrid.nc:
-  fullpath: /g/data/vk83/configurations/inputs/access-om3/mom/grids/mosaic/global.100km/2020.05.30/ocean_hgrid.nc
+work/INPUT/ocean_mosaic.nc:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/ocean_mosaic.nc
   hashes:
-    binhash: 3526d89ffb639455c6a1218f5139d5b2
-    md5: 51f58be0f4ea6da2cb438a893f95c689
-work/INPUT/ocean_temp_salt.res.nc:
-  fullpath: /g/data/vk83/configurations/inputs/access-om3/mom/initial_conditions/global.100km/2020.10.22/ocean_temp_salt.res.nc
-  hashes:
-    binhash: efb5e5e124648f2d59d4cd56b6e9a023
-    md5: c5f7e60b5427a4442f111adc65a2d067
-work/INPUT/ocean_vgrid.nc:
-  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/grids/vertical/share/2025.03.12/ocean_vgrid.nc
-  hashes:
-    binhash: 9c1f82b7ea91a8647c8857c02676a7a5
-    md5: 66f71f2b24bd00b1c220787505e0106e
-work/INPUT/salt_sfc_restore.nc:
-  fullpath: /g/data/vk83/configurations/inputs/access-om3/mom/surface_salt_restoring/global.100km/2020.05.30/salt_sfc_restore.nc
-  hashes:
-    binhash: 425ccc4989dc3e1acdecc6ffd7e9a870
-    md5: b2bd35c44017597ba99b85fb61ed4d72
+    binhash: 97c98fa9e407166b5aa0fdc4c6ec0918
+    md5: dda3e4b2445b17a6050b164e0f9660a2
 ? work/INPUT/seaIce/3hrPt/siconca/gr/v20240531/siconca_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-6-0_gr_195801010000-195812312100.nc
 : fullpath: /g/data/qv56/replicas/input4MIPs/CMIP6Plus/OMIP/MRI/MRI-JRA55-do-1-6-0/seaIce/3hrPt/siconca/gr/v20240531/siconca_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-6-0_gr_195801010000-195812312100.nc
   hashes:
@@ -5106,8 +5121,8 @@ work/INPUT/salt_sfc_restore.nc:
   hashes:
     binhash: f29cf9116519b7e44db54de0a1452bcd
     md5: f98dca7628637e1c245fe80267baaf86
-work/INPUT/topog.nc:
-  fullpath: /g/data/vk83/configurations/inputs/access-om3/share/grids/global.100km/2020.10.22/topog.nc
+work/INPUT/vcoord.nc:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/vcoord.nc
   hashes:
-    binhash: 101cb5069e11e9f3196a5a6804fa0780
-    md5: 4e13d88001b646f3cf4f1c3b8db59f91
+    binhash: dfa56d67f5d6ea8a3ac3ec2f04ac8891
+    md5: 7f3e5171320d713366158da21529742a

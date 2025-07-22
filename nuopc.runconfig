@@ -41,10 +41,10 @@ PELAYOUT_attributes::
      ice_pestride = 1
      ice_rootpe = 0
      ninst = 1
-     ocn_ntasks = 216
+     ocn_ntasks = 240
      ocn_nthreads = 1
      ocn_pestride = 1
-     ocn_rootpe = 24
+     ocn_rootpe = 0
      pio_asyncio_ntasks = 0
      pio_asyncio_rootpe = 1
      pio_asyncio_stride = 0
@@ -54,11 +54,11 @@ PELAYOUT_attributes::
      rof_rootpe = 0
 ::
 
-component_list: MED ATM ICE OCN ROF
+component_list: MED ATM OCN ROF
 ALLCOMP_attributes::
      ATM_model = datm
      GLC_model = sglc
-     ICE_model = cice
+     ICE_model = sice
      LND_model = slnd
      MED_model = cesm
      OCN_model = mom
@@ -98,11 +98,11 @@ ALLCOMP_attributes::
      hostname = gadi
      ice_ncat = 5
      mediator_present = true
-     mesh_atm = ./INPUT/access-om2-100km-nomask-ESMFmesh.nc
-     mesh_ice = ./INPUT/access-om2-100km-ESMFmesh.nc
+     mesh_atm = ./INPUT/access-rom3-nomask-ESMFmesh.nc
+     mesh_ice = ./INPUT/access-rom3-ESMFmesh.nc
      mesh_lnd = UNSET
-     mesh_mask = ./INPUT/access-om2-100km-ESMFmesh.nc
-     mesh_ocn = ./INPUT/access-om2-100km-ESMFmesh.nc
+     mesh_mask = ./INPUT/access-rom3-ESMFmesh.nc
+     mesh_ocn = ./INPUT/access-rom3-ESMFmesh.nc
      model_version = unknown
      ocn2glc_coupling = .false.
      ocn2glc_levels = 1:10:19:26:30:33:35
@@ -118,6 +118,7 @@ ALLCOMP_attributes::
      start_type = startup
      tfreeze_option = linear_salt
      wav_coupling_to_cice = .false.
+     additional_restart_dir = RESTART
      restart_pointer_append_date = .false.
 ::
 
@@ -244,8 +245,8 @@ MED_attributes::
      mapuv_with_cart3d = .true.
      ocn2atm_map = unset
      ocn2wav_smapname = unset
-     ocn_nx = 360
-     ocn_ny = 300
+     ocn_nx = 140
+     ocn_ny = 249
      ocn_surface_flux_scheme = 0
      rof2lnd_map = unset
      rof2ocn_fmapname = unset
@@ -268,14 +269,14 @@ CLOCK_attributes::
      ice_cpl_dt = 99999 #not used
      lnd_cpl_dt = 99999 #not used
      ocn_cpl_dt = 3600 #ignored (coupling timestep set by nuopc.runseq) unless stop_option is nsteps
-     restart_n = 1
-     restart_option = nyears
+     restart_n = 10
+     restart_option = ndays
      restart_ymd = -999
      rof_cpl_dt = 99999 #not used
      start_tod = 0
-     start_ymd = 19580101
-     stop_n = 1
-     stop_option = nyears
+     start_ymd = 20160101
+     stop_n = 10
+     stop_option = ndays
      stop_tod = 0
      stop_ymd = -999
      tprof_n = -999
@@ -302,7 +303,7 @@ OCN_attributes::
 
 ROF_attributes::
      Verbosity = off
-     mesh_rof = ./INPUT/access-om2-100km-nomask-ESMFmesh.nc
+     mesh_rof = ./INPUT/access-rom3-nomask-ESMFmesh.nc
 ::
 
 MED_modelio::
