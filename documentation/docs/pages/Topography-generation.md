@@ -73,15 +73,15 @@ If the change in bathymetry adds or removes surface ocean cells, then the couple
     
     The name of the land mask variable inside the mask file (usually `kmt`)
 
-2. Start an interactive PBS session (if needed)
+1. Start an interactive PBS session (if needed)
    
-   ```
-   qsub -I -v DISPLAY -q normalbw -l ncpus=2,mem=32GB,walltime=02:00:00,storage=gdata/ik11+gdata/vk83+gdata/xp65`
-   ``` 
-
-   Add any additional storage paths your data resides in.
-
-4. Run the coupler restart fix script `remask_cpl_restart.py` from `om3-scripts/restart_modifications`
+    ```
+    qsub -I -v DISPLAY -q normalbw -l ncpus=2,mem=32GB,walltime=02:00:00,storage=gdata/ik11+gdata/vk83+gdata/xp65`
+    ``` 
+    
+    Add any additional storage paths your data resides in.
+   
+1. Run the coupler restart fix script `remask_cpl_restart.py` from `om3-scripts/restart_modifications`
 
     ``` bash
     cd om3-scripts/restart_modifications
@@ -90,13 +90,13 @@ If the change in bathymetry adds or removes surface ocean cells, then the couple
     `python3 remask_cpl_restart.py --input_file /path/to/access-om3.cpl.r.0000-01-01-00000.nc --output_file /path/to/access-om3.cpl.r.0000-01-01-00000.nc --mask_file /path/to/kmt.nc --mask_var kmt`
     ```
 
-4. Check the output
+1. Check the output
 
     The script will produce a new coupler restart file in the filename as specified by --output_file, 
     
     This file contains surface-level fields where missing values have been filled and re-masked using `kmt.nc`. It is now ready for use in your ACCESS-OM3 simulation with updated bathymetry.
 
-5. Copy other restart files into the new restart directory
+1. Copy other restart files into the new restart directory
 
     Create a new directory to hold a complete set of restart files for your simulation (with the updates).
     
