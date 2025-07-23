@@ -19,7 +19,6 @@ modules:
         - /g/data/vk83/modules
     load:
         - access-om3/2025.05.001
-        - nco/5.0.5
 
 queue: normal
 ncpus: 240
@@ -65,6 +64,8 @@ manifest:
 
 userscripts:
     archive: /usr/bin/bash /g/data/vk83/apps/om3-scripts/payu_config/archive.sh
+
+postscript: -v PROJECT,SCRIPTS_DIR=/g/data/vk83/apps/om3-scripts -lstorage=${PBS_NCI_STORAGE}+gdata/xp65 /g/data/vk83/apps/om3-scripts/payu_config/postscript.sh
 
 restart_freq: 1YS
 payu_minimum_version: 1.1.7
