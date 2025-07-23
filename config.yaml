@@ -46,8 +46,8 @@ collate:
   restart: true
   mpi: true
   walltime: 1:00:00
-  mem: 30GB
-  ncpus: 4
+  mem: 120GB
+  ncpus: 16
   queue: normal
   exe: /g/data/vk83/apps/mppnccombine-fast/0.2/bin/mppnccombine-fast
 runlog: true
