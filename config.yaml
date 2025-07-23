@@ -42,23 +42,26 @@ input:
     - /g/data/tm70/cy8964/mom6/input/input-8km/bottom_roughness_Charrassin_nocavity_cropped.nc
     - /g/data/tm70/cy8964/mom6/input/input-8km/tideamp_Charrassin_nocavity_cropped.nc
  
-collate:
-  restart: true
-  mpi: true
-  walltime: 1:00:00
-  mem: 120GB
-  ncpus: 16
-  queue: normal
-  exe: /g/data/vk83/apps/mppnccombine-fast/0.2/bin/mppnccombine-fast
+collate: false
+#  restart: true
+#  mpi: true
+#  walltime: 1:00:00
+#  mem: 190GB
+#  ncpus: 16
+#  queue: normal
+#  exe: /g/data/vk83/apps/mppnccombine-fast/0.2/bin/mppnccombine-fast
 runlog: true
 metadata: 
     enable: false
 
 userscripts:
     setup: /usr/bin/bash /g/data/vk83/apps/om3-scripts/payu_config/setup.sh
-    archive: /usr/bin/bash /g/data/vk83/apps/om3-scripts/payu_config/archive.sh
+    archive: /usr/bin/bash /g/data/vk83/apps/om3-scripts/payu_config/archive.sh collate_all.sh
     error: resub.sh
     run: rm -f resubmit.count
+
+postscript: -v PROJECT,SCRIPTS_DIR=/g/data/vk83/apps/om3-scripts -lstorage=${PBS_NCI_STORAGE}+gdata/xp65 /g/data/vk83/apps/om3-scripts/payu_config/postscript.sh
+restart_freq: 6
 
 modules:
     use:
