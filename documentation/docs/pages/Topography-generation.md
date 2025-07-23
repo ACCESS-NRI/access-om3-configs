@@ -12,11 +12,11 @@ The general workflow for generating the OM3 topography and corresponding land/se
 1. Interpolate GEBCO2024 data onto the model grid.
 2. Adjust C-grid connectivity using the `deseas` algorithm to ensure marginal seas with 1-cell-wide outlets (e.g., Gibraltar) remain connected to the ocean.
 3. Remove T cells that are smaller than the given threshold.
-4. Fill cells** with a sea area fraction smaller than 0.5.
+4. Fill cells with a sea area fraction smaller than 0.5.
 5. Apply manual topography edits using `editTopo.py`.
 6. Remove isolated seas.
 7. Apply minimum and maximum allowed ocean depths.
-8. Generate the land/sea mask** from the topography.
+8. Generate the land/sea mask from the topography.
 9. Generate additional necessary model input files, such as ESMF meshes and runoff remapping weights.
 
 This workflow assumes that a horizontal super-grid has already been created and that the model uses a C-grid. Some manual editing may still be necessary to refine the topography.
