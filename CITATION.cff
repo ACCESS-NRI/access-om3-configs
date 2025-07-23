@@ -1,6 +1,3 @@
-# This CITATION.cff file was generated with cffinit.
-# Visit https://bit.ly/cffinit to generate yours today!
-
 cff-version: 1.2.0
 title: 'ACCESS-OM3, Configuration release-25km_jra_ryf-1.0-beta'
 message: >-
@@ -118,6 +115,8 @@ abstract: >-
   ACCESS-OM3 software (version 2025.05.001), a global grid
   with 25km nominal resolution, bathymetry generated from
   GEBCO 2024 and initial conditions generated from WOA2023.
+  A 1990-91 Repeat Year Forcing (RYF) extracted from the 
+  JRA55-do v1.6 reanalysis is used as input data.
 
 
   ACCESS-OM3 is the third generation of the ACCESS global
