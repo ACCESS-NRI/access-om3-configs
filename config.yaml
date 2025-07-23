@@ -16,10 +16,9 @@ sync:
 #Model software version
 modules:
     use:
-        - /g/data/vk83/prerelease/modules
+        - /g/data/vk83/modules
     load:
-        - access-om3/pr116-3 # access-om3/2025.05.001 with gtracers updated to dev-2025.06.002
-        - nco/5.0.5
+        - access-om3/2025.05.001
 
 queue: normalsr
 ncpus: 1664
@@ -74,11 +73,13 @@ collate:
   walltime: 3:00:00
   mem: 30GB
   ncpus: 4
-  queue: normal
+  queue: expresssr
   exe: /g/data/vk83/apps/mppnccombine-fast/0.2/bin/mppnccombine-fast
 
 userscripts:
     archive: /usr/bin/bash /g/data/vk83/apps/om3-scripts/payu_config/archive.sh
+
+postscript: -v PROJECT,SCRIPTS_DIR=/g/data/vk83/apps/om3-scripts -lstorage=${PBS_NCI_STORAGE}+gdata/xp65 /g/data/vk83/apps/om3-scripts/payu_config/postscript.sh
 
 restart_freq: 1YS
 payu_minimum_version: 1.1.6
