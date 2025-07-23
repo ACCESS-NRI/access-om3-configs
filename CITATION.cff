@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-title: 'ACCESS-OM3, Configuration release-25km_jra_ryf-1.0-beta'
+title: 'ACCESS-OM3 Configurations'
 message: >-
   If you use this software, please cite it using the
   metadata from this file.
@@ -13,7 +13,7 @@ authors:
     family-names: Bull
     email: chris.bull@anu.edu.au
     affiliation: ACCESS-NRI
-     orcid: 'https://orcid.org/0000-0001-8362-3446'
+    orcid: 'https://orcid.org/0000-0001-8362-3446'
   - given-names: Martin
     family-names: Dix
     email: Martin.Dix@anu.edu.au
@@ -103,7 +103,11 @@ authors:
     email: Luwei.Yang@anu.edu.au
     affiliation: Research School of Earth Sciences, Australian National University
 identifiers:
-  - type: doi
+  - description: "The concept DOI of all ACCESS-OM3 configurations."
+    type: doi
+    value: 10.5281/zenodo.16294824
+  - description: "The versioned DOI"
+    type: doi
     value: 10.5281/zenodo.16294825
 repository-code: 'https://github.com/accESS-NRI/access-om3-configs'
 url: 'https://access-om3-configs.access-hive.org.au/'
