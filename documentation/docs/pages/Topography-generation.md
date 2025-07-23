@@ -25,35 +25,41 @@ For a complete workflow and instructions on generating OM3 topography, refer to 
 
 ## Updating restarts for new bathymetry
 
-If the MOM bathymetry file (topog.nc) needs to be changed on an existing run it's ocean and coupler restarts will need to be fixed up. Otherwise the restarts may not contain valid data at all points. This section describes a method for doing this. This github [issue](https://github.com/ACCESS-NRI/access-om3-configs/issues/502) comment may also be helpful.
+If the MOM bathymetry file (topog.nc) needs to be changed on an existing run it's ocean and coupler restarts will likely need to be adjusted to match. Otherwise the restarts may not contain valid data at all points. This section describes a method for doing this. This github [issue](https://github.com/ACCESS-NRI/access-om3-configs/issues/502) comment may also be helpful.
 
 ### Updating Ocean restart files
-The approach taken is to create ocean restart files that match the new bathymetry (we call these the template restarts), then copy over all valid data from restarts for the existing run (call these the old restarts). The end result will be a restart that is the same as the existing run at all points which exist in both the old and the template (we call these the new restarts). Any new points that don't exist in the old restarts will contain whatever existed in the template restarts. This approach is simple but has a drawback — if the bathymetry has changed a lot, some points will use values from the template that may not match the surrounding fields from the old restart, leading to possible inconsistencies.
+The approach taken is to create ocean restart files that match the new bathymetry (we call these the _template restarts_), then copy over all valid data from restarts for the existing run (the _old restarts_). The end result will be a restart that is the same as the existing run at all points which exist in both the old and the template (the _new restarts_). Any new points that don't exist in the old restarts will contain whatever existed in the template restarts. This approach is simple but has a drawback — if the bathymetry has changed a lot, some points will use values from the template that may not match the surrounding fields from the old restart, leading to possible inconsistencies.
 
 Step by step:
 
-1. Download `om3-scripts`. This contains `apply_bathy_mom_restarts.py` script in `restart_modifications` directory that does the copying described above.
+1. Clone `om3-scripts`. This contains `apply_bathy_mom_restarts.py` script in `restart_modifications` directory that does the copying described above.
 
 `git clone https://github.com/ACCESS-NRI/om3-scripts/tree/main`
+
 2. Generate new restart files using new bathymetry
 
-New template restart files must be generated from a simulation using the updated topog.nc bathymetry. If such a simulation doesn't exist, you will need to create the restart files by performing a short ACCESS-OM3 run from rest—typically a single time step is sufficient. This run must use the new topog.nc file along with the corresponding land mask file for CICE: kmt.nc for the CICE mask.
-3. Get an interactive PBS session with additional CPUs and memory, e.g.:
+New template restart files must be generated from a simulation using the updated topog.nc bathymetry. If such a simulation doesn't exist, you will need to create the restart files by performing a short ACCESS-OM3 run from rest—typically a single time step is sufficient. This run must use the new bathymetry (`topog.nc`) file.
+
+3. Start an interactive PBS session with additional CPUs and memory, e.g.:
 
 `qsub -I -v DISPLAY -q normalbw -l ncpus=4,mem64Gb,walltime=10:00:00,storage=gdata/ik11+gdata/vk83+gdata/xp65`
 
 (add other storage points as appropriate)
+
 4. Run the `apply_bathy_mom_restarts.py` script from `restart_modifications` directory to create new MOM restarts based on the old restarts but with the new bathymetry and any new ocean points filled in with the template, e.g.:
 
-```
+``` bash
 cd om3-scripts/restart_modifications
 python apply_bathy_mom_restarts.py --help
 python apply_bathy_mom_restarts.py --template_dir new_restart_dir --old_dir old_restart_dir --output_dir patched_restart_dir --template_prefix access-om3.mom6.r.1900-01-01-00000 --old_prefix access-om3.mom6.r.1900-01-01-00000 --nprocs 4
 ```
-This can take quite a while. Note that `apply_bathy_mom_restarts.py` requires Python 3 -- you might need to do `module use /g/data/xp65/public/modules; module load conda/analysis3` first.
+This can take quite a while. Note that `apply_bathy_mom_restarts.py` requires python and some dependencies --  these are available through `module use /g/data/xp65/public/modules; module load conda/analysis3`.
+
 5. The patched restart files will be written to the directory given by `--output_dir` (e.g., patched_restart_dir). These files are updated versions of the template restarts, with valid ocean data from the old restarts inserted where applicable.
 
 ### Updating Coupler Restart Files 
+
+If the change in bathymetry adds or removes surface ocean cells, then the coupler restart file also needs updating.
 
 1. Prepare required files
 
@@ -61,29 +67,33 @@ Ensure you have the following:
 
 The old coupler restart file from the run using the old bathymetry (e.g., `access-om3.cpl.r.0000-01-01-00000.nc`)
 
-The new land mask file corresponding to the updated bathymetry (e.g., kmt.nc)
+The new land mask file corresponding to the updated bathymetry (e.g., `kmt.nc`)
 
-The name of the land mask variable inside the mask file (usually kmt)
+The name of the land mask variable inside the mask file (usually `kmt`)
+
 2. Start an interactive PBS session (if needed)
 `qsub -I -v DISPLAY -q normalbw -l ncpus=2,mem=32GB,walltime=02:00:00,storage=gdata/ik11+gdata/vk83+gdata/xp65`
 
 Add any additional storage paths your data resides in.
+
 3. Run the coupler restart fix script `remask_cpl_restart.py` from `om3-scripts/restart_modifications`
 
-```bash
+``` bash
 cd om3-scripts/restart_modifications
 python3 remask_cpl_restart.py --input_file /path/to/access-om3.cpl.r.0000-01-01-00000.nc --output_file /path/to/access-om3.cpl.r.0000-01-01-00000.nc --mask_file /path/to/kmt.nc --mask_var kmt
 
 `python3 remask_cpl_restart.py --input_file /path/to/access-om3.cpl.r.0000-01-01-00000.nc --output_file /path/to/access-om3.cpl.r.0000-01-01-00000.nc --mask_file /path/to/kmt.nc --mask_var kmt`
+```
 
-You may need to load a compatible Python module, e.g.: `module use /g/data/xp65/public/modules && module load conda/analysis3`.
 4. Check the output
 
 The script will produce a new coupler restart file in the filename as specified by --output_file, 
 
-This file contains surface-level fields where missing values have been filled and re-masked using kmt.nc. It is now ready for use in your ACCESS-OM3 simulation with updated bathymetry.
+This file contains surface-level fields where missing values have been filled and re-masked using `kmt.nc`. It is now ready for use in your ACCESS-OM3 simulation with updated bathymetry.
+
 5. Copy other restart files into the new restart directory
-Create a new directory in `archive` to hold the complete set of restart files for your simulation.
+
+Create a new directory to hold a complete set of restart files for your simulation (with the updates).
 
 Place the modified MOM6 and coupler restart files (produced by the scripts) in this directory.
 
@@ -97,3 +107,6 @@ access-om3.drof.r.1900-01-01-00000.nc
 ```
 
 This ensures the new restart directory contains a complete, consistent set of restart files with updates only to MOM6 and the coupled components.
+
+Set this as the restart directory for a new experiment, using the `restart:` line in the `config.yaml` [Payu will use this as the restart for the experiment.
+](https://payu.readthedocs.io/en/stable/config.html#miscellaneous) or the the `-r` flag when running `payu clone`
