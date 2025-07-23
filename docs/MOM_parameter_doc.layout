@@ -7,7 +7,7 @@ GLOBAL_INDEXING = False         !   [Boolean] default = False
                                 ! static memory.
 
 ! === module MOM_domains ===
-!SYMMETRIC_MEMORY_ = False      !   [Boolean]
+!SYMMETRIC_MEMORY_ = True       !   [Boolean]
                                 ! If defined, the velocity point data domain includes every face of the
                                 ! thickness points. In other words, some arrays are larger than others,
                                 ! depending on where they are on the staggered grid.  Also, the starting index
@@ -38,19 +38,19 @@ MASKTABLE = "MOM_auto_mask_table" ! default = "MOM_mask_table"
                                 !  4,6
                                 !  1,2
                                 !  3,6
-NIPROC = 45                     !
+NIPROC = 70                     !
                                 ! The number of processors in the x-direction. With STATIC_MEMORY_ this is set
                                 ! in MOM_memory.h at compile time.
-NJPROC = 40                     !
+NJPROC = 35                     !
                                 ! The number of processors in the y-direction. With STATIC_MEMORY_ this is set
                                 ! in MOM_memory.h at compile time.
-LAYOUT = 45, 40                 !
+LAYOUT = 70, 35                 !
                                 ! The processor layout that was actually used.
-AUTO_IO_LAYOUT_FAC = 0          ! default = 0
+AUTO_IO_LAYOUT_FAC = 7          ! default = 0
                                 ! When AUTO_MASKTABLE is enabled, io layout is calculated by performing integer
                                 ! division of the runtime-determined domain layout with this factor. If the
                                 ! factor is set to 0 (default), the io layout is set to 1,1.
-IO_LAYOUT = 1, 1                !
+IO_LAYOUT = 10, 5               !
                                 ! The processor layout to be used, or 0,0 to automatically set the io_layout to
                                 ! be the same as the layout.
 
