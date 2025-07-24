@@ -1,0 +1,144 @@
+cff-version: 1.2.0
+title: 'ACCESS-OM3 Configurations'
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - given-names: Jo
+    family-names: Basevi
+    email: Johanna.Basevi@anu.edu.au
+    affiliation: ACCESS-NRI
+  - given-names: Christopher Yit Sen 
+    family-names: Bull
+    email: chris.bull@anu.edu.au
+    affiliation: ACCESS-NRI
+    orcid: 'https://orcid.org/0000-0001-8362-3446'
+  - given-names: Martin
+    family-names: Dix
+    email: Martin.Dix@anu.edu.au
+    affiliation: ACCESS-NRI
+    orcid: 'https://orcid.org/0000-0002-7534-0654'
+  - given-names: Tommy
+    family-names: Gatti
+    email: Tommy.Gatti@anu.edu.au
+    affiliation: ACCESS-NRI
+  - given-names: Angus
+    family-names: Gibson
+    email: Angus.Gibson@anu.edu.au
+    affiliation: Research School of Earth Sciences, Australian National University
+  - given-names: Aidan
+    family-names: Heerdegen
+    email: Aidan.Heerdegen@anu.edu.au
+    affiliation: ACCESS-NRI
+    orcid: 'https://orcid.org/0000-0002-4481-4896'
+  - given-names: Andrew McC 
+    family-names: Hogg
+    email: Andy.Hogg@anu.edu.au
+    affiliation: ACCESS-NRI
+    orcid: 'https://orcid.org/0000-0001-5898-7635'
+  - given-names: Harshula
+    family-names: Jayasuriya
+    email: Harshula.Jayasuriya@anu.edu.au
+    affiliation: ACCESS-NRI
+    orcid: 'https://orcid.org/0009-0009-2679-050X'
+  - given-names: Ezhilsabareesh
+    family-names: Kannadasan
+    affiliation: ACCESS-NRI
+    orcid: 'https://orcid.org/0000-0003-1441-4311'
+  - given-names: Andrew E.
+    family-names: Kiss
+    email: andrew.kiss@anu.edu.au
+    affiliation: Research School of Earth Sciences, Australian National University
+    orcid: 'https://orcid.org/0000-0001-8960-9557'
+  - given-names: Minghang
+    family-names: Li
+    email: Minghang.Li1@anu.edu.au
+    affiliation: ACCESS-NRI
+  - given-names: Davide
+    family-names: Marchegiani
+    email: Davide.Marchegiani@anu.edu.au
+    affiliation: ACCESS-NRI
+    orcid: 'https://orcid.org/0000-0002-7619-7976'
+  - given-names: Adele
+    family-names: Morrison
+    email: Adele.Morrison@anu.edu.au
+    affiliation: Research School of Earth Sciences, Australian National University
+    orcid: 'https://orcid.org/0000-0002-9904-4980'
+  - given-names: Siobhan
+    family-names: O'Farrell
+    email: Siobhan.O'Farrell@csiro.au
+    affiliation: Commonwealth Scientific and Industrial Research
+    orcid: 'https://orcid.org/0000-0002-9019-6136'
+  - given-names: Micael
+    family-names: Oliveira
+    email: Micael.Oliveira@anu.edu.au
+    affiliation: ACCESS-NRI
+    orcid: 'https://orcid.org/0000-0003-1364-0907'
+  - given-names: Kieran
+    family-names: Ricardo
+    email: Kieran.Ricardo@anu.edu.au
+    affiliation: ACCESS-NRI
+  - given-names: Manodeep
+    family-names: Sinha
+    email: Manodeep.Sinha@anu.edu.au
+    affiliation: ACCESS-NRI
+    orcid: 'https://orcid.org/0000-0002-4845-1228'
+  - given-names: Dougal
+    family-names: Squire
+    email: Dougie.Squire@anu.edu.au
+    affiliation: ACCESS-NRI
+    orcid: 'https://orcid.org/0000-0003-3271-6874'
+  - given-names: Anton
+    family-names: Steketee
+    email: anton.steketee@anu.edu.au
+    affiliation: ACCESS-NRI
+    orcid: 'https://orcid.org/0009-0002-9081-4106'
+  - given-names: Spencer
+    family-names: Wong
+    email: spencer.wong@anu.edu.au
+    affiliation: ACCESS-NRI
+  - given-names: Luwei
+    family-names: Yang
+    email: Luwei.Yang@anu.edu.au
+    affiliation: Research School of Earth Sciences, Australian National University
+identifiers:
+  - description: "The concept DOI of all ACCESS-OM3 configurations."
+    type: doi
+    value: 10.5281/zenodo.16294824
+  - description: "The versioned DOI"
+    type: doi
+    value: 10.5281/zenodo.16294825
+repository-code: 'https://github.com/accESS-NRI/access-om3-configs'
+url: 'https://access-om3-configs.access-hive.org.au/'
+repository-artifact: >-
+  https://github.com/ACCESS-NRI/access-om3-configs/archive/refs/tags/release-MC_25km_jra55_ryf_1.0-beta.tar.gz
+abstract: >-
+  This is an initial beta prerelease of a model
+  configuration of ACCESS-OM3. This uses a release of the
+  ACCESS-OM3 software (version 2025.05.001), a global grid
+  with 25km nominal resolution, bathymetry generated from
+  GEBCO 2024 and initial conditions generated from WOA2023.
+  A 1990-91 Repeat Year Forcing (RYF) extracted from the 
+  JRA55-do v1.6 reanalysis is used as input data.
+
+
+  ACCESS-OM3 is the third generation of the ACCESS global
+  ocean-seaice model. It uses up to date releases of the
+  MOM6 ocean mode and CICE6 sea-ice model. It is the first
+  ACCESS model release using CMEPS (Community Mediator for
+  Earth Prediction Systems), built on top of NUOPC (
+  National Unified Operational Prediction Capability),
+  infrastructure to connect these model components.
+license: CC-BY-4.0
+version: release-MC_25km_jra_ryf-1.0-beta
+date-released: "2025-07-24"
+keywords:
+  - access-om3
+  - climate
+  - model
+  - "ocean - sea ice"
+  - CICE
+  - MOM6
+  - NUOPC
+  - ESMF
