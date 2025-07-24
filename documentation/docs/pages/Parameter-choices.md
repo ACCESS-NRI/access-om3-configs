@@ -38,16 +38,41 @@ We keep most of paramters in default as the same as [GFDL OM5 configuration](htt
 
 For parameters tunning in `ePBL`, we have adjusted some parameters to match the [`GFDL` OM4 scheme](https://github.com/NOAA-GFDL/MOM6-examples/blob/3c1de3512e2200bfc10d9e5150715c9df76dbd30/ice_ocean_SIS2/Baltic_OM5_025/MOM_parameter_doc.all#L2247) (`EPBL_MSTAR_SCHEME = “OM4”`). We set `MSTAR_CAP = 1.25` (caps the mixing length scale factor `m` to 1.25) and adjusted coefficients: `MSTAR2_COEF1 = 0.29` and `COEF2 = 0.152`. These tweaks also inherited from [GFDL OM5 configuration](https://github.com/NOAA-GFDL/MOM6-examples/blob/3c1de3512e2200bfc10d9e5150715c9df76dbd30/ice_ocean_SIS2/Baltic_OM5_025/MOM_parameter_doc.all#L2255-L2260). We also enable `USE_MLD_ITERATION = True`, which allows `ePBL` to iteratively solve for a self-consistent mixed layer depth (`MLD`) rather than a single-pass estimate. This provides a more accurate `MLD`, especially when multiple criteria (buoyancy, shear) are at play, but at the cost of a few more iterations (`EPBL_MLD_MAX_ITS = 20`). Additionally, we set `EPBL_IS_ADDITIVE = False`, which means that the diffusivity from `ePBL` is not simply added to other sources of diffusivity, instead we let `ePBL` replace shear mixing when it is more energetic, rather than always adding on top. This avoids double counting turbulence. It is a choice that effectively transitions between schemes, for example, in weak wind conditions, shear-driven mixing might dominate, but in strong wind conditions, ePBL mixing dominates.
 
-### Interior shear-driven mixing
+#### Interior shear-driven mixing
 Below the surface layer, we use a parameterisation for shear-driven mixing in stratified interior. Specifically we enable the [@jackson2008parameterization] shear instability scheme (`USE_JACKSON_PARAM = True`). This scheme targets mixing in stratified shear zones. It uses a local Richardson number (`Ri`). We keep the default critical Richardson number `RINO_CRIT = 0.25` and the nondimensional shear mixing rate `SHEARMIX_RATE = 0.089`. We also set `VERTEX_SHEAR = True`, meaning the shear is computed at cell vertices (horizontally staggered grid) to better capture shear between adjacent grid cells. That is a technical detail to get more accurate shear estimates on a C-grid. The Jackson et al. (2008) parameterisation is energetically constrained hence it iteratively finds a diffusivity such that the energy extracted from the mean flow equals the energy used in mixing plus that lost to dissipation. Our settings allow up to `MAX_RINO_IT = 25` iterations for this solve (inherited from [GFDL OM5 configuration](https://github.com/NOAA-GFDL/MOM6-examples/blob/3c1de3512e2200bfc10d9e5150715c9df76dbd30/ice_ocean_SIS2/Baltic_OM5_025/MOM_parameter_doc.all#L2088)). The Jackson scheme effectively ads interior diffusivity when `Ri<0.25`, gradually reducing it as `Ri` increases beyond critical.
 
-### Internal tidal mixing
+#### Internal tidal mixing
 `INT_TIDE_DISSIPATION = True` turns on the internal tidal mixing. It activates the parameterisation of internal tidal energy dissipation. We use `INT_TIDE_PROFILE = "POLZIN_09"`, following the tidal energy from [@polzin2009abyssal] stretched exponential profile rather than the default St. Laurent exponential. We also set `READ_TIDEAMP = True` with a `tideamp.nc` file and roughness data (`H2_FILE = "bottom_roughness.nc"`). Both files were generated using updated bottom roughness calculated from [`SYNBATH`](https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2021EA002069) and tidal velocities from [`TPXO10`](https://www.tpxo.net/global/tpxo10), processed via through [om3-scripts/external_tidal_generation](https://github.com/ACCESS-NRI/om3-scripts/tree/main/external_tidal_generation). This indicates the model reads spatial maps of tidal velocity amplitude and topographic roughness to inform where internal tides dissipate energy. By doing so, the vertical diffusivity can be enhanced in regions of rough bathymetry and high tidal speeds. `TKE_ITIDE_MAX = 0.1` limits the energy per area can be injected as mixing. Overall, turning on the internal tidal mixing is crucial for simulating the deep ocean stratification and circulation. 
 
-### Interior background mixing
+#### Interior background mixing
 For the ocean interior background mixing, we follow the approach from [GFDL OM5 configuration](https://github.com/NOAA-GFDL/MOM6-examples/blob/3c1de3512e2200bfc10d9e5150715c9df76dbd30/ice_ocean_SIS2/Baltic_OM5_025/MOM_parameter_doc.all#L2004) of using a weak constant background diapycnal diffusivity (`KD = 1.5E-05`) for diapycnal mixing. A floor `KD_MIN = 2.0e-6` is also applied, so it won’t go below 2e-6 anywhere, ensuring numerical stability. We enable `DOUBLE_DIFFUSION = True`, which enhances vertical mixing for salt-fingering. Henyey-type internal wave scaling is set through `HENYEY_IGW_BACKGROUND = True`. The parameters `HENYEY_N0_2OMEGA = 20.0` and `HENYEY_MAX_LAT = 73.0` are kept at default. At the same time, to prevent unbounded growth of shear-based or convective mixing, we cap the total diffusivity increment from TKE-based schemes with `KD_MAX = 0.1`. This is a large upper bound that would only be triggered in extremely unstable cases.
 
 The bottom drag is quadratic with coefficient `CDRAG = 0.003`, which is a typical value from ocean observations. `BOTTOMDRAGLAW = True` with `LINEAR_DRAG = False` means a quadratic bottom drag law rather than a linear damping. The thickness of the bottom boundary layer is set to `HBBL = 10.0`.
+
+### Horizontal viscosity and subgrid momentum mixing
+In our configuration, we use a hybrid Laplacian-biharmonic viscosity scheme (`LAPLACIAN = True` - 2nd order, `BIHARMONIC = True` - 4th order) to manage unresolved subgrid momentum processes. It helps remove small-scale kinetic energy where it can not resolve it, while preserving large-scale eddy structures. Laplacian viscosity (harmonic) primarily acts on the largest resolved scales, and biharmonic viscosity targets the smaller scales. From the [MOM6 documentation](https://mom6.readthedocs.io/en/main/api/generated/modules/mom_hor_visc.html#namespacemom-hor-visc-1section-horizontal-viscosity:~:text=Laplacian%20viscosity%20coefficient), the harmonic Laplacian viscosity coefficient is computed as following,
+
+$$
+\kappa_{\text{static}} = \min\left[\max\left(\kappa_{\text{bg}}, U_\nu \Delta(x,y), \kappa_{2d}(x,y), \kappa_{\phi}(x,y)\right), \kappa_{max}(x,y)\right]
+$$
+
+where,
+1. $\kappa_{\text{bg}}$ (`USE_KH_BG_2D = False`) is constant but spatially variable 2D map, also there is no constant background viscosity (`KH = 0`).
+2. $U_\nu \Delta(x,y)$ ($U_\nu$ = `KH_VEL_SCALE = 0.01`) is a constant velocity scale,
+3. $\kappa_{\phi}(x,y) = \kappa_\pi|sin(\phi)|^n$ (`KH_SIN_LAT = 2000.0`, `KH_PWR_OF_SINE = 4`) is a function of latitude,
+
+The full viscosity includes the dynamic components,
+
+$\kappa_h(x,y,t) = r(\Delta, L_d)\max\left(\kappa_{\text{static}}, \kappa_{\text{Smagorinsky}}, \kappa_{\text{Leith}}\right)$
+
+where,
+1. $r(\Delta, L_d)$ (`RESOLN_SCALED_KH = True`) is a resolution function. This will scale down the Laplacian component of viscosity in well-resolved regions.
+2. $\kappa_{\text{Smagorinsky}}$ (`SMAGORINSKY_KH = False`) is from the dynamic Smagorinsky scheme,
+3. $\kappa_{\text{Leith}}$ (`LEITH_KH = False`) is the Leith viscosity.
+
+We enable `BOUND_KH = True` to locally limit the Laplacian diffusivity ensuring CFL stability. Specifically, a coefficient `Kh_Limit = 0.3 / (dt * 4.0)` is applied, taking grid spacing into account. To further improve numerical stability, we enable both `BETTER_BOUND_KH = True` and `BETTER_BOUND_AH = True`, which apply more refined constraints on Laplacian and biharmonic viscosities, respectively. We set `RES_SCALE_MEKE_VISC = False`, meaning the viscosity is not explicitly scaled by MEKE. For biharmonic viscosity, we apply a flow-dependent Smagorinsky parameterisation with no background value (AH = 0.0). The viscosity is dynamically computed based on the local strain rate by enabling `SMAGORINSKY_AH = True`, and is scaled using `SMAG_BI_CONST = 0.06` (the MOM6 default). Anisotropic viscosity is disabled via `ANISOTROPIC_VISCOSITY = False`. Finally, to maintain numerical stability, the biharmonic viscosity is locally bounded using `BOUND_AH = True`, with a coefficient limit `Ah_Limit = 0.3 / (dt * 64.0)`.
+
+For the channel drag, a Laplacian Smagorinsky constant ([`SMAG_CONST_CHANNEL = 0.15`](https://github.com/ACCESS-NRI/MOM6/blob/569ba3126835bfcdea5e39c46eeae01938f5413c/src/parameterizations/vertical/MOM_set_viscosity.F90#L967-L969)) is used.
 
 ### References
 
