@@ -169,6 +169,31 @@ and also high in near-`IR` (70%).
     - [`kalg = 0.0`](https://github.com/CICE-Consortium/CICE/blob/2cdd3d007a409d26cb0c16d946678a544ada55fa/doc/source/user_guide/ug_case_settings.rst#L556:~:text=1.5-,kalg,-real) means no additional algae-related absorption,
     - [`r_snw = 0.0`](https://github.com/CICE-Consortium/CICE/blob/2cdd3d007a409d26cb0c16d946678a544ada55fa/doc/source/user_guide/ug_case_settings.rst#L556:~:text=0.0-,R_snw,-real) is a tuning parameter for snow (broadband albedo) from Delta-Eddingon shortwave, here it is 0, which means not using additional boradband albedo tuning.
 
+### `forcing_nml`
+The forcing namelist governs how external forcing (`atm` and` ocn`) is applied to the ice, including coupling flux adjustments.
+- Atmosphere
+    - `highfreq = .true.`: Uses high-frequency atmospheric coupling (eg, 3-hourly JRA55-do data).
+- Ocean
+    - `update_ocn_f = .true.`: Sends ice-ocean fluxes (heat/salt) to ocean model (MOM6),
+    - `ustar_min = 0.0005`: Minimum ocean friction velocity to ensure stability.
+- Freezing temperature
+    - `tfrz_option = "linear_salt"`: Freezing point depends on salinity. See [Thermodynamics and Equation of State (TEOS-10)][] for more information,
+    - `ice_ref_salinity = 5`: sets the reference salinity of newly formed ice and the baseline for salt flux calculations. It means when sea water freezes, the ice is assumed to trap salt at 5 psu and the remainder is rejected to the ocean. 
+
+### `domain_nml`
+This group namelist controls how the computational domain is divided among processors.
+- Global grid size
+    - `nx_global = 1440`, `ny_global = 1142` define the total grid points (same as MOM6 ocean grid),
+- Block size
+    - we currently use a two-level decomposition - first into blocks of size `30x27` (`block_size_x = 30`, `block_size_y = 27`), then these blocks are distributed to MPI tasks. Each MPI task may get one or multiple blocks depending on domain and processor count. The chosen block size is a tuning for performance. Smaller blocks improve load balance but can increase halo communication overhead.
+- Distribution type
+    - `distribution_type = "roundrobin"`: Assigns blocks cyclically to spread out computational load. See [CICE Documentation](https://cice-consortium-cice.readthedocs.io/en/cice6.0/user_guide/ug_implementation.html?highlight=roundrobin#:~:text=While%20the%20Cartesian,needed%20to%20communicate.) for more information.
+- Processor shape
+    -  `processor_shape = "square-ice"` indicates the model guess on how to arrange MPI tasks in X vs Y dimension. `“square-ice”` is a pre-set suggesting a slightly X-dominated partition for sea ice. It means the decomposition of blocks to processors will result in more processor domains along x-direction (longitude) than y (latitude), roughly balancing to a square domain per proc. 
+- Max Blocks
+    - `max_blocks = -1` No hard limit on number of blocks per processor,
+    - `maskhalo_bound`, `maskhalo_dyn`, `maskhalo_remap` = `.true.`: Mask unused halo cells for boundary handling.
+
 ### References
 
 \bibliography
