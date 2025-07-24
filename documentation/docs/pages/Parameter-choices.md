@@ -194,6 +194,47 @@ This group namelist controls how the computational domain is divided among proce
     - `max_blocks = -1` No hard limit on number of blocks per processor,
     - `maskhalo_bound`, `maskhalo_dyn`, `maskhalo_remap` = `.true.`: Mask unused halo cells for boundary handling.
 
+### Output variables and diagnostics (`icefields_nml` and others)
+- In the namelist, each output field is listed as `f_<var> = <code>` or as logical `.false.`. The codes are single or double letters, where,
+1. `d` = daily history files (every `histfreq_n` days, which is 1 here)
+2. `m` = monthly files
+3. `md` = both monthly and daily files
+4. `x` = do not write this field (disabled)
+5. `.false.` field disabled
+
+- Our output diagnostics are configured to focus on:
+    1. Sea ice state
+        - `f_aice = "md"`: concentration (ie, fractional area of ice cover),
+        - `f_hi = "md"`: grid-cell mean ice thickness,
+        - `f_hs = "md"`: snow depth on ice,
+        - `f_aicen = "m"`: ice area in each thickness category,
+        - `f_vicen = "m"`:  ice volume in each category,
+        - `f_snoice = "md"`: snow-ice formation field,
+        - `f_congel = "md"`: congelation ice growth; “congel” refers to new ice freezing at the bottom of existing ice (opposite of frazil which is open-water freezing),
+        - `f_frazil = "md"`: frazil ice formation (freezing of open water),
+        - `f_frzmlt = "md"`: freeze/melt potential,
+        - `f_dvidtd = "md"`: ice volume tendency due to dynamics/transport,
+        - `f_dvidtt = "md"`: ice volume tendency due to thermodynamics,
+
+    2. Energy fluxes:
+        - `f_fsens_ai = "m"`: sensible heat flux,
+        - `f_flatn_ai = "m"`: latent heat flux,
+        - `f_fsensn_ai = "m"`: sensible heat flux, category,
+        - `f_fsurfn_ai = "m"`: net surface heat flux, categories,
+        - `f_fcondtopn_ai = "m"`: top sfc conductive heat flux, cat,
+
+    3. Momentum:
+        - `f_uvel = "md"`, `f_vvel = "md"`: sea ice velocity components (u,v) ,
+
+    4. Snow and Pond:
+        - `f_fsloss = "m"`: rate of snow loss to leads,
+        - `f_meltsliq = "m"`: melted snow liquid,
+        - `f_rhos_cmp = "m"`: density of snow due to wind compaction,
+        - `f_rhos_cnt = "m"`: density of ice and liquid content of snow,
+        - `f_rsnw = "m"`: snow grain radius,
+        - `f_smassice = "m"`: mass of ice in snow from smice tracer,
+        - `f_smassliq = "m"`: mass of liquid in snow from smliq tracer,
+
 ### References
 
 \bibliography
