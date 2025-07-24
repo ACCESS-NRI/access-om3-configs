@@ -19,6 +19,9 @@ We also ensure salinity never goes negative by setting `BOUND_SALINITY = True`. 
 
 Another parameter we adjust is `HFREEZE = 10.0`. This means the model comoputes a "melt potential" over a `10m` layer for sea-ice melt/freeze processes. If `HFREEZE >0`, the ocean will calculate how much heat is available in the top 10 meters to melt ice. 
 
+### Sea surface forcing
+The current configuration is forced with repeating atmospheric conditions and includes weak surface restoring for salinity. We use a repeat-year forcing (RYF) strategy with the JRA55-do dataset. This means the model experiences one year of normal seasonal cycle atmospheric fluxes (wind, heat, precipitation, etc) that is repeated every model year. The advantages are avoiding interannual variability while maintaining a realistic seasonal cycle, helping to equilibrate the ocean state. More details can be found in [Forcing data models](pages/Forcing-data-models.md). 
+
 
 ### References
 
