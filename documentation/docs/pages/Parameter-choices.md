@@ -120,7 +120,24 @@ This group defines time-stepping, run length, output frequencies, initial condit
 
    - History files use `hist_time_axis = "middle"` to center timestamps in the averaging interval.
 
+### `grid_nml`
+This groups defines the spatial grid, land mask, and ice thickness category structure.
 
+- Horizontal Grid
+    - Tripolar grid at 25 km nominal resolution: `grid_type = "tripole"`
+    - Grid files:
+        - The grid is defined by `grid_file = "./INPUT/ocean_hgrid.nc"`,
+        - Land mask file `kmt_file = "./INPUT/kmt.nc"`,
+        - Bathymetry file `bathymetry_file = "./INPUT/topog.nc"`.
+- Grid staggering
+    - Atmosphere and ocean coupling grids use `A-grid`: `grid_atm = "A"`, `grid_ocn = "A"`,
+    - Sea ice uses `B-grid`: `grid_ice = "B"`.
+- Ice Thickness Categories: 
+    - Five ice thickness categories: `ncat = 5`,
+    - Four vertical layers in sea ice: `nilyr = 4`,
+    - One snow layer: `nslyr = 1`.
+- Grid output:
+    - `grid_outfile = .true.` writes grid info to NetCDF (eg, `MOM_IC.nc`).
 ### References
 
 \bibliography
