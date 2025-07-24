@@ -74,6 +74,18 @@ We enable `BOUND_KH = True` to locally limit the Laplacian diffusivity ensuring 
 
 For the channel drag, a Laplacian Smagorinsky constant ([`SMAG_CONST_CHANNEL = 0.15`](https://github.com/ACCESS-NRI/MOM6/blob/569ba3126835bfcdea5e39c46eeae01938f5413c/src/parameterizations/vertical/MOM_set_viscosity.F90#L967-L969)) is used.
 
+### Isopycnal mixing
+At 25km resolution, the model begins to resolve some mesoscale eddies, but parameterisation is still needed for the unresolved part. The current configuration uses a hybrid parameterisation for mesoscale eddies, combining neutral diffusion [@redi1982oceanic] and a dynamic Gnet-McWilliams scheme [@gent1990isopycnal] based on an eddy kinetic energy budget. 
+
+
+#### Isopycnal thickness diffusion (`GM`)
+`GM` is turned on via `THICKNESSDIFFUSE = True`. Instead of using a fixed `GM` thickness diffusivity (`KHTH = 0.0`), the Mesoscale Eddy Kinetic Energy (MEKE) scheme (`USE_MEKE = True`) is turned on. MEKE activates a prognostic equation for eddy kinetic energy (EKE) and a spatially varying GM streamfunction. The MEKE parameterisation is based on the work of [@jansen2015parameterization], where an EKE budget is solved. The model converts that EKE into an eddy diffusivity (GM diffusivity) via mixing-length theory. In practice, this means the thickness diffusion coefficient is not a fixed number but evolves according to local conditions. Our configuration does not feed external `EKE` data (`EKE_SOURCE = "prog"`), so the model instability growth provides the source of `EKE`. `MEKE_BGSRC = 1.0E-13` prevents `EKE` from decaying to zero in very quiet regions. It serves as a floor to aid numerical stability and is analogous to a background diffusivity but in energy form. `MEKE_GMCOEFF = 1.0` means the scheme converts eddy potential energy to eddy kinetic energy with 100% efficiency for the GM effect. `MEKE_KHTR_FAC = 0.5` and `MEKE_KHTH_FAC = 0.5` map some of the eddy energy to tracer diffusivity and lateral thickness diffusivity, respectively. So the current configuration actually uses `MEKE` to the job of `GM`: flatterning isopycnals to remove available potential energy, but in a physically informed way using a local EKE prognostic variable. We use `KHTH_USE_FGNV_STREAMFUNCTION = True` which solves a 1D boundary value problem so the GM streamfunction is automatically smooth in the vertical and vanishes at the surface and bottom [@ferrari2010boundary]. `FGNV_FILTER_SCALE = 0.1` is used to damp the eddy field noise.
+
+By using `MEKE`, the model is effectively resolution-aware, as resolution increases and resolves more eddies, the diagnostic EKE and hence `GM` coefficient naturally reduces. At the same time , in coarser areas or higher latitudes where eddies are still under-resolved, `MEKE` ramps up the eddy mixing. This avoids the need for ad-hoc spatial maps of `GM` coefficients. By using `FGNV`, it ensures a robust energetically consistent vertical structure. 
+
+#### Isopycnal tracer mixing (`Redi`)
+Neutral tracer diffusion is turned on with `USE_NEUTRAL_DIFFUSION = True`, which means tracers are mixed primarily along surfaces of constant density, which greatly reduces spurious diapycnal mixing in stratified oceans. The coefficient for along-isopycnal tracer diffusion is set to `KHTR = 50.0`. This number is adopted from [GFDL OM4_05 configuration](https://github.com/NOAA-GFDL/MOM6-examples/blob/3c1de3512e2200bfc10d9e5150715c9df76dbd30/ice_ocean_SIS2/Baltic_OM4_05/MOM_parameter_doc.all#L2419). In addition, we also use `USE_STORED_SLOPES = True` and keep `NDIFF_CONTINUOUS = True`. 
+
 ### References
 
 \bibliography
