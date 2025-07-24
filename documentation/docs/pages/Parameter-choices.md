@@ -25,6 +25,12 @@ The current configuration is forced with repeating atmospheric conditions and in
 ### Surface salinity restoring
 We use `RESTORE_SALINITY = True` to have sea surface salinity (`SSS`) is weakly restored to a reference field (`SALT_RESTORE_FILE = "salt_sfc_restore.nc"`), and a piston velocity (`FLUXCONST = 0.11`m/day) is given. The restoring is implemented as a virtual salt flux ( `SRESTORE_AS_SFLUX = True`) to nudge `SSS`. This approach conserves salt overall (balanced globally by subtracting the mean flux, because we set `ADJUST_NET_SRESTORE_TO_ZERO = True` to avoid altering global salinity). `MAX_DELTA_SRESTORE = 999` hence currently there’s effectively no cap on the SSS anomaly used. More discussions and decisions can be found at [issues/350](https://github.com/ACCESS-NRI/access-om3-configs/issues/350), [issues/325](https://github.com/ACCESS-NRI/access-om3-configs/issues/325), [issues/257](https://github.com/ACCESS-NRI/access-om3-configs/issues/257).
 
+### Diagnostics and age tracer
+The current configuration intrigers some passive tracers and diagnostics for analysis. For example, we enable `USE_IDEAL_AGE_TRACER = True`, which measures the time since water left the surface. This tracer is incremented by +1 year per year everywhere and reset to 0 at the surface when water is in contact with the atmosphere. It doesn’t affect dynamics but is a diagnostic to understand water mass ventilation and residence times. The cost is minimal, so it was turned on as a useful diagnostic. In the ideal_age module, we also set `DO_IDEAL_AGE = True`.
+
+We also output diagnostics on special vertical coordinates. `NUM_DIAG_COORDS = 2` with `DIAG_COORDS = "z Z ZSTAR", "rho2 RHO2 RHO"`. This means it will produce diagnostics on two sets of vertical levels: one is `Z (depth)` and one is `RHO2`. The settings `DIAG_COORD_DEF_Z = "FILE:ocean_vgrid.nc,interfaces=zeta"` and `DIAG_COORD_DEF_RHO2 = "RFNC1:76,999.5,1020.,1034.1,3.1,1041.,0.002"` indicate how those coordinate surfaces are defined (relevant info can be found at [PR/622](https://github.com/ACCESS-NRI/access-om3-configs/pull/622)). Finally, the model writes a comprehensive parameter documentation (`DOCUMENT_FILE = "MOM_parameter_doc"` and `COMPLETE_DOCUMENTATION = True`), which is why we have this detailed list attached under `docs` folder. This ensures transparency and reproducibility and all non-default parameters are recorded.
+
+
 ### References
 
 \bibliography
