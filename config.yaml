@@ -56,7 +56,8 @@ metadata:
 
 userscripts:
     setup: /usr/bin/bash /g/data/vk83/apps/om3-scripts/payu_config/setup.sh
-    archive: /usr/bin/bash /g/data/vk83/apps/om3-scripts/payu_config/archive.sh; /usr/bin/bash collate_all.sh
+    #    archive: /usr/bin/bash /g/data/vk83/apps/om3-scripts/payu_config/archive.sh; /usr/bin/bash collate_all.sh
+    archive: /usr/bin/bash collate_all.sh
     error: resub.sh
     run: rm -f resubmit.count
 
