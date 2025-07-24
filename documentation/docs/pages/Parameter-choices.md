@@ -98,6 +98,29 @@ The CICE sea ice model is configured using a Fortran namelist file called `ice_i
 
 This document walks through each of these namelist groups and provides a short explanation of what each group controls and how it is configured in our `ACCESS-OM3` setup.
 
+### `setup_nml`
+This group defines time-stepping, run length, output frequencies, initial conditions, and I/O settings.
+
+- Time-stepping and run length
+    - The timestep `dt` is not defined in `ice_in` directly; it is overwritten in the CICE NUOPC cap to match the driver timestep (coupling timestep). See [NUOPC driver](pages/NUOPC-driver/) for more information.
+- Initialisation: 
+    - [`ice_ic`](https://cice-consortium-cice.readthedocs.io/en/cice6.0/user_guide/ug_case_settings.html#:~:text=*-,ice_ic,-default)
+        - When set to `"default"`, CICE initialises sea ice concentration and thickness based on latitude and sea surface temperature (SST) climatology.
+        - If set to `"none"`, the model starts with no sea ice.
+- Ouput frequencies
+   - Defines up to five output streams:
+   ```bash
+    histfreq = "d", "m", "x", "x", "x"
+    hist_suffix = ".1day.mean", ".1mon.mean", "x", "x", "x"
+   ```
+
+    - Daily averaged output: `.1day.mean`
+    - Monthly averaged output: `.1mon.mean`
+    - Streams marked `"x"` are unused.
+
+   - History files use `hist_time_axis = "middle"` to center timestamps in the averaging interval.
+
+
 ### References
 
 \bibliography
