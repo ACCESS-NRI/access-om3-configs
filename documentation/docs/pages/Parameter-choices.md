@@ -155,7 +155,19 @@ Configures sea ice motion and advection.
 - SSH:
     - `ssh_stress = "coupled"`: ice feels drag from ocean surface slopes (important for coupling).
 
-
+### `shortwave_nml`
+This group deals with how solar radiation is treated in the ice model and the surface albedo parameters for ice and snow.
+- Radiation scheme:
+    - `shortwave = "ccsm3"`, `albedo_type = "ccsm3"`: NCAR CCSM3 scheme.
+- Albedo settings:
+    - `albicev = 0.86` and `albicei = 0.44` for bare ice albedo (visible (`v`) and near infrared (`i`) respectively). These two values are for thick, cold ice. An `albicev` of 0.86 means snow-free ice reflects ~86% of visible light when cold, and `albicei` of 0.44 means ~44% of near-`IR` is reflected. These values are relatively high to ensure the ice does not absorb too much sunlight when snow is absent. 
+    - `albsnowv = 0.98`, `albsnowi = 0.70` are for cold snow albedo (`v` and `IR`respectively). By using these two values, we assumes fresh dry snow is bright in visible (98%)
+and also high in near-`IR` (70%). 
+- Albedo thickness dependence:
+    - `ahmax = 0.1` is the thickness parameter for albedo, which is constant above this thickness. In our configuration, it means once ice is ~10cm thick, it is treated optically like thick ice and there will be no further albedo increase. Thinner ice, which is less than 10cm, will have a lower effective albedo. 
+- Pond/algae effects:
+    - [`kalg = 0.0`](https://github.com/CICE-Consortium/CICE/blob/2cdd3d007a409d26cb0c16d946678a544ada55fa/doc/source/user_guide/ug_case_settings.rst#L556:~:text=1.5-,kalg,-real) means no additional algae-related absorption,
+    - [`r_snw = 0.0`](https://github.com/CICE-Consortium/CICE/blob/2cdd3d007a409d26cb0c16d946678a544ada55fa/doc/source/user_guide/ug_case_settings.rst#L556:~:text=0.0-,R_snw,-real) is a tuning parameter for snow (broadband albedo) from Delta-Eddingon shortwave, here it is 0, which means not using additional boradband albedo tuning.
 
 ### References
 
