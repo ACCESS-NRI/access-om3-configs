@@ -138,6 +138,25 @@ This groups defines the spatial grid, land mask, and ice thickness category stru
     - One snow layer: `nslyr = 1`.
 - Grid output:
     - `grid_outfile = .true.` writes grid info to NetCDF (eg, `MOM_IC.nc`).
+
+### `thermo_nml`
+Controls thermodynamic processes in sea ice.
+- Uses the multi-layer thermodynamics of [@bitz1999energy].
+- All parameters are left as default, except:
+    - `dsdt_slow_mode = -5e-08`: tunes brine drainage (slows down salt removal from ice).
+
+### `dynamics_nml`
+Configures sea ice motion and advection.
+- Dynamics:
+    - Uses elastic-viscous-plastic (`EVP`) rheology [@hunke1997elastic],
+    - Default `EVP` subcycling count `ndte = 240`.
+- Advection:
+    - `advection = "remap"`: Uses incremental remapping for ice and tracer transport [@dukowicz2000incremental].
+- SSH:
+    - `ssh_stress = "coupled"`: ice feels drag from ocean surface slopes (important for coupling).
+
+
+
 ### References
 
 \bibliography
