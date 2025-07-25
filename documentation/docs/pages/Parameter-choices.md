@@ -153,7 +153,7 @@ Configures sea ice motion and advection.
 
 - Dynamics:
     - Uses elastic-viscous-plastic (`EVP`) rheology [@hunke1997elastic],
-    - Default `EVP` subcycling count `ndte = 240`.
+    - Default `EVP` subcycling count `ndte = 120`.
 - Advection:
     - `advection = "remap"`: Uses incremental remapping for ice and tracer transport [@dukowicz2000incremental].
 - SSH:
