@@ -198,7 +198,7 @@ This group namelist controls how the computational domain is divided among proce
 - Processor shape
     -  `processor_shape = "square-ice"` indicates the model guess on how to arrange MPI tasks in X vs Y dimension. `“square-ice”` is a pre-set suggesting a slightly X-dominated partition for sea ice. It means the decomposition of blocks to processors will result in more processor domains along x-direction (longitude) than y (latitude), roughly balancing to a square domain per proc. 
 - Max Blocks
-    - `max_blocks = -1` No hard limit on number of blocks per processor,
+    - `max_blocks = -1` Internally calculated number of blocks per processor,
     - `maskhalo_bound`, `maskhalo_dyn`, `maskhalo_remap` = `.true.`: Mask unused halo cells for boundary handling.
 
 ### Output variables and diagnostics (`icefields_nml` and others)
