@@ -143,12 +143,14 @@ This groups defines the spatial grid, land mask, and ice thickness category stru
 
 ### `thermo_nml`
 Controls thermodynamic processes in sea ice.
+
 - Uses the multi-layer thermodynamics of [@bitz1999energy].
 - All parameters are left as default, except:
     - `dsdt_slow_mode = -5e-08`: tunes brine drainage (slows down salt removal from ice).
 
 ### `dynamics_nml`
 Configures sea ice motion and advection.
+
 - Dynamics:
     - Uses elastic-viscous-plastic (`EVP`) rheology [@hunke1997elastic],
     - Default `EVP` subcycling count `ndte = 240`.
@@ -159,6 +161,7 @@ Configures sea ice motion and advection.
 
 ### `shortwave_nml`
 This group deals with how solar radiation is treated in the ice model and the surface albedo parameters for ice and snow.
+
 - Radiation scheme:
     - `shortwave = "ccsm3"`, `albedo_type = "ccsm3"`: NCAR CCSM3 scheme.
 - Albedo settings:
@@ -173,6 +176,7 @@ and also high in near-`IR` (70%).
 
 ### `forcing_nml`
 The forcing namelist governs how external forcing (`atm` and` ocn`) is applied to the ice, including coupling flux adjustments.
+
 - Atmosphere
     - `highfreq = .true.`: Uses high-frequency atmospheric coupling (eg, 3-hourly JRA55-do data).
 - Ocean
@@ -184,6 +188,7 @@ The forcing namelist governs how external forcing (`atm` and` ocn`) is applied t
 
 ### `domain_nml`
 This group namelist controls how the computational domain is divided among processors.
+
 - Global grid size
     - `nx_global = 1440`, `ny_global = 1142` define the total grid points (same as MOM6 ocean grid),
 - Block size
@@ -198,11 +203,11 @@ This group namelist controls how the computational domain is divided among proce
 
 ### Output variables and diagnostics (`icefields_nml` and others)
 - In the namelist, each output field is listed as `f_<var> = <code>` or as logical `.false.`. The codes are single or double letters, where,
-1. `d` = daily history files (every `histfreq_n` days, which is 1 here)
-2. `m` = monthly files
-3. `md` = both monthly and daily files
-4. `x` = do not write this field (disabled)
-5. `.false.` field disabled
+    1. `d` = daily history files (every `histfreq_n` days, which is 1 here)
+    2. `m` = monthly files
+    3. `md` = both monthly and daily files
+    4. `x` = do not write this field (disabled)
+    5. `.false.` field disabled
 
 - Our output diagnostics are configured to focus on:
     1. Sea ice state
