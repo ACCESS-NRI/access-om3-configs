@@ -128,7 +128,7 @@ This groups defines the spatial grid, land mask, and ice thickness category stru
 - Horizontal Grid
     - Tripolar grid at 25 km nominal resolution: `grid_type = "tripole"`
     - Grid files:
-        - The grid is defined by `grid_file = "./INPUT/ocean_hgrid.nc"`,
+        - The grid is defined by `grid_file = "./INPUT/ocean_hgrid.nc"`. We use the MOM grid file in CICE for best consistency between model components.
         - Land mask file `kmt_file = "./INPUT/kmt.nc"`,
         - Bathymetry file `bathymetry_file = "./INPUT/topog.nc"`. (not currently used)
 - Grid staggering
