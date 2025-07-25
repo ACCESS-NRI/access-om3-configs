@@ -1,3 +1,7 @@
+
+!!! warning
+    **This page is out of date, and needs to be updated to the new Spack-based build process!**
+
 If you don't want to use a precompiled executable from an [ACCESS-OM3 release](Releases.md), you can build it yourself.
 
 Building access-om3 requires membership of the `ik11` project - apply at https://my.nci.org.au/mancini/project/ik11 if needed.
@@ -31,6 +35,6 @@ ACCESS-OM3 has several dependencies which are unavailable from NCI, so we supply
 
 ## For developers
 
-Spack-based build instructions are here: https://github.com/ACCESS-NRI/ACCESS-OM2/blob/main/DEVELOPERS.md and the spack environment is at https://github.com/accESS-NRI/access-om3
+Spack-based build instructions are here: https://github.com/ACCESS-NRI/ACCESS-OM2/blob/main/DEVELOPERS.md and the spack environment is at https://github.com/ACCESS-NRI/access-om3
 
-To produce release and release-prototypes, raise a PR with the changes on https://github.com/accESS-NRI/access-om3. This will deploy at github workflow to automatically build the requested model binary.
+To produce release and release-prototypes, raise a PR with the changes on https://github.com/ACCESS-NRI/access-om3. This will deploy at github workflow to automatically build the requested model binary.

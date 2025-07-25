@@ -1,13 +1,4 @@
-# CMEPS-coupled configurations
-
-ACCESS-OM3 configurations are provided via branches in these repositories. They all have prescribed data atmosphere and runoff.
-- [`access-om3-wav-configs`](https://github.com/ACCESS-NRI/access-om3-wav-configs): 3-way coupled MOM6-CICE6-WW3 ocean, sea ice and waves
-- [`access-om3-configs`](https://github.com/ACCESS-NRI/access-om3-configs): 2-way coupled MOM6-CICE6 ocean and sea ice (no waves)
-- [`CICE6-WW3`](https://github.com/COSIMA/CICE6-WW3): 2-way coupled CICE6-WW3 sea ice and waves (prescribed data ocean), **not currently working**
-
-## Overview of the CMEPS configurations
-
-The three CMEPS-coupled configurations have much in common. Here we provide a quick overview of the common features, using examples from the [`1deg_jra55do_ryf` branch of `access-om3-configs`](https://github.com/ACCESS-NRI/access-om3-configs/tree/1deg_jra55do_ryf) (i.e. MOM6-CICE6).
+ACCESS-OM3 configurations are provided via branches in [github.com/ACCESS-NRI/access-om3-configs](https://github.com/ACCESS-NRI/access-om3-configs). These configurations have much in common. Here we provide a quick overview of the common features, using examples from the [`dev-MC_100km_jra_ryf` branch](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MC_100km_jra_ryf). This is a MOM6-CICE6 coupled configuration without waves or biogeochemistry, at a nominal 100 km (1°) horizontal resolution, under repeat-year forcing.
 
 ### What the configuration files are for
 - [`config.yaml`](https://github.com/ACCESS-NRI/access-om3-configs/blob/1deg_jra55do_ryf/config.yaml): used by [`payu`](https://payu.readthedocs.io/en/latest/) for model setup and run ([YAML](https://yaml.org/spec/1.2.2/#chapter-2-language-overview) format)
@@ -119,10 +110,3 @@ ALLCOMP_attributes::
     - [`datm.streams.xml`](https://github.com/ACCESS-NRI/access-om3-configs/blob/1deg_jra55do_ryf/datm.streams.xml) sets individual file paths relative to [this entry](https://github.com/search?q=repo%3AACCESS-NRI%2Faccess-om3-configs+path%3Adoc%2Fconfig.yaml+"datm+and+drof"&type=code) in the `input` section of [`config.yaml`](https://github.com/ACCESS-NRI/access-om3-configs/blob/1deg_jra55do_ryf/config.yaml); see [DATM](https://escomp.github.io/CDEPS/versions/master/html/datm.html) and [streams](https://escomp.github.io/CDEPS/versions/master/html/streams.html) docs
   - runoff
     - [`drof.streams.xml`](https://github.com/ACCESS-NRI/access-om3-configs/blob/1deg_jra55do_ryf/drof.streams.xml) sets individual file paths relative to [this entry](https://github.com/search?q=repo%3AACCESS-NRI%2Faccess-om3-configs+path%3Adoc%2Fconfig.yaml+"datm+and+drof"&type=code) in the `input` section of [`config.yaml`](https://github.com/ACCESS-NRI/access-om3-configs/blob/1deg_jra55do_ryf/config.yaml); see [DROF](https://escomp.github.io/CDEPS/versions/master/html/drof.html) and [streams](https://escomp.github.io/CDEPS/versions/master/html/streams.html) docs
-
-
-# See also
-- ACCESS-NRI fork of CESM: https://github.com/ACCESS-NRI/CESM - see [here](https://forum.access-hive.org.au/t/cesm-configurations-on-gadi-using-cime/115)
-- MOM6 in CESM: https://github.com/ESCOMP/MOM_interface/wiki
-- Shuo Li's WW3-MOM6-SIS2 FMS-coupled model configuration https://github.com/shuoli-code/MOM6_WW3_SIS2_coupled
-

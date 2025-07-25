@@ -4,9 +4,9 @@ Many of the GFDL generic_tracer modules require coupling with other components o
 
 In the generic_tracer modules, coupling of these additional tracer fluxes is handled via [FMS coupler_types](https://github.com/NOAA-GFDL/FMS/blob/main/coupler/coupler_types.F90) which are designed for use with the [FMScoupler](https://github.com/NOAA-GFDL/FMScoupler). Modifications to ACCESS-OM3 (which uses CMEPS/NUOPC for coupling, not FMScoupler) are required to allow the use of coupled generic_tracer modules. These modifications are described here.
 
-# Background
+## Background
 
-## FMS coupler types
+### FMS coupler types
 
 In [FMScoupler](https://github.com/NOAA-GFDL/FMScoupler), the handling of tracer fluxes in a fully-coupled system revolves around three related FMS [`coupler_1d_bc_type`](https://github.com/NOAA-GFDL/FMS/blob/38bfde30e1cb8bf5222410a9c37e71529567bf69/coupler/coupler_types.F90#L365-L372) data structures in [`FMScoupler:flux_exchange_mod`](https://github.com/NOAA-GFDL/FMScoupler/blob/6442d387153064644325c96a5e9e2935139d5e3c/full/flux_exchange.F90#L594-L605):
 
@@ -107,7 +107,7 @@ and (assuming `ind_co2` is the index for the `"co2_flux"` flux):
 
 During a coupling loop with FMScoupler the fields for each flux in `ex_gas_fields_atm` and `ex_gas_fields_ice` are set and the fluxes in `ex_gas_fluxes` are calculated from these fields. **Importantly, the arrays in the `ex_gas_*` structures are 1-dimensional (`coupler_1d_bc_type`). They will store the fields on the exchange grid used in FMScoupler.**
 
-## Additional tracer flux handling
+### Additional tracer flux handling
 
 A (greatly) simplified summary of the handling of additional tracer fluxes in FMScoupler is as follows:
 
@@ -128,13 +128,13 @@ A (greatly) simplified summary of the handling of additional tracer fluxes in FM
 - **Update ocean**, applying `Ice_ocean_boundary%fluxes`. Calculate/set field arrays for `alpha`, `csurf` and `sc_no` for air-sea gas fluxes in `Ocean%fields`. (via [`update_ocean_model`](https://github.com/NOAA-GFDL/FMScoupler/blob/6442d387153064644325c96a5e9e2935139d5e3c/full/coupler_main.F90#L1063))
 - **<<< End coupling loop**
 
-### Schematic summary
+#### Schematic summary
 
 The schematic below traces the handling of additional tracer fluxes in more detail and shows where simplifications were made in the above summary. Note that I generated this schematic by reading the source code and it hasn’t (yet) been verified by any FMScoupler developer. To the best of my knowledge it is mostly complete/correct but I make no guarantees.
 
 <img src="https://github.com/dougiesquire/access-om3/assets/42455466/001ba241-1ae8-4bb0-99b1-b63b5569f85b" width=100%>
 
-# NUOPC-coupled MOM6 and generic_tracers
+## NUOPC-coupled MOM6 and generic_tracers
 
 Code changes are required to allow the use of coupled generic_tracers with NUOPC-coupled MOM6. These changes are guided by the following design principles:
 
@@ -155,7 +155,7 @@ The code changes are limited to the [MOM6 NUOPC cap](https://github.com/NCAR/MOM
 
 The additional fluxes will be applied from `Ice_ocean_boundary%fluxes` when the model is advanced.
 
-## Code structure
+### Code structure
 
 The most important changes made include modifications to:
 
@@ -166,7 +166,7 @@ and the addition of a new module to the NUOPC cap: `mom_cap_gtracer_flux.F90`
 
 Code modifications/additions have been made via patch files found in the `MOM6/patches` directory. The new module can be found in the `MOM6/extra_sources` directory.
 
-### The `mom_cap_gtracer_flux` module
+#### The `mom_cap_gtracer_flux` module
 
 This is where most of the new code is, with many of the changes to `mom_cap.F90` and `mom_cap_methods.F90` being calls to routines defined here. This module also includes the data structures `ex_gas_fields_atm`, `ex_gas_fields_ocn` and `ex_gas_fluxes`. Public routines are:
 
@@ -181,18 +181,18 @@ This is where most of the new code is, with many of the changes to `mom_cap.F90`
     - Account for sea-ice fraction (in FMScoupler this is done as part of the exchange grid mapping)
     - Make `tsurf` input optional, as it is only used by a few implementations
 
-### Schematic summary
+#### Schematic summary
 
 The schematic below traces the handling of coupled generic_tracer fluxes in the MOM6 NUOPC cap.
 
 <img src="https://github.com/dougiesquire/access-om3/assets/42455466/b39aff05-4193-42e9-83f7-cce9cb7a974f" width=65%>
 
-## Diagnostics
+### Diagnostics
 
 Diagnostics can be output for the FMS `coupler_2d_bc_type` fields involved in the handling of the tracer fluxes (flux fields: `Ice_ocean_boundary%fluxes`, ocean fields: `ocean_public%fields`, atmos fields: `atm_fields`). The “model_name” for each type is: flux fields: `“ocean_flux”`, ocean fields: `“ocean_sfc”`, atmos fields: `“atmos_sfc”`. The naming convention for diagnostics of FMS `coupler_bc_type`s is: `<flux_name>_<field_name>_<suffix>`, where `<suffix>` is `”_ice_ocn”`, `”_ocn”` and `”_atm”` for the flux, ocean and atmos fields, respectively. For example, the surface flux field for the `”co2_flux”` example above is called `”co2_flux_flux_ice_ocn”`.
 
 The flux and atmos diagnostics are sent immediately after the tracer flux calculation is done, prior to advancing the model. The ocean diagnostics are sent after advancing the model. This means that the flux/atmos diagnostics are not available at Tfinal+dt (whereas the ocean diagnostics are) and the ocean diagnostics are not available at Tstart (whereas the flux/atmos diagnostics are).
 
-## Data override
+### Data override
 
 FMS data override functionality has been added to allow the tracer fluxes and the contributing atmospheric fields to be overridden via a `data_table` using the component name `"OCN"`. The naming convention for overriding fields is as described above. E.g. one could override the atmospheric concentration field for the `”co2_flux”` example above using the fieldname `”co2_flux_pcair_atm”`
