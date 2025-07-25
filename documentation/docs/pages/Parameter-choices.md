@@ -183,7 +183,7 @@ The forcing namelist governs how external forcing (`atm` and` ocn`) is applied t
     - `update_ocn_f = .true.`: Sends ice-ocean fluxes (heat/salt) to ocean model (MOM6),
     - `ustar_min = 0.0005`: Minimum ocean friction velocity to ensure stability.
 - Freezing temperature
-    - `tfrz_option = "linear_salt"`: Freezing point depends on salinity. See [Thermodynamics and Equation of State (TEOS-10)][] for more information,
+    - `tfrz_option = "linear_salt"`: Freezing point depends on salinity. [Thermodynamics and Equation of State (TEOS-10)](#thermodynamics-and-equation-of-state-teos-10) for more information,
     - `ice_ref_salinity = 5`: sets the reference salinity of newly formed ice and the baseline for salt flux calculations. It means when sea water freezes, the ice is assumed to trap salt at 5 psu and the remainder is rejected to the ocean. 
 
 ### `domain_nml`
