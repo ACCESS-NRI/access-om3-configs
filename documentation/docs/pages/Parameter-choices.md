@@ -107,7 +107,7 @@ This group defines time-stepping, run length, output frequencies, initial condit
     - The timestep `dt` is not defined in `ice_in` directly; it is overwritten in the CICE NUOPC cap to match the driver timestep (coupling timestep). See [NUOPC driver](pages/NUOPC-driver/) for more information.
 - Initialisation: 
     - [`ice_ic`](https://cice-consortium-cice.readthedocs.io/en/cice6.0/user_guide/ug_case_settings.html#:~:text=*-,ice_ic,-default)
-        - When set to `"default"`, CICE initialises sea ice concentration and thickness based on latitude and sea surface temperature (SST) climatology.
+        - When set to `"default"`, CICE initialises sea ice concentration and thickness based on latitude.
         - If set to `"none"`, the model starts with no sea ice.
 - Ouput frequencies
    - Defines up to five output streams:
