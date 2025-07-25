@@ -130,7 +130,7 @@ This groups defines the spatial grid, land mask, and ice thickness category stru
     - Grid files:
         - The grid is defined by `grid_file = "./INPUT/ocean_hgrid.nc"`,
         - Land mask file `kmt_file = "./INPUT/kmt.nc"`,
-        - Bathymetry file `bathymetry_file = "./INPUT/topog.nc"`.
+        - Bathymetry file `bathymetry_file = "./INPUT/topog.nc"`. (not currently used)
 - Grid staggering
     - Atmosphere and ocean coupling grids use `A-grid`: `grid_atm = "A"`, `grid_ocn = "A"`,
     - Sea ice uses `B-grid`: `grid_ice = "B"`.
