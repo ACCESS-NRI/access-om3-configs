@@ -139,7 +139,7 @@ This groups defines the spatial grid, land mask, and ice thickness category stru
     - Four vertical layers in sea ice: `nilyr = 4`,
     - One snow layer: `nslyr = 1`.
 - Grid output:
-    - `grid_outfile = .true.` writes grid info to NetCDF (eg, `MOM_IC.nc`).
+    - `grid_outfile = .true.` writes the cice grid into a seperate NetCDF (eg, `access-om3.cice.static.nc`).
 
 ### `thermo_nml`
 Controls thermodynamic processes in sea ice.
