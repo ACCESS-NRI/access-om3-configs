@@ -178,7 +178,7 @@ and also high in near-`IR` (70%).
 The forcing namelist governs how external forcing (`atm` and` ocn`) is applied to the ice, including coupling flux adjustments.
 
 - Atmosphere
-    - `highfreq = .true.`: Uses high-frequency atmospheric coupling (eg, 3-hourly JRA55-do data).
+    - `highfreq = .true.`: Uses the relative atmosphere-ice velocity instead of the only atmospheric velocity for boundary layer fluxes
 - Ocean
     - `update_ocn_f = .true.`: Sends ice-ocean fluxes (heat/salt) to ocean model (MOM6),
     - `ustar_min = 0.0005`: Minimum ocean friction velocity to ensure stability.
