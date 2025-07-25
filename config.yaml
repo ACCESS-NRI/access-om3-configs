@@ -42,14 +42,15 @@ input:
     - /g/data/tm70/cy8964/mom6/input/input-8km/bottom_roughness_Charrassin_nocavity_cropped.nc
     - /g/data/tm70/cy8964/mom6/input/input-8km/tideamp_Charrassin_nocavity_cropped.nc
  
-collate: false
-#  restart: true
-#  mpi: true
-#  walltime: 1:00:00
-#  mem: 190GB
-#  ncpus: 16
-#  queue: normal
-#  exe: /g/data/vk83/apps/mppnccombine-fast/0.2/bin/mppnccombine-fast
+collate:
+  restart: true
+  mpi: true
+  walltime: 1:00:00
+  mem: 190GB
+  ncpus: 16
+  queue: normal
+  #  exe: /g/data/vk83/apps/mppnccombine-fast/0.2/bin/mppnccombine-fast
+  exe: mppnccombine-fast/pr10-2
 runlog: true
 metadata: 
     enable: false
