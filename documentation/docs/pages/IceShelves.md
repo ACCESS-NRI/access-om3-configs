@@ -38,7 +38,8 @@ ability and the time gain isn't obtained.
 In this config, time is dominated by IO and MPI communications, so the effect of compiler flags can
 be quite limited. Below discusses some the effects of some of the flags investigated with the `ifx`
 compiler. Note that the **improvements reported are based on total time of a 5-day run, and doesn't
-dilineate time spent in IO/MPI/compute/etc.** 
+dilineate time spent in IO/MPI/compute/etc. **Note that changing compiler flags can result in bitwise
+differing results.**
 
 | Flag(s) | purpose | performance change |
 | --- | --- | --- |
@@ -50,6 +51,28 @@ dilineate time spent in IO/MPI/compute/etc.**
 
 Altogether, **these resulted in a ~5-6% improvement based on default flags. If not including IO,
 the improvement is probably more like 6-7%**. These flags can be applied to all OM3 builds as well.
+
+### CICE
+
+A basic way to check time spent on CICE is to read the `ice.log` in the output logs. The [CICE docs](https://cice-consortium-cice.readthedocs.io/en/main/user_guide/ug_implementation.html#performance)
+offer a few strategies to improve performance. 
+
+#### Block Size
+
+Domain block size should be optimized such that there are roughly 6-7 blocks per process (`nx_global*ny_global/(block_size_x*block_size_y)`). In a config with 254 cores on CICE and
+`nx_global = 4320, ny_global = 1440`, doubling block size in each direction from `block_size_x = 30, block_size_y = 27` resulted in 5-30% performance improvement, where 5 is for little-to-no ice, and
+30% is when there is unrealistically high amounts of ice.
+
+#### Process Distribution
+
+Changing from `roundrobin` to `sectrobin` reduced CICE time by a flat 20s, regardless of ice level.
+This is likely due to `sectrobin` having a slightly better way of organising processes to ensure
+neighbours are closer.
+
+### Runsequence
+
+The nuopc run sequence can be modified so that components aren't unnecessarily waiting for eachother.
+(I just copied a [run sequence from Minghang](https://github.com/ACCESS-NRI/access-om3-configs/pull/590), which improved runtime by about 8-9%).
 
 ## Aditional reading:
 
