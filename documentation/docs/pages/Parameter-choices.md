@@ -180,7 +180,7 @@ The forcing namelist governs how external forcing (`atm` and` ocn`) is applied t
 - Atmosphere
     - `highfreq = .true.`: Uses the relative atmosphere-ice velocity instead of the only atmospheric velocity for boundary layer fluxes
 - Ocean
-    - `update_ocn_f = .true.`: Sends ice-ocean fluxes (heat/salt) to ocean model (MOM6),
+    - `update_ocn_f = .true.`: uses coupled frazil water/salt fluxes from ocean,
     - `ustar_min = 0.0005`: Minimum ocean friction velocity to ensure stability.
 - Freezing temperature
     - `tfrz_option = "linear_salt"`: Freezing point depends on salinity. [Thermodynamics and Equation of State (TEOS-10)](#thermodynamics-and-equation-of-state-teos-10) for more information,
