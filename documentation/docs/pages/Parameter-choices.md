@@ -192,7 +192,7 @@ This group namelist controls how the computational domain is divided among proce
 - Global grid size
     - `nx_global = 1440`, `ny_global = 1142` define the total grid points (same as MOM6 ocean grid),
 - Block size
-    - we currently use a two-level decomposition - first into blocks of size `30x27` (`block_size_x = 30`, `block_size_y = 27`), then these blocks are distributed to MPI tasks. Each MPI task may get one or multiple blocks depending on domain and processor count. The chosen block size is a tuning for performance. Smaller blocks improve load balance but can increase halo communication overhead.
+    - we currently use a two-level decomposition - first into blocks of size `30x27` (`block_size_x = 30`, `block_size_y = 27`), then these blocks are distributed to MPI tasks. Each MPI task may get multiple blocks to better balance computational load. The chosen block size is a tuning for performance. Smaller blocks improve load balance but can increase halo communication overhead.
 - Distribution type
     - `distribution_type = "roundrobin"`: Assigns blocks cyclically to spread out computational load. See [CICE Documentation](https://cice-consortium-cice.readthedocs.io/en/cice6.0/user_guide/ug_implementation.html?highlight=roundrobin#:~:text=While%20the%20Cartesian,needed%20to%20communicate.) for more information.
 - Processor shape
