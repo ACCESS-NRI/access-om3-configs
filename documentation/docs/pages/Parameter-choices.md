@@ -59,15 +59,19 @@ $$
 $$
 
 where,
+
 1. $\kappa_{\text{bg}}$ (`USE_KH_BG_2D = False`) is constant but spatially variable 2D map, also there is no constant background viscosity (`KH = 0`).
 2. $U_\nu \Delta(x,y)$ ($U_\nu$ = `KH_VEL_SCALE = 0.01`) is a constant velocity scale,
 3. $\kappa_{\phi}(x,y) = \kappa_\pi|sin(\phi)|^n$ (`KH_SIN_LAT = 2000.0`, `KH_PWR_OF_SINE = 4`) is a function of latitude,
 
 The full viscosity includes the dynamic components,
 
-$\kappa_h(x,y,t) = r(\Delta, L_d)\max\left(\kappa_{\text{static}}, \kappa_{\text{Smagorinsky}}, \kappa_{\text{Leith}}\right)$
+$$
+\kappa_h(x,y,t) = r(\Delta, L_d)\max\left(\kappa_{\text{static}}, \kappa_{\text{Smagorinsky}}, \kappa_{\text{Leith}}\right)
+$$
 
 where,
+
 1. $r(\Delta, L_d)$ (`RESOLN_SCALED_KH = True`) is a resolution function. This will scale down the Laplacian component of viscosity in well-resolved regions.
 2. $\kappa_{\text{Smagorinsky}}$ (`SMAGORINSKY_KH = False`) is from the dynamic Smagorinsky scheme,
 3. $\kappa_{\text{Leith}}$ (`LEITH_KH = False`) is the Leith viscosity.
