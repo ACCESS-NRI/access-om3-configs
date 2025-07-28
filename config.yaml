@@ -16,9 +16,9 @@ sync:
 #Model software version
 modules:
     use:
-        - /g/data/vk83/modules
+        - /g/data/vk83/prerelease/modules
     load:
-        - access-om3/2025.05.001
+        - access-om3/pr127-2
 
 queue: normalsr
 ncpus: 1664
@@ -45,12 +45,12 @@ input:
     - /g/data/vk83/configurations/inputs/access-om3/cmeps/remap_weights/global.25km/2025.05.15/access-om3-25km-rof-remap-weights.nc
     - /g/data/vk83/configurations/inputs/JRA-55/RYF/v1-6/data
 
-runlog: true
+runlog: false
 metadata: 
-    enable: true
+    enable: false
 manifest:
   reproduce:
-    exe: True
+    exe: False
 
 platform:
     nodesize: 104
