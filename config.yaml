@@ -13,7 +13,7 @@ ncpus: 240
 jobfs: 10GB
 mem: 900GB
 
-walltime: 3:00:00
+walltime: 24:00:00
 jobname: 1deg_jra55do_ryf_wombatlite
 
 model: access-om3
@@ -36,7 +36,7 @@ input:
     - /g/data/ol01/ee8016/regional_wombat/modifiedfiles/dust_model_year.nc
     - /g/data/qv56/replicas/input4MIPs/CMIP6Plus/OMIP/MRI/MRI-JRA55-do-1-6-0/
 collate: false
-runlog: true
+runlog: false
 metadata: 
     enable: false
 
