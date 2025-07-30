@@ -63,7 +63,6 @@ plugins:
   - macros
   - bibtex:
       bib_file: references.bib
-      csl_file: nature.csl
   - events:
       events_dir: community_resources/events/events
 
