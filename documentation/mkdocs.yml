@@ -103,6 +103,7 @@ nav:
     - pages/configurations/Overview.md
     # At build time other configurations are added here by the mkdocs-include-configurations plugin
   - Grids:                 pages/Grids.md
+  - IceShelves:            pages/IceShelves.md
   - Topography generation: pages/Topography-generation.md
   - Initial condition generation: pages/Initial-conditions-generation.md
   - Parameter choices: pages/Parameter-choices.md
