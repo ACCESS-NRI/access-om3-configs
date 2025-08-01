@@ -10,7 +10,7 @@
   history_chunksize = 720, 540
   history_precision = 8
   restart_deflate = 1
-  ice_ic = 'default' 
+  ice_ic = 'none' 
   lcdf64 = .false.
   npt = 35040
   pointer_file = './rpointer.ice'
