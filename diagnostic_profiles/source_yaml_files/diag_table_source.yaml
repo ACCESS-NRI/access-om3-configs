@@ -170,10 +170,8 @@ diag_table:
             module_name: ocean_model_z
             file_name_diag_coord: "z"
         fields:
-            volcello: # Ocean grid-cell volume
             agessc: # Sea water age since surface contact
             rhopot2: # Potential density referenced to 2000 dbar
-            rhopot0: # Potential density referenced to 0 dbar
             temp: # Potential Temperature
             salt: # Salinity
             uo: # u velocity
