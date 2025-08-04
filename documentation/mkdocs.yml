@@ -63,6 +63,7 @@ plugins:
   - macros
   - bibtex:
       bib_file: references.bib
+      csl_file: https://raw.githubusercontent.com/citation-style-language/styles/26eccff9e537f71494a4da7b91afac1adf571dc9/apa.csl
   - events:
       events_dir: community_resources/events/events
 
@@ -85,6 +86,8 @@ markdown_extensions:
   - pymdownx.tabbed:
       alternate_style: true 
   - pymdownx.keys
+  - pymdownx.arithmatex:
+      generic: true
   - def_list
   - footnotes
   - tables
@@ -104,6 +107,7 @@ nav:
   - Topography generation: pages/Topography-generation.md
   - Initial condition generation: pages/Initial-conditions-generation.md
   - Regional Pan-Antarctic: pages/IceShelves.md
+  - Parameter choices: pages/Parameter-choices.md
   - MOM6 generic tracers:  pages/MOM6-generic-tracers.md
   - WW3:
         - config: pages/MOM6-CICE6-WW3-quickstart.md
@@ -136,6 +140,8 @@ extra_css:
   - css/custom.css
 
 extra_javascript:
+  - javascripts/mathjax.js # For pymdownx.arithmatex extension
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js # For pymdownx.arithmatex extension
   - https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js     # For tablesort functionality 
   - https://cdn.jsdelivr.net/gh/atteggiani/animated-terminal@3.0/animated-terminal.min.js # Terminal animations
   # - js/custom-tags.js
