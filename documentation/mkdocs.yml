@@ -101,9 +101,9 @@ nav:
     - pages/configurations/Overview.md
     # At build time other configurations are added here by the mkdocs-include-configurations plugin
   - Grids:                 pages/Grids.md
-  - IceShelves:            pages/IceShelves.md
   - Topography generation: pages/Topography-generation.md
   - Initial condition generation: pages/Initial-conditions-generation.md
+  - Regional Pan-Antarctic: pages/IceShelves.md
   - MOM6 generic tracers:  pages/MOM6-generic-tracers.md
   - WW3:
         - config: pages/MOM6-CICE6-WW3-quickstart.md
