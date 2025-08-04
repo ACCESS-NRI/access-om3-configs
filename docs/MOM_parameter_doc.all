@@ -848,17 +848,6 @@ FULL_DEPTH_EADY_GROWTH_RATE = False !   [Boolean] default = False
 VISBECK_L_SCALE = 0.0           !   [m or nondim] default = 0.0
                                 ! The fixed length scale in the Visbeck formula, or if negative a nondimensional
                                 ! scaling factor relating this length scale squared to the cell areas.
-INTERNAL_WAVE_SPEED_TOL = 0.001 !   [nondim] default = 0.001
-                                ! The fractional tolerance for finding the wave speeds.
-INTERNAL_WAVE_SPEED_MIN = 0.0   !   [m s-1] default = 0.0
-                                ! A floor in the first mode speed below which 0 used instead.
-INTERNAL_WAVE_SPEED_BETTER_EST = True !   [Boolean] default = True
-                                ! If true, use a more robust estimate of the first mode wave speed as the
-                                ! starting point for iterations.
-EBT_REMAPPING_USE_OM4_SUBCELLS = False !   [Boolean] default = True
-                                ! If true, use the OM4 remapping-via-subcells algorithm for calculating EBT
-                                ! structure. See REMAPPING_USE_OM4_SUBCELLS for details. We recommend setting
-                                ! this option to false.
 USE_QG_LEITH_GM = False         !   [Boolean] default = False
                                 ! If true, use the QG Leith viscosity as the GM coefficient.
 
@@ -1521,6 +1510,13 @@ DIAG_EBT_MONO_N2_COLUMN_FRACTION = 0.0 !   [nondim] default = 0.0
 DIAG_EBT_MONO_N2_DEPTH = -1.0   !   [m] default = -1.0
                                 ! The depth below which N2 is limited as monotonic for the purposes of
                                 ! calculating the equivalent barotropic wave speed.
+INTERNAL_WAVE_SPEED_TOL = 0.001 !   [nondim] default = 0.001
+                                ! The fractional tolerance for finding the wave speeds.
+INTERNAL_WAVE_SPEED_MIN = 0.0   !   [m s-1] default = 0.0
+                                ! A floor in the first mode speed below which 0 used instead.
+INTERNAL_WAVE_SPEED_BETTER_EST = True !   [Boolean] default = True
+                                ! If true, use a more robust estimate of the first mode wave speed as the
+                                ! starting point for iterations.
 INTWAVE_REMAPPING_USE_OM4_SUBCELLS = False !   [Boolean] default = True
                                 ! If true, use the OM4 remapping-via-subcells algorithm for calculating EBT
                                 ! structure. See REMAPPING_USE_OM4_SUBCELLS for details. We recommend setting

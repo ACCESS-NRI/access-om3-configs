@@ -254,10 +254,6 @@ DIAG_COORD_DEF_RHO2 = "FILE:diag_rho2.nc,interfaces=rho2" ! default = "WOA09"
 KHTR_SLOPE_CFF = 0.25           !   [nondim] default = 0.0
                                 ! The nondimensional coefficient in the Visbeck formula for the epipycnal tracer
                                 ! diffusivity
-EBT_REMAPPING_USE_OM4_SUBCELLS = False !   [Boolean] default = True
-                                ! If true, use the OM4 remapping-via-subcells algorithm for calculating EBT
-                                ! structure. See REMAPPING_USE_OM4_SUBCELLS for details. We recommend setting
-                                ! this option to false.
 
 ! === module MOM_set_visc ===
 CHANNEL_DRAG = True             !   [Boolean] default = False
