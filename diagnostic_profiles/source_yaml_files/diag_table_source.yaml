@@ -170,6 +170,7 @@ diag_table:
             module_name: ocean_model_z
             file_name_diag_coord: "z"
         fields:
+            volcello: # Ocean grid-cell volume
             agessc: # Sea water age since surface contact
             rhopot2: # Potential density referenced to 2000 dbar
             rhopot0: # Potential density referenced to 0 dbar
@@ -178,7 +179,6 @@ diag_table:
             uo: # u velocity
             vo: # v velocity
             KE: # Layer Kinetic energy per unit mass
-            volcello: # Ocean grid-cell volume
 
     'monthly 3d fields on rho2':
         defaults:  # these can be overridden for individual fields below
