@@ -1,3 +1,6 @@
+!!! warning
+      **This page is out of date, and needs to be updated to the new Spack-based build process! We no longer use the COSIMA respository for ACCESS-OM3 builds**
+
 ## Releases
 
 There are several [ACCESS-OM3 releases](https://github.com/COSIMA/access-om3/releases) available.

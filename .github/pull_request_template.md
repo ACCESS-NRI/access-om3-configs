@@ -9,7 +9,7 @@ Why was this done?
 <!-- Add links to github issue(s) this is related to -->
 -
 
-**3. Depedencies (e.g. on payu, model or om3-scripts)**
+**3. Dependencies (e.g. on payu, model or om3-scripts)**
 
 This change requires changes to (note required version where true):
 - [ ] payu:
