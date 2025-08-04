@@ -39,7 +39,7 @@ SPONGE = False
 #override DIAG_COORD_DEF_Z = "FILE:ocean_vgrid_cropped.nc,interfaces=zeta" ! default = "WOA09"
 !#override SALT_RESTORE_FILE = "salt_sfc_restore_cropped.nc" ! default = "salt_restore.nc"
 #override TRIPOLAR_N = False
-#override AUTO_IO_LAYOUT_FAC = 7
+#override AUTO_IO_LAYOUT_FAC = 15
 
 !if missing files
 !#override READ_TIDEAMP = False
