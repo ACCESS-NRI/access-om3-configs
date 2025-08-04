@@ -1,5 +1,6 @@
 mkdocs-material==9.6.11
 mkdocs-git-revision-date-localized-plugin==1.2.0
 mkdocs-macros-plugin==1.0.4
-mkdocs-bibtex==4.2.5
+mkdocs-bibtex==4.4.0
+pypandoc_binary==1.15
 git+https://github.com/rbeucher/mkdocs_events_plugin.git
