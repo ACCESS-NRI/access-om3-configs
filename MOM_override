@@ -1,2 +1,53 @@
 ! NOTE: User made changes to this file override the settings in MOM_input
 !       This provides a clear record of how your configuration differs from the standard
+
+#override TOPO_FILE = "topog_Charrassin_nocavity_cropped.nc"
+
+! === module MOM_open_boundary ===
+OBC_NUMBER_OF_SEGMENTS = 1
+OBC_FREESLIP_VORTICITY = True
+OBC_FREESLIP_STRAIN = True
+!OBC_COMPUTED_VORTICITY = True
+OBC_ZERO_BIHARMONIC = True
+
+OBC_SEGMENT_001 = "J=N,I=N:0,FLATHER,ORLANSKI,NUDGED"
+OBC_SEGMENT_001_VELOCITY_NUDGING_TIMESCALES = .3, 360.0 ! inflow and outflow timescales
+BRUSHCUTTER_MODE = True ! read data on supergrid
+OBC_SEGMENT_001_DATA = "U=file:forcing_access_yr2_8km_fill.nc(u),V=file:forcing_access_yr2_8km_fill.nc(v),SSH=file:forcing_access_yr2_8km_fill.nc(eta_t),TEMP=file:forcing_access_yr2_8km_fill.nc(pot_temp),SALT=file:forcing_access_yr2_8km_fill.nc(salt)"
+!RAMP_OBCS = True
+
+OBC_TRACER_RESERVOIR_LENGTH_SCALE_OUT = 30000
+OBC_TRACER_RESERVOIR_LENGTH_SCALE_IN = 3000
+
+! sponges
+SPONGE = False
+
+!#override RESTORE_SALINITY = False
+#override SALT_RESTORE_FILE = "salt_restore_interpolated_nearest.nc"
+
+#override FATAL_UNUSED_PARAMS = False
+#override DT = 600 ! 450 ! 600 !450
+#override DT_THERM = 1200 !900 !1200 !900 !ideally shorten from 3600 due to adele's OBC issue
+!#override DEBUG = True
+
+!8k specific params
+#override NIGLOBAL = 4320
+#override NJGLOBAL = 1442
+#override GRID_FILE = "ocean_hgrid_cropped.nc"
+#override ALE_COORDINATE_CONFIG = "FILE:ocean_vgrid_cropped.nc,interfaces=zeta" ! default = "UNIFORM"
+#override TEMP_SALT_Z_INIT_FILE = "ACCESS-OM2_IC_bfilled_smoothedland.nc" ! default = "temp_salt_z.nc"
+#override DIAG_COORD_DEF_Z = "FILE:ocean_vgrid_cropped.nc,interfaces=zeta" ! default = "WOA09"
+!#override SALT_RESTORE_FILE = "salt_sfc_restore_cropped.nc" ! default = "salt_restore.nc"
+#override TRIPOLAR_N = False
+!#override AUTO_IO_LAYOUT_FAC = 15
+#override IO_LAYOUT = 10, 1
+
+!if missing files
+!#override READ_TIDEAMP = False
+!#override INT_TIDE_DISSIPATION = False
+
+#override H2_FILE = "bottom_roughness_Charrassin_nocavity_cropped.nc"
+#override TIDEAMP_FILE = "tideamp_Charrassin_nocavity_cropped.nc" 
+
+!save time for restart runs
+#override SAVE_INITIAL_CONDS = False
