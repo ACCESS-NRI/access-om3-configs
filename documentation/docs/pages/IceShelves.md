@@ -1,43 +1,51 @@
-## pan-Antarctic regional OM3 configuration
 
 Here, we describe a regional OM3 configuration covering a pan-Antarctic circumpolar domain from Antarctica to 37 degrees South. This configuration inherits some of the development of the [MOM6-SIS2 COSIMA pan-Antarctic configurations](https://github.com/COSIMA/mom6-panan).
 
 ### Truncating a global setup
-One of the easiest ways to set up a pan-Antarctic configuration is to truncate a global OM3 configuration. Detailed step-by-step instructions are provided [here](https://github.com/claireyung/access-om3-configs/blob/8km_jra_ryf_obc2-sapphirerapid-Charrassin-newparams-rerun-Wright-spinup-accessom2IC-yr9/panantarctic_instructions.md) but the main steps involve 
-1. cloning the global model at desired resolution, and creating a new branch
-2. truncating netcdf files from the global model using `ncks` and ensuring buth supergrid and normal grid y coordinates are correct/match
+One of the easiest ways to set up a pan-Antarctic configuration is to truncate a global OM3 configuration. Detailed step-by-step instructions are provided [here](https://github.com/claireyung/access-om3-configs/blob/8km_jra_ryf_obc2-sapphirerapid-Charrassin-newparams-rerun-Wright-spinup-accessom2IC-yr9/panantarctic_instructions.md) but the main steps involve:
+ 
+1. Cloning the global model at desired resolution, and creating a new branch
+
+2. Truncating netcdf files from the global model using `ncks` and ensuring buth supergrid and normal grid y coordinates are correct/match
+
 3. Generating mesh files with [`om3-scripts`](https://github.com/ACCESS-NRI/om3-scripts) 
+
 4. Modifying namelists to use the correct cropped netcdf files (searching by `.nc` is helpful) and changing the y index size to be correct. This involves changing `datm_in`, `MOM_input`, `ice_in` (where `history_chunksize`, `grid_type = "regional"` and `ns_boundary_type = "open"` are also needed), `nuopc.runconfig`.
-5. Change `config.yaml` file names if needed, and ensure you are using a symmetric MOM6 memory exe
-Open boundary conditions in MOM6 can be added using input from the MOM6-SIS2 COSIMA configuration, see [this notebook](https://github.com/claireyung/mom6-panAn-iceshelf-tools/blob/main/generate-obcs/ACCESS-OM2_panan_boundary_forcing_8km.ipynb) for the OBC generation using ACCESS-OM2-01 data. Extra lines need to be added into `MOM_input` to define these.
-6. It may be helpful to use `MOM_override` to avoid changing `MOM_input` and pick up upstream global model changes more easily.
+
+5. Changing `config.yaml` file names if needed, and ensuring you are using a symmetric MOM6 memory exe (currently from an ACCESS-OM3 prerelease)
+
+6. Open boundary conditions in MOM6 can be added using input from the MOM6-SIS2 COSIMA configuration, see [this notebook](https://github.com/claireyung/mom6-panAn-iceshelf-tools/blob/main/generate-obcs/ACCESS-OM2_panan_boundary_forcing_8km.ipynb) for the OBC generation using ACCESS-OM2-01 data. Extra lines need to be added into `MOM_input` to define these.
+
+7. It may be helpful to use `MOM_override` to avoid changing `MOM_input` and pick up upstream global model changes more easily.
 
 ### 1/12th degree/4km pan-Antarctic setup
-Here we describe the proposed ACCESS-NRI supported alpha 1/12th degree/4km pan-Antarctic regional OM3 configuration. The configuration has a similar resolution to a future 8km global OM3, but due to its polar latitudes is better described as a 4km resolution model. Here we focus on the configuration with ice shelf cavities closed (i.e. Antarctic ice shelf melt is represented as surface runoff, and there is no circulation in cavities), though development of an equivalent model with ice shelf cavities open is ongoing.
+Here we describe a proposed ACCESS-NRI-supported 1/12th degree/4km pan-Antarctic regional OM3 configuration. The configuration has a similar resolution to a future 8km global OM3, but due to its polar latitudes is better described as a 4km resolution model. Here we focus on the configuration with ice shelf cavities closed (i.e. Antarctic ice shelf melt is represented as surface runoff, and there is no circulation in cavities), though development of an equivalent model with ice shelf cavities open is ongoing.
 
 #### Grid
 The grid was generated using the `ocean_grid_generator` at 1/12th degree resolution with no displaced pole and a transition from Mercator to fixed latitude cells at 75$^\circ$S.
 
 #### Topography
-Bottom topography is generated from [Charrassin et al. (2025)](https://github.com/claireyung/mom6-panAn-iceshelf-tools/blob/main/generate-obcs/ACCESS-OM2_panan_boundary_forcing_8km.ipynb) product, stitched to GEBCO 2024 where the Charrassin product is not available. The topography generation process required regridding from the Antarctic polar grid EPSG:3031 to latitude-longitude coordinates and is described [here](https://github.com/claireyung/mom6-panAn-iceshelf-tools/blob/main/generate-draft/Generate-Charrassin-bathy.ipynb) and [here](https://github.com/claireyung/mom6-panAn-iceshelf-tools/blob/main/generate-draft/process-topo.ipynb). Unfortunately, the normal OM3 topography generation workflow cannot be applied here so we manually set maximum and minimum depths, perform deseas to get rid of inland lakes, and create masks. These notebooks are also used for ice shelf configuration in development. Once these new topography and masks are generated, the nuopc mesh files also need to be generated with `om3-scripts`, as well as the bottom roughness and tidal amplitude. 
+Bottom topography is generated from [Charrassin et al. (2025)](https://www.nature.com/articles/s41598-024-81599-1) product, stitched to GEBCO 2024 where the Charrassin product is not available. The topography generation process required regridding from the Antarctic polar grid EPSG:3031 to latitude-longitude coordinates and is described [here](https://github.com/claireyung/mom6-panAn-iceshelf-tools/blob/main/generate-draft/Generate-Charrassin-bathy.ipynb) and [here](https://github.com/claireyung/mom6-panAn-iceshelf-tools/blob/main/generate-draft/process-topo.ipynb). Unfortunately, the normal OM3 topography generation workflow cannot be applied here so we manually set maximum and minimum depths, perform deseas to get rid of inland lakes, and create masks. These notebooks are also used for ice shelf configuration in development. Once these new topography and masks are generated, the nuopc mesh files also need to be generated with `om3-scripts`, as well as the bottom roughness and tidal amplitude. 
 
 #### Initial Conditions and Boundary Conditions
-Initial conditions were generated using a restart at the start of year 2 of an ACCESS-OM2-01 RYF90-91 configuration spun up from WOA13, as used in the COSIMA MOM6-SIS2 pan-Antarctic models, see [here](https://github.com/claireyung/mom6-panAn-iceshelf-tools/blob/main/initial-conditions/ACCESSOM2_IC_into_8km_grid.ipynb). Boundary conditions use daily data from the second year of this run, see [here](https://github.com/claireyung/mom6-panAn-iceshelf-tools/blob/main/generate-obcs/ACCESS-OM2_panan_boundary_forcing_8km.ipynb). Salt restoring is regridded from ACCESS-OM2-01, as in the COSIMA MOM6-SIS2 models, see [here](https://github.com/claireyung/mom6-panAn-iceshelf-tools/blob/main/initial-conditions/salt-restoring.ipynb).
+Initial conditions were generated using a restart at the start of year 2 of an ACCESS-OM2-01 RYF90-91 configuration spun up from WOA13, as used in the COSIMA MOM6-SIS2 pan-Antarctic models, see [this notebook](https://github.com/claireyung/mom6-panAn-iceshelf-tools/blob/main/initial-conditions/ACCESSOM2_IC_into_8km_grid.ipynb). Boundary conditions use daily data from the second year of this run, see [this notebook](https://github.com/claireyung/mom6-panAn-iceshelf-tools/blob/main/generate-obcs/ACCESS-OM2_panan_boundary_forcing_8km.ipynb). Salt restoring is regridded from ACCESS-OM2-01, as in the COSIMA MOM6-SIS2 models, see [this notebook](https://github.com/claireyung/mom6-panAn-iceshelf-tools/blob/main/initial-conditions/salt-restoring.ipynb).
 
 #### Model parameters
 
 MOM6 parameters are a combination of ACCESS-OM3 25km choices, MOM6-SIS2 COSIMA pan-Antarctic models and regional models from GFDL. We use a Wright equation of state, see [this issue](https://github.com/claireyung/mom6-panAn-iceshelf-tools/issues/13), and higher resolution density coordinates (taken from MOM6-SIS2 COSIMA pan-Antarctic model). These parameter choices are found in [`MOM_override_newparams`]( https://github.com/claireyung/access-om3-configs/blob/8km_jra_ryf_obc2-sapphirerapid-Charrassin-newparams-rerun-Wright-spinup-accessom2IC-yr9/MOM_override_newparams).
 
+The CICE sea ice categories were modified to be `ncat=7` with `kcatbound=2`.
+
 #### Model behaviour
 
 The simulation is generally stable and is being evaluated [here](https://github.com/claireyung/mom6-panAn-iceshelf-tools/issues/15). Often the model crashes with a segfault immediately on initialisation, but persistent resubmission can get over this (a `resub.sh` [script](https://github.com/COSIMA/01deg_jra55_iaf/blob/01deg_jra55v140_iaf_cycle4_rerun_from_2002/resub.sh) can be helpful) 
 
-## Optimization of pan-Antarctic configuration
+## Optimization of 1/12th degree/4km pan-Antarctic configuration
 
 ### Timestepping
-In this configuration, an ocean baroclinic timestep of 600s is used, with a relatively short thermodynamic timestep of 1200s. This is due to problems with the MOM6-SIS2 COSIMA pan-Antarctic broundary conditions if the tracer timestep is too long, [see](https://github.com/COSIMA/mom6-panan/issues/28). The behaviour of the boundary condition under different thermodynamic timesteps has not been explored in this configuration. 
+In this configuration, an ocean baroclinic timestep of 600s is used, with a relatively short thermodynamic timestep of 1200s. This was chosen because of known problems with the MOM6-SIS2 COSIMA pan-Antarctic boundary conditions if the tracer timestep is too long, [see this issue](https://github.com/COSIMA/mom6-panan/issues/28). The behaviour of the boundary condition under different thermodynamic timesteps has not been explored in this configuration. 
 
-The coupling timestep, set by `nuopc.runseq`, is 600, and `ndtd = 3` is set in `ice_in` to increase the CICE dynamic timestep and avoid CFL-related errors with ice dynamics. There are restrictions on ratios of timesteps for NUOPC and timesteps must divide into the restart time.
+The coupling timestep, set by `nuopc.runseq`, is 600, and `ndtd = 3` is set in `ice_in` to increase the CICE dynamic timestep and avoid CFL-related errors with ice dynamics. There are restrictions on ratios of timesteps for NUOPC and timesteps must divide into the restart time. 
 
 ### IO
 
