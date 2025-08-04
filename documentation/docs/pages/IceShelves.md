@@ -1,6 +1,6 @@
 ## Horizontal grid
 
-Random content below, hack away!
+
 
 ### File formats
 
