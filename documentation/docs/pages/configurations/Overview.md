@@ -20,25 +20,30 @@ according to the following naming scheme:
 `{dev|release}-{MODEL_COMPONENTS}_{nominal_resolution}km_{forcing_data}_{forcing_method}[+{modifier}]`
 
 where `{MODEL_COMPONENTS}` is an acronym specifying the active model components in the following order:
+
 - `M`: MOM6
 - `C`: CICE6
 - `W`: WW3
 
 and the nominal resolution is given in kilometers, corresponding to the nominal resolution in degrees as follows:
+
 - `100km`: 1°
 - `25km`: 0.25°
 - `10km`: 0.1°
 - `8km`: 1/12°
 
 Additional configuration information, like if the configuration includes biogeochemistry, is appended to the name as a modifier, e.g.
+
 - `+wombatlite` if the configuration uses WOMBATlite
 
 Currently the following released configurations are available:
+
 - [`release-MC_100km_jra_ryf`](https://github.com/ACCESS-NRI/access-om3-configs/tree/release-MC_25km_jra_ryf)
 
 Currently the following development configurations are available:
 
 **MOM6-CICE6-DATM-DROF configurations**
+
 - [`dev-MC_100km_jra_ryf`](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MC_100km_jra_ryf)
 - [`dev-MC_100km_jra_iaf`](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MC_100km_jra_iaf)
 - [`dev-MC_100km_jra_ryf+wombatlite`](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MC_100km_jra_ryf+wombatlite)
@@ -46,6 +51,7 @@ Currently the following development configurations are available:
 - [`dev-MC_25km_jra_ryf+wombatlite`](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MC_25km_jra_ryf+wombatlite)
 
 **MOM6-CICE6-WW3-DATM-DROF configurations**
+
 - [`dev-MCW_100km_jra_ryf`](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MCW_100km_jra_ryf)
 - [`dev-MCW_100km_jra_iaf`](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MCW_100km_jra_iaf)
 
@@ -56,6 +62,7 @@ Currently the following development configurations are available:
 The following links can be used to easily compare different configuration branches
 
 **MC → MC**
+
 - [`dev-MC_100km_jra_ryf`➡️`dev-MC_100km_jra_iaf`](https://github.com/ACCESS-NRI/access-om3-configs/compare/dev-MC_100km_jra_ryf..dev-MC_100km_jra_iaf)
 - [`dev-MC_100km_jra_ryf`➡️`dev-MC_100km_jra_ryf+wombatlite`](https://github.com/ACCESS-NRI/access-om3-configs/compare/dev-MC_100km_jra_ryf..dev-MC_100km_jra_ryf+wombatlite)
 - [`dev-MC_100km_jra_ryf`➡️`dev-MC_25km_jra_ryf`](https://github.com/ACCESS-NRI/access-om3-configs/compare/dev-MC_100km_jra_ryf..dev-MC_25km_jra_ryf)
@@ -63,9 +70,11 @@ The following links can be used to easily compare different configuration branch
 - [`dev-MC_25km_jra_ryf`➡️`dev-MC_25km_jra_ryf+wombatlite`](https://github.com/ACCESS-NRI/access-om3-configs/compare/dev-MC_25km_jra_ryf..dev-MC_25km_jra_ryf+wombatlite)
 
 **MCW → MCW**
+
 - [`dev-MCW_100km_jra_ryf`➡️`dev-MCW_100km_jra_iaf`](https://github.com/ACCESS-NRI/access-om3-configs/compare/dev-MCW_100km_jra_ryf..dev-MCW_100km_jra_iaf)
 
 **MC → MCW**
+
 - [`dev-MC_100km_jra_ryf`➡️`dev-MCW_100km_jra_ryf`](https://github.com/ACCESS-NRI/access-om3-configs/compare/dev-MC_100km_jra_ryf..dev-MCW_100km_jra_ryf)
 - [`dev-MC_100km_jra_iaf`➡️`dev-MCW_100km_jra_iaf`](https://github.com/ACCESS-NRI/access-om3-configs/compare/dev-MC_100km_jra_iaf..dev-MCW_100km_jra_iaf)
 
