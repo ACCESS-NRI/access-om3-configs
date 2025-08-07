@@ -109,7 +109,6 @@ nav:
         - Configurations:
           - pages/configurations/Overview.md
           # At build time other configurations are added here by the mkdocs-include-configurations plugin
-        - Parameter choices: pages/Parameter-choices.md
         - ww3 config: pages/MOM6-CICE6-WW3-quickstart.md
         - ww3 parameter choices: pages/ww3_parameter_choices.md 
 
