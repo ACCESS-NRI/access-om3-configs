@@ -1,0 +1,7 @@
+# MOM/FMS data table
+#
+# gridname | fieldname_code           | fieldname_file | file_name | ongrid  | factor
+# ----------------------------------------------------------------------------------------
+"OCN"      , "co2_flux_pcair_atm"     , ""              , ""       , "none" , 315.165e-06
+"OCN"      , "co2_nat_flux_pcair_atm" , ""              , ""       , "none" , 284.262e-06
+"OCN"      , "o2_flux_pcair_atm"      , ""              , ""       , "none" , 0.21
