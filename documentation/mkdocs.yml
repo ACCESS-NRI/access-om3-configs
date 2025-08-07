@@ -97,6 +97,7 @@ markdown_extensions:
 # Navigation
 nav:
   - Home:                  index.md
+  - Contributing:          pages/Contributing.md
   - Architecture:          pages/Architecture.md
   - NUOPC driver:          pages/NUOPC-driver.md
   - Forcing data models:   pages/Forcing-data-models.md
