@@ -1,20 +1,100 @@
-ACCESS-OM3 configurations are provided via branches in [github.com/ACCESS-NRI/access-om3-configs](https://github.com/ACCESS-NRI/access-om3-configs). These configurations have much in common. Here we provide a quick overview of the common features, using examples from the [`dev-MC_100km_jra_ryf` branch](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MC_100km_jra_ryf). This is a MOM6-CICE6 coupled configuration without waves or biogeochemistry, at a nominal 100 km (1°) horizontal resolution, under repeat-year forcing.
+ACCESS-OM3 configurations are provided via branches in [github.com/ACCESS-NRI/access-om3-configs](https://github.com/ACCESS-NRI/access-om3-configs). [access-om3-configs](https://github.com/ACCESS-NRI/access-om3-configs) repository contains several [ACCESS-OM3](https://github.com/ACCESS-NRI/access-om3) configurations using the
+following components:
 
-### What the configuration files are for
-- [`config.yaml`](https://github.com/ACCESS-NRI/access-om3-configs/blob/1deg_jra55do_ryf/config.yaml): used by [`payu`](https://payu.readthedocs.io/en/latest/) for model setup and run ([YAML](https://yaml.org/spec/1.2.2/#chapter-2-language-overview) format)
-- [`datm_in`](https://github.com/ACCESS-NRI/access-om3-configs/blob/1deg_jra55do_ryf/datm_in): sets [stream-independent](https://escomp.github.io/CDEPS/versions/master/html/introduction.html#design) data atmosphere [parameters](https://escomp.github.io/CDEPS/versions/master/html/datm.html) (in [Fortran namelist](https://jules-lsm.github.io/vn4.2/namelists/intro.html) format)
-- [`datm.streams.xml`](https://github.com/ACCESS-NRI/access-om3-configs/blob/1deg_jra55do_ryf/datm.streams.xml): sets input files and other [stream-dependent input data](https://escomp.github.io/CDEPS/versions/master/html/introduction.html#design) for data atmosphere in [this XML format](https://escomp.github.io/CDEPS/versions/master/html/streams.html#data-model-stream-input)
-- [`diag_table`](https://github.com/ACCESS-NRI/access-om3-configs/blob/1deg_jra55do_ryf/diag_table): MOM6 diagnostics in [this format](https://mom6.readthedocs.io/en/main/api/generated/pages/Diagnostics.html); may be generated from a `diag_table_source.yaml` [YAML](https://yaml.org/spec/1.2.2/#chapter-2-language-overview) file by [`make_diag_table.py`](https://github.com/COSIMA/make_diag_table)
-- [`drof_in`](https://github.com/ACCESS-NRI/access-om3-configs/blob/1deg_jra55do_ryf/drof_in): sets [stream-independent](https://escomp.github.io/CDEPS/versions/master/html/introduction.html#design) data runoff [parameters](https://escomp.github.io/CDEPS/versions/master/html/drof.html) (in [Fortran namelist](https://jules-lsm.github.io/vn4.2/namelists/intro.html) format)
-- [`drof.streams.xml`](https://github.com/ACCESS-NRI/access-om3-configs/blob/1deg_jra55do_ryf/drof.streams.xml): sets input files and other [stream-dependent input data](https://escomp.github.io/CDEPS/versions/master/html/introduction.html#design) for data runoff in [this XML format](https://escomp.github.io/CDEPS/versions/master/html/streams.html#data-model-stream-input)
-- [`drv_in`](https://github.com/ACCESS-NRI/access-om3-configs/blob/1deg_jra55do_ryf/drv_in): NUOPC parameters for the [driver](https://github.com/search?q=repo%3AESCOMP%2FCMEPS+path%3Acesm/driver/+drv_in&type=code) (in [Fortran namelist](https://jules-lsm.github.io/vn4.2/namelists/intro.html) format)
-- [`fd.yaml`](https://github.com/ACCESS-NRI/access-om3-configs/blob/1deg_jra55do_ryf/fd.yaml): NUOPC [field dictionary](https://earthsystemmodeling.org/docs/release/ESMF_8_4_2/NUOPC_refdoc/node3.html#SECTION00032000000000000000) ([YAML](https://yaml.org/spec/1.2.2/#chapter-2-language-overview) format) read by the NUOPC [driver](https://github.com/search?q=repo%3AESCOMP%2FCMEPS+path%3Acesm/driver/+fd.yaml&type=code); defines standard metadata for fields that may be available for import and/or export from model components; `standard_name`s are used for [field pairing](https://earthsystemmodeling.org/docs/release/ESMF_8_4_2/NUOPC_refdoc/node3.html#SECTION00034200000000000000) during initialisation
-- [`ice_in`](https://github.com/ACCESS-NRI/access-om3-configs/blob/1deg_jra55do_ryf/ice_in): CICE6 parameters (in [Fortran namelist](https://jules-lsm.github.io/vn4.2/namelists/intro.html) format)
-- [`input.nml`](https://github.com/ACCESS-NRI/access-om3-configs/blob/1deg_jra55do_ryf/input.nml): a few [MOM6 parameters](https://mom6.readthedocs.io/en/main/api/generated/pages/Runtime_Parameter_System.html#namelist-parameters-input-nml) (in [Fortran namelist](https://jules-lsm.github.io/vn4.2/namelists/intro.html) format)
-- [`MOM_input`](https://github.com/ACCESS-NRI/access-om3-configs/blob/1deg_jra55do_ryf/MOM_input): most of the MOM6 parameters, in [this format](https://mom6.readthedocs.io/en/main/api/generated/pages/Runtime_Parameter_System.html#mom6-parameter-file-syntax)
-- [`MOM_override`](https://github.com/ACCESS-NRI/access-om3-configs/blob/1deg_jra55do_ryf/MOM_override): more MOM6 parameters in [this format](https://mom6.readthedocs.io/en/main/api/generated/pages/Runtime_Parameter_System.html#mom6-parameter-file-syntax), overriding things in `MOM_input`
-- [`nuopc.runconfig`](https://github.com/ACCESS-NRI/access-om3-configs/blob/1deg_jra55do_ryf/nuopc.runconfig): read by NUOPC [driver](https://github.com/search?q=repo%3AESCOMP%2FCMEPS+path%3Acesm/driver/+nuopc.runconfig&type=code); supplies driver-related parameters for model components; parameters documented [here](https://github.com/ESCOMP/CMEPS/blob/606eb397d4e66f8fa3417e7e8fd2b2b4b3c222b4/cime_config/namelist_definition_drv.xml); the file is a mix of [Resource File](https://earthsystemmodeling.org/docs/release/ESMF_8_6_0/ESMF_refdoc/node6.html#SECTION06091200000000000000) and [Fortran namelist](https://jules-lsm.github.io/vn4.2/namelists/intro.html) formats
-- [`nuopc.runseq`](https://github.com/ACCESS-NRI/access-om3-configs/blob/1deg_jra55do_ryf/nuopc.runseq): read by NUOPC [driver](https://github.com/search?q=repo%3AESCOMP%2FCMEPS+path%3Acesm/driver/+nuopc.runseq&type=code); defines model component run sequence using [this syntax](https://earthsystemmodeling.org/docs/release/ESMF_8_3_1/NUOPC_refdoc/node4.html#SECTION000411300000000000000)
+- [MOM6](https://mom6.readthedocs.io/) ocean model
+- [CICE](https://cice-consortium-cice.readthedocs.io/en/) sea ice model
+- [WW3](https://github.com/NOAA-EMC/WW3/wiki/About-WW3) wave model
+- [DATM](https://escomp.github.io/CDEPS/versions/master/html/datm.html) atmosphere data model
+- [DROF](https://escomp.github.io/CDEPS/versions/master/html/drof.html) runoff data model
+
+All the configurations use the [Payu](https://payu.readthedocs.io/en/latest/) workflow management tool, and pre-built executables available on [NCI](https://nci.org.au/).
+
+## Repository structure
+
+!!! warning
+    the [`main`](https://github.com/ACCESS-NRI/access-om3-configs/tree/main) branch does not store any configuration, only some documentation. If you are looking to fork this repo, we suggest you fork _all_ branches.
+
+Each configuration in [github.com/ACCESS-NRI/access-om3-configs](https://github.com/ACCESS-NRI/access-om3-configs) repository is stored as a git branch. Most of the branches are named
+according to the following naming scheme:
+
+`{dev|release}-{MODEL_COMPONENTS}_{nominal_resolution}km_{forcing_data}_{forcing_method}[+{modifier}]`
+
+where `{MODEL_COMPONENTS}` is an acronym specifying the active model components in the following order:
+
+- `M`: MOM6
+- `C`: CICE6
+- `W`: WW3
+
+and the nominal resolution is given in kilometers, corresponding to the nominal resolution in degrees as follows:
+
+- `100km`: 1°
+- `25km`: 0.25°
+- `10km`: 0.1°
+- `8km`: 1/12°
+
+Additional configuration information, like if the configuration includes biogeochemistry, is appended to the name as a modifier, e.g.
+
+- `+wombatlite` if the configuration uses WOMBATlite
+
+Currently the following released configurations are available:
+
+- [`release-MC_100km_jra_ryf`](https://github.com/ACCESS-NRI/access-om3-configs/tree/release-MC_25km_jra_ryf)
+
+Currently the following development configurations are available:
+
+**MOM6-CICE6-DATM-DROF configurations**
+
+- [`dev-MC_100km_jra_ryf`](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MC_100km_jra_ryf)
+- [`dev-MC_100km_jra_iaf`](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MC_100km_jra_iaf)
+- [`dev-MC_100km_jra_ryf+wombatlite`](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MC_100km_jra_ryf+wombatlite)
+- [`dev-MC_25km_jra_ryf`](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MC_25km_jra_ryf)
+- [`dev-MC_25km_jra_ryf+wombatlite`](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MC_25km_jra_ryf+wombatlite)
+
+**MOM6-CICE6-WW3-DATM-DROF configurations**
+
+- [`dev-MCW_100km_jra_ryf`](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MCW_100km_jra_ryf)
+- [`dev-MCW_100km_jra_iaf`](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MCW_100km_jra_iaf)
+
+!!! warning
+    These configurations are still under development and should **not** be used for production runs.
+
+## Comparison table
+The following links can be used to easily compare different configuration branches
+
+**MC → MC**
+
+- [`dev-MC_100km_jra_ryf`➡️`dev-MC_100km_jra_iaf`](https://github.com/ACCESS-NRI/access-om3-configs/compare/dev-MC_100km_jra_ryf..dev-MC_100km_jra_iaf)
+- [`dev-MC_100km_jra_ryf`➡️`dev-MC_100km_jra_ryf+wombatlite`](https://github.com/ACCESS-NRI/access-om3-configs/compare/dev-MC_100km_jra_ryf..dev-MC_100km_jra_ryf+wombatlite)
+- [`dev-MC_100km_jra_ryf`➡️`dev-MC_25km_jra_ryf`](https://github.com/ACCESS-NRI/access-om3-configs/compare/dev-MC_100km_jra_ryf..dev-MC_25km_jra_ryf)
+- [`dev-MC_100km_jra_ryf+wombatlite`➡️`dev-MC_25km_jra_ryf+wombatlite`](https://github.com/ACCESS-NRI/access-om3-configs/compare/dev-MC_100km_jra_ryf+wombatlite..dev-MC_25km_jra_ryf+wombatlite)
+- [`dev-MC_25km_jra_ryf`➡️`dev-MC_25km_jra_ryf+wombatlite`](https://github.com/ACCESS-NRI/access-om3-configs/compare/dev-MC_25km_jra_ryf..dev-MC_25km_jra_ryf+wombatlite)
+
+**MCW → MCW**
+
+- [`dev-MCW_100km_jra_ryf`➡️`dev-MCW_100km_jra_iaf`](https://github.com/ACCESS-NRI/access-om3-configs/compare/dev-MCW_100km_jra_ryf..dev-MCW_100km_jra_iaf)
+
+**MC → MCW**
+
+- [`dev-MC_100km_jra_ryf`➡️`dev-MCW_100km_jra_ryf`](https://github.com/ACCESS-NRI/access-om3-configs/compare/dev-MC_100km_jra_ryf..dev-MCW_100km_jra_ryf)
+- [`dev-MC_100km_jra_iaf`➡️`dev-MCW_100km_jra_iaf`](https://github.com/ACCESS-NRI/access-om3-configs/compare/dev-MC_100km_jra_iaf..dev-MCW_100km_jra_iaf)
+
+## What the configuration files are for
+The configurations have much in common. Here we provide a quick overview of the common features, using examples from the [`dev-MC_100km_jra_ryf` branch](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MC_100km_jra_ryf). This is a MOM6-CICE6 coupled configuration without waves or biogeochemistry, at a nominal 100 km (1°) horizontal resolution, under repeat-year forcing. 
+
+ - [`config.yaml`](https://github.com/ACCESS-NRI/access-om3-configs/blob/1deg_jra55do_ryf/config.yaml): used by [`payu`](https://payu.readthedocs.io/en/latest/) for model setup and run ([YAML](https://yaml.org/spec/1.2.2/#chapter-2-language-overview) format)
+ - [`datm_in`](https://github.com/ACCESS-NRI/access-om3-configs/blob/1deg_jra55do_ryf/datm_in): sets [stream-independent](https://escomp.github.io/CDEPS/versions/master/html/introduction.html#design) data atmosphere [parameters](https://escomp.github.io/CDEPS/versions/master/html/datm.html) (in [Fortran namelist](https://jules-lsm.github.io/vn4.2/namelists/intro.html) format)
+ - [`datm.streams.xml`](https://github.com/ACCESS-NRI/access-om3-configs/blob/1deg_jra55do_ryf/datm.streams.xml): sets input files and other [stream-dependent input data](https://escomp.github.io/CDEPS/versions/master/html/introduction.html#design) for data atmosphere in [this XML format](https://escomp.github.io/CDEPS/versions/master/html/streams.html#data-model-stream-input)
+ - [`diag_table`](https://github.com/ACCESS-NRI/access-om3-configs/blob/1deg_jra55do_ryf/diag_table): MOM6 diagnostics in [this format](https://mom6.readthedocs.io/en/main/api/generated/pages/Diagnostics.html); may be generated from a `diag_table_source.yaml` [YAML](https://yaml.org/spec/1.2.2/#chapter-2-language-overview) file by [`make_diag_table.py`](https://github.com/COSIMA/make_diag_table)
+ - [`drof_in`](https://github.com/ACCESS-NRI/access-om3-configs/blob/1deg_jra55do_ryf/drof_in): sets [stream-independent](https://escomp.github.io/CDEPS/versions/master/html/introduction.html#design) data runoff [parameters](https://escomp.github.io/CDEPS/versions/master/html/drof.html) (in [Fortran namelist](https://jules-lsm.github.io/vn4.2/namelists/intro.html) format)
+ - [`drof.streams.xml`](https://github.com/ACCESS-NRI/access-om3-configs/blob/1deg_jra55do_ryf/drof.streams.xml): sets input files and other [stream-dependent input data](https://escomp.github.io/CDEPS/versions/master/html/introduction.html#design) for data runoff in [this XML format](https://escomp.github.io/CDEPS/versions/master/html/streams.html#data-model-stream-input)
+ - [`drv_in`](https://github.com/ACCESS-NRI/access-om3-configs/blob/1deg_jra55do_ryf/drv_in): NUOPC parameters for the [driver](https://github.com/search?q=repo%3AESCOMP%2FCMEPS+path%3Acesm/driver/+drv_in&type=code) (in [Fortran namelist](https://jules-lsm.github.io/vn4.2/namelists/intro.html) format)
+ - [`fd.yaml`](https://github.com/ACCESS-NRI/access-om3-configs/blob/1deg_jra55do_ryf/fd.yaml): NUOPC [field dictionary](https://earthsystemmodeling.org/docs/release/ESMF_8_4_2/NUOPC_refdoc/node3.html#SECTION00032000000000000000) ([YAML](https://yaml.org/spec/1.2.2/#chapter-2-language-overview) format) read by the NUOPC [driver](https://github.com/search?q=repo%3AESCOMP%2FCMEPS+path%3Acesm/driver/+fd.yaml&type=code); defines standard metadata for fields that may be available for import and/or export from model components; `standard_name`s are used for [field pairing](https://earthsystemmodeling.org/docs/release/ESMF_8_4_2/NUOPC_refdoc/node3.html#SECTION00034200000000000000) during initialisation
+ - [`ice_in`](https://github.com/ACCESS-NRI/access-om3-configs/blob/1deg_jra55do_ryf/ice_in): CICE6 parameters (in [Fortran namelist](https://jules-lsm.github.io/vn4.2/namelists/intro.html) format)
+ - [`input.nml`](https://github.com/ACCESS-NRI/access-om3-configs/blob/1deg_jra55do_ryf/input.nml): a few [MOM6 parameters](https://mom6.readthedocs.io/en/main/api/generated/pages/Runtime_Parameter_System.html#namelist-parameters-input-nml) (in [Fortran namelist](https://jules-lsm.github.io/vn4.2/namelists/intro.html) format)
+ - [`MOM_input`](https://github.com/ACCESS-NRI/access-om3-configs/blob/1deg_jra55do_ryf/MOM_input): most of the MOM6 parameters, in [this format](https://mom6.readthedocs.io/en/main/api/generated/pages/Runtime_Parameter_System.html#mom6-parameter-file-syntax)
+ - [`MOM_override`](https://github.com/ACCESS-NRI/access-om3-configs/blob/1deg_jra55do_ryf/MOM_override): more MOM6 parameters in [this format](https://mom6.readthedocs.io/en/main/api/generated/pages/Runtime_Parameter_System.html#mom6-parameter-file-syntax), overriding things in `MOM_input`
+ - [`nuopc.runconfig`](https://github.com/ACCESS-NRI/access-om3-configs/blob/1deg_jra55do_ryf/nuopc.runconfig): read by NUOPC [driver](https://github.com/search?q=repo%3AESCOMP%2FCMEPS+path%3Acesm/driver/+nuopc.runconfig&type=code); supplies driver-related parameters for model components; parameters documented [here](https://github.com/ESCOMP/CMEPS/blob/606eb397d4e66f8fa3417e7e8fd2b2b4b3c222b4/cime_config/namelist_definition_drv.xml); the file is a mix of [Resource File](https://earthsystemmodeling.org/docs/release/ESMF_8_6_0/ESMF_refdoc/node6.html#SECTION06091200000000000000) and [Fortran namelist](https://jules-lsm.github.io/vn4.2/namelists/intro.html) formats
+ - [`nuopc.runseq`](https://github.com/ACCESS-NRI/access-om3-configs/blob/1deg_jra55do_ryf/nuopc.runseq): read by NUOPC [driver](https://github.com/search?q=repo%3AESCOMP%2FCMEPS+path%3Acesm/driver/+nuopc.runseq&type=code); defines model component run sequence using [this syntax](https://earthsystemmodeling.org/docs/release/ESMF_8_3_1/NUOPC_refdoc/node4.html#SECTION000411300000000000000)
 
 ### Where to set parameters
 #### Model executable
