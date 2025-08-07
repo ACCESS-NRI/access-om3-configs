@@ -17,7 +17,7 @@ FATAL_UNUSED_PARAMS = False      !   [Boolean] default = False
 ! This section contains non default layout parameters which are set.
 ! ------------------------
 ! === module MOM_domains ===
-AUTO_MASKTABLE = False           !   [Boolean] default = False
+AUTO_MASKTABLE = True           !   [Boolean] default = False
                                 ! Turn on automatic mask table generation to eliminate land blocks.
 
 ! This section is formatted the same as the MOM_parameter_short.doc output file.
@@ -33,7 +33,7 @@ THICKNESSDIFFUSE = True         !   [Boolean] default = False
 THICKNESSDIFFUSE_FIRST = True   !   [Boolean] default = False
                                 ! If true, do thickness diffusion or interface height smoothing before dynamics.
                                 ! This is only used if THICKNESSDIFFUSE or APPLY_INTERFACE_FILTER is true.
-DT = 600.0                     !   [s]
+DT = 300.0                     !   [s]
                                 ! The (baroclinic) dynamics time step.  The time-step that is actually used will
                                 ! be an integer fraction of the forcing time-step (DT_FORCING in ocean-only mode
                                 ! or the coupling timestep in coupled mode.)
@@ -666,5 +666,5 @@ SRESTORE_AS_SFLUX = False        !   [Boolean] default = False
                                 ! freshwater flux.
 GUST_CONST = 0.02               !   [Pa] default = 0.0
                                 ! The background gustiness in the winds.
-DEBUG = True	
+DEBUG = False	
 VERBOSITY = 9
