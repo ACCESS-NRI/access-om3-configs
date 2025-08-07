@@ -105,11 +105,10 @@ nav:
         - Initial condition generation: pages/Initial-conditions-generation.md
         - ww3 workflow and input files: pages/WW3_setup_and_workflow.md
 
-  - Configurations:
-    - pages/configurations/Overview.md
-    # At build time other configurations are added here by the mkdocs-include-configurations plugin
-   
   - Configuration choices:
+        - Configurations:
+          - pages/configurations/Overview.md
+          # At build time other configurations are added here by the mkdocs-include-configurations plugin
         - Parameter choices: pages/Parameter-choices.md
         - ww3 config: pages/MOM6-CICE6-WW3-quickstart.md
         - ww3 parameter choices: pages/ww3_parameter_choices.md 
