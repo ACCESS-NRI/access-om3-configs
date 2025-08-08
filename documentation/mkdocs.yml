@@ -55,6 +55,17 @@ theme:
 copyright: Copyright &copy; 2025 ACCESS-NRI
 
 plugins:
+  - include-configuration-stubs:
+      repo: ACCESS-NRI/access-om3-configs
+      main_website:
+        pattern: ""
+        ref_type: branch
+      preview_website:
+        pattern: "dev-MC_25km_jra_ryf"
+        ref_type: branch
+      stubs_parent_url: pages/configurations
+      stubs_nav_path: Configurations
+
   - git-revision-date-localized:
       type: date
       enable_creation_date: false
