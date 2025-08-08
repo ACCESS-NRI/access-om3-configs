@@ -26,6 +26,11 @@ As an example, the 25km grid was once generated using the python based ocean mod
 ```python
 ocean_grid_generator.py -r 4 --no_south_cap --ensure_nj_even --bipolar_lower_lat 65 --mercator_lower_lat -75 --mercator_upper_lat 65 --match_dy so --shift_equator_to_u_point --south_ocean_lower_lat -81
 ```
+!!! note "Choosing `--south_ocean_lower_lat`"
+
+    Slightly adjusting `--south_ocean_lower_lat` (e.g. from -81 to -81.6) changes the number of latitude rows (`NYGLOBAL`) in the grid. For instance, -81 results in `NYGLOBAL = 1142`, while -81.6 gives `NYGLOBAL = 1152`. These extra southern rows all lie beneath the Antarctic continent, so they appear as land and have no impact on the ocean solution.
+
+    We plan to adopt **1152** in the next tagged grid release. This value is a highly composite number with many divisors (1–576), which facilitates half-resolution diagnostics and improves performance when aggregating outputs across processor-split tiles.
 
 However refer to the metadata of the latest `ocean_hgrid.nc` to find the latest setup.
 
