@@ -12,9 +12,8 @@ Some details on that process are in the [ACCESS-OM3 Deployment README](https://g
 
 Two default builds are provided:
 
-    `access-om3-MOM6-CICE6`
-
-    `access-om3-MOM6-CICE6-WW3`
+    access-om3-MOM6-CICE6
+    access-om3-MOM6-CICE6-WW3
 
 These builds are optimised for the Sapphire-Rapid hardware from Intel (e.g. the _normalsr_ queue), and may not run on Cascade-Lake (e.g. the _normal_ queue) or older hardware. The aim is to use the same executable for non-BGC and BGC (Wombatlite) configurations. For regional configurations, compiling with MOM symmettric memory is required, which is not the default but could become the default in the future (see [436](https://github.com/ACCESS-NRI/access-om3-configs/issues/436#issuecomment-2750119607)).
 
