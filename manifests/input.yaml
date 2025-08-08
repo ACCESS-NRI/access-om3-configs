@@ -3382,15 +3382,15 @@ work/INPUT/atmos/fx/sftof/gr/v20240531/sftof_input4MIPs_atmosphericState_OMIP_MR
     binhash: 7f98fc486410cff8df3232d390e5a05b
     md5: f5034ec4d5228d648be6375b13ed2c98
 work/INPUT/bathymetry.nc:
-  fullpath: /g/data/ol01/ee8016/regional_wombat/bathymetry.nc
+  fullpath: /g/data/ol01/ee8016/regional_wombat/modifiedfiles/bathymetry.nc
   hashes:
-    binhash: 18e59225f17304237f54bc2fc93f9c5a
-    md5: ea895d1c28887f28194e13d01906ed54
-work/INPUT/dust_model_year.nc:
-  fullpath: /g/data/ol01/ee8016/regional_wombat/modifiedfiles/dust_model_year.nc
+    binhash: ba82a01f837a995c272b0f43a315bfc3
+    md5: 2639cdb91c8e7bec43c8dd74943e24a6
+work/INPUT/dust_DS.nc:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/dust_DS.nc
   hashes:
-    binhash: 4d7bb749ea75cb19df35f773a037c22f
-    md5: 41a4ca25f99703f392e373a66624d8c5
+    binhash: 5a63e9526ff1a285e7ce992c83cd5c19
+    md5: 149ed14ffc73f8908fa1f8e84146c6bc
 work/INPUT/grid_spec.nc:
   fullpath: /g/data/ol01/ee8016/regional_wombat/grid_spec.nc
   hashes:
