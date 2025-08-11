@@ -1,6 +1,6 @@
 **Note**: The below docs are a copy of [this markdown file](https://github.com/claireyung/access-om3-configs/blob/8km_jra_ryf_obc2-sapphirerapid-Charrassin-newparams-rerun-Wright-spinup-accessom2IC-yr9/panantarctic_instructions.md)
 
-# Instructions to generate pan-Antarctic regional domain from global ACCESS-OM3 Configuration
+# Instructions to generate pan-Antarctic regional domain from global ACCESS-OM3 Configuration 
 
 Contents:
 
