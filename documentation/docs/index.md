@@ -20,7 +20,7 @@ Issues should be posted to [github.com/ACCESS-NRI/access-om3-configs/issues](htt
 
 ### Quick contributions 
 !!! tip
-    This method has the advantage is that it's *very quick*. The caveat is that, unless you are part of the `ACCESS-NRI` GitHub organisation you not be able to preview the changes rendered into a website or create whole new pages. <br>
+    This method has the advantage is that it's *very quick*. The caveat is that, unless you are part of the `ACCESS-NRI` GitHub organisation you will not be able to preview the changes rendered into a website or create whole new pages. <br>
 
 The simplest and fastest way to make a change to an _existing_ page is to click the edit "pencil" on the top-right corner. This will go to the relevant GitHub markdown file and clicking the top-right pencil again on GitHub will allow you to edit the file. Once complete, click `Commit changes...`. There are then _two_ possibilities, depending on whether you have  write access to [`access-om3-configs`](https://github.com/ACCESS-NRI/access-om3-configs): 
 
