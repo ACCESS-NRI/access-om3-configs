@@ -38,19 +38,19 @@ MASKTABLE = "MOM_auto_mask_table" ! default = "MOM_mask_table"
                                 !  4,6
                                 !  1,2
                                 !  3,6
-NIPROC = 48                     !
+NIPROC = 70                     !
                                 ! The number of processors in the x-direction. With STATIC_MEMORY_ this is set
                                 ! in MOM_memory.h at compile time.
-NJPROC = 48                     !
+NJPROC = 35                     !
                                 ! The number of processors in the y-direction. With STATIC_MEMORY_ this is set
                                 ! in MOM_memory.h at compile time.
-LAYOUT = 48, 48                 !
+LAYOUT = 70, 35                 !
                                 ! The processor layout that was actually used.
-AUTO_IO_LAYOUT_FAC = 6          ! default = 0
+AUTO_IO_LAYOUT_FAC = 35         ! default = 0
                                 ! When AUTO_MASKTABLE is enabled, io layout is calculated by performing integer
                                 ! division of the runtime-determined domain layout with this factor. If the
                                 ! factor is set to 0 (default), the io layout is set to 1,1.
-IO_LAYOUT = 8, 8                !
+IO_LAYOUT = 2, 1                !
                                 ! The processor layout to be used, or 0,0 to automatically set the io_layout to
                                 ! be the same as the layout.
 
