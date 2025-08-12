@@ -1,27 +1,36 @@
-contact: Add your name here
-email: Add your email address here
-created: Add the date you started the experiment here (YYYY-MM-DD)
+contact: Andrew Kiss
+email: 31054815+aekiss@users.noreply.github.com
+created: '2025-08-13'
 description: |-
-    25km ACCESS-OM3 global configuration under the RYF9091 Repeat
-    Year Forcing strategy outlined by Stewart et al (2020), 
-    https://doi.org/10.1016/j.ocemod.2019.101557.
-    Initial conditions are WOA23 potential temperature and practical salinity.
-    Run with JRA55-do v1.6.0 RYF9091 (1 May 1990 - 30 April 1991) repeated forcing.
-    Spin up starts from a nominal year of 1 Jan 1900.
+  25km ACCESS-OM3 global configuration under the RYF9091 Repeat
+  Year Forcing strategy outlined by Stewart et al (2020), 
+  https://doi.org/10.1016/j.ocemod.2019.101557.
+  Initial conditions are WOA23 potential temperature and practical salinity.
+  Run with JRA55-do v1.6.0 RYF9091 (1 May 1990 - 30 April 1991) repeated forcing.
+  Spin up starts from a nominal year of 1 Jan 1900.
 notes: |-
   ACCESS-NRI and COSIMA request that users of this model acknowledge those organisations 
   following the examples at https://www.access-nri.org.au/resources/acknowledging-us/ 
   and https://cosima.org.au/index.php/get-involved/
 keywords:
-  - JRA55
-  - access-om3
-  - repeat-year
-  - global
+- JRA55
+- access-om3
+- repeat-year
+- global
 realm:
-  - ocean
-  - seaIce
+- ocean
+- seaIce
 nominal_resolution: 25 km
 license: CC-BY-4.0
 model: ACCESS-OM3
-url: https://github.com/ACCESS-NRI/access-om3-configs/tree/release-MC_25km_jra_ryf
+url: https://github.com/aekiss/access-om3-configs
 version: 1.0-beta
+experiment_uuid: d1944e52-bf31-4538-b4c1-d0d848260187
+name: dev-MC_25km_jra_iaf-dev-MC_25km_jra_iaf-d1944e52
+schema_version:  # The version of the schema (string)
+long_description: # Long description of the experiment (string)
+frequency: # The frequency(/ies) included in the experiment (string)
+variable: # The variable(s) included in the experiment (string)
+reference: # Citation or reference information (string)
+parent_experiment: # experiment_uuid for parent experiment if appropriate (string)
+related_experiments: # experiment_uuids for any related experiment(s) (string)
