@@ -8,8 +8,8 @@ information.
 
 ## Features
 
-- data atmosphere (DATM) = JRA55-do v1-4, RYF 1990-1991
-- data runoff (DROF) = JRA55-do v1-4, RYF 1990-1991
+- data atmosphere (DATM) = JRA55-do v1.6, RYF 1990-1991
+- data runoff (DROF) = JRA55-do v1.6, RYF 1990-1991
 - tripolar grid
 
 ## Requirements
