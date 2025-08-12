@@ -540,3 +540,15 @@ Merged improvements from Ed's optimisation into my CL branch https://github.com/
 Note the executable is one Ed made i.e. not the most up to date MOM6 codebase, but rather, same as before.
 
 Also fixed bug that had salinity restoring zero at E-W boundary
+
+# Concatenation of daily ice files
+There is a postcript in the config.yaml that is meant to concanenate the daily ice files. Sometimes this does not work. Instead, you could do the following in an interactive gadi job
+```
+qsub -I -P x77 -q normalsr -l storage=gdata/xp65+gdata/ol01+gdata/x77+scratch/x77+gdata/vk83,walltime=01:00:00,ncpus=104,mem=500GB,jobfs=100GB
+
+module use /g/data/xp65/public/modules 
+module load conda/analysis3-25.05
+python3 /g/data/vk83/apps/om3-scripts/payu_config/postscript/concat_ice_daily.py --directory /scratch/x77/cy8964/access-om3/archive/dev-MC_4km_jra_ryf+regionalpanan/output000
+```
+changing the project and output folder as required.
+

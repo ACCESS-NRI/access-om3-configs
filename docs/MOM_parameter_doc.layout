@@ -46,11 +46,11 @@ NJPROC = 35                     !
                                 ! in MOM_memory.h at compile time.
 LAYOUT = 70, 35                 !
                                 ! The processor layout that was actually used.
-AUTO_IO_LAYOUT_FAC = 6          ! default = 0
+AUTO_IO_LAYOUT_FAC = 35         ! default = 0
                                 ! When AUTO_MASKTABLE is enabled, io layout is calculated by performing integer
                                 ! division of the runtime-determined domain layout with this factor. If the
                                 ! factor is set to 0 (default), the io layout is set to 1,1.
-IO_LAYOUT = 6, 8                !
+IO_LAYOUT = 2, 1                !
                                 ! The processor layout to be used, or 0,0 to automatically set the io_layout to
                                 ! be the same as the layout.
 

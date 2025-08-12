@@ -164,6 +164,12 @@
     ! units: nondim
     ! cell_methods: xh:mean yh:mean zl:mean area:mean
     ! variants: {sqg_struct,sqg_struct_xyave}
+"khth_struct"  [Unused]
+    ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
+    ! long_name: Vertical structure of thickness diffusivity
+    ! units: nondim
+    ! cell_methods: xh:mean yh:mean zl:mean area:mean
+    ! variants: {khth_struct,khth_struct_xyave}
 "Rd_dx"  [Unused]
     ! modules: {ocean_model,ocean_model_d2}
     ! long_name: Ratio between deformation radius and grid spacing
@@ -1353,18 +1359,6 @@
     ! units: m
     ! cell_methods: xh:mean yh:mean zl:sum area:mean
     ! variants: {h_pre_sync,h_pre_sync_xyave}
-"temp"  [Used]
-    ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
-    ! long_name: Potential Temperature
-    ! units: degC
-    ! cell_methods: xh:mean yh:mean zl:mean area:mean
-    ! variants: {temp,temp_xyave}
-"salt"  [Used]
-    ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
-    ! long_name: Salinity
-    ! units: psu
-    ! cell_methods: xh:mean yh:mean zl:mean area:mean
-    ! variants: {salt,salt_xyave}
 "tob"  [Used]
     ! modules: {ocean_model,ocean_model_d2}
     ! long_name: Sea Water Potential Temperature at Sea Floor
@@ -2366,16 +2360,6 @@
     ! units: psu2
     ! cell_methods: xh:mean yh:mean area:mean
     ! variants: {SSS_sq,sossq}
-"conSST"  [Unused]
-    ! modules: {ocean_model,ocean_model_d2}
-    ! long_name: Sea Surface Conservative Temperature
-    ! units: Celsius
-    ! cell_methods: xh:mean yh:mean area:mean
-"absSSS"  [Unused]
-    ! modules: {ocean_model,ocean_model_d2}
-    ! long_name: Sea Surface Absolute Salinity
-    ! units: g kg-1
-    ! cell_methods: xh:mean yh:mean area:mean
 "frazil"  [Unused] (CMOR equivalent is "hfsifrazil")
     ! modules: {ocean_model,ocean_model_d2}
     ! long_name: Heat from frazil formation
@@ -2481,7 +2465,7 @@
     ! long_name: Potential Temperature after horizontal transport (advection/diffusion) has occurred
     ! units: degC
     ! cell_methods: xh:mean yh:mean zl:mean area:mean
-    ! variants: {contemp_post_horzn,contemp_post_horzn_xyave}
+    ! variants: {temp_post_horzn,temp_post_horzn_xyave}
 "T_adx"  [Unused]
     ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
     ! long_name: Advective (by residual mean) Zonal Flux of Heat
@@ -2591,13 +2575,13 @@
 "T_dfxy_conc_tendency"  [Unused]
     ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
     ! long_name: Neutral diffusion tracer concentration tendency for T
-    ! units: Celsius s-1
+    ! units: degC s-1
     ! cell_methods: xh:mean yh:mean zl:mean area:mean
     ! variants: {T_dfxy_conc_tendency,T_dfxy_conc_tendency_xyave}
 "T_hbdxy_conc_tendency"  [Unused]
     ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
     ! long_name: Horizontal diffusion tracer concentration tendency for T
-    ! units: Celsius s-1
+    ! units: degC s-1
     ! cell_methods: xh:mean yh:mean zl:mean area:mean
     ! variants: {T_hbdxy_conc_tendency,T_hbdxy_conc_tendency_xyave}
 "Th_tendency"  [Unused] (CMOR equivalent is "opottemptend")
@@ -2756,13 +2740,13 @@
 "S_dfxy_conc_tendency"  [Unused]
     ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
     ! long_name: Neutral diffusion tracer concentration tendency for S
-    ! units: g kg-1 s-1
+    ! units: psu s-1
     ! cell_methods: xh:mean yh:mean zl:mean area:mean
     ! variants: {S_dfxy_conc_tendency,S_dfxy_conc_tendency_xyave}
 "S_hbdxy_conc_tendency"  [Unused]
     ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
     ! long_name: Horizontal diffusion tracer concentration tendency for S
-    ! units: g kg-1 s-1
+    ! units: psu s-1
     ! cell_methods: xh:mean yh:mean zl:mean area:mean
     ! variants: {S_hbdxy_conc_tendency,S_hbdxy_conc_tendency_xyave}
 "Sh_tendency"  [Unused] (CMOR equivalent is "osalttend")

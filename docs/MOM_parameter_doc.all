@@ -18,7 +18,7 @@ USE_EOS = True                  !   [Boolean] default = True
 DIABATIC_FIRST = False          !   [Boolean] default = False
                                 ! If true, apply diabatic and thermodynamic processes, including buoyancy
                                 ! forcing and mass gain or loss, before stepping the dynamics forward.
-USE_CONTEMP_ABSSAL = True       !   [Boolean] default = False
+USE_CONTEMP_ABSSAL = False      !   [Boolean] default = False
                                 ! If true, the prognostics T&S are the conservative temperature and absolute
                                 ! salinity. Care should be taken to convert them to potential temperature and
                                 ! practical salinity before exchanging them with the coupler and/or reporting
@@ -408,13 +408,22 @@ EQN_OF_STATE = "WRIGHT_FULL"    ! default = "WRIGHT"
                                 ! Currently, the valid choices are "LINEAR", "UNESCO", "JACKETT_MCD", "WRIGHT",
                                 ! "WRIGHT_REDUCED", "WRIGHT_FULL", "NEMO", "ROQUET_RHO", "ROQUET_SPV" and
                                 ! "TEOS10".  This is only used if USE_EOS is true.
-EOS_QUADRATURE = True           !   [Boolean] default = True
+EOS_QUADRATURE = False          !   [Boolean] default = False
                                 ! If true, always use the generic (quadrature) code code for the integrals of
                                 ! density.
-TFREEZE_FORM = "TEOS_POLY"      ! default = "TEOS10"
+TFREEZE_FORM = "LINEAR"         ! default = "LINEAR"
                                 ! TFREEZE_FORM determines which expression should be used for the freezing
                                 ! point.  Currently, the valid choices are "LINEAR", "MILLERO_78", "TEOS_POLY",
                                 ! "TEOS10"
+TFREEZE_S0_P0 = 0.0             !   [degC] default = 0.0
+                                ! When TFREEZE_FORM=LINEAR, this is the freezing potential temperature at S=0,
+                                ! P=0.
+DTFREEZE_DS = -0.054            !   [degC ppt-1] default = -0.054
+                                ! When TFREEZE_FORM=LINEAR, this is the derivative of the freezing potential
+                                ! temperature with salinity.
+DTFREEZE_DP = -7.75E-08         !   [degC Pa-1] default = 0.0
+                                ! When TFREEZE_FORM=LINEAR, this is the derivative of the freezing potential
+                                ! temperature with pressure.
 
 ! === module MOM_restart ===
 PARALLEL_RESTARTFILES = False   !   [Boolean] default = False
@@ -639,10 +648,85 @@ FATAL_INCONSISTENT_RESTART_TIME = False !   [Boolean] default = False
                                 ! If true and a time_in value is provided to MOM_initialize_state, verify that
                                 ! the time read from a restart file is the same as time_in, and issue a fatal
                                 ! error if it is not.  Otherwise, simply set the time to time_in if present.
+INIT_LAYERS_FROM_Z_FILE = True  !   [Boolean] default = False
+                                ! If true, initialize the layer thicknesses, temperatures, and salinities from a
+                                ! Z-space file on a latitude-longitude grid.
+
+! === module MOM_initialize_layers_from_Z ===
+TEMP_SALT_Z_INIT_FILE = "ACCESS-OM2_IC_bfilled_smoothedland.nc" ! default = "temp_salt_z.nc"
+                                ! The name of the z-space input file used to initialize temperatures (T) and
+                                ! salinities (S). If T and S are not in the same file, TEMP_Z_INIT_FILE and
+                                ! SALT_Z_INIT_FILE must be set.
+TEMP_Z_INIT_FILE = "ACCESS-OM2_IC_bfilled_smoothedland.nc" ! default = "ACCESS-OM2_IC_bfilled_smoothedland.nc"
+                                ! The name of the z-space input file used to initialize temperatures, only.
+SALT_Z_INIT_FILE = "ACCESS-OM2_IC_bfilled_smoothedland.nc" ! default = "ACCESS-OM2_IC_bfilled_smoothedland.nc"
+                                ! The name of the z-space input file used to initialize temperatures, only.
+Z_INIT_FILE_PTEMP_VAR = "temp"  ! default = "ptemp"
+                                ! The name of the potential temperature variable in TEMP_Z_INIT_FILE.
+Z_INIT_FILE_SALT_VAR = "salt"   ! default = "salt"
+                                ! The name of the salinity variable in SALT_Z_INIT_FILE.
+Z_INIT_HOMOGENIZE = False       !   [Boolean] default = False
+                                ! If True, then horizontally homogenize the interpolated initial conditions.
+Z_INIT_ALE_REMAPPING = True     !   [Boolean] default = False
+                                ! If True, then remap straight to model coordinate from file.
+Z_INIT_REMAPPING_SCHEME = "PPM_IH4" ! default = "PPM_IH4"
+                                ! The remapping scheme to use if using Z_INIT_ALE_REMAPPING is True.
+Z_INIT_REMAP_GENERAL = True     !   [Boolean] default = False
+                                ! If false, only initializes to z* coordinates. If true, allows initialization
+                                ! directly to general coordinates.
+Z_INIT_REMAP_FULL_COLUMN = True !   [Boolean] default = True
+                                ! If false, only reconstructs profiles for valid data points. If true, inserts
+                                ! vanished layers below the valid data.
+Z_INIT_REMAP_OLD_ALG = False    !   [Boolean] default = False
+                                ! If false, uses the preferred remapping algorithm for initialization. If true,
+                                ! use an older, less robust algorithm for remapping.
+TEMP_SALT_INIT_VERTICAL_REMAP_ONLY = True !   [Boolean] default = False
+                                ! If true, initial conditions are on the model horizontal grid. Extrapolation
+                                ! over missing ocean values is done using an ICE-9 procedure with vertical ALE
+                                ! remapping .
 Z_INIT_REMAPPING_USE_OM4_SUBCELLS = False !   [Boolean] default = True
                                 ! If true, use the OM4 remapping-via-subcells algorithm for initialization. See
                                 ! REMAPPING_USE_OM4_SUBCELLS for more details. We recommend setting this option
                                 ! to false.
+HOR_REGRID_ANSWER_DATE = 99991231 ! default = 99991231
+                                ! The vintage of the order of arithmetic for horizontal regridding.  Dates
+                                ! before 20190101 give the same answers as the code did in late 2018, while
+                                ! later versions add parentheses for rotational symmetry.  Dates after 20230101
+                                ! use reproducing sums for global averages.
+LAND_FILL_TEMP = 0.0            !   [degC] default = 0.0
+                                ! A value to use to fill in ocean temperatures on land points.
+LAND_FILL_SALIN = 35.0          !   [ppt] default = 35.0
+                                ! A value to use to fill in ocean salinities on land points.
+HORIZ_INTERP_TOL_TEMP = 0.001   !   [degC] default = 0.001
+                                ! The tolerance in temperature changes between iterations when interpolating
+                                ! from an input dataset using horiz_interp_and_extrap_tracer.  This routine
+                                ! converges slowly, so an overly small tolerance can get expensive.
+HORIZ_INTERP_TOL_SALIN = 0.001  !   [ppt] default = 0.001
+                                ! The tolerance in salinity changes between iterations when interpolating from
+                                ! an input dataset using horiz_interp_and_extrap_tracer.  This routine converges
+                                ! slowly, so an overly small tolerance can get expensive.
+DEPRESS_INITIAL_SURFACE = False !   [Boolean] default = False
+                                ! If true,  depress the initial surface to avoid huge tsunamis when a large
+                                ! surface pressure is applied.
+TRIM_IC_FOR_P_SURF = False      !   [Boolean] default = False
+                                ! If true, cuts way the top of the column for initial conditions at the depth
+                                ! where the hydrostatic pressure matches the imposed surface pressure which is
+                                ! read from file.
+REGRID_ACCELERATE_INIT = False  !   [Boolean] default = False
+                                ! If true, runs REGRID_ACCELERATE_ITERATIONS iterations of the regridding
+                                ! algorithm to push the initial grid to be consistent with the initial
+                                ! condition. Useful only for state-based and iterative coordinates.
+VELOCITY_CONFIG = "zero"        ! default = "zero"
+                                ! A string that determines how the initial velocities are specified for a new
+                                ! run:
+                                !     file - read velocities from the file specified
+                                !       by (VELOCITY_FILE).
+                                !     zero - the fluid is initially at rest.
+                                !     uniform - the flow is uniform (determined by
+                                !       parameters INITIAL_U_CONST and INITIAL_V_CONST).
+                                !     rossby_front - a mixed layer front in thermal wind balance.
+                                !     soliton - Equatorial Rossby soliton.
+                                !     USER - call a user modified routine.
 ODA_INCUPD = False              !   [Boolean] default = False
                                 ! If true, oda incremental updates will be applied everywhere in the domain.
 SPONGE = False                  !   [Boolean] default = False
@@ -715,7 +799,7 @@ DIAG_COORD_INTERP_SCHEME_RHO2 = "PPM_H4" ! default = "PPM_H4"
                                 !  P3M_IH6IH5 (4th-order accurate)
                                 !  PQM_IH4IH3 (4th-order accurate)
                                 !  PQM_IH6IH5 (5th-order accurate)
-REGRIDDING_ANSWER_DATE = 20181231 ! default = 20181231
+REGRIDDING_ANSWER_DATE = 99991231 ! default = 20181231
                                 ! The vintage of the expressions and order of arithmetic to use for regridding.
                                 ! Values below 20190101 result in the use of older, less accurate expressions
                                 ! that were in use at the end of 2018.  Higher values result in the use of more
@@ -784,7 +868,7 @@ BS_USE_SQG_STRUCT = False       !   [Boolean] default = False
 SQG_EXPO = 1.0                  !   [nondim] default = 1.0
                                 ! Nondimensional exponent coeffecient of the SQG mode that is used for the
                                 ! vertical struture of diffusivities.
-KHTH_USE_EBT_STRUCT = False     !   [Boolean] default = False
+KHTH_USE_EBT_STRUCT = True      !   [Boolean] default = False
                                 ! If true, uses the equivalent barotropic structure as the vertical structure of
                                 ! thickness diffusivity.
 KHTH_USE_SQG_STRUCT = False     !   [Boolean] default = False
@@ -818,6 +902,10 @@ VERY_SMALL_FREQUENCY = 1.0E-17  !   [s-1] default = 1.0E-17
 USE_STANLEY_ISO = False         !   [Boolean] default = False
                                 ! If true, turn on Stanley SGS T variance parameterization in isopycnal slope
                                 ! code.
+RESOLN_N2_FILTER_DEPTH = -1.0   !   [m] default = -1.0
+                                ! The depth below which N2 is monotonized to avoid stratification artifacts from
+                                ! altering the equivalent barotropic mode structure.  This monotonzization is
+                                ! disabled if this parameter is negative.
 KD_SMOOTH = 1.0E-06             !   [m2 s-1] default = 1.0E-06
                                 ! A diapycnal diffusivity that is used to interpolate more sensible values of T
                                 ! & S into thin layers.
@@ -839,6 +927,17 @@ FULL_DEPTH_EADY_GROWTH_RATE = False !   [Boolean] default = False
 VISBECK_L_SCALE = 0.0           !   [m or nondim] default = 0.0
                                 ! The fixed length scale in the Visbeck formula, or if negative a nondimensional
                                 ! scaling factor relating this length scale squared to the cell areas.
+INTERNAL_WAVE_SPEED_TOL = 0.001 !   [nondim] default = 0.001
+                                ! The fractional tolerance for finding the wave speeds.
+INTERNAL_WAVE_SPEED_MIN = 0.0   !   [m s-1] default = 0.0
+                                ! A floor in the first mode speed below which 0 used instead.
+INTERNAL_WAVE_SPEED_BETTER_EST = True !   [Boolean] default = True
+                                ! If true, use a more robust estimate of the first mode wave speed as the
+                                ! starting point for iterations.
+EBT_REMAPPING_USE_OM4_SUBCELLS = False !   [Boolean] default = True
+                                ! If true, use the OM4 remapping-via-subcells algorithm for calculating EBT
+                                ! structure. See REMAPPING_USE_OM4_SUBCELLS for details. We recommend setting
+                                ! this option to false.
 USE_QG_LEITH_GM = False         !   [Boolean] default = False
                                 ! If true, use the QG Leith viscosity as the GM coefficient.
 
@@ -953,9 +1052,19 @@ DETANGLE_INTERFACES = False     !   [Boolean] default = False
 KHTH_SLOPE_MAX = 0.01           !   [nondim] default = 0.01
                                 ! A slope beyond which the calculated isopycnal slope is not reliable and is
                                 ! scaled away.
-KHTH_USE_FGNV_STREAMFUNCTION = False !   [Boolean] default = False
+KHTH_USE_FGNV_STREAMFUNCTION = True !   [Boolean] default = False
                                 ! If true, use the streamfunction formulation of Ferrari et al., 2010, which
                                 ! effectively emphasizes graver vertical modes by smoothing in the vertical.
+FGNV_FILTER_SCALE = 0.1         !   [nondim] default = 1.0
+                                ! A coefficient scaling the vertical smoothing term in the Ferrari et al., 2010,
+                                ! streamfunction formulation.
+FGNV_C_MIN = 0.0                !   [m s-1] default = 0.0
+                                ! A minium wave speed used in the Ferrari et al., 2010, streamfunction
+                                ! formulation.
+FGNV_STRAT_FLOOR = 1.0E-15      !   [nondim] default = 1.0E-15
+                                ! A floor for Brunt-Vasaila frequency in the Ferrari et al., 2010,
+                                ! streamfunction formulation, expressed as a fraction of planetary rotation,
+                                ! OMEGA. This should be tiny but non-zero to avoid degeneracy.
 USE_STANLEY_GM = False          !   [Boolean] default = False
                                 ! If true, turn on Stanley SGS T variance parameterization in GM code.
 MEKE_GM_SRC_ALT = False         !   [Boolean] default = False
@@ -1504,13 +1613,6 @@ DIAG_EBT_MONO_N2_COLUMN_FRACTION = 0.0 !   [nondim] default = 0.0
 DIAG_EBT_MONO_N2_DEPTH = -1.0   !   [m] default = -1.0
                                 ! The depth below which N2 is limited as monotonic for the purposes of
                                 ! calculating the equivalent barotropic wave speed.
-INTERNAL_WAVE_SPEED_TOL = 0.001 !   [nondim] default = 0.001
-                                ! The fractional tolerance for finding the wave speeds.
-INTERNAL_WAVE_SPEED_MIN = 0.0   !   [m s-1] default = 0.0
-                                ! A floor in the first mode speed below which 0 used instead.
-INTERNAL_WAVE_SPEED_BETTER_EST = True !   [Boolean] default = True
-                                ! If true, use a more robust estimate of the first mode wave speed as the
-                                ! starting point for iterations.
 INTWAVE_REMAPPING_USE_OM4_SUBCELLS = False !   [Boolean] default = True
                                 ! If true, use the OM4 remapping-via-subcells algorithm for calculating EBT
                                 ! structure. See REMAPPING_USE_OM4_SUBCELLS for details. We recommend setting
@@ -2120,8 +2222,28 @@ RECALC_NEUTRAL_SURF = False     !   [Boolean] default = False
 
 ! === module MOM_neutral_diffusion ===
 ! This module implements neutral diffusion of tracers
-USE_NEUTRAL_DIFFUSION = False   !   [Boolean] default = False
+USE_NEUTRAL_DIFFUSION = True    !   [Boolean] default = False
                                 ! If true, enables the neutral diffusion module.
+NDIFF_CONTINUOUS = True         !   [Boolean] default = True
+                                ! If true, uses a continuous reconstruction of T and S when finding neutral
+                                ! surfaces along which diffusion will happen. If false, a PPM discontinuous
+                                ! reconstruction of T and S is done which results in a higher order routine but
+                                ! exacts a higher computational cost.
+NDIFF_REF_PRES = -1.0           !   [Pa] default = -1.0
+                                ! The reference pressure (Pa) used for the derivatives of the equation of state.
+                                ! If negative (default), local pressure is used.
+NDIFF_INTERIOR_ONLY = False     !   [Boolean] default = False
+                                ! If true, only applies neutral diffusion in the ocean interior.That is, the
+                                ! algorithm will exclude the surface and bottomboundary layers.
+NDIFF_USE_UNMASKED_TRANSPORT_BUG = False !   [Boolean] default = False
+                                ! If true, use an older form for the accumulation of neutral-diffusion
+                                ! transports that were unmasked, as used prior to Jan 2018. This is not
+                                ! recommended.
+NDIFF_ANSWER_DATE = 20240101    ! default = 20240101
+                                ! The vintage of the order of arithmetic to use for the neutral diffusion.
+                                ! Values of 20240330 or below recover the answers from the original form of the
+                                ! neutral diffusion code, while higher values use mathematically equivalent
+                                ! expressions that recover rotational symmetry.
 
 ! === module MOM_hor_bnd_diffusion ===
 ! This module implements horizontal diffusion of tracers near boundaries
