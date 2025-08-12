@@ -1,5 +1,5 @@
 runSeq:: 
-@900
+@600
   MED med_phases_aofluxes_run
   MED med_phases_prep_ocn_accum
   MED med_phases_ocnalb_run
@@ -28,6 +28,6 @@ runSeq::
   MED med_phases_diag_print
   MED med_phases_history_write
   MED med_phases_restart_write
-  MED med_phases_profile
-@
+  MED med_phases_profile         
+@ 
 ::

@@ -138,121 +138,6 @@
     ! long_name: heat capacity of sea water
     ! units: J kg-1 K-1
     ! variants: {C_p,cpocean}
-"MEKE"  [Unused]
-    ! modules: {ocean_model,ocean_model_d2}
-    ! long_name: Mesoscale Eddy Kinetic Energy
-    ! units: m2 s-2
-    ! cell_methods: xh:mean yh:mean area:mean
-"MEKE_KH"  [Unused]
-    ! modules: {ocean_model,ocean_model_d2}
-    ! long_name: MEKE derived diffusivity
-    ! units: m2 s-1
-    ! cell_methods: xh:mean yh:mean area:mean
-"MEKE_KU"  [Unused]
-    ! modules: {ocean_model,ocean_model_d2}
-    ! long_name: MEKE derived lateral viscosity
-    ! units: m2 s-1
-    ! cell_methods: xh:mean yh:mean area:mean
-"MEKE_AU"  [Unused]
-    ! modules: {ocean_model,ocean_model_d2}
-    ! long_name: MEKE derived lateral biharmonic viscosity
-    ! units: m4 s-1
-    ! cell_methods: xh:mean yh:mean area:mean
-"MEKE_Ue"  [Unused]
-    ! modules: {ocean_model,ocean_model_d2}
-    ! long_name: MEKE derived eddy-velocity scale
-    ! units: m s-1
-    ! cell_methods: xh:mean yh:mean area:mean
-"MEKE_Ub"  [Unused]
-    ! modules: {ocean_model,ocean_model_d2}
-    ! long_name: MEKE derived bottom eddy-velocity scale
-    ! units: m s-1
-    ! cell_methods: xh:mean yh:mean area:mean
-"MEKE_Ut"  [Unused]
-    ! modules: {ocean_model,ocean_model_d2}
-    ! long_name: MEKE derived barotropic eddy-velocity scale
-    ! units: m s-1
-    ! cell_methods: xh:mean yh:mean area:mean
-"MEKE_src"  [Unused]
-    ! modules: {ocean_model,ocean_model_d2}
-    ! long_name: MEKE energy source
-    ! units: m2 s-3
-    ! cell_methods: xh:mean yh:mean area:mean
-"MEKE_src_adv"  [Unused]
-    ! modules: {ocean_model,ocean_model_d2}
-    ! long_name: MEKE energy source from the horizontal advection of MEKE
-    ! units: m2 s-3
-    ! cell_methods: xh:mean yh:mean area:mean
-"MEKE_src_btm_drag"  [Unused]
-    ! modules: {ocean_model,ocean_model_d2}
-    ! long_name: MEKE energy source from the bottom drag acting on MEKE
-    ! units: m2 s-3
-    ! cell_methods: xh:mean yh:mean area:mean
-"MEKE_src_GM"  [Unused]
-    ! modules: {ocean_model,ocean_model_d2}
-    ! long_name: MEKE energy source from the thickness mixing (GM scheme)
-    ! units: m2 s-3
-    ! cell_methods: xh:mean yh:mean area:mean
-"MEKE_decay"  [Unused]
-    ! modules: {ocean_model,ocean_model_d2}
-    ! long_name: MEKE decay rate
-    ! units: s-1
-    ! cell_methods: xh:mean yh:mean area:mean
-"MEKE_GM_src"  [Unused]
-    ! modules: {ocean_model,ocean_model_d2}
-    ! long_name: MEKE energy available from thickness mixing
-    ! units: W m-2
-    ! cell_methods: xh:mean yh:mean area:mean
-"MEKE_mom_src"  [Unused]
-    ! modules: {ocean_model,ocean_model_d2}
-    ! long_name: MEKE energy available from momentum
-    ! units: W m-2
-    ! cell_methods: xh:mean yh:mean area:mean
-"MEKE_mom_src_bh"  [Unused]
-    ! modules: {ocean_model,ocean_model_d2}
-    ! long_name: MEKE energy available from the biharmonic dissipation of momentum
-    ! units: W m-2
-    ! cell_methods: xh:mean yh:mean area:mean
-"MEKE_GME_snk"  [Unused]
-    ! modules: {ocean_model,ocean_model_d2}
-    ! long_name: MEKE energy lost to GME backscatter
-    ! units: W m-2
-    ! cell_methods: xh:mean yh:mean area:mean
-"MEKE_Le"  [Unused]
-    ! modules: {ocean_model,ocean_model_d2}
-    ! long_name: Eddy mixing length used in the MEKE derived eddy diffusivity
-    ! units: m
-    ! cell_methods: xh:mean yh:mean area:mean
-"MEKE_Lrhines"  [Unused]
-    ! modules: {ocean_model,ocean_model_d2}
-    ! long_name: Rhines length scale used in the MEKE derived eddy diffusivity
-    ! units: m
-    ! cell_methods: xh:mean yh:mean area:mean
-"MEKE_Leady"  [Unused]
-    ! modules: {ocean_model,ocean_model_d2}
-    ! long_name: Eady length scale used in the MEKE derived eddy diffusivity
-    ! units: m
-    ! cell_methods: xh:mean yh:mean area:mean
-"MEKE_gamma_b"  [Unused]
-    ! modules: {ocean_model,ocean_model_d2}
-    ! long_name: Ratio of bottom-projected eddy velocity to column-mean eddy velocity
-    ! units: nondim
-    ! cell_methods: xh:mean yh:mean area:mean
-"MEKE_gamma_t"  [Unused]
-    ! modules: {ocean_model,ocean_model_d2}
-    ! long_name: Ratio of barotropic eddy velocity to column-mean eddy velocity
-    ! units: nondim
-    ! cell_methods: xh:mean yh:mean area:mean
-"KHMEKE_u"  [Unused]
-    ! modules: {ocean_model,ocean_model_d2}
-    ! long_name: Zonal diffusivity of MEKE
-    ! units: m2 s-1
-    ! cell_methods: xq:point yh:mean
-"KHMEKE_v"  [Unused]
-    ! modules: {ocean_model,ocean_model_d2}
-    ! long_name: Meridional diffusivity of MEKE
-    ! units: m2 s-1
-    ! cell_methods: xh:mean yq:point
 "SN_u"  [Unused]
     ! modules: {ocean_model,ocean_model_d2}
     ! long_name: Inverse eddy time-scale, S*N, at u-points
@@ -279,39 +164,6 @@
     ! units: nondim
     ! cell_methods: xh:mean yh:mean zl:mean area:mean
     ! variants: {sqg_struct,sqg_struct_xyave}
-"khth_struct"  [Unused]
-    ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
-    ! long_name: Vertical structure of thickness diffusivity
-    ! units: nondim
-    ! cell_methods: xh:mean yh:mean zl:mean area:mean
-    ! variants: {khth_struct,khth_struct_xyave}
-"N2_u"  [Unused]
-    ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
-    ! long_name: Square of Brunt-Vaisala frequency, N^2, at u-points, as used in Visbeck et al.
-    ! units: s-2
-    ! cell_methods: xq:point yh:mean zi:point
-    ! variants: {N2_u,N2_u_xyave}
-"N2_v"  [Unused]
-    ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
-    ! long_name: Square of Brunt-Vaisala frequency, N^2, at v-points, as used in Visbeck et al.
-    ! units: s-2
-    ! cell_methods: xh:mean yq:point zi:point
-    ! variants: {N2_v,N2_v_xyave}
-"S2_u"  [Unused]
-    ! modules: {ocean_model,ocean_model_d2}
-    ! long_name: Depth average square of slope magnitude, S^2, at u-points, as used in Visbeck et al.
-    ! units: nondim
-    ! cell_methods: xq:point yh:mean
-"S2_v"  [Unused]
-    ! modules: {ocean_model,ocean_model_d2}
-    ! long_name: Depth average square of slope magnitude, S^2, at v-points, as used in Visbeck et al.
-    ! units: nondim
-    ! cell_methods: xh:mean yq:point
-"Res_fn"  [Unused]
-    ! modules: {ocean_model,ocean_model_d2}
-    ! long_name: Resolution function for scaling diffusivities
-    ! units: nondim
-    ! cell_methods: xh:mean yh:mean area:mean
 "Rd_dx"  [Unused]
     ! modules: {ocean_model,ocean_model_d2}
     ! long_name: Ratio between deformation radius and grid spacing
@@ -359,13 +211,13 @@
     ! units: m s-1
     ! cell_methods: xh:mean yq:point zl:mean
     ! variants: {Rayleigh_v,Rayleigh_v_xyave}
-"uhGM"  [Used]
+"uhGM"  [Unused]
     ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
     ! long_name: Time Mean Diffusive Zonal Thickness Flux
     ! units: kg s-1
     ! cell_methods: xq:point yh:sum zl:sum
     ! variants: {uhGM,uhGM_xyave}
-"vhGM"  [Used]
+"vhGM"  [Unused]
     ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
     ! long_name: Time Mean Diffusive Meridional Thickness Flux
     ! units: kg s-1
@@ -2618,16 +2470,16 @@
     ! units: m s-1
     ! cell_methods: xh:mean yh:mean zl:sum area:mean
     ! variants: {dynamics_h_tendency,dynamics_h_tendency_xyave}
-"contemp"  [Unused] (CMOR equivalent is "bigthetao")
+"temp"  [Used] (CMOR equivalent is "thetao")
     ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
-    ! long_name: Conservative Temperature
-    ! units: Celsius
+    ! long_name: Potential Temperature
+    ! units: degC
     ! cell_methods: xh:mean yh:mean zl:mean area:mean
-    ! variants: {contemp,contemp_xyave,bigthetao,bigthetao_xyave}
-"contemp_post_horzn"  [Unused]
+    ! variants: {temp,temp_xyave,thetao,thetao_xyave}
+"temp_post_horzn"  [Unused]
     ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
-    ! long_name: Conservative Temperature after horizontal transport (advection/diffusion) has occurred
-    ! units: Celsius
+    ! long_name: Potential Temperature after horizontal transport (advection/diffusion) has occurred
+    ! units: degC
     ! cell_methods: xh:mean yh:mean zl:mean area:mean
     ! variants: {contemp_post_horzn,contemp_post_horzn_xyave}
 "T_adx"  [Unused]
@@ -2709,8 +2561,8 @@
     ! cell_methods: xh:mean yh:mean area:mean
 "T_tendency"  [Unused]
     ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
-    ! long_name: Net time tendency for conservative temperature
-    ! units: Celsius s-1
+    ! long_name: Net time tendency for potential temperature
+    ! units: degC s-1
     ! cell_methods: xh:mean yh:mean zl:mean area:mean
     ! variants: {T_tendency,T_tendency_xyave}
 "T_dfxy_cont_tendency"  [Unused] (CMOR equivalent is "opottemppmdiff")
@@ -2762,8 +2614,8 @@
     ! variants: {Th_tendency_2d,opottemptend_2d}
 "T_tendency_vert_remap"  [Unused]
     ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
-    ! long_name: Vertical remapping tracer concentration tendency for contemp
-    ! units: Celsius s-1
+    ! long_name: Vertical remapping tracer concentration tendency for temp
+    ! units: degC s-1
     ! cell_methods: xh:mean yh:mean zl:mean area:mean
     ! variants: {T_tendency_vert_remap,T_tendency_vert_remap_xyave}
 "Th_tendency_vert_remap"  [Unused]
@@ -2779,22 +2631,22 @@
     ! cell_methods: xh:mean yh:mean area:mean
 "T_vardec"  [Unused]
     ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
-    ! long_name: ALE variance decay for conservative temperature
-    ! units: Celsius2 s-1
+    ! long_name: ALE variance decay for potential temperature
+    ! units: degC2 s-1
     ! cell_methods: xh:mean yh:mean zl:mean area:mean
     ! variants: {T_vardec,T_vardec_xyave}
-"abssalt"  [Unused] (CMOR equivalent is "absso")
+"salt"  [Used] (CMOR equivalent is "so")
     ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
-    ! long_name: Absolute Salinity
-    ! units: g kg-1
+    ! long_name: Salinity
+    ! units: psu
     ! cell_methods: xh:mean yh:mean zl:mean area:mean
-    ! variants: {abssalt,abssalt_xyave,absso,absso_xyave}
-"abssalt_post_horzn"  [Unused]
+    ! variants: {salt,salt_xyave,so,so_xyave}
+"salt_post_horzn"  [Unused]
     ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
-    ! long_name: Absolute Salinity after horizontal transport (advection/diffusion) has occurred
-    ! units: g kg-1
+    ! long_name: Salinity after horizontal transport (advection/diffusion) has occurred
+    ! units: psu
     ! cell_methods: xh:mean yh:mean zl:mean area:mean
-    ! variants: {abssalt_post_horzn,abssalt_post_horzn_xyave}
+    ! variants: {salt_post_horzn,salt_post_horzn_xyave}
 "S_adx"  [Unused]
     ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
     ! long_name: Advective (by residual mean) Zonal Flux of Salt
@@ -2874,8 +2726,8 @@
     ! cell_methods: xh:mean yh:mean area:mean
 "S_tendency"  [Unused]
     ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
-    ! long_name: Net time tendency for absolute salinity
-    ! units: g kg-1 s-1
+    ! long_name: Net time tendency for salinity
+    ! units: psu s-1
     ! cell_methods: xh:mean yh:mean zl:mean area:mean
     ! variants: {S_tendency,S_tendency_xyave}
 "S_dfxy_cont_tendency"  [Unused] (CMOR equivalent is "osaltpmdiff")
@@ -2927,8 +2779,8 @@
     ! variants: {Sh_tendency_2d,osalttend_2d}
 "S_tendency_vert_remap"  [Unused]
     ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
-    ! long_name: Vertical remapping tracer concentration tendency for abssalt
-    ! units: g kg-1 s-1
+    ! long_name: Vertical remapping tracer concentration tendency for salt
+    ! units: psu s-1
     ! cell_methods: xh:mean yh:mean zl:mean area:mean
     ! variants: {S_tendency_vert_remap,S_tendency_vert_remap_xyave}
 "Sh_tendency_vert_remap"  [Unused]
@@ -2944,8 +2796,8 @@
     ! cell_methods: xh:mean yh:mean area:mean
 "S_vardec"  [Unused]
     ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
-    ! long_name: ALE variance decay for absolute salinity
-    ! units: (g kg-1)2 s-1
+    ! long_name: ALE variance decay for salinity
+    ! units: psu2 s-1
     ! cell_methods: xh:mean yh:mean zl:mean area:mean
     ! variants: {S_vardec,S_vardec_xyave}
 "age"  [Used] (CMOR equivalent is "agessc")
@@ -3214,14 +3066,14 @@
     ! standard_name: water_evaporation_flux
     ! cell_methods: xh:mean yh:mean area:mean
     ! variants: {evap,evs}
-"seaice_melt"  [Unused] (CMOR equivalent is "fsitherm")
+"seaice_melt"  [Used] (CMOR equivalent is "fsitherm")
     ! modules: {ocean_model,ocean_model_d2}
     ! long_name: water flux to ocean from snow/sea ice melting(> 0) or formation(< 0)
     ! units: kg m-2 s-1
     ! standard_name: water_flux_into_sea_water_due_to_sea_ice_thermodynamics
     ! cell_methods: xh:mean yh:mean area:mean
     ! variants: {seaice_melt,fsitherm}
-"precip"  [Unused]
+"precip"  [Used]
     ! modules: {ocean_model,ocean_model_d2}
     ! long_name: Liquid + frozen precipitation into ocean
     ! units: kg m-2 s-1
@@ -3252,7 +3104,7 @@
     ! standard_name: water_flux_into_sea_water_from_icebergs
     ! cell_methods: xh:mean yh:mean area:mean
     ! variants: {frunoff,ficeberg}
-"lrunoff"  [Unused] (CMOR equivalent is "friver")
+"lrunoff"  [Used] (CMOR equivalent is "friver")
     ! modules: {ocean_model,ocean_model_d2}
     ! long_name: Liquid runoff (rivers) into ocean
     ! units: kg m-2 s-1

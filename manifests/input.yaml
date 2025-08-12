@@ -1,6 +1,11 @@
 format: yamanifest
 version: 1.0
 ---
+work/INPUT/ACCESS-OM2_IC_bfilled_smoothedland.nc:
+  fullpath: /g/data/tm70/cy8964/mom6/input/input-8km/ACCESS-OM2_IC_bfilled_smoothedland.nc
+  hashes:
+    binhash: d487e7dbe854e6788a09162b9de6b173
+    md5: 91bc9681d5267ea5ac6e1e9aa4986be3
 work/INPUT/JRA55do-datm-ESMFmesh.nc:
   fullpath: /g/data/vk83/configurations/inputs/access-om3/share/meshes/share/2024.09.16/JRA55do-datm-ESMFmesh.nc
   hashes:
@@ -64,60 +69,65 @@ work/INPUT/RYF.uas.1990_1991.nc:
 work/INPUT/RYF.vas.1990_1991.nc:
   fullpath: /g/data/vk83/configurations/inputs/JRA-55/RYF/v1-6/data/RYF.vas.1990_1991.nc
   hashes:
-    binhash: f353a71a014062723ed2b56353932caf
-    md5: 30b92b1e409cff9a9900692aa961aba4
-work/INPUT/access-om3-25km-ESMFmesh.nc:
-  fullpath: /g/data/vk83/configurations/inputs/access-om3/share/meshes/global.25km/2025.05.15/access-om3-25km-ESMFmesh.nc
+    binhash: d15ca562e37e82fb2d31657701f0a560
+    md5: 88dc8c70338bbc8f5efc48ed0009a99f
+work/INPUT/access-om3-8km-ESMFmesh_Charrassin_nocavity_cropped.nc:
+  fullpath: /g/data/tm70/cy8964/mom6/input/input-8km/access-om3-8km-ESMFmesh_Charrassin_nocavity_cropped.nc
   hashes:
-    binhash: 00f100d18622f9a912f773c4729ff78e
-    md5: a98052c00d51f105615141ff2f961ad2
-work/INPUT/access-om3-25km-nomask-ESMFmesh.nc:
-  fullpath: /g/data/vk83/configurations/inputs/access-om3/share/meshes/global.25km/2025.05.15/access-om3-25km-nomask-ESMFmesh.nc
+    binhash: 39c203cbe25b86f2bb2d8adbbbaa58c2
+    md5: 3e36f72f89f9a61ae4a1ae5a7a1897a9
+work/INPUT/access-om3-8km-nomask-ESMFmesh_Charrassin_nocavity_cropped.nc:
+  fullpath: /g/data/tm70/cy8964/mom6/input/input-8km/access-om3-8km-nomask-ESMFmesh_Charrassin_nocavity_cropped.nc
   hashes:
-    binhash: 57a32c9a04755452994f76dc4695ced2
-    md5: d9dd454a184ba0c48409e433b635a795
-work/INPUT/access-om3-25km-rof-remap-weights.nc:
-  fullpath: /g/data/vk83/configurations/inputs/access-om3/cmeps/remap_weights/global.25km/2025.05.15/access-om3-25km-rof-remap-weights.nc
+    binhash: dd7a5c47e3ac0a6d6e5559bf2c3c3b93
+    md5: a49b9c9d816f746b1210005ea167fa3a
+work/INPUT/access-om3-8km-rof-remap-weights_Charrassin_nocavity_cropped.nc:
+  fullpath: /g/data/tm70/cy8964/mom6/input/input-8km/access-om3-8km-rof-remap-weights_Charrassin_nocavity_cropped.nc
   hashes:
-    binhash: c631fd5b78a41f321b6e66072eadb02a
-    md5: 41657fc054785cc0e1741dd3639c3c16
-work/INPUT/bottom_roughness.nc:
-  fullpath: /g/data/vk83/configurations/inputs/access-om3/mom/tidal_external_files/global.25km/2025.05.15/bottom_roughness.nc
+    binhash: 0748790e158eeefbbb4c9d7ea403ff4e
+    md5: 978cc319f1c193f10afa9fdae167138b
+work/INPUT/bottom_roughness_Charrassin_nocavity_cropped.nc:
+  fullpath: /g/data/tm70/cy8964/mom6/input/input-8km/bottom_roughness_Charrassin_nocavity_cropped.nc
   hashes:
-    binhash: 2cea3acdc0c370f4ea0115fb79db35cb
-    md5: 061dec8e4022c0dadccd10db8d31c567
-work/INPUT/kmt.nc:
-  fullpath: /g/data/vk83/configurations/inputs/access-om3/cice/grids/global.25km/2025.05.15/kmt.nc
+    binhash: 18869b06d2df6b53b1b2a8a81923e1b2
+    md5: c172360d26674ade54b621f0c23055e9
+work/INPUT/diag_rho2.nc:
+  fullpath: /g/data/tm70/cy8964/mom6/input/input-8km/diag_rho2.nc
   hashes:
-    binhash: ab134606e29b174d908c323a5126b433
-    md5: 44eb366d5aec8f55b938a74c8df83e14
-work/INPUT/ocean_hgrid.nc:
-  fullpath: /g/data/vk83/configurations/inputs/access-om3/mom/grids/mosaic/global.25km/2025.05.15/ocean_hgrid.nc
+    binhash: 36ef1761b629df34ea5443850b2f18b4
+    md5: b8abcb148bb3ef71282d6be4531e491e
+work/INPUT/forcing_access_yr2_8km_fill.nc:
+  fullpath: /g/data/tm70/cy8964/mom6/input/input-8km/forcing_access_yr2_8km_fill.nc
   hashes:
-    binhash: bd6c76132d900736b2a15cf990078d17
-    md5: e37b7499e33443c504c2873961ef3f8c
-work/INPUT/ocean_temp_salt.res.nc:
-  fullpath: /g/data/vk83/configurations/inputs/access-om3/mom/initial_conditions/global.25km/2025.06.17/ocean_temp_salt.res.nc
+    binhash: cbe51b657fea198936a335c8fb9568e0
+    md5: 99224c9adef929cfa13ff81e055ea69c
+work/INPUT/kmt_Charrassin_nocavity_cropped.nc:
+  fullpath: /g/data/tm70/cy8964/mom6/input/input-8km/kmt_Charrassin_nocavity_cropped.nc
   hashes:
-    binhash: 947a34e3214b0e0e1d374d6573d64fed
-    md5: 511ff8e161cacbb723e8df467414ab6c
-work/INPUT/ocean_vgrid.nc:
-  fullpath: /g/data/vk83/configurations/inputs/access-om3/mom/grids/vertical/global.25km/2025.03.12/ocean_vgrid.nc
+    binhash: 1dc131d2544843113023f7118ef9a7a8
+    md5: 7ec3d82ea07c77021acf3f1faded52e8
+work/INPUT/ocean_hgrid_cropped.nc:
+  fullpath: /g/data/tm70/cy8964/mom6/input/input-8km/ocean_hgrid_cropped.nc
   hashes:
-    binhash: cbc588e29d819ce8898d77760a65e20d
+    binhash: d33f874bec8aea015ae9de1c08f12f8f
+    md5: a1876832e039ca9bf761b8c16a08449e
+work/INPUT/ocean_vgrid_cropped.nc:
+  fullpath: /g/data/tm70/cy8964/mom6/input/input-8km/ocean_vgrid_cropped.nc
+  hashes:
+    binhash: d319d71d04eaa91e9fab04dec49893f8
     md5: 66f71f2b24bd00b1c220787505e0106e
-work/INPUT/salt_sfc_restore.nc:
-  fullpath: /g/data/vk83/configurations/inputs/access-om3/mom/surface_salt_restoring/global.25km/2025.06.17/salt_sfc_restore.nc
+work/INPUT/salt_restore_interpolated_nearest.nc:
+  fullpath: /g/data/tm70/cy8964/mom6/input/input-8km/salt_restore_interpolated_nearest.nc
   hashes:
-    binhash: 093a204af1c771eee3078f49f3d1c1dc
-    md5: 7321048de4769db405b3949c038a2bc4
-work/INPUT/tideamp.nc:
-  fullpath: /g/data/vk83/configurations/inputs/access-om3/mom/tidal_external_files/global.25km/2025.05.15/tideamp.nc
+    binhash: d73604715b2dc98e71f9b9146d4719b7
+    md5: 62bcbd4638b849e1fada4f4e08dc228c
+work/INPUT/tideamp_Charrassin_nocavity_cropped.nc:
+  fullpath: /g/data/tm70/cy8964/mom6/input/input-8km/tideamp_Charrassin_nocavity_cropped.nc
   hashes:
-    binhash: 8c97c3eb8e655c900e34658d289a2b31
-    md5: dc4b570589028ce3d09d55d64a7153f5
-work/INPUT/topog.nc:
-  fullpath: /g/data/vk83/configurations/inputs/access-om3/share/grids/global.25km/2025.05.15/topog.nc
+    binhash: 30f2762faf5cb24f94afccc584c5ec09
+    md5: e714813b1e4bd46dff7936cd86b15366
+work/INPUT/topog_Charrassin_nocavity_cropped.nc:
+  fullpath: /g/data/tm70/cy8964/mom6/input/input-8km/topog_Charrassin_nocavity_cropped.nc
   hashes:
-    binhash: f0b530f0e5531c708035a31f908164b2
-    md5: d51a26354790eab768b648d88ccfb464
+    binhash: be6babbe0153baea152d0ad26d35e57f
+    md5: 48bd279b3301e9f41f4aa38030f9ee68
