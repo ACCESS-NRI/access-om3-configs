@@ -7,27 +7,29 @@
   hist_suffix = ".1day.mean", ".1mon.mean", "x", "x", "x"
   hist_time_axis = "middle"
   history_deflate = 1
-  history_chunksize = 720, 540
+  history_chunksize = 720, 186
   history_precision = 8
   restart_deflate = 1
-  ice_ic = 'default' 
+  restart_ext = .true.
+  ice_ic = 'none' 
   lcdf64 = .false.
   npt = 35040
   pointer_file = './rpointer.ice'
   print_global = .false.
+  ndtd = 3
 /
 &grid_nml
-  bathymetry_file = "./INPUT/topog.nc"
+  bathymetry_file = "./INPUT/topog_Charrassin_nocavity_cropped.nc"
   grid_atm = "A"
-  grid_file = "./INPUT/ocean_hgrid.nc"
+  grid_file = "./INPUT/ocean_hgrid_cropped.nc"
   grid_format = "mom_nc"
   grid_ice = "B"
   grid_ocn = "A"
-  grid_type = "tripole"
-  kcatbound = 0
-  kmt_file = "./INPUT/kmt.nc"
+  grid_type = "regional"
+  kcatbound = 2
+  kmt_file = "./INPUT/kmt_Charrassin_nocavity_cropped.nc"
   nblyr = 1
-  ncat = 5
+  ncat = 7
   nfsd = 1
   nilyr = 4
   nslyr = 1
@@ -69,15 +71,15 @@
 &domain_nml
   block_size_x = 60
   block_size_y = 54
-  distribution_type = "roundrobin"
+  distribution_type = "sectrobin"
   distribution_wght = "latitude"
   maskhalo_bound = .true.
   maskhalo_dyn = .true.
   maskhalo_remap = .true.
   max_blocks = -1
-  ns_boundary_type = "tripole"
-  nx_global = 1440
-  ny_global = 1142
+  ns_boundary_type = "open"
+  nx_global = 4320
+  ny_global = 1442
   processor_shape = "square-ice"
 /
 &ice_prescribed_nml
