@@ -112,14 +112,14 @@ identifiers:
 repository-code: 'https://github.com/accESS-NRI/access-om3-configs'
 url: 'https://access-om3-configs.access-hive.org.au/'
 repository-artifact: >-
-  https://github.com/ACCESS-NRI/access-om3-configs/archive/refs/tags/release-MC_25km_jra55_ryf_1.0-beta.tar.gz
+  https://github.com/ACCESS-NRI/access-om3-configs/archive/refs/tags/release-MC_25km_jra55_iaf_1.0-beta.tar.gz
 abstract: >-
   This is an initial beta prerelease of a model
   configuration of ACCESS-OM3. This uses a release of the
   ACCESS-OM3 software (version 2025.05.001), a global grid
   with 25km nominal resolution, bathymetry generated from
   GEBCO 2024 and initial conditions generated from WOA2023.
-  A 1990-91 Repeat Year Forcing (RYF) extracted from the 
+  Interannual Forcing (IAF) from the 
   JRA55-do v1.6 reanalysis is used as input data.
 
 
@@ -131,7 +131,7 @@ abstract: >-
   National Unified Operational Prediction Capability),
   infrastructure to connect these model components.
 license: CC-BY-4.0
-version: release-MC_25km_jra_ryf-1.0-beta
+version: release-MC_25km_jra_iaf-1.0-beta
 date-released: "2025-07-24"
 keywords:
   - access-om3
