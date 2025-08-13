@@ -22,7 +22,7 @@ See the navigation links on the left. Some reading tips, see:
 
 ## ACCESS-OM3-Configs Overview
 ACCESS-OM3 configurations are provided via branches in [github.com/ACCESS-NRI/access-om3-configs](https://github.com/ACCESS-NRI/access-om3-configs). [access-om3-configs](https://github.com/ACCESS-NRI/access-om3-configs) repository contains several [ACCESS-OM3](https://github.com/ACCESS-NRI/access-om3) configurations using the
-following components:
+uses the following components:
 
 - [MOM6](https://mom6.readthedocs.io/) ocean model
 - [CICE](https://cice-consortium-cice.readthedocs.io/en/) sea ice model
