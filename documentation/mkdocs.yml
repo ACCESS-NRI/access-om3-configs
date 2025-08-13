@@ -163,3 +163,6 @@ extra_javascript:
 watch:
   - mkdocs.yml
   - overrides/
+
+hooks:
+  - hooks/hide_pages_url_segment.py
