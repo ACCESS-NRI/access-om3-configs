@@ -5,7 +5,7 @@ description: |-
     25km ACCESS-OM3 global configuration under the RYF9091 Repeat
     Year Forcing strategy outlined by Stewart et al (2020), 
     https://doi.org/10.1016/j.ocemod.2019.101557.
-    Initial conditions are WOA23 potential temperature and practical salinity.
+    Initial conditions are WOA23 conservative temperature and practical salinity.
     Run with JRA55-do v1.6.0 RYF9091 (1 May 1990 - 30 April 1991) repeated forcing.
     Spin up starts from a nominal year of 1 Jan 1900.
 notes: |-
