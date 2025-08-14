@@ -10,7 +10,14 @@ When a configuration is supported by ACCESS-NRI then it is kept up to date with 
 Including regional configurations will require ongoing upkeep and we cannot support all configurations. Supported Regional MOM6 configurations will need to minimise the upkeep overhead whist meeting a community need. The following criteria will be considered when deciding which configurations to support. There can be some flexibility in these criteria for the right configuration so if your configuration doesn't fit all criteria then we encourage you to discuss this with us. Conversely, we may need decline configurations that fit the criteria if we are already managing many configurations. We encourage starting a conversation with us early in the development of the configuration so we can plan and assist in meeting the criteria. 
 
 #### Minimising overheads
-The configuration files will need to closely match an existing ACCESS-OM3 or ACCESS-rOM3 configuration to minimise maintanance costs. In particular, the configuration needs to be running on the NUOPC coupler, on Gadi and be able to interface with `payu`. Except for the MOM_input, MOM_override and config.yaml files, the expectation is that files will only differ from an existing configuration by one or two lines. The MOM_input can be very different in regional configurations due to the need to specify different parameter choices but the layout and order of these specifications should match layout and order of the ACCESS-OM3 configurations. The MOM_override file can be used to add further configuration options such boundary condition specifications. The config.yaml file will differ due to the need to specify different input files and executables but the layout of this file should closely match an ACCESS-OM3 configuration, including pointing to an ACCESS-NRI managed executable.    
+The configuration files will need to closely match an existing ACCESS-OM3 or ACCESS-rOM3 configuration to minimise maintanance burden. In particular, the configuration needs to be:
+
+ - 1. running on the NUOPC coupler, 
+ - 1. on Gadi 
+ - 1. runs using `payu`. 
+ - 1. Except for the `MOM_input`, `MOM_override` and `config.yaml` files, the expectation is that files will only differ from an existing configuration by one or two lines. 
+ 
+The `MOM_input` can be very different in regional configurations due to the need to specify different parameter choices but the layout and order of these specifications should match layout and order of the ACCESS-OM3 configurations. The `MOM_override` file can be used to add further configuration options such boundary condition specifications. The `config.yaml` file will differ due to the need to specify different input files and executables but the layout of this file should closely match an ACCESS-OM3 configuration, including pointing to an ACCESS-NRI managed executable.    
 
 #### Community interest
 The configuration needs to be useful for a broad section of the Australian research community and for a long period of time (min 3 years). Evidence of this could include:
