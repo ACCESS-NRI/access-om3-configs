@@ -46,7 +46,7 @@ Use this checklist whilst developiong your configuration to make sure you includ
 
 1. Create documentation of the configuration (see [here](https://access-om3-configs.access-hive.org.au/configurations/dev-MC_25km_jra_ryf/) for an example.
 2. The configuration is running on the NUOPC coupler.
-3. The configuration is running stably on an ACCESS-NRI supported MOM6 executable.
+3. The configuration is running stably on an ACCESS-NRI supported ACCESS-OM3 executable.
 4. The configuration closely matches the most up-to-date branch of an existing ACCESS-OM3 or ACCESS-rOM3 supported configuration.
 5. There isn't a similar ACCESS-OM3 or ACCESS-rOM3 supported configuration that superceeds the configuration.
 6. Input netcdf files will need to be shared and include metadata that inform of date and commands used to create the file.
