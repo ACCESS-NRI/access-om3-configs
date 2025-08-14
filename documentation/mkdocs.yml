@@ -110,7 +110,7 @@ markdown_extensions:
 nav:
   - Home:                  index.md
   - Contributing:          
-  - Contributing overview:           pages/contributing/index.md   
+        - Contributing overview:     pages/contributing/index.md   
         - Edit Config Documentation: pages/contributing/Edit-Config-Docs.md
         - Add Supported Config:      pages/contributing/Add-Supported-Config.md      
   - Inputs:
