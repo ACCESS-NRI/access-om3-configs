@@ -4,14 +4,16 @@
 
 Welcome to the documentation for the [ACCESS-OM3 ocean-seaice model configurations](https://github.com/ACCESS-NRI/access-om3-configs)! 
 
-## OM3 quickstart 
+ACCESS-OM3 is the third generation of the ACCESS global ocean - sea ice model. It uses up-to-date releases of the [MOM6](https://github.com/ACCESS-NRI/MOM6/tree/2025.02.001) ocean model and [CICE6](https://github.com/ACCESS-NRI/CICE/tree/CICE6.6.0-3) sea ice model. It is the first ACCESS model that couples model components using CMEPS ([Community Mediator for Earth Prediction Systems](https://escomp.github.io/CMEPS/versions/master/html/index.html)), built on top of NUOPC ([National Unified Operational Prediction Capability](https://earthsystemmodeling.org/nuopc/)) infrastructure.
+
+## ACCESS-OM3 Quickstart 
 If you would like to simply run the model, see the [How to Run ACCESS OM3 documentation](https://docs.access-hive.org.au/models/run-a-model/run-access-om3/). 
 
 <div class="text-card-group" markdown>
 [![Hive](assets/ACCESS_icon_HIVE.png){: class="icon-before-text"} Run ACCESS-OM3]({{run_access_om3}}){: class="text-card" target="_blank" rel="noopener"}
 </div>
 
-## Doc overview
+## ACCESS-OM3 Documentation Overview
 
 See the navigation links on the left. Some reading tips, see:
 
@@ -21,8 +23,8 @@ See the navigation links on the left. Some reading tips, see:
  - `Infrastructure` is likely of more interest to ACCESS-NRI staff and developers. Having said this, some users, might find pages such as `Architecture` useful background.
 
 ## ACCESS-OM3-Configs Overview
-ACCESS-OM3 configurations are provided via branches in [github.com/ACCESS-NRI/access-om3-configs](https://github.com/ACCESS-NRI/access-om3-configs). [access-om3-configs](https://github.com/ACCESS-NRI/access-om3-configs) repository contains several [ACCESS-OM3](https://github.com/ACCESS-NRI/access-om3) configurations using the
-uses the following components:
+ACCESS-OM3 configurations are provided via branches in the [access-om3-configs](https://github.com/ACCESS-NRI/access-om3-configs)  git repository. [access-om3-configs](https://github.com/ACCESS-NRI/access-om3-configs) repository contains several configurations using the
+the following components:
 
 - [MOM6](https://mom6.readthedocs.io/) ocean model
 - [CICE](https://cice-consortium-cice.readthedocs.io/en/) sea ice model
@@ -34,8 +36,7 @@ All the configurations use the [Payu](https://payu.readthedocs.io/en/latest/) wo
 
 ### Repository structure
 
-!!! warning
-    the [`main`](https://github.com/ACCESS-NRI/access-om3-configs/tree/main) branch does not store any configuration, only some documentation. If you are looking to fork this repo, we suggest you fork _all_ branches.
+The [`main`](https://github.com/ACCESS-NRI/access-om3-configs/tree/main) branch does not store any model configurations, only documentation.
 
 Each configuration in [github.com/ACCESS-NRI/access-om3-configs](https://github.com/ACCESS-NRI/access-om3-configs) repository is stored as a git branch. Most of the branches are named
 according to the following naming scheme:
