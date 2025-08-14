@@ -63,7 +63,7 @@ plugins:
       preview_website:
         pattern: ""
         ref_type: branch
-      stubs_parent_url: pages/configurations
+      stubs_parent_url: configurations
       stubs_nav_path: Configurations
       stubs_dir: documentation/stub
 
@@ -117,8 +117,7 @@ nav:
         - Initial condition generation: pages/inputs/Initial-conditions-generation.md
         - WW3 workflow and input files: pages/inputs/WW3_setup_and_workflow.md
 
-  - Configurations:
-        - Overview: pages/configuration_choices/configurations/Overview.md
+  - Configurations:              pages/configuration_choices/configurations/Overview.md
         # At build time other configurations are added here by the mkdocs-include-configurations plugin
         - WW3 config: pages/configuration_choices/MOM6-CICE6-WW3-quickstart.md
         - WW3 parameter choices: pages/configuration_choices/ww3_parameter_choices.md 
