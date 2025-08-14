@@ -32,7 +32,7 @@ The configuration needs to be useful for a broad section of the Australian resea
 There needs to be enough documentation provided such that a user can run the configuration and have confidence that they know exactly what they are running. We have a checklist below of the information and steps needed to be available for a configuration to be supported.
 
 ### Support length
-There is a need to retire configurations when they become less utilised to create capacity for ACCESS-NRI to take on new configurations. 
+There is a need to have a timeline for when supported configurations will move to having reduced support. This allows  new science to be addressed by newer configurations by creating capacity for ACCESS-NRI to take on new configurations. 
 We will provide support initially for at least a 3 year period and potentially longer if there is an obvious ongoing need (e.g. it is supported by a grant that is >3 years). After this, the case for ongoing support with be revisited annually (unless a case is made for a longer revision period). Once a configuration is retired, it will still be available for use by the communnity but updates will not occur. Community members are welcome to take over the management of these configurations. 
 
 ### Initial development of configuration
