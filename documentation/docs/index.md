@@ -58,8 +58,8 @@ and the nominal resolution is given in kilometers, corresponding to the nominal 
 
 For regional configurations, a short word describing the location of the domain is included after the nominal resolution. For example:
 
-- `5kmtas`:    5km resolution around Tasmainia
-- `4kmsuperoz` 4km resolution around Australia
+- `tas5km`:    5km resolution around Tasmainia
+- `superoz4km` 4km resolution around Australia
    
 Additional configuration information, like if the configuration includes biogeochemistry, is appended to the name as a modifier, e.g.
 
