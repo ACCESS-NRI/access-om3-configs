@@ -35,13 +35,14 @@ Configurations are not expected to initially meet the requirements for an ACCESS
 To apply to have a configuration as a supported configuration, [raise an issue on ACCESS-OM3 configs](https://github.com/ACCESS-NRI/access-om3-configs/issues/new/choose) (pick "blank template") and describe your configuration and how it meets (or will meet) the criteria.
 If your configuration does not meet the criteria for an access-supported model then it is still possible to share the model configurations, with a community member taking responsibility for maintaining the repository. Space for configuration files can be provided upon request on the [ACCESS-NRI community repository](https://github.com/ACCESS-Community-Hub). These configuration can still use ACCESS-NRI supported executable and `payu`.
 #### Checklist for developing a supported configurations
-Use this checklist whilst developiong your configuration to make sure include relevant information needed and are following the ACCESS-OM3 conventions. 
-1. Create documentation of the configuration
-2. The configuration is running on the NUOPC coupler
-3. The configuration is running stably on an ACCESS-NRI supported MOM6 executable
-4. The configuration closely matches an existing ACCESS-OM3 supported configuration
-5. There isn't a similar supported configuration that superceeds the configuration 
+Use this checklist whilst developiong your configuration to make sure you include relevant information needed and are following the ACCESS-OM3 conventions. 
+
+1. Create documentation of the configuration.
+2. The configuration is running on the NUOPC coupler.
+3. The configuration is running stably on an ACCESS-NRI supported MOM6 executable.
+4. The configuration closely matches an existing ACCESS-OM3 supported configuration.
+5. There isn't a similar supported configuration that superceeds the configuration.
 6. Input netcdf files will need to be shared and include metadata that inform of date and commands used to create the file.
 7. Scripts and notebooks used to create the input files need to be avaliable in a public GitHub repository.
-8. Your configuration is shared on GitHub on a branch located within a fork of access-om3 and has a shared git history with another access-om3 configuration
+8. Your configuration is shared on GitHub on a branch located within a fork of access-om3 and has a shared git history with another access-om3 configuration.
 9. The branch name will need to follow the access-om3-configs [naming convention](https://github.com/ACCESS-NRI/access-om3-configs?tab=readme-ov-file#repository-structure). For regional models this should start with `dev-rM` and when specifying the resolution also add a 3-5 letter description of the location. For example: 'dev-rM-task5km`. 
