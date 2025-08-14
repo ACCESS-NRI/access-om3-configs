@@ -110,8 +110,9 @@ markdown_extensions:
 nav:
   - Home:                  index.md
   - Contributing:          
-        - Get Involved:          pages/Contributing.md
-        - Add Supported Config:  pages/Add-Supported-Config.md      
+  - Contributing overview:           pages/contributing/index.md   
+        - Edit Config Documentation: pages/contributing/Edit-Config-Docs.md
+        - Add Supported Config:      pages/contributing/Add-Supported-Config.md      
   - Inputs:
         - Forcing data models:   pages/inputs/Forcing-data-models.md
         - Grids:                 pages/inputs/Grids.md
