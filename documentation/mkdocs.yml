@@ -63,7 +63,7 @@ plugins:
       preview_website:
         pattern: ""
         ref_type: branch
-      stubs_parent_url: configurations
+      stubs_parent_url: pages/configurations
       stubs_nav_path: Configurations
       stubs_dir: documentation/stub
 
