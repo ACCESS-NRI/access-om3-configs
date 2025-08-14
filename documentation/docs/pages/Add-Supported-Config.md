@@ -29,7 +29,7 @@ The configuration needs to be useful for a broad section of the Australian resea
    5. You are welcome to suggest other evidence of community interest.
 
 #### Other criteria
-There needs to be enough information provided so a user can run the configuration and have confidence that they know exactly what they are running. We have a checklist below of the information and steps needed to be available for a configuration to be supported.
+There needs to be enough documentation provided such that a user can run the configuration and have confidence that they know exactly what they are running. We have a checklist below of the information and steps needed to be available for a configuration to be supported.
 
 ### Support length
 There is a need to retire configurations when they become less utilised to create capacity for ACCESS-NRI to take on new configurations. 
