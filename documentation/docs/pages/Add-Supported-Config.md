@@ -44,7 +44,7 @@ If your configuration does not meet the criteria for an access-supported model t
 #### Checklist for developing a supported configurations
 Use this checklist whilst developiong your configuration to make sure you include relevant information needed and are following the ACCESS-OM3 conventions. 
 
-1. Create documentation of the configuration.
+1. Create documentation of the configuration (see [here](https://access-om3-configs.access-hive.org.au/configurations/dev-MC_25km_jra_ryf/) for an example.
 2. The configuration is running on the NUOPC coupler.
 3. The configuration is running stably on an ACCESS-NRI supported MOM6 executable.
 4. The configuration closely matches the most up-to-date branch of an existing ACCESS-OM3 or ACCESS-rOM3 supported configuration.
