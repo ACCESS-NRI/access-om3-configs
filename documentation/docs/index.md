@@ -23,8 +23,7 @@ See the navigation links on the left. Some reading tips, see:
  - `Infrastructure` is likely of more interest to ACCESS-NRI staff and developers. Having said this, some users, might find pages such as `Architecture` useful background.
 
 ## ACCESS-OM3-Configs Overview
-ACCESS-OM3 configurations are provided via branches in the [access-om3-configs](https://github.com/ACCESS-NRI/access-om3-configs)  git repository. [access-om3-configs](https://github.com/ACCESS-NRI/access-om3-configs) repository contains several configurations using the
-the following components:
+ACCESS-OM3 configurations are provided via branches in the [access-om3-configs](https://github.com/ACCESS-NRI/access-om3-configs) GitHub repository. The [access-om3-configs](https://github.com/ACCESS-NRI/access-om3-configs) repository contains several configurations using the following components:
 
 - [MOM6](https://mom6.readthedocs.io/) ocean model
 - [CICE](https://cice-consortium-cice.readthedocs.io/en/) sea ice model
