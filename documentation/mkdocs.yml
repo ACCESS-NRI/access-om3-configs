@@ -115,21 +115,20 @@ nav:
         - Grids:                 pages/inputs/Grids.md
         - Topography generation: pages/inputs/Topography-generation.md
         - Initial condition generation: pages/inputs/Initial-conditions-generation.md
-        - ww3 workflow and input files: pages/inputs/WW3_setup_and_workflow.md
+        - WW3 workflow and input files: pages/inputs/WW3_setup_and_workflow.md
 
-  - Configuration choices:
-        - Configurations:
-          - pages/configuration_choices/configurations/Overview.md
-          # At build time other configurations are added here by the mkdocs-include-configurations plugin
-        - ww3 config: pages/configuration_choices/MOM6-CICE6-WW3-quickstart.md
-        - ww3 parameter choices: pages/configuration_choices/ww3_parameter_choices.md 
+      - Configurations:
+        - pages/configuration_choices/configurations/Overview.md
+        # At build time other configurations are added here by the mkdocs-include-configurations plugin
+        - WW3 config: pages/configuration_choices/MOM6-CICE6-WW3-quickstart.md
+        - WW3 parameter choices: pages/configuration_choices/ww3_parameter_choices.md 
 
   - Infrastructure:
         - Architecture:          pages/infrastructure/Architecture.md
         - NUOPC driver:          pages/infrastructure/NUOPC-driver.md
-        - Building:              pages/infrastructure/Building.md
-        - Updating components:   pages/infrastructure/Updating-components.md
-        - Releases:              pages/infrastructure/Releases.md
+#        - Building:              pages/infrastructure/Building.md
+#        - Updating components:   pages/infrastructure/Updating-components.md
+#        - Releases:              pages/infrastructure/Releases.md
         - MOM6 generic tracers:  pages/infrastructure/MOM6-generic-tracers.md
         - Optimisation:          pages/infrastructure/Optimisation.md
         - Git practices:         pages/infrastructure/Git-practices.md
