@@ -80,7 +80,7 @@ Currently the following development configurations are available:
 - [`dev-MCW_100km_jra_iaf`](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MCW_100km_jra_iaf)
 
 !!! warning
-    These configurations are still under development and should **not** be used for production runs.
+    These `dev_*` configurations are still under development and should **not** be used for production runs.
 
 ### Comparison table
 The following links can be used to easily compare different configuration branches
