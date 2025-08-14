@@ -55,6 +55,18 @@ theme:
 copyright: Copyright &copy; 2025 ACCESS-NRI
 
 plugins:
+  - include-configuration-stubs:
+      repo: ACCESS-NRI/access-om3-configs
+      main_website:
+        pattern: "dev-* release-*"
+        ref_type: branch
+      preview_website:
+        pattern: ""
+        ref_type: branch
+      stubs_parent_url: pages/configurations
+      stubs_nav_path: Configurations
+      stubs_dir: documentation/stub
+
   - git-revision-date-localized:
       type: date
       enable_creation_date: false
@@ -63,6 +75,7 @@ plugins:
   - macros
   - bibtex:
       bib_file: references.bib
+      csl_file: https://raw.githubusercontent.com/citation-style-language/styles/26eccff9e537f71494a4da7b91afac1adf571dc9/apa.csl
   - events:
       events_dir: community_resources/events/events
 
@@ -96,28 +109,35 @@ markdown_extensions:
 # Navigation
 nav:
   - Home:                  index.md
-  - Architecture:          pages/Architecture.md
-  - NUOPC driver:          pages/NUOPC-driver.md
-  - Forcing data models:   pages/Forcing-data-models.md
+  - Contributing:          
+        - Get Involved:          pages/Contributing.md
+        - Add Supported Config:  pages/Add-Supported-Config.md      
+  - Inputs:
+        - Forcing data models:   pages/inputs/Forcing-data-models.md
+        - Grids:                 pages/inputs/Grids.md
+        - Topography generation: pages/inputs/Topography-generation.md
+        - Initial condition generation: pages/inputs/Initial-conditions-generation.md
+        - WW3 workflow and input files: pages/inputs/WW3_setup_and_workflow.md
+
   - Configurations:
-    - pages/configurations/Overview.md
-    # At build time other configurations are added here by the mkdocs-include-configurations plugin
-  - Grids:                 pages/Grids.md
-  - Topography generation: pages/Topography-generation.md
-  - Initial condition generation: pages/Initial-conditions-generation.md
-  - Parameter choices: pages/Parameter-choices.md
-  - MOM6 generic tracers:  pages/MOM6-generic-tracers.md
-  - WW3:
-        - config: pages/MOM6-CICE6-WW3-quickstart.md
-        - workflow: pages/WW3_setup_and_workflow.md
-        - parameter choices: pages/ww3_parameter_choices.md 
-  - Git practices:         pages/Git-practices.md
+        - Overview: pages/configuration_choices/configurations/Overview.md
+        # At build time other configurations are added here by the mkdocs-include-configurations plugin
+        - WW3 config: pages/configuration_choices/MOM6-CICE6-WW3-quickstart.md
+        - WW3 parameter choices: pages/configuration_choices/ww3_parameter_choices.md 
+
+  - Infrastructure:
+        - Architecture:          pages/infrastructure/Architecture.md
+        - NUOPC driver:          pages/infrastructure/NUOPC-driver.md
+# Anton is fixing these up here: https://github.com/ACCESS-NRI/access-om3-configs/pull/702
+#        - Building:              pages/infrastructure/Building.md
+#        - Updating components:   pages/infrastructure/Updating-components.md
+#        - Releases:              pages/infrastructure/Releases.md
+        - MOM6 generic tracers:  pages/infrastructure/MOM6-generic-tracers.md
+        - Optimisation:          pages/infrastructure/Optimisation.md
+        - Git practices:         pages/infrastructure/Git-practices.md
+  #placeholder for @minghangli-uni https://github.com/ACCESS-NRI/access-om3-configs/issues/691#issue-3291638235
+  #- Tips and Tricks:       pages/Tips-and-tricks.md
   - Online Resources:      pages/Online-resources.md
-  - Add Supported Config:             pages/Add-Supported-Config.md
-#  turned off for beta release, need to be updated later...
-#  - Building:              pages/Building.md
-#  - Updating components:   pages/Updating-components.md
-#  - Releases:              pages/Releases.md
 
 # Footer
 extra:
@@ -151,3 +171,6 @@ extra_javascript:
 watch:
   - mkdocs.yml
   - overrides/
+
+hooks:
+  - hooks/hide_pages_url_segment.py

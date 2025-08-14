@@ -2,40 +2,103 @@
 
 # Home
 
-Welcome to the documentation for the [ACCESS-OM3 ocean-seaice model configurations](https://github.com/ACCESS-NRI/access-om3-configs)!
+Welcome to the documentation for the [ACCESS-OM3 ocean-seaice model configurations](https://github.com/ACCESS-NRI/access-om3-configs)! 
 
-See the links on the left. If you would like to simply run the model, see the [How to Run ACCESS OM3 documentation](https://docs.access-hive.org.au/models/run-a-model/run-access-om3/). 
+ACCESS-OM3 is the third generation of the ACCESS global ocean - sea ice model. It uses up-to-date releases of the [MOM6](https://github.com/ACCESS-NRI) ocean model and [CICE6](https://github.com/ACCESS-NRI/CICE) sea ice model. It is the first ACCESS model that couples model components using CMEPS ([Community Mediator for Earth Prediction Systems](https://escomp.github.io/CMEPS/versions/master/html/index.html)), built on top of NUOPC ([National Unified Operational Prediction Capability](https://earthsystemmodeling.org/nuopc/)) infrastructure.
+
+## ACCESS-OM3 Quickstart 
+If you would like to simply run the model, see the [How to Run ACCESS OM3 documentation](https://docs.access-hive.org.au/models/run-a-model/run-access-om3/). 
 
 <div class="text-card-group" markdown>
 [![Hive](assets/ACCESS_icon_HIVE.png){: class="icon-before-text"} Run ACCESS-OM3]({{run_access_om3}}){: class="text-card" target="_blank" rel="noopener"}
 </div>
 
-## Contributions welcome 🙏
-This documentation is a work in progress, and we welcome any contributions, including corrections and suggestions.
+## ACCESS-OM3 Documentation Overview
 
-Contributions can be made in a few ways:
+See the navigation links on the left. Some reading tips, see:
 
-### Report a bug or make a suggestion
-Issues should be posted to [github.com/ACCESS-NRI/access-om3-configs/issues](https://github.com/ACCESS-NRI/access-om3-configs/issues). All contributions are welcome but we would particularly appreciate text suggestions (below).
+ - [Contributing](/pages/Contributing) if you'd like to get involved / provide feedback on ACCESS-OM3;
+ - [Inputs](/pages/inputs/) if you would like to understand how the input files are generated;
+ - [Configuration choices/Configurations](/pages/configuration_choices/configurations/) for information/background about specific configurations. The remaining sub-sections in `Configuration choices` provide background on key files and background on how ACCESS-OM3 configurations work/can be customised. **These parts are likely of most interest to users.**
+ - [Infrastructure](/pages/infrastructure) is likely of more interest to ACCESS-NRI staff and developers. Having said this, some users, might find pages such as `Architecture` useful background.
 
-### Quick contributions 
-!!! tip
-    For external people, this method does not allow one to preview the changes rendered into a website or create whole new pages. Its advantage is that it's *very quick* to do.<br>
+## ACCESS-OM3-Configs Overview
+ACCESS-OM3 configurations are provided via branches in the [access-om3-configs](https://github.com/ACCESS-NRI/access-om3-configs) GitHub repository. The [access-om3-configs](https://github.com/ACCESS-NRI/access-om3-configs) repository contains several configurations using the following components:
 
-The simplest and fastest way to make a change to an _existing_ page is to click the edit "pencil" on the top-right corner. This will go to the relevant GitHub markdown file and clicking the top-right pencil again on GitHub will allow you to edit the file. Once complete, click `Commit changes...`. There are then _two_ possibilities, depending on whether you have  write access to [`access-om3-configs`](https://github.com/ACCESS-NRI/access-om3-configs): 
+- [MOM6](https://mom6.readthedocs.io/) ocean model
+- [CICE](https://cice-consortium-cice.readthedocs.io/en/) sea ice model
+- [WW3](https://github.com/NOAA-EMC/WW3/wiki/About-WW3) wave model
+- [DATM](https://escomp.github.io/CDEPS/versions/master/html/datm.html) atmosphere data model
+- [DROF](https://escomp.github.io/CDEPS/versions/master/html/drof.html) runoff data model
 
-1.  **No write access** (e.g. you are not part of the `ACCESS-NRI` GitHub organisation): this will prompt you to make a fork and then a pull request (less than 1 minute!). 
-1.  **You have write access**: please commit changes on a new branch and then use a pull request (this relates to the next option). 
+All the configurations use the [Payu](https://payu.readthedocs.io/en/latest/) workflow management tool, and pre-built executables available on [NCI](https://nci.org.au/).
 
-### Larger contributions (online PR-previews)
-!!! tip
-    This method allows you create whole new pages, and to preview the changes rendered into a website. It does not require you to install any software, but is **only available for people with write access to [`access-om3-configs`](https://github.com/ACCESS-NRI/access-om3-configs)**.<br>
+### Repository structure
 
-Create a new branch, e.g. `jblogs/doc-update`, make doc changes (the documentation sources are in [github.com/ACCESS-NRI/access-om3-configs/tree/main/documentation](https://github.com/ACCESS-NRI/access-om3-configs/tree/main/documentation)), then open a related PR and a GitHub preview will be made automatically.
+The [`main`](https://github.com/ACCESS-NRI/access-om3-configs/tree/main) branch does not store any model configurations, only documentation.
 
-### Larger contributions (`mkdocs` offline)
-!!! tip
-    Similar to the above, this method allows you create whole new pages and to preview the changes rendered into a website. It works whether or not you have write access to [`access-om3-configs`](https://github.com/ACCESS-NRI/access-om3-configs), but requires you to install `mkdocs` and takes the longest to set up.<br>
+Each configuration in [github.com/ACCESS-NRI/access-om3-configs](https://github.com/ACCESS-NRI/access-om3-configs) repository is stored as a git branch. Most of the branches are named
+according to the following naming scheme:
 
-Following [these instructions](https://docs.access-hive.org.au/about/contribute/contribute_on_github/) but noting the documentation sources are in [github.com/ACCESS-NRI/access-om3-configs/tree/main/documentation](https://github.com/ACCESS-NRI/access-om3-configs/tree/main/documentation). You'll need to fork and clone [github.com/ACCESS-NRI/access-om3-configs](https://github.com/ACCESS-NRI/access-om3-configs) if you want to [write your own content](https://docs.access-hive.org.au/about/contribute/contribute_on_github/) (`mkdocs serve` should be invoked from within the `documentation` directory).
+`{dev|release}-{MODEL_COMPONENTS}_{nominal_resolution}km_{forcing_data}_{forcing_method}[+{modifier}]`
+
+where `{MODEL_COMPONENTS}` is an acronym specifying the active model components in the following order:
+
+- `M`: MOM6
+- `C`: CICE6
+- `W`: WW3
+
+and the nominal resolution is given in kilometers, corresponding to the nominal resolution in degrees as follows:
+
+- `100km`: 1°
+- `25km`: 0.25°
+- `10km`: 0.1°
+- `8km`: 1/12°
+
+Additional configuration information, like if the configuration includes biogeochemistry, is appended to the name as a modifier, e.g.
+
+- `+wombatlite` if the configuration uses WOMBATlite
+
+Currently the following released configurations are available:
+
+- [`release-MC_100km_jra_ryf`](https://github.com/ACCESS-NRI/access-om3-configs/tree/release-MC_25km_jra_ryf)
+
+Currently the following development configurations are available:
+
+**MOM6-CICE6-DATM-DROF configurations**
+
+- [`dev-MC_100km_jra_ryf`](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MC_100km_jra_ryf)
+- [`dev-MC_100km_jra_iaf`](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MC_100km_jra_iaf)
+- [`dev-MC_100km_jra_ryf+wombatlite`](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MC_100km_jra_ryf+wombatlite)
+- [`dev-MC_25km_jra_ryf`](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MC_25km_jra_ryf)
+- [`dev-MC_25km_jra_ryf+wombatlite`](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MC_25km_jra_ryf+wombatlite)
+
+**MOM6-CICE6-WW3-DATM-DROF configurations**
+
+- [`dev-MCW_100km_jra_ryf`](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MCW_100km_jra_ryf)
+- [`dev-MCW_100km_jra_iaf`](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MCW_100km_jra_iaf)
+
+!!! warning
+    These `dev_*` configurations are still under development and should **not** be used for production runs.
+
+### Comparison table
+The following links can be used to easily compare different configuration branches
+
+**MC → MC**
+
+- [`release-MC_25km_jra_ryf`⬅️`dev-MC_25km_jra_iaf`](https://github.com/ACCESS-NRI/access-om3-configs/compare/release-MC_25km_jra_ryf..dev-MC_25km_jra_ryf)
+- [`dev-MC_100km_jra_ryf`⬅️`dev-MC_100km_jra_iaf`](https://github.com/ACCESS-NRI/access-om3-configs/compare/dev-MC_100km_jra_ryf..dev-MC_100km_jra_iaf)
+- [`dev-MC_100km_jra_ryf`⬅️`dev-MC_100km_jra_ryf+wombatlite`](https://github.com/ACCESS-NRI/access-om3-configs/compare/dev-MC_100km_jra_ryf..dev-MC_100km_jra_ryf+wombatlite)
+- [`dev-MC_100km_jra_ryf`⬅️`dev-MC_25km_jra_ryf`](https://github.com/ACCESS-NRI/access-om3-configs/compare/dev-MC_100km_jra_ryf..dev-MC_25km_jra_ryf)
+- [`dev-MC_100km_jra_ryf+wombatlite`⬅️`dev-MC_25km_jra_ryf+wombatlite`](https://github.com/ACCESS-NRI/access-om3-configs/compare/dev-MC_100km_jra_ryf+wombatlite..dev-MC_25km_jra_ryf+wombatlite)
+- [`dev-MC_25km_jra_ryf`⬅️`dev-MC_25km_jra_ryf+wombatlite`](https://github.com/ACCESS-NRI/access-om3-configs/compare/dev-MC_25km_jra_ryf..dev-MC_25km_jra_ryf+wombatlite)
+
+**MCW → MCW**
+
+- [`dev-MCW_100km_jra_ryf`⬅️`dev-MCW_100km_jra_iaf`](https://github.com/ACCESS-NRI/access-om3-configs/compare/dev-MCW_100km_jra_ryf..dev-MCW_100km_jra_iaf)
+
+**MC → MCW**
+
+- [`dev-MC_100km_jra_ryf`⬅️`dev-MCW_100km_jra_ryf`](https://github.com/ACCESS-NRI/access-om3-configs/compare/dev-MC_100km_jra_ryf..dev-MCW_100km_jra_ryf)
+- [`dev-MC_100km_jra_iaf`⬅️`dev-MCW_100km_jra_iaf`](https://github.com/ACCESS-NRI/access-om3-configs/compare/dev-MC_100km_jra_iaf..dev-MCW_100km_jra_iaf)
 
