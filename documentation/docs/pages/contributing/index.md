@@ -16,12 +16,12 @@ Technical issues related to OM3 are best posted to [github.com/ACCESS-NRI/access
 
 ### ACCESS-OM3 configuration documentation
 
-We appreciate contributions, typo fixes and bugs in this documentation, to make suggestions please see TODO.
+We appreciate contributions, typo fixes and bugs in this documentation, to make suggestions please see [Edit Config Docs](Contributing/Edit-Config-Docs/) page.
 
 ### How to add a community supported ACCESS-OM3 configuration documentation
-We provide protocol and guidance on how apply to have your regional configuration supported by ACCESS-NRI. More details to be added soon (@helenmacdonald ; https://github.com/ACCESS-NRI/access-om3-configs/pull/574). TODO
+We provide protocol and guidance on how to have your regional configuration supported by ACCESS-NRI. For further details see the [Add Supported Config](Contributing/Add-Supported-Config/) page.
 
 ### Contribute to one of ACCESS-OM3's components
 
-There are several different ways to do this depending on the kind of contribution and the component. Best to get in touch on the [ACCESS-HIVE forum](https://forum.access-hive.org.au/c/cosima/29) or email `chris.bull@anu.edu.au`.
+There are several different ways to do this depending on the kind of contribution and the component. Best to get in touch on the [ACCESS-HIVE forum](https://forum.access-hive.org.au/c/cosima/29), ping @ACCESS-NRI/ocean on GitHub or email `chris.bull@anu.edu.au`.
 
