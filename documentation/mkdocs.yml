@@ -111,27 +111,27 @@ nav:
   - Home:                  index.md
   - Contributing:          pages/Contributing.md
   - Inputs:
-    - Forcing data models:   pages/inputs/Forcing-data-models.md
-    - Grids:                 pages/inputs/Grids.md
-    - Topography generation: pages/inputs/Topography-generation.md
-    - Initial condition generation: pages/inputs/Initial-conditions-generation.md
-    - WW3 workflow and input files: pages/inputs/WW3_setup_and_workflow.md
+        - Forcing data models:   pages/inputs/Forcing-data-models.md
+        - Grids:                 pages/inputs/Grids.md
+        - Topography generation: pages/inputs/Topography-generation.md
+        - Initial condition generation: pages/inputs/Initial-conditions-generation.md
+        - WW3 workflow and input files: pages/inputs/WW3_setup_and_workflow.md
 
   - Configurations:
-    - Overview: pages/configurations/Overview.md
-    # At build time other configurations are added here by the mkdocs-include-configurations plugin
-    - WW3 config: pages/configurations/MOM6-CICE6-WW3-quickstart.md
-    - WW3 parameter choices: pages/configurations/ww3_parameter_choices.md 
+        - Overview: pages/configurations/Overview.md
+        # At build time other configurations are added here by the mkdocs-include-configurations plugin
+        - WW3 config: pages/configurations/MOM6-CICE6-WW3-quickstart.md
+        - WW3 parameter choices: pages/configurations/WW3_parameter_choices.md
 
   - Infrastructure:
-    - Architecture:          pages/infrastructure/Architecture.md
-    - NUOPC driver:          pages/infrastructure/NUOPC-driver.md
+        - Architecture:          pages/infrastructure/Architecture.md
+        - NUOPC driver:          pages/infrastructure/NUOPC-driver.md
 #        - Building:              pages/infrastructure/Building.md
 #        - Updating components:   pages/infrastructure/Updating-components.md
 #        - Releases:              pages/infrastructure/Releases.md
-    - MOM6 generic tracers:  pages/infrastructure/MOM6-generic-tracers.md
-    - Optimisation:          pages/infrastructure/Optimisation.md
-    - Git practices:         pages/infrastructure/Git-practices.md
+        - MOM6 generic tracers:  pages/infrastructure/MOM6-generic-tracers.md
+        - Optimisation:          pages/infrastructure/Optimisation.md
+        - Git practices:         pages/infrastructure/Git-practices.md
   #placeholder for @minghangli-uni https://github.com/ACCESS-NRI/access-om3-configs/issues/691#issue-3291638235
   #- Tips and Tricks:       pages/Tips-and-tricks.md
   - Online Resources:      pages/Online-resources.md
