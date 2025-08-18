@@ -118,7 +118,7 @@ nav:
     - WW3 workflow and input files: pages/inputs/WW3_setup_and_workflow.md
 
   - Configurations:
-    - Configurations overview: pages/configurations/index.md
+    - Overview: pages/configurations/Overview.md
     # At build time other configurations are added here by the mkdocs-include-configurations plugin
     - WW3 config: pages/configurations/MOM6-CICE6-WW3-quickstart.md
     - WW3 parameter choices: pages/configurations/ww3_parameter_choices.md 
