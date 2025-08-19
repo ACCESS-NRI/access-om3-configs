@@ -19,32 +19,32 @@ modules:
         - /g/data/vk83/modules
     load:
         - access-om3/2025.05.001
+        - model-tools/mppnccombine-fast
 
 queue: normalsr
 ncpus: 1664
 jobfs: 10GB
-mem: 8000GB
+mem: 8500GB
 walltime: 6:00:00
 jobname: 025km_jra_iaf
 
 model: access-om3
 exe: access-om3-MOM6-CICE6
 input:
-    - /g/data/vk83/configurations/inputs/access-om3/cice/grids/global.25km/2025.05.15/kmt.nc
-    - /g/data/vk83/configurations/inputs/access-om3/mom/grids/mosaic/global.25km/2025.05.15/ocean_hgrid.nc
-    - /g/data/vk83/configurations/inputs/access-om3/mom/grids/vertical/global.25km/2025.03.12/ocean_vgrid.nc
-    - /g/data/vk83/configurations/inputs/access-om3/mom/initial_conditions/global.25km/2025.06.17/ocean_temp_salt.res.nc
-    - /g/data/vk83/configurations/inputs/access-om3/mom/surface_salt_restoring/global.25km/2025.06.17/salt_sfc_restore.nc
-    - /g/data/vk83/configurations/inputs/access-om3/mom/tidal_external_files/global.25km/2025.05.15/bottom_roughness.nc
-    - /g/data/vk83/configurations/inputs/access-om3/mom/tidal_external_files/global.25km/2025.05.15/tideamp.nc
-    - /g/data/vk83/configurations/inputs/access-om3/share/grids/global.25km/2025.05.15/topog.nc
-    - /g/data/vk83/configurations/inputs/access-om3/share/meshes/global.25km/2025.05.15/access-om3-25km-ESMFmesh.nc
-    - /g/data/vk83/configurations/inputs/access-om3/share/meshes/global.25km/2025.05.15/access-om3-25km-nomask-ESMFmesh.nc
+    - /g/data/vk83/prerelease/configurations/inputs/access-om3/cice/grids/global.25km/2025.08.29/kmt.nc
+    - /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/grids/mosaic/global.25km/2025.08.15/ocean_hgrid.nc
+    - /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/grids/vertical/global.25km/2025.03.12/ocean_vgrid.nc
+    - /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/initial_conditions/global.25km/2025.08.27/ocean_temp_salt.res.nc
+    - /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/surface_salt_restoring/global.25km/2025.08.27/salt_sfc_restore.nc
+    - /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/tidal_external_files/global.25km/2025.08.29/bottom_roughness.nc
+    - /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/tidal_external_files/global.25km/2025.08.29/tideamp.nc
+    - /g/data/vk83/prerelease/configurations/inputs/access-om3/share/grids/global.25km/2025.08.29/topog.nc
+    - /g/data/vk83/prerelease/configurations/inputs/access-om3/share/meshes/global.25km/2025.08.29/access-om3-25km-ESMFmesh.nc
+    - /g/data/vk83/prerelease/configurations/inputs/access-om3/share/meshes/global.25km/2025.08.29/access-om3-25km-nomask-ESMFmesh.nc
     - /g/data/vk83/configurations/inputs/access-om3/share/meshes/share/2024.09.16/JRA55do-datm-ESMFmesh.nc
     - /g/data/vk83/configurations/inputs/access-om3/share/meshes/share/2024.09.16/JRA55do-drof-ESMFmesh.nc
-    - /g/data/vk83/configurations/inputs/access-om3/cmeps/remap_weights/global.25km/2025.05.15/access-om3-25km-rof-remap-weights.nc
+    - /g/data/vk83/prerelease/configurations/inputs/access-om3/cmeps/remap_weights/global.25km/2025.08.29/access-om3-25km-rof-remap-weights.nc
     - /g/data/qv56/replicas/input4MIPs/CMIP6Plus/OMIP/MRI/MRI-JRA55-do-1-6-0/
-
 runlog: true
 metadata: 
     enable: true
@@ -63,7 +63,7 @@ collate:
   mem: 30GB
   ncpus: 4
   queue: expresssr
-  exe: /g/data/vk83/apps/mppnccombine-fast/0.2/bin/mppnccombine-fast
+  exe: mppnccombine-fast
 
 userscripts:
     archive: /usr/bin/bash /g/data/vk83/apps/om3-scripts/payu_config/archive.sh
