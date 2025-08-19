@@ -129,7 +129,7 @@ MED_attributes::
      atm2ocn_map = unset
      atm2wav_map = unset
      atm_nx = 1440
-     atm_ny = 1142
+     atm_ny = 1152
      budget_ann = 1
      budget_daily = 0
      budget_inst = 0
@@ -235,7 +235,7 @@ MED_attributes::
      ice2atm_map = unset
      ice2wav_smapname = unset
      ice_nx = 1440
-     ice_ny = 1142
+     ice_ny = 1152
      info_debug = 1
      lnd2atm_map = unset
      lnd2rof_map = unset
@@ -245,14 +245,14 @@ MED_attributes::
      ocn2atm_map = unset
      ocn2wav_smapname = unset
      ocn_nx = 1440
-     ocn_ny = 1142
+     ocn_ny = 1152
      ocn_surface_flux_scheme = 0
      rof2lnd_map = unset
      rof2ocn_fmapname = unset
      rof2ocn_ice_rmapname = ./INPUT/access-om3-25km-rof-remap-weights.nc
      rof2ocn_liq_rmapname = ./INPUT/access-om3-25km-rof-remap-weights.nc
      rof_nx = 1440
-     rof_ny = 1142
+     rof_ny = 1152
      wav2ocn_smapname = unset
      wav_nx = 0
      wav_ny = 0
