@@ -17,7 +17,7 @@ The configuration files will need to closely match an existing ACCESS-OM3 or ACC
  - runs using `payu`; 
  - Except for the `MOM_input`, `MOM_override` and `config.yaml` files, the expectation is that files will only differ from an existing configuration by one or two lines. 
  
-The `MOM_input` can be very different in  configurations due to the need to specify different parameter choices but the layout and order of these specifications should match layout and order of the ACCESS-OM3 configurations. The `MOM_override` file can be used to add further configuration options such boundary condition specifications. The `config.yaml` file will differ due to the need to specify different input files and executables but the layout of this file should closely match an ACCESS-OM3 configuration, including pointing to an ACCESS-NRI managed executable. This may sound challenging but the development team is here to help contributors understand and meet these criteria upon review.
+The `MOM_input` can be very different in  configurations due to the need to specify different parameter choices but the layout and order of these specifications should match layout and order of the ACCESS-OM3 configurations. The `config.yaml` file will differ due to the need to specify different input files and executables but the layout of this file should closely match an ACCESS-OM3 configuration, including pointing to an ACCESS-NRI managed executable. This may sound challenging but the development team is here to help contributors understand and meet these criteria upon review.
 
 #### Community interest
 The configuration needs to be useful for a large part of the Australian research community and for a long period of time (min 3 years). Evidence of this could include:
