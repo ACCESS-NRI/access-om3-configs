@@ -23,5 +23,5 @@ We provide protocol and guidance on how to have your configuration supported by 
 
 ### Contribute to one of ACCESS-OM3's components
 
-There are several different ways to do this depending on the kind of contribution and the component. Best to get in touch on the [ACCESS-HIVE forum](https://forum.access-hive.org.au/c/cosima/29), ping @ACCESS-NRI/ocean on GitHub or email `chris.bull@anu.edu.au`.
+There are several different ways to do this depending on the kind of contribution and the component. Best to get in touch on the [access hive forum](https://forum.access-hive.org.au/c/cosima/29), ping @ACCESS-NRI/ocean on GitHub or email `chris.bull@anu.edu.au`.
 
