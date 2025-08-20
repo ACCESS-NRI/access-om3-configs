@@ -1,6 +1,6 @@
 ## Getting involved in ACCESS-OM3
 
-There are several ways we welcome feedback and contributions on ACCESS-OM3 development. **Contributions from people of all career stages and backgrounds is highly encouraged.** All the models and configurations we develop are open source. Development is led by ACCESS-NRI and the [COSIMA working group](https://cosima.org.au/) where we follow an open development model building on the work of international modelling consortia.
+There are several ways we welcome feedback and contributions on ACCESS-OM3 development. **Contributions from people of all career stages and backgrounds are highly encouraged.** All the models and configurations we develop are open source. Development is led by ACCESS-NRI and the [COSIMA working group](https://cosima.org.au/) where we follow an open development model building on the work of international modelling consortia.
 
 ### Interact with developers in person
 
