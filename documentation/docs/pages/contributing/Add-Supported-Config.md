@@ -42,7 +42,7 @@ Configurations are not expected to initially meet the requirements for an ACCESS
 ### Applying for a supported configuration
 To apply to have a configuration as a supported configuration, [raise an issue on ACCESS-OM3 configs](https://github.com/ACCESS-NRI/access-om3-configs/issues/new/choose) (pick "blank template") and describe your configuration and how it meets (or will meet) the criteria.
 
-If your configuration does not meet the criteria for being an ACCESS-supported model, then it is still possible to share the model configuration. In this instance, a community member can take responsibility for maintaining the repository. Space for configuration files can be provided upon request on the [ACCESS-NRI community repository](https://github.com/ACCESS-Community-Hub). These kinds of configurations can still use ACCESS-NRI supported executable and `payu`.
+If your configuration does not meet the criteria for being an ACCESS-supported model, then it is still possible to share the model configuration. In this instance, a community member can take responsibility for maintaining the repository. Space for configuration files can be provided upon request on the [ACCESS-NRI community repository](https://github.com/ACCESS-Community-Hub). These kinds of configurations can still use ACCESS-NRI model releases and `payu`.
 
 #### Checklist for developing a supported configurations
 Use this checklist whilst developing your configuration to make sure you include relevant information needed and are following the ACCESS-OM3 conventions. 
