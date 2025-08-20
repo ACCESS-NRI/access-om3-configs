@@ -12,7 +12,7 @@ We also manage most of our development openly on GitHub and track ACCESS-OM3 wor
 
 ### Report a bug or make a suggestion
 
-Technical issues related to OM3 are best posted to [github.com/ACCESS-NRI/access-om3-configs/issues](https://github.com/ACCESS-NRI/access-om3-configs/issues). If you would like to discuss the issue first, feel free to post it on the [ACCESS-HIVE forum](https://forum.access-hive.org.au/c/cosima/29).
+Technical issues related to ACCESS-OM3 are best posted to [github.com/ACCESS-NRI/access-om3-configs/issues](https://github.com/ACCESS-NRI/access-om3-configs/issues). If you would like to discuss the issue first, feel free to post it on the [access hive forum](https://forum.access-hive.org.au/c/cosima/29).
 
 ### ACCESS-OM3 configuration documentation
 
