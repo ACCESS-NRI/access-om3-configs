@@ -16,7 +16,7 @@ Technical issues related to ACCESS-OM3 are best posted to [github.com/ACCESS-NRI
 
 ### ACCESS-OM3 configuration documentation
 
-We appreciate contributions, typo fixes and bugs in this documentation, to make suggestions please see [Edit Config Docs](Edit-Config-Docs/) page.
+We appreciate contributions, typo and bugs fixes to this documentation. To make suggestions please see [Edit Config Docs](Edit-Config-Docs/) page.
 
 ### How to add a community supported ACCESS-OM3 configuration documentation
 We provide protocol and guidance on how to have your regional configuration supported by ACCESS-NRI. For further details see the [Add Supported Config](Add-Supported-Config/) page.
