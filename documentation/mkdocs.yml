@@ -1,7 +1,6 @@
 # This file uses the following environment variables set within the build workflow:
 # - SITE_URL: the URL of the site (Falls back to the default URL)
 # For example, for PR-previews, SITE_URL is set to <default_URL>/pr-preview-NUM
- 
 site_name: ACCESS-OM3-configs
 
 # Site URL
