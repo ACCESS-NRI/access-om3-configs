@@ -15,7 +15,7 @@ The configuration files will need to closely match an existing ACCESS-OM3 or ACC
  - running on the NUOPC coupler; 
  - on Gadi;
  - runs using `payu`; 
- - Except for the `MOM_input`, `MOM_override` and `config.yaml` files, the expectation is that files will only differ from an existing configuration by one or two lines. 
+Files in the new configuration should match an existing configuration as closely as is feasible
  
 The `MOM_input` can be very different in  configurations due to the need to specify different parameter choices but the layout and order of these specifications should match layout and order of the ACCESS-OM3 configurations. The `config.yaml` file will differ due to the need to specify different input files and executables but the layout of this file should closely match an ACCESS-OM3 configuration, including pointing to an ACCESS-NRI managed executable. This may sound challenging but the development team is here to help contributors understand and meet these criteria upon review.
 
@@ -34,7 +34,7 @@ There needs to be enough documentation provided such that a user can run the con
 ### Support length
 There is a need to have a timeline for when supported configurations will move to having reduced support, reduced support may mean no updates. This allows new science to be addressed by newer configurations by creating capacity for ACCESS-NRI to take on new configurations. 
 
-We will provide support initially for at least a 1 year period and potentially longer if there is an obvious ongoing need (e.g. it is supported by a grant that is >3 years). After this, the case for ongoing support will be revisited annually (unless a case is made for a longer revision period). Once a configuration is retired, it will still be available for use by the community but updates will not occur. Community members are welcome to take over the management of these configurations. 
+We will discuss and determine the length of time we will support the configuration with you during the application process.
 
 ### Initial development of configuration
 Configurations are not expected to initially meet the requirements for an ACCESS-NRI supported configuration. To develop your configuration, you can fork `access-om3-configs` into your own repository. From there you can create a branch for your configuration and make the necessary changes to your configuration. You can then create a draft pull request back to the `ACCESS-NRI/access-om3-configs` repository. `ACCESS-NRI` staff members can assist with this process.
