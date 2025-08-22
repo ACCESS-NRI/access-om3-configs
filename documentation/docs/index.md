@@ -17,10 +17,10 @@ If you would like to simply run the model, see the [How to Run ACCESS OM3 docume
 
 See the navigation links on the left. Some reading tips, see:
 
- - [Contributing](/pages/Contributing) if you'd like to get involved / provide feedback on ACCESS-OM3;
- - [Inputs](/pages/inputs/) if you would like to understand how the input files are generated;
- - [Configuration choices/Configurations](/pages/configuration_choices/configurations/) for information/background about specific configurations. The remaining sub-sections in `Configuration choices` provide background on key files and background on how ACCESS-OM3 configurations work/can be customised. **These parts are likely of most interest to users.**
- - [Infrastructure](/pages/infrastructure) is likely of more interest to ACCESS-NRI staff and developers. Having said this, some users, might find pages such as `Architecture` useful background.
+ - [Contributing](/pages/contributing) if you'd like to get involved / provide feedback on ACCESS-OM3;
+ - [Inputs](/pages/inputs/Forcing-data-models) if you would like to understand how the input files are generated;
+ - [Configuration choices/Configurations](/pages/configurations/Overview/) for information/background about specific configurations. The remaining sub-sections in `Configuration choices` provide background on key files and background on how ACCESS-OM3 configurations work/can be customised. **These parts are likely of most interest to users.**
+ - [Infrastructure](/pages/infrastructure/Architecture/) is likely of more interest to ACCESS-NRI staff and developers. Having said this, some users, might find pages such as `Architecture` useful background.
 
 ## ACCESS-OM3-Configs Overview
 ACCESS-OM3 configurations are provided via branches in the [access-om3-configs](https://github.com/ACCESS-NRI/access-om3-configs) GitHub repository. The [access-om3-configs](https://github.com/ACCESS-NRI/access-om3-configs) repository contains several configurations using the following components:
