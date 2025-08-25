@@ -164,12 +164,6 @@
     ! units: nondim
     ! cell_methods: xh:mean yh:mean zl:mean area:mean
     ! variants: {sqg_struct,sqg_struct_xyave}
-"khth_struct"  [Unused]
-    ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
-    ! long_name: Vertical structure of thickness diffusivity
-    ! units: nondim
-    ! cell_methods: xh:mean yh:mean zl:mean area:mean
-    ! variants: {khth_struct,khth_struct_xyave}
 "Rd_dx"  [Unused]
     ! modules: {ocean_model,ocean_model_d2}
     ! long_name: Ratio between deformation radius and grid spacing
