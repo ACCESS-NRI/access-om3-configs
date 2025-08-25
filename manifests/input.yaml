@@ -4,8 +4,8 @@ version: 1.0
 work/INPUT/ACCESS-OM2_IC_bfilled_smoothedland.nc:
   fullpath: /g/data/tm70/cy8964/mom6/input/input-8km/ACCESS-OM2_IC_bfilled_smoothedland.nc
   hashes:
-    binhash: d487e7dbe854e6788a09162b9de6b173
-    md5: 91bc9681d5267ea5ac6e1e9aa4986be3
+    binhash: e02e993ddf76fc2f6711c47509fb7cdc
+    md5: 38cd91ac0a9c131b39a057351bec3116
 work/INPUT/JRA55do-datm-ESMFmesh.nc:
   fullpath: /g/data/vk83/configurations/inputs/access-om3/share/meshes/share/2024.09.16/JRA55do-datm-ESMFmesh.nc
   hashes:
@@ -81,6 +81,11 @@ work/INPUT/access-om3-8km-ESMFmesh_Charrassin_nocavity_cropped.nc:
   hashes:
     binhash: 992343c80fadb0aaa63526ae2ef5ba18
     md5: a4b138aca2c2fda0543527c939f5e770
+work/INPUT/access-om3-8km-ESMFmesh_Charrassin_opencavity_cropped.nc:
+  fullpath: /g/data/x77/cy8964/mom6/input/input-8km/iceshelfmask/access-om3-8km-ESMFmesh_Charrassin_opencavity_cropped.nc
+  hashes:
+    binhash: 6d7ff5d3d7fd5dbb78fb8d21edfc648d
+    md5: 06ca779d664e75830897b27b20bc46cd
 work/INPUT/access-om3-8km-nomask-ESMFmesh_Charrassin_nocavity_cropped.nc:
   fullpath: /g/data/x77/cy8964/mom6/input/input-8km/iceshelfmask/access-om3-8km-nomask-ESMFmesh_Charrassin_nocavity_cropped.nc
   hashes:
