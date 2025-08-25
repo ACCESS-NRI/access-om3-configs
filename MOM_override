@@ -4,7 +4,7 @@
 #override FATAL_UNUSED_PARAMS = False
 
 ! First we update numbers and files for higher res run
-#override TOPO_FILE = "topog_Charrassin_sea_ice_from_iceelev_no_edits_new190825.nc"
+#override TOPO_FILE = "topog_Charrassin_open_cavity_noGL5m_new190825.nc" ! "topog_Charrassin_sea_ice_from_iceelev_no_edits_new190825.nc"
 #override RESTORE_SALINITY = False !#override SALT_RESTORE_FILE = "salt_restore_interpolated_nearest.nc"
 
 #override DT = 150 !600
@@ -17,7 +17,7 @@
 #override TEMP_SALT_Z_INIT_FILE = "ACCESS-OM2_IC_bfilled_smoothedland.nc" ! default = "temp_salt_z.nc"
 #override DIAG_COORD_DEF_Z = "FILE:ocean_vgrid_cropped.nc,interfaces=zeta" ! default = "WOA09"
 #override TRIPOLAR_N = False
-#override AUTO_IO_LAYOUT_FAC = 1 ! Slows model down but it means coordinates are not NaNs
+!#override AUTO_IO_LAYOUT_FAC = 1 ! Slows model down but it means coordinates are not NaNs
 
 #override READ_TIDEAMP = False
 #override INT_TIDE_DISSIPATION = False
@@ -83,5 +83,3 @@ SPONGE = False
 #override ADJUST_NET_SRESTORE_TO_ZERO = False
 #override ADJUST_NET_FRESH_WATER_TO_ZERO = False
 !#override FLUXCONST = 0.1667 !consider a smaller number
-#override MASK_SRESTORE_UNDER_ICE = True
-

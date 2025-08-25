@@ -21,7 +21,7 @@ FATAL_UNUSED_PARAMS = True      !   [Boolean] default = False
 ! === module MOM_domains ===
 AUTO_MASKTABLE = True           !   [Boolean] default = False
                                 ! Turn on automatic mask table generation to eliminate land blocks.
-AUTO_IO_LAYOUT_FAC = 6          ! default = 0
+!AUTO_IO_LAYOUT_FAC = 6          ! default = 0
                                 ! When AUTO_MASKTABLE is enabled, io layout is calculated by performing integer
                                 ! division of the runtime-determined domain layout with this factor. If the
                                 ! factor is set to 0 (default), the io layout is set to 1,1.
