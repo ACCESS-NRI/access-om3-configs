@@ -4,11 +4,11 @@
 #override FATAL_UNUSED_PARAMS = False
 
 ! First we update numbers and files for higher res run
-#override TOPO_FILE = "topog_Charrassin_nocavity_cropped.nc"
-#override SALT_RESTORE_FILE = "salt_restore_interpolated_nearest.nc"
+#override TOPO_FILE = "topog_Charrassin_sea_ice_from_iceelev_no_edits_new190825.nc"
+#override RESTORE_SALINITY = False !#override SALT_RESTORE_FILE = "salt_restore_interpolated_nearest.nc"
 
-#override DT = 600
-#override DT_THERM = 1200 !ideally shorten from 3600 due to adele's OBC issue in MOM6-SIS2 panan
+#override DT = 150 !600
+#override DT_THERM = 300 ! 1200 !ideally shorten from 3600 due to adele's OBC issue in MOM6-SIS2 panan
 
 #override NIGLOBAL = 4320
 #override NJGLOBAL = 1442
@@ -17,8 +17,10 @@
 #override TEMP_SALT_Z_INIT_FILE = "ACCESS-OM2_IC_bfilled_smoothedland.nc" ! default = "temp_salt_z.nc"
 #override DIAG_COORD_DEF_Z = "FILE:ocean_vgrid_cropped.nc,interfaces=zeta" ! default = "WOA09"
 #override TRIPOLAR_N = False
-#override AUTO_IO_LAYOUT_FAC = 35 ! Slows model down but it means coordinates are not NaNs
+#override AUTO_IO_LAYOUT_FAC = 1 ! Slows model down but it means coordinates are not NaNs
 
+#override READ_TIDEAMP = False
+#override INT_TIDE_DISSIPATION = False
 #override H2_FILE = "bottom_roughness_Charrassin_nocavity_cropped.nc"
 #override TIDEAMP_FILE = "tideamp_Charrassin_nocavity_cropped.nc" 
 
