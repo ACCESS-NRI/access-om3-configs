@@ -8,7 +8,7 @@
 #override RESTORE_SALINITY = False !#override SALT_RESTORE_FILE = "salt_restore_interpolated_nearest.nc"
 
 #override DT = 150 !600
-#override DT_THERM = 300 ! 1200 !ideally shorten from 3600 due to adele's OBC issue in MOM6-SIS2 panan
+#override DT_THERM = 150 ! 1200 !ideally shorten from 3600 due to adele's OBC issue in MOM6-SIS2 panan
 
 #override NIGLOBAL = 4320
 #override NJGLOBAL = 1442
