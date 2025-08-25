@@ -36,7 +36,7 @@ SURFACE_PRESSURE_SCALE = 8986.6 !! Ensure this is DENSITY_ICE X G_EARTH
 #override LINEAR_DRAG = True
 
 #override DRAG_BG_VEL = 0.05
-#override DTBT_RESET_PERIOD = 0
+!#override DTBT_RESET_PERIOD = 0
 #override DTFREEZE_DP = -7.75E-08  
 #override WRITE_GEOM = 1
 #override Z_INIT_REMAP_GENERAL = True
