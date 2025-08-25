@@ -177,6 +177,7 @@ diag_table:
             uo: # u velocity
             vo: # v velocity
             KE: # Layer Kinetic energy per unit mass
+            e: # Interface height relative to mean sea level
 
     'monthly 3d fields on rho2':
         defaults:  # these can be overridden for individual fields below
@@ -237,6 +238,16 @@ diag_table:
             sos: # Sea Surface Salinity
             speed: # Sea Surface Speed
             lrunoff: # Runoff
+    'daily 2D ice shelf fields':
+        defaults:
+            file_name_dimension: 2d  # descriptor for filename, e.g. 3d, 2d, scalar
+            module_name: ice_shelf_model 
+            '':
+                - output_freq_units
+            output_freq_units: days  # time units for output: years, months, days, hours, minutes, or seconds
+            reduction_method: mean # mean, snap, rms, pow##, min, max, or diurnal##
+        fields:
+            melt_rate: # melt rate
 
     'daily scalar timeseries':
         defaults:  # these can be overridden for individual fields below

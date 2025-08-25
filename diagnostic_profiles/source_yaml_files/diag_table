@@ -64,6 +64,9 @@ ACCESS-OM3
 "access-om3.mom6.3d.KE.z.1mon.mean.%4yr", 1, "months", 1, "days", "time", 1, "years"
 "ocean_model_z", "KE", "KE", "access-om3.mom6.3d.KE.z.1mon.mean.%4yr", "all", "average", "none", 2
 
+"access-om3.mom6.3d.e.z.1mon.mean.%4yr", 1, "months", 1, "days", "time", 1, "years"
+"ocean_model_z", "e", "e", "access-om3.mom6.3d.e.z.1mon.mean.%4yr", "all", "average", "none", 2
+
 
 # monthly 3d fields on rho2
 
@@ -168,6 +171,12 @@ ACCESS-OM3
 
 "access-om3.mom6.2d.lrunoff.1day.mean.%4yr", 1, "days", 1, "days", "time", 1, "years"
 "ocean_model", "lrunoff", "lrunoff", "access-om3.mom6.2d.lrunoff.1day.mean.%4yr", "all", "average", "none", 2
+
+
+# daily 2D ice shelf fields
+
+"access-om3.mom6.2d.melt_rate.1day.mean.%4yr", 1, "days", 1, "days", "time", 1, "years"
+"ice_shelf_model", "melt_rate", "melt_rate", "access-om3.mom6.2d.melt_rate.1day.mean.%4yr", "all", "average", "none", 2
 
 
 # daily scalar timeseries
