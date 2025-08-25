@@ -175,8 +175,8 @@ ACCESS-OM3
 
 # daily 2D ice shelf fields
 
-"access-om3.mom6.2d.melt_rate.1day.mean.%4yr", 1, "days", 1, "days", "time", 1, "years"
-"ice_shelf_model", "melt_rate", "melt_rate", "access-om3.mom6.2d.melt_rate.1day.mean.%4yr", "all", "average", "none", 2
+"access-om3.mom6.2d.melt.1day.mean.%4yr", 1, "days", 1, "days", "time", 1, "years"
+"ice_shelf_model", "melt", "melt", "access-om3.mom6.2d.melt.1day.mean.%4yr", "all", "average", "none", 2
 
 
 # daily scalar timeseries
