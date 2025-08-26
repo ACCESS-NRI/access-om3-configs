@@ -18,7 +18,7 @@ modules:
     use:
         - /g/data/vk83/prerelease/modules
     load:
-        - access-om3/pr140-2
+        - access-om3/pr140-6
 
 queue: normalsr
 ncpus: 1664
