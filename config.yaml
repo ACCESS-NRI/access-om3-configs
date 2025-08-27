@@ -67,7 +67,8 @@ modules:
     use:
         - /g/data/vk83/prerelease/modules
     load:
-        - access-om3/pr120-11
+            #- access-om3/pr120-11
+        - access-om3/pr142-2
         - model-tools/mppnccombine-fast/2025.07.000
         - nco/5.0.5
 

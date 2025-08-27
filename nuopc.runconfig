@@ -101,8 +101,8 @@ ALLCOMP_attributes::
      mesh_atm = ./INPUT/access-om3-8km-nomask-ESMFmesh_Charrassin_nocavity_cropped.nc
      mesh_ice = ./INPUT/access-om3-8km-ESMFmesh_Charrassin_nocavity_cropped.nc
      mesh_lnd = UNSET
-     mesh_mask = ./INPUT/access-om3-8km-ESMFmesh_Charrassin_opencavity_cropped.nc
-     mesh_ocn = ./INPUT/access-om3-8km-ESMFmesh_Charrassin_opencavity_cropped.nc
+     mesh_mask = ./INPUT/access-om3-8km-ESMFmesh_Charrassin_nocavity_cropped.nc
+     mesh_ocn = ./INPUT/access-om3-8km-ESMFmesh_Charrassin_nocavity_cropped.nc
      model_version = unknown
      ocn2glc_coupling = .false.
      ocn2glc_levels = 1:10:19:26:30:33:35
