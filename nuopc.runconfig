@@ -122,7 +122,7 @@ ALLCOMP_attributes::
 ::
 
 MED_attributes::
-     Verbosity = off
+     Verbosity = on
      aoflux_grid = ogrid
      atm2ice_map = unset
      atm2lnd_map = unset
@@ -137,7 +137,7 @@ MED_attributes::
      budget_ltend = 0
      budget_month = 1
      budget_table_version = v1
-     check_for_nans = .false. # .true.
+     check_for_nans = .true.
      coupling_mode = cesm
      do_budgets = .true.
      flux_albav = .true.
