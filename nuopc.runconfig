@@ -98,7 +98,7 @@ ALLCOMP_attributes::
      hostname = gadi
      ice_ncat = 5
      mediator_present = true
-     mesh_atm = ./INPUT/access-om3-8km-ESMFmesh_Charrassin_nocavity_cropped.nc
+     mesh_atm = ./INPUT/access-om3-8km-nomask-ESMFmesh_Charrassin_nocavity_cropped.nc
      mesh_ice = ./INPUT/access-om3-8km-ESMFmesh_Charrassin_nocavity_cropped.nc
      mesh_lnd = UNSET
      mesh_mask = ./INPUT/access-om3-8km-ESMFmesh_Charrassin_nocavity_cropped.nc
