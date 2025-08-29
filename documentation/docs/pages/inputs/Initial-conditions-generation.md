@@ -65,7 +65,7 @@ Replace the variables with your grid and directory paths:
 - `INPUT_DIR`: Directory with processed WOA23 monthly files
 - `OUTPUT_DIR`: Where regridded output will be saved
 
-> Note: This code is not parallelized and may take approximately 24 hours to run for the 25km (0.25°) resolution grid.
+> Note: This code is not parallelized and may take approximately 24 hours to run for the 25km (0.25°) resolution grid. This can be dramatically [sped up with pyran](https://github.com/COSIMA/ocean-regrid/issues/13).
 ---
 
 ## Step 3: Finalize & Tag Metadata
