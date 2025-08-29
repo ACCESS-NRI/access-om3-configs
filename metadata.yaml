@@ -15,8 +15,8 @@ keywords:
   - interannual
   - global
 realm:
-- ocean
-- seaIce
+  - ocean
+  - seaIce
 nominal_resolution: 25 km
 license: CC-BY-4.0
 model: ACCESS-OM3
