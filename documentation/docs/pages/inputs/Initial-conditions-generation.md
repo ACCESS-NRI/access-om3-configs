@@ -40,7 +40,7 @@ To use full-depth data with **monthly resolution**, `inte.csh` reconstructs it b
 1. **Extract salinity (`s_an`)** from seasonal full-depth data and expand it to monthly resolution.
 2. Use `ncks --mk_rec time` to add an unlimited time dimension to make the NetCDF files record-aware.
 3. **Rename the salinity variable** from `s_an` to `practical_salinity` for compatibility with the processing pipeline.
-4. Run `setup_WOA_initial_conditions.py` to combine monthly upper ocean and seasonal lower ocean data. Then it converts WOA23 in-situ temperature to conservative temperature and practical salinity to absolute salinity. Conservative temperature and absolute salinity are the prognostic variables for the [TEOS-10 equation of state](configurations/dev-MC_25km_jra_ryf/?h=teos#thermodynamics-and-equation-of-state-teos-10).
+4. Run `setup_WOA_initial_conditions.py` to combine monthly upper ocean and seasonal lower ocean data. Then it converts WOA23 in-situ temperature to conservative temperature and practical salinity to absolute salinity. Conservative temperature and absolute salinity are the prognostic variables for the [TEOS-10 equation of state](../configurations/dev-MC_25km_jra_ryf/?h=teos#thermodynamics-and-equation-of-state-teos-10).
 
 The processed monthly files are output to:
 ```
