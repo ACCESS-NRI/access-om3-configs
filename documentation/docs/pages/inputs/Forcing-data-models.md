@@ -7,7 +7,7 @@ Forcing is provided via [CDEPS](https://github.com/ESCOMP/CDEPS) data models [do
 
 ## Coupling
 
-- DATM and DROF are coupled to the other components via the mediator - see the [coupling architecture here](Architecture.md).
+- DATM and DROF are coupled to the other components via the mediator - see the [coupling architecture here](../infrastructure/Architecture.md).
 - The coupled fields and remapping methods used are recorded in the mediator log output file and can be found with `grep '^ mapping' archive/output000/log/med.log`; see [here](https://escomp.github.io/CMEPS/versions/master/html/esmflds.html) for how to decode this.
 - See [the Configurations Overview page](configurations/Overview.md#coupling) for details on how the coupling is determined.
 
