@@ -25,7 +25,7 @@ ncpus: 1664
 jobfs: 10GB
 mem: 8000GB
 walltime: 6:00:00
-jobname: 025km_jra_ryf
+jobname: 025km_jra_iaf
 
 model: access-om3
 exe: access-om3-MOM6-CICE6
@@ -43,7 +43,7 @@ input:
     - /g/data/vk83/configurations/inputs/access-om3/share/meshes/share/2024.09.16/JRA55do-datm-ESMFmesh.nc
     - /g/data/vk83/configurations/inputs/access-om3/share/meshes/share/2024.09.16/JRA55do-drof-ESMFmesh.nc
     - /g/data/vk83/configurations/inputs/access-om3/cmeps/remap_weights/global.25km/2025.05.15/access-om3-25km-rof-remap-weights.nc
-    - /g/data/vk83/configurations/inputs/JRA-55/RYF/v1-6/data
+    - /g/data/qv56/replicas/input4MIPs/CMIP6Plus/OMIP/MRI/MRI-JRA55-do-1-6-0/
 
 runlog: true
 metadata: 
