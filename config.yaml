@@ -22,7 +22,7 @@ modules:
         - model-tools/mppnccombine-fast
 
 queue: normalsr
-ncpus: 1664
+ncpus: 1976
 jobfs: 10GB
 mem: 8500GB
 walltime: 24:00:00
