@@ -11,6 +11,11 @@ work/INPUT/JRA55do-drof-ESMFmesh.nc:
   hashes:
     binhash: fa1322dbc0ab951527b165f8327c7b5b
     md5: 3b46260b8c14d12925cf70f82da6658e
+work/INPUT/SFe_Hamiltonetal2020_monthly_clim.nc:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/SFe_Hamiltonetal2020_monthly_clim.nc
+  hashes:
+    binhash: 6114f49dcf9b6a5915683154af95d5c5
+    md5: c40f8b268d113f10a28269e611caf709
 work/INPUT/access-rom3-ESMFmesh.nc:
   fullpath: /g/data/ol01/ee8016/regional_wombat/access-rom3-ESMFmesh.nc
   hashes:
@@ -3386,11 +3391,6 @@ work/INPUT/bathymetry.nc:
   hashes:
     binhash: ba82a01f837a995c272b0f43a315bfc3
     md5: 2639cdb91c8e7bec43c8dd74943e24a6
-work/INPUT/dust_DS.nc:
-  fullpath: /g/data/ol01/ee8016/regional_wombat/dust_DS.nc
-  hashes:
-    binhash: 5a63e9526ff1a285e7ce992c83cd5c19
-    md5: 149ed14ffc73f8908fa1f8e84146c6bc
 work/INPUT/grid_spec.nc:
   fullpath: /g/data/ol01/ee8016/regional_wombat/grid_spec.nc
   hashes:

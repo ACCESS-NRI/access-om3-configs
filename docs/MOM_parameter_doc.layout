@@ -38,13 +38,13 @@ MASKTABLE = "MOM_auto_mask_table" ! default = "MOM_mask_table"
                                 !  4,6
                                 !  1,2
                                 !  3,6
-NIPROC = 11                     !
+NIPROC = 10                     !
                                 ! The number of processors in the x-direction. With STATIC_MEMORY_ this is set
                                 ! in MOM_memory.h at compile time.
-NJPROC = 23                     !
+NJPROC = 20                     !
                                 ! The number of processors in the y-direction. With STATIC_MEMORY_ this is set
                                 ! in MOM_memory.h at compile time.
-LAYOUT = 11, 23                 !
+LAYOUT = 10, 20                 !
                                 ! The processor layout that was actually used.
 AUTO_IO_LAYOUT_FAC = 0          ! default = 0
                                 ! When AUTO_MASKTABLE is enabled, io layout is calculated by performing integer
@@ -67,6 +67,10 @@ BT_USE_WIDE_HALOS = True        !   [Boolean] default = True
                                 ! efficiency.
 BTHALO = 0                      ! default = 0
                                 ! The minimum halo size for the barotropic solver.
+BT_WIDE_HALO_MIN_STENCIL = 0    ! default = 0
+                                ! The minimum stencil width to use with the wide halo iterations. A nonzero
+                                ! value may be useful for debugging purposes, but at the cost of reducing the
+                                ! efficiency gain from BT_USE_WIDE_HALOS.
 !BT x-halo = 4                  !
                                 ! The barotropic x-halo size that is actually used.
 !BT y-halo = 4                  !

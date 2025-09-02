@@ -1,10 +1,8 @@
 # WOMBATlite field table
 # ===============================================
-"namelists","ocean_mod","generic_wombatlite/"
+"namelists","ocean_mod","generic_wombatlite/*global*"
 /
 "namelists","ocean_mod","generic_wombatlite"
-init = t
-#
 no3_src_file = INPUT/init_tracers_mod.nc
 no3_src_var_name = no3
 no3_src_var_unit = none
@@ -112,10 +110,7 @@ det_sediment_dest_var_unit = mol m-2
 det_sediment_src_var_record = 1
 det_sediment_src_var_gridspec = NONE
 det_sediment_valid_min = 0.0
-
-/
-###.................................................
-"namelists","ocean_mod","generic_wombatlite"
+#
 no3_obc_src_file_name = obgc_obc.nc
 no3_obc_src_field_name = no3
 no3_obc_has = .True.
