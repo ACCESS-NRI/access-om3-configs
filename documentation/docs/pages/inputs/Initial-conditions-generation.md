@@ -1,6 +1,7 @@
 # Generating MOM6 Initial Conditions Using WOA23 dataset
 
-This guide outlines the steps to generate **conservative temperature** and **absolute salinity** fields for MOM6 using **World Ocean Atlas 2023 (WOA23)** data, suitable for ACCESS-OM3 initial conditions.
+This guide outlines the steps to generate initial-condition fields for MOM6 from **World Ocean Atlas 2023 (WOA23)** data. The workflow produces **Conservative Temperature (CT)** and **Absolute Salinity (SA)**, the prognostic variables required by the TEOS-10 equation of state (EOS) for use in ACCESS-OM3.
+
 
 ## Repository and Requirements
 
@@ -17,7 +18,7 @@ A recursive clone is needed because this repository includes Nic Hannah’s [oce
 
 ## Step 1: (Optional) Regenerate Temperature & Salinity from Raw WOA23
 
-Use this step **only** if you want to regenerate T/S fields from a **different version** of World Ocean Atlas dataset, or are changing the equation of state in MOM6, 
+Use this step **only** if you want to regenerate T/S fields from a **different version** of World Ocean Atlas dataset, or are changing the EOS in MOM6, 
 and the form of temperature and salinity used prognostically in MOM6 is changing.
 
 ```
@@ -40,11 +41,11 @@ To use full-depth data with **monthly resolution**, `inte.csh` reconstructs it b
 1. **Extract salinity (`s_an`)** from seasonal full-depth data and expand it to monthly resolution.
 2. Use `ncks --mk_rec time` to add an unlimited time dimension to make the NetCDF files record-aware.
 3. **Rename the salinity variable** from `s_an` to `practical_salinity` for compatibility with the processing pipeline.
-4. Run `setup_WOA_initial_conditions.py` to combine monthly upper ocean and seasonal lower ocean data. Then it converts WOA23 in-situ temperature to conservative temperature and practical salinity to absolute salinity. Conservative temperature and absolute salinity are the prognostic variables for the TEOS-10 equation of state.
+4. Run `setup_WOA_initial_conditions.py` to merge the monthly upper-ocean data with the seasonal lower-ocean data. During this step, in-situ temperature is converted to **CT** and practical salinity is converted to **SA**, ensuring consistency with the TEOS-10 EOS.
 
 The processed monthly files are output to:
 ```
-/g/data/ik11/inputs/access-om3/woa23/monthly/DATE
+/g/data/ik11/inputs/access-om3/woa23/monthly/YYYY.MM.DD
 ```
 
 > 💡 You only need to run this script if you're updating or modifying the WOA23 dataset or prognostic form of temperature or salinity. Otherwise, skip this step and proceed directly to regridding using `make_initial_conditions.sh`.
@@ -67,7 +68,7 @@ Replace the variables with your grid and directory paths:
 - `INPUT_DIR`: Directory with processed WOA23 monthly files
 - `OUTPUT_DIR`: Where regridded output will be saved
 
-> Note: This code is not parallelized and may take approximately 24 hours to run for the 25km (0.25°) resolution grid.
+> Note: This code is not parallelised and may take approximately 24 hours to run for the 25km (0.25°) resolution grid.
 
 ---
 
