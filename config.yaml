@@ -8,13 +8,13 @@
 # (you may need to add the corresponding PBS -l storage flag in sync_data.sh)
 # shortpath: /scratch/v45
 
-queue: normal
-ncpus: 240
+queue: normalsr
+ncpus: 208
 jobfs: 10GB
-mem: 900GB
+mem: 1000GB
 
-walltime: 24:00:00
-jobname: 1deg_jra55do_ryf_wombatlite
+walltime: 02:00:00
+jobname: tas5km_jra_iaf
 
 model: access-om3
 
@@ -40,15 +40,19 @@ runlog: false
 metadata: 
     enable: false
 
-    #userscripts:
-    setup: /usr/bin/bash /g/data/vk83/apps/om3-scripts/payu_config/setup.sh
-    archive: /usr/bin/bash /g/data/vk83/apps/om3-scripts/payu_config/archive.sh
+platform:
+    nodesize: 104
+    nodemem: 512
+
+# userscripts:
+#     setup: /usr/bin/bash /g/data/vk83/apps/om3-scripts/payu_config/setup.sh
+#     archive: /usr/bin/bash /g/data/vk83/apps/om3-scripts/payu_config/archive.sh
 
 modules:
     use:
         - /g/data/vk83/prerelease/modules
     load:
-        - access-om3/pr75-1
+        - access-om3/pr144-1
         - nco/5.0.5
 env:
 payu_minimum_version: 1.1.6
