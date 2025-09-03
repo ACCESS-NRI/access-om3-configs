@@ -18,7 +18,7 @@ modules:
     use:
         - /g/data/vk83/modules
     load:
-        - access-om3/2025.05.001
+        - access-om3/2025.08.001
         - model-tools/mppnccombine-fast
 
 queue: normalsr
