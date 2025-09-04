@@ -1,23 +1,7 @@
-!!! warning
-      **This page is out of date, and needs to be updated to the new Spack-based build process! We no longer use the COSIMA respository for ACCESS-OM3 builds**
-
 ## Releases
 
-There are several [ACCESS-OM3 releases](https://github.com/COSIMA/access-om3/releases) available.
+The main publically announced releases related to ACCESS OM3 are releases of model configurations. Model configurations include a very of the model software, and are known to be reasonably stable.
 
-Precompiled executables of these are available via spack packages in
-```
-/g/data/ik11/spack/*/modules/access-om3
-```
-(Access requires membership of the `ik11` project - apply [here](https://my.nci.org.au/mancini/project/ik11) if needed.)
+The stages (alpha, beta, full) and standard for releases are [defined in the ACCESS-HIVE docs](https://docs.access-hive.org.au/about/releases/)
 
-Those matching [ACCESS-OM3 releases](https://github.com/COSIMA/access-om3/releases) are stable, and generally the newest is the recommended version for general use.
-Those containing "x" are unstable development versions which can change without notice.
-
-Executables themselves can be found via
-```
-find /g/data/ik11/spack/*/opt -name "access-om3-*CICE6*"
-```
-The file path includes the full [ACCESS-OM3 commit hash](https://github.com/COSIMA/access-om3/commits/main/) indicating the sources used.
-
-To switch to one of these you need to change the `exe:` and `modules: use:` entries in `config.yaml` in a consistent way - see [here](https://github.com/COSIMA/access-om3/issues/93) for full details. You also need to change the `input:` entries to the matching version number.
+Releases are [announced](https://forum.access-hive.org.au/t/access-om3-release-information/4494) on the ACCESS-HIVE forum
