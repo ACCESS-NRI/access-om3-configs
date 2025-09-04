@@ -1,0 +1,101 @@
+{
+  "schema_version": "1-0-0",
+  "output": {
+    "Salt": [
+      "2107229974B108FD"
+    ],
+    "Temp": [
+      "1F4D88544EE13F34"
+    ],
+    "h": [
+      "C8C087268BBDEC58"
+    ],
+    "u": [
+      "D49DDC5E83C408A2"
+    ],
+    "CAu": [
+      "1096A67949AAC19E"
+    ],
+    "First_direction": [
+      "0"
+    ],
+    "ave_ssh": [
+      "46C770DEBE90A75E"
+    ],
+    "frazil": [
+      "73EEF5B77E53818D"
+    ],
+    "p_surf_EOS": [
+      "3CEE3DCFD48CB90D"
+    ],
+    "sfc": [
+      "6FFC2A036CE06109"
+    ],
+    "u2": [
+      "61A834181D50603F"
+    ],
+    "v": [
+      "AD5165EE72AA373E"
+    ],
+    "v2": [
+      "7A9181724240D5F6"
+    ],
+    "CAv": [
+      "258B1349836A1F09"
+    ],
+    "DTBT": [
+      "4032D820A16D5CCC"
+    ],
+    "MEKE": [
+      "CA3D2CC618D978B1"
+    ],
+    "MEKE_Kh": [
+      "23833FC7A7B2145B"
+    ],
+    "MEKE_Ku": [
+      "EEAADB9181992E2A"
+    ],
+    "age": [
+      "46A425EC93514C8D"
+    ],
+    "diffu": [
+      "4685D74FFA0EEAE5"
+    ],
+    "diffv": [
+      "D1FFAD59638CCA05"
+    ],
+    "ubtav": [
+      "25E8C8E209FD8A84"
+    ],
+    "vbtav": [
+      "A50BF6F11EB2D7C2"
+    ],
+    "Kd_shear": [
+      "6C1D30BA4780D793"
+    ],
+    "Kv_shear": [
+      "B3DFBDAE71077F2F"
+    ],
+    "Kv_shear_Bu": [
+      "B0B3BDB990072D4"
+    ],
+    "MLD": [
+      "B8C43A5370F2D72D"
+    ],
+    "MLD_MLE_filtered": [
+      "79E4C70C9C8D2180"
+    ],
+    "MLD_MLE_filtered_slow": [
+      "A26F9E4586C0C991"
+    ],
+    "MLE_Bflux": [
+      "A508CC09F7C8F17E"
+    ],
+    "SFC_BFLX": [
+      "9A177BE5D227223E"
+    ],
+    "h_ML": [
+      "B8C43A5370F2D72D"
+    ]
+  }
+}
