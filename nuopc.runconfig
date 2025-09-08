@@ -137,7 +137,7 @@ MED_attributes::
      budget_ltend = 0
      budget_month = 1
      budget_table_version = v1
-     check_for_nans = .true.
+     check_for_nans = .false. # .true.
      coupling_mode = cesm
      do_budgets = .true.
      flux_albav = .true.
@@ -210,9 +210,9 @@ MED_attributes::
      history_n_ice_inst = -999
      history_n_lnd_avg = -999
      history_n_lnd_inst = -999
-     history_n_med_inst = -999 #1
+     history_n_med_inst = 1 #-999 #1
      history_n_ocn_avg = -999
-     history_n_ocn_inst = -999 # 1
+     history_n_ocn_inst = 1 #-999 # 1
      history_n_rof_avg = -999
      history_n_rof_inst = -999
      history_n_wav_avg = -999
@@ -225,9 +225,9 @@ MED_attributes::
      history_option_ice_inst = never
      history_option_lnd_avg = never
      history_option_lnd_inst = never
-     history_option_med_inst = never # nsteps
+     history_option_med_inst = nsteps # never # nsteps
      history_option_ocn_avg = never
-     history_option_ocn_inst = never # nsteps
+     history_option_ocn_inst = nsteps # never # nsteps
      history_option_rof_avg = never
      history_option_rof_inst = never
      history_option_wav_avg = never
