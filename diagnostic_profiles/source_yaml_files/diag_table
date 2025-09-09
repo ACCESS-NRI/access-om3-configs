@@ -7,7 +7,7 @@ ACCESS-OM3
 #                                                                                                       #
 #########################################################################################################
 
-"prog", 0, "minutes", 1, "days", "time"
+"prog", 10, "minutes", 1, "days", "time"
 "ocean_model", "rsntds", "rsntds", "prog","all", "none", "none", 1
 "ocean_model", "omask", "omask", "prog","all", "none", "none", 1
 "ocean_model", "frac_shelf_h", "frac_shelf_h", "prog","all", "none", "none", 1
