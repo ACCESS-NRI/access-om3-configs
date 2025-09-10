@@ -11,6 +11,22 @@ ACCESS-OM3
 #"ocean_model", "rsntds", "rsntds", "prog","all", "none", "none", 1
 #"ocean_model", "omask", "omask", "prog","all", "none", "none", 1
 #"ocean_model", "frac_shelf_h", "frac_shelf_h", "prog","all", "none", "none", 1
+"ice",          1,"days", 1, "days", "time"
+"ice_shelf_model","area_shelf_h","area_shelf_h","ice","all",.false.,"none",2
+#"ice_shelf_model","shelf_mass","shelf_mass","ice","all",.false.,"none",2
+"ice_shelf_model","h_shelf","h_shelf","ice","all",.false.,"none",2
+"ice_shelf_model","mass_flux","mass_flux","ice","all",.false.,"none",2
+"ice_shelf_model","melt","melt_rate","ice","all",.false.,"none",2
+"ice_shelf_model","thermal_driving","thermal_driving","ice","all",.false.,"none",2
+"ice_shelf_model","haline_driving","haline_driving","ice","all",.false.,"none",2
+#"ice_shelf_model","sbdry","sbdry","ice","all",.false.,"none",2
+#"ice_shelf_model","u_ml","u_ml","ice","all",.false.,"none",2
+#"ice_shelf_model","v_ml","v_ml","ice","all",.false.,"none",2
+#"ice_shelf_model","exch_vel_s","exch_vel_s","ice","all",.false.,"none",2
+#"ice_shelf_model","exch_vel_t","exch_vel_t","ice","all",.false.,"none",2
+"ice_shelf_model","tfreeze","tfreeze","ice","all",.false.,"none",2
+#"ice_shelf_model","tflux_shelf","tflux_shelf","ice","all",.false.,"none",2
+"ice_shelf_model","ustar_shelf","ustar_shelf","ice","all",.false.,"none",2
 
 # static 2d grid data
 
@@ -173,14 +189,18 @@ ACCESS-OM3
 "access-om3.mom6.2d.speed.1day.mean.%4yr", 1, "days", 1, "days", "time", 1, "years"
 "ocean_model", "speed", "speed", "access-om3.mom6.2d.speed.1day.mean.%4yr", "all", "average", "none", 2
 
-"access-om3.mom6.2d.lrunoff.1day.mean.%4yr", 1, "days", 1, "days", "time", 1, "years"
-"ocean_model", "lrunoff", "lrunoff", "access-om3.mom6.2d.lrunoff.1day.mean.%4yr", "all", "average", "none", 2
+"access-om3.mom6.2d.wfo.1day.mean.%4yr", 1, "days", 1, "days", "time", 1, "years"
+"ocean_model", "wfo", "wfo", "access-om3.mom6.2d.wfo.1day.mean.%4yr", "all", "average", "none", 2
+
+"access-om3.mom6.2d.hfds.1day.mean.%4yr", 1, "days", 1, "days", "time", 1, "years"
+"ocean_model", "hfds", "hfds", "access-om3.mom6.2d.hfds.1day.mean.%4yr", "all", "average", "none", 2
+
 
 
 # daily 2D ice shelf fields
 
-"access-om3.mom6.2d.melt.1day.mean.%4yr", 1, "days", 1, "days", "time", 1, "years"
-"ice_shelf_model", "melt", "melt", "access-om3.mom6.2d.melt.1day.mean.%4yr", "all", "average", "none", 2
+#"access-om3.mom6.2d.melt.1day.mean.%4yr", 1, "days", 1, "days", "time", 1, "years"
+#"ice_shelf_model", "melt", "melt", "access-om3.mom6.2d.melt.1day.mean.%4yr", "all", "average", "none", 2
 
 
 # daily scalar timeseries
