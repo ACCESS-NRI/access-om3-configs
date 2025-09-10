@@ -7,10 +7,10 @@ ACCESS-OM3
 #                                                                                                       #
 #########################################################################################################
 
-"prog", 10, "minutes", 1, "days", "time"
-"ocean_model", "rsntds", "rsntds", "prog","all", "none", "none", 1
-"ocean_model", "omask", "omask", "prog","all", "none", "none", 1
-"ocean_model", "frac_shelf_h", "frac_shelf_h", "prog","all", "none", "none", 1
+#"prog", 10, "minutes", 1, "days", "time"
+#"ocean_model", "rsntds", "rsntds", "prog","all", "none", "none", 1
+#"ocean_model", "omask", "omask", "prog","all", "none", "none", 1
+#"ocean_model", "frac_shelf_h", "frac_shelf_h", "prog","all", "none", "none", 1
 
 # static 2d grid data
 
