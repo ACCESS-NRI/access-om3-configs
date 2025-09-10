@@ -46,4 +46,4 @@ SURFACE_PRESSURE_SCALE = 8986.6 !! Ensure this is DENSITY_ICE X G_EARTH
 
 !#override DEBUG_IS = True
 !#override DEBUG = True
-!#override SHELF_S_ROOT = True
+#override SHELF_S_ROOT = True
