@@ -44,7 +44,7 @@ SURFACE_PRESSURE_SCALE = 8986.6 !! Ensure this is DENSITY_ICE X G_EARTH
 
 #override HARMONIC_VISC = True
 
-!#override DEBUG_IS = True
-!#override DEBUG = True
+#override DEBUG_IS = True
+#override DEBUG = True
 !#override SHELF_S_ROOT = True
 #override ICE_SHELF_BUOYANCY_FLUX_ITT_BUG = False
