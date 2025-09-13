@@ -5,6 +5,7 @@
     <date_generated>2025-07-04 10:28:08</date_generated>
     <history>Created by as2285 (anton-seaice) on 2025-07-04, using https://github.com/ACCESS-NRI/om3-scripts/blob/ffad24e7448649c5797bffe6a4e6184741dd87a5/data_stream_xml_generation/generate_xml_drof.py: /g/data/vk83/apps/om3-scripts/data_stream_xml_generation/generate_xml_drof.py 1900 1900</history>
   </metadata>
+<!-- 
   <stream_info name="JRA55do.LICALVF">
     <taxmode>cycle</taxmode>
     <dtlimit>1.0</dtlimit>
@@ -25,4 +26,5 @@
       <var>licalvf Forr_rofi</var>
     </datavars>
   </stream_info>
+ -->
 </file>
