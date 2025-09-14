@@ -201,6 +201,13 @@ ACCESS-OM3
 "access-om3.mom6.2d.evap.1day.mean.%4yr", 1, "days", 1, "days", "time", 1, "years"
 "ocean_model", "evap", "evap", "access-om3.mom6.2d.evap.1day.mean.%4yr", "all", "average", "none", 2
 
+"access-om3.mom6.2d.ficeberg.1day.mean.%4yr", 1, "days", 1, "days", "time", 1, "years"
+"ocean_model", "ficeberg", "ficeberg", "access-om3.mom6.2d.ficeberg.1day.mean.%4yr", "all", "average", "none", 2
+
+"access-om3.mom6.3d.h.1day.mean.%4yr", 1, "days", 1, "days", "time", 1, "years"
+"ocean_model", "h", "h", "access-om3.mom6.3d.h.1day.mean.%4yr", "all", "average", "none", 2
+
+
 
 
 
