@@ -4,7 +4,7 @@
 #override FATAL_UNUSED_PARAMS = False
 
 ! First we update numbers and files for higher res run
-#override TOPO_FILE = "topog_Charrassin_sea_ice_from_iceelev_new150925.nc"
+#override TOPO_FILE = "topog_Charrassin_open_cavity_noGL5m_new190825.nc"
 #override RESTORE_SALINITY = False !#override SALT_RESTORE_FILE = "salt_restore_interpolated_nearest.nc"
 
 #override DT = 150 !600
