@@ -2,7 +2,7 @@
     output_directory = './'
     restart_input_dir = './'
     restart_output_dir = './'
-    input_filename = 'n'
+!    input_filename = 'n'
 !    input_filename = 'r'
     parameter_filename = 'MOM_input', 'MOM_override', 'MOM_override_IS'
 /
