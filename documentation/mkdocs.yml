@@ -60,7 +60,7 @@ plugins:
         pattern: "dev-* *-release-*"
         ref_type: branch
       preview_website:
-        pattern: ""
+        pattern: "*-release-*"
         ref_type: branch
       stubs_parent_url: pages/configurations
       stubs_nav_path: Configurations
