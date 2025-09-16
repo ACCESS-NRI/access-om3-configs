@@ -172,8 +172,8 @@ diag_table:
         fields:
             agessc: # Sea water age since surface contact
             rhopot2: # Potential density referenced to 2000 dbar
-            temp: # Potential Temperature
-            salt: # Salinity
+            thetao: # Potential Temperature
+            so: # Salinity
             uo: # u velocity
             vo: # v velocity
             KE: # Layer Kinetic energy per unit mass
