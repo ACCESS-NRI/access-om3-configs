@@ -119,7 +119,7 @@ ALLCOMP_attributes::
      tfreeze_option = linear_salt
      wav_coupling_to_cice = .false.
      restart_pointer_append_date = .false.
-     additional_restart_dir = ./ # RESTART
+#     additional_restart_dir = ./ # RESTART
 ::
 
 MED_attributes::
