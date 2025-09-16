@@ -57,7 +57,7 @@ plugins:
   - include-configuration-stubs:
       repo: ACCESS-NRI/access-om3-configs
       main_website:
-        pattern: "dev-* release-*"
+        pattern: "dev-* *-release-*"
         ref_type: branch
       preview_website:
         pattern: ""
