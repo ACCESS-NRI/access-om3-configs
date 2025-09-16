@@ -57,10 +57,10 @@ plugins:
   - include-configuration-stubs:
       repo: ACCESS-NRI/access-om3-configs
       main_website:
-        pattern: "dev-* *-release-*"
+        pattern: "dev-* release-*"
         ref_type: branch
       preview_website:
-        pattern: "*-release-*"
+        pattern: "752-release-MC_25km_jra_ryf"
         ref_type: branch
       stubs_parent_url: pages/configurations
       stubs_nav_path: Configurations
