@@ -27,28 +27,28 @@ DRIVER_attributes::
 ::
 
 PELAYOUT_attributes::
-     atm_ntasks = 364
+     atm_ntasks = 291
      atm_nthreads = 1
      atm_pestride = 1
      atm_rootpe = 0
-     cpl_ntasks = 364
+     cpl_ntasks = 291
      cpl_nthreads = 1
      cpl_pestride = 1
      cpl_rootpe = 0
      esmf_logging = ESMF_LOGKIND_NONE
-     ice_ntasks = 364
+     ice_ntasks = 291
      ice_nthreads = 1
      ice_pestride = 1
      ice_rootpe = 0
      ninst = 1
-     ocn_ntasks = 1300
+     ocn_ntasks = 1685
      ocn_nthreads = 1
      ocn_pestride = 1
-     ocn_rootpe = 364
+     ocn_rootpe = 291
      pio_asyncio_ntasks = 0
      pio_asyncio_rootpe = 1
      pio_asyncio_stride = 0
-     rof_ntasks = 364
+     rof_ntasks = 291
      rof_nthreads = 1
      rof_pestride = 1
      rof_rootpe = 0
@@ -130,7 +130,7 @@ MED_attributes::
      atm2ocn_map = unset
      atm2wav_map = unset
      atm_nx = 1440
-     atm_ny = 1142
+     atm_ny = 1152
      budget_ann = 1
      budget_daily = 0
      budget_inst = 0
@@ -236,7 +236,7 @@ MED_attributes::
      ice2atm_map = unset
      ice2wav_smapname = unset
      ice_nx = 1440
-     ice_ny = 1142
+     ice_ny = 1152
      info_debug = 1
      lnd2atm_map = unset
      lnd2rof_map = unset
@@ -246,14 +246,14 @@ MED_attributes::
      ocn2atm_map = unset
      ocn2wav_smapname = unset
      ocn_nx = 1440
-     ocn_ny = 1142
+     ocn_ny = 1152
      ocn_surface_flux_scheme = 0
      rof2lnd_map = unset
      rof2ocn_fmapname = unset
      rof2ocn_ice_rmapname = ./INPUT/access-om3-25km-rof-remap-weights.nc
      rof2ocn_liq_rmapname = ./INPUT/access-om3-25km-rof-remap-weights.nc
      rof_nx = 1440
-     rof_ny = 1142
+     rof_ny = 1152
      wav2ocn_smapname = unset
      wav_nx = 0
      wav_ny = 0
