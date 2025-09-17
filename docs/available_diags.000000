@@ -513,7 +513,7 @@
     ! units: m3 s-1
     ! cell_methods: xq:point yh:mean zi:point
     ! variants: {GM_sfn_x,GM_sfn_x_xyave}
-"GM_sfn_y"  [Unused]
+"GM_sfn_y"  [Used]
     ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
     ! dimensions: xh, yq, zi
     ! long_name: Parameterized Meridional Overturning Streamfunction
@@ -1712,13 +1712,13 @@
     ! standard_name: sea_water_mass_per_unit_area
     ! cell_methods: xh:mean yh:mean zl:sum area:mean
     ! variants: {masscello,masscello_xyave}
-"masso"  [Unused]
+"masso"  [Used]
     ! modules: ocean_model
     ! dimensions: scalar
     ! long_name: Mass of liquid ocean
     ! units: kg
     ! standard_name: sea_water_mass
-"thkcello"  [Unused]
+"thkcello"  [Used]
     ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
     ! dimensions: xh, yh, zl
     ! long_name: Cell Thickness
@@ -1921,7 +1921,7 @@
     ! units: kg m-3
     ! cell_methods: xh:mean yh:mean zl:mean area:mean
     ! variants: {Rho_cv,Rho_cv_xyave}
-"rhopot0"  [Unused]
+"rhopot0"  [Used]
     ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
     ! dimensions: xh, yh, zl
     ! long_name: Potential density referenced to surface
@@ -2844,14 +2844,14 @@
     ! units: PSU
     ! cell_methods: xh:mean yh:mean zl:mean area:mean
     ! variants: {salt_predia,salt_predia_xyave}
-"Kd_interface"  [Unused]
+"Kd_interface"  [Used]
     ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
     ! dimensions: xh, yh, zi
     ! long_name: Total diapycnal diffusivity at interfaces
     ! units: m2 s-1
     ! cell_methods: xh:mean yh:mean zi:point area:mean
     ! variants: {Kd_interface,Kd_interface_xyave}
-"Kd_ePBL"  [Unused]
+"Kd_ePBL"  [Used]
     ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
     ! dimensions: xh, yh, zi
     ! long_name: ePBL diapycnal diffusivity at interfaces
@@ -3067,7 +3067,7 @@
     ! long_name: Buoyancy frequency squared averaged over the water column
     ! units: s-2
     ! cell_methods: xh:mean yh:mean area:mean
-"Kd_Itidal_Work"  [Unused]
+"Kd_Itidal_Work"  [Used]
     ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
     ! dimensions: xh, yh, zl
     ! long_name: Work done by Internal Tide Diapycnal Mixing
@@ -3081,7 +3081,7 @@
     ! units: W m-2
     ! cell_methods: xh:mean yh:mean zl:mean area:mean
     ! variants: {Kd_Nikurashin_Work,Kd_Nikurashin_Work_xyave}
-"Kd_Lowmode_Work"  [Unused]
+"Kd_Lowmode_Work"  [Used]
     ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
     ! dimensions: xh, yh, zl
     ! long_name: Work done by Internal Tide Diapycnal Mixing (low modes)
@@ -3214,7 +3214,7 @@
     ! long_name: The volume flux added to stop the ocean from drying out and becoming negative in depth
     ! units: m s-1
     ! cell_methods: xh:mean yh:mean area:mean
-"rsdoabsorb"  [Unused]
+"rsdoabsorb"  [Used]
     ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
     ! dimensions: xh, yh, zl
     ! long_name: Convergence of Penetrative Shortwave Flux in Sea Water Layer
@@ -3237,19 +3237,19 @@
     ! units: W m-2
     ! standard_name: nondownwelling_shortwave_flux_in_sea_water
     ! cell_methods: xh:mean yh:mean area:mean
-"Chl_opac"  [Unused]
+"Chl_opac"  [Used]
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
     ! long_name: Surface chlorophyll A concentration used to find opacity
     ! units: mg m-3
     ! cell_methods: xh:mean yh:mean area:mean
-"ePBL_h_ML"  [Unused]
+"ePBL_h_ML"  [Used]
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
     ! long_name: Surface boundary layer depth
     ! units: m
     ! cell_methods: xh:mean yh:mean area:mean
-"h_ML"  [Unused]
+"h_ML"  [Used]
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
     ! long_name: Surface mixed layer depth based on active turbulence
@@ -3693,37 +3693,37 @@
     ! long_name: Surface values of Conservative Temperature
     ! units: Celsius
     ! cell_methods: xh:mean yh:mean area:mean
-"T_adx_2d"  [Unused]
+"T_adx_2d"  [Used]
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xq, yh
     ! long_name: Vertically Integrated Advective Zonal Flux of Heat
     ! units: W
     ! cell_methods: xq:point yh:sum
-"T_ady_2d"  [Unused]
+"T_ady_2d"  [Used]
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yq
     ! long_name: Vertically Integrated Advective Meridional Flux of Heat
     ! units: W
     ! cell_methods: xh:sum yq:point
-"T_diffx_2d"  [Unused]
+"T_diffx_2d"  [Used]
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xq, yh
     ! long_name: Vertically Integrated Diffusive Zonal Flux of Heat
     ! units: W
     ! cell_methods: xq:point yh:sum
-"T_diffy_2d"  [Unused]
+"T_diffy_2d"  [Used]
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yq
     ! long_name: Vertically Integrated Diffusive Meridional Flux of Heat
     ! units: W
     ! cell_methods: xh:sum yq:point
-"T_hbd_diffx_2d"  [Unused]
+"T_hbd_diffx_2d"  [Used]
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xq, yh
     ! long_name: Vertically-integrated zonal diffusive flux from the horizontal boundary diffusion scheme for Heat
     ! units: W
     ! cell_methods: xq:point yh:sum
-"T_hbd_diffy_2d"  [Unused]
+"T_hbd_diffy_2d"  [Used]
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yq
     ! long_name: Vertically-integrated meridional diffusive flux from the horizontal boundary diffusion scheme for Heat
@@ -4444,7 +4444,7 @@
     ! standard_name: water_flux_into_sea_water
     ! cell_methods: xh:mean yh:mean area:mean
     ! variants: {PRCmE,wfo}
-"evap"  [Unused] (CMOR equivalent is "evs")
+"evap"  [Used] (CMOR equivalent is "evs")
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
     ! long_name: Evaporation/condensation at ocean surface (evaporation is negative)
@@ -4452,7 +4452,7 @@
     ! standard_name: water_evaporation_flux
     ! cell_methods: xh:mean yh:mean area:mean
     ! variants: {evap,evs}
-"seaice_melt"  [Unused] (CMOR equivalent is "fsitherm")
+"seaice_melt"  [Used] (CMOR equivalent is "fsitherm")
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
     ! long_name: water flux to ocean from snow/sea ice melting(> 0) or formation(< 0)
@@ -4460,7 +4460,7 @@
     ! standard_name: water_flux_into_sea_water_due_to_sea_ice_thermodynamics
     ! cell_methods: xh:mean yh:mean area:mean
     ! variants: {seaice_melt,fsitherm}
-"precip"  [Unused]
+"precip"  [Used]
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
     ! long_name: Liquid + frozen precipitation into ocean
@@ -4488,7 +4488,7 @@
     ! long_name: Virtual liquid precip into ocean due to SSS restoring
     ! units: kg m-2 s-1
     ! cell_methods: xh:mean yh:mean area:mean
-"frunoff"  [Unused] (CMOR equivalent is "ficeberg")
+"frunoff"  [Used] (CMOR equivalent is "ficeberg")
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
     ! long_name: Frozen runoff (calving) and iceberg melt into ocean
@@ -4496,7 +4496,7 @@
     ! standard_name: water_flux_into_sea_water_from_icebergs
     ! cell_methods: xh:mean yh:mean area:mean
     ! variants: {frunoff,ficeberg}
-"lrunoff"  [Unused] (CMOR equivalent is "friver")
+"lrunoff"  [Used] (CMOR equivalent is "friver")
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
     ! long_name: Liquid runoff (rivers) into ocean
@@ -4518,45 +4518,45 @@
     ! units: kg m-2 s-1
     ! standard_name: water_flux_into_sea_water_from_glaciers
     ! cell_methods: xh:mean yh:mean area:mean
-"net_massout"  [Unused]
+"net_massout"  [Used]
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
     ! long_name: Net mass leaving the ocean due to evaporation, seaice formation
     ! units: kg m-2 s-1
     ! cell_methods: xh:mean yh:mean area:mean
-"net_massin"  [Unused]
+"net_massin"  [Used]
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
     ! long_name: Net mass entering ocean due to precip, runoff, ice melt
     ! units: kg m-2 s-1
     ! cell_methods: xh:mean yh:mean area:mean
-"massout_flux"  [Unused]
+"massout_flux"  [Used]
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
     ! long_name: Net mass flux of freshwater out of the ocean (used in the boundary flux calculation)
     ! units: kg m-2
     ! cell_methods: xh:mean yh:mean area:mean
-"massin_flux"  [Unused]
+"massin_flux"  [Used]
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
     ! long_name: Net mass flux of freshwater into the ocean (used in boundary flux calculation)
     ! units: kg m-2
     ! cell_methods: xh:mean yh:mean area:mean
-"total_PRCmE"  [Unused]
+"total_PRCmE"  [Used]
     ! modules: ocean_model
     ! dimensions: scalar
     ! long_name: Area integrated net surface water flux (precip+melt+liq runoff+ice calving-evap)
     ! units: kg s-1
     ! standard_name: water_flux_into_sea_water_area_integrated
     ! variants: {total_PRCmE,total_wfo}
-"total_evap"  [Unused]
+"total_evap"  [Used]
     ! modules: ocean_model
     ! dimensions: scalar
     ! long_name: Area integrated evap/condense at ocean surface
     ! units: kg s-1
     ! standard_name: water_evaporation_flux_area_integrated
     ! variants: {total_evap,total_evs}
-"total_icemelt"  [Unused]
+"total_icemelt"  [Used]
     ! modules: ocean_model
     ! dimensions: scalar
     ! long_name: Area integrated sea ice melt (>0) or form (<0)
@@ -4587,13 +4587,13 @@
     ! dimensions: scalar
     ! long_name: Area integrated virtual liquid precip due to SSS restoring
     ! units: kg s-1
-"total_frunoff"  [Unused]
+"total_frunoff"  [Used]
     ! modules: ocean_model
     ! dimensions: scalar
     ! long_name: Area integrated frozen runoff (calving) & iceberg melt into ocean
     ! units: kg s-1
     ! variants: {total_frunoff,total_ficeberg}
-"total_lrunoff"  [Unused]
+"total_lrunoff"  [Used]
     ! modules: ocean_model
     ! dimensions: scalar
     ! long_name: Area integrated liquid runoff into ocean
