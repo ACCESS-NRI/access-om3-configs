@@ -411,6 +411,15 @@ ETA_TOLERANCE = 1.0E-06         !   [m] default = 3.75E-09
                                 ! 10^-15*MAXIMUM_DEPTH.
 
 ! === module MOM_CoriolisAdv ===
+CORIOLIS_SCHEME = "SADOURNY75_ENSTRO" ! default = "SADOURNY75_ENERGY"
+                                ! CORIOLIS_SCHEME selects the discretization for the Coriolis terms. Valid
+                                ! values are:
+                                !    SADOURNY75_ENERGY - Sadourny, 1975; energy cons.
+                                !    ARAKAWA_HSU90     - Arakawa & Hsu, 1990
+                                !    SADOURNY75_ENSTRO - Sadourny, 1975; enstrophy cons.
+                                !    ARAKAWA_LAMB81    - Arakawa & Lamb, 1981; En. + Enst.
+                                !    ARAKAWA_LAMB_BLEND - A blend of Arakawa & Lamb with
+                                !                         Arakawa & Hsu and Sadourny energy
 BOUND_CORIOLIS = True           !   [Boolean] default = False
                                 ! If true, the Coriolis terms at u-points are bounded by the four estimates of
                                 ! (f+rv)v from the four neighboring v-points, and similarly at v-points.  This
