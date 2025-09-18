@@ -452,6 +452,39 @@ EPBL_IS_ADDITIVE = False        !   [Boolean] default = True
                                 ! Otherwise, the larger of kappa-shear and ePBL diffusivities are used.
 
 ! === module MOM_set_diffusivity ===
+
+! === module MOM_tidal_mixing ===
+! Vertical Tidal Mixing Parameterization
+INT_TIDE_DISSIPATION = True     !   [Boolean] default = False
+                                ! If true, use an internal tidal dissipation scheme to drive diapycnal mixing,
+                                ! along the lines of St. Laurent et al. (2002) and Simmons et al. (2004).
+INT_TIDE_PROFILE = "POLZIN_09"  ! default = "STLAURENT_02"
+                                ! INT_TIDE_PROFILE selects the vertical profile of energy dissipation with
+                                ! INT_TIDE_DISSIPATION. Valid values are:
+                                !    STLAURENT_02 - Use the St. Laurent et al exponential
+                                !                   decay profile.
+                                !    POLZIN_09 - Use the Polzin WKB-stretched algebraic
+                                !                   decay profile.
+INT_TIDE_DECAY_SCALE = 300.3003003003003 !   [m] default = 500.0
+                                ! The decay scale away from the bottom for tidal TKE with the new coding when
+                                ! INT_TIDE_DISSIPATION is used.
+KAPPA_ITIDES = 6.28319E-04      !   [m-1] default = 6.283185307179586E-04
+                                ! A topographic wavenumber used with INT_TIDE_DISSIPATION. The default is 2pi/10
+                                ! km, as in St.Laurent et al. 2002.
+KAPPA_H2_FACTOR = 0.84          !   [nondim] default = 1.0
+                                ! A scaling factor for the roughness amplitude with INT_TIDE_DISSIPATION.
+TKE_ITIDE_MAX = 0.1             !   [W m-2] default = 1000.0
+                                ! The maximum internal tide energy source available to mix above the bottom
+                                ! boundary layer with INT_TIDE_DISSIPATION.
+READ_TIDEAMP = True             !   [Boolean] default = False
+                                ! If true, read a file (given by TIDEAMP_FILE) containing the tidal amplitude
+                                ! with INT_TIDE_DISSIPATION.
+TIDEAMP_FILE = "tideamp_Charrassin_cavity_cropped.nc" ! default = "tideamp.nc"
+                                ! The path to the file containing the spatially varying tidal amplitudes with
+                                ! INT_TIDE_DISSIPATION.
+H2_FILE = "bottom_roughness_extended_into_cavity.nc" !
+                                ! The path to the file containing the sub-grid-scale topographic roughness
+                                ! amplitude with INT_TIDE_DISSIPATION.
 BBL_EFFIC = 0.01                !   [nondim] default = 0.2
                                 ! The efficiency with which the energy extracted by bottom drag drives BBL
                                 ! diffusion.  This is only used if BOTTOMDRAGLAW is true.
@@ -462,6 +495,10 @@ USE_LOTW_BBL_DIFFUSIVITY = True !   [Boolean] default = False
                                 ! If true, uses a simple, imprecise but non-coordinate dependent, model of BBL
                                 ! mixing diffusivity based on Law of the Wall. Otherwise, uses the original BBL
                                 ! scheme.
+SIMPLE_TKE_TO_KD = True         !   [Boolean] default = False
+                                ! If true, uses a simple estimate of Kd/TKE that will work for arbitrary
+                                ! vertical coordinates. If false, calculates Kd/TKE and bounds based on exact
+                                ! energetics for an isopycnal layer-formulation.
 
 ! === module MOM_bkgnd_mixing ===
 ! Adding static vertical background mixing coefficients
@@ -605,6 +642,9 @@ OCEAN_SURFACE_STAGGER = "A"     ! default = "C"
 EPS_OMESH = 1.0E-13             !   [degrees] default = 1.0E-04
                                 ! Maximum allowable difference between ESMF mesh and MOM6 domain coordinates in
                                 ! nuopc cap.
+RESTORE_SALINITY = True         !   [Boolean] default = False
+                                ! If true, the coupled driver will add a globally-balanced fresh-water flux that
+                                ! drives sea-surface salinity toward specified values.
 ICE_SHELF = True                !   [Boolean] default = False
                                 ! If true, enables the ice shelf model.
 
@@ -619,9 +659,22 @@ MAX_P_SURF = 0.0                !   [Pa] default = -1.0
                                 ! structure does not limit the water that can be frozen out of the ocean and the
                                 ! ice-ocean heat fluxes are treated explicitly.  No limit is applied if a
                                 ! negative value is used.
+ADJUST_NET_SRESTORE_TO_ZERO = False !   [Boolean] default = True
+                                ! If true, adjusts the salinity restoring seen to zero whether restoring is via
+                                ! a salt flux or virtual precip.
 WIND_STAGGER = "A"              ! default = "C"
                                 ! A case-insensitive character string to indicate the staggering of the input
                                 ! wind stress field.  Valid values are 'A', 'B', or 'C'.
+FLUXCONST = 0.11                !   [m day-1] default = 0.0
+                                ! The constant that relates the restoring surface fluxes to the relative surface
+                                ! anomalies (akin to a piston velocity).  Note the non-MKS units.
+SALT_RESTORE_FILE = "salt_restore_interpolated_nearest.nc" ! default = "salt_restore.nc"
+                                ! A file in which to find the surface salinity to use for restoring.
+SRESTORE_AS_SFLUX = True        !   [Boolean] default = False
+                                ! If true, the restoring of salinity is applied as a salt flux instead of as a
+                                ! freshwater flux.
+MASK_SRESTORE = True            !   [Boolean] default = False
+                                ! If true, read a file (salt_restore_mask) containing a mask for SSS restoring.
 USE_RIGID_SEA_ICE = True        !   [Boolean] default = False
                                 ! If true, sea-ice is rigid enough to exert a nonhydrostatic pressure that
                                 ! resist vertical motion.
