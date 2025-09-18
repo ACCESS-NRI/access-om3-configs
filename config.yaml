@@ -32,6 +32,7 @@ input:
     - /g/data/tm70/cy8964/mom6/input/input-8km/ocean_vgrid_cropped.nc
     - /g/data/tm70/cy8964/mom6/input/input-8km/ACCESS-OM2_IC_bfilled_smoothedland.nc
     - /g/data/tm70/cy8964/mom6/input/input-8km/salt_restore_interpolated_nearest.nc
+    - /g/data/x77/cy8964/mom6/input/input-8km/150925/salt_restore_mask.nc
     - /g/data/x77/cy8964/mom6/input/input-8km/150925/topog_Charrassin_sea_ice_from_iceelev_new150925.nc
     - /g/data/x77/cy8964/mom6/input/input-8km/150925/topog_Charrassin_open_cavity_noGL5m_new150925.nc
     - /g/data/x77/cy8964/mom6/input/input-8km/150925/access-om3-8km-ESMFmesh_Charrassin_nocavity_cropped.nc 
@@ -42,8 +43,10 @@ input:
     - /g/data/vk83/experiments/inputs/JRA-55/RYF/v1-4/data
     - /g/data/tm70/cy8964/mom6/input/input-8km/forcing_access_yr2_8km_fill.nc
     - /g/data/tm70/cy8964/mom6/input/input-8km/diag_rho2.nc 
-    - /g/data/tm70/cy8964/mom6/input/input-8km/bottom_roughness_Charrassin_nocavity_cropped.nc
-    - /g/data/tm70/cy8964/mom6/input/input-8km/tideamp_Charrassin_nocavity_cropped.nc
+      #- /g/data/tm70/cy8964/mom6/input/input-8km/bottom_roughness_Charrassin_nocavity_cropped.nc
+      #- /g/data/tm70/cy8964/mom6/input/input-8km/tideamp_Charrassin_nocavity_cropped.nc
+    - /g/data/x77/cy8964/mom6/input/input-8km/bottom_roughness_extended_into_cavity.nc
+    - /g/data/x77/cy8964/mom6/input/input-8km/tideamp_Charrassin_cavity_cropped.nc
     - /g/data/x77/cy8964/mom6/input/input-8km/150925/ice_thickness_Charrassin_regridded_cropped_add_area_where_iceelev_noGL5m_ADDHMASKFILLTHICK_150925.nc
  
 collate:

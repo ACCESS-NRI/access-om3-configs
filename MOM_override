@@ -5,7 +5,11 @@
 
 ! First we update numbers and files for higher res run
 #override TOPO_FILE = "topog_Charrassin_open_cavity_noGL5m_new150925.nc"
-#override RESTORE_SALINITY = False !#override SALT_RESTORE_FILE = "salt_restore_interpolated_nearest.nc"
+!#override RESTORE_SALINITY = False !#override SALT_RESTORE_FILE = "salt_restore_interpolated_nearest.nc"
+#override RESTORE_SALINITY = True
+#override SALT_RESTORE_FILE = "salt_restore_interpolated_nearest.nc"
+#override MASK_SRESTORE = True
+
 
 #override DT = 450 ! 300 !200 !600
 #override DT_THERM = 450 ! 300 ! 200 ! 1200 !ideally shorten from 3600 due to adele's OBC issue in MOM6-SIS2 panan
@@ -19,10 +23,10 @@
 #override TRIPOLAR_N = False
 !#override AUTO_IO_LAYOUT_FAC = 1 ! Slows model down but it means coordinates are not NaNs
 
-#override READ_TIDEAMP = False
-#override INT_TIDE_DISSIPATION = False
-#override H2_FILE = "bottom_roughness_Charrassin_nocavity_cropped.nc"
-#override TIDEAMP_FILE = "tideamp_Charrassin_nocavity_cropped.nc" 
+#override READ_TIDEAMP = True
+#override INT_TIDE_DISSIPATION = True
+#override H2_FILE = "bottom_roughness_extended_into_cavity.nc"
+#override TIDEAMP_FILE = "tideamp_Charrassin_cavity_cropped.nc" 
 
 !save time for restart runs
 #override SAVE_INITIAL_CONDS = False ! True
