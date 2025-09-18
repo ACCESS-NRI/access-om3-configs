@@ -42,7 +42,7 @@ SURFACE_PRESSURE_SCALE = 8986.6 !! Ensure this is DENSITY_ICE X G_EARTH
 #override Z_INIT_REMAP_GENERAL = True
 #override PRESSURE_RECONSTRUCTION_SCHEME = 2
 
-#override HARMONIC_VISC = True
+!#override HARMONIC_VISC = True
 
 !#override DEBUG_IS = True
 !#override DEBUG = True

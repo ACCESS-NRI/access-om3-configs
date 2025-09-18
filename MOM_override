@@ -11,8 +11,8 @@
 #override MASK_SRESTORE = True
 
 
-#override DT = 450 ! 300 !200 !600
-#override DT_THERM = 450 ! 300 ! 200 ! 1200 !ideally shorten from 3600 due to adele's OBC issue in MOM6-SIS2 panan
+#override DT = 150 ! 300 !200 !600
+#override DT_THERM = 150 ! 300 ! 200 ! 1200 !ideally shorten from 3600 due to adele's OBC issue in MOM6-SIS2 panan
 
 #override NIGLOBAL = 4320
 #override NJGLOBAL = 1442
@@ -23,10 +23,10 @@
 #override TRIPOLAR_N = False
 !#override AUTO_IO_LAYOUT_FAC = 1 ! Slows model down but it means coordinates are not NaNs
 
-#override READ_TIDEAMP = True
-#override INT_TIDE_DISSIPATION = True
-#override H2_FILE = "bottom_roughness_extended_into_cavity.nc"
-#override TIDEAMP_FILE = "tideamp_Charrassin_cavity_cropped.nc" 
+#override READ_TIDEAMP = False
+#override INT_TIDE_DISSIPATION = False
+!#override H2_FILE = "bottom_roughness_extended_into_cavity.nc"
+!#override TIDEAMP_FILE = "tideamp_Charrassin_cavity_cropped.nc" 
 
 !save time for restart runs
 #override SAVE_INITIAL_CONDS = False ! True

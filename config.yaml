@@ -24,7 +24,8 @@ jobname: 8km_panAn_is
 model: access-om3
 
 #exe: access-om3-MOM6-CICE6
-exe: /g/data/tm70/cy8964/spack/0.22/release/linux-rocky8-x86_64_v4/oneapi-2025.2.0/access3-2025.08.000-w4fxitax5qhwxig7stb6zlxc4ij3nkex/bin/access-om3-MOM6-CICE6
+#exe: /g/data/tm70/cy8964/spack/0.22/release/linux-rocky8-x86_64_v4/oneapi-2025.2.0/access3-2025.08.000-w4fxitax5qhwxig7stb6zlxc4ij3nkex/bin/access-om3-MOM6-CICE6
+exe: /g/data/tm70/cy8964/access-om3-MOM6-CICE6-b2e31ba
 
 input:
     - /g/data/x77/cy8964/mom6/input/input-8km/150925/kmt_Charrassin_sea_ice_from_iceelev_new150925.nc
