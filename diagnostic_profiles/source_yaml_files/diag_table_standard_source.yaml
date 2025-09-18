@@ -162,6 +162,7 @@ diag_table:
             dyCv: # dyCv is delta y at v points [L ~> m]
             dyCuo: # Open meridional grid spacing at u points (meter)
             dxCvo: # Open zonal grid spacing at v points (meter)
+            volcello: # Ocean grid-cell volume
 
     'monthly 3d fields on z':
         defaults:  # these can be overridden for individual fields below
@@ -177,6 +178,8 @@ diag_table:
             uo: # u velocity
             vo: # v velocity
             KE: # Layer Kinetic energy per unit mass
+            Kd_Itidal_Work: # Work done by Internal Tide Diapycnal Mixing
+#            Kd_Lowmode_Work: # Work done by Internal Tide Diapycnal Mixing (low modes)
 
     'monthly 3d fields on rho2':
         defaults:  # these can be overridden for individual fields below
@@ -190,6 +193,7 @@ diag_table:
             vmo: # Ocean Mass Y Transport
             uhGM: # Time Mean Diffusive Zonal Thickness Flux
             vhGM: # Time Mean Diffusive Meridional Thickness Flux
+#            GM_sfn_y: # Parameterized Meridional Overturning Streamfunction
 
     'monthly 2d fields':
         defaults:  # these can be overridden for individual fields below
@@ -213,6 +217,14 @@ diag_table:
             umo_2d: # Ocean Mass X Transport Vertical Sum
             vmo_2d: # Ocean Mass Y Transport Vertical Sum
             pbo: # Sea Water Pressure at Sea Floor
+            T_diffy_2d: # Vertically Integrated Diffusive Meridional Flux of Heat
+            T_hbd_diffy_2d: # Vertically-integrated meridional diffusive flux from the horizontal boundary diffusion scheme for Heat
+            T_ady_2d: # Vertically Integrated Advective Meridional Flux of Heat
+            T_adx_2d: # Vertically Integrated Advective Zonal Flux of Heat
+            lrunoff: # Liquid runoff (rivers) into ocean
+            ficeberg: # Frozen runoff (calving) and iceberg melt into ocean
+            Kd_interface: # Total diapycnal diffusivity at interfaces
+            Kd_ePBL: # ePBL diapycnal diffusivity at interfaces
 
     'monthly 2d max fields':
         defaults:  # these can be overridden for individual fields below
@@ -220,6 +232,19 @@ diag_table:
             reduction_method: max  # mean, snap, rms, pow##, min, max, or diurnal##
         fields:
             mlotst: # Mixed layer depth (delta rho = 0.03) MLD_003
+            speed: # Sea Surface Speed
+            zos: # Sea surface height above geoid
+            tos: # Sea Surface Temperature
+            sos: # Sea Surface Salinity
+
+    'monthly 2d min fields':
+        defaults:  # these can be overridden for individual fields below
+            file_name_dimension: 2d  # descriptor for filename, e.g. 3d, 2d, scalar
+            reduction_method: min  # mean, snap, rms, pow##, min, max, or diurnal##
+        fields:
+            zos: # Sea surface height above geoid
+            tos: # Sea Surface Temperature
+            sos: # Sea Surface Salinity
 
     'daily 2D fields':
         defaults:
@@ -279,4 +304,4 @@ diag_table:
             total_ficeberg: # Area integrated frozen runoff (calving) & iceberg melt into ocean total_frunoff
             total_friver: # Area integrated liquid runoff into ocean total_lrunoff
             total_net_massout: # Area integrated mass leaving ocean due to evap and seaice form
-            total_net_massin: # Area integrated mass entering ocean due to predip, runoff, ice melt
+            total_net_massin: # Area integrated mass entering ocean due to precip, runoff, ice melt
