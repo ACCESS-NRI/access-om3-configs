@@ -24,3 +24,8 @@ Create a new branch, e.g. `jblogs/doc-update`, make doc changes (the documentati
 
 Following [these instructions](https://docs.access-hive.org.au/about/contribute/contribute_on_github/) but noting the documentation sources are in [github.com/ACCESS-NRI/access-om3-configs/tree/main/documentation](https://github.com/ACCESS-NRI/access-om3-configs/tree/main/documentation). You'll need to fork and clone [github.com/ACCESS-NRI/access-om3-configs](https://github.com/ACCESS-NRI/access-om3-configs) if you want to [write your own content](https://docs.access-hive.org.au/about/contribute/contribute_on_github/) (`mkdocs serve` should be invoked from within the `documentation` directory).
 
+If you want to add a new page, then you want to add another markdown file in the folder (or sub-folder as appropriate):
+https://github.com/ACCESS-NRI/access-om3-configs/tree/main/documentation/docs/pages
+
+Once done, one needs to tell the doc system that it needs to include the new page by adding a line for each new pages [here](https://github.com/ACCESS-NRI/access-om3-configs/blob/736eb3133df8db50a47791d56c907e7a6b2fd0f4/documentation/mkdocs.yml#L108-L140).
+Note you'll need to add the sub-folder paths as appropriate.
