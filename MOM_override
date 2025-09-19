@@ -11,8 +11,8 @@
 #override MASK_SRESTORE = True
 
 
-#override DT = 300 !200 !600
-#override DT_THERM = 300 ! 200 ! 1200 !ideally shorten from 3600 due to adele's OBC issue in MOM6-SIS2 panan
+#override DT =400 ! 300 !200 !600
+#override DT_THERM = 400 ! 300 ! 200 ! 1200 !ideally shorten from 3600 due to adele's OBC issue in MOM6-SIS2 panan
 
 #override NIGLOBAL = 4320
 #override NJGLOBAL = 1442
