@@ -27,5 +27,5 @@ Following [these instructions](https://docs.access-hive.org.au/about/contribute/
 If you want to add a new page, then you need to add another markdown file in the folder (or sub-folder as appropriate):
 [github.com/ACCESS-NRI/access-om3-configs/tree/main/documentation/docs/pages](https://github.com/ACCESS-NRI/access-om3-configs/tree/main/documentation/docs/pages)
 
-Once done, one needs to tell the doc system that it needs to include the new page by adding a line for each new page [here](https://github.com/ACCESS-NRI/access-om3-configs/blob/736eb3133df8db50a47791d56c907e7a6b2fd0f4/documentation/mkdocs.yml#L108-L140).
+Once done, update the documentation navigation in https://github.com/ACCESS-NRI/access-om3-configs/blob/main/documentation/mkdocs.yml by adding an entry under the `nav:` section.
 Note you'll need to add the sub-folder paths as appropriate.
