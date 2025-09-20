@@ -2,147 +2,147 @@ format: yamanifest
 version: 1.0
 ---
 work/Shelf.res.nc:
-  fullpath: /scratch/x77/cy8964/access-om3/archive/ice_shelf_panan-nancheck3-150925files-v2-notidalmix/restart005/Shelf.res.nc
+  fullpath: /scratch/x77/cy8964/access-om3/archive/ice_shelf_panan-nancheck3-150925files-v2-notidalmix/restart006/Shelf.res.nc
   hashes:
-    binhash: a269892c4dddf75e6a7302f2cee02a0e
-    md5: ea1bf08110f7f036680c12a23091b0fa
-work/access-om3.cice.r.1900-06-01-00000.nc:
-  fullpath: /scratch/x77/cy8964/access-om3/archive/ice_shelf_panan-nancheck3-150925files-v2-notidalmix/restart005/access-om3.cice.r.1900-06-01-00000.nc
+    binhash: 2830f60f9fac7d662be87853733c68a7
+    md5: 55ec8a7b2ffdd02a487aa0b2f2d42e39
+work/access-om3.cice.r.1900-07-01-00000.nc:
+  fullpath: /scratch/x77/cy8964/access-om3/archive/ice_shelf_panan-nancheck3-150925files-v2-notidalmix/restart006/access-om3.cice.r.1900-07-01-00000.nc
   hashes:
-    binhash: f1c1376e976c644e64e1df8e5e376577
-    md5: b152e94083062a0f4f3b5b538d4a4b53
-work/access-om3.cpl.r.1900-06-01-00000.nc:
-  fullpath: /scratch/x77/cy8964/access-om3/archive/ice_shelf_panan-nancheck3-150925files-v2-notidalmix/restart005/access-om3.cpl.r.1900-06-01-00000.nc
+    binhash: 7618627a4320054bd04138829114db9c
+    md5: f6d40553850b2813283455f4462ac58b
+work/access-om3.cpl.r.1900-07-01-00000.nc:
+  fullpath: /scratch/x77/cy8964/access-om3/archive/ice_shelf_panan-nancheck3-150925files-v2-notidalmix/restart006/access-om3.cpl.r.1900-07-01-00000.nc
   hashes:
-    binhash: 6806a31a3189b56f9e2424d92a02681f
-    md5: 6d7b203f541ce95a07cf33b63c9bc503
-work/access-om3.datm.r.1900-06-01-00000.nc:
-  fullpath: /scratch/x77/cy8964/access-om3/archive/ice_shelf_panan-nancheck3-150925files-v2-notidalmix/restart005/access-om3.datm.r.1900-06-01-00000.nc
+    binhash: 7987c1ee0249d572c9b844eac957bb2a
+    md5: c56298952b98d6b7b15877d7cac958f4
+work/access-om3.datm.r.1900-07-01-00000.nc:
+  fullpath: /scratch/x77/cy8964/access-om3/archive/ice_shelf_panan-nancheck3-150925files-v2-notidalmix/restart006/access-om3.datm.r.1900-07-01-00000.nc
   hashes:
-    binhash: 358d7cbac71fe9b3be990276fb6467de
+    binhash: b78d540ff7b209b493bbb2000e6c5e2d
     md5: 81a56302103745327a30f781ebccda06
-work/access-om3.drof.r.1900-06-01-00000.nc:
-  fullpath: /scratch/x77/cy8964/access-om3/archive/ice_shelf_panan-nancheck3-150925files-v2-notidalmix/restart005/access-om3.drof.r.1900-06-01-00000.nc
+work/access-om3.drof.r.1900-07-01-00000.nc:
+  fullpath: /scratch/x77/cy8964/access-om3/archive/ice_shelf_panan-nancheck3-150925files-v2-notidalmix/restart006/access-om3.drof.r.1900-07-01-00000.nc
   hashes:
-    binhash: d51e3153624cc1d2d8136d2b0e530653
+    binhash: 54ccdf0a17a771a87cdf8d676bc462e0
     md5: 8ae9777c0e4e9255da7f9dd23047c16f
-work/access-om3.mom6.r.1900-06-01-00000.nc:
-  fullpath: /scratch/x77/cy8964/access-om3/archive/ice_shelf_panan-nancheck3-150925files-v2-notidalmix/restart005/access-om3.mom6.r.1900-06-01-00000.nc
+work/access-om3.mom6.r.1900-07-01-00000.nc:
+  fullpath: /scratch/x77/cy8964/access-om3/archive/ice_shelf_panan-nancheck3-150925files-v2-notidalmix/restart006/access-om3.mom6.r.1900-07-01-00000.nc
   hashes:
-    binhash: 66b33288ac75518e96e6acdd30ff38d5
-    md5: a7403189bdc042efcef3008f26348510
-work/access-om3.mom6.r.1900-06-01-00000_1.nc:
-  fullpath: /scratch/x77/cy8964/access-om3/archive/ice_shelf_panan-nancheck3-150925files-v2-notidalmix/restart005/access-om3.mom6.r.1900-06-01-00000_1.nc
+    binhash: f971b256f5139cc1bdb17dd5b57e39b6
+    md5: d640d70160a1394dc7af3061dc4075ed
+work/access-om3.mom6.r.1900-07-01-00000_1.nc:
+  fullpath: /scratch/x77/cy8964/access-om3/archive/ice_shelf_panan-nancheck3-150925files-v2-notidalmix/restart006/access-om3.mom6.r.1900-07-01-00000_1.nc
   hashes:
-    binhash: 04a935d8d1568ab7a190986c59a1af10
-    md5: 9e255be134840771e83fb64a8ff11963
-work/access-om3.mom6.r.1900-06-01-00000_10.nc:
-  fullpath: /scratch/x77/cy8964/access-om3/archive/ice_shelf_panan-nancheck3-150925files-v2-notidalmix/restart005/access-om3.mom6.r.1900-06-01-00000_10.nc
+    binhash: 4734ece6e66cfe241abd27be3dbf0da4
+    md5: 5eba4b057da158243239f3a01e5088ec
+work/access-om3.mom6.r.1900-07-01-00000_10.nc:
+  fullpath: /scratch/x77/cy8964/access-om3/archive/ice_shelf_panan-nancheck3-150925files-v2-notidalmix/restart006/access-om3.mom6.r.1900-07-01-00000_10.nc
   hashes:
-    binhash: 1a286ae2e435fcde182deb6be15e1d5b
-    md5: 7d094008fada7209536e1097c891bff1
-work/access-om3.mom6.r.1900-06-01-00000_11.nc:
-  fullpath: /scratch/x77/cy8964/access-om3/archive/ice_shelf_panan-nancheck3-150925files-v2-notidalmix/restart005/access-om3.mom6.r.1900-06-01-00000_11.nc
+    binhash: a891b8a4517af51f5667c320a1881261
+    md5: 9979bf6890886736ba3704de83a610d8
+work/access-om3.mom6.r.1900-07-01-00000_11.nc:
+  fullpath: /scratch/x77/cy8964/access-om3/archive/ice_shelf_panan-nancheck3-150925files-v2-notidalmix/restart006/access-om3.mom6.r.1900-07-01-00000_11.nc
   hashes:
-    binhash: b1b0e5a75304e722023504a0ef720493
-    md5: 73874eee16467dfff5450eb66cddd357
-work/access-om3.mom6.r.1900-06-01-00000_12.nc:
-  fullpath: /scratch/x77/cy8964/access-om3/archive/ice_shelf_panan-nancheck3-150925files-v2-notidalmix/restart005/access-om3.mom6.r.1900-06-01-00000_12.nc
+    binhash: 4842eb49c0554f6e90d68733ed04d7ad
+    md5: ed52f8138b26df058556796bec0b3761
+work/access-om3.mom6.r.1900-07-01-00000_12.nc:
+  fullpath: /scratch/x77/cy8964/access-om3/archive/ice_shelf_panan-nancheck3-150925files-v2-notidalmix/restart006/access-om3.mom6.r.1900-07-01-00000_12.nc
   hashes:
-    binhash: 5c87b713746bcbd43e0e563027c64fb8
-    md5: 1d53a611194c4d968152146e3c76a6a8
-work/access-om3.mom6.r.1900-06-01-00000_13.nc:
-  fullpath: /scratch/x77/cy8964/access-om3/archive/ice_shelf_panan-nancheck3-150925files-v2-notidalmix/restart005/access-om3.mom6.r.1900-06-01-00000_13.nc
+    binhash: b15af3a445ad776efecdb7a917cf149e
+    md5: a5c624c9513b9e90f5e1973607b45916
+work/access-om3.mom6.r.1900-07-01-00000_13.nc:
+  fullpath: /scratch/x77/cy8964/access-om3/archive/ice_shelf_panan-nancheck3-150925files-v2-notidalmix/restart006/access-om3.mom6.r.1900-07-01-00000_13.nc
   hashes:
-    binhash: c61d9c6582c6c2e8df9f094f1573f17f
-    md5: 48d0bd6c8c71132dc0cbb9dc8d8dcf21
-work/access-om3.mom6.r.1900-06-01-00000_14.nc:
-  fullpath: /scratch/x77/cy8964/access-om3/archive/ice_shelf_panan-nancheck3-150925files-v2-notidalmix/restart005/access-om3.mom6.r.1900-06-01-00000_14.nc
+    binhash: 0fc60c0f7925bff08854f895895d8b8e
+    md5: 23d2a47f740e0304a35af43cd919bdec
+work/access-om3.mom6.r.1900-07-01-00000_14.nc:
+  fullpath: /scratch/x77/cy8964/access-om3/archive/ice_shelf_panan-nancheck3-150925files-v2-notidalmix/restart006/access-om3.mom6.r.1900-07-01-00000_14.nc
   hashes:
-    binhash: d8b829830445649cd9c77fb1054de942
-    md5: 753df2db3b615c1499e93d156de61b2a
-work/access-om3.mom6.r.1900-06-01-00000_15.nc:
-  fullpath: /scratch/x77/cy8964/access-om3/archive/ice_shelf_panan-nancheck3-150925files-v2-notidalmix/restart005/access-om3.mom6.r.1900-06-01-00000_15.nc
+    binhash: a5744a69d0b6a3e5ea6d88b079c50a18
+    md5: 24ddc9a0f10af5765287eeb7b5fe6238
+work/access-om3.mom6.r.1900-07-01-00000_15.nc:
+  fullpath: /scratch/x77/cy8964/access-om3/archive/ice_shelf_panan-nancheck3-150925files-v2-notidalmix/restart006/access-om3.mom6.r.1900-07-01-00000_15.nc
   hashes:
-    binhash: c8acfc8e478e6df9bdf79aaf3d8c94f2
-    md5: 8ba498d4563a92864cf93f38886c1a7f
-work/access-om3.mom6.r.1900-06-01-00000_16.nc:
-  fullpath: /scratch/x77/cy8964/access-om3/archive/ice_shelf_panan-nancheck3-150925files-v2-notidalmix/restart005/access-om3.mom6.r.1900-06-01-00000_16.nc
+    binhash: 46a3135d7beb2e5ef4d7d79babbf8f59
+    md5: b28df133d254476968485f64bcd14322
+work/access-om3.mom6.r.1900-07-01-00000_16.nc:
+  fullpath: /scratch/x77/cy8964/access-om3/archive/ice_shelf_panan-nancheck3-150925files-v2-notidalmix/restart006/access-om3.mom6.r.1900-07-01-00000_16.nc
   hashes:
-    binhash: 7fd04b71879c583bd3ffdf4cc290ad94
-    md5: 5688a75a30d392d0f28daa593e7a6e6c
-work/access-om3.mom6.r.1900-06-01-00000_17.nc:
-  fullpath: /scratch/x77/cy8964/access-om3/archive/ice_shelf_panan-nancheck3-150925files-v2-notidalmix/restart005/access-om3.mom6.r.1900-06-01-00000_17.nc
+    binhash: b03199c20c534d092b62acfa792287de
+    md5: cd7296994aed57ab2a701ee20aa7ba96
+work/access-om3.mom6.r.1900-07-01-00000_17.nc:
+  fullpath: /scratch/x77/cy8964/access-om3/archive/ice_shelf_panan-nancheck3-150925files-v2-notidalmix/restart006/access-om3.mom6.r.1900-07-01-00000_17.nc
   hashes:
-    binhash: df0eb31def1a946b2641d876c62fede2
-    md5: 7e15c368e37b3e885b249c57dd48497c
-work/access-om3.mom6.r.1900-06-01-00000_18.nc:
-  fullpath: /scratch/x77/cy8964/access-om3/archive/ice_shelf_panan-nancheck3-150925files-v2-notidalmix/restart005/access-om3.mom6.r.1900-06-01-00000_18.nc
+    binhash: ef62a4fe4ea9f0f7e37351c199fe021a
+    md5: c9c57d8e52a0665c3f065dacc0992591
+work/access-om3.mom6.r.1900-07-01-00000_18.nc:
+  fullpath: /scratch/x77/cy8964/access-om3/archive/ice_shelf_panan-nancheck3-150925files-v2-notidalmix/restart006/access-om3.mom6.r.1900-07-01-00000_18.nc
   hashes:
-    binhash: 3a19248ce3d8f48098171367cad8d02b
-    md5: 0f781c70587acb939b1a02694cc79484
-work/access-om3.mom6.r.1900-06-01-00000_2.nc:
-  fullpath: /scratch/x77/cy8964/access-om3/archive/ice_shelf_panan-nancheck3-150925files-v2-notidalmix/restart005/access-om3.mom6.r.1900-06-01-00000_2.nc
+    binhash: 8651eebef8895bfd6e630d0b411d9022
+    md5: b50868195b6bfaa6f1df4161eaffcffd
+work/access-om3.mom6.r.1900-07-01-00000_2.nc:
+  fullpath: /scratch/x77/cy8964/access-om3/archive/ice_shelf_panan-nancheck3-150925files-v2-notidalmix/restart006/access-om3.mom6.r.1900-07-01-00000_2.nc
   hashes:
-    binhash: 933317daeeb72e4cff2fe1d8246c222a
-    md5: 9ea617474720801e6c7082853d2f1130
-work/access-om3.mom6.r.1900-06-01-00000_3.nc:
-  fullpath: /scratch/x77/cy8964/access-om3/archive/ice_shelf_panan-nancheck3-150925files-v2-notidalmix/restart005/access-om3.mom6.r.1900-06-01-00000_3.nc
+    binhash: e393357aa223a9db2610efd943726e4f
+    md5: 14b547d3395f1b460b7fca8293f74517
+work/access-om3.mom6.r.1900-07-01-00000_3.nc:
+  fullpath: /scratch/x77/cy8964/access-om3/archive/ice_shelf_panan-nancheck3-150925files-v2-notidalmix/restart006/access-om3.mom6.r.1900-07-01-00000_3.nc
   hashes:
-    binhash: 98b8f96b55cddce5f73f1bf9037bb97c
-    md5: d99dac950699abb8f0a1e85bf9a226b6
-work/access-om3.mom6.r.1900-06-01-00000_4.nc:
-  fullpath: /scratch/x77/cy8964/access-om3/archive/ice_shelf_panan-nancheck3-150925files-v2-notidalmix/restart005/access-om3.mom6.r.1900-06-01-00000_4.nc
+    binhash: ecba3b86d7a6703200e2a9699248dad9
+    md5: 3ca61f12453e49d2e03cd7af010a011e
+work/access-om3.mom6.r.1900-07-01-00000_4.nc:
+  fullpath: /scratch/x77/cy8964/access-om3/archive/ice_shelf_panan-nancheck3-150925files-v2-notidalmix/restart006/access-om3.mom6.r.1900-07-01-00000_4.nc
   hashes:
-    binhash: eae36cd9d15f9dda96474a1008bf64f4
-    md5: 1ff400eb9e84c620ebaf5f2a02cf0ef3
-work/access-om3.mom6.r.1900-06-01-00000_5.nc:
-  fullpath: /scratch/x77/cy8964/access-om3/archive/ice_shelf_panan-nancheck3-150925files-v2-notidalmix/restart005/access-om3.mom6.r.1900-06-01-00000_5.nc
+    binhash: e2aa00bfa774d3c53ea456c251dc725b
+    md5: b6d22e77e4e4c599f6f4c9d7d91d9d00
+work/access-om3.mom6.r.1900-07-01-00000_5.nc:
+  fullpath: /scratch/x77/cy8964/access-om3/archive/ice_shelf_panan-nancheck3-150925files-v2-notidalmix/restart006/access-om3.mom6.r.1900-07-01-00000_5.nc
   hashes:
-    binhash: a4be50c454f1987a6ef8dde0f7f7c5fe
-    md5: 30c79ed52171d2c37702facaf558f0ae
-work/access-om3.mom6.r.1900-06-01-00000_6.nc:
-  fullpath: /scratch/x77/cy8964/access-om3/archive/ice_shelf_panan-nancheck3-150925files-v2-notidalmix/restart005/access-om3.mom6.r.1900-06-01-00000_6.nc
+    binhash: a8641f0065c10b899ef5369e821cfe49
+    md5: 6c6274f8e8d069f508c94a6495a98fad
+work/access-om3.mom6.r.1900-07-01-00000_6.nc:
+  fullpath: /scratch/x77/cy8964/access-om3/archive/ice_shelf_panan-nancheck3-150925files-v2-notidalmix/restart006/access-om3.mom6.r.1900-07-01-00000_6.nc
   hashes:
-    binhash: 8aa034c2c0f45ed7c294e88b1bd27ca0
-    md5: 6cad8ddf4da993762587f49b59e090e0
-work/access-om3.mom6.r.1900-06-01-00000_7.nc:
-  fullpath: /scratch/x77/cy8964/access-om3/archive/ice_shelf_panan-nancheck3-150925files-v2-notidalmix/restart005/access-om3.mom6.r.1900-06-01-00000_7.nc
+    binhash: c9d42df489c8ba34e7010f450157bda4
+    md5: 966b391d2f157fe29dfd02ce095678c0
+work/access-om3.mom6.r.1900-07-01-00000_7.nc:
+  fullpath: /scratch/x77/cy8964/access-om3/archive/ice_shelf_panan-nancheck3-150925files-v2-notidalmix/restart006/access-om3.mom6.r.1900-07-01-00000_7.nc
   hashes:
-    binhash: 4c72b65aa45c6a61a8491be222d40208
-    md5: 70225fd6bbf4ce2f24f85135ac02d5da
-work/access-om3.mom6.r.1900-06-01-00000_8.nc:
-  fullpath: /scratch/x77/cy8964/access-om3/archive/ice_shelf_panan-nancheck3-150925files-v2-notidalmix/restart005/access-om3.mom6.r.1900-06-01-00000_8.nc
+    binhash: 183c8185979e0d1e4362ed16fbcda2a2
+    md5: 03e0c12c0a51c4cb22376657631fbd76
+work/access-om3.mom6.r.1900-07-01-00000_8.nc:
+  fullpath: /scratch/x77/cy8964/access-om3/archive/ice_shelf_panan-nancheck3-150925files-v2-notidalmix/restart006/access-om3.mom6.r.1900-07-01-00000_8.nc
   hashes:
-    binhash: 0b42567c007742dbcdb99a04f0b38015
-    md5: 15afa43b89397a9b96b8535a2c0e2056
-work/access-om3.mom6.r.1900-06-01-00000_9.nc:
-  fullpath: /scratch/x77/cy8964/access-om3/archive/ice_shelf_panan-nancheck3-150925files-v2-notidalmix/restart005/access-om3.mom6.r.1900-06-01-00000_9.nc
+    binhash: 39f8dd139a6f511e4e4fb28d623cd0f5
+    md5: 6cba1ccee2a4b951a0d22fe9b728c79a
+work/access-om3.mom6.r.1900-07-01-00000_9.nc:
+  fullpath: /scratch/x77/cy8964/access-om3/archive/ice_shelf_panan-nancheck3-150925files-v2-notidalmix/restart006/access-om3.mom6.r.1900-07-01-00000_9.nc
   hashes:
-    binhash: 46685ddb38597f860ad325714b803f12
-    md5: 1924c24678f0e9c8171ba6a4bd5de649
+    binhash: e5beb798f4f4e654829eb53911bc8fd0
+    md5: c783eb0e241fc22070b4a65920a629ea
 work/rpointer.atm:
-  fullpath: /scratch/x77/cy8964/access-om3/archive/ice_shelf_panan-nancheck3-150925files-v2-notidalmix/restart005/rpointer.atm
+  fullpath: /scratch/x77/cy8964/access-om3/archive/ice_shelf_panan-nancheck3-150925files-v2-notidalmix/restart006/rpointer.atm
   hashes:
-    binhash: 7c9391a579088f5df9c6b96b530fb7d1
-    md5: 7aaafa6e3f61f3d1f22707f1d03cb058
+    binhash: 5193037de6223d8d1ae308c51f559d2d
+    md5: 98a6a4b0009ec019e7117561a7bcf4f8
 work/rpointer.cpl:
-  fullpath: /scratch/x77/cy8964/access-om3/archive/ice_shelf_panan-nancheck3-150925files-v2-notidalmix/restart005/rpointer.cpl
+  fullpath: /scratch/x77/cy8964/access-om3/archive/ice_shelf_panan-nancheck3-150925files-v2-notidalmix/restart006/rpointer.cpl
   hashes:
-    binhash: 077b3d96e0179a7f548b343dd4d07d23
-    md5: e018fbec73e1ceb5aadf480917fa0bc1
+    binhash: 20abab98e32eb6f76aaa50eccaf5a237
+    md5: f94f3add95d92d5df1c3644515e63a05
 work/rpointer.ice:
-  fullpath: /scratch/x77/cy8964/access-om3/archive/ice_shelf_panan-nancheck3-150925files-v2-notidalmix/restart005/rpointer.ice
+  fullpath: /scratch/x77/cy8964/access-om3/archive/ice_shelf_panan-nancheck3-150925files-v2-notidalmix/restart006/rpointer.ice
   hashes:
-    binhash: 9b1131da7c9f76f2e4f639075152f6cd
-    md5: 93a1d861dcbe35ffb869de51919b6206
+    binhash: 30323ae3ba13898de22c9fa36b0faa60
+    md5: cc9658ae882ee8814ed8a68acebce999
 work/rpointer.ocn:
-  fullpath: /scratch/x77/cy8964/access-om3/archive/ice_shelf_panan-nancheck3-150925files-v2-notidalmix/restart005/rpointer.ocn
+  fullpath: /scratch/x77/cy8964/access-om3/archive/ice_shelf_panan-nancheck3-150925files-v2-notidalmix/restart006/rpointer.ocn
   hashes:
-    binhash: f8f22695fd16a058bb76ddc90fbaf2c4
-    md5: 4685f0603f047137b0152295df12facd
+    binhash: df4f718fc6c1faaebcdf20b917cdfc23
+    md5: 8f80d24207f90b55cda3517d4ab38d22
 work/rpointer.rof:
-  fullpath: /scratch/x77/cy8964/access-om3/archive/ice_shelf_panan-nancheck3-150925files-v2-notidalmix/restart005/rpointer.rof
+  fullpath: /scratch/x77/cy8964/access-om3/archive/ice_shelf_panan-nancheck3-150925files-v2-notidalmix/restart006/rpointer.rof
   hashes:
-    binhash: 8901bfbdd0665af6c674719a59a1b90f
-    md5: 7e9c1c0efc3063e63653c007acf7ccdf
+    binhash: a22697b9168f2a63062b11f9b8ef019c
+    md5: db76db47d4c3e1bc0be5d9f89176fda4
