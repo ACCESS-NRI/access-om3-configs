@@ -3,7 +3,7 @@ The schematic below illustrates the structure of the MOM6-CICE6-WW3 ACCESS-OM3 e
 
 ![ACCESS-OM3 architecture](../assets/nuopc_overview.png){: loading="lazy" }
 
-The coupled fields and remapping methods used are recorded in the mediator log output file and can be found with `grep '^ mapping' archive/output000/log/med.log`; see [here](https://escomp.github.io/CMEPS/versions/master/html/esmflds.html) for how to decode this. See [the Configurations Overview page](configurations/Overview.md#coupling) for details on how the coupling is determined.
+The coupled fields and remapping methods used are recorded in the mediator log output file and can be found with `grep '^ mapping' archive/output000/log/med.log`; see [here](https://escomp.github.io/CMEPS/versions/master/html/esmflds.html) for how to decode this. See [the Configurations Overview page](../../configurations/Overview/#coupling) for details on how the coupling is determined.
 
 ## Overview of codebase
 
@@ -13,8 +13,8 @@ The top level code (main program) for an ACCESS-OM3 executable is the CMEPS NUOP
 
 The [software deployment](https://github.com/accESS-NRI/access-om3) compiles a single executable for the model. Each single exectuable contains the driver, [CMEPS](https://github.com/access-nri/access-om3/tree/master/CMEPS) NUOPC mediator and different selections of these model components:
 
-- ocean: [MOM6](https://github.com/access-nri/MOM6) active model or DOCN prescribed data model from [CDEPS](https://github.com/access-nri/access-om3/tree/master/CDEPS) or nothing (stub)
-- sea ice: [CICE6](https://github.com/access-nri/CICE) active model or DICE prescribed data model from [CDEPS](https://github.com/access-nri/access-om3/tree/master/CDEPS) or nothing (stub)
+- ocean: [MOM6](https://github.com/access-nri/MOM6) active model or DOCN prescribed data model from [CDEPS](https://github.com/access-nri/access3-share/tree/master/CDEPS) or nothing (stub)
+- sea ice: [CICE6](https://github.com/access-nri/CICE) active model or DICE prescribed data model from [CDEPS](https://github.com/access-nri/access3-share/tree/master/CDEPS) or nothing (stub)
 - waves: [WW3](https://github.com/access-nri/WW3) active model or DWAV prescribed data model or nothing (stub)
 - atmosphere: DATM prescribed data model from [CDEPS](https://github.com/access-nri/access3-share/tree/master/CDEPS)
 - runoff: DROF prescribed data model from [CDEPS](https://github.com/access-nri/access3-share/tree/master/CDEPS)
