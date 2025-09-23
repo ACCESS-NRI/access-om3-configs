@@ -3160,6 +3160,91 @@
     ! units: m2/s
     ! cell_methods: xh:mean yh:mean zi:point area:mean
     ! variants: {kv_conv,kv_conv_xyave}
+"Kd_itides"  [Unused]
+    ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
+    ! dimensions: xh, yh, zi
+    ! long_name: Internal Tide Driven Diffusivity
+    ! units: m2 s-1
+    ! cell_methods: xh:mean yh:mean zi:point area:mean
+    ! variants: {Kd_itides,Kd_itides_xyave}
+"TKE_itidal"  [Unused]
+    ! modules: {ocean_model,ocean_model_d2}
+    ! dimensions: xh, yh
+    ! long_name: Internal Tide Driven Turbulent Kinetic Energy
+    ! units: W m-2
+    ! cell_methods: xh:mean yh:mean area:mean
+"Nb"  [Unused]
+    ! modules: {ocean_model,ocean_model_d2}
+    ! dimensions: xh, yh
+    ! long_name: Bottom Buoyancy Frequency
+    ! units: s-1
+    ! cell_methods: xh:mean yh:mean area:mean
+"Kd_lowmode"  [Unused]
+    ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
+    ! dimensions: xh, yh, zi
+    ! long_name: Internal Tide Driven Diffusivity (from propagating low modes)
+    ! units: m2 s-1
+    ! cell_methods: xh:mean yh:mean zi:point area:mean
+    ! variants: {Kd_lowmode,Kd_lowmode_xyave}
+"Fl_itides"  [Unused]
+    ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
+    ! dimensions: xh, yh, zi
+    ! long_name: Vertical flux of tidal turbulent dissipation
+    ! units: m3 s-3
+    ! cell_methods: xh:mean yh:mean zi:point area:mean
+    ! variants: {Fl_itides,Fl_itides_xyave}
+"Fl_lowmode"  [Unused]
+    ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
+    ! dimensions: xh, yh, zi
+    ! long_name: Vertical flux of tidal turbulent dissipation (from propagating low modes)
+    ! units: m3 s-3
+    ! cell_methods: xh:mean yh:mean zi:point area:mean
+    ! variants: {Fl_lowmode,Fl_lowmode_xyave}
+"Polzin_decay_scale"  [Unused]
+    ! modules: {ocean_model,ocean_model_d2}
+    ! dimensions: xh, yh
+    ! long_name: Vertical decay scale for the tidal turbulent dissipation with Polzin scheme
+    ! units: m
+    ! cell_methods: xh:mean yh:mean area:mean
+"Polzin_decay_scale_scaled"  [Unused]
+    ! modules: {ocean_model,ocean_model_d2}
+    ! dimensions: xh, yh
+    ! long_name: Vertical decay scale for the tidal turbulent dissipation with Polzin scheme, scaled by N2_bot/N2_meanz
+    ! units: m
+    ! cell_methods: xh:mean yh:mean area:mean
+"N2_b"  [Unused]
+    ! modules: {ocean_model,ocean_model_d2}
+    ! dimensions: xh, yh
+    ! long_name: Bottom Buoyancy frequency squared
+    ! units: s-2
+    ! cell_methods: xh:mean yh:mean area:mean
+"N2_meanz"  [Unused]
+    ! modules: {ocean_model,ocean_model_d2}
+    ! dimensions: xh, yh
+    ! long_name: Buoyancy frequency squared averaged over the water column
+    ! units: s-2
+    ! cell_methods: xh:mean yh:mean area:mean
+"Kd_Itidal_Work"  [Unused]
+    ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
+    ! dimensions: xh, yh, zl
+    ! long_name: Work done by Internal Tide Diapycnal Mixing
+    ! units: W m-2
+    ! cell_methods: xh:mean yh:mean zl:mean area:mean
+    ! variants: {Kd_Itidal_Work,Kd_Itidal_Work_xyave}
+"Kd_Nikurashin_Work"  [Unused]
+    ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
+    ! dimensions: xh, yh, zl
+    ! long_name: Work done by Nikurashin Lee Wave Drag Scheme
+    ! units: W m-2
+    ! cell_methods: xh:mean yh:mean zl:mean area:mean
+    ! variants: {Kd_Nikurashin_Work,Kd_Nikurashin_Work_xyave}
+"Kd_Lowmode_Work"  [Unused]
+    ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
+    ! dimensions: xh, yh, zl
+    ! long_name: Work done by Internal Tide Diapycnal Mixing (low modes)
+    ! units: W m-2
+    ! cell_methods: xh:mean yh:mean zl:mean area:mean
+    ! variants: {Kd_Lowmode_Work,Kd_Lowmode_Work_xyave}
 "Kd_BBL"  [Unused]
     ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
     ! dimensions: xh, yh, zi
@@ -3188,6 +3273,41 @@
     ! units: m2 s-1
     ! cell_methods: xh:mean yh:mean zl:mean area:mean
     ! variants: {Kd_layer,Kd_layer_xyave}
+"Kd_Work"  [Unused]
+    ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
+    ! dimensions: xh, yh, zl
+    ! long_name: Work done by Diapycnal Mixing
+    ! units: W m-2
+    ! cell_methods: xh:mean yh:mean zl:mean area:mean
+    ! variants: {Kd_Work,Kd_Work_xyave}
+"Kd_Work_added"  [Unused]
+    ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
+    ! dimensions: xh, yh, zl
+    ! long_name: Work done by additional mixing Kd_add
+    ! units: W m-2
+    ! cell_methods: xh:mean yh:mean zl:mean area:mean
+    ! variants: {Kd_Work_added,Kd_Work_added_xyave}
+"maxTKE"  [Unused]
+    ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
+    ! dimensions: xh, yh, zl
+    ! long_name: Maximum layer TKE
+    ! units: m3 s-3
+    ! cell_methods: xh:mean yh:mean zl:mean area:mean
+    ! variants: {maxTKE,maxTKE_xyave}
+"TKE_to_Kd"  [Unused]
+    ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
+    ! dimensions: xh, yh, zl
+    ! long_name: Convert TKE to Kd
+    ! units: s2 m
+    ! cell_methods: xh:mean yh:mean zl:mean area:mean
+    ! variants: {TKE_to_Kd,TKE_to_Kd_xyave}
+"N2"  [Unused] (CMOR equivalent is "obvfsq")
+    ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
+    ! dimensions: xh, yh, zi
+    ! long_name: Buoyancy frequency squared
+    ! units: s-2
+    ! cell_methods: xh:mean yh:mean zi:point area:mean
+    ! variants: {N2,N2_xyave,obvfsq,obvfsq_xyave}
 "N2_shear"  [Unused]
     ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
     ! dimensions: xh, yh, zi
