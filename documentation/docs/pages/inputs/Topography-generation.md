@@ -1,7 +1,7 @@
 # ACCESS-OM3 Topography Workflow
 
 ## Introduction
-The supported ACCESS-OM3 configurations now use a topography based on the [GEBCO2024](https://www.gebco.net/data_and_products/gridded_bathymetry_data/gebco_2024/) global topography dataset. This dataset maintains a high resolution of 15 arc-seconds (i.e., 1/240 deg = ~460m at the equator and finer zonally near the poles).
+The supported ACCESS-OM3 configurations now use a topography based on the [GEBCO2024](https://www.gebco.net/data-products-gridded-bathymetry-data/gebco2024-grid) global topography dataset. This dataset maintains a high resolution of 15 arc-seconds (i.e., 1/240 deg = ~460m at the equator and finer zonally near the poles).
 
 ## Bathymetry Tools
 The workflow described below uses `bathymetry-tools` to perform specific tasks, such as removing seas or generating the land/sea mask. Instructions to install `bathymetry-tools` can be found [here](https://github.com/COSIMA/bathymetry-tools).
