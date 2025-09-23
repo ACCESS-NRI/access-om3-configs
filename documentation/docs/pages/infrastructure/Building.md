@@ -20,7 +20,7 @@ These builds are optimised for the Sapphire-Rapid hardware from Intel (e.g. the 
 
 ### Software Structure
 
-ACCESS-OM3 is run as a single executable, which links to libraries for all model components, and the couples (connects) them using the NUOPC framework. This is different to previous ACCESS models which used Oasis-MCT for coupling and have one executable for each model component.
+ACCESS-OM3 is run as a single executable, which links to libraries for all model components, and couples (connects) them using the NUOPC framework. This is different to previous ACCESS models which used OASIS3-MCT for coupling and have one executable for each model component.
 
 The definition of the final exectuable is in the [access3-share repository](https://github.com/accESS-NRI/access3-share), whilst model-components all have their own repositories:
 

@@ -1,6 +1,6 @@
 ## Releases
 
-The main publically announced releases related to ACCESS OM3 are releases of model configurations. Model configurations include a very of the model software, and are known to be reasonably stable.
+The main publicly announced releases related to ACCESS OM3 are releases of model configurations. Model configurations include a version of the model software, and are known to be reasonably stable.
 
 The stages (alpha, beta, full) and standard for releases are [defined in the ACCESS-HIVE docs](https://docs.access-hive.org.au/about/releases/)
 
