@@ -1,12 +1,24 @@
-# PBS configuration
+# Payu configuration
 
 # If submitting to a different project to your default, uncomment line below 
 # and change project code as appropriate; also set shortpath below
 # project: x77
-
 # Force payu to always find, and save, files in this scratch project directory
-# (you may need to add the corresponding PBS -l storage flag in sync_data.sh)
 # shortpath: /scratch/v45
+
+# Using payu sync is recommend to copy data from ephemeral scratch space to 
+# longer term storage
+sync:
+    enable: False # set path below and change to true
+    path: null # Set to location on /g/data (e.g. /g/data/PROJECT/USER/EXPERIMENT)
+    restart: True
+
+#Model software version
+modules:
+    use:
+        - /g/data/vk83/modules
+    load:
+        - access-om3/2025.08.001
 
 queue: normal
 ncpus: 240
@@ -17,7 +29,6 @@ walltime: 04:00:00
 jobname: 100km_jra55do_ryf_wombatlite
 
 model: access-om3
-
 exe: access-om3-MOM6-CICE6
 input:
     - /g/data/vk83/configurations/inputs/access-om3/share/meshes/global.100km/2024.01.25/access-om2-100km-ESMFmesh.nc
@@ -41,21 +52,21 @@ input:
     - /g/data/vk83/configurations/inputs/access-om3/wombat/initial_conditions/global.100km/2024.04.02/GLODAPv2.2016b.TAlk_fillmiss.nc
     - /g/data/vk83/configurations/inputs/access-om3/wombat/initial_conditions/global.100km/2024.04.02/GLODAPv2.2016b.TCO2_fillmiss.nc
     - /g/data/vk83/prerelease/configurations/inputs/access-om3/wombat/initial_conditions/global.100km/2025.06.06/init_ocean_wombatlite.res.nc
-    - /g/data/vk83/prerelease/configurations/inputs/share/JRA-55/RYF/v1-6/data
+    - /g/data/vk83/configurations/inputs/JRA-55/RYF/v1-6/data
  
 collate: false
 runlog: false
 metadata: 
     enable: false
+manifest:
+  reproduce:
+    exe: false
+    inputs: false
 
 userscripts:
     archive: /usr/bin/bash /g/data/vk83/apps/om3-scripts/payu_config/archive.sh
 
-modules:
-    use:
-        - /g/data/vk83/modules
-    load:
-        - access-om3/2025.05.001
-        - nco/5.0.5
+postscript: -v PROJECT,SCRIPTS_DIR=/g/data/vk83/apps/om3-scripts -lstorage=${PBS_NCI_STORAGE}+gdata/xp65 /g/data/vk83/apps/om3-scripts/payu_config/postscript.sh
 
-payu_minimum_version: 1.1.6
+restart_freq: 1YS
+payu_minimum_version: 1.1.7
