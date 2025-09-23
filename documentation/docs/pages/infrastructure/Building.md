@@ -44,14 +44,14 @@ This can then be built using the pre-release build infrastructure described in t
 
 For more complex changes and to assist in faster iterations of code changes, it may make more sense to setup a personal spack instance, as described in [Modify and build an ACCESS model source code](https://docs.access-hive.org.au/models/run-a-model/build_a_model/)
 
-Changes to only compile time options (e.g. debug/optimisation flags, compiler choice), can normally be achieved through a pre-release build. The spack documentation has some information on how to set these options. Changes to spack variants can also be achieved through a pre-release build.
+Changes to only compile time options (e.g. debug/optimisation flags, compiler choice), can normally be achieved through a pre-release build without changes to the source code of each model component. The spack documentation has some information on how to set these options. Changes to spack variants can also be achieved through a pre-release build.
 The variants for spack-packages are in the [recipes for each spack-package](https://github.com/ACCESS-NRI/spack-packages/tree/main/packages). For example, to build a MOM6 only executable, without interactive sea ice or waves, `configurations=MOM6` can be specified as the [_configurations_ variant](https://github.com/ACCESS-NRI/spack-packages/blob/b73ecc20a21859006a6e58c2c6de8c2e32eabae4/packages/access3/package.py#L37) for _access3_. 
 
 Building a prerelease with `build_type=Debug` can be useful for getting more information on model crashes, but should not be used for general model runs as they are much slower. These debug builds are largely untested, but will probably get fixed up over time.
 
 ### New Software Deployments
 
-When it is needed to update the model components to incorporate upstream updates to code, this triggers a new major release of the access-om3 executable. Incorporating upstream updates means that bug fixes and new features developed by the development communities are included. This is a release of the executable only and generally is not publically announced. The new exectuables are then used in configurations . Note this is a distinct activity from configuration releases, which will use a specific access-om3 executable version and are publically announced. The assumption is that most users will run or start from a release configuration, and not generally change the executable without the configuration having been updated.
+When it is needed to update the model components to incorporate upstream updates to code, this triggers a new major release of the access-om3 executable. Incorporating upstream updates means that bug fixes and new features developed by the development communities are included. This is a release of the executable only and generally is not publicly announced. The new exectuables are then used in configurations. Note this is a distinct activity from configuration releases, which will use a specific access-om3 executable version and are publicly announced. The assumption is that most users will run or start from a release configuration, and often will not change the executable directly.
 
 These are the high-level steps to update the model component versions:
 
