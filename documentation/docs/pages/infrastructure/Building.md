@@ -20,17 +20,17 @@ These builds are optimised for the Sapphire-Rapid hardware from Intel (e.g. the 
 
 ### Software Structure
 
-ACCESS-OM3 is run as a single executable, which links to libraries for all model components, and couples (connects) them using the NUOPC framework. This is different to previous ACCESS models which used OASIS3-MCT for coupling and have one executable for each model component.
+ACCESS-OM3 is run as a single executable, which links to libraries for all model components, and couples (connects) them using the NUOPC framework. This is different to previous ACCESS models which used OASIS3-MCT for coupling and have one executable for each model component (e.g. ACCESS-OM2).
 
-The definition of the final exectuable is in the [access3-share repository](https://github.com/accESS-NRI/access3-share), whilst model-components all have their own repositories:
+The definition of the final exectuable is in the [access3-share repository](https://github.com/accESS-NRI/access3-share), whilst model-components all have their own `ACCESS-NRI` repositories:
 
-- https://github.com/ACCESS-NRI/MOM6
-- https://github.com/ACCESS-NRI/CICE
-- https://github.com/ACCESS-NRI/WW3
-
-The [access3-share repository](https://github.com/accESS-NRI/access3-share) also contains code for some shared libraries used for data-forcing and common infrastructure. As such, the access3-share contains both dependencies for model components (access3-share libraries) and the final exectuable, which dependends on model components.
+- [https://github.com/ACCESS-NRI/MOM6](https://github.com/ACCESS-NRI/MOM6)
+- [https://github.com/ACCESS-NRI/CICE](https://github.com/ACCESS-NRI/CICE)
+- [https://github.com/ACCESS-NRI/WW3](https://github.com/ACCESS-NRI/WW3)
 
 The repositories for each model-component are forked from the canonical or upstream codebases for each model component and only contain minor changes for consistency with access-om3 components and to support a CMake build system.
+
+The [access3-share repository](https://github.com/accESS-NRI/access3-share) also contains code for some shared libraries used for data-forcing and common infrastructure. As such, the access3-share contains both dependencies for model components (access3-share libraries) and the final exectuable, which dependends on model components.
 
 ### Ad-hoc builds
 
@@ -40,9 +40,9 @@ For testing and feature development, a typical approach can be:
 - Make the changes
 - Open an issue in that repository and push the changes back to a branch on that repository. The branch should be named with the issue number.
 
-This can then be built using the pre-release build infrastructure described in this [Hive Docs article](https://docs.access-hive.org.au/models/run-a-model/create-a-prerelease/). Please contact to ACCESS-NRI ocean team for access to the relevant github repositories and support.
+This can then be built using the pre-release build infrastructure described in this [Hive Docs article](https://docs.access-hive.org.au/models/run-a-model/create-a-prerelease/). A pre-release build uses a GitHub action to automatically build on NCI's Gadi. Please contact the ACCESS-NRI ocean team for access to the relevant github repositories and support.
 
-For more complex changes and to assist in faster iterations of code changes, it may make more sense to setup a personal spack instance, as described in [Modify and build an ACCESS model source code](https://docs.access-hive.org.au/models/run-a-model/build_a_model/)
+For more complex changes and to assist in faster iterations of code changes, it may make more sense to setup a personal spack instance, as described in [Modify and build an ACCESS model source code](https://docs.access-hive.org.au/models/run-a-model/build_a_model/). A personal spack instance allows builds from a local copy of source code on NCI's Gadi, however should not be used from experiments as provenance of the build is not stored.
 
 Changes to only compile time options (e.g. debug/optimisation flags, compiler choice), can normally be achieved through a pre-release build without changes to the source code of each model component. The spack documentation has some information on how to set these options. Changes to spack variants can also be achieved through a pre-release build.
 The variants for spack-packages are in the [recipes for each spack-package](https://github.com/ACCESS-NRI/spack-packages/tree/main/packages). For example, to build a MOM6 only executable, without interactive sea ice or waves, `configurations=MOM6` can be specified as the [_configurations_ variant](https://github.com/ACCESS-NRI/spack-packages/blob/b73ecc20a21859006a6e58c2c6de8c2e32eabae4/packages/access3/package.py#L37) for _access3_. 
