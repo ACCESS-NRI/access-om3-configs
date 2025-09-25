@@ -187,6 +187,14 @@ USE_generic_tracer = True       !   [Boolean] default = False
 
 ! === module segment_tracer_registry_init ===
 
+! === module MOM_fixed_initialization ===
+
+! === module MOM_grid_init ===
+
+! === module MOM_open_boundary ===
+! Controls where open boundaries are located, what kind of boundary condition to impose, and what data to apply,
+! if any.
+
 ! === module MOM_coord_initialization ===
 REGRIDDING_COORDINATE_MODE = "ZSTAR" ! default = "LAYER"
                                 ! Coordinate mode for vertical regridding. Choose among the following
@@ -234,6 +242,46 @@ REMAPPING_USE_OM4_SUBCELLS = False !   [Boolean] default = True
                                 ! recommend setting this option to false.
 
 ! === module MOM_state_initialization ===
+INIT_LAYERS_FROM_Z_FILE = True  !   [Boolean] default = False
+                                ! If true, initialize the layer thicknesses, temperatures, and salinities from a
+                                ! Z-space file on a latitude-longitude grid.
+
+! === module MOM_initialize_layers_from_Z ===
+TEMP_SALT_Z_INIT_FILE = "init_tracers_mod.nc" ! default = "temp_salt_z.nc"
+                                ! The name of the z-space input file used to initialize temperatures (T) and
+                                ! salinities (S). If T and S are not in the same file, TEMP_Z_INIT_FILE and
+                                ! SALT_Z_INIT_FILE must be set.
+Z_INIT_FILE_PTEMP_VAR = "temp"  ! default = "ptemp"
+                                ! The name of the potential temperature variable in TEMP_Z_INIT_FILE.
+Z_INIT_ALE_REMAPPING = True     !   [Boolean] default = False
+                                ! If True, then remap straight to model coordinate from file.
+Z_INIT_REMAP_GENERAL = True     !   [Boolean] default = False
+                                ! If false, only initializes to z* coordinates. If true, allows initialization
+                                ! directly to general coordinates.
+TEMP_SALT_INIT_VERTICAL_REMAP_ONLY = True !   [Boolean] default = False
+                                ! If true, initial conditions are on the model horizontal grid. Extrapolation
+                                ! over missing ocean values is done using an ICE-9 procedure with vertical ALE
+                                ! remapping .
+DEPRESS_INITIAL_SURFACE = True  !   [Boolean] default = False
+                                ! If true,  depress the initial surface to avoid huge tsunamis when a large
+                                ! surface pressure is applied.
+SURFACE_HEIGHT_IC_FILE = "init_eta.nc" !
+                                ! The initial condition file for the surface height.
+SURFACE_HEIGHT_IC_VAR = "eta_t" ! default = "SSH"
+                                ! The initial condition variable for the surface height.
+VELOCITY_CONFIG = "file"        ! default = "zero"
+                                ! A string that determines how the initial velocities are specified for a new
+                                ! run:
+                                !     file - read velocities from the file specified
+                                !       by (VELOCITY_FILE).
+                                !     zero - the fluid is initially at rest.
+                                !     uniform - the flow is uniform (determined by
+                                !       parameters INITIAL_U_CONST and INITIAL_V_CONST).
+                                !     rossby_front - a mixed layer front in thermal wind balance.
+                                !     soliton - Equatorial Rossby soliton.
+                                !     USER - call a user modified routine.
+VELOCITY_FILE = "init_vel.nc"   !
+                                ! The name of the velocity initial condition file.
 OBC_SEGMENT_001_DATA = "U=file:obgc_obc.nc(u),V=file:obgc_obc.nc(v),SSH=file:obgc_obc.nc(eta),TEMP=file:obgc_obc.nc(temp),SALT=file:obgc_obc.nc(salt)" !
                                 ! OBC segment docs
 OBC_SEGMENT_002_DATA = "U=file:obgc_obc.nc(u),V=file:obgc_obc.nc(v),SSH=file:obgc_obc.nc(eta),TEMP=file:obgc_obc.nc(temp),SALT=file:obgc_obc.nc(salt)" !
@@ -485,6 +533,11 @@ LT_MOD_LAC1 = 0.0               !   [nondim] default = -0.87
                                 ! depth.
 
 ! === module MOM_opacity ===
+PEN_SW_SCALE = 15.0             !   [m] default = 0.0
+                                ! The vertical absorption e-folding depth of the penetrating shortwave
+                                ! radiation.
+PEN_SW_FRAC = 0.42              !   [nondim] default = 0.0
+                                ! The fraction of the shortwave radiation that penetrates below the surface.
 
 ! === module MOM_tracer_advect ===
 TRACER_ADVECTION_SCHEME = "PPM:H3" ! default = "PLM"

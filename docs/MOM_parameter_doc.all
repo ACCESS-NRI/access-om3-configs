@@ -576,6 +576,17 @@ USE_DYED_CHANNEL_OBC = False    !   [Boolean] default = False
 
 ! === module segment_tracer_registry_init ===
 
+! === module MOM_hor_index ===
+! Sets the horizontal array index types.
+
+! === module MOM_fixed_initialization ===
+
+! === module MOM_grid_init ===
+
+! === module MOM_open_boundary ===
+! Controls where open boundaries are located, what kind of boundary condition to impose, and what data to apply,
+! if any.
+
 ! === module MOM_coord_initialization ===
 COORD_CONFIG = "none"           ! default = "none"
                                 ! This specifies how layers are to be defined:
@@ -709,10 +720,93 @@ FATAL_INCONSISTENT_RESTART_TIME = False !   [Boolean] default = False
                                 ! If true and a time_in value is provided to MOM_initialize_state, verify that
                                 ! the time read from a restart file is the same as time_in, and issue a fatal
                                 ! error if it is not.  Otherwise, simply set the time to time_in if present.
+INIT_LAYERS_FROM_Z_FILE = True  !   [Boolean] default = False
+                                ! If true, initialize the layer thicknesses, temperatures, and salinities from a
+                                ! Z-space file on a latitude-longitude grid.
+
+! === module MOM_initialize_layers_from_Z ===
+TEMP_SALT_Z_INIT_FILE = "init_tracers_mod.nc" ! default = "temp_salt_z.nc"
+                                ! The name of the z-space input file used to initialize temperatures (T) and
+                                ! salinities (S). If T and S are not in the same file, TEMP_Z_INIT_FILE and
+                                ! SALT_Z_INIT_FILE must be set.
+TEMP_Z_INIT_FILE = "init_tracers_mod.nc" ! default = "init_tracers_mod.nc"
+                                ! The name of the z-space input file used to initialize temperatures, only.
+SALT_Z_INIT_FILE = "init_tracers_mod.nc" ! default = "init_tracers_mod.nc"
+                                ! The name of the z-space input file used to initialize temperatures, only.
+Z_INIT_FILE_PTEMP_VAR = "temp"  ! default = "ptemp"
+                                ! The name of the potential temperature variable in TEMP_Z_INIT_FILE.
+Z_INIT_FILE_SALT_VAR = "salt"   ! default = "salt"
+                                ! The name of the salinity variable in SALT_Z_INIT_FILE.
+Z_INIT_HOMOGENIZE = False       !   [Boolean] default = False
+                                ! If True, then horizontally homogenize the interpolated initial conditions.
+Z_INIT_ALE_REMAPPING = True     !   [Boolean] default = False
+                                ! If True, then remap straight to model coordinate from file.
+Z_INIT_REMAPPING_SCHEME = "PPM_IH4" ! default = "PPM_IH4"
+                                ! The remapping scheme to use if using Z_INIT_ALE_REMAPPING is True.
+Z_INIT_REMAP_GENERAL = True     !   [Boolean] default = False
+                                ! If false, only initializes to z* coordinates. If true, allows initialization
+                                ! directly to general coordinates.
+Z_INIT_REMAP_FULL_COLUMN = True !   [Boolean] default = True
+                                ! If false, only reconstructs profiles for valid data points. If true, inserts
+                                ! vanished layers below the valid data.
+Z_INIT_REMAP_OLD_ALG = False    !   [Boolean] default = False
+                                ! If false, uses the preferred remapping algorithm for initialization. If true,
+                                ! use an older, less robust algorithm for remapping.
+TEMP_SALT_INIT_VERTICAL_REMAP_ONLY = True !   [Boolean] default = False
+                                ! If true, initial conditions are on the model horizontal grid. Extrapolation
+                                ! over missing ocean values is done using an ICE-9 procedure with vertical ALE
+                                ! remapping .
 Z_INIT_REMAPPING_USE_OM4_SUBCELLS = False !   [Boolean] default = False
                                 ! If true, use the OM4 remapping-via-subcells algorithm for initialization. See
                                 ! REMAPPING_USE_OM4_SUBCELLS for more details. We recommend setting this option
                                 ! to false.
+HOR_REGRID_ANSWER_DATE = 99991231 ! default = 99991231
+                                ! The vintage of the order of arithmetic for horizontal regridding.  Dates
+                                ! before 20190101 give the same answers as the code did in late 2018, while
+                                ! later versions add parentheses for rotational symmetry.  Dates after 20230101
+                                ! use reproducing sums for global averages.
+LAND_FILL_TEMP = 0.0            !   [degC] default = 0.0
+                                ! A value to use to fill in ocean temperatures on land points.
+LAND_FILL_SALIN = 35.0          !   [ppt] default = 35.0
+                                ! A value to use to fill in ocean salinities on land points.
+HORIZ_INTERP_TOL_TEMP = 0.001   !   [degC] default = 0.001
+                                ! The tolerance in temperature changes between iterations when interpolating
+                                ! from an input dataset using horiz_interp_and_extrap_tracer.  This routine
+                                ! converges slowly, so an overly small tolerance can get expensive.
+HORIZ_INTERP_TOL_SALIN = 0.001  !   [ppt] default = 0.001
+                                ! The tolerance in salinity changes between iterations when interpolating from
+                                ! an input dataset using horiz_interp_and_extrap_tracer.  This routine converges
+                                ! slowly, so an overly small tolerance can get expensive.
+DEPRESS_INITIAL_SURFACE = True  !   [Boolean] default = False
+                                ! If true,  depress the initial surface to avoid huge tsunamis when a large
+                                ! surface pressure is applied.
+TRIM_IC_FOR_P_SURF = False      !   [Boolean] default = False
+                                ! If true, cuts way the top of the column for initial conditions at the depth
+                                ! where the hydrostatic pressure matches the imposed surface pressure which is
+                                ! read from file.
+SURFACE_HEIGHT_IC_FILE = "init_eta.nc" !
+                                ! The initial condition file for the surface height.
+SURFACE_HEIGHT_IC_VAR = "eta_t" ! default = "SSH"
+                                ! The initial condition variable for the surface height.
+SURFACE_HEIGHT_IC_SCALE = 1.0   !   [variable] default = 1.0
+                                ! A scaling factor to convert SURFACE_HEIGHT_IC_VAR into units of m
+REGRID_ACCELERATE_INIT = False  !   [Boolean] default = False
+                                ! If true, runs REGRID_ACCELERATE_ITERATIONS iterations of the regridding
+                                ! algorithm to push the initial grid to be consistent with the initial
+                                ! condition. Useful only for state-based and iterative coordinates.
+VELOCITY_CONFIG = "file"        ! default = "zero"
+                                ! A string that determines how the initial velocities are specified for a new
+                                ! run:
+                                !     file - read velocities from the file specified
+                                !       by (VELOCITY_FILE).
+                                !     zero - the fluid is initially at rest.
+                                !     uniform - the flow is uniform (determined by
+                                !       parameters INITIAL_U_CONST and INITIAL_V_CONST).
+                                !     rossby_front - a mixed layer front in thermal wind balance.
+                                !     soliton - Equatorial Rossby soliton.
+                                !     USER - call a user modified routine.
+VELOCITY_FILE = "init_vel.nc"   !
+                                ! The name of the velocity initial condition file.
 U_IC_VAR = "u"                  ! default = "u"
                                 ! The initial condition variable for zonal velocity in VELOCITY_FILE.
 V_IC_VAR = "v"                  ! default = "v"
@@ -941,7 +1035,7 @@ KV_TBL_MIN = 1.0E-05            !   [m2 s-1] default = 1.0E-05
 CORRECT_BBL_BOUNDS = False      !   [Boolean] default = False
                                 ! If true, uses the correct bounds on the BBL thickness and viscosity so that
                                 ! the bottom layer feels the intended drag.
-SMAG_CONST_CHANNEL = 2.0        !   [nondim] default = 2.0
+SMAG_CONST_CHANNEL = 0.15       !   [nondim] default = 0.15
                                 ! The nondimensional Laplacian Smagorinsky constant used in calculating the
                                 ! channel drag if it is enabled.  The default is to use the same value as
                                 ! SMAG_LAP_CONST if it is defined, or 0.15 if it is not. The value used is also
@@ -2003,10 +2097,10 @@ EXP_OPACITY_SCHEME = "SINGLE_EXP" ! default = "SINGLE_EXP"
                                 ! Currently valid options include:
                                 !        SINGLE_EXP - Single Exponent decay.
                                 !        DOUBLE_EXP - Double Exponent decay.
-PEN_SW_SCALE = 0.0              !   [m] default = 0.0
+PEN_SW_SCALE = 15.0             !   [m] default = 0.0
                                 ! The vertical absorption e-folding depth of the penetrating shortwave
                                 ! radiation.
-PEN_SW_FRAC = 0.0               !   [nondim] default = 0.0
+PEN_SW_FRAC = 0.42              !   [nondim] default = 0.0
                                 ! The fraction of the shortwave radiation that penetrates below the surface.
 PEN_SW_NBANDS = 1               ! default = 1
                                 ! The number of bands of penetrating shortwave radiation.
