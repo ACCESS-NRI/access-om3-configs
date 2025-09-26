@@ -102,42 +102,42 @@
     ! dimensions: xq, yq
     ! long_name: Coriolis parameter at corner (Bu) points
     ! units: s-1
-"dxt"  [Unused]
+"dxt"  [Used]
     ! modules: ocean_model
     ! dimensions: xh, yh
     ! long_name: Delta(x) at thickness/tracer points (meter)
     ! units: m
-"dyt"  [Unused]
+"dyt"  [Used]
     ! modules: ocean_model
     ! dimensions: xh, yh
     ! long_name: Delta(y) at thickness/tracer points (meter)
     ! units: m
-"dxCu"  [Unused]
+"dxCu"  [Used]
     ! modules: ocean_model
     ! dimensions: xq, yh
     ! long_name: Delta(x) at u points (meter)
     ! units: m
-"dyCu"  [Unused]
+"dyCu"  [Used]
     ! modules: ocean_model
     ! dimensions: xq, yh
     ! long_name: Delta(y) at u points (meter)
     ! units: m
-"dxCv"  [Unused]
+"dxCv"  [Used]
     ! modules: ocean_model
     ! dimensions: xh, yq
     ! long_name: Delta(x) at v points (meter)
     ! units: m
-"dyCv"  [Unused]
+"dyCv"  [Used]
     ! modules: ocean_model
     ! dimensions: xh, yq
     ! long_name: Delta(y) at v points (meter)
     ! units: m
-"dyCuo"  [Unused]
+"dyCuo"  [Used]
     ! modules: ocean_model
     ! dimensions: xq, yh
     ! long_name: Open meridional grid spacing at u points (meter)
     ! units: m
-"dxCvo"  [Unused]
+"dxCvo"  [Used]
     ! modules: ocean_model
     ! dimensions: xh, yq
     ! long_name: Open zonal grid spacing at v points (meter)
@@ -175,7 +175,7 @@
     ! units: nondim
     ! cell_methods: xh:mean yh:mean zl:mean area:mean
     ! variants: {sqg_struct,sqg_struct_xyave}
-"Rd_dx"  [Used]
+"Rd_dx"  [Unused]
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
     ! long_name: Ratio between deformation radius and grid spacing
@@ -266,7 +266,7 @@
     ! units: m2 s-1
     ! cell_methods: xh:mean yq:point zi:point
     ! variants: {KHTH_v,KHTH_v_xyave}
-"KHTH_t"  [Used] (CMOR equivalent is "diftrblo")
+"KHTH_t"  [Unused] (CMOR equivalent is "diftrblo")
     ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
     ! dimensions: xh, yh, zl
     ! long_name: Ocean Tracer Diffusivity due to Parameterized Mesoscale Advection
@@ -556,7 +556,7 @@
     ! units: m s-2
     ! cell_methods: xh:mean yq:point zl:mean
     ! variants: {diffv_visc_rem,diffv_visc_rem_xyave}
-"Ahh"  [Used] (CMOR equivalent is "difmxybo")
+"Ahh"  [Unused] (CMOR equivalent is "difmxybo")
     ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
     ! dimensions: xh, yh, zl
     ! long_name: Biharmonic Horizontal Viscosity at h Points
@@ -1023,13 +1023,13 @@
     ! units: nondim
     ! cell_methods: xh:mean yq:point zl:mean
     ! variants: {frhatv1,frhatv1_xyave}
-"uhbt"  [Used]
+"uhbt"  [Unused]
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xq, yh
     ! long_name: Barotropic zonal transport averaged over a baroclinic step
     ! units: m3 s-1
     ! cell_methods: xq:point yh:mean
-"vhbt"  [Used]
+"vhbt"  [Unused]
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yq
     ! long_name: Barotropic meridional transport averaged over a baroclinic step
@@ -1389,14 +1389,14 @@
     ! units: m s-2
     ! cell_methods: xh:mean yq:point zl:mean
     ! variants: {v_BT_accel_visc_rem,v_BT_accel_visc_rem_xyave}
-"uhml"  [Used]
+"uhml"  [Unused]
     ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
     ! dimensions: xq, yh, zl
     ! long_name: Zonal Thickness Flux to Restratify Mixed Layer
     ! units: kg s-1
     ! cell_methods: xq:point yh:sum zl:sum
     ! variants: {uhml,uhml_xyave}
-"vhml"  [Used]
+"vhml"  [Unused]
     ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
     ! dimensions: xh, yq, zl
     ! long_name: Meridional Thickness Flux to Restratify Mixed Layer
@@ -1477,7 +1477,7 @@
     ! long_name: Mass of liquid ocean
     ! units: kg
     ! standard_name: sea_water_mass
-"thkcello"  [Unused]
+"thkcello"  [Used]
     ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
     ! dimensions: xh, yh, zl
     ! long_name: Cell Thickness
@@ -1492,7 +1492,7 @@
     ! units: m
     ! cell_methods: xh:mean yh:mean zl:sum area:mean
     ! variants: {h_pre_sync,h_pre_sync_xyave}
-"tob"  [Unused]
+"tob"  [Used]
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
     ! long_name: Sea Water Potential Temperature at Sea Floor
@@ -1631,7 +1631,7 @@
     ! units: m2 s-2
     ! cell_methods: xh:mean yh:mean zl:mean area:mean
     ! variants: {uv,uv_xyave}
-"h"  [Used]
+"h"  [Unused]
     ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
     ! dimensions: xh, yh, zl
     ! long_name: Layer Thickness
@@ -1666,14 +1666,14 @@
     ! units: kg m-3
     ! cell_methods: xh:mean yh:mean zl:mean area:mean
     ! variants: {Rho_cv,Rho_cv_xyave}
-"rhopot0"  [Used]
+"rhopot0"  [Unused]
     ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
     ! dimensions: xh, yh, zl
     ! long_name: Potential density referenced to surface
     ! units: kg m-3
     ! cell_methods: xh:mean yh:mean zl:mean area:mean
     ! variants: {rhopot0,rhopot0_xyave}
-"rhopot2"  [Unused]
+"rhopot2"  [Used]
     ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
     ! dimensions: xh, yh, zl
     ! long_name: Potential density referenced to 2000 dbar
@@ -1944,20 +1944,20 @@
     ! units: nondim
     ! cell_methods: xh:mean yh:mean zl:mean area:mean
     ! variants: {p_ebt,p_ebt_xyave}
-"mass_wt"  [Used]
+"mass_wt"  [Unused]
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
     ! long_name: The column mass for calculating mass-weighted average properties
     ! units: kg m-2
     ! cell_methods: xh:mean yh:mean area:mean
-"temp_int"  [Used] (CMOR equivalent is "opottempmint")
+"temp_int"  [Unused] (CMOR equivalent is "opottempmint")
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
     ! long_name: Density weighted column integrated potential temperature
     ! units: degC kg m-2
     ! cell_methods: xh:mean yh:mean area:mean
     ! variants: {temp_int,opottempmint}
-"salt_int"  [Used] (CMOR equivalent is "somint")
+"salt_int"  [Unused] (CMOR equivalent is "somint")
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
     ! long_name: Density weighted column integrated salinity
@@ -1976,7 +1976,7 @@
     ! long_name: The height of the water column
     ! units: m
     ! cell_methods: xh:mean yh:mean area:mean
-"pbo"  [Unused]
+"pbo"  [Used]
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
     ! long_name: Sea Water Pressure at Sea Floor
@@ -2972,7 +2972,7 @@
     ! units: m2 s-1
     ! cell_methods: xh:mean yq:point zi:point
     ! variants: {KHTR_v,KHTR_v_xyave}
-"KHTR_h"  [Used] (CMOR equivalent is "diftrelo")
+"KHTR_h"  [Unused] (CMOR equivalent is "diftrelo")
     ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
     ! dimensions: xh, yh, zi
     ! long_name: Epipycnal tracer diffusivity at tracer cell center
@@ -3003,21 +3003,21 @@
     ! long_name: Total volume of liquid ocean
     ! units: m3
     ! standard_name: sea_water_volume
-"zos"  [Unused]
+"zos"  [Used]
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
     ! long_name: Sea surface height above geoid
     ! units: m
     ! standard_name: sea_surface_height_above_geoid
     ! cell_methods: xh:mean yh:mean area:mean
-"zossq"  [Unused]
+"zossq"  [Used]
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
     ! long_name: Square of sea surface height above geoid
     ! units: m2
     ! standard_name: square_of_sea_surface_height_above_geoid
     ! cell_methods: xh:mean yh:mean area:mean
-"SSH"  [Used]
+"SSH"  [Unused]
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
     ! long_name: Sea Surface Height
@@ -3029,13 +3029,13 @@
     ! long_name: Area averaged sea surface height
     ! units: m
     ! standard_name: area_averaged_sea_surface_height
-"SSU"  [Used]
+"SSU"  [Unused]
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xq, yh
     ! long_name: Sea Surface Zonal Velocity
     ! units: m s-1
     ! cell_methods: xq:point yh:mean
-"SSV"  [Used]
+"SSV"  [Unused]
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yq
     ! long_name: Sea Surface Meridional Velocity
@@ -3093,7 +3093,7 @@
     ! long_name: Salt source in ocean required to supply excessive ice salt fluxes
     ! units: ppt kg m-2 s-1
     ! cell_methods: xh:mean yh:mean area:mean
-"Heat_PmE"  [Used]
+"Heat_PmE"  [Unused]
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
     ! long_name: Heat flux into ocean from mass flux into ocean
@@ -3146,7 +3146,7 @@
     ! units: m3
     ! cell_methods: xh:sum yq:point zl:sum
     ! variants: {vhtr,vhtr_xyave}
-"umo"  [Used]
+"umo"  [Unused]
     ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
     ! dimensions: xq, yh, zl
     ! long_name: Ocean Mass X Transport
@@ -3154,7 +3154,7 @@
     ! standard_name: ocean_mass_x_transport
     ! cell_methods: xq:point yh:sum zl:sum
     ! variants: {umo,umo_xyave}
-"vmo"  [Used]
+"vmo"  [Unused]
     ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
     ! dimensions: xh, yq, zl
     ! long_name: Ocean Mass Y Transport
@@ -3162,14 +3162,14 @@
     ! standard_name: ocean_mass_y_transport
     ! cell_methods: xh:sum yq:point zl:sum
     ! variants: {vmo,vmo_xyave}
-"umo_2d"  [Unused]
+"umo_2d"  [Used]
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xq, yh
     ! long_name: Ocean Mass X Transport Vertical Sum
     ! units: kg s-1
     ! standard_name: ocean_mass_x_transport_vertical_sum
     ! cell_methods: xq:point yh:sum
-"vmo_2d"  [Unused]
+"vmo_2d"  [Used]
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yq
     ! long_name: Ocean Mass Y Transport Vertical Sum
@@ -3264,25 +3264,25 @@
     ! long_name: Surface values of Potential Temperature
     ! units: degC
     ! cell_methods: xh:mean yh:mean area:mean
-"T_adx_2d"  [Used]
+"T_adx_2d"  [Unused]
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xq, yh
     ! long_name: Vertically Integrated Advective Zonal Flux of Heat
     ! units: W
     ! cell_methods: xq:point yh:sum
-"T_ady_2d"  [Used]
+"T_ady_2d"  [Unused]
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yq
     ! long_name: Vertically Integrated Advective Meridional Flux of Heat
     ! units: W
     ! cell_methods: xh:sum yq:point
-"T_diffx_2d"  [Used]
+"T_diffx_2d"  [Unused]
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xq, yh
     ! long_name: Vertically Integrated Diffusive Zonal Flux of Heat
     ! units: W
     ! cell_methods: xq:point yh:sum
-"T_diffy_2d"  [Used]
+"T_diffy_2d"  [Unused]
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yq
     ! long_name: Vertically Integrated Diffusive Meridional Flux of Heat
@@ -3772,7 +3772,7 @@
     ! long_name: Average magnitude of the wind stress including contributions from gustiness
     ! units: Pa
     ! cell_methods: xh:mean yh:mean area:mean
-"ustar"  [Used]
+"ustar"  [Unused]
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
     ! long_name: Surface friction velocity = [(gustiness + tau_magnitude)/rho0]^(1/2)
@@ -3805,7 +3805,7 @@
     ! standard_name: water_flux_into_sea_water
     ! cell_methods: xh:mean yh:mean area:mean
     ! variants: {PRCmE,wfo}
-"evap"  [Used] (CMOR equivalent is "evs")
+"evap"  [Unused] (CMOR equivalent is "evs")
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
     ! long_name: Evaporation/condensation at ocean surface (evaporation is negative)
@@ -3813,7 +3813,7 @@
     ! standard_name: water_evaporation_flux
     ! cell_methods: xh:mean yh:mean area:mean
     ! variants: {evap,evs}
-"seaice_melt"  [Used] (CMOR equivalent is "fsitherm")
+"seaice_melt"  [Unused] (CMOR equivalent is "fsitherm")
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
     ! long_name: water flux to ocean from snow/sea ice melting(> 0) or formation(< 0)
@@ -3827,7 +3827,7 @@
     ! long_name: Liquid + frozen precipitation into ocean
     ! units: kg m-2 s-1
     ! cell_methods: xh:mean yh:mean area:mean
-"fprec"  [Used] (CMOR equivalent is "prsn")
+"fprec"  [Unused] (CMOR equivalent is "prsn")
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
     ! long_name: Frozen precipitation into ocean
@@ -3835,7 +3835,7 @@
     ! standard_name: snowfall_flux
     ! cell_methods: xh:mean yh:mean area:mean
     ! variants: {fprec,prsn}
-"lprec"  [Used] (CMOR equivalent is "prlq")
+"lprec"  [Unused] (CMOR equivalent is "prlq")
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
     ! long_name: Liquid precipitation into ocean
@@ -3843,13 +3843,13 @@
     ! standard_name: rainfall_flux
     ! cell_methods: xh:mean yh:mean area:mean
     ! variants: {lprec,prlq}
-"vprec"  [Used]
+"vprec"  [Unused]
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
     ! long_name: Virtual liquid precip into ocean due to SSS restoring
     ! units: kg m-2 s-1
     ! cell_methods: xh:mean yh:mean area:mean
-"frunoff"  [Used] (CMOR equivalent is "ficeberg")
+"frunoff"  [Unused] (CMOR equivalent is "ficeberg")
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
     ! long_name: Frozen runoff (calving) and iceberg melt into ocean
@@ -3857,7 +3857,7 @@
     ! standard_name: water_flux_into_sea_water_from_icebergs
     ! cell_methods: xh:mean yh:mean area:mean
     ! variants: {frunoff,ficeberg}
-"lrunoff"  [Used] (CMOR equivalent is "friver")
+"lrunoff"  [Unused] (CMOR equivalent is "friver")
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
     ! long_name: Liquid runoff (rivers) into ocean
@@ -3924,7 +3924,7 @@
     ! units: kg s-1
     ! standard_name: water_flux_into_sea_water_due_to_sea_ice_thermodynamics_area_integrated
     ! variants: {total_icemelt,total_fsitherm}
-"total_precip"  [Unused]
+"total_precip"  [Used]
     ! modules: ocean_model
     ! dimensions: scalar
     ! long_name: Area integrated liquid+frozen precip into ocean
@@ -3936,7 +3936,7 @@
     ! units: kg s-1
     ! standard_name: snowfall_flux_area_integrated
     ! variants: {total_fprec,total_prsn}
-"total_lprec"  [Unused]
+"total_lprec"  [Used]
     ! modules: ocean_model
     ! dimensions: scalar
     ! long_name: Area integrated liquid precip into ocean
@@ -3970,12 +3970,12 @@
     ! dimensions: scalar
     ! long_name: Area integrated liquid glacier runoff into ocean
     ! units: kg s-1
-"total_net_massout"  [Unused]
+"total_net_massout"  [Used]
     ! modules: ocean_model
     ! dimensions: scalar
     ! long_name: Area integrated mass leaving ocean due to evap and seaice form
     ! units: kg s-1
-"total_net_massin"  [Unused]
+"total_net_massin"  [Used]
     ! modules: ocean_model
     ! dimensions: scalar
     ! long_name: Area integrated mass entering ocean due to precip, runoff, ice melt
@@ -4018,14 +4018,14 @@
     ! dimensions: scalar
     ! long_name: Area averaged virtual liquid precip due to SSS restoring
     ! units: kg m-2 s-1
-"heat_content_frunoff"  [Used]
+"heat_content_frunoff"  [Unused]
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
     ! long_name: Heat content (relative to 0C) of solid runoff into ocean
     ! units: W m-2
     ! standard_name: temperature_flux_due_to_solid_runoff_expressed_as_heat_flux_into_sea_water
     ! cell_methods: xh:mean yh:mean area:mean
-"heat_content_lrunoff"  [Used]
+"heat_content_lrunoff"  [Unused]
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
     ! long_name: Heat content (relative to 0C) of liquid runoff into ocean
@@ -4044,44 +4044,44 @@
     ! long_name: Heat content (relative to 0C) of liquid glacier runoff into ocean
     ! units: W m-2
     ! cell_methods: xh:mean yh:mean area:mean
-"hfrunoffds"  [Unused]
+"hfrunoffds"  [Used]
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
     ! long_name: Heat content (relative to 0C) of liquid+solid runoff into ocean
     ! units: W m-2
     ! standard_name: temperature_flux_due_to_runoff_expressed_as_heat_flux_into_sea_water
     ! cell_methods: xh:mean yh:mean area:mean
-"heat_content_lprec"  [Used]
+"heat_content_lprec"  [Unused]
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
     ! long_name: Heat content (relative to 0degC) of liquid precip entering ocean
     ! units: W m-2
     ! cell_methods: xh:mean yh:mean area:mean
-"heat_content_fprec"  [Used]
+"heat_content_fprec"  [Unused]
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
     ! long_name: Heat content (relative to 0degC) of frozen prec entering ocean
     ! units: W m-2
     ! cell_methods: xh:mean yh:mean area:mean
-"heat_content_vprec"  [Used]
+"heat_content_vprec"  [Unused]
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
     ! long_name: Heat content (relative to 0degC) of virtual precip entering ocean
     ! units: W m-2
     ! cell_methods: xh:mean yh:mean area:mean
-"heat_content_cond"  [Used]
+"heat_content_cond"  [Unused]
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
     ! long_name: Heat content (relative to 0degC) of water condensing into ocean
     ! units: W m-2
     ! cell_methods: xh:mean yh:mean area:mean
-"heat_content_evap"  [Used]
+"heat_content_evap"  [Unused]
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
     ! long_name: Heat content (relative to 0degC) of water evaporating from ocean
     ! units: W m-2
     ! cell_methods: xh:mean yh:mean area:mean
-"hfrainds"  [Unused]
+"hfrainds"  [Used]
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
     ! long_name: Heat content (relative to 0degC) of liquid+frozen precip entering ocean
@@ -4107,7 +4107,7 @@
     ! long_name: Heat content (relative to 0degC) of net mass entering ocean ocean
     ! units: W m-2
     ! cell_methods: xh:mean yh:mean area:mean
-"net_heat_coupler"  [Unused]
+"net_heat_coupler"  [Used]
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
     ! long_name: Surface ocean heat flux from SW+LW+latent+sensible+seaice_melt_heat (via the coupler)
@@ -4121,7 +4121,7 @@
     ! standard_name: surface_downward_heat_flux_in_sea_water
     ! cell_methods: xh:mean yh:mean area:mean
     ! variants: {net_heat_surface,hfds}
-"SW"  [Used] (CMOR equivalent is "rsntds")
+"SW"  [Unused] (CMOR equivalent is "rsntds")
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
     ! long_name: Shortwave radiation flux into ocean
@@ -4147,7 +4147,7 @@
     ! long_name: Combined longwave, latent, and sensible heating at ocean surface
     ! units: W m-2
     ! cell_methods: xh:mean yh:mean area:mean
-"LW"  [Used] (CMOR equivalent is "rlntds")
+"LW"  [Unused] (CMOR equivalent is "rlntds")
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
     ! long_name: Longwave radiation flux into ocean
@@ -4155,7 +4155,7 @@
     ! standard_name: surface_net_downward_longwave_flux
     ! cell_methods: xh:mean yh:mean area:mean
     ! variants: {LW,rlntds}
-"latent"  [Used] (CMOR equivalent is "hflso")
+"latent"  [Unused] (CMOR equivalent is "hflso")
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
     ! long_name: Latent heat flux into ocean due to fusion and evaporation (negative means ocean heat loss)
@@ -4168,7 +4168,7 @@
     ! long_name: Latent heat flux into ocean due to evaporation/condensation
     ! units: W m-2
     ! cell_methods: xh:mean yh:mean area:mean
-"latent_fprec_diag"  [Used] (CMOR equivalent is "hfsnthermds")
+"latent_fprec_diag"  [Unused] (CMOR equivalent is "hfsnthermds")
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
     ! long_name: Latent heat flux into ocean due to melting of frozen precipitation
@@ -4188,7 +4188,7 @@
     ! long_name: Latent heat flux into ocean due to melting of frozen glacier runoff
     ! units: W m-2
     ! cell_methods: xh:mean yh:mean area:mean
-"sensible"  [Used] (CMOR equivalent is "hfsso")
+"sensible"  [Unused] (CMOR equivalent is "hfsso")
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
     ! long_name: Sensible heat flux into ocean
@@ -4196,7 +4196,7 @@
     ! standard_name: surface_downward_sensible_heat_flux
     ! cell_methods: xh:mean yh:mean area:mean
     ! variants: {sensible,hfsso}
-"seaice_melt_heat"  [Used]
+"seaice_melt_heat"  [Unused]
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
     ! long_name: Heat flux into ocean due to snow and sea ice melt/freeze
@@ -4410,7 +4410,7 @@
     ! long_name: Salt left in ocean at surface due to ice formation
     ! units: kg m-2 s-1
     ! cell_methods: xh:mean yh:mean area:mean
-"salt_flux_global_restoring_adjustment"  [Unused]
+"salt_flux_global_restoring_adjustment"  [Used]
     ! modules: ocean_model
     ! dimensions: scalar
     ! long_name: Adjustment needed to balance net global salt flux into ocean at surface
@@ -4420,7 +4420,7 @@
     ! dimensions: scalar
     ! long_name: Adjustment needed to adjust net vprec into ocean to zero
     ! units: kg m-2 s-1
-"net_fresh_water_global_adjustment"  [Unused]
+"net_fresh_water_global_adjustment"  [Used]
     ! modules: ocean_model
     ! dimensions: scalar
     ! long_name: Adjustment needed to adjust net fresh water into ocean to zero
@@ -4440,18 +4440,18 @@
     ! dimensions: scalar
     ! long_name: Scaling applied to adjust net fresh water into ocean to zero
     ! units: nondim
-"total_salt_flux"  [Unused]
+"total_salt_flux"  [Used]
     ! modules: ocean_model
     ! dimensions: scalar
     ! long_name: Area integrated surface salt flux
     ! units: kg s-1
     ! variants: {total_salt_flux,total_sfdsi}
-"total_salt_Flux_In"  [Unused]
+"total_salt_Flux_In"  [Used]
     ! modules: ocean_model
     ! dimensions: scalar
     ! long_name: Area integrated surface salt flux at surface from coupler
     ! units: kg s-1
-"total_salt_Flux_Added"  [Unused]
+"total_salt_Flux_Added"  [Used]
     ! modules: ocean_model
     ! dimensions: scalar
     ! long_name: Area integrated surface salt flux due to restoring or flux adjustment
