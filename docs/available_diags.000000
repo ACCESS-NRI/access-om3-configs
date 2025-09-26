@@ -1721,6 +1721,20 @@
     ! units: m
     ! cell_methods: xh:mean yh:mean zl:sum area:mean
     ! variants: {h_pre_sync,h_pre_sync_xyave}
+"temp"  [Used] (CMOR equivalent is "thetao")
+    ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
+    ! dimensions: xh, yh, zl
+    ! long_name: Potential Temperature
+    ! units: degC
+    ! cell_methods: xh:mean yh:mean zl:mean area:mean
+    ! variants: {temp,temp_xyave,thetao,thetao_xyave}
+"salt"  [Used] (CMOR equivalent is "so")
+    ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
+    ! dimensions: xh, yh, zl
+    ! long_name: Salinity
+    ! units: psu
+    ! cell_methods: xh:mean yh:mean zl:mean area:mean
+    ! variants: {salt,salt_xyave,so,so_xyave}
 "tob"  [Used]
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
@@ -3548,6 +3562,18 @@
     ! units: psu2
     ! cell_methods: xh:mean yh:mean area:mean
     ! variants: {SSS_sq,sossq}
+"conSST"  [Unused]
+    ! modules: {ocean_model,ocean_model_d2}
+    ! dimensions: xh, yh
+    ! long_name: Sea Surface Conservative Temperature
+    ! units: Celsius
+    ! cell_methods: xh:mean yh:mean area:mean
+"absSSS"  [Unused]
+    ! modules: {ocean_model,ocean_model_d2}
+    ! dimensions: xh, yh
+    ! long_name: Sea Surface Absolute Salinity
+    ! units: g kg-1
+    ! cell_methods: xh:mean yh:mean area:mean
 "frazil"  [Unused] (CMOR equivalent is "hfsifrazil")
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
@@ -3658,20 +3684,20 @@
     ! units: m s-1
     ! cell_methods: xh:mean yh:mean zl:sum area:mean
     ! variants: {dynamics_h_tendency,dynamics_h_tendency_xyave}
-"temp"  [Used] (CMOR equivalent is "thetao")
+"contemp"  [Unused] (CMOR equivalent is "bigthetao")
     ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
     ! dimensions: xh, yh, zl
-    ! long_name: Potential Temperature
-    ! units: degC
+    ! long_name: Conservative Temperature
+    ! units: Celsius
     ! cell_methods: xh:mean yh:mean zl:mean area:mean
-    ! variants: {temp,temp_xyave,thetao,thetao_xyave}
-"temp_post_horzn"  [Unused]
+    ! variants: {contemp,contemp_xyave,bigthetao,bigthetao_xyave}
+"contemp_post_horzn"  [Unused]
     ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
     ! dimensions: xh, yh, zl
-    ! long_name: Potential Temperature after horizontal transport (advection/diffusion) has occurred
-    ! units: degC
+    ! long_name: Conservative Temperature after horizontal transport (advection/diffusion) has occurred
+    ! units: Celsius
     ! cell_methods: xh:mean yh:mean zl:mean area:mean
-    ! variants: {temp_post_horzn,temp_post_horzn_xyave}
+    ! variants: {contemp_post_horzn,contemp_post_horzn_xyave}
 "T_adx"  [Unused]
     ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
     ! dimensions: xq, yh, zl
@@ -3717,20 +3743,20 @@
 "T_zint"  [Unused]
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
-    ! long_name: Thickness-weighted integral of Potential Temperature
-    ! units: degC m
+    ! long_name: Thickness-weighted integral of Conservative Temperature
+    ! units: Celsius m
     ! cell_methods: xh:mean yh:mean area:mean
 "T_zint_100m"  [Unused]
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
-    ! long_name: Thickness-weighted integral of Potential Temperature over top 100m
-    ! units: degC m
+    ! long_name: Thickness-weighted integral of Conservative Temperature over top 100m
+    ! units: Celsius m
     ! cell_methods: xh:mean yh:mean area:mean
 "T_SURF"  [Unused]
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
-    ! long_name: Surface values of Potential Temperature
-    ! units: degC
+    ! long_name: Surface values of Conservative Temperature
+    ! units: Celsius
     ! cell_methods: xh:mean yh:mean area:mean
 "T_adx_2d"  [Unused]
     ! modules: {ocean_model,ocean_model_d2}
@@ -3784,8 +3810,8 @@
 "T_tendency"  [Unused]
     ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
     ! dimensions: xh, yh, zl
-    ! long_name: Net time tendency for potential temperature
-    ! units: degC s-1
+    ! long_name: Net time tendency for conservative temperature
+    ! units: Celsius s-1
     ! cell_methods: xh:mean yh:mean zl:mean area:mean
     ! variants: {T_tendency,T_tendency_xyave}
 "T_dfxy_cont_tendency"  [Unused] (CMOR equivalent is "opottemppmdiff")
@@ -3819,14 +3845,14 @@
     ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
     ! dimensions: xh, yh, zl
     ! long_name: Neutral diffusion tracer concentration tendency for T
-    ! units: degC s-1
+    ! units: Celsius s-1
     ! cell_methods: xh:mean yh:mean zl:mean area:mean
     ! variants: {T_dfxy_conc_tendency,T_dfxy_conc_tendency_xyave}
 "T_hbdxy_conc_tendency"  [Unused]
     ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
     ! dimensions: xh, yh, zl
     ! long_name: Horizontal diffusion tracer concentration tendency for T
-    ! units: degC s-1
+    ! units: Celsius s-1
     ! cell_methods: xh:mean yh:mean zl:mean area:mean
     ! variants: {T_hbdxy_conc_tendency,T_hbdxy_conc_tendency_xyave}
 "Th_tendency"  [Unused] (CMOR equivalent is "opottemptend")
@@ -3846,8 +3872,8 @@
 "T_tendency_vert_remap"  [Unused]
     ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
     ! dimensions: xh, yh, zl
-    ! long_name: Vertical remapping tracer concentration tendency for temp
-    ! units: degC s-1
+    ! long_name: Vertical remapping tracer concentration tendency for contemp
+    ! units: Celsius s-1
     ! cell_methods: xh:mean yh:mean zl:mean area:mean
     ! variants: {T_tendency_vert_remap,T_tendency_vert_remap_xyave}
 "Th_tendency_vert_remap"  [Unused]
@@ -3866,21 +3892,21 @@
 "T_vardec"  [Unused]
     ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
     ! dimensions: xh, yh, zl
-    ! long_name: ALE variance decay for potential temperature
-    ! units: degC2 s-1
+    ! long_name: ALE variance decay for conservative temperature
+    ! units: Celsius2 s-1
     ! cell_methods: xh:mean yh:mean zl:mean area:mean
     ! variants: {T_vardec,T_vardec_xyave}
 "KPP_QminusSW"  [Unused]
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
     ! long_name: Net temperature flux ignoring short-wave, as used by [CVMix] KPP
-    ! units: degC m s-1
+    ! units: Celsius m s-1
     ! cell_methods: xh:mean yh:mean area:mean
 "KPP_NLT_dTdt"  [Unused]
     ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
     ! dimensions: xh, yh, zl
-    ! long_name: Potential Temperature tendency due to non-local transport of heat, as calculated by [CVMix] KPP
-    ! units: degC s-1
+    ! long_name: Conservative Temperature tendency due to non-local transport of heat, as calculated by [CVMix] KPP
+    ! units: Celsius s-1
     ! cell_methods: xh:mean yh:mean zl:mean area:mean
     ! variants: {KPP_NLT_dTdt,KPP_NLT_dTdt_xyave}
 "KPP_NLT_temp_budget"  [Unused]
@@ -3890,20 +3916,20 @@
     ! units: W m-2
     ! cell_methods: xh:mean yh:mean zl:sum area:mean
     ! variants: {KPP_NLT_temp_budget,KPP_NLT_temp_budget_xyave}
-"salt"  [Used] (CMOR equivalent is "so")
+"abssalt"  [Unused] (CMOR equivalent is "absso")
     ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
     ! dimensions: xh, yh, zl
-    ! long_name: Salinity
-    ! units: psu
+    ! long_name: Absolute Salinity
+    ! units: g kg-1
     ! cell_methods: xh:mean yh:mean zl:mean area:mean
-    ! variants: {salt,salt_xyave,so,so_xyave}
-"salt_post_horzn"  [Unused]
+    ! variants: {abssalt,abssalt_xyave,absso,absso_xyave}
+"abssalt_post_horzn"  [Unused]
     ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
     ! dimensions: xh, yh, zl
-    ! long_name: Salinity after horizontal transport (advection/diffusion) has occurred
-    ! units: psu
+    ! long_name: Absolute Salinity after horizontal transport (advection/diffusion) has occurred
+    ! units: g kg-1
     ! cell_methods: xh:mean yh:mean zl:mean area:mean
-    ! variants: {salt_post_horzn,salt_post_horzn_xyave}
+    ! variants: {abssalt_post_horzn,abssalt_post_horzn_xyave}
 "S_adx"  [Unused]
     ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
     ! dimensions: xq, yh, zl
@@ -3949,20 +3975,20 @@
 "S_zint"  [Unused]
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
-    ! long_name: Thickness-weighted integral of Salinity
-    ! units: psu m
+    ! long_name: Thickness-weighted integral of Absolute Salinity
+    ! units: g kg-1 m
     ! cell_methods: xh:mean yh:mean area:mean
 "S_zint_100m"  [Unused]
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
-    ! long_name: Thickness-weighted integral of Salinity over top 100m
-    ! units: psu m
+    ! long_name: Thickness-weighted integral of Absolute Salinity over top 100m
+    ! units: g kg-1 m
     ! cell_methods: xh:mean yh:mean area:mean
 "S_SURF"  [Unused]
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
-    ! long_name: Surface values of Salinity
-    ! units: psu
+    ! long_name: Surface values of Absolute Salinity
+    ! units: g kg-1
     ! cell_methods: xh:mean yh:mean area:mean
 "S_adx_2d"  [Unused]
     ! modules: {ocean_model,ocean_model_d2}
@@ -4016,8 +4042,8 @@
 "S_tendency"  [Unused]
     ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
     ! dimensions: xh, yh, zl
-    ! long_name: Net time tendency for salinity
-    ! units: psu s-1
+    ! long_name: Net time tendency for absolute salinity
+    ! units: g kg-1 s-1
     ! cell_methods: xh:mean yh:mean zl:mean area:mean
     ! variants: {S_tendency,S_tendency_xyave}
 "S_dfxy_cont_tendency"  [Unused] (CMOR equivalent is "osaltpmdiff")
@@ -4051,14 +4077,14 @@
     ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
     ! dimensions: xh, yh, zl
     ! long_name: Neutral diffusion tracer concentration tendency for S
-    ! units: psu s-1
+    ! units: g kg-1 s-1
     ! cell_methods: xh:mean yh:mean zl:mean area:mean
     ! variants: {S_dfxy_conc_tendency,S_dfxy_conc_tendency_xyave}
 "S_hbdxy_conc_tendency"  [Unused]
     ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
     ! dimensions: xh, yh, zl
     ! long_name: Horizontal diffusion tracer concentration tendency for S
-    ! units: psu s-1
+    ! units: g kg-1 s-1
     ! cell_methods: xh:mean yh:mean zl:mean area:mean
     ! variants: {S_hbdxy_conc_tendency,S_hbdxy_conc_tendency_xyave}
 "Sh_tendency"  [Unused] (CMOR equivalent is "osalttend")
@@ -4078,8 +4104,8 @@
 "S_tendency_vert_remap"  [Unused]
     ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
     ! dimensions: xh, yh, zl
-    ! long_name: Vertical remapping tracer concentration tendency for salt
-    ! units: psu s-1
+    ! long_name: Vertical remapping tracer concentration tendency for abssalt
+    ! units: g kg-1 s-1
     ! cell_methods: xh:mean yh:mean zl:mean area:mean
     ! variants: {S_tendency_vert_remap,S_tendency_vert_remap_xyave}
 "Sh_tendency_vert_remap"  [Unused]
@@ -4098,21 +4124,21 @@
 "S_vardec"  [Unused]
     ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
     ! dimensions: xh, yh, zl
-    ! long_name: ALE variance decay for salinity
-    ! units: psu2 s-1
+    ! long_name: ALE variance decay for absolute salinity
+    ! units: (g kg-1)2 s-1
     ! cell_methods: xh:mean yh:mean zl:mean area:mean
     ! variants: {S_vardec,S_vardec_xyave}
 "KPP_netSalt"  [Unused]
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
     ! long_name: Effective net surface salt flux, as used by [CVMix] KPP
-    ! units: psu m s-1
+    ! units: g kg-1 m s-1
     ! cell_methods: xh:mean yh:mean area:mean
 "KPP_NLT_dSdt"  [Unused]
     ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
     ! dimensions: xh, yh, zl
-    ! long_name: Salinity tendency due to non-local transport of salt, as calculated by [CVMix] KPP
-    ! units: psu s-1
+    ! long_name: Absolute Salinity tendency due to non-local transport of salt, as calculated by [CVMix] KPP
+    ! units: g kg-1 s-1
     ! cell_methods: xh:mean yh:mean zl:mean area:mean
     ! variants: {KPP_NLT_dSdt,KPP_NLT_dSdt_xyave}
 "KPP_NLT_saln_budget"  [Unused]
