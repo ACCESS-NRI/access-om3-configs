@@ -1,6 +1,5 @@
 ! === Added with RM6 ===
 #override MINIMUM_DEPTH = 4.5 !None
-#override NK = 75 !None
 #override OBC_NUMBER_OF_SEGMENTS = 4 !None
 #override OBC_FREESLIP_VORTICITY = False !None
 #override OBC_FREESLIP_STRAIN = False !None

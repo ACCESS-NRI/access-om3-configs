@@ -44,7 +44,7 @@ global_defaults:
     time_axis_units: days  # time units for the output file time axis: years, months, days, hours, minutes, or seconds
     time_axis_name: time  # must be "time" (case-insensitive)
     new_file_freq: 1  # optional integer: frequency (in new_file_freq_units) for closing the existing file, and creating a new file
-    new_file_freq_units: years  # time units for new_file_freq: years, months, days, hours, minutes, or seconds (optional; required if and only if new_file_freq specified)
+    new_file_freq_units: months  # time units for new_file_freq: years, months, days, hours, minutes, or seconds (optional; required if and only if new_file_freq specified)
     start_time:  # Time to start the file for the first time. The format of this string is the same as base_date (optional; requires new_file_freq, new_file_freq_units)
     file_duration:  # integer: How long file should receive data after start time (optional; requires new_file_freq, new_file_freq_units, start_time)
     file_duration_units:  # units for file_duration: years, months, days, hours, minutes, or seconds (optional; required if and only if file_duration specified)
@@ -73,7 +73,7 @@ global_defaults:
 # extra things for constructing filename:
     file_name_dimension: 3d  # descriptor for filename, e.g. 3d, 2d, scalar
     file_name_prefix: access-om3.mom6
-    file_name_date: "%4yr" # run date/time of file opening; format: %, 1 digit (#digits), one of (yr, mo, dy, hr, mi, sc); date/time components will be separated by _ in filename.
+    file_name_date: "%4yr-%2mo" # run date/time of file opening; format: %, 1 digit (#digits), one of (yr, mo, dy, hr, mi, sc); date/time components will be separated by _ in filename.
     file_name_separator: "."  # used to separate filename components; best not to use "_" to avoid confusion with fields and dates
     file_name_omit_empty: true  # whether to omit empty filename components to avoid duplicate file_name_separator
     file_name_substitutions:  # string replacements for filename components
@@ -165,9 +165,10 @@ diag_table:
         defaults:  # these can be overridden for individual fields below
             file_name_dimension: 3d  # descriptor for filename, e.g. 3d, 2d, scalar
             reduction_method: mean
+            auxiliary_fields:
+              volcello: # Ocean grid-cell volume
         fields:
-            h: # Layer Thickness
-            agessc: # Sea water age since surface contact
+            e: # Interface height relative to mean sea level
             rhopot2: # Potential density referenced to 2000 dbar
             thetao: # Potential Temperature
             so: # Salinity
@@ -193,31 +194,15 @@ diag_table:
             pso: # Pressure at ice-ocean or atmosphere-ocean interface p_surf
             sfdsi: # Net salt flux into ocean at surface (restoring + sea-ice) salt_flux
             salt_flux_added: # Salt flux into ocean at surface due to restoring or flux adjustment
-            Rd_dx: # Ratio between deformation radius and grid spacing
             mlotst: # Mixed layer depth (delta rho = 0.03) MLD_003
             speed: # Sea Surface Speed
-            SSH: # Sea Surface Height
+            zos: # Sea surface height above geoid
+            zossq: # Square of sea surface height above geoid
             tauuo: # surface_downward_x_stress taux
             tauvo: # surface_downward_y_stress tauy
             umo_2d: # Ocean Mass X Transport Vertical Sum
             vmo_2d: # Ocean Mass Y Transport Vertical Sum
             pbo: # Sea Water Pressure at Sea Floor
-            salt_flux_in: # Salt flux into ocean at surface from coupler
-            tnkebto: # Integrated Tendency of Ocean Mesoscale Eddy KE from Parameterized Eddy Advection GMwork
-
-    'monthly 2d max fields':
-        defaults:  # these can be overridden for individual fields below
-            file_name_dimension: 2d  # descriptor for filename, e.g. 3d, 2d, scalar
-            reduction_method: max  # mean, snap, rms, pow##, min, max, or diurnal##
-        fields:
-            mlotst: # Mixed layer depth (delta rho = 0.03) MLD_003
-
-    'monthly 2d min fields':
-        defaults:  # these can be overridden for individual fields below
-            file_name_dimension: 2d  # descriptor for filename, e.g. 3d, 2d, scalar
-            reduction_method: min  # mean, snap, rms, pow##, min, max, or diurnal##
-        fields:
-            mlotst: # Mixed layer depth (delta rho = 0.03) MLD_003
 
     'daily 2D fields':
         defaults:
@@ -233,7 +218,14 @@ diag_table:
             sos: # Sea Surface Salinity
             speed: # Sea Surface Speed
 
-    'daily scalar timeseries':
+    'monthly 2d max fields':
+        defaults:  # these can be overridden for individual fields below
+            file_name_dimension: 2d  # descriptor for filename, e.g. 3d, 2d, scalar
+            reduction_method: max  # mean, snap, rms, pow##, min, max, or diurnal##
+        fields:
+            mlotst: # Mixed layer depth (delta rho = 0.03) MLD_003
+
+    'monthly scalar timeseries':
         defaults:  # these can be overridden for individual fields below
             file_name_dimension: scalar  # descriptor for filename, e.g. 3d, 2d, scalar
             file_name:  # String, or list of components, for file name (without trailing ".nc").
@@ -278,3 +270,90 @@ diag_table:
             total_friver: # Area integrated liquid runoff into ocean total_lrunoff
             total_net_massout: # Area integrated mass leaving ocean due to evap and seaice form
             total_net_massin: # Area integrated mass entering ocean due to predip, runoff, ice melt
+
+    'monthly 3d BGC fields':
+        defaults:  # these can be overridden for individual fields below
+            file_name_dimension: 3d  # descriptor for filename, e.g. 3d, 2d, scalar
+            reduction_method: mean
+            module_name: generic_wombatlite
+        fields:
+            adic:
+            alk:
+            caco3:
+            caco3_sediment:
+            det:
+            det_sediment:
+            dic:
+            fe:
+            no3:
+            npp3d:
+            o2:
+            phy:
+            pprod_gross:
+            radbio3d:
+            zoo:
+            zprod_gross:
+
+    'monthly 2d BGC fields':
+        defaults:  # these can be overridden for individual fields below
+            file_name_dimension: 2d  # descriptor for filename, e.g. 3d, 2d, scalar
+            reduction_method: mean
+            module_name: generic_wombatlite
+        fields:
+            adic_stf:
+            adic_vstf:
+            adic_btf:
+            adic_alpha:
+            adic_csurf:
+            adic_sc_no:
+            alk_stf:
+            alk_vstf:
+            alk_btf:
+            dic_stf:
+            dic_vstf:
+            dic_btf:
+            dic_alpha:
+            dic_csurf:
+            dic_sc_no:
+            fe_stf:
+            fe_btf:
+            no3_stf:
+            no3_vstf:
+            no3_btf:
+            o2_stf:
+            o2_btf:
+            o2_alpha:
+            o2_csurf:
+            o2_sc_no:
+            caco3_sed_remin:
+            caco3_sed_depst:
+            det_sed_remin:
+            det_sed_depst:
+            adic_intmld:
+            det_intmld:
+            dic_intmld:
+            fe_intmld:
+            no3_intmld:
+            npp_intmld:
+            o2_intmld:
+            phy_intmld:
+            pprod_gross_intmld:
+            radbio_intmld:
+            adic_int100:
+            det_int100:
+            dic_int100:
+            fe_int100:
+            no3_int100:
+            npp_int100:
+            o2_int100:
+            phy_int100:
+            pprod_gross_int100:
+            radbio_int100:
+            light_limit:
+            npp2d:
+            npp1:
+            pco2:
+            paco2:
+            pprod_gross_2d:
+            radbio1:
+            wdet100:
