@@ -139,7 +139,7 @@ ALLCOMP_attributes::
      tfreeze_option = linear_salt
      username = ds0092
      wav_coupling_to_cice = .true.
-     write_restart_at_endofrun = .false.
+     restart_pointer_append_date = .false.
 ::
 
 MED_attributes::
