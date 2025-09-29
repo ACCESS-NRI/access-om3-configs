@@ -96,6 +96,11 @@ work/INPUT/RYF.vas.1990_1991.nc:
   hashes:
     binhash: f353a71a014062723ed2b56353932caf
     md5: 30b92b1e409cff9a9900692aa961aba4
+work/INPUT/SFe_Hamiltonetal2020_monthly_clim.nc:
+  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/wombat/forcing/global.25km/2025.09.29/SFe_Hamiltonetal2020_monthly_clim.nc
+  hashes:
+    binhash: ebed216794b09570a25a75f419cae22d
+    md5: 5818b47e3e4e09bdd7d21ec30e98f706
 work/INPUT/access-om3-25km-ESMFmesh.nc:
   fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/share/meshes/global.25km/2025.09.04/access-om3-25km-ESMFmesh.nc
   hashes:
@@ -116,21 +121,16 @@ work/INPUT/bottom_roughness.nc:
   hashes:
     binhash: 4af02df5f147dc8528a1f4657a0de2c4
     md5: 99698827fe5c5129dce971d006e4fdfc
-work/INPUT/dust.nc:
-  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/wombat/forcing/global.25km/2025.06.24/dust.nc
-  hashes:
-    binhash: 25e91e6179b4a3c9f9a03a35a70896d3
-    md5: bf4dcdd689a1a2d022ca2d4f294625ce
 work/INPUT/grid_spec.nc:
   fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/grids/mosaic/share/2024.05.08/grid_spec.nc
   hashes:
     binhash: 2fb8d504904e652a37185852f17dbcd4
     md5: 709268cd891e6f0e827f6de0249f1a3d
 work/INPUT/init_ocean_wombatlite.res.nc:
-  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/wombat/initial_conditions/global.25km/2025.06.16/init_ocean_wombatlite.res.nc
+  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/wombat/initial_conditions/global.25km/2025.09.29/init_ocean_wombatlite.res.nc
   hashes:
-    binhash: 796b5c853c45e1c91df201633ea9291f
-    md5: 86ff250f048bac148bd9747dcff03d75
+    binhash: e415490f397aec6bae8f142e1528975f
+    md5: 31878038be41546c64875d26b7e637ec
 work/INPUT/kmt.nc:
   fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/cice/grids/global.25km/2025.09.03/kmt.nc
   hashes:
@@ -142,10 +142,10 @@ work/INPUT/ocean_hgrid.nc:
     binhash: fca9384e7595cfcafe6e970d68598a35
     md5: dd9cb78712fedbdd3e5930f7066bcac8
 work/INPUT/ocean_mosaic.nc:
-  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/grids/mosaic/global.25km/2025.05.15/ocean_mosaic.nc
+  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/grids/mosaic/global.25km/2025.09.29/ocean_mosaic.nc
   hashes:
-    binhash: a65433d8f4d4cc1cddfc5dca764c312b
-    md5: 4f8361b34fa4f1a9443ddd792d36a12a
+    binhash: 473acc8cf3d3c678ebb9bbe26b4da66d
+    md5: 48ca097393aa50b6980b7a097f7f27b7
 work/INPUT/ocean_temp_salt.res.nc:
   fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/initial_conditions/global.25km/2025.09.02/ocean_temp_salt.res.nc
   hashes:
