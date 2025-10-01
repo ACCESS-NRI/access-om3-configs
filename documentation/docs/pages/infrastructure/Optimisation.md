@@ -1,11 +1,12 @@
-## Optimisation
+# Optimisation
 
-
-### Using the Experiment generator and runner to run load balancing tests
+## Load balancing
 
 The following describes the workflow to generate a suite of simulations that enable load balancing to be completed. We use the folowing tools: [access-experiment-generator](http://github.com/accESS-NRI/access-experiment-generator) and [access-experiment-runner](http://github.com/accESS-NRI/access-experiment-runner)
 
 To access these python modules, one needs to on Gadi: `module purge;module use /g/data/vk83/prerelease/modules; module load payu/dev;module list`. Documentation for the experiment generator [is available here](https://access-experiment-generator.access-hive.org.au/).
+
+### Using the Experiment generator to create simulation suite 
 
 At time of writing some changes to the config are not supported by [access-experiment-generator](http://github.com/accESS-NRI/access-experiment-generator). So we need to do small changes to the folowing to turn off `CICE` (we'll start by doing tests with `MOM6`):
 
@@ -70,15 +71,17 @@ We also need to turn on various ESMF diagnostics to enable relevant profiling. B
         ESMF_RUNTIME_PROFILE_OUTPUT: "SUMMARY"
 ```
 
+Here in `ncpus` we specify the total number of cpus to be allocated, this effectively determines the number of cores available to `MOM6` where the `MOM6` cores are `atm_ntasks + oce_ntasks = ncpus` (see below for where `ocn_ntasks` is set):
 ```yaml
-      # ncpus: [52, 104, 156, 208, 260, 312, 364, 416, 468, 520, 572, 624, 676, 728, 780, 832, 884, 936, 988, 1040, 1092, 1144, 1196, 1248, 1300, 1352, 1404, 1456, 1508, 1560, 1612, 1664, 1716, 1768, 1820, 1872, 1924, 1976, 2028, 2080, 2132, 2184, 2236, 2288, 2340, 2392, 2444, 2496, 2548, 2600]
       ncpus: [104, 156, 208, 260, 312, 364, 416, 468, 520, 572, 624, 676, 728, 780, 832, 884, 936, 988, 1040, 1092, 1144, 1196, 1248, 1300, 1352, 1404, 1456, 1508, 1560, 1612, 1664, 1716, 1768, 1820, 1872, 1924, 1976, 2028, 2080, 2132, 2184, 2236, 2288, 2340, 2392, 2444, 2496, 2548, 2600, 2652]
 
-      # mem: ['500GB', '500GB', '1000GB', '1000GB', '1500GB', '1500GB', '2000GB', '2000GB', '2500GB', '2500GB', '3000GB', '3000GB', '3500GB', '3500GB', '4000GB', '4000GB', '4500GB', '4500GB', '5000GB', '5000GB', '5500GB', '5500GB', '6000GB', '6000GB', '6500GB', '6500GB', '7000GB', '7000GB', '7500GB', '7500GB', '8000GB', '8000GB', '8500GB', '8500GB', '9000GB', '9000GB', '9500GB', '9500GB', '10000GB', '10000GB', '10500GB', '10500GB', '11000GB', '11000GB', '11500GB', '11500GB', '12000GB', '12000GB', '12500GB', '12500GB']
       mem: ['500GB', '1000GB', '1000GB', '1500GB', '1500GB', '2000GB', '2000GB', '2500GB', '2500GB', '3000GB', '3000GB', '3500GB', '3500GB', '4000GB', '4000GB', '4500GB', '4500GB', '5000GB', '5000GB', '5500GB', '5500GB', '6000GB', '6000GB', '6500GB', '6500GB', '7000GB', '7000GB', '7500GB', '7500GB', '8000GB', '8000GB', '8500GB', '8500GB', '9000GB', '9000GB', '9500GB', '9500GB', '10000GB', '10000GB', '10500GB', '10500GB', '11000GB', '11000GB', '11500GB', '11500GB', '12000GB', '12000GB', '12500GB', '12500GB', '13000GB']
 
       repeat: True
 ```
+We will be doing `3` run of each (`150` runs total) so we set `repeat` to `True`.
+
+For defining the `ocn_ntasks` we want to increase the number of cores by `atm_ntasks` in each run. This python snippet can generate it for us: `print([13+(k*52) for k in range(50)])`
 
 ```yaml
     nuopc.runconfig:
@@ -124,5 +127,8 @@ ncn_ntasks
 
 
 
-experiment-runner -i runner_pr-mom6.yaml
+### Using the Experiment runner to run the load balancing tests
+
+
+`experiment-runner -i runner_pr-mom6.yaml`
 
