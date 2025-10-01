@@ -2806,7 +2806,7 @@
     ! units: W m-2
     ! cell_methods: xh:mean yh:mean zl:sum area:mean
     ! variants: {frazil_heat_tendency,frazil_heat_tendency_xyave}
-"frazil_heat_tendency_2d"  [Unused]
+"frazil_heat_tendency_2d"  [Used]
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
     ! long_name: Depth integrated heat tendency due to frazil formation
