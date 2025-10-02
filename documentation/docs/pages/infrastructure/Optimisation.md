@@ -2,7 +2,7 @@
 
 ## Load balancing
 
-The following describes the workflow to generate a suite of simulations that enable load balancing to be completed. We use the folowing tools: [access-experiment-generator](http://github.com/accESS-NRI/access-experiment-generator) and [access-experiment-runner](http://github.com/accESS-NRI/access-experiment-runner)
+The following describes the workflow to generate a suite of simulations that enable load balancing to be completed. We use the folowing tools: [access-experiment-generator](http://github.com/accESS-NRI/access-experiment-generator) and [access-experiment-runner](http://github.com/accESS-NRI/access-experiment-runner).
 
 To access these python modules, one needs to on Gadi: `module purge;module use /g/data/vk83/prerelease/modules; module load payu/dev;module list`. Documentation for the experiment generator [is available here](https://access-experiment-generator.access-hive.org.au/).
 
@@ -32,14 +32,7 @@ In `nuopc.runseq`, the following lines should be commented out ([example](https:
   MED med_phases_diag_ice_med2ice
 ```
 
-We then create two `.yaml` files to set up and run the somulations, two examples are given below, other applications should be hackable from these:
-
- - `pr-mom6.yaml`;
- - `runner_pr-mom6.yaml`.
-
-Firstly `pr-mom6.yaml`.
-
-Note in the following the `repository_url` specifies the fork and commit created above:
+We then create a `.yaml` file to set up the simulations, an example is worked through below (called `pr-mom6.yaml`), other applications should be hackable from this. 
 ```yaml
 model_type: access-om3 # Specify the model ("access-om2", "access-om3", "access-esm1.5", or "access-esm1.6")
 repository_url: git@github.com:chrisb13/access-om3-configs.git
@@ -49,6 +42,7 @@ repository_directory: mom6_only # Local directory name for the central repositor
 control_branch_name: ctrl
 Control_Experiment:
 ```
+Note in the above, the `repository_url` specifies the fork and commit created earlier.
 
 We then specify a suite of runs, here 50 `MOM6` standalone runs will be set up:
 ```yaml
@@ -71,19 +65,14 @@ We also need to turn on various ESMF diagnostics to enable relevant profiling. B
         ESMF_RUNTIME_PROFILE_OUTPUT: "SUMMARY"
 ```
 
-Here in `ncpus` we specify the total number of cpus to be allocated, this effectively determines the number of cores available to `MOM6` where the `MOM6` cores are `atm_ntasks + oce_ntasks = ncpus` (see below for where `ocn_ntasks` is set):
+Here in `ncpus` we specify the total number of cpus to be allocated, this effectively determines the number of cores available to `MOM6` where the `MOM6` cores are `atm_ntasks + oce_ntasks = ncpus` (see below for where `ocn_ntasks` is set). Details of how to calculate `ncpus` and `mem` below:
 ```yaml
-      ncpus: [104, 156, 208, 260, 312, 364, 416, 468, 520, 572, 624, 676, 728, 780, 832, 884, 936, 988, 1040, 1092, 1144, 1196, 1248, 1300, 1352, 1404, 1456, 1508, 1560, 1612, 1664, 1716, 1768, 1820, 1872, 1924, 1976, 2028, 2080, 2132, 2184, 2236, 2288, 2340, 2392, 2444, 2496, 2548, 2600, 2652]
+      ncpus: [65, 117, 169, 221, 273, 325, 377, 429, 481, 533, 585, 637, 689, 741, 793, 845, 897, 949, 1001, 1053, 1105, 1157, 1209, 1261, 1313, 1365, 1417, 1469, 1521, 1573, 1625, 1677, 1729, 1781, 1833, 1885, 1937, 1989, 2041, 2093, 2145, 2197, 2249, 2301, 2353, 2405, 2457, 2509, 2561, 2613]
 
-      mem: ['500GB', '1000GB', '1000GB', '1500GB', '1500GB', '2000GB', '2000GB', '2500GB', '2500GB', '3000GB', '3000GB', '3500GB', '3500GB', '4000GB', '4000GB', '4500GB', '4500GB', '5000GB', '5000GB', '5500GB', '5500GB', '6000GB', '6000GB', '6500GB', '6500GB', '7000GB', '7000GB', '7500GB', '7500GB', '8000GB', '8000GB', '8500GB', '8500GB', '9000GB', '9000GB', '9500GB', '9500GB', '10000GB', '10000GB', '10500GB', '10500GB', '11000GB', '11000GB', '11500GB', '11500GB', '12000GB', '12000GB', '12500GB', '12500GB', '13000GB']
+      mem: ['500MB', '1000MB', '1000MB', '1500MB', '1500MB', '2000MB', '2000MB', '2500MB', '2500MB', '3000MB', '3000MB', '3500MB', '3500MB', '4000MB', '4000MB', '4500MB', '4500MB', '5000MB', '5000MB', '5500MB', '5500MB', '6000MB', '6000MB', '6500MB', '6500MB', '7000MB', '7000MB', '7500MB', '7500MB', '8000MB', '8000MB', '8500MB', '8500MB', '9000MB', '9000MB', '9500MB', '9500MB', '10000MB', '10000MB', '10500MB', '10500MB', '11000MB', '11000MB', '11500MB', '11500MB', '12000MB', '12000MB', '12500MB', '12500MB', '13000MB']
 
       repeat: True
-```
-We will be doing `3` run of each (`150` runs total) so we set `repeat` to `True`.
 
-For defining the `ocn_ntasks` we want to increase the number of cores by `atm_ntasks` in each run. This python snippet can generate it for us: `print([13+(k*52) for k in range(50)])`
-
-```yaml
     nuopc.runconfig:
       PELAYOUT_attributes:
         atm_ntasks: &ntasks52 [52]
@@ -92,10 +81,16 @@ For defining the `ocn_ntasks` we want to increase the number of cores by `atm_nt
         ice_nthreads: REMOVE
         ice_pestride: REMOVE
         ice_rootpe: REMOVE
-        ocn_ntasks: [52, 104, 156, 208, 260, 312, 364, 416, 468, 520, 572, 624, 676, 728, 780, 832, 884, 936, 988, 1040, 1092, 1144, 1196, 1248, 1300, 1352, 1404, 1456, 1508, 1560, 1612, 1664, 1716, 1768, 1820, 1872, 1924, 1976, 2028, 2080, 2132, 2184, 2236, 2288, 2340, 2392, 2444, 2496, 2548, 2600]
+        ocn_ntasks: [13, 65, 117, 169, 221, 273, 325, 377, 429, 481, 533, 585, 637, 689, 741, 793, 845, 897, 949, 1001, 1053, 1105, 1157, 1209, 1261, 1313, 1365, 1417, 1469, 1521, 1573, 1625, 1677, 1729, 1781, 1833, 1885, 1937, 1989, 2041, 2093, 2145, 2197, 2249, 2301, 2353, 2405, 2457, 2509, 2561]
         ocn_rootpe: *ntasks52
         rof_ntasks: *ntasks52
+```
+We will be doing `3` run of each (`150` runs total) so we set `repeat` to `True`.
 
+For defining the `ocn_ntasks` we want to increase the number of cores by `atm_ntasks` in each run. This python snippet can generate it for us: `print([13+(k*52) for k in range(50)])`. For higher resolution configurations, one would normally start at a higher number (e.g. for global 25km we would start at `52`). Hence, we can set `ncpus` using this python snippet: `print([13+(k*52)+52 for k in range(50)])`. The `mem` is determined by how many nodes are in use, each node contains 104 cores and has `500GB` of memory available. Finally, we can find `mem` with: `import math;nodenumber=[math.ceil((13+(k*52)+52) /104) for k in range(50)];print([str(n*500)+'MB' for n in nodenumber])`.
+
+The following sets the run length at two days and the ice parameters are for turning off `CICE`.
+```yaml
       CLOCK_attributes:
         restart_n: 2
         restart_option: ndays
@@ -109,25 +104,9 @@ For defining the `ocn_ntasks` we want to increase the number of cores by `atm_nt
       ICE_modelio: REMOVE
 ```
 
-
-
-respectively in `/g/data/tm70/$USER/ptests_om3/`
-
-each node contains 104 cores
-
-ncpus: [13+52, 
-
-
-
-atm_ntasks [52]
-
-ncn_ntasks
-13,26,52
-
-
-
-
 ### Using the Experiment runner to run the load balancing tests
+
+ - `runner_pr-mom6.yaml`.
 
 
 `experiment-runner -i runner_pr-mom6.yaml`
