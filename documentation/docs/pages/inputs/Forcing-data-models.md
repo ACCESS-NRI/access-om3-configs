@@ -7,15 +7,15 @@ Forcing is provided via [CDEPS](https://github.com/ESCOMP/CDEPS) data models [do
 
 ## Coupling
 
-- DATM and DROF are coupled to the other components via the mediator - see the [coupling architecture here](Architecture.md).
+- DATM and DROF are coupled to the other components via the mediator - see the [coupling architecture here](../infrastructure/Architecture.md).
 - The coupled fields and remapping methods used are recorded in the mediator log output file and can be found with `grep '^ mapping' archive/output000/log/med.log`; see [here](https://escomp.github.io/CMEPS/versions/master/html/esmflds.html) for how to decode this.
-- See [the Configurations Overview page](configurations/Overview.md#coupling) for details on how the coupling is determined.
+- See [the Configurations Overview page](../configurations/Overview.md#coupling) for details on how the coupling is determined.
 
 ## Input data
 
 [JRA55do v1.6](https://climate.mri-jma.go.jp/pub/ocean/JRA55-do/), [replicated by NCI](https://dx.doi.org/10.25914/AT4E-Q668), is used as input data for DATM and DROF, following convention used in OMIP2 and drafted for OMIP3. For interannual-forcing (IAF) experiments, this data is available from 1958 until January 2024. For repeat-year-forcing (RYF) experiments, a single year of atmosphere and runoff data is selected (Jan-Apr 1991 and May-Dec 1990) using the `make_ryf.py` script in [om3-scripts](https://github.com/ACCESS-NRI/om3-scripts/blob/main/make_ryf/make_ryf.py) to generate the input files. This input data is repeated to produce the same input forcing in every model year. _Stewart et al._ (2020) describe the selected 12-month period to be one of the most neutral across the major climate modes of variability and less affected by the anthropogenic warming found in later years of the dataset. The paper does however remind us that the resulting model is an idealised numerical experiments and not a representation of long-term climatology.
 
-[`datm.streams.xml`](https://github.com/ACCESS-NRI/access-om3-configs/blob/dev-MC_100km_jra_ryf/datm.streams.xml) and [`drof.streams.xml`](https://github.com/ACCESS-NRI/access-om3-configs/blob/dev-MC_100km_jra_ryf/drof.streams.xml) set individual input file paths for DATM and DROF respectively, relative to [this entry](https://github.com/search?q=repo%3AACCESS-NRI%2Faccess-om3-configs+path%3Adoc%2Fconfig.yaml+%22RYF%2Fv%22&type=code) in the `input` section of [`config.yaml`](https://github.com/ACCESS-NRI/access-om3-configs/blob/dev-MC_100km_jra_ryf/config.yaml) (see [the Configurations Overview page](configurations/Overview.md#forcing-data)). These stream files also set time and spatial interpolation, time axes and ranges 
+[`datm.streams.xml`](https://github.com/ACCESS-NRI/access-om3-configs/blob/dev-MC_100km_jra_ryf/datm.streams.xml) and [`drof.streams.xml`](https://github.com/ACCESS-NRI/access-om3-configs/blob/dev-MC_100km_jra_ryf/drof.streams.xml) set individual input file paths for DATM and DROF respectively, relative to [this entry](https://github.com/search?q=repo%3AACCESS-NRI%2Faccess-om3-configs+path%3Adoc%2Fconfig.yaml+%22RYF%2Fv%22&type=code) in the `input` section of [`config.yaml`](https://github.com/ACCESS-NRI/access-om3-configs/blob/dev-MC_100km_jra_ryf/config.yaml) (see [the Configurations Overview page](../configurations/Overview.md#forcing-data)). These stream files also set time and spatial interpolation, time axes and ranges 
 
 ### Atmosphere
 
