@@ -47,7 +47,7 @@ Note in the above, the `repository_url` specifies the fork and commit created ea
 We then specify a suite of runs, here 50 `MOM6` standalone runs will be set up:
 ```yaml
 Perturbation_Experiment:
-  Parameter_block_cice_cores:
+  mom6_only:
     branches: ['mom6_1', 'mom6_2', 'mom6_3', 'mom6_4', 'mom6_5', 'mom6_6', 'mom6_7', 'mom6_8', 'mom6_9', 'mom6_10', 'mom6_11', 'mom6_12', 'mom6_13', 'mom6_14', 'mom6_15', 'mom6_16', 'mom6_17', 'mom6_18', 'mom6_19', 'mom6_20', 'mom6_21', 'mom6_22', 'mom6_23', 'mom6_24', 'mom6_25', 'mom6_26', 'mom6_27', 'mom6_28', 'mom6_29', 'mom6_30', 'mom6_31', 'mom6_32', 'mom6_33', 'mom6_34', 'mom6_35', 'mom6_36', 'mom6_37', 'mom6_38', 'mom6_39', 'mom6_40', 'mom6_41', 'mom6_42', 'mom6_43', 'mom6_44', 'mom6_45', 'mom6_46', 'mom6_47', 'mom6_48', 'mom6_49', 'mom6_50']
 
     MOM_input:
@@ -69,7 +69,7 @@ Here in `ncpus` we specify the total number of cpus to be allocated, this effect
 ```yaml
       ncpus: [65, 117, 169, 221, 273, 325, 377, 429, 481, 533, 585, 637, 689, 741, 793, 845, 897, 949, 1001, 1053, 1105, 1157, 1209, 1261, 1313, 1365, 1417, 1469, 1521, 1573, 1625, 1677, 1729, 1781, 1833, 1885, 1937, 1989, 2041, 2093, 2145, 2197, 2249, 2301, 2353, 2405, 2457, 2509, 2561, 2613]
 
-      mem: ['500MB', '1000MB', '1000MB', '1500MB', '1500MB', '2000MB', '2000MB', '2500MB', '2500MB', '3000MB', '3000MB', '3500MB', '3500MB', '4000MB', '4000MB', '4500MB', '4500MB', '5000MB', '5000MB', '5500MB', '5500MB', '6000MB', '6000MB', '6500MB', '6500MB', '7000MB', '7000MB', '7500MB', '7500MB', '8000MB', '8000MB', '8500MB', '8500MB', '9000MB', '9000MB', '9500MB', '9500MB', '10000MB', '10000MB', '10500MB', '10500MB', '11000MB', '11000MB', '11500MB', '11500MB', '12000MB', '12000MB', '12500MB', '12500MB', '13000MB']
+      mem: ['500GB', '1000GB', '1000GB', '1500GB', '1500GB', '2000GB', '2000GB', '2500GB', '2500GB', '3000GB', '3000GB', '3500GB', '3500GB', '4000GB', '4000GB', '4500GB', '4500GB', '5000GB', '5000GB', '5500GB', '5500GB', '6000GB', '6000GB', '6500GB', '6500GB', '7000GB', '7000GB', '7500GB', '7500GB', '8000GB', '8000GB', '8500GB', '8500GB', '9000GB', '9000GB', '9500GB', '9500GB', '10000GB', '10000GB', '10500GB', '10500GB', '11000GB', '11000GB', '11500GB', '11500GB', '12000GB', '12000GB', '12500GB', '12500GB', '13000GB']
 
       repeat: True
 
@@ -87,7 +87,7 @@ Here in `ncpus` we specify the total number of cpus to be allocated, this effect
 ```
 We will be doing `3` run of each (`150` runs total) so we set `repeat` to `True`.
 
-For defining the `ocn_ntasks` we want to increase the number of cores by `atm_ntasks` in each run. This python snippet can generate it for us: `print([13+(k*52) for k in range(50)])`. For higher resolution configurations, one would normally start at a higher number (e.g. for global 25km we would start at `52`). Hence, we can set `ncpus` using this python snippet: `print([13+(k*52)+52 for k in range(50)])`. The `mem` is determined by how many nodes are in use, each node contains 104 cores and has `500GB` of memory available. Finally, we can find `mem` with: `import math;nodenumber=[math.ceil((13+(k*52)+52) /104) for k in range(50)];print([str(n*500)+'MB' for n in nodenumber])`. In the previous snippets, when adjusting for your configuration you'll want to change `13` to the starting point that you prefer.
+For defining the `ocn_ntasks` we want to increase the number of cores by `atm_ntasks` in each run. This python snippet can generate it for us: `print([13+(k*52) for k in range(50)])`. For higher resolution configurations, one would normally start at a higher number (e.g. for global 25km we would start at `52`). Hence, we can set `ncpus` using this python snippet: `print([13+(k*52)+52 for k in range(50)])`. The `mem` is determined by how many nodes are in use, each node contains 104 cores and has `500GB` of memory available. Finally, we can find `mem` with: `import math;nodenumber=[math.ceil((13+(k*52)+52) /104) for k in range(50)];print([str(n*500)+'GB' for n in nodenumber])`. In the previous snippets, when adjusting for your configuration you'll want to change `13` to the starting point that you prefer.
 
 The following sets the run length at two days and the ice parameters are for turning off `CICE`.
 ```yaml
