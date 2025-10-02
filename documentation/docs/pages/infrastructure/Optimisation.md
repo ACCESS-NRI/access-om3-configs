@@ -32,11 +32,23 @@ In `nuopc.runseq`, the following lines should be commented out ([example](https:
   MED med_phases_diag_ice_med2ice
 ```
 
+We also make small modifications to the [config.yaml](https://github.com/chrisb13/access-om3-configs/commit/908df0da4970fd9128d79ec5b4c567948fe8123c), namely
+```yaml
+platform:
+    nodesize: 104
+    nodemem: 512
+queue: normalsr
+metadata:
+  enable: true
+```
+
+
+
 We then create a `.yaml` file to set up the simulations, an example is worked through below (called `pr-mom6.yaml`), other applications should be hackable from this. 
 ```yaml
 model_type: access-om3 # Specify the model ("access-om2", "access-om3", "access-esm1.5", or "access-esm1.6")
 repository_url: git@github.com:chrisb13/access-om3-configs.git
-start_point: "dd7971a31ee9f0061afd187fb9a4816d4e65e7f5" # Control commit hash for new branches
+start_point: "908df0da4970fd9128d79ec5b4c567948fe8123c" # Control commit hash for new branches
 test_path: "." # All control and perturbation experiment repositories will be created here; can be relative, absolute or ~ (user-defined)
 repository_directory: mom6_only # Local directory name for the central repository (user-defined)
 control_branch_name: ctrl
