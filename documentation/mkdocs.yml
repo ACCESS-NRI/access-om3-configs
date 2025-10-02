@@ -54,7 +54,7 @@ theme:
 copyright: Copyright &copy; 2025 ACCESS-NRI
 
 plugins:
-  - include-configuration-stubs:
+  - include-stubs:
       repo: ACCESS-NRI/access-om3-configs
       main_website:
         pattern: "dev-* release-*"
