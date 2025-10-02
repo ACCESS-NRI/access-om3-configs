@@ -1,7 +1,7 @@
 # ACCESS-OM3 Topography Workflow
 
 ## Introduction
-The supported ACCESS-OM3 configurations now use a topography based on the [GEBCO2024](https://www.gebco.net/data_and_products/gridded_bathymetry_data/gebco_2024/) global topography dataset. This dataset maintains a high resolution of 15 arc-seconds (i.e., 1/240 deg = ~460m at the equator and finer zonally near the poles).
+The supported ACCESS-OM3 configurations now use a topography based on the [GEBCO2024](https://www.gebco.net/data-products-gridded-bathymetry-data/gebco2024-grid) global topography dataset. This dataset maintains a high resolution of 15 arc-seconds (i.e., 1/240 deg = ~460m at the equator and finer zonally near the poles).
 
 ## Bathymetry Tools
 The workflow described below uses `bathymetry-tools` to perform specific tasks, such as removing seas or generating the land/sea mask. Instructions to install `bathymetry-tools` can be found [here](https://github.com/COSIMA/bathymetry-tools).
@@ -28,7 +28,7 @@ For a complete workflow and instructions on generating OM3 topography, refer to 
 If the MOM bathymetry file (topog.nc) needs to be changed on an existing run it's ocean and coupler restarts will likely need to be adjusted to match. Otherwise the restarts may not contain valid data at all points. This section describes a method for doing this. This github [issue](https://github.com/ACCESS-NRI/access-om3-configs/issues/502) comment may also be helpful.
 
 ### Updating Ocean restart files
-The approach taken is to create ocean restart files that match the new bathymetry (we call these the _template restarts_), then copy over all valid data from restarts for the existing run (the _old restarts_). The end result will be a restart that is the same as the existing run at all points which exist in both the old and the template (the _new restarts_). Any new points that don't exist in the old restarts will contain whatever existed in the template restarts. This approach is simple but has a drawback — if the bathymetry has changed a lot, some points will use values from the template that may not match the surrounding fields from the old restart, leading to possible inconsistencies.
+The approach taken is to create ocean restart files that match the new bathymetry (we call these the _template restarts_), then copy over all valid data from restarts for the existing run (the _old restarts_). The end result will be a restart that is the same as the existing run at all points which exist in both the old and the template (the _new restarts_). Any new points that don't exist in the old restarts will contain whatever existed in the template restarts. This approach is simple but has a drawback — if the bathymetry has changed a lot, some points will use values from the template that may not match the surrounding fields from the old restart, leading to possible inconsistencies, see [611](https://github.com/ACCESS-NRI/access-om3-configs/issues/611) for an example. Increasing the `BAD_VAL` [limits](https://github.com/search?q=repo%3AACCESS-NRI%2Faccess-om3-configs%20BAD_VAL_&type=code) in MOM6 can help the model to run for a few years until the ocean state has equilibrated. 
 
 Step by step:
 
