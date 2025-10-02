@@ -87,7 +87,7 @@ Here in `ncpus` we specify the total number of cpus to be allocated, this effect
 ```
 We will be doing `3` run of each (`150` runs total) so we set `repeat` to `True`.
 
-For defining the `ocn_ntasks` we want to increase the number of cores by `atm_ntasks` in each run. This python snippet can generate it for us: `print([13+(k*52) for k in range(50)])`. For higher resolution configurations, one would normally start at a higher number (e.g. for global 25km we would start at `52`). Hence, we can set `ncpus` using this python snippet: `print([13+(k*52)+52 for k in range(50)])`. The `mem` is determined by how many nodes are in use, each node contains 104 cores and has `500GB` of memory available. Finally, we can find `mem` with: `import math;nodenumber=[math.ceil((13+(k*52)+52) /104) for k in range(50)];print([str(n*500)+'MB' for n in nodenumber])`.
+For defining the `ocn_ntasks` we want to increase the number of cores by `atm_ntasks` in each run. This python snippet can generate it for us: `print([13+(k*52) for k in range(50)])`. For higher resolution configurations, one would normally start at a higher number (e.g. for global 25km we would start at `52`). Hence, we can set `ncpus` using this python snippet: `print([13+(k*52)+52 for k in range(50)])`. The `mem` is determined by how many nodes are in use, each node contains 104 cores and has `500GB` of memory available. Finally, we can find `mem` with: `import math;nodenumber=[math.ceil((13+(k*52)+52) /104) for k in range(50)];print([str(n*500)+'MB' for n in nodenumber])`. In the previous snippets, when adjusting for your configuration you'll want to change `13` to the starting point that you prefer.
 
 The following sets the run length at two days and the ice parameters are for turning off `CICE`.
 ```yaml
@@ -104,10 +104,87 @@ The following sets the run length at two days and the ice parameters are for tur
       ICE_modelio: REMOVE
 ```
 
+We can then take the above yaml (`pr-mom6.yaml`) and pass it to [access-experiment-generator](http://github.com/accESS-NRI/access-experiment-generator):
+```bash
+module purge
+module use /g/data/vk83/prerelease/modules
+module load payu/dev
+module list
+mkdir -p /g/data/tm70/$USER/access-om3-ptests
+experiment-generator -i pr-mom6.yaml
+```
+This will take a while with output that looks like:
+
+```bash
+[cyb561@gadi-login-03 access-om3-ptests]$ experiment-generator -i pr-mom6.yaml 
+-- Test directory . already exists!
+Cloned repository from git@github.com:chrisb13/access-om3-configs.git to directory: /g/data/tm70/cyb561/access-om3-ptests/mom6_only
+Created and checked out new branch: ctrl
+laboratory path:  /scratch/tm70/cyb561/access-om3
+binary path:  /scratch/tm70/cyb561/access-om3/bin
+input path:  /scratch/tm70/cyb561/access-om3/input
+work path:  /scratch/tm70/cyb561/access-om3/work
+archive path:  /scratch/tm70/cyb561/access-om3/archive
+Metadata and UUID generation is disabled. Experiment name used for archival: mom6_only
+To change directory to control directory run:
+  cd /g/data/tm70/cyb561/access-om3-ptests/mom6_only
+-- Creating branch mom6_1 from ctrl!
+Created and checked out new branch: mom6_1
+laboratory path:  /scratch/tm70/cyb561/access-om3
+binary path:  /scratch/tm70/cyb561/access-om3/bin
+input path:  /scratch/tm70/cyb561/access-om3/input
+work path:  /scratch/tm70/cyb561/access-om3/work
+archive path:  /scratch/tm70/cyb561/access-om3/archive
+Metadata and UUID generation is disabled. Experiment name used for archival: mom6_only
+Updated perturbation files: ['config.yaml', 'nuopc.runconfig']
+...
+```
+
+This should create a folder structure that looks like:
+```bash
+[cyb561@gadi-login-03 access-om3-ptests]$ tree mom6_only/
+mom6_only/
+├── config.yaml
+├── datm_in
+├── datm.streams.xml
+├── diagnostic_profiles
+│   ├── diag_table_standard
+│   ├── README.md
+│   └── source_yaml_files
+│       └── diag_table_standard_source.yaml
+├── diag_table -> diagnostic_profiles/diag_table_standard
+├── docs
+│   ├── available_diags.000000
+│   ├── MOM_parameter_doc.all
+│   ├── MOM_parameter_doc.debugging
+│   ├── MOM_parameter_doc.layout
+│   └── MOM_parameter_doc.short
+├── drof_in
+├── drof.streams.xml
+├── drv_in
+├── fd.yaml
+├── ice_in
+├── input.nml
+├── LICENSE
+├── manifests
+│   ├── exe.yaml
+│   ├── input.yaml
+│   └── restart.yaml
+├── MOM_input
+├── MOM_override
+├── nuopc.runconfig
+├── nuopc.runseq
+├── README.md
+└── testing
+    └── checksum
+        ├── historical-6hr-checksum.json
+        └── test_report.xml
+```
+Within the `mom6_only` folder is a git repository where each branch corresponds to a new simulation.
+
 ### Using the Experiment runner to run the load balancing tests
 
  - `runner_pr-mom6.yaml`.
-
 
 `experiment-runner -i runner_pr-mom6.yaml`
 
