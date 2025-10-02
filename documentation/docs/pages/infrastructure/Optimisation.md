@@ -184,7 +184,33 @@ Within the `mom6_only` folder is a git repository where each branch corresponds 
 
 ### Using the Experiment runner to run the load balancing tests
 
- - `runner_pr-mom6.yaml`.
+We now have to write another .yaml file (example here called `runner_pr-mom6.yaml`) so we can use [access-experiment-runner](http://github.com/accESS-NRI/access-experiment-runner) to run the experiments we generated in the previous section.
 
-`experiment-runner -i runner_pr-mom6.yaml`
+`runner_pr-mom6.yaml` looks like:
+```bash
+/g/data/tm70/cyb561/access-om3-ptests
+
+test_path: /g/data/tm70/cyb561/access-om3-ptests # All control and perturbation experiment repositories.
+repository_directory: mom6_only # Local directory name for the central repository, where the running_branches are forked from.
+keep_uuid: True
+# ================= 1 =================
+# # 1. check different density coordinates (NUM_DIAG_COORDS = 1, 2)
+running_branches: ['mom6_1', 'mom6_2', 'mom6_3', 'mom6_4', 'mom6_5', 'mom6_6', 'mom6_7', 'mom6_8', 'mom6_9', 'mom6_10', 'mom6_11', 'mom6_12', 'mom6_13', 'mom6_14', 'mom6_15', 'mom6_16', 'mom6_17', 'mom6_18', 'mom6_19', 'mom6_20', 'mom6_21', 'mom6_22', 'mom6_23', 'mom6_24', 'mom6_25', 'mom6_26', 'mom6_27', 'mom6_28', 'mom6_29', 'mom6_30', 'mom6_31', 'mom6_32', 'mom6_33', 'mom6_34', 'mom6_35', 'mom6_36', 'mom6_37', 'mom6_38', 'mom6_39', 'mom6_40', 'mom6_41', 'mom6_42', 'mom6_43', 'mom6_44', 'mom6_45', 'mom6_46', 'mom6_47', 'mom6_48', 'mom6_49', 'mom6_50']
+
+nruns: [3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3]
+
+
+startfrom_restart: ['cold', 'cold', 'cold', 'cold', 'cold', 'cold', 'cold', 'cold', 'cold', 'cold', 'cold', 'cold', 'cold', 'cold', 'cold', 'cold', 'cold', 'cold', 'cold', 'cold', 'cold', 'cold', 'cold', 'cold', 'cold', 'cold', 'cold', 'cold', 'cold', 'cold', 'cold', 'cold', 'cold', 'cold', 'cold', 'cold', 'cold', 'cold', 'cold', 'cold', 'cold', 'cold', 'cold', 'cold', 'cold', 'cold', 'cold', 'cold', 'cold', 'cold']
+```
+
+We then run the following commands:
+```bash
+module purge
+module use /g/data/vk83/prerelease/modules
+module load payu/dev
+module list
+cd /g/data/tm70/$USER/access-om3-ptests
+experiment-runner -i runner_pr-mom6.yaml
+```
+
 
