@@ -1,0 +1,54 @@
+name: PR Preview
+
+on:
+  pull_request:
+  types:
+      - opened
+      - reopened
+      - synchronize
+      - closed
+  paths:
+      - 'documentation/**'
+  workflow_dispatch: #Action can also be triggered manually
+env:
+  TZ: Australia/Canberra
+  DOC_DIR: documentation
+
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write       # allow Pages deploy
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        working-directory: ${{ env.DOC_DIR }}
+        run:  pip install -r requirements.txt
+
+      - name: Build preview (just latest)
+        working-directory: ${{ env.DOC_DIR }}
+        run: mkdocs build -d site
+
+      - name: Upload preview artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: ${{ env.DOC_DIR }}/site
+
+  deploy:
+    needs: preview
+    runs-on: ubuntu-latest
+    environment:
+      name: preview-${{ github.event.number }}     # one env per PR
+      url: ${{ steps.deployment.outputs.page_url }}
+    permissions:
+      pages: write
+      id-token: write
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
