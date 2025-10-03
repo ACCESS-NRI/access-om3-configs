@@ -54,17 +54,17 @@ theme:
 copyright: Copyright &copy; 2025 ACCESS-NRI
 
 plugins:
-  - include-configuration-stubs:
-      repo: ACCESS-NRI/access-om3-configs
-      main_website:
-        pattern: "dev-* release-*"
-        ref_type: branch
-      preview_website:
-        pattern: ""
-        ref_type: branch
-      stubs_parent_url: pages/configurations
-      stubs_nav_path: Configurations
-      stubs_dir: documentation/stub
+  # - include-configuration-stubs:
+  #     repo: ACCESS-NRI/access-om3-configs
+  #     main_website:
+  #       pattern: "dev-* release-*"
+  #       ref_type: branch
+  #     preview_website:
+  #       pattern: ""
+  #       ref_type: branch
+  #     stubs_parent_url: pages/configurations
+  #     stubs_nav_path: Configurations
+  #     stubs_dir: documentation/stub
 
   - git-revision-date-localized:
       type: date
@@ -149,6 +149,8 @@ extra:
     - icon: fontawesome/brands/linkedin
       link: https://www.linkedin.com/in/access-nri
       name: ACCESS-NRI on Linkedin
+  version:
+    provider: mike
 
 extra_css:
   - "https://fonts.googleapis.com/icon?family=Material+Icons"   # Material Icons Reference - https://material.io/resources/icons/?style=baseline
