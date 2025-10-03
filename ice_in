@@ -15,7 +15,7 @@
   npt = 35040
   pointer_file = './rpointer.ice'
   print_global = .false.
-  ndtd = 5
+  ndtd = 4
 /
 &grid_nml
   bathymetry_file = "./INPUT/topog_Charrassin_sea_ice_from_iceelev_new150925.nc"
