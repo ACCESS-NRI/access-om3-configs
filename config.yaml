@@ -9,9 +9,9 @@ shortpath: /scratch/x77
 # Using payu sync is recommend to copy data from ephemeral scratch space to 
 # longer term storage
 sync:
-    enable: False # set path below and change to true
-    path: null # Set to location on /g/data (e.g. /g/data/PROJECT/USER/EXPERIMENT)
-    restart: True
+  enable: false   # set path below and change to true
+  path:        # Set to location on /g/data (e.g. /g/data/PROJECT/USER/EXPERIMENT)
+  restart: true
 
 queue: normalsr
 ncpus: 1664
@@ -28,24 +28,24 @@ model: access-om3
 exe: /g/data/tm70/cy8964/access-om3-MOM6-CICE6-b2e31ba
 
 input:
-    - /g/data/tm70/cy8964/mom6/input/input-8km/150925/kmt_Charrassin_sea_ice_from_iceelev_new150925.nc
-    - /g/data/tm70/cy8964/mom6/input/input-8km/ocean_hgrid_cropped.nc
-    - /g/data/tm70/cy8964/mom6/input/input-8km/ocean_vgrid_cropped.nc
-    - /g/data/tm70/cy8964/mom6/input/input-8km/ACCESS-OM2_IC_bfilled_smoothedland.nc
-    - /g/data/tm70/cy8964/mom6/input/input-8km/salt_restore_interpolated_nearest.nc
-    - /g/data/tm70/cy8964/mom6/input/input-8km/150925/salt_restore_mask.nc
-    - /g/data/tm70/cy8964/mom6/input/input-8km/150925/topog_Charrassin_sea_ice_from_iceelev_new150925.nc
-    - /g/data/tm70/cy8964/mom6/input/input-8km/150925/topog_Charrassin_open_cavity_noGL5m_new150925.nc
-    - /g/data/tm70/cy8964/mom6/input/input-8km/150925/access-om3-8km-ESMFmesh_Charrassin_nocavity_cropped.nc 
-    - /g/data/tm70/cy8964/mom6/input/input-8km/150925/access-om3-8km-nomask-ESMFmesh_Charrassin_nocavity_cropped.nc 
-    - /g/data/vk83/configurations/inputs/access-om3/share/meshes/share/2024.09.16/JRA55do-datm-ESMFmesh.nc
-    - /g/data/vk83/configurations/inputs/access-om3/share/meshes/share/2024.09.16/JRA55do-drof-ESMFmesh.nc
-    - /g/data/tm70/cy8964/mom6/input/input-8km/150925/access-om3-8km-rof-remap-weights_Charrassin_nocavity_cropped.nc
-    - /g/data/vk83/experiments/inputs/JRA-55/RYF/v1-4/data
-    - /g/data/tm70/cy8964/mom6/input/input-8km/forcing_access_yr2_8km_fill.nc
-    - /g/data/tm70/cy8964/mom6/input/input-8km/diag_rho2.nc 
-    - /g/data/tm70/cy8964/mom6/input/input-8km/150925/ice_thickness_Charrassin_regridded_cropped_add_area_where_iceelev_noGL5m_ADDHMASKFILLTHICK_150925.nc
- 
+- /g/data/tm70/cy8964/mom6/input/input-8km/150925/kmt_Charrassin_sea_ice_from_iceelev_new150925.nc
+- /g/data/tm70/cy8964/mom6/input/input-8km/ocean_hgrid_cropped.nc
+- /g/data/tm70/cy8964/mom6/input/input-8km/ocean_vgrid_cropped.nc
+- /g/data/tm70/cy8964/mom6/input/input-8km/ACCESS-OM2_IC_bfilled_smoothedland.nc
+- /g/data/tm70/cy8964/mom6/input/input-8km/salt_restore_interpolated_nearest.nc
+- /g/data/tm70/cy8964/mom6/input/input-8km/150925/salt_restore_mask.nc
+- /g/data/tm70/cy8964/mom6/input/input-8km/150925/topog_Charrassin_sea_ice_from_iceelev_new150925.nc
+- /g/data/tm70/cy8964/mom6/input/input-8km/150925/topog_Charrassin_open_cavity_noGL5m_new150925.nc
+- /g/data/tm70/cy8964/mom6/input/input-8km/150925/access-om3-8km-ESMFmesh_Charrassin_nocavity_cropped.nc
+- /g/data/tm70/cy8964/mom6/input/input-8km/150925/access-om3-8km-nomask-ESMFmesh_Charrassin_nocavity_cropped.nc
+- /g/data/vk83/configurations/inputs/access-om3/share/meshes/share/2024.09.16/JRA55do-datm-ESMFmesh.nc
+- /g/data/vk83/configurations/inputs/access-om3/share/meshes/share/2024.09.16/JRA55do-drof-ESMFmesh.nc
+- /g/data/tm70/cy8964/mom6/input/input-8km/150925/access-om3-8km-rof-remap-weights_Charrassin_nocavity_cropped.nc
+- /g/data/vk83/experiments/inputs/JRA-55/RYF/v1-4/data
+- /g/data/tm70/cy8964/mom6/input/input-8km/forcing_access_yr2_8km_fill.nc
+- /g/data/tm70/cy8964/mom6/input/input-8km/diag_rho2.nc
+- /g/data/tm70/cy8964/mom6/input/input-8km/150925/ice_thickness_Charrassin_regridded_cropped_add_area_where_iceelev_noGL5m_ADDHMASKFILLTHICK_150925.nc
+
 collate:
   restart: true
   mpi: true
@@ -55,26 +55,30 @@ collate:
   queue: normal
   exe: mppnccombine-fast
 runlog: true
-metadata: 
-    enable: false
+metadata:
+  enable: false
 
 userscripts:
-    archive: /usr/bin/bash /g/data/vk83/apps/om3-scripts/payu_config/archive.sh
-    error: resub.sh
-    run: rm -f resubmit.count
+  archive: /usr/bin/bash /g/data/vk83/apps/om3-scripts/payu_config/archive.sh
+  error: resub.sh
+  run: rm -f resubmit.count
 
-postscript: -v PROJECT,SCRIPTS_DIR=/g/data/vk83/apps/om3-scripts -lstorage=${PBS_NCI_STORAGE}+gdata/xp65 /g/data/vk83/apps/om3-scripts/payu_config/postscript.sh
+postscript: -v PROJECT,SCRIPTS_DIR=/g/data/vk83/apps/om3-scripts 
+  -lstorage=${PBS_NCI_STORAGE}+gdata/xp65 
+  /g/data/vk83/apps/om3-scripts/payu_config/postscript.sh
 
 #Model software version
 modules:
-    use:
-        - /g/data/vk83/prerelease/modules
-    load:
-        - model-tools/mppnccombine-fast/2025.07.000
-        - nco/5.0.5
+  use:
+  - /g/data/vk83/prerelease/modules
+  load:
+  - model-tools/mppnccombine-fast/2025.07.000
+  - nco/5.0.5
 
 payu_minimum_version: 1.1.6
 
 platform:
   nodesize: 104
   nodemem: 512
+restart: 
+  /g/data/ol01/cy8964/access-om3/restart/ice_shelf_panan-nancheck3-150925files-v2-notidalmix/restart012
