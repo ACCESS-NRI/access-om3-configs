@@ -33,6 +33,7 @@ global_defaults:
         - file_name_prefix
         - file_name_dimension
         - field_name  # substituted by field name in diag_table section below
+        - file_name_diag_coord
         - output_freq
         - '':
             - output_freq_units
@@ -86,6 +87,7 @@ global_defaults:
         average: mean
         'True': mean
         None: ""  # for empty items
+    file_name_diag_coord: "" # name of diagnostic vertical coordinate as specified in DIAG_COORDS in MOM_input; use "" for native coordinate
 # %yr, %mo, %dy, %hr %mi, %sc are expanded to the current year, month, day, hour, minute and second respectively,
 
 #######################################################################################################
@@ -161,24 +163,33 @@ diag_table:
             dyCuo: # Open meridional grid spacing at u points (meter)
             dxCvo: # Open zonal grid spacing at v points (meter)
 
-    'monthly 3d fields':
+    'monthly 3d fields on z':
         defaults:  # these can be overridden for individual fields below
             file_name_dimension: 3d  # descriptor for filename, e.g. 3d, 2d, scalar
             reduction_method: mean
+            module_name: ocean_model_z
+            file_name_diag_coord: "z"
         fields:
-            h: # Layer Thickness
             agessc: # Sea water age since surface contact
             rhopot2: # Potential density referenced to 2000 dbar
             thetao: # Potential Temperature
             so: # Salinity
             uo: # u velocity
             vo: # v velocity
-            uh: # Zonal Thickness Flux
-            vh: # Meridional Thickness Flux
+            KE: # Layer Kinetic energy per unit mass
+
+    'monthly 3d fields on rho2':
+        defaults:  # these can be overridden for individual fields below
+            file_name_dimension: 3d  # descriptor for filename, e.g. 3d, 2d, scalar
+            reduction_method: mean
+            module_name: ocean_model_rho2
+            file_name_diag_coord: "rho2"
+        fields:  # comment out all of these if not needed, as remapping to density slows model by ~30% - see https://github.com/ACCESS-NRI/access-om3-configs/pull/622#issuecomment-3031962668
+            e: # Interface height relative to mean sea level
+            umo: # Ocean Mass X Transport
+            vmo: # Ocean Mass Y Transport
             uhGM: # Time Mean Diffusive Zonal Thickness Flux
             vhGM: # Time Mean Diffusive Meridional Thickness Flux
-            thkcello: # Cell Thickness
-            KE: # Layer Kinetic energy per unit mass
 
     'monthly 2d fields':
         defaults:  # these can be overridden for individual fields below
@@ -193,29 +204,20 @@ diag_table:
             pso: # Pressure at ice-ocean or atmosphere-ocean interface p_surf
             sfdsi: # Net salt flux into ocean at surface (restoring + sea-ice) salt_flux
             salt_flux_added: # Salt flux into ocean at surface due to restoring or flux adjustment
-            Rd_dx: # Ratio between deformation radius and grid spacing
             mlotst: # Mixed layer depth (delta rho = 0.03) MLD_003
             speed: # Sea Surface Speed
-            SSH: # Sea Surface Height
+            zos: # Sea surface height above geoid
+            zossq: # Square of sea surface height above geoid
             tauuo: # surface_downward_x_stress taux
             tauvo: # surface_downward_y_stress tauy
             umo_2d: # Ocean Mass X Transport Vertical Sum
             vmo_2d: # Ocean Mass Y Transport Vertical Sum
             pbo: # Sea Water Pressure at Sea Floor
-            salt_flux_in: # Salt flux into ocean at surface from coupler
-            tnkebto: # Integrated Tendency of Ocean Mesoscale Eddy KE from Parameterized Eddy Advection GMwork
 
     'monthly 2d max fields':
         defaults:  # these can be overridden for individual fields below
             file_name_dimension: 2d  # descriptor for filename, e.g. 3d, 2d, scalar
             reduction_method: max  # mean, snap, rms, pow##, min, max, or diurnal##
-        fields:
-            mlotst: # Mixed layer depth (delta rho = 0.03) MLD_003
-
-    'monthly 2d min fields':
-        defaults:  # these can be overridden for individual fields below
-            file_name_dimension: 2d  # descriptor for filename, e.g. 3d, 2d, scalar
-            reduction_method: min  # mean, snap, rms, pow##, min, max, or diurnal##
         fields:
             mlotst: # Mixed layer depth (delta rho = 0.03) MLD_003
 

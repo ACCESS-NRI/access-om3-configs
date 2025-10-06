@@ -1,0 +1,161 @@
+{
+  "schema_version": "1-0-0",
+  "output": {
+    "Salt": [
+      "192F3E842A4AE33"
+    ],
+    "Temp": [
+      "657E7C68BC4E32F8"
+    ],
+    "h": [
+      "EBC68665B4EE7736"
+    ],
+    "u": [
+      "96B2B14BAE61C4AA"
+    ],
+    "CAu": [
+      "3CEA52BD63236F9F"
+    ],
+    "First_direction": [
+      "0"
+    ],
+    "ave_ssh": [
+      "502D5D6B5B3DD73C"
+    ],
+    "frazil": [
+      "BF0411A4E2F9A9E2"
+    ],
+    "p_surf_EOS": [
+      "FF24B558B5C5561D"
+    ],
+    "sfc": [
+      "2E22CB641BA7AAF3"
+    ],
+    "u2": [
+      "FF95351F809FEFB4"
+    ],
+    "v": [
+      "116C4A1066CC8AAF"
+    ],
+    "v2": [
+      "2200DF3F3DD7741B"
+    ],
+    "CAv": [
+      "BF96E23A9415EB4C"
+    ],
+    "DTBT": [
+      "4032D8206ACF7CCA"
+    ],
+    "age": [
+      "FAB645C2F91E2C51"
+    ],
+    "diffu": [
+      "C26E7285B9B8E817"
+    ],
+    "diffv": [
+      "33E1EBCC18DC338C"
+    ],
+    "ubtav": [
+      "8DAFE1958D58791F"
+    ],
+    "vbtav": [
+      "3DD1F0014EB3795C"
+    ],
+    "caco3_sediment": [
+      "C8026FDD4071B821"
+    ],
+    "caco3bury": [
+      "0"
+    ],
+    "detbury": [
+      "0"
+    ],
+    "detfe_sediment": [
+      "F30732D2FC9EB620"
+    ],
+    "alk": [
+      "6960A1DB73707D1B"
+    ],
+    "det_sediment": [
+      "16D38A94E091B949"
+    ],
+    "dicr": [
+      "8C49884EC0A3E420"
+    ],
+    "fe": [
+      "5DDD3FF526F49E04"
+    ],
+    "caco3": [
+      "707041AF1DD65204"
+    ],
+    "detfe": [
+      "7B5B830666C207D0"
+    ],
+    "dic": [
+      "D61C74DEC9D73C83"
+    ],
+    "dicp": [
+      "53EE4568F4D02FFF"
+    ],
+    "det": [
+      "4597D51898DE1530"
+    ],
+    "o2": [
+      "D7DBA3D352CAA837"
+    ],
+    "zoo": [
+      "981BBC9AC1E4A991"
+    ],
+    "zoofe": [
+      "DCD99ED5C896582"
+    ],
+    "MEKE": [
+      "C79B8A13DE3608F9"
+    ],
+    "MEKE_Kh": [
+      "B78BD944CE0E2BB4"
+    ],
+    "MEKE_Ku": [
+      "7BE52DAC12AA6FB5"
+    ],
+    "no3": [
+      "20E3731F8074C883"
+    ],
+    "pchl": [
+      "20C3DF2F29B645CE"
+    ],
+    "phy": [
+      "C6F260C5EA1E7D6C"
+    ],
+    "phyfe": [
+      "FBB1B5E3BD79D8CD"
+    ],
+    "Kd_shear": [
+      "5A4C60BF7FB27C2"
+    ],
+    "Kv_shear": [
+      "5885704FBF256267"
+    ],
+    "Kv_shear_Bu": [
+      "7F748413D04128C"
+    ],
+    "MLD": [
+      "E57B29D72CDAE7A0"
+    ],
+    "MLD_MLE_filtered": [
+      "447E3D43D70AB46B"
+    ],
+    "MLD_MLE_filtered_slow": [
+      "457DC1336534A402"
+    ],
+    "MLE_Bflux": [
+      "4F61903BD705D759"
+    ],
+    "SFC_BFLX": [
+      "D2E66597944FA578"
+    ],
+    "h_ML": [
+      "E57B29D72CDAE7A0"
+    ]
+  }
+}
