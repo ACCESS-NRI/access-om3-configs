@@ -163,69 +163,6 @@ diag_table:
             dyCuo: # Open meridional grid spacing at u points (meter)
             dxCvo: # Open zonal grid spacing at v points (meter)
 
-    'monthly 3d fields on z':
-        defaults:  # these can be overridden for individual fields below
-            file_name_dimension: 3d  # descriptor for filename, e.g. 3d, 2d, scalar
-            reduction_method: mean
-            module_name: ocean_model_z
-            file_name_diag_coord: "z"
-        fields:
-            agessc: # Sea water age since surface contact
-            rhopot2: # Potential density referenced to 2000 dbar
-            temp: # Potential Temperature
-            salt: # Salinity
-            uo: # u velocity
-            vo: # v velocity
-            KE: # Layer Kinetic energy per unit mass
-            e: # Interface height relative to mean sea level
-
-    'monthly 3d fields on rho2':
-        defaults:  # these can be overridden for individual fields below
-            file_name_dimension: 3d  # descriptor for filename, e.g. 3d, 2d, scalar
-            reduction_method: mean
-            module_name: ocean_model_rho2
-            file_name_diag_coord: "rho2"
-        fields:  # comment out all of these if not needed, as remapping to density slows model by ~30% - see https://github.com/ACCESS-NRI/access-om3-configs/pull/622#issuecomment-3031962668
-            e: # Interface height relative to mean sea level
-            umo: # Ocean Mass X Transport
-            vmo: # Ocean Mass Y Transport
-
-    'monthly 2d fields':
-        defaults:  # these can be overridden for individual fields below
-            file_name_dimension: 2d  # descriptor for filename, e.g. 3d, 2d, scalar
-            reduction_method: mean
-        fields:
-            hfrunoffds: # Heat content (relative to 0C) of liquid+solid runoff into ocean
-            hfrainds: # Heat content (relative to 0degC) of liquid+frozen precip entering ocean
-            net_heat_coupler: # Surface ocean heat flux from SW+LW+latent+sensible+seaice_melt_heat (via the coupler)
-            hfds: # Surface ocean heat flux from SW+LW+lat+sens+mass transfer+frazil+restore+seaice_melt_heat or flux adjustments net_heat_surface
-            wfo: # Net surface water flux (precip+melt+lrunoff+ice calving-evap) PRCmE
-            pso: # Pressure at ice-ocean or atmosphere-ocean interface p_surf
-            sfdsi: # Net salt flux into ocean at surface (restoring + sea-ice) salt_flux
-            salt_flux_added: # Salt flux into ocean at surface due to restoring or flux adjustment
-            mlotst: # Mixed layer depth (delta rho = 0.03) MLD_003
-            speed: # Sea Surface Speed
-            zos: # Sea surface height above geoid
-            zossq: # Square of sea surface height above geoid
-            tauuo: # surface_downward_x_stress taux
-            tauvo: # surface_downward_y_stress tauy
-            umo_2d: # Ocean Mass X Transport Vertical Sum
-            vmo_2d: # Ocean Mass Y Transport Vertical Sum
-            pbo: # Sea Water Pressure at Sea Floor
-            lrunoff: # Liquid runoff (rivers) into ocean
-            ficeberg: # Frozen runoff (iceberg) into ocean
-            fsitherm: #  water flux to ocean from snow/sea ice melting(> 0) or formation(< 0)
-            salt_flux: # Net salt flux into ocean at surface (restoring + sea-ice)
-            precip: # Liquid+frozen precip into ocean
-            frazil_heat_tendency_2d: # Frazil heat tendency integrated vertically
-
-    'monthly 2d max fields':
-        defaults:  # these can be overridden for individual fields below
-            file_name_dimension: 2d  # descriptor for filename, e.g. 3d, 2d, scalar
-            reduction_method: max  # mean, snap, rms, pow##, min, max, or diurnal##
-        fields:
-            mlotst: # Mixed layer depth (delta rho = 0.03) MLD_003
-
     'daily 2D fields':
         defaults:
             file_name_dimension: 2d  # descriptor for filename, e.g. 3d, 2d, scalar
@@ -250,18 +187,6 @@ diag_table:
             reduction_method: mean # mean, snap, rms, pow##, min, max, or diurnal##
         fields:
             melt: # melt rate
-            mass_flux: # mass flux
-            thermal_driving: # thermal driving
-            haline_driving: # haline driving
-            tfreeze: # tfreeze
-            ustar_shelf: #friction velocity
-    'monthly 2d ice shelf fields':
-        defaults:  # these can be overridden for individual fields below
-            file_name_dimension: 2d  # descriptor for filename, e.g. 3d, 2d, scalar
-            reduction_method: mean
-            module_name: ice_shelf_model
-        fields:
-            melt_rate: # melt rate
             mass_flux: # mass flux
             thermal_driving: # thermal driving
             haline_driving: # haline driving
