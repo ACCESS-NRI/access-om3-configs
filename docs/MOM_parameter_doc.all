@@ -979,10 +979,10 @@ KD_GL90_USE_EBT_STRUCT = False  !   [Boolean] default = False
 KD_GL90_USE_SQG_STRUCT = False  !   [Boolean] default = False
                                 ! If true, uses the equivalent barotropic structure as the vertical structure of
                                 ! diffusivity in the GL90 scheme.
-KHTH_SLOPE_CFF = 0.01           !   [nondim] default = 0.0
+KHTH_SLOPE_CFF = 0.0            !   [nondim] default = 0.0
                                 ! The nondimensional coefficient in the Visbeck formula for the interface depth
                                 ! diffusivity
-KHTR_SLOPE_CFF = 0.0            !   [nondim] default = 0.0
+KHTR_SLOPE_CFF = 0.25           !   [nondim] default = 0.0
                                 ! The nondimensional coefficient in the Visbeck formula for the epipycnal tracer
                                 ! diffusivity
 USE_STORED_SLOPES = True        !   [Boolean] default = False
@@ -1015,18 +1015,18 @@ VARMIX_KTOP = 2                 !   [nondim] default = 2
 VISBECK_L_SCALE = 0.0           !   [m or nondim] default = 0.0
                                 ! The fixed length scale in the Visbeck formula, or if negative a nondimensional
                                 ! scaling factor relating this length scale squared to the cell areas.
-KH_RES_SCALE_COEF = 0.4         !   [nondim] default = 1.0
+KH_RES_SCALE_COEF = 1.0         !   [nondim] default = 1.0
                                 ! A coefficient that determines how KhTh is scaled away if RESOLN_SCALED_... is
                                 ! true, as F = 1 / (1 + (KH_RES_SCALE_COEF*Rd/dx)^KH_RES_FN_POWER).
-KH_RES_FN_POWER = 2             ! default = 2
+KH_RES_FN_POWER = 100           ! default = 2
                                 ! The power of dx/Ld in the Kh resolution function.  Any positive integer may be
                                 ! used, although even integers are more efficient to calculate.  Setting this
                                 ! greater than 100 results in a step-function being used.
-VISC_RES_SCALE_COEF = 0.4       !   [nondim] default = 0.4
+VISC_RES_SCALE_COEF = 1.0       !   [nondim] default = 1.0
                                 ! A coefficient that determines how Kh is scaled away if RESOLN_SCALED_... is
                                 ! true, as F = 1 / (1 + (KH_RES_SCALE_COEF*Rd/dx)^KH_RES_FN_POWER). This
                                 ! function affects lateral viscosity, Kh, and not KhTh.
-VISC_RES_FN_POWER = 2           ! default = 2
+VISC_RES_FN_POWER = 100         ! default = 100
                                 ! The power of dx/Ld in the Kh resolution function.  Any positive integer may be
                                 ! used, although even integers are more efficient to calculate.  Setting this
                                 ! greater than 100 results in a step-function being used. This function affects
@@ -1140,7 +1140,7 @@ KHTH_MIN = 0.0                  !   [m2 s-1] default = 0.0
                                 ! The minimum horizontal thickness diffusivity.
 KHTH_MAX = 0.0                  !   [m2 s-1] default = 0.0
                                 ! The maximum horizontal thickness diffusivity.
-KHTH_MAX_CFL = 0.8              !   [nondimensional] default = 0.8
+KHTH_MAX_CFL = 0.1              !   [nondimensional] default = 0.8
                                 ! The maximum value of the local diffusive CFL ratio that is permitted for the
                                 ! thickness diffusivity. 1.0 is the marginally unstable value in a pure layered
                                 ! model, but much smaller numbers (e.g. 0.1) seem to work better for ALE-based
@@ -1163,10 +1163,10 @@ KHTH_SLOPE_MAX = 0.01           !   [nondim] default = 0.01
 KHTH_USE_FGNV_STREAMFUNCTION = True !   [Boolean] default = False
                                 ! If true, use the streamfunction formulation of Ferrari et al., 2010, which
                                 ! effectively emphasizes graver vertical modes by smoothing in the vertical.
-FGNV_FILTER_SCALE = 1.0         !   [nondim] default = 1.0
+FGNV_FILTER_SCALE = 0.1         !   [nondim] default = 1.0
                                 ! A coefficient scaling the vertical smoothing term in the Ferrari et al., 2010,
                                 ! streamfunction formulation.
-FGNV_C_MIN = 0.01               !   [m s-1] default = 0.0
+FGNV_C_MIN = 0.0                !   [m s-1] default = 0.0
                                 ! A minium wave speed used in the Ferrari et al., 2010, streamfunction
                                 ! formulation.
 FGNV_STRAT_FLOOR = 1.0E-15      !   [nondim] default = 1.0E-15
