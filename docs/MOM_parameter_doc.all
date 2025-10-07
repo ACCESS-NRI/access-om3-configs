@@ -2574,7 +2574,7 @@ CD_TIDES = 1.0E-04              !   [nondim] default = 1.0E-04
                                 ! The drag coefficient that applies to the tides.
 READ_GUST_2D = False            !   [Boolean] default = False
                                 ! If true, use a 2-dimensional gustiness supplied from an input file
-GUST_CONST = 0.02               !   [Pa] default = 0.0
+GUST_CONST = 0.0                !   [Pa] default = 0.0
                                 ! The background gustiness in the winds.
 USTAR_GUSTLESS_BUG = False      !   [Boolean] default = False
                                 ! If true include a bug in the time-averaging of the gustless wind friction
