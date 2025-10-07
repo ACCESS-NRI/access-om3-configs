@@ -2572,9 +2572,18 @@ GUST_CONST = 0.0                !   [Pa] default = 0.0
 USTAR_GUSTLESS_BUG = False      !   [Boolean] default = False
                                 ! If true include a bug in the time-averaging of the gustless wind friction
                                 ! velocity
-USE_RIGID_SEA_ICE = False       !   [Boolean] default = False
+USE_RIGID_SEA_ICE = True        !   [Boolean] default = False
                                 ! If true, sea-ice is rigid enough to exert a nonhydrostatic pressure that
                                 ! resist vertical motion.
+SEA_ICE_MEAN_DENSITY = 900.0    !   [kg m-3] default = 900.0
+                                ! A typical density of sea ice, used with the kinematic viscosity, when
+                                ! USE_RIGID_SEA_ICE is true.
+SEA_ICE_VISCOSITY = 1.0E+09     !   [m2 s-1] default = 1.0E+09
+                                ! The kinematic viscosity of sufficiently thick sea ice for use in calculating
+                                ! the rigidity of sea ice.
+SEA_ICE_RIGID_MASS = 100.0      !   [kg m-2] default = 1000.0
+                                ! The mass of sea-ice per unit area at which the sea-ice starts to exhibit
+                                ! rigidity
 ALLOW_ICEBERG_FLUX_DIAGNOSTICS = False !   [Boolean] default = False
                                 ! If true, makes available diagnostics of fluxes from icebergs as seen by MOM6.
 ALLOW_GLC_RUNOFF_DIAGNOSTICS = False !   [Boolean] default = False
