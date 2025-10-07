@@ -722,3 +722,9 @@ SALT_RESTORE_FILE = "salt_sfc_restore.nc" ! default = "salt_restore.nc"
 SRESTORE_AS_SFLUX = True        !   [Boolean] default = False
                                 ! If true, the restoring of salinity is applied as a salt flux instead of as a
                                 ! freshwater flux.
+USE_RIGID_SEA_ICE = True        !   [Boolean] default = False
+                                ! If true, sea-ice is rigid enough to exert a nonhydrostatic pressure that
+                                ! resist vertical motion.
+SEA_ICE_RIGID_MASS = 100.0      !   [kg m-2] default = 1000.0
+                                ! The mass of sea-ice per unit area at which the sea-ice starts to exhibit
+                                ! rigidity
