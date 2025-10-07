@@ -1680,10 +1680,28 @@
     ! long_name: Surface meridional velocity component of mixed layer restratification
     ! units: m s-1
     ! cell_methods: xh:mean yq:point
-"mle_fl"  [Unused]
+"MLE_wpup"  [Unused]
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
-    ! long_name: Frontal length scale used in the mixed layer restratificiation parameterization
+    ! long_name: Vertical turbulent momentum flux in Bodner mixed layer restratification parameterization
+    ! units: m2 s-2
+    ! cell_methods: xh:mean yh:mean area:mean
+"MLE_ustar"  [Unused]
+    ! modules: {ocean_model,ocean_model_d2}
+    ! dimensions: xh, yh
+    ! long_name: Surface turbulent friction velocity, u*, in Bodner mixed layer restratification parameterization
+    ! units: m s-1
+    ! cell_methods: xh:mean yh:mean area:mean
+"MLE_bflux"  [Unused]
+    ! modules: {ocean_model,ocean_model_d2}
+    ! dimensions: xh, yh
+    ! long_name: Surface buoyancy flux, B0, in Bodner mixed layer restratification parameterization
+    ! units: m2 s-3
+    ! cell_methods: xh:mean yh:mean area:mean
+"lf_bodner"  [Unused]
+    ! modules: {ocean_model,ocean_model_d2}
+    ! dimensions: xh, yh
+    ! long_name: Front length in Bodner mixed layer restratificiation parameterization
     ! units: m
     ! cell_methods: xh:mean yh:mean area:mean
 "masscello"  [Unused]
