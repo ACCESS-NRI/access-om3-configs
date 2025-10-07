@@ -3172,48 +3172,49 @@
     ! units: s-2
     ! cell_methods: xh:mean yh:mean zi:point area:mean
     ! variants: {N2,N2_xyave,obvfsq,obvfsq_xyave}
-"N2_shear"  [Unused]
+"Kd_shear"  [Unused]
     ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
     ! dimensions: xh, yh, zi
-    ! long_name: Square of Brunt-Vaisala frequency used by MOM_CVMix_shear module
-    ! units: 1/s2
+    ! long_name: Shear-driven Diapycnal Diffusivity at horizontal tracer points
+    ! units: m2 s-1
     ! cell_methods: xh:mean yh:mean zi:point area:mean
-    ! variants: {N2_shear,N2_shear_xyave}
-"S2_shear"  [Unused]
-    ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
-    ! dimensions: xh, yh, zi
-    ! long_name: Square of vertical shear used by MOM_CVMix_shear module
-    ! units: 1/s2
-    ! cell_methods: xh:mean yh:mean zi:point area:mean
-    ! variants: {S2_shear,S2_shear_xyave}
-"ri_grad_shear"  [Unused]
-    ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
-    ! dimensions: xh, yh, zi
-    ! long_name: Gradient Richarson number used by MOM_CVMix_shear module
-    ! units: nondim
-    ! cell_methods: xh:mean yh:mean zi:point area:mean
-    ! variants: {ri_grad_shear,ri_grad_shear_xyave}
-"ri_grad_shear_orig"  [Unused]
-    ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
-    ! dimensions: xh, yh, zi
-    ! long_name: Original gradient Richarson number, before smoothing was applied. This is part of the MOM_CVMix_shear module and only available when N_SMOOTH_RI > 0
-    ! units: nondim
-    ! cell_methods: xh:mean yh:mean zi:point area:mean
-    ! variants: {ri_grad_shear_orig,ri_grad_shear_orig_xyave}
-"kd_shear_CVMix"  [Unused]
-    ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
-    ! dimensions: xh, yh, zi
-    ! long_name: Vertical diffusivity added by MOM_CVMix_shear module
-    ! units: m2/s
-    ! cell_methods: xh:mean yh:mean zi:point area:mean
-    ! variants: {kd_shear_CVMix,kd_shear_CVMix_xyave}
-"kv_shear_CVMix"  [Unused]
-    ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
-    ! dimensions: xh, yh, zi
-    ! long_name: Vertical viscosity added by MOM_CVMix_shear module
-    ! units: m2/s
-    ! cell_methods: xh:mean yh:mean zi:point area:mean
-    ! variants: {kv_shear_CVMix,kv_shear_CVMix_xyave}
+    ! variants: {Kd_shear,Kd_shear_xyave}
+"TKE_shear"  [Unused]
+    ! modules: {ocean_model,ocean_model_d2}
+    ! dimensions: xq, yq, zi
+    ! long_name: Shear-driven Turbulent Kinetic Energy at horizontal vertices
+    ! units: m2 s-2
+    ! cell_methods: xq:point yq:point zi:point
+"Kd_shear_vertex"  [Unused]
+    ! modules: {ocean_model,ocean_model_d2}
+    ! dimensions: xq, yq, zi
+    ! long_name: Shear-driven Diapycnal Diffusivity at horizontal vertices
+    ! units: m2 s-1
+    ! cell_methods: xq:point yq:point zi:point
+"S2_shear_in"  [Unused]
+    ! modules: {ocean_model,ocean_model_d2}
+    ! dimensions: xq, yq, zi
+    ! long_name: Interface shear squared at horizontal vertices, as input to kappa-shear
+    ! units: s-2
+    ! cell_methods: xq:point yq:point zi:point
+"N2_shear_in"  [Unused]
+    ! modules: {ocean_model,ocean_model_d2}
+    ! dimensions: xq, yq, zi
+    ! long_name: Interface stratification at horizontal vertices, as input to kappa-shear
+    ! units: s-2
+    ! cell_methods: xq:point yq:point zi:point
+"S2_shear_mean"  [Unused]
+    ! modules: {ocean_model,ocean_model_d2}
+    ! dimensions: xq, yq, zi
+    ! long_name: Interface shear squared at horizontal vertices, averaged over timestep in kappa-shear
+    ! units: s-2
+    ! cell_methods: xq:point yq:point zi:point
+"N2_shear_mean"  [Unused]
+    ! modules: {ocean_model,ocean_model_d2}
+    ! dimensions: xq, yq, zi
+    ! long_name: Interface stratification at horizontal vertices, averaged over timestep in kappa-shear
+    ! units: s-2
+    ! cell_methods: xq:point yq:point zi:point
 "KT_extra"  [Unused]
     ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
     ! dimensions: xh, yh, zi
