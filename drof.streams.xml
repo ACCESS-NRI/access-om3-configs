@@ -5,26 +5,6 @@
     <date_generated>2025-07-04 10:28:08</date_generated>
     <history>Created by as2285 (anton-seaice) on 2025-07-04, using https://github.com/ACCESS-NRI/om3-scripts/blob/ffad24e7448649c5797bffe6a4e6184741dd87a5/data_stream_xml_generation/generate_xml_drof.py: /g/data/vk83/apps/om3-scripts/data_stream_xml_generation/generate_xml_drof.py 1900 1900</history>
   </metadata>
-  <stream_info name="JRA55do.FRIVER">
-    <taxmode>cycle</taxmode>
-    <dtlimit>1.0</dtlimit>
-    <tintalgo>linear</tintalgo>
-    <offset>0</offset>
-    <readmode>single</readmode>
-    <mapalgo>bilinear</mapalgo>
-    <year_first>1900</year_first>
-    <year_last>1900</year_last>
-    <year_align>1900</year_align>
-    <vectors>null</vectors>
-    <meshfile>./INPUT/JRA55do-drof-ESMFmesh.nc</meshfile>
-    <lev_dimname>null</lev_dimname>
-    <datafiles>
-      <file>./INPUT/RYF.friver.1990_1991.nc</file>
-    </datafiles>
-    <datavars>
-      <var>friver Forr_rofl</var>
-    </datavars>
-  </stream_info>
   <stream_info name="JRA55do.LICALVF">
     <taxmode>cycle</taxmode>
     <dtlimit>1.0</dtlimit>
