@@ -306,12 +306,6 @@
     ! long_name: Meridional diffusivity of MEKE
     ! units: m2 s-1
     ! cell_methods: xh:mean yq:point
-"MEKE_equilibrium"  [Unused]
-    ! modules: {ocean_model,ocean_model_d2}
-    ! dimensions: xh, yh
-    ! long_name: Equilibrated Mesoscale Eddy Kinetic Energy
-    ! units: m2 s-2
-    ! cell_methods: xh:mean yh:mean area:mean
 "SN_u"  [Unused]
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xq, yh
