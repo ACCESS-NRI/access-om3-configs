@@ -3003,27 +3003,6 @@
     ! long_name: Depth integrated heat tendency due to frazil formation
     ! units: W m-2
     ! cell_methods: xh:mean yh:mean area:mean
-"N2_conv"  [Unused]
-    ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
-    ! dimensions: xh, yh, zi
-    ! long_name: Square of Brunt-Vaisala frequency used by MOM_CVMix_conv module
-    ! units: 1/s2
-    ! cell_methods: xh:mean yh:mean zi:point area:mean
-    ! variants: {N2_conv,N2_conv_xyave}
-"kd_conv"  [Unused]
-    ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
-    ! dimensions: xh, yh, zi
-    ! long_name: Additional diffusivity added by MOM_CVMix_conv module
-    ! units: m2/s
-    ! cell_methods: xh:mean yh:mean zi:point area:mean
-    ! variants: {kd_conv,kd_conv_xyave}
-"kv_conv"  [Unused]
-    ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
-    ! dimensions: xh, yh, zi
-    ! long_name: Additional viscosity added by MOM_CVMix_conv module
-    ! units: m2/s
-    ! cell_methods: xh:mean yh:mean zi:point area:mean
-    ! variants: {kv_conv,kv_conv_xyave}
 "Kd_itides"  [Unused]
     ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
     ! dimensions: xh, yh, zi
