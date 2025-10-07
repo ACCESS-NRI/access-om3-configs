@@ -586,6 +586,12 @@ PRESSURE_DEPENDENT_FRAZIL = True !   [Boolean] default = False
                                 ! If true, use a pressure dependent freezing temperature when making frazil. The
                                 ! default is false, which will be faster but is inappropriate with ice-shelf
                                 ! cavities.
+USE_RIVER_HEAT_CONTENT = True   !   [Boolean] default = False
+                                ! If true, use the fluxes%runoff_Hflx field to set the heat carried by runoff,
+                                ! instead of using SST*CP*liq_runoff.
+USE_CALVING_HEAT_CONTENT = True !   [Boolean] default = False
+                                ! If true, use the fluxes%calving_Hflx field to set the heat carried by runoff,
+                                ! instead of using SST*CP*froz_runoff.
 
 ! === module MOM_energetic_PBL ===
 ML_OMEGA_FRAC = 0.001           !   [nondim] default = 0.0
