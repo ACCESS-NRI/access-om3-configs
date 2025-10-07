@@ -1818,21 +1818,10 @@ USE_KPP = False                 !   [Boolean] default = False
 
 ! === module MOM_CVMix_conv ===
 ! Parameterization of enhanced mixing due to convection via CVMix
-USE_CVMix_CONVECTION = True     !   [Boolean] default = False
+USE_CVMix_CONVECTION = False    !   [Boolean] default = False
                                 ! If true, turns on the enhanced mixing due to convection via CVMix. This scheme
                                 ! increases diapycnal diffs./viscs. at statically unstable interfaces. Relevant
                                 ! parameters are contained in the CVMix_CONVECTION% parameter block.
-CVMix_CONVECTION%
-PRANDTL_CONV = 1.0              !   [nondim] default = 1.0
-                                ! The turbulent Prandtl number applied to convective instabilities (i.e., used
-                                ! to convert KD_CONV into KV_CONV)
-KD_CONV = 1.0                   !   [m2/s] default = 1.0
-                                ! Diffusivity used in convective regime. Corresponding viscosity (KV_CONV) will
-                                ! be set to KD_CONV * PRANDTL_CONV.
-BV_SQR_CONV = 0.0               !   [1/s^2] default = 0.0
-                                ! Threshold for squared buoyancy frequency needed to trigger Brunt-Vaisala
-                                ! parameterization.
-%CVMix_CONVECTION
 
 ! === module MOM_set_diffusivity ===
 FLUX_RI_MAX = 0.2               !   [nondim] default = 0.2
