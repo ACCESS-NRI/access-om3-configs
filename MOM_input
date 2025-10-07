@@ -703,14 +703,6 @@ MAX_TR_DIFFUSION_CFL = 2.0      !   [nondim] default = -1.0
 USE_NEUTRAL_DIFFUSION = True    !   [Boolean] default = False
                                 ! If true, enables the neutral diffusion module.
 
-! === module MOM_hor_bnd_diffusion ===
-! This module implements horizontal diffusion of tracers near boundaries
-USE_HORIZONTAL_BOUNDARY_DIFFUSION = True !   [Boolean] default = False
-                                ! If true, enables the horizonal boundary tracer's diffusion module.
-HBD_LINEAR_TRANSITION = True    !   [Boolean] default = False
-                                ! If True, apply a linear transition at the base/top of the boundary.
-                                ! The flux will be fully applied at k=k_min and zero at k=k_max.
-
 ! === module MOM_sum_output ===
 
 ! === module ocean_stochastics_init ===
