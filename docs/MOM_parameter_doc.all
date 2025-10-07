@@ -2398,13 +2398,9 @@ NDIFF_CONTINUOUS = True         !   [Boolean] default = True
 NDIFF_REF_PRES = -1.0           !   [Pa] default = -1.0
                                 ! The reference pressure (Pa) used for the derivatives of the equation of state.
                                 ! If negative (default), local pressure is used.
-NDIFF_INTERIOR_ONLY = True      !   [Boolean] default = False
+NDIFF_INTERIOR_ONLY = False     !   [Boolean] default = False
                                 ! If true, only applies neutral diffusion in the ocean interior.That is, the
                                 ! algorithm will exclude the surface and bottomboundary layers.
-NDIFF_TAPERING = False          !   [Boolean] default = False
-                                ! If true, neutral diffusion linearly decays to zero within a transition zone
-                                ! defined using boundary layer depths.    Only applicable when
-                                ! NDIFF_INTERIOR_ONLY=True
 NDIFF_USE_UNMASKED_TRANSPORT_BUG = False !   [Boolean] default = False
                                 ! If true, use an older form for the accumulation of neutral-diffusion
                                 ! transports that were unmasked, as used prior to Jan 2018. This is not

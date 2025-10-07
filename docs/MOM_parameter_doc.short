@@ -678,9 +678,6 @@ MAX_TR_DIFFUSION_CFL = 2.0      !   [nondim] default = -1.0
 ! This module implements neutral diffusion of tracers
 USE_NEUTRAL_DIFFUSION = True    !   [Boolean] default = False
                                 ! If true, enables the neutral diffusion module.
-NDIFF_INTERIOR_ONLY = True      !   [Boolean] default = False
-                                ! If true, only applies neutral diffusion in the ocean interior.That is, the
-                                ! algorithm will exclude the surface and bottomboundary layers.
 
 ! === module MOM_hor_bnd_diffusion ===
 ! This module implements horizontal diffusion of tracers near boundaries
