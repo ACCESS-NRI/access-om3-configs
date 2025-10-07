@@ -573,12 +573,25 @@ USE_LOTW_BBL_DIFFUSIVITY = True !   [Boolean] default = False
 
 ! === module MOM_bkgnd_mixing ===
 ! Adding static vertical background mixing coefficients
-PRANDTL_BKGND = 5.0             !   [nondim] default = 1.0
-                                ! Turbulent Prandtl number used to convert vertical background diffusivities
-                                ! into viscosities.
+KD = 1.5E-05                    !   [m2 s-1] default = 0.0
+                                ! The background diapycnal diffusivity of density in the interior. Zero or the
+                                ! molecular value, ~1e-7 m2 s-1, may be used.
+KD_MIN = 2.0E-06                !   [m2 s-1] default = 1.5E-07
+                                ! The minimum diapycnal diffusivity.
+HENYEY_IGW_BACKGROUND = True    !   [Boolean] default = False
+                                ! If true, use a latitude-dependent scaling for the near surface background
+                                ! diffusivity, as described in Harrison & Hallberg, JPO 2008.
+HENYEY_MAX_LAT = 73.0           !   [degN] default = 95.0
+                                ! A latitude poleward of which the Henyey profile is returned to the minimum
+                                ! diffusivity
 KD_MAX = 0.1                    !   [m2 s-1] default = -1.0
                                 ! The maximum permitted increment for the diapycnal diffusivity from TKE-based
                                 ! parameterizations, or a negative value for no limit.
+DOUBLE_DIFFUSION = True         !   [Boolean] default = False
+                                ! If true, increase diffusivites for temperature or salinity based on the
+                                ! double-diffusive parameterization described in Large et al. (1994).
+MAX_RRHO_SALT_FINGERS = 2.55    !   [nondim] default = 1.9
+                                ! Maximum density ratio for salt fingering regime.
 
 ! === module MOM_kappa_shear ===
 ! Parameterization of shear-driven turbulence following Jackson, Hallberg and Legg, JPO 2008
@@ -595,15 +608,6 @@ USE_RESTRICTIVE_TOLERANCE_CHECK = True !   [Boolean] default = False
                                 ! If true, uses the more restrictive tolerance check to determine if a timestep
                                 ! is acceptable for the KS_it outer iteration loop.  False uses the original
                                 ! less restrictive check.
-
-! === module MOM_CVMix_ddiff ===
-! Parameterization of mixing due to double diffusion processes via CVMix
-USE_CVMIX_DDIFF = True          !   [Boolean] default = False
-                                ! If true, turns on double diffusive processes via CVMix. Note that double
-                                ! diffusive processes on viscosity are ignored in CVMix, see
-                                ! http://cvmix.github.io/ for justification.
-CVMIX_DDIFF%
-%CVMIX_DDIFF
 
 ! === module MOM_diabatic_aux ===
 ! The following parameters are used for auxiliary diabatic processes.
@@ -688,8 +692,8 @@ TRACER_ADVECTION_SCHEME = "PPM:H3" ! default = "PLM"
                                 !   PPM    - Piecewise Parabolic Method (Colella-Woodward)
 
 ! === module MOM_tracer_hor_diff ===
-KHTR_MIN = 50.0                 !   [m2 s-1] default = 0.0
-                                ! The minimum along-isopycnal tracer diffusivity.
+KHTR = 50.0                     !   [m2 s-1] default = 0.0
+                                ! The background along-isopycnal tracer diffusivity.
 CHECK_DIFFUSIVE_CFL = True      !   [Boolean] default = False
                                 ! If true, use enough iterations the diffusion to ensure that the diffusive
                                 ! equivalent of the CFL limit is not violated.  If false, always use the greater

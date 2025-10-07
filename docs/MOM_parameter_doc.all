@@ -1774,7 +1774,7 @@ MIX_BOUNDARY_TRACERS = True     !   [Boolean] default = True
 MIX_BOUNDARY_TRACER_ALE = False !   [Boolean] default = False
                                 ! If true and in ALE mode, mix the passive tracers in massless layers at the
                                 ! bottom into the interior as though a diffusivity of KD_MIN_TR were operating.
-KD_MIN_TR = 0.0                 !   [m2 s-1] default = 0.0
+KD_MIN_TR = 1.5E-06             !   [m2 s-1] default = 1.5E-06
                                 ! A minimal diffusivity that should always be applied to tracers, especially in
                                 ! massless layers near the bottom. The default is 0.1*KD.
 KD_BBL_TR = 0.0                 !   [m2 s-1] default = 0.0
@@ -1966,10 +1966,10 @@ SIMPLE_TKE_TO_KD = False        !   [Boolean] default = False
 
 ! === module MOM_bkgnd_mixing ===
 ! Adding static vertical background mixing coefficients
-KD = 0.0                        !   [m2 s-1] default = 0.0
+KD = 1.5E-05                    !   [m2 s-1] default = 0.0
                                 ! The background diapycnal diffusivity of density in the interior. Zero or the
                                 ! molecular value, ~1e-7 m2 s-1, may be used.
-KD_MIN = 0.0                    !   [m2 s-1] default = 0.0
+KD_MIN = 2.0E-06                !   [m2 s-1] default = 1.5E-07
                                 ! The minimum diapycnal diffusivity.
 BRYAN_LEWIS_DIFFUSIVITY = False !   [Boolean] default = False
                                 ! If true, use a Bryan & Lewis (JGR 1979) like tanh profile of background
@@ -1977,12 +1977,18 @@ BRYAN_LEWIS_DIFFUSIVITY = False !   [Boolean] default = False
 HORIZ_VARYING_BACKGROUND = False !   [Boolean] default = False
                                 ! If true, apply vertically uniform, latitude-dependent background diffusivity,
                                 ! as described in Danabasoglu et al., 2012
-PRANDTL_BKGND = 5.0             !   [nondim] default = 1.0
+PRANDTL_BKGND = 1.0             !   [nondim] default = 1.0
                                 ! Turbulent Prandtl number used to convert vertical background diffusivities
                                 ! into viscosities.
-HENYEY_IGW_BACKGROUND = False   !   [Boolean] default = False
+HENYEY_IGW_BACKGROUND = True    !   [Boolean] default = False
                                 ! If true, use a latitude-dependent scaling for the near surface background
                                 ! diffusivity, as described in Harrison & Hallberg, JPO 2008.
+HENYEY_N0_2OMEGA = 20.0         !   [nondim] default = 20.0
+                                ! The ratio of the typical Buoyancy frequency to twice the Earth's rotation
+                                ! period, used with the Henyey scaling from the mixing.
+HENYEY_MAX_LAT = 73.0           !   [degN] default = 95.0
+                                ! A latitude poleward of which the Henyey profile is returned to the minimum
+                                ! diffusivity
 KD_TANH_LAT_FN = False          !   [Boolean] default = False
                                 ! If true, use a tanh dependence of Kd_sfc on latitude, like CM2.1/CM2M.  There
                                 ! is no physical justification for this form, and it can not be used with
@@ -2007,9 +2013,16 @@ DISSIPATION_N1 = 0.0            !   [J m-3] default = 0.0
                                 ! = A + B*N
 DISSIPATION_KD_MIN = 0.0        !   [m2 s-1] default = 0.0
                                 ! The minimum vertical diffusivity applied as a floor.
-DOUBLE_DIFFUSION = False        !   [Boolean] default = False
+DOUBLE_DIFFUSION = True         !   [Boolean] default = False
                                 ! If true, increase diffusivites for temperature or salinity based on the
                                 ! double-diffusive parameterization described in Large et al. (1994).
+MAX_RRHO_SALT_FINGERS = 2.55    !   [nondim] default = 1.9
+                                ! Maximum density ratio for salt fingering regime.
+MAX_SALT_DIFF_SALT_FINGERS = 1.0E-04 !   [m2 s-1] default = 1.0E-04
+                                ! Maximum salt diffusivity for salt fingering regime.
+KV_MOLECULAR = 1.5E-06          !   [m2 s-1] default = 1.5E-06
+                                ! Molecular viscosity for calculation of fluxes under double-diffusive
+                                ! convection.
 
 ! === module MOM_kappa_shear ===
 ! Parameterization of shear-driven turbulence following Jackson, Hallberg and Legg, JPO 2008
@@ -2036,7 +2049,7 @@ SHEARMIX_RATE = 0.089           !   [nondim] default = 0.089
 MAX_RINO_IT = 25                !   [nondim] default = 50
                                 ! The maximum number of iterations that may be used to estimate the Richardson
                                 ! number driven mixing.
-KD_KAPPA_SHEAR_0 = 1.0E-07      !   [m2 s-1] default = 1.0E-07
+KD_KAPPA_SHEAR_0 = 1.5E-05      !   [m2 s-1] default = 1.5E-05
                                 ! The background diffusivity that is used to smooth the density and shear
                                 ! profiles before solving for the diffusivities.  The default is the greater of
                                 ! KD and 1e-7 m2 s-1.
@@ -2044,7 +2057,7 @@ KD_SEED_KAPPA_SHEAR = 1.0       !   [m2 s-1] default = 1.0
                                 ! A moderately large seed value of diapycnal diffusivity that is used as a
                                 ! starting turbulent diffusivity in the iterations to find an energetically
                                 ! constrained solution for the shear-driven diffusivity.
-KD_TRUNC_KAPPA_SHEAR = 1.0E-09  !   [m2 s-1] default = 1.0E-09
+KD_TRUNC_KAPPA_SHEAR = 1.5E-07  !   [m2 s-1] default = 1.5E-07
                                 ! The value of shear-driven diffusivity that is considered negligible and is
                                 ! rounded down to 0. The default is 1% of KD_KAPPA_SHEAR_0.
 FRI_CURVATURE = -0.97           !   [nondim] default = -0.97
@@ -2117,32 +2130,10 @@ USE_PP81 = False                !   [Boolean] default = False
 
 ! === module MOM_CVMix_ddiff ===
 ! Parameterization of mixing due to double diffusion processes via CVMix
-USE_CVMIX_DDIFF = True          !   [Boolean] default = False
+USE_CVMIX_DDIFF = False         !   [Boolean] default = False
                                 ! If true, turns on double diffusive processes via CVMix. Note that double
                                 ! diffusive processes on viscosity are ignored in CVMix, see
                                 ! http://cvmix.github.io/ for justification.
-CVMIX_DDIFF%
-STRAT_PARAM_MAX = 2.55          !   [nondim] default = 2.55
-                                ! The maximum value for the double dissusion stratification parameter
-KAPPA_DDIFF_S = 1.0E-04         !   [m2 s-1] default = 1.0E-04
-                                ! Leading coefficient in formula for salt-fingering regime for salinity
-                                ! diffusion.
-DDIFF_EXP1 = 1.0                !   [nondim] default = 1.0
-                                ! Interior exponent in salt-fingering regime formula.
-DDIFF_EXP2 = 3.0                !   [nondim] default = 3.0
-                                ! Exterior exponent in salt-fingering regime formula.
-KAPPA_DDIFF_PARAM1 = 0.909      !   [nondim] default = 0.909
-                                ! Exterior coefficient in diffusive convection regime.
-KAPPA_DDIFF_PARAM2 = 4.6        !   [nondim] default = 4.6
-                                ! Middle coefficient in diffusive convection regime.
-KAPPA_DDIFF_PARAM3 = -0.54      !   [nondim] default = -0.54
-                                ! Interior coefficient in diffusive convection regime.
-MOL_DIFF = 1.5E-06              !   [m2 s-1] default = 1.5E-06
-                                ! Molecular diffusivity used in CVMix double diffusion.
-DIFF_CONV_TYPE = "MC76"         ! default = "MC76"
-                                ! type of diffusive convection to use. Options are Marmorino
-                                ! and Caldwell 1976 (MC76) and Kelley 1988, 1990 (K90).
-%CVMIX_DDIFF
 
 ! === module MOM_diabatic_aux ===
 ! The following parameters are used for auxiliary diabatic processes.
@@ -2373,14 +2364,10 @@ USE_HUYNH_STENCIL_BUG = False   !   [Boolean] default = False
                                 ! required to reproduce results in legacy simulations.
 
 ! === module MOM_tracer_hor_diff ===
-KHTR = 0.0                      !   [m2 s-1] default = 0.0
+KHTR = 50.0                     !   [m2 s-1] default = 0.0
                                 ! The background along-isopycnal tracer diffusivity.
-KHTR_MIN = 50.0                 !   [m2 s-1] default = 0.0
+KHTR_MIN = 0.0                  !   [m2 s-1] default = 0.0
                                 ! The minimum along-isopycnal tracer diffusivity.
-FULL_DEPTH_KHTR_MIN = False     !   [Boolean] default = False
-                                ! If true, KHTR_MIN is enforced throughout the whole water column. Otherwise,
-                                ! KHTR_MIN is only enforced at the surface. This parameter is only available
-                                ! when KHTR_USE_EBT_STRUCT=True and KHTR_MIN>0.
 KHTR_MAX = 0.0                  !   [m2 s-1] default = 0.0
                                 ! The maximum along-isopycnal tracer diffusivity. Set to a positive value to
                                 ! activate.
