@@ -2155,10 +2155,10 @@ IGNORE_FLUXES_OVER_LAND = False !   [Boolean] default = False
 DO_RIVERMIX = False             !   [Boolean] default = False
                                 ! If true, apply additional mixing wherever there is runoff, so that it is mixed
                                 ! down to RIVERMIX_DEPTH if the ocean is that deep.
-USE_RIVER_HEAT_CONTENT = False  !   [Boolean] default = False
+USE_RIVER_HEAT_CONTENT = True   !   [Boolean] default = False
                                 ! If true, use the fluxes%runoff_Hflx field to set the heat carried by runoff,
                                 ! instead of using SST*CP*liq_runoff.
-USE_CALVING_HEAT_CONTENT = False !   [Boolean] default = False
+USE_CALVING_HEAT_CONTENT = True !   [Boolean] default = False
                                 ! If true, use the fluxes%calving_Hflx field to set the heat carried by runoff,
                                 ! instead of using SST*CP*froz_runoff.
 DO_BRINE_PLUME = False          !   [Boolean] default = False
@@ -2544,7 +2544,7 @@ WIND_STAGGER = "A"              ! default = "C"
 WIND_STRESS_MULTIPLIER = 1.0    !   [nondim] default = 1.0
                                 ! A factor multiplying the wind-stress given to the ocean by the coupler. This
                                 ! is used for testing and should be =1.0 for any production runs.
-ENTHALPY_FROM_COUPLER = False   !   [Boolean] default = False
+ENTHALPY_FROM_COUPLER = True    !   [Boolean] default = False
                                 ! If True, the heat (enthalpy) associated with mass entering/leaving the ocean
                                 ! is provided via coupler.
 FLUXCONST = 0.11                !   [m day-1] default = 0.0
