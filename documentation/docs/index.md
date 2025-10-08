@@ -17,7 +17,7 @@ If you would like to simply run the model, see the [How to Run ACCESS OM3 docume
 
 See the navigation links on the left. Some reading tips, see:
 
- - [Contributing](contributing/) if you'd like to get involved / provide feedback on ACCESS-OM3;
+ - [Contributing](contributing/Overview/) if you'd like to get involved / provide feedback on ACCESS-OM3;
  - [Inputs](inputs/Forcing-data-models/) if you would like to understand how the input files are generated;
  - [Configuration choices/Configurations](configurations/Overview/) for information/background about specific configurations. The remaining sub-sections in `Configuration choices` provide background on key files and background on how ACCESS-OM3 configurations work/can be customised. **These parts are likely of most interest to users.**
  - [Infrastructure](infrastructure/Architecture/) is likely of more interest to ACCESS-NRI staff and developers. Having said this, some users, might find pages such as `Architecture` useful background.
