@@ -75,8 +75,6 @@ plugins:
   - bibtex:
       bib_file: references.bib
       csl_file: https://raw.githubusercontent.com/citation-style-language/styles/26eccff9e537f71494a4da7b91afac1adf571dc9/apa.csl
-  - events:
-      events_dir: community_resources/events/events
 
 markdown_extensions: 
   - attr_list
