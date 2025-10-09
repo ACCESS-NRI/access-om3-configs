@@ -77,6 +77,7 @@ Currently the following development configurations are available:
 - [`dev-MC_100km_jra_iaf`](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MC_100km_jra_iaf)
 - [`dev-MC_100km_jra_ryf+wombatlite`](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MC_100km_jra_ryf+wombatlite)
 - [`dev-MC_25km_jra_ryf`](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MC_25km_jra_ryf)
+- [`dev-MC_25km_jra_iaf`](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MC_25km_jra_iaf)
 - [`dev-MC_25km_jra_ryf+wombatlite`](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MC_25km_jra_ryf+wombatlite)
 
 **MOM6-CICE6-WW3-DATM-DROF configurations**
@@ -90,20 +91,21 @@ Currently the following development configurations are available:
 ### Comparison table
 The following links can be used to easily compare different configuration branches
 
-**MC → MC**
+**MC ← MC**
 
-- [`release-MC_25km_jra_ryf`⬅️`dev-MC_25km_jra_iaf`](https://github.com/ACCESS-NRI/access-om3-configs/compare/release-MC_25km_jra_ryf..dev-MC_25km_jra_ryf)
+- [`release-MC_25km_jra_ryf`⬅️`dev-MC_25km_jra_ryf`](https://github.com/ACCESS-NRI/access-om3-configs/compare/release-MC_25km_jra_ryf..dev-MC_25km_jra_ryf)
 - [`dev-MC_100km_jra_ryf`⬅️`dev-MC_100km_jra_iaf`](https://github.com/ACCESS-NRI/access-om3-configs/compare/dev-MC_100km_jra_ryf..dev-MC_100km_jra_iaf)
 - [`dev-MC_100km_jra_ryf`⬅️`dev-MC_100km_jra_ryf+wombatlite`](https://github.com/ACCESS-NRI/access-om3-configs/compare/dev-MC_100km_jra_ryf..dev-MC_100km_jra_ryf+wombatlite)
 - [`dev-MC_100km_jra_ryf`⬅️`dev-MC_25km_jra_ryf`](https://github.com/ACCESS-NRI/access-om3-configs/compare/dev-MC_100km_jra_ryf..dev-MC_25km_jra_ryf)
 - [`dev-MC_100km_jra_ryf+wombatlite`⬅️`dev-MC_25km_jra_ryf+wombatlite`](https://github.com/ACCESS-NRI/access-om3-configs/compare/dev-MC_100km_jra_ryf+wombatlite..dev-MC_25km_jra_ryf+wombatlite)
+- [`dev-MC_25km_jra_ryf`⬅️`dev-MC_25km_jra_iaf`](https://github.com/ACCESS-NRI/access-om3-configs/compare/dev-MC_25km_jra_ryf..dev-MC_25km_jra_iaf)
 - [`dev-MC_25km_jra_ryf`⬅️`dev-MC_25km_jra_ryf+wombatlite`](https://github.com/ACCESS-NRI/access-om3-configs/compare/dev-MC_25km_jra_ryf..dev-MC_25km_jra_ryf+wombatlite)
 
-**MCW → MCW**
+**MCW ← MCW**
 
 - [`dev-MCW_100km_jra_ryf`⬅️`dev-MCW_100km_jra_iaf`](https://github.com/ACCESS-NRI/access-om3-configs/compare/dev-MCW_100km_jra_ryf..dev-MCW_100km_jra_iaf)
 
-**MC → MCW**
+**MC ← MCW**
 
 - [`dev-MC_100km_jra_ryf`⬅️`dev-MCW_100km_jra_ryf`](https://github.com/ACCESS-NRI/access-om3-configs/compare/dev-MC_100km_jra_ryf..dev-MCW_100km_jra_ryf)
 - [`dev-MC_100km_jra_iaf`⬅️`dev-MCW_100km_jra_iaf`](https://github.com/ACCESS-NRI/access-om3-configs/compare/dev-MC_100km_jra_iaf..dev-MCW_100km_jra_iaf)

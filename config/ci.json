@@ -13,6 +13,12 @@
         "dev-MCW_100km_jra_ryf": {
             "markers": "repro or access_om3 or dev_config"
         },
+         "dev-MC_25km_jra_ryf": {
+            "markers": "repro or access_om3 or dev_config"
+        },
+         "dev-MC_25km_jra_iaf": {
+            "markers": "repro or access_om3 or dev_config"
+        },
         "release-MC_100km_jra_ryf": { },
         "release-MC_25km_jra_ryf": { },
         "release-MCW_100km_jra_ryf": { },
