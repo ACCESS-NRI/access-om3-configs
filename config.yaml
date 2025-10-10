@@ -62,13 +62,13 @@ postscript: -v PROJECT,SCRIPTS_DIR=/g/data/vk83/apps/om3-scripts -lstorage=${PBS
 #Model software version
 modules:
     use:
-        - /g/data/vk83/prerelease/modules
+        - /g/data/vk83/modules
     load:
-        - access-om3/pr142-3
+        - access-om3/2025.08.001
         - model-tools/mppnccombine-fast/2025.07.000
         - nco/5.0.5
 
-payu_minimum_version: 1.1.6
+payu_minimum_version: 1.1.7
 
 platform:
   nodesize: 104
