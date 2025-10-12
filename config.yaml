@@ -50,7 +50,7 @@ metadata:
     enable: true
 manifest:
   reproduce:
-    exe: True
+    exe: False
 
 platform:
     nodesize: 104
