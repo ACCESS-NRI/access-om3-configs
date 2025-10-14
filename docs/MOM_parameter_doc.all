@@ -452,7 +452,7 @@ GFS = 9.8                       !   [m s-2] default = 9.8
                                 ! The reduced gravity at the free surface.
 LIGHTEST_DENSITY = 1035.0       !   [kg m-3] default = 1035.0
                                 ! The reference potential density used for layer 1.
-REGRIDDING_COORDINATE_MODE = "ZSTAR" ! default = "LAYER"
+REGRIDDING_COORDINATE_MODE = "ADAPTIVE" ! default = "LAYER"
                                 ! Coordinate mode for vertical regridding. Choose among the following
                                 ! possibilities:  LAYER - Isopycnal or stacked shallow water layers
                                 !  ZSTAR, Z* - stretched geopotential z*
@@ -464,7 +464,37 @@ REGRIDDING_COORDINATE_MODE = "ZSTAR" ! default = "LAYER"
                                 !  ADAPTIVE - optimize for smooth neutral density surfaces
 REGRIDDING_COORDINATE_UNITS = "m" ! default = "m"
                                 ! Units of the regridding coordinate.
-ALE_COORDINATE_CONFIG = "FILE:ocean_vgrid.nc,interfaces=zeta" ! default = "UNIFORM"
+INTERPOLATION_SCHEME = "P1M_H2" ! default = "P1M_H2"
+                                ! This sets the interpolation scheme to use to determine the new grid. These
+                                ! parameters are only relevant when REGRIDDING_COORDINATE_MODE is set to a
+                                ! function of state. Otherwise, it is not used. It can be one of the following
+                                ! schemes:
+                                !  P1M_H2     (2nd-order accurate)
+                                !  P1M_H4     (2nd-order accurate)
+                                !  P1M_IH4    (2nd-order accurate)
+                                !  PLM        (2nd-order accurate)
+                                !  PPM_CW     (3rd-order accurate)
+                                !  PPM_H4     (3rd-order accurate)
+                                !  PPM_IH4    (3rd-order accurate)
+                                !  P3M_IH4IH3 (4th-order accurate)
+                                !  P3M_IH6IH5 (4th-order accurate)
+                                !  PQM_IH4IH3 (4th-order accurate)
+                                !  PQM_IH6IH5 (5th-order accurate)
+REMAPPING_ANSWER_DATE = 99991231 ! default = 99991231
+                                ! The vintage of the expressions and order of arithmetic to use for remapping.
+                                ! Values below 20190101 result in the use of older, less accurate expressions
+                                ! that were in use at the end of 2018.  Higher values result in the use of more
+                                ! robust and accurate forms of mathematically equivalent expressions.
+REGRIDDING_ANSWER_DATE = 99991231 ! default = 20181231
+                                ! The vintage of the expressions and order of arithmetic to use for regridding.
+                                ! Values below 20190101 result in the use of older, less accurate expressions
+                                ! that were in use at the end of 2018.  Higher values result in the use of more
+                                ! robust and accurate forms of mathematically equivalent expressions.
+BOUNDARY_EXTRAPOLATION = False  !   [Boolean] default = False
+                                ! When defined, a proper high-order reconstruction scheme is used within
+                                ! boundary cells rather than PCM. E.g., if PPM is used for remapping, a PPM
+                                ! reconstruction will also be used within boundary cells.
+ALE_COORDINATE_CONFIG = "FNC1:2,4000,4.5,.01" ! default = "UNIFORM"
                                 ! Determines how to specify the coordinate resolution. Valid options are:
                                 !  PARAM       - use the vector-parameter ALE_RESOLUTION
                                 !  UNIFORM[:N] - uniformly distributed
@@ -480,9 +510,61 @@ ALE_COORDINATE_CONFIG = "FILE:ocean_vgrid.nc,interfaces=zeta" ! default = "UNIFO
                                 !                the filename and two variable names, separated
                                 !                by a comma or space, for sigma-2 and dz. e.g.
                                 !                HYBRID:vgrid.nc,sigma2,dz
-!ALE_RESOLUTION = 1.0825614929199219, 1.1963462829589844, 1.322089672088623, 1.4610481262207031, 1.614609718322754, 1.784308910369873, 1.9718408584594727, 2.1790781021118164, 2.4080896377563477, 2.661160469055176, 2.940814971923828, 3.249845504760742, 3.591329574584961, 3.968667984008789, 4.385614395141602, 4.846321105957031, 5.355350494384766, 5.917766571044922, 6.539115905761719, 7.225547790527344, 7.983818054199219, 8.821372985839844, 9.746376037597656, 10.767845153808594, 11.895652770996094, 13.140586853027344, 14.514511108398438, 16.030319213867188, 17.7020263671875, 19.544876098632812, 21.575271606445312, 23.810821533203125, 26.270294189453125, 28.973419189453125, 31.94091796875, 35.194000244140625, 38.75390625, 42.641632080078125, 46.876739501953125, 51.476593017578125, 56.45489501953125, 61.82025146484375, 67.5743408203125, 73.70965576171875, 80.207763671875, 87.03759765625, 94.1534423828125, 101.4951171875, 108.9879150390625, 116.5452880859375, 124.0714111328125, 131.4671630859375, 138.6346435546875, 145.484130859375, 151.938232421875, 157.93701171875, 163.439697265625, 168.42431640625, 172.8876953125, 176.842041015625, 180.3125, 183.33154296875, 185.938720703125, 188.175048828125, 190.08251953125, 191.701171875
+!ALE_RESOLUTION = 7*2.0, 2*2.01, 2.02, 2.03, 2.05, 2.08, 2.11, 2.15, 2.21, 2.2800000000000002, 2.37, 2.48, 2.61, 2.77, 2.95, 3.17, 3.4299999999999997, 3.74, 4.09, 4.49, 4.95, 5.48, 6.07, 6.74, 7.5, 8.34, 9.280000000000001, 10.33, 11.49, 12.77, 14.19, 15.74, 17.450000000000003, 19.31, 21.35, 23.56, 25.97, 28.580000000000002, 31.41, 34.47, 37.77, 41.32, 45.14, 49.25, 53.65, 58.370000000000005, 63.42, 68.81, 74.56, 80.68, 87.21000000000001, 94.14, 101.51, 109.33, 117.62, 126.4, 135.68, 145.5, 155.87, 166.81, 178.35, 190.51, 203.31, 216.78, 230.93, 245.8, 261.42, 277.83 !   [m]
+                                ! The distribution of vertical resolution for the target
+                                ! grid used for Eulerian-like coordinates. For example,
+                                ! in z-coordinate mode, the parameter is a list of level
+                                ! thicknesses (in m). In sigma-coordinate mode, the list
+                                ! is of non-dimensional fractions of the water column.
+REGRID_COMPRESSIBILITY_FRACTION = 0.0 !   [nondim] default = 0.0
+                                ! When interpolating potential density profiles we can add some artificial
+                                ! compressibility solely to make homogeneous regions appear stratified.
 MIN_THICKNESS = 0.001           !   [m] default = 0.001
                                 ! When regridding, this is the minimum layer thickness allowed.
+ADAPT_ALPHA_RHO = -1.0          !   [nondim] default = -1.0
+                                ! Density adaptivity coefficient (use negative value for automatic)
+ADAPT_ALPHA_P = -1.0            !   [nondim] default = -1.0
+                                ! Pressure adaptivity coefficient (use negative value for automatic)
+ADAPT_TIMESCALE = 3600.0        !   [s] default = 8.64E+04
+                                ! Timescale for adaptivity diffusivity (defaults to a day)
+ADAPT_MEAN_H = False            !   [Boolean] default = False
+                                ! Use mean rather than 'upstream' h in calculations
+ADAPT_SLOPE_CUTOFF = 0.0035     !   [nondim] default = 0.01
+                                ! Slope cutoff between stratified and unstratified regions
+ADAPT_SMOOTH_MIN = 0.1          !   [nondim] default = 0.0
+                                ! Minimum weight toward smoothing term
+ADAPT_ADJUSTMENT_SCALE = 0.1    !   [nondim] default = 1.0
+                                ! Non-dimensional scale for adjusting interface positions when
+                                ! a diagonal convective instability would occur. When set to 1,
+                                ! perform the full adjustment permitted by the local CFL value.
+ADAPT_RESTORING_TIMESCALE = 8.64E+05 !   [s] default = 8.64E+05
+                                ! Timescale for adaptivity restoring (default 10 days)
+ADAPT_TWIN_GRADIENT = True      !   [Boolean] default = True
+                                ! Use twin gradient approach, requiring sign of gradient above
+                                ! and below an interface to agree, avoiding a vertical null mode.
+ADAPT_PHYSICAL_SLOPE = True     !   [Boolean] default = True
+                                ! Use a physical slope calculation for weighting of terms.
+ADAPT_RESTORE_MEAN = False      !   [Boolean] default = False
+                                ! If True, restore toward a dynamically-calculated mean interface position.
+                                ! Otherwise, restore toward the profile given by ALE_COORDINATE_CONFIG.
+MAXIMUM_INT_DEPTH_CONFIG = "NONE" ! default = "NONE"
+                                ! Determines how to specify the maximum interface depths.
+                                ! Valid options are:
+                                !  NONE        - there are no maximum interface depths
+                                !  PARAM       - use the vector-parameter MAXIMUM_INTERFACE_DEPTHS
+                                !  FILE:string - read from a file. The string specifies
+                                !                the filename and variable name, separated
+                                !                by a comma or space, e.g. FILE:lev.nc,Z
+                                !  FNC1:string - FNC1:dz_min,H_total,power,precision
+MAX_LAYER_THICKNESS_CONFIG = "NONE" ! default = "NONE"
+                                ! Determines how to specify the maximum layer thicknesses.
+                                ! Valid options are:
+                                !  NONE        - there are no maximum layer thicknesses
+                                !  PARAM       - use the vector-parameter MAX_LAYER_THICKNESS
+                                !  FILE:string - read from a file. The string specifies
+                                !                the filename and variable name, separated
+                                !                by a comma or space, e.g. FILE:lev.nc,Z
+                                !  FNC1:string - FNC1:dz_min,H_total,power,precision
 REMAPPING_SCHEME = "PPM_H4"     ! default = "PLM"
                                 ! This sets the reconstruction scheme used for vertical remapping for all
                                 ! variables. It can be one of the following schemes:
@@ -528,11 +610,6 @@ REMAPPING_USE_OM4_SUBCELLS = False !   [Boolean] default = True
                                 ! reconstruction for the top- and lower-most sub-layers, but instead assumes
                                 ! they are always vanished (untrue) and so just uses their edge values. We
                                 ! recommend setting this option to false.
-REMAPPING_ANSWER_DATE = 99991231 ! default = 99991231
-                                ! The vintage of the expressions and order of arithmetic to use for remapping.
-                                ! Values below 20190101 result in the use of older, less accurate expressions
-                                ! that were in use at the end of 2018.  Higher values result in the use of more
-                                ! robust and accurate forms of mathematically equivalent expressions.
 PARTIAL_CELL_VELOCITY_REMAP = False !   [Boolean] default = False
                                 ! If true, use partial cell thicknesses at velocity points that are masked out
                                 ! where they extend below the shallower of the neighboring bathymetry for
@@ -541,15 +618,15 @@ REMAP_AFTER_INITIALIZATION = True !   [Boolean] default = True
                                 ! If true, applies regridding and remapping immediately after initialization so
                                 ! that the state is ALE consistent. This is a legacy step and should not be
                                 ! needed if the initialization is consistent with the coordinate mode.
-REGRID_TIME_SCALE = 0.0         !   [s] default = 0.0
+REGRID_TIME_SCALE = 8.64E+04    !   [s] default = 0.0
                                 ! The time-scale used in blending between the current (old) grid and the target
                                 ! (new) grid. A short time-scale favors the target grid (0. or anything less
                                 ! than DT_THERM) has no memory of the old grid. A very long time-scale makes the
                                 ! model more Lagrangian.
-REGRID_FILTER_SHALLOW_DEPTH = 0.0 !   [m] default = 0.0
+REGRID_FILTER_SHALLOW_DEPTH = 20.0 !   [m] default = 0.0
                                 ! The depth above which no time-filtering is applied. Above this depth final
                                 ! grid exactly matches the target (new) grid.
-REGRID_FILTER_DEEP_DEPTH = 0.0  !   [m] default = 0.0
+REGRID_FILTER_DEEP_DEPTH = 100.0 !   [m] default = 0.0
                                 ! The depth below which full time-filtering is applied with time-scale
                                 ! REGRID_TIME_SCALE. Between depths REGRID_FILTER_SHALLOW_DEPTH and
                                 ! REGRID_FILTER_SHALLOW_DEPTH the filter weights adopt a cubic profile.
@@ -563,85 +640,10 @@ FATAL_INCONSISTENT_RESTART_TIME = False !   [Boolean] default = False
                                 ! If true and a time_in value is provided to MOM_initialize_state, verify that
                                 ! the time read from a restart file is the same as time_in, and issue a fatal
                                 ! error if it is not.  Otherwise, simply set the time to time_in if present.
-INIT_LAYERS_FROM_Z_FILE = True  !   [Boolean] default = False
-                                ! If true, initialize the layer thicknesses, temperatures, and salinities from a
-                                ! Z-space file on a latitude-longitude grid.
-
-! === module MOM_initialize_layers_from_Z ===
-TEMP_SALT_Z_INIT_FILE = "ocean_temp_salt.res.nc" ! default = "temp_salt_z.nc"
-                                ! The name of the z-space input file used to initialize temperatures (T) and
-                                ! salinities (S). If T and S are not in the same file, TEMP_Z_INIT_FILE and
-                                ! SALT_Z_INIT_FILE must be set.
-TEMP_Z_INIT_FILE = "ocean_temp_salt.res.nc" ! default = "ocean_temp_salt.res.nc"
-                                ! The name of the z-space input file used to initialize temperatures, only.
-SALT_Z_INIT_FILE = "ocean_temp_salt.res.nc" ! default = "ocean_temp_salt.res.nc"
-                                ! The name of the z-space input file used to initialize temperatures, only.
-Z_INIT_FILE_PTEMP_VAR = "temp"  ! default = "ptemp"
-                                ! The name of the potential temperature variable in TEMP_Z_INIT_FILE.
-Z_INIT_FILE_SALT_VAR = "salt"   ! default = "salt"
-                                ! The name of the salinity variable in SALT_Z_INIT_FILE.
-Z_INIT_HOMOGENIZE = False       !   [Boolean] default = False
-                                ! If True, then horizontally homogenize the interpolated initial conditions.
-Z_INIT_ALE_REMAPPING = True     !   [Boolean] default = False
-                                ! If True, then remap straight to model coordinate from file.
-Z_INIT_REMAPPING_SCHEME = "PPM_IH4" ! default = "PPM_IH4"
-                                ! The remapping scheme to use if using Z_INIT_ALE_REMAPPING is True.
-Z_INIT_REMAP_GENERAL = True     !   [Boolean] default = False
-                                ! If false, only initializes to z* coordinates. If true, allows initialization
-                                ! directly to general coordinates.
-Z_INIT_REMAP_FULL_COLUMN = True !   [Boolean] default = True
-                                ! If false, only reconstructs profiles for valid data points. If true, inserts
-                                ! vanished layers below the valid data.
-Z_INIT_REMAP_OLD_ALG = False    !   [Boolean] default = False
-                                ! If false, uses the preferred remapping algorithm for initialization. If true,
-                                ! use an older, less robust algorithm for remapping.
-TEMP_SALT_INIT_VERTICAL_REMAP_ONLY = True !   [Boolean] default = False
-                                ! If true, initial conditions are on the model horizontal grid. Extrapolation
-                                ! over missing ocean values is done using an ICE-9 procedure with vertical ALE
-                                ! remapping .
 Z_INIT_REMAPPING_USE_OM4_SUBCELLS = False !   [Boolean] default = True
                                 ! If true, use the OM4 remapping-via-subcells algorithm for initialization. See
                                 ! REMAPPING_USE_OM4_SUBCELLS for more details. We recommend setting this option
                                 ! to false.
-HOR_REGRID_ANSWER_DATE = 99991231 ! default = 99991231
-                                ! The vintage of the order of arithmetic for horizontal regridding.  Dates
-                                ! before 20190101 give the same answers as the code did in late 2018, while
-                                ! later versions add parentheses for rotational symmetry.  Dates after 20230101
-                                ! use reproducing sums for global averages.
-LAND_FILL_TEMP = 0.0            !   [degC] default = 0.0
-                                ! A value to use to fill in ocean temperatures on land points.
-LAND_FILL_SALIN = 35.0          !   [ppt] default = 35.0
-                                ! A value to use to fill in ocean salinities on land points.
-HORIZ_INTERP_TOL_TEMP = 0.001   !   [degC] default = 0.001
-                                ! The tolerance in temperature changes between iterations when interpolating
-                                ! from an input dataset using horiz_interp_and_extrap_tracer.  This routine
-                                ! converges slowly, so an overly small tolerance can get expensive.
-HORIZ_INTERP_TOL_SALIN = 0.001  !   [ppt] default = 0.001
-                                ! The tolerance in salinity changes between iterations when interpolating from
-                                ! an input dataset using horiz_interp_and_extrap_tracer.  This routine converges
-                                ! slowly, so an overly small tolerance can get expensive.
-DEPRESS_INITIAL_SURFACE = False !   [Boolean] default = False
-                                ! If true,  depress the initial surface to avoid huge tsunamis when a large
-                                ! surface pressure is applied.
-TRIM_IC_FOR_P_SURF = False      !   [Boolean] default = False
-                                ! If true, cuts way the top of the column for initial conditions at the depth
-                                ! where the hydrostatic pressure matches the imposed surface pressure which is
-                                ! read from file.
-REGRID_ACCELERATE_INIT = False  !   [Boolean] default = False
-                                ! If true, runs REGRID_ACCELERATE_ITERATIONS iterations of the regridding
-                                ! algorithm to push the initial grid to be consistent with the initial
-                                ! condition. Useful only for state-based and iterative coordinates.
-VELOCITY_CONFIG = "zero"        ! default = "zero"
-                                ! A string that determines how the initial velocities are specified for a new
-                                ! run:
-                                !     file - read velocities from the file specified
-                                !       by (VELOCITY_FILE).
-                                !     zero - the fluid is initially at rest.
-                                !     uniform - the flow is uniform (determined by
-                                !       parameters INITIAL_U_CONST and INITIAL_V_CONST).
-                                !     rossby_front - a mixed layer front in thermal wind balance.
-                                !     soliton - Equatorial Rossby soliton.
-                                !     USER - call a user modified routine.
 ODA_INCUPD = False              !   [Boolean] default = False
                                 ! If true, oda incremental updates will be applied everywhere in the domain.
 SPONGE = False                  !   [Boolean] default = False
@@ -702,11 +704,6 @@ DIAG_COORD_INTERP_SCHEME_RHO2 = "PPM_H4" ! default = "PPM_H4"
                                 !  P3M_IH6IH5 (4th-order accurate)
                                 !  PQM_IH4IH3 (4th-order accurate)
                                 !  PQM_IH6IH5 (5th-order accurate)
-REGRIDDING_ANSWER_DATE = 99991231 ! default = 20181231
-                                ! The vintage of the expressions and order of arithmetic to use for regridding.
-                                ! Values below 20190101 result in the use of older, less accurate expressions
-                                ! that were in use at the end of 2018.  Higher values result in the use of more
-                                ! robust and accurate forms of mathematically equivalent expressions.
 DIAG_COORD_DEF_RHO2 = "RFNC1:76,999.5,1020.,1034.1,3.1,1041.,0.002" ! default = "WOA09"
                                 ! Determines how to specify the coordinate resolution. Valid options are:
                                 !  PARAM       - use the vector-parameter DIAG_COORD_RES_RHO2

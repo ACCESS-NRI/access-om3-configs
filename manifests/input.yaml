@@ -86,6 +86,11 @@ work/INPUT/bottom_roughness.nc:
   hashes:
     binhash: 2cea3acdc0c370f4ea0115fb79db35cb
     md5: 061dec8e4022c0dadccd10db8d31c567
+work/INPUT/hycom1_75_800m.nc:
+  fullpath: /g/data/x77/ahg157/inputs/mom6/access-om3-25km/hycom1_75_800m.nc
+  hashes:
+    binhash: 309281c5454018b4889acd541b5e15f2
+    md5: 023b23f6b55e6f3b3de6778e608d0d3d
 work/INPUT/kmt.nc:
   fullpath: /g/data/vk83/configurations/inputs/access-om3/cice/grids/global.25km/2025.05.15/kmt.nc
   hashes:
@@ -96,11 +101,11 @@ work/INPUT/ocean_hgrid.nc:
   hashes:
     binhash: bd6c76132d900736b2a15cf990078d17
     md5: e37b7499e33443c504c2873961ef3f8c
-work/INPUT/ocean_temp_salt.res.nc:
-  fullpath: /g/data/vk83/configurations/inputs/access-om3/mom/initial_conditions/global.25km/2025.06.17/ocean_temp_salt.res.nc
+work/INPUT/ocean_temp_salt.res.subset.nc:
+  fullpath: /g/data/x77/ahg157/inputs/mom6/access-om3-25km/ocean_temp_salt.res.subset.nc
   hashes:
-    binhash: 947a34e3214b0e0e1d374d6573d64fed
-    md5: 511ff8e161cacbb723e8df467414ab6c
+    binhash: 5fff74fbac69ed483d6b1ab3d2342846
+    md5: 5052ee74226d4a1c64ae6c706c334ffc
 work/INPUT/ocean_vgrid.nc:
   fullpath: /g/data/vk83/configurations/inputs/access-om3/mom/grids/vertical/global.25km/2025.03.12/ocean_vgrid.nc
   hashes:

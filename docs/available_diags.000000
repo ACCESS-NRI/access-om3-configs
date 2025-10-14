@@ -3165,6 +3165,76 @@
     ! units: m s-1
     ! cell_methods: xh:mean yh:mean zl:sum area:mean
     ! variants: {vert_remap_h_tendency,vert_remap_h_tendency_xyave}
+"adapt_slope_u"  [Unused]
+    ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
+    ! long_name: Adaptive coordinate slope on u-points in density space (used for flux calc.)
+    ! cell_methods: xq:point yh:mean zi:point
+    ! variants: {adapt_slope_u,adapt_slope_u_xyave}
+"adapt_slope_v"  [Unused]
+    ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
+    ! long_name: Adaptive coordinate slope on v-points in density space (used for flux calc.)
+    ! cell_methods: xh:mean yq:point zi:point
+    ! variants: {adapt_slope_v,adapt_slope_v_xyave}
+"adapt_denom_u"  [Unused]
+    ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
+    ! long_name: Adaptive coordinate density denominator on u-points (used for density displacement)
+    ! cell_methods: xq:point yh:mean zi:point
+    ! variants: {adapt_denom_u,adapt_denom_u_xyave}
+"adapt_denom_v"  [Unused]
+    ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
+    ! long_name: Adaptive coordinate density denominator on v-points (used for density displacement)
+    ! cell_methods: xh:mean yq:point zi:point
+    ! variants: {adapt_denom_v,adapt_denom_v_xyave}
+"adapt_phys_u"  [Unused]
+    ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
+    ! long_name: Adaptive coordinate physical slope on u-points (used as weighting)
+    ! cell_methods: xq:point yh:mean zi:point
+    ! variants: {adapt_phys_u,adapt_phys_u_xyave}
+"adapt_phys_v"  [Unused]
+    ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
+    ! long_name: Adaptive coordinate physical slope on v-points (used as weighting)
+    ! cell_methods: xh:mean yq:point zi:point
+    ! variants: {adapt_phys_v,adapt_phys_v_xyave}
+"adapt_coord_u"  [Unused]
+    ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
+    ! long_name: Adaptive coordinate along-coordinate slope on u-points (used as weighting)
+    ! cell_methods: xq:point yh:mean zi:point
+    ! variants: {adapt_coord_u,adapt_coord_u_xyave}
+"adapt_coord_v"  [Unused]
+    ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
+    ! long_name: Adaptive coordinate along-coordinate slope on v-points (used as weighting)
+    ! cell_methods: xh:mean yq:point zi:point
+    ! variants: {adapt_coord_v,adapt_coord_v_xyave}
+"adapt_limiting_density"  [Unused]
+    ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
+    ! long_name: Adaptive coordinate layer-limiting on density term (difference between unlimited and limited flux, before weighting
+    ! cell_methods: xh:mean yh:mean zi:point area:mean
+    ! variants: {adapt_limiting_density,adapt_limiting_density_xyave}
+"adapt_limiting_smoothing"  [Unused]
+    ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
+    ! long_name: Adaptive coordinate layer-limiting on smoothing term (difference between unlimited and limited flux, before weighting
+    ! cell_methods: xh:mean yh:mean zi:point area:mean
+    ! variants: {adapt_limiting_smoothing,adapt_limiting_smoothing_xyave}
+"adapt_w_adjust"  [Unused]
+    ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
+    ! long_name: Adaptive coordinate interface velocity due to hydrostatic adjustment
+    ! cell_methods: xh:mean yh:mean zi:point area:mean
+    ! variants: {adapt_w_adjust,adapt_w_adjust_xyave}
+"adapt_disp_density"  [Unused]
+    ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
+    ! long_name: Adaptive coordinate interface displacement due to density adaptivity
+    ! cell_methods: xh:mean yh:mean zi:point area:mean
+    ! variants: {adapt_disp_density,adapt_disp_density_xyave}
+"adapt_disp_smoothing"  [Unused]
+    ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
+    ! long_name: Adaptive coordinate interface displacement due to (limited) smoothing
+    ! cell_methods: xh:mean yh:mean zi:point area:mean
+    ! variants: {adapt_disp_smoothing,adapt_disp_smoothing_xyave}
+"adapt_disp_unlimited"  [Unused]
+    ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
+    ! long_name: Adaptive coordinate interface displacement due to (barotropic) smoothing
+    ! cell_methods: xh:mean yh:mean zi:point area:mean
+    ! variants: {adapt_disp_unlimited,adapt_disp_unlimited_xyave}
 "taux"  [Used] (CMOR equivalent is "tauuo")
     ! modules: {ocean_model,ocean_model_d2}
     ! long_name: Zonal surface stress from ocean interactions with atmos and ice

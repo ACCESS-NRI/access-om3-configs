@@ -2,9 +2,9 @@
 
 # If submitting to a different project to your default, uncomment line below 
 # and change project code as appropriate; also set shortpath below
-# project: x77
+project: x77
 # Force payu to always find, and save, files in this scratch project directory
-# shortpath: /scratch/v45
+shortpath: /scratch/x77
 
 # Using payu sync is recommend to copy data from ephemeral scratch space to 
 # longer term storage
@@ -16,9 +16,9 @@ sync:
 #Model software version
 modules:
     use:
-        - /g/data/vk83/modules
+        - /g/data/vk83/prerelease/modules
     load:
-        - access-om3/2025.05.001
+        - access-om3/pr140-6
 
 queue: normalsr
 ncpus: 1664
@@ -30,10 +30,12 @@ jobname: 025km_jra_ryf
 model: access-om3
 exe: access-om3-MOM6-CICE6
 input:
+    - /g/data/x77/ahg157/inputs/mom6/access-om3-25km/hycom1_75_800m.nc
+    - /g/data/x77/ahg157/inputs/mom6/access-om3-25km/ocean_temp_salt.res.subset.nc
     - /g/data/vk83/configurations/inputs/access-om3/cice/grids/global.25km/2025.05.15/kmt.nc
     - /g/data/vk83/configurations/inputs/access-om3/mom/grids/mosaic/global.25km/2025.05.15/ocean_hgrid.nc
     - /g/data/vk83/configurations/inputs/access-om3/mom/grids/vertical/global.25km/2025.03.12/ocean_vgrid.nc
-    - /g/data/vk83/configurations/inputs/access-om3/mom/initial_conditions/global.25km/2025.06.17/ocean_temp_salt.res.nc
+      #- /g/data/vk83/configurations/inputs/access-om3/mom/initial_conditions/global.25km/2025.06.17/ocean_temp_salt.res.nc
     - /g/data/vk83/configurations/inputs/access-om3/mom/surface_salt_restoring/global.25km/2025.06.17/salt_sfc_restore.nc
     - /g/data/vk83/configurations/inputs/access-om3/mom/tidal_external_files/global.25km/2025.05.15/bottom_roughness.nc
     - /g/data/vk83/configurations/inputs/access-om3/mom/tidal_external_files/global.25km/2025.05.15/tideamp.nc
@@ -45,12 +47,13 @@ input:
     - /g/data/vk83/configurations/inputs/access-om3/cmeps/remap_weights/global.25km/2025.05.15/access-om3-25km-rof-remap-weights.nc
     - /g/data/vk83/configurations/inputs/JRA-55/RYF/v1-6/data
 
+storage:
+ gdata:
+   - x77
+
 runlog: true
 metadata: 
     enable: true
-manifest:
-  reproduce:
-    exe: True
 
 platform:
     nodesize: 104

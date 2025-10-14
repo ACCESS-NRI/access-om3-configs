@@ -175,7 +175,7 @@ USE_IDEAL_AGE_TRACER = True     !   [Boolean] default = False
 ! === module ideal_age_example ===
 
 ! === module MOM_coord_initialization ===
-REGRIDDING_COORDINATE_MODE = "ZSTAR" ! default = "LAYER"
+REGRIDDING_COORDINATE_MODE = "ADAPTIVE" ! default = "LAYER"
                                 ! Coordinate mode for vertical regridding. Choose among the following
                                 ! possibilities:  LAYER - Isopycnal or stacked shallow water layers
                                 !  ZSTAR, Z* - stretched geopotential z*
@@ -185,23 +185,25 @@ REGRIDDING_COORDINATE_MODE = "ZSTAR" ! default = "LAYER"
                                 !  HYCOM1 - HyCOM-like hybrid coordinate
                                 !  HYBGEN - Hybrid coordinate from the Hycom hybgen code
                                 !  ADAPTIVE - optimize for smooth neutral density surfaces
-ALE_COORDINATE_CONFIG = "FILE:ocean_vgrid.nc,interfaces=zeta" ! default = "UNIFORM"
-                                ! Determines how to specify the coordinate resolution. Valid options are:
-                                !  PARAM       - use the vector-parameter ALE_RESOLUTION
-                                !  UNIFORM[:N] - uniformly distributed
-                                !  FILE:string - read from a file. The string specifies
-                                !                the filename and variable name, separated
-                                !                by a comma or space, e.g. FILE:lev.nc,dz
-                                !                or FILE:lev.nc,interfaces=zw
-                                !  WOA09[:N]   - the WOA09 vertical grid (approximately)
-                                !  WOA09INT[:N] - layers spanned by the WOA09 depths
-                                !  WOA23INT[:N] - layers spanned by the WOA23 depths
-                                !  FNC1:string - FNC1:dz_min,H_total,power,precision
-                                !  HYBRID:string - read from a file. The string specifies
-                                !                the filename and two variable names, separated
-                                !                by a comma or space, for sigma-2 and dz. e.g.
-                                !                HYBRID:vgrid.nc,sigma2,dz
-!ALE_RESOLUTION = 1.0825614929199219, 1.1963462829589844, 1.322089672088623, 1.4610481262207031, 1.614609718322754, 1.784308910369873, 1.9718408584594727, 2.1790781021118164, 2.4080896377563477, 2.661160469055176, 2.940814971923828, 3.249845504760742, 3.591329574584961, 3.968667984008789, 4.385614395141602, 4.846321105957031, 5.355350494384766, 5.917766571044922, 6.539115905761719, 7.225547790527344, 7.983818054199219, 8.821372985839844, 9.746376037597656, 10.767845153808594, 11.895652770996094, 13.140586853027344, 14.514511108398438, 16.030319213867188, 17.7020263671875, 19.544876098632812, 21.575271606445312, 23.810821533203125, 26.270294189453125, 28.973419189453125, 31.94091796875, 35.194000244140625, 38.75390625, 42.641632080078125, 46.876739501953125, 51.476593017578125, 56.45489501953125, 61.82025146484375, 67.5743408203125, 73.70965576171875, 80.207763671875, 87.03759765625, 94.1534423828125, 101.4951171875, 108.9879150390625, 116.5452880859375, 124.0714111328125, 131.4671630859375, 138.6346435546875, 145.484130859375, 151.938232421875, 157.93701171875, 163.439697265625, 168.42431640625, 172.8876953125, 176.842041015625, 180.3125, 183.33154296875, 185.938720703125, 188.175048828125, 190.08251953125, 191.701171875
+ALE_COORDINATE_CONFIG = "FNC1:2,4000,4.5,.01"
+
+! timescale on which to apply adaptivity fluxes
+ADAPT_TIMESCALE = 3600.0
+! minimum contribution of smoothing term
+ADAPT_SMOOTH_MIN = 0.1
+! scaling to convective adjustment strength
+ADAPT_ADJUSTMENT_SCALE = 0.1
+! setting the slope cutoff -- this is the important one!
+ADAPT_SLOPE_CUTOFF = 0.0035
+! restoring timescale
+REGRID_TIME_SCALE = 86400.0
+! above this depth, grid is exactly z*
+REGRID_FILTER_SHALLOW_DEPTH = 20.0
+! below this depth, restoring is at the timescale above --
+! between the two regions there is a cubic profile
+! for the restoring timescale
+REGRID_FILTER_DEEP_DEPTH = 100.0
+
 REMAPPING_SCHEME = "PPM_H4"     ! default = "PLM"
                                 ! This sets the reconstruction scheme used for vertical remapping for all
                                 ! variables. It can be one of the following schemes:
@@ -226,7 +228,7 @@ INIT_LAYERS_FROM_Z_FILE = True  !   [Boolean] default = False
                                 ! Z-space file on a latitude-longitude grid.
 
 ! === module MOM_initialize_layers_from_Z ===
-TEMP_SALT_Z_INIT_FILE = "ocean_temp_salt.res.nc" ! default = "temp_salt_z.nc"
+TEMP_SALT_Z_INIT_FILE = "ocean_temp_salt.res.subset.nc" ! default = "temp_salt_z.nc"
                                 ! The name of the z-space input file used to initialize temperatures (T) and
                                 ! salinities (S). If T and S are not in the same file, TEMP_Z_INIT_FILE and
                                 ! SALT_Z_INIT_FILE must be set.

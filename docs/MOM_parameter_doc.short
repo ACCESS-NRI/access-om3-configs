@@ -147,7 +147,7 @@ USE_IDEAL_AGE_TRACER = True     !   [Boolean] default = False
 ! === module ideal_age_example ===
 
 ! === module MOM_coord_initialization ===
-REGRIDDING_COORDINATE_MODE = "ZSTAR" ! default = "LAYER"
+REGRIDDING_COORDINATE_MODE = "ADAPTIVE" ! default = "LAYER"
                                 ! Coordinate mode for vertical regridding. Choose among the following
                                 ! possibilities:  LAYER - Isopycnal or stacked shallow water layers
                                 !  ZSTAR, Z* - stretched geopotential z*
@@ -157,7 +157,12 @@ REGRIDDING_COORDINATE_MODE = "ZSTAR" ! default = "LAYER"
                                 !  HYCOM1 - HyCOM-like hybrid coordinate
                                 !  HYBGEN - Hybrid coordinate from the Hycom hybgen code
                                 !  ADAPTIVE - optimize for smooth neutral density surfaces
-ALE_COORDINATE_CONFIG = "FILE:ocean_vgrid.nc,interfaces=zeta" ! default = "UNIFORM"
+REGRIDDING_ANSWER_DATE = 99991231 ! default = 20181231
+                                ! The vintage of the expressions and order of arithmetic to use for regridding.
+                                ! Values below 20190101 result in the use of older, less accurate expressions
+                                ! that were in use at the end of 2018.  Higher values result in the use of more
+                                ! robust and accurate forms of mathematically equivalent expressions.
+ALE_COORDINATE_CONFIG = "FNC1:2,4000,4.5,.01" ! default = "UNIFORM"
                                 ! Determines how to specify the coordinate resolution. Valid options are:
                                 !  PARAM       - use the vector-parameter ALE_RESOLUTION
                                 !  UNIFORM[:N] - uniformly distributed
@@ -173,7 +178,22 @@ ALE_COORDINATE_CONFIG = "FILE:ocean_vgrid.nc,interfaces=zeta" ! default = "UNIFO
                                 !                the filename and two variable names, separated
                                 !                by a comma or space, for sigma-2 and dz. e.g.
                                 !                HYBRID:vgrid.nc,sigma2,dz
-!ALE_RESOLUTION = 1.0825614929199219, 1.1963462829589844, 1.322089672088623, 1.4610481262207031, 1.614609718322754, 1.784308910369873, 1.9718408584594727, 2.1790781021118164, 2.4080896377563477, 2.661160469055176, 2.940814971923828, 3.249845504760742, 3.591329574584961, 3.968667984008789, 4.385614395141602, 4.846321105957031, 5.355350494384766, 5.917766571044922, 6.539115905761719, 7.225547790527344, 7.983818054199219, 8.821372985839844, 9.746376037597656, 10.767845153808594, 11.895652770996094, 13.140586853027344, 14.514511108398438, 16.030319213867188, 17.7020263671875, 19.544876098632812, 21.575271606445312, 23.810821533203125, 26.270294189453125, 28.973419189453125, 31.94091796875, 35.194000244140625, 38.75390625, 42.641632080078125, 46.876739501953125, 51.476593017578125, 56.45489501953125, 61.82025146484375, 67.5743408203125, 73.70965576171875, 80.207763671875, 87.03759765625, 94.1534423828125, 101.4951171875, 108.9879150390625, 116.5452880859375, 124.0714111328125, 131.4671630859375, 138.6346435546875, 145.484130859375, 151.938232421875, 157.93701171875, 163.439697265625, 168.42431640625, 172.8876953125, 176.842041015625, 180.3125, 183.33154296875, 185.938720703125, 188.175048828125, 190.08251953125, 191.701171875
+!ALE_RESOLUTION = 7*2.0, 2*2.01, 2.02, 2.03, 2.05, 2.08, 2.11, 2.15, 2.21, 2.2800000000000002, 2.37, 2.48, 2.61, 2.77, 2.95, 3.17, 3.4299999999999997, 3.74, 4.09, 4.49, 4.95, 5.48, 6.07, 6.74, 7.5, 8.34, 9.280000000000001, 10.33, 11.49, 12.77, 14.19, 15.74, 17.450000000000003, 19.31, 21.35, 23.56, 25.97, 28.580000000000002, 31.41, 34.47, 37.77, 41.32, 45.14, 49.25, 53.65, 58.370000000000005, 63.42, 68.81, 74.56, 80.68, 87.21000000000001, 94.14, 101.51, 109.33, 117.62, 126.4, 135.68, 145.5, 155.87, 166.81, 178.35, 190.51, 203.31, 216.78, 230.93, 245.8, 261.42, 277.83 !   [m]
+                                ! The distribution of vertical resolution for the target
+                                ! grid used for Eulerian-like coordinates. For example,
+                                ! in z-coordinate mode, the parameter is a list of level
+                                ! thicknesses (in m). In sigma-coordinate mode, the list
+                                ! is of non-dimensional fractions of the water column.
+ADAPT_TIMESCALE = 3600.0        !   [s] default = 8.64E+04
+                                ! Timescale for adaptivity diffusivity (defaults to a day)
+ADAPT_SLOPE_CUTOFF = 0.0035     !   [nondim] default = 0.01
+                                ! Slope cutoff between stratified and unstratified regions
+ADAPT_SMOOTH_MIN = 0.1          !   [nondim] default = 0.0
+                                ! Minimum weight toward smoothing term
+ADAPT_ADJUSTMENT_SCALE = 0.1    !   [nondim] default = 1.0
+                                ! Non-dimensional scale for adjusting interface positions when
+                                ! a diagonal convective instability would occur. When set to 1,
+                                ! perform the full adjustment permitted by the local CFL value.
 REMAPPING_SCHEME = "PPM_H4"     ! default = "PLM"
                                 ! This sets the reconstruction scheme used for vertical remapping for all
                                 ! variables. It can be one of the following schemes:
@@ -191,28 +211,20 @@ REMAPPING_USE_OM4_SUBCELLS = False !   [Boolean] default = True
                                 ! reconstruction for the top- and lower-most sub-layers, but instead assumes
                                 ! they are always vanished (untrue) and so just uses their edge values. We
                                 ! recommend setting this option to false.
+REGRID_TIME_SCALE = 8.64E+04    !   [s] default = 0.0
+                                ! The time-scale used in blending between the current (old) grid and the target
+                                ! (new) grid. A short time-scale favors the target grid (0. or anything less
+                                ! than DT_THERM) has no memory of the old grid. A very long time-scale makes the
+                                ! model more Lagrangian.
+REGRID_FILTER_SHALLOW_DEPTH = 20.0 !   [m] default = 0.0
+                                ! The depth above which no time-filtering is applied. Above this depth final
+                                ! grid exactly matches the target (new) grid.
+REGRID_FILTER_DEEP_DEPTH = 100.0 !   [m] default = 0.0
+                                ! The depth below which full time-filtering is applied with time-scale
+                                ! REGRID_TIME_SCALE. Between depths REGRID_FILTER_SHALLOW_DEPTH and
+                                ! REGRID_FILTER_SHALLOW_DEPTH the filter weights adopt a cubic profile.
 
 ! === module MOM_state_initialization ===
-INIT_LAYERS_FROM_Z_FILE = True  !   [Boolean] default = False
-                                ! If true, initialize the layer thicknesses, temperatures, and salinities from a
-                                ! Z-space file on a latitude-longitude grid.
-
-! === module MOM_initialize_layers_from_Z ===
-TEMP_SALT_Z_INIT_FILE = "ocean_temp_salt.res.nc" ! default = "temp_salt_z.nc"
-                                ! The name of the z-space input file used to initialize temperatures (T) and
-                                ! salinities (S). If T and S are not in the same file, TEMP_Z_INIT_FILE and
-                                ! SALT_Z_INIT_FILE must be set.
-Z_INIT_FILE_PTEMP_VAR = "temp"  ! default = "ptemp"
-                                ! The name of the potential temperature variable in TEMP_Z_INIT_FILE.
-Z_INIT_ALE_REMAPPING = True     !   [Boolean] default = False
-                                ! If True, then remap straight to model coordinate from file.
-Z_INIT_REMAP_GENERAL = True     !   [Boolean] default = False
-                                ! If false, only initializes to z* coordinates. If true, allows initialization
-                                ! directly to general coordinates.
-TEMP_SALT_INIT_VERTICAL_REMAP_ONLY = True !   [Boolean] default = False
-                                ! If true, initial conditions are on the model horizontal grid. Extrapolation
-                                ! over missing ocean values is done using an ICE-9 procedure with vertical ALE
-                                ! remapping .
 Z_INIT_REMAPPING_USE_OM4_SUBCELLS = False !   [Boolean] default = True
                                 ! If true, use the OM4 remapping-via-subcells algorithm for initialization. See
                                 ! REMAPPING_USE_OM4_SUBCELLS for more details. We recommend setting this option
@@ -246,11 +258,6 @@ DIAG_COORD_DEF_Z = "FILE:ocean_vgrid.nc,interfaces=zeta" ! default = "WOA09"
                                 !                the filename and two variable names, separated
                                 !                by a comma or space, for sigma-2 and dz. e.g.
                                 !                HYBRID:vgrid.nc,sigma2,dz
-REGRIDDING_ANSWER_DATE = 99991231 ! default = 20181231
-                                ! The vintage of the expressions and order of arithmetic to use for regridding.
-                                ! Values below 20190101 result in the use of older, less accurate expressions
-                                ! that were in use at the end of 2018.  Higher values result in the use of more
-                                ! robust and accurate forms of mathematically equivalent expressions.
 DIAG_COORD_DEF_RHO2 = "RFNC1:76,999.5,1020.,1034.1,3.1,1041.,0.002" ! default = "WOA09"
                                 ! Determines how to specify the coordinate resolution. Valid options are:
                                 !  PARAM       - use the vector-parameter DIAG_COORD_RES_RHO2

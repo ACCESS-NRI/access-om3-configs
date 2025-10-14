@@ -1,3 +1,68 @@
 format: yamanifest
 version: 1.0
---- {}
+---
+work/access-om3.cice.r.1901-01-01-00000.nc:
+  fullpath: /scratch/x77/ahg157/access-om3/archive/20250923-access-om3-25km-ag-angus-g/om3-25km-ag-536027c3/restart000/access-om3.cice.r.1901-01-01-00000.nc
+  hashes:
+    binhash: dd05fd6a50efcf186a34b86f8b52cbeb
+    md5: 1992c6077ab74f1195bcb4d8f26092eb
+work/access-om3.cpl.r.1901-01-01-00000.nc:
+  fullpath: /scratch/x77/ahg157/access-om3/archive/20250923-access-om3-25km-ag-angus-g/om3-25km-ag-536027c3/restart000/access-om3.cpl.r.1901-01-01-00000.nc
+  hashes:
+    binhash: 3fda30ca39cc690779cc3c74175e8669
+    md5: bc18d85d30e769a4aea62659544fcdb7
+work/access-om3.datm.r.1901-01-01-00000.nc:
+  fullpath: /scratch/x77/ahg157/access-om3/archive/20250923-access-om3-25km-ag-angus-g/om3-25km-ag-536027c3/restart000/access-om3.datm.r.1901-01-01-00000.nc
+  hashes:
+    binhash: 963620cf0acbf93ed6d3e751cc82431b
+    md5: 5d611bdad83ee20c059a1d70b5e24b50
+work/access-om3.drof.r.1901-01-01-00000.nc:
+  fullpath: /scratch/x77/ahg157/access-om3/archive/20250923-access-om3-25km-ag-angus-g/om3-25km-ag-536027c3/restart000/access-om3.drof.r.1901-01-01-00000.nc
+  hashes:
+    binhash: 80f063a8116c9613cbfd506c7d26a33f
+    md5: 03df84d2630fb48b4aa86a876d2ba417
+work/access-om3.mom6.r.1901-01-01-00000.nc:
+  fullpath: /scratch/x77/ahg157/access-om3/archive/20250923-access-om3-25km-ag-angus-g/om3-25km-ag-536027c3/restart000/access-om3.mom6.r.1901-01-01-00000.nc
+  hashes:
+    binhash: fad94569bc589a7a54076fc5cb13c05a
+    md5: 8a5ed7a0924905eaddfe34cf1673fe70
+work/access-om3.mom6.r.1901-01-01-00000_1.nc:
+  fullpath: /scratch/x77/ahg157/access-om3/archive/20250923-access-om3-25km-ag-angus-g/om3-25km-ag-536027c3/restart000/access-om3.mom6.r.1901-01-01-00000_1.nc
+  hashes:
+    binhash: 3fbe33513595b7958f2e899469aace1b
+    md5: 2c36cd437a22605dfebf41070291aec5
+work/access-om3.mom6.r.1901-01-01-00000_2.nc:
+  fullpath: /scratch/x77/ahg157/access-om3/archive/20250923-access-om3-25km-ag-angus-g/om3-25km-ag-536027c3/restart000/access-om3.mom6.r.1901-01-01-00000_2.nc
+  hashes:
+    binhash: 1b2d2d3d4ce18150b2e94f23f1de631f
+    md5: 25435bc02d94807c8791b447345f0775
+work/access-om3.mom6.r.1901-01-01-00000_3.nc:
+  fullpath: /scratch/x77/ahg157/access-om3/archive/20250923-access-om3-25km-ag-angus-g/om3-25km-ag-536027c3/restart000/access-om3.mom6.r.1901-01-01-00000_3.nc
+  hashes:
+    binhash: 650a154805b0a675d3f39f1dc235e82f
+    md5: 551c219aeeafa85c72deba33124dfbbf
+work/rpointer.atm:
+  fullpath: /scratch/x77/ahg157/access-om3/archive/20250923-access-om3-25km-ag-angus-g/om3-25km-ag-536027c3/restart000/rpointer.atm
+  hashes:
+    binhash: 82fff52c5917c74dd618ed53b823797e
+    md5: 27b9497bb722e90e6800014f4c37f772
+work/rpointer.cpl:
+  fullpath: /scratch/x77/ahg157/access-om3/archive/20250923-access-om3-25km-ag-angus-g/om3-25km-ag-536027c3/restart000/rpointer.cpl
+  hashes:
+    binhash: b1308032b8085bd05d67d1a79917c0eb
+    md5: 2bc9d4f79a64e7898accd6647c4d677c
+work/rpointer.ice:
+  fullpath: /scratch/x77/ahg157/access-om3/archive/20250923-access-om3-25km-ag-angus-g/om3-25km-ag-536027c3/restart000/rpointer.ice
+  hashes:
+    binhash: c048f84d628e5b3fe96c986937ebe817
+    md5: e9c3c58fc10dd4114d2079fec8d2bfc8
+work/rpointer.ocn:
+  fullpath: /scratch/x77/ahg157/access-om3/archive/20250923-access-om3-25km-ag-angus-g/om3-25km-ag-536027c3/restart000/rpointer.ocn
+  hashes:
+    binhash: 94e4f3cc4efac2a95a0947cc583d21aa
+    md5: 898205e7216238aacaaee10172f0117e
+work/rpointer.rof:
+  fullpath: /scratch/x77/ahg157/access-om3/archive/20250923-access-om3-25km-ag-angus-g/om3-25km-ag-536027c3/restart000/rpointer.rof
+  hashes:
+    binhash: 0cbad15358305dd160235d9ad384c1bb
+    md5: 52f906041c01a134d4e1349bc653ca44
