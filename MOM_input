@@ -715,3 +715,5 @@ ICE_THICKNESS_VARNAME = "thick" ! default = "h_shelf"
                                 ! The name of the thickness variable in ICE_THICKNESS_FILE.
 ICE_AREA_VARNAME = "area"       ! default = "area_shelf_h"
                                 ! The name of the area variable in ICE_THICKNESS_FILE.
+! === module MOM_domains ===
+AUTO_MASKTABLE = True
