@@ -61,7 +61,7 @@ SPONGE = False
 #override EQN_OF_STATE = "WRIGHT_FULL"
 #override TFREEZE_FORM = "LINEAR"
 #override DTFREEZE_DP = -7.75E-08
-#override PARALLEL_RESTARTFILES = False !Check IO LAYOUT
+!#override PARALLEL_RESTARTFILES = False !Check IO LAYOUT
 
 ! Diag mediator - copy MOM6-SIS2 panan stuff here
 #override NUM_DIAG_COORDS = 2
