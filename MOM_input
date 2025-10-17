@@ -113,11 +113,6 @@ USE_CONTEMP_ABSSAL = False      !   [Boolean] default = False
                                 ! salinity. Care should be taken to convert them to potential temperature and
                                 ! practical salinity before exchanging them with the coupler and/or reporting
                                 ! T&S diagnostics.
-
-DEFAULT_2018_ANSWERS = False
-                                ! "[Boolean] default = True
-                                ! This sets the default value for the various _2018_ANSWERS parameters."
-
 ! === module MOM_domains ===
 
 TRIPOLAR_N = True
@@ -155,7 +150,7 @@ NJGLOBAL = 300
                                 ! The processor layout that was acutally used."
 
 ! === module MOM_verticalGrid ===
-NK = 50
+NK = 75
                                 ! "[nondim]
                                 ! The number of model layers."
 
