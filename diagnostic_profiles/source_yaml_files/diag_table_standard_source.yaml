@@ -172,6 +172,7 @@ diag_table:
             file_name_diag_coord: "z"
         fields:
             agessc: # Sea water age since surface contact
+            rhopot0: # Potential density referenced to surface
             rhopot2: # Potential density referenced to 2000 dbar
             thetao: # Potential Temperature
             so: # Salinity
