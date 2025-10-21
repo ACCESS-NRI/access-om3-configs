@@ -9,7 +9,7 @@ All contributions are welcome but we would particularly appreciate text suggesti
 
 The simplest and fastest way to make a change to an _existing_ page is to click the edit "pencil" on the top-right corner. This will go to the relevant GitHub markdown file and clicking the top-right pencil again on GitHub will allow you to edit the file. Once complete, click `Commit changes...`. There are then _two_ possibilities, depending on whether you have  write access to [`access-om3-configs`](https://github.com/ACCESS-NRI/access-om3-configs): 
 
-1.  **No write access** (e.g. you are not part of the `ACCESS-NRI` GitHub organisation): this will prompt you to make a fork and then a pull request (less than 1 minute!). 
+1.  **No write access**: this will prompt you to make a fork and then a pull request (less than 1 minute!). 
 1.  **You have write access**: please commit changes on a new branch and then use a pull request (this relates to the next option). 
 
 ### Larger contributions (online PR-previews)
