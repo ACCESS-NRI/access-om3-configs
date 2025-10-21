@@ -37,11 +37,6 @@ USE_CONTEMP_ABSSAL = True       !   [Boolean] default = False
 USE_REGRIDDING = True           !   [Boolean] default = False
                                 ! If True, use the ALE algorithm (regridding/remapping). If False, use the
                                 ! layered isopycnal algorithm.
-THICKNESSDIFFUSE = True         !   [Boolean] default = False
-                                ! If true, isopycnal surfaces are diffused with a Laplacian coefficient of KHTH.
-THICKNESSDIFFUSE_FIRST = True   !   [Boolean] default = False
-                                ! If true, do thickness diffusion or interface height smoothing before dynamics.
-                                ! This is only used if THICKNESSDIFFUSE or APPLY_INTERFACE_FILTER is true.
 DT = 900.0                      !   [s]
                                 ! The (baroclinic) dynamics time step.  The time-step that is actually used will
                                 ! be an integer fraction of the forcing time-step (DT_FORCING in ocean-only mode
@@ -52,10 +47,15 @@ DT_THERM = 7200.0               !   [s] default = 900.0
                                 ! However, if THERMO_SPANS_COUPLING is true, DT_THERM can be an integer multiple
                                 ! of the coupling timestep. By default DT_THERM is set to DT.
 THERMO_SPANS_COUPLING = True    !   [Boolean] default = False
-                                ! If true, the MOM will take thermodynamic and tracer timesteps that can be
-                                ! longer than the coupling timestep. The actual thermodynamic timestep that is
-                                ! used in this case is the largest integer multiple of the coupling timestep
-                                ! that is less than or equal to DT_THERM.
+                                ! If true, the MOM will take thermodynamic timesteps that can be longer than the
+                                ! coupling timestep. The actual thermodynamic timestep that is used in this case
+                                ! is the largest integer multiple of the coupling timestep that is less than or
+                                ! equal to DT_THERM.
+THICKNESSDIFFUSE = True         !   [Boolean] default = False
+                                ! If true, isopycnal surfaces are diffused with a Laplacian coefficient of KHTH.
+THICKNESSDIFFUSE_FIRST = True   !   [Boolean] default = False
+                                ! If true, do thickness diffusion or interface height smoothing before dynamics.
+                                ! This is only used if THICKNESSDIFFUSE or APPLY_INTERFACE_FILTER is true.
 HFREEZE = 10.0                  !   [m] default = -1.0
                                 ! If HFREEZE > 0, melt potential will be computed. The actual depth over which
                                 ! melt potential is computed will be min(HFREEZE, OBLD), where OBLD is the
@@ -185,6 +185,10 @@ USE_generic_tracer = True       !   [Boolean] default = False
 
 ! === module register_MOM_generic_tracer ===
 
+! === module MOM_fixed_initialization ===
+
+! === module MOM_grid_init ===
+
 ! === module MOM_coord_initialization ===
 REGRIDDING_COORDINATE_MODE = "ZSTAR" ! default = "LAYER"
                                 ! Coordinate mode for vertical regridding. Choose among the following
@@ -252,19 +256,11 @@ TEMP_SALT_INIT_VERTICAL_REMAP_ONLY = True !   [Boolean] default = False
                                 ! If true, initial conditions are on the model horizontal grid. Extrapolation
                                 ! over missing ocean values is done using an ICE-9 procedure with vertical ALE
                                 ! remapping .
-Z_INIT_REMAPPING_USE_OM4_SUBCELLS = False !   [Boolean] default = True
-                                ! If true, use the OM4 remapping-via-subcells algorithm for initialization. See
-                                ! REMAPPING_USE_OM4_SUBCELLS for more details. We recommend setting this option
-                                ! to false.
 
 ! === module MOM_diag_mediator ===
 NUM_DIAG_COORDS = 2             ! default = 1
                                 ! The number of diagnostic vertical coordinates to use. For each coordinate, an
                                 ! entry in DIAG_COORDS must be provided.
-DIAG_REMAPPING_USE_OM4_SUBCELLS = False !   [Boolean] default = True
-                                ! If true, use the OM4 remapping-via-subcells algorithm for diagnostics. See
-                                ! REMAPPING_USE_OM4_SUBCELLS for details. We recommend setting this option to
-                                ! false.
 DIAG_COORDS = "z Z ZSTAR", "rho2 RHO2 RHO" !
                                 ! A list of string tuples associating diag_table modules to a coordinate
                                 ! definition used for diagnostics. Each string is of the form
@@ -360,10 +356,6 @@ KH_RES_FN_POWER = 100           ! default = 2
                                 ! The power of dx/Ld in the Kh resolution function.  Any positive integer may be
                                 ! used, although even integers are more efficient to calculate.  Setting this
                                 ! greater than 100 results in a step-function being used.
-EBT_REMAPPING_USE_OM4_SUBCELLS = False !   [Boolean] default = True
-                                ! If true, use the OM4 remapping-via-subcells algorithm for calculating EBT
-                                ! structure. See REMAPPING_USE_OM4_SUBCELLS for details. We recommend setting
-                                ! this option to false.
 
 ! === module MOM_set_visc ===
 CHANNEL_DRAG = True             !   [Boolean] default = False
@@ -538,10 +530,6 @@ MLE_USE_PBL_MLD = True          !   [Boolean] default = False
                                 ! unless BODNER_DETECT_MLD is true.
 
 ! === module MOM_diagnostics ===
-INTWAVE_REMAPPING_USE_OM4_SUBCELLS = False !   [Boolean] default = True
-                                ! If true, use the OM4 remapping-via-subcells algorithm for calculating EBT
-                                ! structure. See REMAPPING_USE_OM4_SUBCELLS for details. We recommend setting
-                                ! this option to false.
 
 ! === module MOM_diabatic_driver ===
 ! The following parameters are used for diabatic processes.
@@ -645,6 +633,12 @@ PRESSURE_DEPENDENT_FRAZIL = True !   [Boolean] default = False
                                 ! If true, use a pressure dependent freezing temperature when making frazil. The
                                 ! default is false, which will be faster but is inappropriate with ice-shelf
                                 ! cavities.
+USE_RIVER_HEAT_CONTENT = True   !   [Boolean] default = False
+                                ! If true, use the fluxes%runoff_Hflx field to set the heat carried by runoff,
+                                ! instead of using SST*CP*liq_runoff.
+USE_CALVING_HEAT_CONTENT = True !   [Boolean] default = False
+                                ! If true, use the fluxes%calving_Hflx field to set the heat carried by runoff,
+                                ! instead of using SST*CP*froz_runoff.
 
 ! === module MOM_energetic_PBL ===
 ML_OMEGA_FRAC = 0.001           !   [nondim] default = 0.0
@@ -769,6 +763,9 @@ ADJUST_NET_FRESH_WATER_TO_ZERO = True !   [Boolean] default = False
 WIND_STAGGER = "A"              ! default = "C"
                                 ! A case-insensitive character string to indicate the staggering of the input
                                 ! wind stress field.  Valid values are 'A', 'B', or 'C'.
+ENTHALPY_FROM_COUPLER = True    !   [Boolean] default = False
+                                ! If True, the heat (enthalpy) associated with mass entering/leaving the ocean
+                                ! is provided via coupler.
 FLUXCONST = 0.11                !   [m day-1] default = 0.0
                                 ! The constant that relates the restoring surface fluxes to the relative surface
                                 ! anomalies (akin to a piston velocity).  Note the non-MKS units.
