@@ -1,0 +1,597 @@
+Sat Oct 25 03:03:19 AEDT 2025
+Error found: Segmentation fault: address not mapped to object
+Reset resubmission counter
+Resubmission counter: 10
+laboratory path:  /scratch/x77/cy8964/access-om3
+binary path:  /scratch/x77/cy8964/access-om3/bin
+input path:  /scratch/x77/cy8964/access-om3/input
+work path:  /scratch/x77/cy8964/access-om3/work
+archive path:  /scratch/x77/cy8964/access-om3/archive
+Metadata and UUID generation is disabled. Experiment name used for archival: ice_shelf_panan-PR-061025-nofrazilshelf-tideson-AmWed_adjIC-opt
+Moving log 8km_panAn_is_IC.o153319167
+Moving log 8km_panAn_is_IC.e153319167
+Removing work path /scratch/x77/cy8964/access-om3/work/ice_shelf_panan-PR-061025-nofrazilshelf-tideson-AmWed_adjIC-opt
+Removing symlink /home/156/cy8964/mom6-control/access-rom3/ice_shelf_panan-PR-061025-nofrazilshelf-tideson-AmWed_adjIC-opt/work
+payu: warning: Job request includes 26 unused CPUs.
+payu: warning: CPU request increased from 2990 to 3016
+laboratory path:  /scratch/x77/cy8964/access-om3
+binary path:  /scratch/x77/cy8964/access-om3/bin
+input path:  /scratch/x77/cy8964/access-om3/input
+work path:  /scratch/x77/cy8964/access-om3/work
+archive path:  /scratch/x77/cy8964/access-om3/archive
+Metadata and UUID generation is disabled. Experiment name used for archival: ice_shelf_panan-PR-061025-nofrazilshelf-tideson-AmWed_adjIC-opt
+Loading input manifest: manifests/input.yaml
+Loading restart manifest: manifests/restart.yaml
+Loading exe manifest: manifests/exe.yaml
+payu: Found modules in /opt/Modules/v4.3.0
+qsub -q normalsr -P oz91 -l walltime=18000 -l ncpus=3016 -l mem=14700GB -l jobfs=10GB -N 8km_panAn_is_IC -l wd -j n -v PAYU_PATH=/g/data/vk83/prerelease/apps/base_conda/envs/payu-dev-20251015T221553Z-462fc45/bin,PAYU_N_RUNS=1,MODULESHOME=/opt/Modules/v4.3.0,MODULES_CMD=/opt/Modules/v4.3.0/libexec/modulecmd.tcl,MODULEPATH=/g/data/vk83/modules:/g/data/vk83/prerelease/modules:/etc/scl/modulefiles:/apps/Modules/restricted-modulefiles/matlab_anu:/opt/Modules/modulefiles:/opt/Modules/v4.3.0/modulefiles:/apps/Modules/modulefiles -l storage=gdata/tm70+gdata/vk83+gdata/x77+scratch/x77 -- /g/data/vk83/prerelease/./apps/conda_scripts/payu-dev-20251015T221553Z-462fc45.d/bin/launcher.sh /g/data/vk83/prerelease/./apps/base_conda/envs/payu-dev-20251015T221553Z-462fc45/bin/python /g/data/vk83/prerelease/apps/base_conda/envs/payu-dev-20251015T221553Z-462fc45/bin/payu-run
+153323462.gadi-pbs
+
+Sat Oct 25 07:29:47 AEDT 2025
+Error found: Segmentation fault: address not mapped to object
+Reset resubmission counter
+Resubmission counter: 10
+laboratory path:  /scratch/x77/cy8964/access-om3
+binary path:  /scratch/x77/cy8964/access-om3/bin
+input path:  /scratch/x77/cy8964/access-om3/input
+work path:  /scratch/x77/cy8964/access-om3/work
+archive path:  /scratch/x77/cy8964/access-om3/archive
+Metadata and UUID generation is disabled. Experiment name used for archival: ice_shelf_panan-PR-061025-nofrazilshelf-tideson-AmWed_adjIC-opt
+Removing work path /scratch/x77/cy8964/access-om3/work/ice_shelf_panan-PR-061025-nofrazilshelf-tideson-AmWed_adjIC-opt
+Removing symlink /home/156/cy8964/mom6-control/access-rom3/ice_shelf_panan-PR-061025-nofrazilshelf-tideson-AmWed_adjIC-opt/work
+payu: warning: Job request includes 26 unused CPUs.
+payu: warning: CPU request increased from 2990 to 3016
+laboratory path:  /scratch/x77/cy8964/access-om3
+binary path:  /scratch/x77/cy8964/access-om3/bin
+input path:  /scratch/x77/cy8964/access-om3/input
+work path:  /scratch/x77/cy8964/access-om3/work
+archive path:  /scratch/x77/cy8964/access-om3/archive
+Metadata and UUID generation is disabled. Experiment name used for archival: ice_shelf_panan-PR-061025-nofrazilshelf-tideson-AmWed_adjIC-opt
+Loading input manifest: manifests/input.yaml
+Loading restart manifest: manifests/restart.yaml
+Loading exe manifest: manifests/exe.yaml
+payu: Found modules in /opt/Modules/v4.3.0
+qsub -q normalsr -P ol01 -l walltime=18000 -l ncpus=3016 -l mem=14700GB -l jobfs=10GB -N 8km_panAn_is_IC -l wd -j n -v PAYU_PATH=/g/data/vk83/prerelease/apps/base_conda/envs/payu-dev-20251015T221553Z-462fc45/bin,PAYU_N_RUNS=1,MODULESHOME=/opt/Modules/v4.3.0,MODULES_CMD=/opt/Modules/v4.3.0/libexec/modulecmd.tcl,MODULEPATH=/g/data/vk83/modules:/g/data/vk83/prerelease/modules:/etc/scl/modulefiles:/apps/Modules/restricted-modulefiles/matlab_anu:/opt/Modules/modulefiles:/opt/Modules/v4.3.0/modulefiles:/apps/Modules/modulefiles -l storage=gdata/tm70+gdata/vk83+gdata/x77+scratch/x77 -- /g/data/vk83/prerelease/./apps/conda_scripts/payu-dev-20251015T221553Z-462fc45.d/bin/launcher.sh /g/data/vk83/prerelease/./apps/base_conda/envs/payu-dev-20251015T221553Z-462fc45/bin/python /g/data/vk83/prerelease/apps/base_conda/envs/payu-dev-20251015T221553Z-462fc45/bin/payu-run
+153329221.gadi-pbs
+
+Sat Oct 25 07:34:35 AEDT 2025
+Error found: Segmentation fault: address not mapped to object
+Resubmission counter: 9
+laboratory path:  /scratch/x77/cy8964/access-om3
+binary path:  /scratch/x77/cy8964/access-om3/bin
+input path:  /scratch/x77/cy8964/access-om3/input
+work path:  /scratch/x77/cy8964/access-om3/work
+archive path:  /scratch/x77/cy8964/access-om3/archive
+Metadata and UUID generation is disabled. Experiment name used for archival: ice_shelf_panan-PR-061025-nofrazilshelf-tideson-AmWed_adjIC-opt
+Moving log 8km_panAn_is_IC.o153329086
+Moving log 8km_panAn_is_IC.e153329086
+Removing work path /scratch/x77/cy8964/access-om3/work/ice_shelf_panan-PR-061025-nofrazilshelf-tideson-AmWed_adjIC-opt
+Removing symlink /home/156/cy8964/mom6-control/access-rom3/ice_shelf_panan-PR-061025-nofrazilshelf-tideson-AmWed_adjIC-opt/work
+payu: warning: Job request includes 26 unused CPUs.
+payu: warning: CPU request increased from 2990 to 3016
+laboratory path:  /scratch/x77/cy8964/access-om3
+binary path:  /scratch/x77/cy8964/access-om3/bin
+input path:  /scratch/x77/cy8964/access-om3/input
+work path:  /scratch/x77/cy8964/access-om3/work
+archive path:  /scratch/x77/cy8964/access-om3/archive
+Metadata and UUID generation is disabled. Experiment name used for archival: ice_shelf_panan-PR-061025-nofrazilshelf-tideson-AmWed_adjIC-opt
+Loading input manifest: manifests/input.yaml
+Loading restart manifest: manifests/restart.yaml
+Loading exe manifest: manifests/exe.yaml
+payu: Found modules in /opt/Modules/v4.3.0
+qsub -q normalsr -P ol01 -l walltime=18000 -l ncpus=3016 -l mem=14700GB -l jobfs=10GB -N 8km_panAn_is_IC -l wd -j n -v PAYU_PATH=/g/data/vk83/prerelease/apps/base_conda/envs/payu-dev-20251015T221553Z-462fc45/bin,PAYU_N_RUNS=1,MODULESHOME=/opt/Modules/v4.3.0,MODULES_CMD=/opt/Modules/v4.3.0/libexec/modulecmd.tcl,MODULEPATH=/g/data/vk83/modules:/g/data/vk83/prerelease/modules:/etc/scl/modulefiles:/apps/Modules/restricted-modulefiles/matlab_anu:/opt/Modules/modulefiles:/opt/Modules/v4.3.0/modulefiles:/apps/Modules/modulefiles -l storage=gdata/tm70+gdata/vk83+gdata/x77+scratch/x77 -- /g/data/vk83/prerelease/./apps/conda_scripts/payu-dev-20251015T221553Z-462fc45.d/bin/launcher.sh /g/data/vk83/prerelease/./apps/base_conda/envs/payu-dev-20251015T221553Z-462fc45/bin/python /g/data/vk83/prerelease/apps/base_conda/envs/payu-dev-20251015T221553Z-462fc45/bin/payu-run
+153329288.gadi-pbs
+
+Sat Oct 25 07:38:52 AEDT 2025
+Error found: Segmentation fault: address not mapped to object
+Resubmission counter: 8
+laboratory path:  /scratch/x77/cy8964/access-om3
+binary path:  /scratch/x77/cy8964/access-om3/bin
+input path:  /scratch/x77/cy8964/access-om3/input
+work path:  /scratch/x77/cy8964/access-om3/work
+archive path:  /scratch/x77/cy8964/access-om3/archive
+Metadata and UUID generation is disabled. Experiment name used for archival: ice_shelf_panan-PR-061025-nofrazilshelf-tideson-AmWed_adjIC-opt
+Moving log 8km_panAn_is_IC.o153329221
+Moving log 8km_panAn_is_IC.e153329221
+Removing work path /scratch/x77/cy8964/access-om3/work/ice_shelf_panan-PR-061025-nofrazilshelf-tideson-AmWed_adjIC-opt
+Removing symlink /home/156/cy8964/mom6-control/access-rom3/ice_shelf_panan-PR-061025-nofrazilshelf-tideson-AmWed_adjIC-opt/work
+payu: warning: Job request includes 26 unused CPUs.
+payu: warning: CPU request increased from 2990 to 3016
+laboratory path:  /scratch/x77/cy8964/access-om3
+binary path:  /scratch/x77/cy8964/access-om3/bin
+input path:  /scratch/x77/cy8964/access-om3/input
+work path:  /scratch/x77/cy8964/access-om3/work
+archive path:  /scratch/x77/cy8964/access-om3/archive
+Metadata and UUID generation is disabled. Experiment name used for archival: ice_shelf_panan-PR-061025-nofrazilshelf-tideson-AmWed_adjIC-opt
+Loading input manifest: manifests/input.yaml
+Loading restart manifest: manifests/restart.yaml
+Loading exe manifest: manifests/exe.yaml
+payu: Found modules in /opt/Modules/v4.3.0
+qsub -q normalsr -P ol01 -l walltime=18000 -l ncpus=3016 -l mem=14700GB -l jobfs=10GB -N 8km_panAn_is_IC -l wd -j n -v PAYU_PATH=/g/data/vk83/prerelease/apps/base_conda/envs/payu-dev-20251015T221553Z-462fc45/bin,PAYU_N_RUNS=1,MODULESHOME=/opt/Modules/v4.3.0,MODULES_CMD=/opt/Modules/v4.3.0/libexec/modulecmd.tcl,MODULEPATH=/g/data/vk83/modules:/g/data/vk83/prerelease/modules:/etc/scl/modulefiles:/apps/Modules/restricted-modulefiles/matlab_anu:/opt/Modules/modulefiles:/opt/Modules/v4.3.0/modulefiles:/apps/Modules/modulefiles -l storage=gdata/tm70+gdata/vk83+gdata/x77+scratch/x77 -- /g/data/vk83/prerelease/./apps/conda_scripts/payu-dev-20251015T221553Z-462fc45.d/bin/launcher.sh /g/data/vk83/prerelease/./apps/base_conda/envs/payu-dev-20251015T221553Z-462fc45/bin/python /g/data/vk83/prerelease/apps/base_conda/envs/payu-dev-20251015T221553Z-462fc45/bin/payu-run
+153329340.gadi-pbs
+
+Sat Oct 25 07:42:53 AEDT 2025
+Error found: Segmentation fault: address not mapped to object
+Resubmission counter: 7
+laboratory path:  /scratch/x77/cy8964/access-om3
+binary path:  /scratch/x77/cy8964/access-om3/bin
+input path:  /scratch/x77/cy8964/access-om3/input
+work path:  /scratch/x77/cy8964/access-om3/work
+archive path:  /scratch/x77/cy8964/access-om3/archive
+Metadata and UUID generation is disabled. Experiment name used for archival: ice_shelf_panan-PR-061025-nofrazilshelf-tideson-AmWed_adjIC-opt
+Moving log 8km_panAn_is_IC.o153329288
+Moving log 8km_panAn_is_IC.e153329288
+Removing work path /scratch/x77/cy8964/access-om3/work/ice_shelf_panan-PR-061025-nofrazilshelf-tideson-AmWed_adjIC-opt
+Removing symlink /home/156/cy8964/mom6-control/access-rom3/ice_shelf_panan-PR-061025-nofrazilshelf-tideson-AmWed_adjIC-opt/work
+payu: warning: Job request includes 26 unused CPUs.
+payu: warning: CPU request increased from 2990 to 3016
+laboratory path:  /scratch/x77/cy8964/access-om3
+binary path:  /scratch/x77/cy8964/access-om3/bin
+input path:  /scratch/x77/cy8964/access-om3/input
+work path:  /scratch/x77/cy8964/access-om3/work
+archive path:  /scratch/x77/cy8964/access-om3/archive
+Metadata and UUID generation is disabled. Experiment name used for archival: ice_shelf_panan-PR-061025-nofrazilshelf-tideson-AmWed_adjIC-opt
+Loading input manifest: manifests/input.yaml
+Loading restart manifest: manifests/restart.yaml
+Loading exe manifest: manifests/exe.yaml
+payu: Found modules in /opt/Modules/v4.3.0
+qsub -q normalsr -P ol01 -l walltime=18000 -l ncpus=3016 -l mem=14700GB -l jobfs=10GB -N 8km_panAn_is_IC -l wd -j n -v PAYU_PATH=/g/data/vk83/prerelease/apps/base_conda/envs/payu-dev-20251015T221553Z-462fc45/bin,PAYU_N_RUNS=1,MODULESHOME=/opt/Modules/v4.3.0,MODULES_CMD=/opt/Modules/v4.3.0/libexec/modulecmd.tcl,MODULEPATH=/g/data/vk83/modules:/g/data/vk83/prerelease/modules:/etc/scl/modulefiles:/apps/Modules/restricted-modulefiles/matlab_anu:/opt/Modules/modulefiles:/opt/Modules/v4.3.0/modulefiles:/apps/Modules/modulefiles -l storage=gdata/tm70+gdata/vk83+gdata/x77+scratch/x77 -- /g/data/vk83/prerelease/./apps/conda_scripts/payu-dev-20251015T221553Z-462fc45.d/bin/launcher.sh /g/data/vk83/prerelease/./apps/base_conda/envs/payu-dev-20251015T221553Z-462fc45/bin/python /g/data/vk83/prerelease/apps/base_conda/envs/payu-dev-20251015T221553Z-462fc45/bin/payu-run
+153329478.gadi-pbs
+
+Sat Oct 25 07:47:02 AEDT 2025
+Error found: Segmentation fault: address not mapped to object
+Resubmission counter: 6
+laboratory path:  /scratch/x77/cy8964/access-om3
+binary path:  /scratch/x77/cy8964/access-om3/bin
+input path:  /scratch/x77/cy8964/access-om3/input
+work path:  /scratch/x77/cy8964/access-om3/work
+archive path:  /scratch/x77/cy8964/access-om3/archive
+Metadata and UUID generation is disabled. Experiment name used for archival: ice_shelf_panan-PR-061025-nofrazilshelf-tideson-AmWed_adjIC-opt
+Moving log 8km_panAn_is_IC.o153329340
+Moving log 8km_panAn_is_IC.e153329340
+Removing work path /scratch/x77/cy8964/access-om3/work/ice_shelf_panan-PR-061025-nofrazilshelf-tideson-AmWed_adjIC-opt
+Removing symlink /home/156/cy8964/mom6-control/access-rom3/ice_shelf_panan-PR-061025-nofrazilshelf-tideson-AmWed_adjIC-opt/work
+payu: warning: Job request includes 26 unused CPUs.
+payu: warning: CPU request increased from 2990 to 3016
+laboratory path:  /scratch/x77/cy8964/access-om3
+binary path:  /scratch/x77/cy8964/access-om3/bin
+input path:  /scratch/x77/cy8964/access-om3/input
+work path:  /scratch/x77/cy8964/access-om3/work
+archive path:  /scratch/x77/cy8964/access-om3/archive
+Metadata and UUID generation is disabled. Experiment name used for archival: ice_shelf_panan-PR-061025-nofrazilshelf-tideson-AmWed_adjIC-opt
+Loading input manifest: manifests/input.yaml
+Loading restart manifest: manifests/restart.yaml
+Loading exe manifest: manifests/exe.yaml
+payu: Found modules in /opt/Modules/v4.3.0
+qsub -q normalsr -P ol01 -l walltime=18000 -l ncpus=3016 -l mem=14700GB -l jobfs=10GB -N 8km_panAn_is_IC -l wd -j n -v PAYU_PATH=/g/data/vk83/prerelease/apps/base_conda/envs/payu-dev-20251015T221553Z-462fc45/bin,PAYU_N_RUNS=1,MODULESHOME=/opt/Modules/v4.3.0,MODULES_CMD=/opt/Modules/v4.3.0/libexec/modulecmd.tcl,MODULEPATH=/g/data/vk83/modules:/g/data/vk83/prerelease/modules:/etc/scl/modulefiles:/apps/Modules/restricted-modulefiles/matlab_anu:/opt/Modules/modulefiles:/opt/Modules/v4.3.0/modulefiles:/apps/Modules/modulefiles -l storage=gdata/tm70+gdata/vk83+gdata/x77+scratch/x77 -- /g/data/vk83/prerelease/./apps/conda_scripts/payu-dev-20251015T221553Z-462fc45.d/bin/launcher.sh /g/data/vk83/prerelease/./apps/base_conda/envs/payu-dev-20251015T221553Z-462fc45/bin/python /g/data/vk83/prerelease/apps/base_conda/envs/payu-dev-20251015T221553Z-462fc45/bin/payu-run
+153329542.gadi-pbs
+
+Sat Oct 25 07:50:59 AEDT 2025
+Error found: Segmentation fault: address not mapped to object
+Resubmission counter: 5
+laboratory path:  /scratch/x77/cy8964/access-om3
+binary path:  /scratch/x77/cy8964/access-om3/bin
+input path:  /scratch/x77/cy8964/access-om3/input
+work path:  /scratch/x77/cy8964/access-om3/work
+archive path:  /scratch/x77/cy8964/access-om3/archive
+Metadata and UUID generation is disabled. Experiment name used for archival: ice_shelf_panan-PR-061025-nofrazilshelf-tideson-AmWed_adjIC-opt
+Moving log 8km_panAn_is_IC.o153329478
+Moving log 8km_panAn_is_IC.e153329478
+Removing work path /scratch/x77/cy8964/access-om3/work/ice_shelf_panan-PR-061025-nofrazilshelf-tideson-AmWed_adjIC-opt
+Removing symlink /home/156/cy8964/mom6-control/access-rom3/ice_shelf_panan-PR-061025-nofrazilshelf-tideson-AmWed_adjIC-opt/work
+payu: warning: Job request includes 26 unused CPUs.
+payu: warning: CPU request increased from 2990 to 3016
+laboratory path:  /scratch/x77/cy8964/access-om3
+binary path:  /scratch/x77/cy8964/access-om3/bin
+input path:  /scratch/x77/cy8964/access-om3/input
+work path:  /scratch/x77/cy8964/access-om3/work
+archive path:  /scratch/x77/cy8964/access-om3/archive
+Metadata and UUID generation is disabled. Experiment name used for archival: ice_shelf_panan-PR-061025-nofrazilshelf-tideson-AmWed_adjIC-opt
+Loading input manifest: manifests/input.yaml
+Loading restart manifest: manifests/restart.yaml
+Loading exe manifest: manifests/exe.yaml
+payu: Found modules in /opt/Modules/v4.3.0
+qsub -q normalsr -P ol01 -l walltime=18000 -l ncpus=3016 -l mem=14700GB -l jobfs=10GB -N 8km_panAn_is_IC -l wd -j n -v PAYU_PATH=/g/data/vk83/prerelease/apps/base_conda/envs/payu-dev-20251015T221553Z-462fc45/bin,PAYU_N_RUNS=1,MODULESHOME=/opt/Modules/v4.3.0,MODULES_CMD=/opt/Modules/v4.3.0/libexec/modulecmd.tcl,MODULEPATH=/g/data/vk83/modules:/g/data/vk83/prerelease/modules:/etc/scl/modulefiles:/apps/Modules/restricted-modulefiles/matlab_anu:/opt/Modules/modulefiles:/opt/Modules/v4.3.0/modulefiles:/apps/Modules/modulefiles -l storage=gdata/tm70+gdata/vk83+gdata/x77+scratch/x77 -- /g/data/vk83/prerelease/./apps/conda_scripts/payu-dev-20251015T221553Z-462fc45.d/bin/launcher.sh /g/data/vk83/prerelease/./apps/base_conda/envs/payu-dev-20251015T221553Z-462fc45/bin/python /g/data/vk83/prerelease/apps/base_conda/envs/payu-dev-20251015T221553Z-462fc45/bin/payu-run
+153329617.gadi-pbs
+
+Sat Oct 25 07:55:00 AEDT 2025
+Error found: Segmentation fault: address not mapped to object
+Resubmission counter: 4
+laboratory path:  /scratch/x77/cy8964/access-om3
+binary path:  /scratch/x77/cy8964/access-om3/bin
+input path:  /scratch/x77/cy8964/access-om3/input
+work path:  /scratch/x77/cy8964/access-om3/work
+archive path:  /scratch/x77/cy8964/access-om3/archive
+Metadata and UUID generation is disabled. Experiment name used for archival: ice_shelf_panan-PR-061025-nofrazilshelf-tideson-AmWed_adjIC-opt
+Moving log 8km_panAn_is_IC.o153329542
+Moving log 8km_panAn_is_IC.e153329542
+Removing work path /scratch/x77/cy8964/access-om3/work/ice_shelf_panan-PR-061025-nofrazilshelf-tideson-AmWed_adjIC-opt
+Removing symlink /home/156/cy8964/mom6-control/access-rom3/ice_shelf_panan-PR-061025-nofrazilshelf-tideson-AmWed_adjIC-opt/work
+payu: warning: Job request includes 26 unused CPUs.
+payu: warning: CPU request increased from 2990 to 3016
+laboratory path:  /scratch/x77/cy8964/access-om3
+binary path:  /scratch/x77/cy8964/access-om3/bin
+input path:  /scratch/x77/cy8964/access-om3/input
+work path:  /scratch/x77/cy8964/access-om3/work
+archive path:  /scratch/x77/cy8964/access-om3/archive
+Metadata and UUID generation is disabled. Experiment name used for archival: ice_shelf_panan-PR-061025-nofrazilshelf-tideson-AmWed_adjIC-opt
+Loading input manifest: manifests/input.yaml
+Loading restart manifest: manifests/restart.yaml
+Loading exe manifest: manifests/exe.yaml
+payu: Found modules in /opt/Modules/v4.3.0
+qsub -q normalsr -P ol01 -l walltime=18000 -l ncpus=3016 -l mem=14700GB -l jobfs=10GB -N 8km_panAn_is_IC -l wd -j n -v PAYU_PATH=/g/data/vk83/prerelease/apps/base_conda/envs/payu-dev-20251015T221553Z-462fc45/bin,PAYU_N_RUNS=1,MODULESHOME=/opt/Modules/v4.3.0,MODULES_CMD=/opt/Modules/v4.3.0/libexec/modulecmd.tcl,MODULEPATH=/g/data/vk83/modules:/g/data/vk83/prerelease/modules:/etc/scl/modulefiles:/apps/Modules/restricted-modulefiles/matlab_anu:/opt/Modules/modulefiles:/opt/Modules/v4.3.0/modulefiles:/apps/Modules/modulefiles -l storage=gdata/tm70+gdata/vk83+gdata/x77+scratch/x77 -- /g/data/vk83/prerelease/./apps/conda_scripts/payu-dev-20251015T221553Z-462fc45.d/bin/launcher.sh /g/data/vk83/prerelease/./apps/base_conda/envs/payu-dev-20251015T221553Z-462fc45/bin/python /g/data/vk83/prerelease/apps/base_conda/envs/payu-dev-20251015T221553Z-462fc45/bin/payu-run
+153329703.gadi-pbs
+
+Sat Oct 25 07:59:03 AEDT 2025
+Error found: Segmentation fault: address not mapped to object
+Resubmission counter: 3
+laboratory path:  /scratch/x77/cy8964/access-om3
+binary path:  /scratch/x77/cy8964/access-om3/bin
+input path:  /scratch/x77/cy8964/access-om3/input
+work path:  /scratch/x77/cy8964/access-om3/work
+archive path:  /scratch/x77/cy8964/access-om3/archive
+Metadata and UUID generation is disabled. Experiment name used for archival: ice_shelf_panan-PR-061025-nofrazilshelf-tideson-AmWed_adjIC-opt
+Moving log 8km_panAn_is_IC.o153329617
+Moving log 8km_panAn_is_IC.e153329617
+Removing work path /scratch/x77/cy8964/access-om3/work/ice_shelf_panan-PR-061025-nofrazilshelf-tideson-AmWed_adjIC-opt
+Removing symlink /home/156/cy8964/mom6-control/access-rom3/ice_shelf_panan-PR-061025-nofrazilshelf-tideson-AmWed_adjIC-opt/work
+payu: warning: Job request includes 26 unused CPUs.
+payu: warning: CPU request increased from 2990 to 3016
+laboratory path:  /scratch/x77/cy8964/access-om3
+binary path:  /scratch/x77/cy8964/access-om3/bin
+input path:  /scratch/x77/cy8964/access-om3/input
+work path:  /scratch/x77/cy8964/access-om3/work
+archive path:  /scratch/x77/cy8964/access-om3/archive
+Metadata and UUID generation is disabled. Experiment name used for archival: ice_shelf_panan-PR-061025-nofrazilshelf-tideson-AmWed_adjIC-opt
+Loading input manifest: manifests/input.yaml
+Loading restart manifest: manifests/restart.yaml
+Loading exe manifest: manifests/exe.yaml
+payu: Found modules in /opt/Modules/v4.3.0
+qsub -q normalsr -P ol01 -l walltime=18000 -l ncpus=3016 -l mem=14700GB -l jobfs=10GB -N 8km_panAn_is_IC -l wd -j n -v PAYU_PATH=/g/data/vk83/prerelease/apps/base_conda/envs/payu-dev-20251015T221553Z-462fc45/bin,PAYU_N_RUNS=1,MODULESHOME=/opt/Modules/v4.3.0,MODULES_CMD=/opt/Modules/v4.3.0/libexec/modulecmd.tcl,MODULEPATH=/g/data/vk83/modules:/g/data/vk83/prerelease/modules:/etc/scl/modulefiles:/apps/Modules/restricted-modulefiles/matlab_anu:/opt/Modules/modulefiles:/opt/Modules/v4.3.0/modulefiles:/apps/Modules/modulefiles -l storage=gdata/tm70+gdata/vk83+gdata/x77+scratch/x77 -- /g/data/vk83/prerelease/./apps/conda_scripts/payu-dev-20251015T221553Z-462fc45.d/bin/launcher.sh /g/data/vk83/prerelease/./apps/base_conda/envs/payu-dev-20251015T221553Z-462fc45/bin/python /g/data/vk83/prerelease/apps/base_conda/envs/payu-dev-20251015T221553Z-462fc45/bin/payu-run
+153329929.gadi-pbs
+
+Sat Oct 25 08:04:00 AEDT 2025
+Error found: Segmentation fault: address not mapped to object
+Resubmission counter: 2
+laboratory path:  /scratch/x77/cy8964/access-om3
+binary path:  /scratch/x77/cy8964/access-om3/bin
+input path:  /scratch/x77/cy8964/access-om3/input
+work path:  /scratch/x77/cy8964/access-om3/work
+archive path:  /scratch/x77/cy8964/access-om3/archive
+Metadata and UUID generation is disabled. Experiment name used for archival: ice_shelf_panan-PR-061025-nofrazilshelf-tideson-AmWed_adjIC-opt
+Moving log 8km_panAn_is_IC.o153329703
+Moving log 8km_panAn_is_IC.e153329703
+Removing work path /scratch/x77/cy8964/access-om3/work/ice_shelf_panan-PR-061025-nofrazilshelf-tideson-AmWed_adjIC-opt
+Removing symlink /home/156/cy8964/mom6-control/access-rom3/ice_shelf_panan-PR-061025-nofrazilshelf-tideson-AmWed_adjIC-opt/work
+payu: warning: Job request includes 26 unused CPUs.
+payu: warning: CPU request increased from 2990 to 3016
+laboratory path:  /scratch/x77/cy8964/access-om3
+binary path:  /scratch/x77/cy8964/access-om3/bin
+input path:  /scratch/x77/cy8964/access-om3/input
+work path:  /scratch/x77/cy8964/access-om3/work
+archive path:  /scratch/x77/cy8964/access-om3/archive
+Metadata and UUID generation is disabled. Experiment name used for archival: ice_shelf_panan-PR-061025-nofrazilshelf-tideson-AmWed_adjIC-opt
+Loading input manifest: manifests/input.yaml
+Loading restart manifest: manifests/restart.yaml
+Loading exe manifest: manifests/exe.yaml
+payu: Found modules in /opt/Modules/v4.3.0
+qsub -q normalsr -P ol01 -l walltime=18000 -l ncpus=3016 -l mem=14700GB -l jobfs=10GB -N 8km_panAn_is_IC -l wd -j n -v PAYU_PATH=/g/data/vk83/prerelease/apps/base_conda/envs/payu-dev-20251015T221553Z-462fc45/bin,PAYU_N_RUNS=1,MODULESHOME=/opt/Modules/v4.3.0,MODULES_CMD=/opt/Modules/v4.3.0/libexec/modulecmd.tcl,MODULEPATH=/g/data/vk83/modules:/g/data/vk83/prerelease/modules:/etc/scl/modulefiles:/apps/Modules/restricted-modulefiles/matlab_anu:/opt/Modules/modulefiles:/opt/Modules/v4.3.0/modulefiles:/apps/Modules/modulefiles -l storage=gdata/tm70+gdata/vk83+gdata/x77+scratch/x77 -- /g/data/vk83/prerelease/./apps/conda_scripts/payu-dev-20251015T221553Z-462fc45.d/bin/launcher.sh /g/data/vk83/prerelease/./apps/base_conda/envs/payu-dev-20251015T221553Z-462fc45/bin/python /g/data/vk83/prerelease/apps/base_conda/envs/payu-dev-20251015T221553Z-462fc45/bin/payu-run
+153330217.gadi-pbs
+
+Sat Oct 25 08:12:34 AEDT 2025
+Error found: Segmentation fault: address not mapped to object
+Resubmission counter: 1
+laboratory path:  /scratch/x77/cy8964/access-om3
+binary path:  /scratch/x77/cy8964/access-om3/bin
+input path:  /scratch/x77/cy8964/access-om3/input
+work path:  /scratch/x77/cy8964/access-om3/work
+archive path:  /scratch/x77/cy8964/access-om3/archive
+Metadata and UUID generation is disabled. Experiment name used for archival: ice_shelf_panan-PR-061025-nofrazilshelf-tideson-AmWed_adjIC-opt
+Moving log 8km_panAn_is_IC.o153329929
+Moving log 8km_panAn_is_IC.e153329929
+Removing work path /scratch/x77/cy8964/access-om3/work/ice_shelf_panan-PR-061025-nofrazilshelf-tideson-AmWed_adjIC-opt
+Removing symlink /home/156/cy8964/mom6-control/access-rom3/ice_shelf_panan-PR-061025-nofrazilshelf-tideson-AmWed_adjIC-opt/work
+payu: warning: Job request includes 26 unused CPUs.
+payu: warning: CPU request increased from 2990 to 3016
+laboratory path:  /scratch/x77/cy8964/access-om3
+binary path:  /scratch/x77/cy8964/access-om3/bin
+input path:  /scratch/x77/cy8964/access-om3/input
+work path:  /scratch/x77/cy8964/access-om3/work
+archive path:  /scratch/x77/cy8964/access-om3/archive
+Metadata and UUID generation is disabled. Experiment name used for archival: ice_shelf_panan-PR-061025-nofrazilshelf-tideson-AmWed_adjIC-opt
+Loading input manifest: manifests/input.yaml
+Loading restart manifest: manifests/restart.yaml
+Loading exe manifest: manifests/exe.yaml
+payu: Found modules in /opt/Modules/v4.3.0
+qsub -q normalsr -P ol01 -l walltime=18000 -l ncpus=3016 -l mem=14700GB -l jobfs=10GB -N 8km_panAn_is_IC -l wd -j n -v PAYU_PATH=/g/data/vk83/prerelease/apps/base_conda/envs/payu-dev-20251015T221553Z-462fc45/bin,PAYU_N_RUNS=1,MODULESHOME=/opt/Modules/v4.3.0,MODULES_CMD=/opt/Modules/v4.3.0/libexec/modulecmd.tcl,MODULEPATH=/g/data/vk83/modules:/g/data/vk83/prerelease/modules:/etc/scl/modulefiles:/apps/Modules/restricted-modulefiles/matlab_anu:/opt/Modules/modulefiles:/opt/Modules/v4.3.0/modulefiles:/apps/Modules/modulefiles -l storage=gdata/tm70+gdata/vk83+gdata/x77+scratch/x77 -- /g/data/vk83/prerelease/./apps/conda_scripts/payu-dev-20251015T221553Z-462fc45.d/bin/launcher.sh /g/data/vk83/prerelease/./apps/base_conda/envs/payu-dev-20251015T221553Z-462fc45/bin/python /g/data/vk83/prerelease/apps/base_conda/envs/payu-dev-20251015T221553Z-462fc45/bin/payu-run
+153330415.gadi-pbs
+
+Sat Oct 25 08:16:50 AEDT 2025
+Error found: Segmentation fault: address not mapped to object
+Resubmission counter: 0
+Resubmit limit reached ... 
+
+Mon Oct 27 14:13:05 AEDT 2025
+Error found: Segmentation fault: address not mapped to object
+Reset resubmission counter
+Resubmission counter: 10
+laboratory path:  /scratch/x77/cy8964/access-om3
+binary path:  /scratch/x77/cy8964/access-om3/bin
+input path:  /scratch/x77/cy8964/access-om3/input
+work path:  /scratch/x77/cy8964/access-om3/work
+archive path:  /scratch/x77/cy8964/access-om3/archive
+Metadata and UUID generation is disabled. Experiment name used for archival: ice_shelf_panan-PR-061025-nofrazilshelf-tideson-AmWed_adjIC-opt
+Removing work path /scratch/x77/cy8964/access-om3/work/ice_shelf_panan-PR-061025-nofrazilshelf-tideson-AmWed_adjIC-opt
+Removing symlink /home/156/cy8964/mom6-control/access-rom3/ice_shelf_panan-PR-061025-nofrazilshelf-tideson-AmWed_adjIC-opt/work
+payu: warning: Job request includes 26 unused CPUs.
+payu: warning: CPU request increased from 2990 to 3016
+laboratory path:  /scratch/x77/cy8964/access-om3
+binary path:  /scratch/x77/cy8964/access-om3/bin
+input path:  /scratch/x77/cy8964/access-om3/input
+work path:  /scratch/x77/cy8964/access-om3/work
+archive path:  /scratch/x77/cy8964/access-om3/archive
+Metadata and UUID generation is disabled. Experiment name used for archival: ice_shelf_panan-PR-061025-nofrazilshelf-tideson-AmWed_adjIC-opt
+Loading input manifest: manifests/input.yaml
+Loading restart manifest: manifests/restart.yaml
+Loading exe manifest: manifests/exe.yaml
+payu: Found modules in /opt/Modules/v4.3.0
+qsub -q normalsr -P ol01 -l walltime=18000 -l ncpus=3016 -l mem=14700GB -l jobfs=10GB -N 8km_panAn_is_IC -l wd -j n -v PAYU_PATH=/g/data/vk83/prerelease/apps/base_conda/envs/payu-dev-20251015T221553Z-462fc45/bin,PAYU_N_RUNS=1,MODULESHOME=/opt/Modules/v4.3.0,MODULES_CMD=/opt/Modules/v4.3.0/libexec/modulecmd.tcl,MODULEPATH=/g/data/vk83/prerelease/modules:/g/data/vk83/modules:/etc/scl/modulefiles:/apps/Modules/restricted-modulefiles/matlab_anu:/opt/Modules/modulefiles:/opt/Modules/v4.3.0/modulefiles:/apps/Modules/modulefiles -l storage=gdata/tm70+gdata/vk83+gdata/x77+scratch/x77 -- /g/data/vk83/prerelease/./apps/conda_scripts/payu-dev-20251015T221553Z-462fc45.d/bin/launcher.sh /g/data/vk83/prerelease/./apps/base_conda/envs/payu-dev-20251015T221553Z-462fc45/bin/python /g/data/vk83/prerelease/apps/base_conda/envs/payu-dev-20251015T221553Z-462fc45/bin/payu-run
+153452761.gadi-pbs
+
+Mon Oct 27 14:17:26 AEDT 2025
+Error found: Segmentation fault: address not mapped to object
+Resubmission counter: 9
+laboratory path:  /scratch/x77/cy8964/access-om3
+binary path:  /scratch/x77/cy8964/access-om3/bin
+input path:  /scratch/x77/cy8964/access-om3/input
+work path:  /scratch/x77/cy8964/access-om3/work
+archive path:  /scratch/x77/cy8964/access-om3/archive
+Metadata and UUID generation is disabled. Experiment name used for archival: ice_shelf_panan-PR-061025-nofrazilshelf-tideson-AmWed_adjIC-opt
+Moving log 8km_panAn_is_IC.o153451700
+Moving log 8km_panAn_is_IC.e153451700
+Removing work path /scratch/x77/cy8964/access-om3/work/ice_shelf_panan-PR-061025-nofrazilshelf-tideson-AmWed_adjIC-opt
+Removing symlink /home/156/cy8964/mom6-control/access-rom3/ice_shelf_panan-PR-061025-nofrazilshelf-tideson-AmWed_adjIC-opt/work
+payu: warning: Job request includes 26 unused CPUs.
+payu: warning: CPU request increased from 2990 to 3016
+laboratory path:  /scratch/x77/cy8964/access-om3
+binary path:  /scratch/x77/cy8964/access-om3/bin
+input path:  /scratch/x77/cy8964/access-om3/input
+work path:  /scratch/x77/cy8964/access-om3/work
+archive path:  /scratch/x77/cy8964/access-om3/archive
+Metadata and UUID generation is disabled. Experiment name used for archival: ice_shelf_panan-PR-061025-nofrazilshelf-tideson-AmWed_adjIC-opt
+Loading input manifest: manifests/input.yaml
+Loading restart manifest: manifests/restart.yaml
+Loading exe manifest: manifests/exe.yaml
+payu: Found modules in /opt/Modules/v4.3.0
+qsub -q normalsr -P ol01 -l walltime=18000 -l ncpus=3016 -l mem=14700GB -l jobfs=10GB -N 8km_panAn_is_IC -l wd -j n -v PAYU_PATH=/g/data/vk83/prerelease/apps/base_conda/envs/payu-dev-20251015T221553Z-462fc45/bin,PAYU_N_RUNS=1,MODULESHOME=/opt/Modules/v4.3.0,MODULES_CMD=/opt/Modules/v4.3.0/libexec/modulecmd.tcl,MODULEPATH=/g/data/vk83/prerelease/modules:/g/data/vk83/modules:/etc/scl/modulefiles:/apps/Modules/restricted-modulefiles/matlab_anu:/opt/Modules/modulefiles:/opt/Modules/v4.3.0/modulefiles:/apps/Modules/modulefiles -l storage=gdata/tm70+gdata/vk83+gdata/x77+scratch/x77 -- /g/data/vk83/prerelease/./apps/conda_scripts/payu-dev-20251015T221553Z-462fc45.d/bin/launcher.sh /g/data/vk83/prerelease/./apps/base_conda/envs/payu-dev-20251015T221553Z-462fc45/bin/python /g/data/vk83/prerelease/apps/base_conda/envs/payu-dev-20251015T221553Z-462fc45/bin/payu-run
+153453615.gadi-pbs
+
+Mon Oct 27 14:22:52 AEDT 2025
+Error found: Segmentation fault: address not mapped to object
+Resubmission counter: 8
+laboratory path:  /scratch/x77/cy8964/access-om3
+binary path:  /scratch/x77/cy8964/access-om3/bin
+input path:  /scratch/x77/cy8964/access-om3/input
+work path:  /scratch/x77/cy8964/access-om3/work
+archive path:  /scratch/x77/cy8964/access-om3/archive
+Metadata and UUID generation is disabled. Experiment name used for archival: ice_shelf_panan-PR-061025-nofrazilshelf-tideson-AmWed_adjIC-opt
+Moving log 8km_panAn_is_IC.o153452761
+Moving log 8km_panAn_is_IC.e153452761
+Removing work path /scratch/x77/cy8964/access-om3/work/ice_shelf_panan-PR-061025-nofrazilshelf-tideson-AmWed_adjIC-opt
+Removing symlink /home/156/cy8964/mom6-control/access-rom3/ice_shelf_panan-PR-061025-nofrazilshelf-tideson-AmWed_adjIC-opt/work
+payu: warning: Job request includes 26 unused CPUs.
+payu: warning: CPU request increased from 2990 to 3016
+laboratory path:  /scratch/x77/cy8964/access-om3
+binary path:  /scratch/x77/cy8964/access-om3/bin
+input path:  /scratch/x77/cy8964/access-om3/input
+work path:  /scratch/x77/cy8964/access-om3/work
+archive path:  /scratch/x77/cy8964/access-om3/archive
+Metadata and UUID generation is disabled. Experiment name used for archival: ice_shelf_panan-PR-061025-nofrazilshelf-tideson-AmWed_adjIC-opt
+Loading input manifest: manifests/input.yaml
+Loading restart manifest: manifests/restart.yaml
+Loading exe manifest: manifests/exe.yaml
+payu: Found modules in /opt/Modules/v4.3.0
+qsub -q normalsr -P ol01 -l walltime=18000 -l ncpus=3016 -l mem=14700GB -l jobfs=10GB -N 8km_panAn_is_IC -l wd -j n -v PAYU_PATH=/g/data/vk83/prerelease/apps/base_conda/envs/payu-dev-20251015T221553Z-462fc45/bin,PAYU_N_RUNS=1,MODULESHOME=/opt/Modules/v4.3.0,MODULES_CMD=/opt/Modules/v4.3.0/libexec/modulecmd.tcl,MODULEPATH=/g/data/vk83/prerelease/modules:/g/data/vk83/modules:/etc/scl/modulefiles:/apps/Modules/restricted-modulefiles/matlab_anu:/opt/Modules/modulefiles:/opt/Modules/v4.3.0/modulefiles:/apps/Modules/modulefiles -l storage=gdata/tm70+gdata/vk83+gdata/x77+scratch/x77 -- /g/data/vk83/prerelease/./apps/conda_scripts/payu-dev-20251015T221553Z-462fc45.d/bin/launcher.sh /g/data/vk83/prerelease/./apps/base_conda/envs/payu-dev-20251015T221553Z-462fc45/bin/python /g/data/vk83/prerelease/apps/base_conda/envs/payu-dev-20251015T221553Z-462fc45/bin/payu-run
+153454711.gadi-pbs
+
+Mon Oct 27 14:27:07 AEDT 2025
+Error found: Segmentation fault: address not mapped to object
+Resubmission counter: 7
+laboratory path:  /scratch/x77/cy8964/access-om3
+binary path:  /scratch/x77/cy8964/access-om3/bin
+input path:  /scratch/x77/cy8964/access-om3/input
+work path:  /scratch/x77/cy8964/access-om3/work
+archive path:  /scratch/x77/cy8964/access-om3/archive
+Metadata and UUID generation is disabled. Experiment name used for archival: ice_shelf_panan-PR-061025-nofrazilshelf-tideson-AmWed_adjIC-opt
+Moving log 8km_panAn_is_IC.o153453615
+Moving log 8km_panAn_is_IC.e153453615
+Removing work path /scratch/x77/cy8964/access-om3/work/ice_shelf_panan-PR-061025-nofrazilshelf-tideson-AmWed_adjIC-opt
+Removing symlink /home/156/cy8964/mom6-control/access-rom3/ice_shelf_panan-PR-061025-nofrazilshelf-tideson-AmWed_adjIC-opt/work
+payu: warning: Job request includes 26 unused CPUs.
+payu: warning: CPU request increased from 2990 to 3016
+laboratory path:  /scratch/x77/cy8964/access-om3
+binary path:  /scratch/x77/cy8964/access-om3/bin
+input path:  /scratch/x77/cy8964/access-om3/input
+work path:  /scratch/x77/cy8964/access-om3/work
+archive path:  /scratch/x77/cy8964/access-om3/archive
+Metadata and UUID generation is disabled. Experiment name used for archival: ice_shelf_panan-PR-061025-nofrazilshelf-tideson-AmWed_adjIC-opt
+Loading input manifest: manifests/input.yaml
+Loading restart manifest: manifests/restart.yaml
+Loading exe manifest: manifests/exe.yaml
+payu: Found modules in /opt/Modules/v4.3.0
+qsub -q normalsr -P ol01 -l walltime=18000 -l ncpus=3016 -l mem=14700GB -l jobfs=10GB -N 8km_panAn_is_IC -l wd -j n -v PAYU_PATH=/g/data/vk83/prerelease/apps/base_conda/envs/payu-dev-20251015T221553Z-462fc45/bin,PAYU_N_RUNS=1,MODULESHOME=/opt/Modules/v4.3.0,MODULES_CMD=/opt/Modules/v4.3.0/libexec/modulecmd.tcl,MODULEPATH=/g/data/vk83/prerelease/modules:/g/data/vk83/modules:/etc/scl/modulefiles:/apps/Modules/restricted-modulefiles/matlab_anu:/opt/Modules/modulefiles:/opt/Modules/v4.3.0/modulefiles:/apps/Modules/modulefiles -l storage=gdata/tm70+gdata/vk83+gdata/x77+scratch/x77 -- /g/data/vk83/prerelease/./apps/conda_scripts/payu-dev-20251015T221553Z-462fc45.d/bin/launcher.sh /g/data/vk83/prerelease/./apps/base_conda/envs/payu-dev-20251015T221553Z-462fc45/bin/python /g/data/vk83/prerelease/apps/base_conda/envs/payu-dev-20251015T221553Z-462fc45/bin/payu-run
+153455560.gadi-pbs
+
+Mon Oct 27 14:31:24 AEDT 2025
+Error found: Segmentation fault: address not mapped to object
+Resubmission counter: 6
+laboratory path:  /scratch/x77/cy8964/access-om3
+binary path:  /scratch/x77/cy8964/access-om3/bin
+input path:  /scratch/x77/cy8964/access-om3/input
+work path:  /scratch/x77/cy8964/access-om3/work
+archive path:  /scratch/x77/cy8964/access-om3/archive
+Metadata and UUID generation is disabled. Experiment name used for archival: ice_shelf_panan-PR-061025-nofrazilshelf-tideson-AmWed_adjIC-opt
+Moving log 8km_panAn_is_IC.o153454711
+Moving log 8km_panAn_is_IC.e153454711
+Removing work path /scratch/x77/cy8964/access-om3/work/ice_shelf_panan-PR-061025-nofrazilshelf-tideson-AmWed_adjIC-opt
+Removing symlink /home/156/cy8964/mom6-control/access-rom3/ice_shelf_panan-PR-061025-nofrazilshelf-tideson-AmWed_adjIC-opt/work
+payu: warning: Job request includes 26 unused CPUs.
+payu: warning: CPU request increased from 2990 to 3016
+laboratory path:  /scratch/x77/cy8964/access-om3
+binary path:  /scratch/x77/cy8964/access-om3/bin
+input path:  /scratch/x77/cy8964/access-om3/input
+work path:  /scratch/x77/cy8964/access-om3/work
+archive path:  /scratch/x77/cy8964/access-om3/archive
+Metadata and UUID generation is disabled. Experiment name used for archival: ice_shelf_panan-PR-061025-nofrazilshelf-tideson-AmWed_adjIC-opt
+Loading input manifest: manifests/input.yaml
+Loading restart manifest: manifests/restart.yaml
+Loading exe manifest: manifests/exe.yaml
+payu: Found modules in /opt/Modules/v4.3.0
+qsub -q normalsr -P ol01 -l walltime=18000 -l ncpus=3016 -l mem=14700GB -l jobfs=10GB -N 8km_panAn_is_IC -l wd -j n -v PAYU_PATH=/g/data/vk83/prerelease/apps/base_conda/envs/payu-dev-20251015T221553Z-462fc45/bin,PAYU_N_RUNS=1,MODULESHOME=/opt/Modules/v4.3.0,MODULES_CMD=/opt/Modules/v4.3.0/libexec/modulecmd.tcl,MODULEPATH=/g/data/vk83/prerelease/modules:/g/data/vk83/modules:/etc/scl/modulefiles:/apps/Modules/restricted-modulefiles/matlab_anu:/opt/Modules/modulefiles:/opt/Modules/v4.3.0/modulefiles:/apps/Modules/modulefiles -l storage=gdata/tm70+gdata/vk83+gdata/x77+scratch/x77 -- /g/data/vk83/prerelease/./apps/conda_scripts/payu-dev-20251015T221553Z-462fc45.d/bin/launcher.sh /g/data/vk83/prerelease/./apps/base_conda/envs/payu-dev-20251015T221553Z-462fc45/bin/python /g/data/vk83/prerelease/apps/base_conda/envs/payu-dev-20251015T221553Z-462fc45/bin/payu-run
+153455859.gadi-pbs
+
+Mon Oct 27 14:37:04 AEDT 2025
+Error found: Segmentation fault: address not mapped to object
+Resubmission counter: 5
+laboratory path:  /scratch/x77/cy8964/access-om3
+binary path:  /scratch/x77/cy8964/access-om3/bin
+input path:  /scratch/x77/cy8964/access-om3/input
+work path:  /scratch/x77/cy8964/access-om3/work
+archive path:  /scratch/x77/cy8964/access-om3/archive
+Metadata and UUID generation is disabled. Experiment name used for archival: ice_shelf_panan-PR-061025-nofrazilshelf-tideson-AmWed_adjIC-opt
+Moving log 8km_panAn_is_IC.o153455560
+Moving log 8km_panAn_is_IC.e153455560
+Removing work path /scratch/x77/cy8964/access-om3/work/ice_shelf_panan-PR-061025-nofrazilshelf-tideson-AmWed_adjIC-opt
+Removing symlink /home/156/cy8964/mom6-control/access-rom3/ice_shelf_panan-PR-061025-nofrazilshelf-tideson-AmWed_adjIC-opt/work
+payu: warning: Job request includes 26 unused CPUs.
+payu: warning: CPU request increased from 2990 to 3016
+laboratory path:  /scratch/x77/cy8964/access-om3
+binary path:  /scratch/x77/cy8964/access-om3/bin
+input path:  /scratch/x77/cy8964/access-om3/input
+work path:  /scratch/x77/cy8964/access-om3/work
+archive path:  /scratch/x77/cy8964/access-om3/archive
+Metadata and UUID generation is disabled. Experiment name used for archival: ice_shelf_panan-PR-061025-nofrazilshelf-tideson-AmWed_adjIC-opt
+Loading input manifest: manifests/input.yaml
+Loading restart manifest: manifests/restart.yaml
+Loading exe manifest: manifests/exe.yaml
+payu: Found modules in /opt/Modules/v4.3.0
+qsub -q normalsr -P ol01 -l walltime=18000 -l ncpus=3016 -l mem=14700GB -l jobfs=10GB -N 8km_panAn_is_IC -l wd -j n -v PAYU_PATH=/g/data/vk83/prerelease/apps/base_conda/envs/payu-dev-20251015T221553Z-462fc45/bin,PAYU_N_RUNS=1,MODULESHOME=/opt/Modules/v4.3.0,MODULES_CMD=/opt/Modules/v4.3.0/libexec/modulecmd.tcl,MODULEPATH=/g/data/vk83/prerelease/modules:/g/data/vk83/modules:/etc/scl/modulefiles:/apps/Modules/restricted-modulefiles/matlab_anu:/opt/Modules/modulefiles:/opt/Modules/v4.3.0/modulefiles:/apps/Modules/modulefiles -l storage=gdata/tm70+gdata/vk83+gdata/x77+scratch/x77 -- /g/data/vk83/prerelease/./apps/conda_scripts/payu-dev-20251015T221553Z-462fc45.d/bin/launcher.sh /g/data/vk83/prerelease/./apps/base_conda/envs/payu-dev-20251015T221553Z-462fc45/bin/python /g/data/vk83/prerelease/apps/base_conda/envs/payu-dev-20251015T221553Z-462fc45/bin/payu-run
+153456307.gadi-pbs
+
+Mon Oct 27 14:41:26 AEDT 2025
+Error found: Segmentation fault: address not mapped to object
+Resubmission counter: 4
+laboratory path:  /scratch/x77/cy8964/access-om3
+binary path:  /scratch/x77/cy8964/access-om3/bin
+input path:  /scratch/x77/cy8964/access-om3/input
+work path:  /scratch/x77/cy8964/access-om3/work
+archive path:  /scratch/x77/cy8964/access-om3/archive
+Metadata and UUID generation is disabled. Experiment name used for archival: ice_shelf_panan-PR-061025-nofrazilshelf-tideson-AmWed_adjIC-opt
+Moving log 8km_panAn_is_IC.o153455859
+Moving log 8km_panAn_is_IC.e153455859
+Removing work path /scratch/x77/cy8964/access-om3/work/ice_shelf_panan-PR-061025-nofrazilshelf-tideson-AmWed_adjIC-opt
+Removing symlink /home/156/cy8964/mom6-control/access-rom3/ice_shelf_panan-PR-061025-nofrazilshelf-tideson-AmWed_adjIC-opt/work
+payu: warning: Job request includes 26 unused CPUs.
+payu: warning: CPU request increased from 2990 to 3016
+laboratory path:  /scratch/x77/cy8964/access-om3
+binary path:  /scratch/x77/cy8964/access-om3/bin
+input path:  /scratch/x77/cy8964/access-om3/input
+work path:  /scratch/x77/cy8964/access-om3/work
+archive path:  /scratch/x77/cy8964/access-om3/archive
+Metadata and UUID generation is disabled. Experiment name used for archival: ice_shelf_panan-PR-061025-nofrazilshelf-tideson-AmWed_adjIC-opt
+Loading input manifest: manifests/input.yaml
+Loading restart manifest: manifests/restart.yaml
+Loading exe manifest: manifests/exe.yaml
+payu: Found modules in /opt/Modules/v4.3.0
+qsub -q normalsr -P ol01 -l walltime=18000 -l ncpus=3016 -l mem=14700GB -l jobfs=10GB -N 8km_panAn_is_IC -l wd -j n -v PAYU_PATH=/g/data/vk83/prerelease/apps/base_conda/envs/payu-dev-20251015T221553Z-462fc45/bin,PAYU_N_RUNS=1,MODULESHOME=/opt/Modules/v4.3.0,MODULES_CMD=/opt/Modules/v4.3.0/libexec/modulecmd.tcl,MODULEPATH=/g/data/vk83/prerelease/modules:/g/data/vk83/modules:/etc/scl/modulefiles:/apps/Modules/restricted-modulefiles/matlab_anu:/opt/Modules/modulefiles:/opt/Modules/v4.3.0/modulefiles:/apps/Modules/modulefiles -l storage=gdata/tm70+gdata/vk83+gdata/x77+scratch/x77 -- /g/data/vk83/prerelease/./apps/conda_scripts/payu-dev-20251015T221553Z-462fc45.d/bin/launcher.sh /g/data/vk83/prerelease/./apps/base_conda/envs/payu-dev-20251015T221553Z-462fc45/bin/python /g/data/vk83/prerelease/apps/base_conda/envs/payu-dev-20251015T221553Z-462fc45/bin/payu-run
+153456599.gadi-pbs
+
+Mon Oct 27 14:45:55 AEDT 2025
+Error found: Segmentation fault: address not mapped to object
+Resubmission counter: 3
+laboratory path:  /scratch/x77/cy8964/access-om3
+binary path:  /scratch/x77/cy8964/access-om3/bin
+input path:  /scratch/x77/cy8964/access-om3/input
+work path:  /scratch/x77/cy8964/access-om3/work
+archive path:  /scratch/x77/cy8964/access-om3/archive
+Metadata and UUID generation is disabled. Experiment name used for archival: ice_shelf_panan-PR-061025-nofrazilshelf-tideson-AmWed_adjIC-opt
+Moving log 8km_panAn_is_IC.o153456307
+Moving log 8km_panAn_is_IC.e153456307
+Removing work path /scratch/x77/cy8964/access-om3/work/ice_shelf_panan-PR-061025-nofrazilshelf-tideson-AmWed_adjIC-opt
+Removing symlink /home/156/cy8964/mom6-control/access-rom3/ice_shelf_panan-PR-061025-nofrazilshelf-tideson-AmWed_adjIC-opt/work
+payu: warning: Job request includes 26 unused CPUs.
+payu: warning: CPU request increased from 2990 to 3016
+laboratory path:  /scratch/x77/cy8964/access-om3
+binary path:  /scratch/x77/cy8964/access-om3/bin
+input path:  /scratch/x77/cy8964/access-om3/input
+work path:  /scratch/x77/cy8964/access-om3/work
+archive path:  /scratch/x77/cy8964/access-om3/archive
+Metadata and UUID generation is disabled. Experiment name used for archival: ice_shelf_panan-PR-061025-nofrazilshelf-tideson-AmWed_adjIC-opt
+Loading input manifest: manifests/input.yaml
+Loading restart manifest: manifests/restart.yaml
+Loading exe manifest: manifests/exe.yaml
+payu: Found modules in /opt/Modules/v4.3.0
+qsub -q normalsr -P ol01 -l walltime=18000 -l ncpus=3016 -l mem=14700GB -l jobfs=10GB -N 8km_panAn_is_IC -l wd -j n -v PAYU_PATH=/g/data/vk83/prerelease/apps/base_conda/envs/payu-dev-20251015T221553Z-462fc45/bin,PAYU_N_RUNS=1,MODULESHOME=/opt/Modules/v4.3.0,MODULES_CMD=/opt/Modules/v4.3.0/libexec/modulecmd.tcl,MODULEPATH=/g/data/vk83/prerelease/modules:/g/data/vk83/modules:/etc/scl/modulefiles:/apps/Modules/restricted-modulefiles/matlab_anu:/opt/Modules/modulefiles:/opt/Modules/v4.3.0/modulefiles:/apps/Modules/modulefiles -l storage=gdata/tm70+gdata/vk83+gdata/x77+scratch/x77 -- /g/data/vk83/prerelease/./apps/conda_scripts/payu-dev-20251015T221553Z-462fc45.d/bin/launcher.sh /g/data/vk83/prerelease/./apps/base_conda/envs/payu-dev-20251015T221553Z-462fc45/bin/python /g/data/vk83/prerelease/apps/base_conda/envs/payu-dev-20251015T221553Z-462fc45/bin/payu-run
+153456999.gadi-pbs
+
+Mon Oct 27 14:50:11 AEDT 2025
+Error found: Segmentation fault: address not mapped to object
+Resubmission counter: 2
+laboratory path:  /scratch/x77/cy8964/access-om3
+binary path:  /scratch/x77/cy8964/access-om3/bin
+input path:  /scratch/x77/cy8964/access-om3/input
+work path:  /scratch/x77/cy8964/access-om3/work
+archive path:  /scratch/x77/cy8964/access-om3/archive
+Metadata and UUID generation is disabled. Experiment name used for archival: ice_shelf_panan-PR-061025-nofrazilshelf-tideson-AmWed_adjIC-opt
+Moving log 8km_panAn_is_IC.o153456599
+Moving log 8km_panAn_is_IC.e153456599
+Removing work path /scratch/x77/cy8964/access-om3/work/ice_shelf_panan-PR-061025-nofrazilshelf-tideson-AmWed_adjIC-opt
+Removing symlink /home/156/cy8964/mom6-control/access-rom3/ice_shelf_panan-PR-061025-nofrazilshelf-tideson-AmWed_adjIC-opt/work
+payu: warning: Job request includes 26 unused CPUs.
+payu: warning: CPU request increased from 2990 to 3016
+laboratory path:  /scratch/x77/cy8964/access-om3
+binary path:  /scratch/x77/cy8964/access-om3/bin
+input path:  /scratch/x77/cy8964/access-om3/input
+work path:  /scratch/x77/cy8964/access-om3/work
+archive path:  /scratch/x77/cy8964/access-om3/archive
+Metadata and UUID generation is disabled. Experiment name used for archival: ice_shelf_panan-PR-061025-nofrazilshelf-tideson-AmWed_adjIC-opt
+Loading input manifest: manifests/input.yaml
+Loading restart manifest: manifests/restart.yaml
+Loading exe manifest: manifests/exe.yaml
+payu: Found modules in /opt/Modules/v4.3.0
+qsub -q normalsr -P ol01 -l walltime=18000 -l ncpus=3016 -l mem=14700GB -l jobfs=10GB -N 8km_panAn_is_IC -l wd -j n -v PAYU_PATH=/g/data/vk83/prerelease/apps/base_conda/envs/payu-dev-20251015T221553Z-462fc45/bin,PAYU_N_RUNS=1,MODULESHOME=/opt/Modules/v4.3.0,MODULES_CMD=/opt/Modules/v4.3.0/libexec/modulecmd.tcl,MODULEPATH=/g/data/vk83/prerelease/modules:/g/data/vk83/modules:/etc/scl/modulefiles:/apps/Modules/restricted-modulefiles/matlab_anu:/opt/Modules/modulefiles:/opt/Modules/v4.3.0/modulefiles:/apps/Modules/modulefiles -l storage=gdata/tm70+gdata/vk83+gdata/x77+scratch/x77 -- /g/data/vk83/prerelease/./apps/conda_scripts/payu-dev-20251015T221553Z-462fc45.d/bin/launcher.sh /g/data/vk83/prerelease/./apps/base_conda/envs/payu-dev-20251015T221553Z-462fc45/bin/python /g/data/vk83/prerelease/apps/base_conda/envs/payu-dev-20251015T221553Z-462fc45/bin/payu-run
+153457335.gadi-pbs
+
+Mon Oct 27 14:55:44 AEDT 2025
+Error found: Segmentation fault: address not mapped to object
+Resubmission counter: 1
+laboratory path:  /scratch/x77/cy8964/access-om3
+binary path:  /scratch/x77/cy8964/access-om3/bin
+input path:  /scratch/x77/cy8964/access-om3/input
+work path:  /scratch/x77/cy8964/access-om3/work
+archive path:  /scratch/x77/cy8964/access-om3/archive
+Metadata and UUID generation is disabled. Experiment name used for archival: ice_shelf_panan-PR-061025-nofrazilshelf-tideson-AmWed_adjIC-opt
+Moving log 8km_panAn_is_IC.o153456999
+Moving log 8km_panAn_is_IC.e153456999
+Removing work path /scratch/x77/cy8964/access-om3/work/ice_shelf_panan-PR-061025-nofrazilshelf-tideson-AmWed_adjIC-opt
+Removing symlink /home/156/cy8964/mom6-control/access-rom3/ice_shelf_panan-PR-061025-nofrazilshelf-tideson-AmWed_adjIC-opt/work
+payu: warning: Job request includes 26 unused CPUs.
+payu: warning: CPU request increased from 2990 to 3016
+laboratory path:  /scratch/x77/cy8964/access-om3
+binary path:  /scratch/x77/cy8964/access-om3/bin
+input path:  /scratch/x77/cy8964/access-om3/input
+work path:  /scratch/x77/cy8964/access-om3/work
+archive path:  /scratch/x77/cy8964/access-om3/archive
+Metadata and UUID generation is disabled. Experiment name used for archival: ice_shelf_panan-PR-061025-nofrazilshelf-tideson-AmWed_adjIC-opt
+Loading input manifest: manifests/input.yaml
+Loading restart manifest: manifests/restart.yaml
+Loading exe manifest: manifests/exe.yaml
+payu: Found modules in /opt/Modules/v4.3.0
+qsub -q normalsr -P ol01 -l walltime=18000 -l ncpus=3016 -l mem=14700GB -l jobfs=10GB -N 8km_panAn_is_IC -l wd -j n -v PAYU_PATH=/g/data/vk83/prerelease/apps/base_conda/envs/payu-dev-20251015T221553Z-462fc45/bin,PAYU_N_RUNS=1,MODULESHOME=/opt/Modules/v4.3.0,MODULES_CMD=/opt/Modules/v4.3.0/libexec/modulecmd.tcl,MODULEPATH=/g/data/vk83/prerelease/modules:/g/data/vk83/modules:/etc/scl/modulefiles:/apps/Modules/restricted-modulefiles/matlab_anu:/opt/Modules/modulefiles:/opt/Modules/v4.3.0/modulefiles:/apps/Modules/modulefiles -l storage=gdata/tm70+gdata/vk83+gdata/x77+scratch/x77 -- /g/data/vk83/prerelease/./apps/conda_scripts/payu-dev-20251015T221553Z-462fc45.d/bin/launcher.sh /g/data/vk83/prerelease/./apps/base_conda/envs/payu-dev-20251015T221553Z-462fc45/bin/python /g/data/vk83/prerelease/apps/base_conda/envs/payu-dev-20251015T221553Z-462fc45/bin/payu-run
+153457693.gadi-pbs
+
+Mon Oct 27 15:00:12 AEDT 2025
+Error found: Segmentation fault: address not mapped to object
+Resubmission counter: 0
+Resubmit limit reached ... 
+

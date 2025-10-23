@@ -116,6 +116,11 @@ work/INPUT/kmt_Charrassin_sea_ice_from_iceelev_new150925.nc:
   hashes:
     binhash: 2a4220f97a681a1ad4f3f42fb15bc158
     md5: 551a62a9e522b16126bae843e257313f
+work/INPUT/mask_table.1490.84x49:
+  fullpath: /g/data/tm70/cy8964/mom6/input/input-8km/mask_table.1490.84x49
+  hashes:
+    binhash: f880529c8f25b89a50bcff8d51574ab0
+    md5: 2d21eca0c746628fc47f1c32ea500e11
 work/INPUT/ocean_hgrid_cropped.nc:
   fullpath: /g/data/tm70/cy8964/mom6/input/input-8km/ocean_hgrid_cropped.nc
   hashes:
