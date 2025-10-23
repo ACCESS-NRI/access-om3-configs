@@ -41,7 +41,6 @@ ACCESS-OM3
 "ocean_model", "dxCvo", "dxCvo", "access-om3.mom6.static", "all", "none", "none", 1
 
 
-
 # daily 2D fields
 
 "access-om3.mom6.2d.tob.1day.mean.%4yr", 1, "days", 1, "days", "time", 1, "years"
@@ -59,26 +58,14 @@ ACCESS-OM3
 "access-om3.mom6.2d.speed.1day.mean.%4yr", 1, "days", 1, "days", "time", 1, "years"
 "ocean_model", "speed", "speed", "access-om3.mom6.2d.speed.1day.mean.%4yr", "all", "average", "none", 2
 
-"access-om3.mom6.2d.lrunoff.1day.mean.%4yr", 1, "days", 1, "days", "time", 1, "years"
-"ocean_model", "lrunoff", "lrunoff", "access-om3.mom6.2d.lrunoff.1day.mean.%4yr", "all", "average", "none", 2
-
 
 # daily 2D ice shelf fields
 
 "access-om3.mom6.2d.melt.1day.mean.%4yr", 1, "days", 1, "days", "time", 1, "years"
 "ice_shelf_model", "melt", "melt", "access-om3.mom6.2d.melt.1day.mean.%4yr", "all", "average", "none", 2
 
-"access-om3.mom6.2d.mass_flux.1day.mean.%4yr", 1, "days", 1, "days", "time", 1, "years"
-"ice_shelf_model", "mass_flux", "mass_flux", "access-om3.mom6.2d.mass_flux.1day.mean.%4yr", "all", "average", "none", 2
-
 "access-om3.mom6.2d.thermal_driving.1day.mean.%4yr", 1, "days", 1, "days", "time", 1, "years"
 "ice_shelf_model", "thermal_driving", "thermal_driving", "access-om3.mom6.2d.thermal_driving.1day.mean.%4yr", "all", "average", "none", 2
-
-"access-om3.mom6.2d.haline_driving.1day.mean.%4yr", 1, "days", 1, "days", "time", 1, "years"
-"ice_shelf_model", "haline_driving", "haline_driving", "access-om3.mom6.2d.haline_driving.1day.mean.%4yr", "all", "average", "none", 2
-
-"access-om3.mom6.2d.tfreeze.1day.mean.%4yr", 1, "days", 1, "days", "time", 1, "years"
-"ice_shelf_model", "tfreeze", "tfreeze", "access-om3.mom6.2d.tfreeze.1day.mean.%4yr", "all", "average", "none", 2
 
 "access-om3.mom6.2d.ustar_shelf.1day.mean.%4yr", 1, "days", 1, "days", "time", 1, "years"
 "ice_shelf_model", "ustar_shelf", "ustar_shelf", "access-om3.mom6.2d.ustar_shelf.1day.mean.%4yr", "all", "average", "none", 2

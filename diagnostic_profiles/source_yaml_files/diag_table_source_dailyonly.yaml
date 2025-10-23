@@ -176,7 +176,7 @@ diag_table:
             tos: # Sea Surface Temperature
             sos: # Sea Surface Salinity
             speed: # Sea Surface Speed
-            lrunoff: # Runoff
+            #lrunoff: # Runoff
     'daily 2D ice shelf fields':
         defaults:
             file_name_dimension: 2d  # descriptor for filename, e.g. 3d, 2d, scalar
@@ -187,10 +187,10 @@ diag_table:
             reduction_method: mean # mean, snap, rms, pow##, min, max, or diurnal##
         fields:
             melt: # melt rate
-            mass_flux: # mass flux
+            #            mass_flux: # mass flux
             thermal_driving: # thermal driving
-            haline_driving: # haline driving
-            tfreeze: # tfreeze
+            #haline_driving: # haline driving
+            #tfreeze: # tfreeze
             ustar_shelf: #friction velocity
 
     'daily scalar timeseries':

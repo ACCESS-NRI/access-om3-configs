@@ -171,6 +171,7 @@ diag_table:
             file_name_diag_coord: "z"
         fields:
             agessc: # Sea water age since surface contact
+            rhopot0: # Potential density referenced to 0 dbar
             rhopot2: # Potential density referenced to 2000 dbar
             temp: # Potential Temperature
             salt: # Salinity
@@ -178,6 +179,7 @@ diag_table:
             vo: # v velocity
             KE: # Layer Kinetic energy per unit mass
             e: # Interface height relative to mean sea level
+            Kd_interface: #Total diapycnal diffusivity at interfaces
 
     'monthly 3d fields on rho2':
         defaults:  # these can be overridden for individual fields below
@@ -239,7 +241,7 @@ diag_table:
             tos: # Sea Surface Temperature
             sos: # Sea Surface Salinity
             speed: # Sea Surface Speed
-            lrunoff: # Runoff
+#            lrunoff: # Runoff
     'daily 2D ice shelf fields':
         defaults:
             file_name_dimension: 2d  # descriptor for filename, e.g. 3d, 2d, scalar
@@ -250,10 +252,10 @@ diag_table:
             reduction_method: mean # mean, snap, rms, pow##, min, max, or diurnal##
         fields:
             melt: # melt rate
-            mass_flux: # mass flux
-            thermal_driving: # thermal driving
-            haline_driving: # haline driving
-            tfreeze: # tfreeze
+            #mass_flux: # mass flux
+            #thermal_driving: # thermal driving
+            #haline_driving: # haline driving
+            #tfreeze: # tfreeze
             ustar_shelf: #friction velocity
     'monthly 2d ice shelf fields':
         defaults:  # these can be overridden for individual fields below
@@ -261,7 +263,7 @@ diag_table:
             reduction_method: mean
             module_name: ice_shelf_model
         fields:
-            melt_rate: # melt rate
+            melt: # melt rate
             mass_flux: # mass flux
             thermal_driving: # thermal driving
             haline_driving: # haline driving
