@@ -269,13 +269,13 @@ CLOCK_attributes::
      ice_cpl_dt = 99999 #not used
      lnd_cpl_dt = 99999 #not used
      ocn_cpl_dt = 600 # 1200 #ignored (coupling timestep set by nuopc.runseq) unless stop_option is nsteps
-     restart_n = 5
+     restart_n = 26
      restart_option = ndays
      restart_ymd = -999
      rof_cpl_dt = 99999 #not used
      start_tod = 0
      start_ymd = 19000101
-     stop_n = 5
+     stop_n = 26
      stop_option = ndays
      stop_tod = 0
      stop_ymd = -999

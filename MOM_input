@@ -4,11 +4,11 @@
 USE_REGRIDDING = True           !   [Boolean] default = False
                                 ! If True, use the ALE algorithm (regridding/remapping). If False, use the
                                 ! layered isopycnal algorithm.
-DT = 150.0                      !   [s]
+DT = 400.0                      !   [s]
                                 ! The (baroclinic) dynamics time step.  The time-step that is actually used will
                                 ! be an integer fraction of the forcing time-step (DT_FORCING in ocean-only mode
                                 ! or the coupling timestep in coupled mode.)
-DT_THERM = 150.0
+DT_THERM = 400.0
 THERMO_SPANS_COUPLING = True    !   [Boolean] default = False
                                 ! If true, the MOM will take thermodynamic timesteps that can be longer than the
                                 ! coupling timestep. The actual thermodynamic timestep that is used in this case
@@ -738,7 +738,7 @@ INT_TIDE_DISSIPATION = True
 H2_FILE = "bottom_roughness_extended_into_cavity_74Sedit.nc"
 TIDEAMP_FILE = "tideamp_Charrassin_cavity_cropped.nc"
 
-SAVE_INITIAL_CONDS = True
+SAVE_INITIAL_CONDS = False
 
 !----------- Performance Modifications ---
 PARALLEL_RESTARTFILES = True
