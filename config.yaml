@@ -14,12 +14,12 @@ sync:
   restart: true
 
 queue: normalsr
-ncpus: 1664
+ncpus: 2964
 jobfs: 10GB
-mem: 8000GB
+mem: 14500GB
 
-walltime: 10:00:00
-jobname: 8km_panAn_isnt
+walltime: 5:00:00
+jobname: 8km_panAn_is_ICadj
 
 model: access-om3
 
