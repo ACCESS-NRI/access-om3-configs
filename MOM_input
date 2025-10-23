@@ -13,9 +13,9 @@ THERMO_SPANS_COUPLING = True    !   [Boolean] default = False
                                 ! coupling timestep. The actual thermodynamic timestep that is used in this case
                                 ! is the largest integer multiple of the coupling timestep that is less than or
                                 ! equal to DT_THERM.
-THICKNESSDIFFUSE = True         !   [Boolean] default = False
+THICKNESSDIFFUSE = False         !   [Boolean] default = False
                                 ! If true, isopycnal surfaces are diffused with a Laplacian coefficient of KHTH.
-THICKNESSDIFFUSE_FIRST = True   !   [Boolean] default = False
+THICKNESSDIFFUSE_FIRST = False   !   [Boolean] default = False
                                 ! If true, do thickness diffusion or interface height smoothing before dynamics.
                                 ! This is only used if THICKNESSDIFFUSE or APPLY_INTERFACE_FILTER is true.
 HFREEZE = 10.0                  !   [m] default = -1.0
@@ -32,6 +32,7 @@ FRAZIL = True                   !   [Boolean] default = False
                                 ! If true, water freezes if it gets too cold, and the accumulated heat deficit
                                 ! is returned in the surface state.  FRAZIL is only used if
                                 ! ENABLE_THERMODYNAMICS is true.
+FRAZIL_NOT_UNDER_ICESHELF = True
 BOUND_SALINITY = True           !   [Boolean] default = False
                                 ! If true, limit salinity to being positive. (The sea-ice model may ask for more
                                 ! salt than is available and drive the salinity negative otherwise.)
@@ -213,7 +214,7 @@ INIT_LAYERS_FROM_Z_FILE = True  !   [Boolean] default = False
                                 ! Z-space file on a latitude-longitude grid.
 
 ! === module MOM_initialize_layers_from_Z ===
-TEMP_SALT_Z_INIT_FILE = "ACCESS-OM2_IC_bfilled_smoothedland.nc" ! default = "temp_salt_z.nc"
+TEMP_SALT_Z_INIT_FILE = "ACCESS-OM2_IC_bfilled_smoothedland_am_wed_adjust.nc" ! default = "temp_salt_z.nc"
                                 ! The name of the z-space input file used to initialize temperatures (T) and
                                 ! salinities (S). If T and S are not in the same file, TEMP_Z_INIT_FILE and
                                 ! SALT_Z_INIT_FILE must be set.
@@ -700,12 +701,13 @@ ICE_SHELF_TEMPERATURE = -20.0   !   [degC] default = -15.0
                                 ! The temperature at the center of the ice shelf.
 COL_THICK_MELT_THRESHOLD = 0.001 !   [m] default = 0.0
                                 ! The minimum ocean column thickness where melting is allowed.
-
+ICE_SHELF_TIDEAMP_SCALING_FACTOR = 0.66
 ! === module MOM_EOS ===
 DENSITY_ICE = 917.0             !   [kg m-3] default = 900.0
                                 ! A typical density of ice.
-USTAR_SHELF_BG = 0.001          !   [m s-1] default = 0.0
+USTAR_SHELF_BG = 0.0006          !   [m s-1] default = 0.0
                                 ! The minimum value of ustar under ice shelves.
+CDRAG_SHELF = 0.0025
 ICE_PROFILE_CONFIG = "FILE"     !
                                 ! This specifies how the initial ice profile is specified. Valid values are:
                                 ! CHANNEL, FILE, and USER.
@@ -728,4 +730,15 @@ V_TRUNC_FILE = "V_velocity_truncations" ! default = ""
                                 ! The absolute path to a file into which the accelerations leading to meridional
                                 ! velocity truncations are written. Undefine this for efficiency if this
                                 ! diagnostic is not needed.
+
+!------------ Modifications -----------
+READ_TIDEAMP = True
+INT_TIDE_DISSIPATION = True
+H2_FILE = "bottom_roughness_extended_into_cavity_74Sedit.nc"
+TIDEAMP_FILE = "tideamp_Charrassin_cavity_cropped.nc"
+
+SAVE_INITIAL_CONDS = True
+
+!----------- Performance Modifications ---
+PARALLEL_RESTARTFILES = True
 
