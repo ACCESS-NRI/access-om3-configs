@@ -4,10 +4,11 @@
 USE_REGRIDDING = True           !   [Boolean] default = False
                                 ! If True, use the ALE algorithm (regridding/remapping). If False, use the
                                 ! layered isopycnal algorithm.
-DT = 400.0                      !   [s]
+DT = 150.0                      !   [s]
                                 ! The (baroclinic) dynamics time step.  The time-step that is actually used will
                                 ! be an integer fraction of the forcing time-step (DT_FORCING in ocean-only mode
                                 ! or the coupling timestep in coupled mode.)
+DT_THERM = 150.0
 THERMO_SPANS_COUPLING = True    !   [Boolean] default = False
                                 ! If true, the MOM will take thermodynamic timesteps that can be longer than the
                                 ! coupling timestep. The actual thermodynamic timestep that is used in this case
