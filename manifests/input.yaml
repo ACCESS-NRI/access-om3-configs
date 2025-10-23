@@ -1,11 +1,11 @@
 format: yamanifest
 version: 1.0
 ---
-work/INPUT/ACCESS-OM2_IC_bfilled_smoothedland.nc:
-  fullpath: /g/data/tm70/cy8964/mom6/input/input-8km/ACCESS-OM2_IC_bfilled_smoothedland.nc
+work/INPUT/ACCESS-OM2_IC_bfilled_smoothedland_am_wed_adjust.nc:
+  fullpath: /g/data/x77/cy8964/mom6/input/input-8km/ACCESS-OM2_IC_bfilled_smoothedland_am_wed_adjust.nc
   hashes:
-    binhash: e02e993ddf76fc2f6711c47509fb7cdc
-    md5: 38cd91ac0a9c131b39a057351bec3116
+    binhash: 7dc43c2d79188a371d1946c4e9e7a948
+    md5: 8f88afcd7acaf5401e9ffb7d3a98e347
 work/INPUT/JRA55do-datm-ESMFmesh.nc:
   fullpath: /g/data/vk83/configurations/inputs/access-om3/share/meshes/share/2024.09.16/JRA55do-datm-ESMFmesh.nc
   hashes:
@@ -91,6 +91,11 @@ work/INPUT/access-om3-8km-rof-remap-weights_Charrassin_nocavity_cropped.nc:
   hashes:
     binhash: c9513406900bf21fc9062833c7e420d0
     md5: 38c29881d380d2911fb31bbc1f987391
+work/INPUT/bottom_roughness_extended_into_cavity_74Sedit.nc:
+  fullpath: /g/data/x77/cy8964/mom6/input/input-8km/bottom_roughness_extended_into_cavity_74Sedit.nc
+  hashes:
+    binhash: 9a5e6177396dcce6ae16234fed962bba
+    md5: 7f82353f4add21c0694a793d4480e50f
 work/INPUT/diag_rho2.nc:
   fullpath: /g/data/tm70/cy8964/mom6/input/input-8km/diag_rho2.nc
   hashes:
@@ -131,6 +136,11 @@ work/INPUT/salt_restore_mask.nc:
   hashes:
     binhash: 14f469398a2ff3e60c472fd4adfcd090
     md5: 89e3a69b96d12492c0baab68d3bc9b79
+work/INPUT/tideamp_Charrassin_cavity_cropped.nc:
+  fullpath: /g/data/x77/cy8964/mom6/input/input-8km/tideamp_Charrassin_cavity_cropped.nc
+  hashes:
+    binhash: 70ee8bead772885e9697a563ea275f4b
+    md5: 12af3ec0ed46cdf425dc72f869567dde
 work/INPUT/topog_Charrassin_open_cavity_noGL5m_new150925.nc:
   fullpath: /g/data/tm70/cy8964/mom6/input/input-8km/150925/topog_Charrassin_open_cavity_noGL5m_new150925.nc
   hashes:
