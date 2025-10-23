@@ -13,18 +13,20 @@ Also refer to previous notes on the ACCESS-rOM3 panantarctic with no ice shelves
 # Instructions for starting from rest
 ### Step 1: run for 5 days from rest
 - Remove the restart at the end of config.yaml
-- In `MOM_override` set `DT = 150`, `DT_THERM = 150`
+- In `MOM_input` set `DT = 150`, `DT_THERM = 150`
 - In `input.nml` set `input_filename = 'n'`
 - Use the `diag_table` for daily only diagnostics, otherwise this will bite you later since intake will load these NaN filled empty monthly netcdfs: 
 `ln -s diagnostic_profiles/diag_table_isf_daily_only diag_table `
 - Change coupling timestep at corner of `nuopc.runseq` to also be 150
 - Change runtime in `CLOCK` section of `nuopc.runconfig` to be `ndays` and `5` for `stop_n`, `restart_n`, `stop_option`, `restart_option` etc
+- To save ICs, use `SAVE_INITIAL_CONDS = True` in `MOM_input`
 - do `payu setup`, `payu sweep`, `payu run` etc
 
 ### Step 2: run for 26 more days
 - Comment out `input.nml` `input_filename = 'n'`
 - Change `DT`, `DT_THERM` and coupling timestep to be 400 (should work - otherwise try something in between eg 300)
 - Change `CLOCK` runtime in `nuopc.runconfig` to 26 days
+- Turn of IC saving with `SAVE_INITIAL_CONDS = False` in `MOM_input`
 - run
 
 ### Step 3: run February as normal
