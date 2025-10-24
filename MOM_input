@@ -236,12 +236,10 @@ INIT_LAYERS_FROM_Z_FILE = True  !   [Boolean] default = False
                                 ! Z-space file on a latitude-longitude grid.
 
 ! === module MOM_initialize_layers_from_Z ===
-TEMP_SALT_Z_INIT_FILE = "ocean_temp_salt.res.nc" ! default = "temp_salt_z.nc"
+TEMP_SALT_Z_INIT_FILE = "woa23_ts_01_mom.nc" ! default = "temp_salt_z.nc"
                                 ! The name of the z-space input file used to initialize temperatures (T) and
                                 ! salinities (S). If T and S are not in the same file, TEMP_Z_INIT_FILE and
                                 ! SALT_Z_INIT_FILE must be set.
-Z_INIT_FILE_PTEMP_VAR = "temp"  ! default = "ptemp"
-                                ! The name of the potential temperature variable in TEMP_Z_INIT_FILE.
 Z_INIT_ALE_REMAPPING = True     !   [Boolean] default = False
                                 ! If True, then remap straight to model coordinate from file.
 Z_INIT_REMAP_GENERAL = True     !   [Boolean] default = False
@@ -766,6 +764,9 @@ FLUXCONST = 0.11                !   [m day-1] default = 0.0
                                 ! anomalies (akin to a piston velocity).  Note the non-MKS units.
 SALT_RESTORE_FILE = "salt_sfc_restore.nc" ! default = "salt_restore.nc"
                                 ! A file in which to find the surface salinity to use for restoring.
+SALT_RESTORE_VARIABLE = "asalt" ! default = "salt"
+                                ! The name of the surface salinity variable to read from SALT_RESTORE_FILE for
+                                ! restoring salinity.
 SRESTORE_AS_SFLUX = True        !   [Boolean] default = False
                                 ! If true, the restoring of salinity is applied as a salt flux instead of as a
                                 ! freshwater flux.
