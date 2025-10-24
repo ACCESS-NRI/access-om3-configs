@@ -274,13 +274,13 @@ CLOCK_attributes::
      lnd_cpl_dt = 99999 #not used
      ocn_cpl_dt = 3600 #ignored (coupling timestep set by nuopc.runseq) unless stop_option is nsteps
      restart_n = 1
-     restart_option = nyears
+     restart_option = ndays
      restart_ymd = -999
      rof_cpl_dt = 99999 #not used
      start_tod = 0
      start_ymd = 19000101
      stop_n = 1
-     stop_option = nyears
+     stop_option = ndays
      stop_tod = 0
      stop_ymd = -999
      tprof_n = -999
@@ -365,11 +365,11 @@ OCN_modelio::
 ROF_modelio::
      diro = ./log
      logfile = rof.log
-     pio_async_interface = .false. 
+     pio_async_interface = .false.
      pio_netcdf_format = nothing
      pio_numiotasks = 1
-     pio_rearranger = 2 
-     pio_root = 1 
+     pio_rearranger = 2
+     pio_root = 1
      pio_stride = 1
      pio_typename = netcdf4p
 ::

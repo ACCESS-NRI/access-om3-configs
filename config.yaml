@@ -23,9 +23,9 @@ modules:
 queue: normal
 ncpus: 288
 jobfs: 10GB
-mem: 960GB
+mem: 1150GB
 
-walltime: 01:00:00
+walltime: 48:00:00
 jobname: 100km_jra55do_ryf
 
 model: access-om3
