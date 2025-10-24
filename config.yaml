@@ -64,7 +64,7 @@ collate:
   walltime: 1:00:00
   mem: 30GB
   ncpus: 4
-  queue: expresssr
+  queue: normalsr
   exe: mppnccombine-fast
 
 userscripts:
