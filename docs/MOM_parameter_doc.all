@@ -617,15 +617,15 @@ INIT_LAYERS_FROM_Z_FILE = True  !   [Boolean] default = False
                                 ! Z-space file on a latitude-longitude grid.
 
 ! === module MOM_initialize_layers_from_Z ===
-TEMP_SALT_Z_INIT_FILE = "ocean_temp_salt.res.nc" ! default = "temp_salt_z.nc"
+TEMP_SALT_Z_INIT_FILE = "woa23_ts_01_mom.nc" ! default = "temp_salt_z.nc"
                                 ! The name of the z-space input file used to initialize temperatures (T) and
                                 ! salinities (S). If T and S are not in the same file, TEMP_Z_INIT_FILE and
                                 ! SALT_Z_INIT_FILE must be set.
-TEMP_Z_INIT_FILE = "ocean_temp_salt.res.nc" ! default = "ocean_temp_salt.res.nc"
+TEMP_Z_INIT_FILE = "woa23_ts_01_mom.nc" ! default = "woa23_ts_01_mom.nc"
                                 ! The name of the z-space input file used to initialize temperatures, only.
-SALT_Z_INIT_FILE = "ocean_temp_salt.res.nc" ! default = "ocean_temp_salt.res.nc"
+SALT_Z_INIT_FILE = "woa23_ts_01_mom.nc" ! default = "woa23_ts_01_mom.nc"
                                 ! The name of the z-space input file used to initialize temperatures, only.
-Z_INIT_FILE_PTEMP_VAR = "temp"  ! default = "ptemp"
+Z_INIT_FILE_PTEMP_VAR = "ptemp" ! default = "ptemp"
                                 ! The name of the potential temperature variable in TEMP_Z_INIT_FILE.
 Z_INIT_FILE_SALT_VAR = "salt"   ! default = "salt"
                                 ! The name of the salinity variable in SALT_Z_INIT_FILE.
@@ -1248,7 +1248,7 @@ ETA_TOLERANCE = 1.0E-06         !   [m] default = 3.75E-09
                                 ! total tolerance for SSH is 4 times this value.  The default is
                                 ! 0.5*NK*ANGSTROM, and this should not be set less than about
                                 ! 10^-15*MAXIMUM_DEPTH.
-VELOCITY_TOLERANCE = 3.0E+08    !   [m s-1] default = 3.0E+08
+VELOCITY_TOLERANCE = 1.0E-04    !   [m s-1] default = 3.0E+08
                                 ! The tolerance for barotropic velocity discrepancies between the barotropic
                                 ! solution and  the sum of the layer thicknesses.
 CONT_PPM_AGGRESS_ADJUST = False !   [Boolean] default = False
@@ -1943,7 +1943,7 @@ LOTW_BBL_USE_OMEGA = True       !   [Boolean] default = True
                                 ! Otherwise, N is N.
 VON_KARMAN_BBL = 0.41           !   [nondim] default = 0.41
                                 ! The value the von Karman constant as used in calculating the BBL diffusivity.
-LOTW_BBL_ANSWER_DATE = 20190101 ! default = 20190101
+LOTW_BBL_ANSWER_DATE = 99991231 ! default = 20190101
                                 ! The vintage of the order of arithmetic and expressions in the LOTW_BBL
                                 ! calculations.  Values below 20240630 recover the original answers, while
                                 ! higher values use more accurate expressions.  This only applies when
@@ -2545,7 +2545,7 @@ FLUXCONST = 0.11                !   [m day-1] default = 0.0
                                 ! anomalies (akin to a piston velocity).  Note the non-MKS units.
 SALT_RESTORE_FILE = "salt_sfc_restore.nc" ! default = "salt_restore.nc"
                                 ! A file in which to find the surface salinity to use for restoring.
-SALT_RESTORE_VARIABLE = "salt"  ! default = "salt"
+SALT_RESTORE_VARIABLE = "asalt" ! default = "salt"
                                 ! The name of the surface salinity variable to read from SALT_RESTORE_FILE for
                                 ! restoring salinity.
 SRESTORE_AS_SFLUX = True        !   [Boolean] default = False
