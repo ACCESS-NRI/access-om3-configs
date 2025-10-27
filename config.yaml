@@ -40,19 +40,19 @@ input:
     - /g/data/vk83/configurations/inputs/access-om3/share/grids/global.100km/2020.10.22/topog.nc
     - /g/data/vk83/configurations/inputs/access-om3/mom/grids/mosaic/global.100km/2020.05.30/ocean_hgrid.nc
     - /g/data/vk83/configurations/inputs/access-om3/mom/grids/mosaic/global.100km/2020.05.30/ocean_mosaic.nc
-    - /g/data/vk83/configurations/inputs/access-om3/mom/grids/mosaic/global.100km/2024.05.08/grid_spec.nc
+    - /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/grids/mosaic/share/2024.05.08/grid_spec.nc
     - /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/grids/vertical/share/2025.03.12/ocean_vgrid.nc
     - /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/initial_conditions/global.100km/2025.09.23/ocean_temp_salt.res.nc
     - /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/surface_salt_restoring/global.100km/2025.09.23/salt_sfc_restore.nc
     - /g/data/vk83/configurations/inputs/access-om3/cice/grids/global.100km/2024.05.14/kmt.nc
     - /g/data/vk83/configurations/inputs/access-om3/cice/initial_conditions/global.100km/2023.07.28/iced.1900-01-01-10800.nc
-    - /g/data/vk83/configurations/inputs/access-om3/wombat/forcing/global.100km/2022.02.24/dust.nc
-    - /g/data/vk83/configurations/inputs/access-om3/wombat/initial_conditions/global.100km/2021.06.07/FEMIP_model_median_iron_2016_fillmiss.nc
-    - /g/data/vk83/configurations/inputs/access-om3/wombat/initial_conditions/global.100km/2024.04.02/GLODAPv2.2016b.NO3_fillmiss.nc
-    - /g/data/vk83/configurations/inputs/access-om3/wombat/initial_conditions/global.100km/2024.04.02/GLODAPv2.2016b.oxygen_fillmiss.nc
-    - /g/data/vk83/configurations/inputs/access-om3/wombat/initial_conditions/global.100km/2024.04.02/GLODAPv2.2016b.PI_TCO2_fillmiss.nc
-    - /g/data/vk83/configurations/inputs/access-om3/wombat/initial_conditions/global.100km/2024.04.02/GLODAPv2.2016b.TAlk_fillmiss.nc
-    - /g/data/vk83/configurations/inputs/access-om3/wombat/initial_conditions/global.100km/2024.04.02/GLODAPv2.2016b.TCO2_fillmiss.nc
+    - /g/data/vk83/prerelease/configurations/inputs/access-om3/wombat/forcing/global.100km/2025.10.27/SFe_Hamiltonetal2020_monthly_clim.nc
+    - /g/data/vk83/prerelease/configurations/inputs/access-om3/wombat/initial_conditions/share/2021.06.07/FEMIP_model_median_iron_2016_fillmiss.nc
+    - /g/data/vk83/prerelease/configurations/inputs/access-om3/wombat/initial_conditions/share/2024.04.02/GLODAPv2.2016b.NO3_fillmiss.nc
+    - /g/data/vk83/prerelease/configurations/inputs/access-om3/wombat/initial_conditions/share/2024.04.02/GLODAPv2.2016b.oxygen_fillmiss.nc
+    - /g/data/vk83/prerelease/configurations/inputs/access-om3/wombat/initial_conditions/share/2024.04.02/GLODAPv2.2016b.PI_TCO2_fillmiss.nc
+    - /g/data/vk83/prerelease/configurations/inputs/access-om3/wombat/initial_conditions/share/2024.04.02/GLODAPv2.2016b.TAlk_fillmiss.nc
+    - /g/data/vk83/prerelease/configurations/inputs/access-om3/wombat/initial_conditions/share/2024.04.02/GLODAPv2.2016b.TCO2_fillmiss.nc
     - /g/data/vk83/prerelease/configurations/inputs/access-om3/wombat/initial_conditions/global.100km/2025.06.06/init_ocean_wombatlite.res.nc
     - /g/data/vk83/configurations/inputs/JRA-55/RYF/v1-6/data
  
