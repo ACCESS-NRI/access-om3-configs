@@ -96,6 +96,11 @@ work/INPUT/RYF.vas.1990_1991.nc:
   hashes:
     binhash: f353a71a014062723ed2b56353932caf
     md5: 30b92b1e409cff9a9900692aa961aba4
+work/INPUT/SFe_Hamiltonetal2020_monthly_clim.nc:
+  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/wombat/forcing/global.100km/2025.10.27/SFe_Hamiltonetal2020_monthly_clim.nc
+  hashes:
+    binhash: 3bae5fe5bf090ddc0b00d08c25e3b1fa
+    md5: 9dfd43ee5150776fbcea2e97564a2e7c
 work/INPUT/access-om2-100km-ESMFmesh.nc:
   fullpath: /g/data/vk83/configurations/inputs/access-om3/share/meshes/global.100km/2024.01.25/access-om2-100km-ESMFmesh.nc
   hashes:
@@ -111,11 +116,6 @@ work/INPUT/bottom_roughness.nc:
   hashes:
     binhash: e28f832d8cf239fb52e8a835047c9529
     md5: 014f9b95036b9e5a54a24e3643de675b
-work/INPUT/dust.nc:
-  fullpath: /g/data/vk83/configurations/inputs/access-om3/wombat/forcing/global.100km/2022.02.24/dust.nc
-  hashes:
-    binhash: 27b85ba44177e8fdeea765179841c73c
-    md5: b66d8d72cd49801a74da90b211e8dd21
 work/INPUT/grid_spec.nc:
   fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/grids/mosaic/share/2024.05.08/grid_spec.nc
   hashes:
