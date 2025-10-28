@@ -2203,7 +2203,7 @@ CALCULATE_APE = True            !   [Boolean] default = True
 WRITE_STOCKS = True             !   [Boolean] default = True
                                 ! If true, write the integrated tracer amounts to stdout when the energy files
                                 ! are written.
-MAXTRUNC = 10000                !   [truncations save_interval-1] default = 0
+MAXTRUNC = 100000               !   [truncations save_interval-1] default = 0
                                 ! The run will be stopped, and the day set to a very large value if the velocity
                                 ! is truncated more than MAXTRUNC times between energy saves.  Set MAXTRUNC to 0
                                 ! to stop if there is any truncation of velocities.

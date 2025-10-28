@@ -2,15 +2,15 @@
 
 # If submitting to a different project to your default, uncomment line below 
 # and change project code as appropriate; also set shortpath below
-project: ol01
+project: g40
 # Force payu to always find, and save, files in this scratch project directory
 shortpath: /scratch/x77
 
 # Using payu sync is recommend to copy data from ephemeral scratch space to 
 # longer term storage
 sync:
-  enable: false   # set path below and change to true
-  path:        # Set to location on /g/data (e.g. /g/data/PROJECT/USER/EXPERIMENT)
+  enable: true   # set path below and change to true
+  path: /g/data/x77/cy8964/access-om3/archive/ice_shelf_panan-PR-061025-nofrazilshelf-tideson-newICs       # Set to location on /g/data (e.g. /g/data/PROJECT/USER/EXPERIMENT)
   restart: true
 
 queue: normalsr
@@ -31,7 +31,7 @@ input:
 - /g/data/tm70/cy8964/mom6/input/input-8km/150925/kmt_Charrassin_sea_ice_from_iceelev_new150925.nc
 - /g/data/tm70/cy8964/mom6/input/input-8km/ocean_hgrid_cropped.nc
 - /g/data/tm70/cy8964/mom6/input/input-8km/ocean_vgrid_cropped.nc
-- /g/data/x77/cy8964/mom6/input/input-8km/ACCESS-OM2_IC_bfilled_smoothedland_am_wed_adjust.nc
+- /g/data/x77/cy8964/mom6/input/input-8km/Yamazaki_ACCESS-OM2_IC_LarsenWeddellRossedits_smoothed.nc
 - /g/data/tm70/cy8964/mom6/input/input-8km/salt_restore_interpolated_nearest.nc
 - /g/data/tm70/cy8964/mom6/input/input-8km/150925/salt_restore_mask.nc
 - /g/data/tm70/cy8964/mom6/input/input-8km/150925/topog_Charrassin_sea_ice_from_iceelev_new150925.nc

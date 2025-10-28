@@ -8,7 +8,7 @@ DT = 400.0                      !   [s]
                                 ! The (baroclinic) dynamics time step.  The time-step that is actually used will
                                 ! be an integer fraction of the forcing time-step (DT_FORCING in ocean-only mode
                                 ! or the coupling timestep in coupled mode.)
-DT_THERM = 800.0
+DT_THERM = 400.0
 THERMO_SPANS_COUPLING = True    !   [Boolean] default = False
                                 ! If true, the MOM will take thermodynamic timesteps that can be longer than the
                                 ! coupling timestep. The actual thermodynamic timestep that is used in this case
@@ -215,7 +215,7 @@ INIT_LAYERS_FROM_Z_FILE = True  !   [Boolean] default = False
                                 ! Z-space file on a latitude-longitude grid.
 
 ! === module MOM_initialize_layers_from_Z ===
-TEMP_SALT_Z_INIT_FILE = "ACCESS-OM2_IC_bfilled_smoothedland_am_wed_adjust.nc" ! default = "temp_salt_z.nc"
+TEMP_SALT_Z_INIT_FILE = "Yamazaki_ACCESS-OM2_IC_LarsenWeddellRossedits_smoothed.nc" !"ACCESS-OM2_IC_bfilled_smoothedland_am_wed_adjust.nc" ! default = "temp_salt_z.nc"
                                 ! The name of the z-space input file used to initialize temperatures (T) and
                                 ! salinities (S). If T and S are not in the same file, TEMP_Z_INIT_FILE and
                                 ! SALT_Z_INIT_FILE must be set.
@@ -636,7 +636,7 @@ CHECK_DIFFUSIVE_CFL = True      !   [Boolean] default = False
                                 ! of 1 or MAX_TR_DIFFUSION_CFL iteration.
 
 ! === module MOM_sum_output ===
-MAXTRUNC = 10000                !   [truncations save_interval-1] default = 0
+MAXTRUNC = 100000                !   [truncations save_interval-1] default = 0
                                 ! The run will be stopped, and the day set to a very large value if the velocity
                                 ! is truncated more than MAXTRUNC times between energy saves.  Set MAXTRUNC to 0
                                 ! to stop if there is any truncation of velocities.
@@ -746,3 +746,5 @@ TIDEAMP_FILE = "tideamp_Charrassin_cavity_cropped.nc"
 !----------- Performance Modifications ---
 PARALLEL_RESTARTFILES = True
 !AUTO_IO_LAYOUT_FAC = 7
+
+!DEBUG = True
