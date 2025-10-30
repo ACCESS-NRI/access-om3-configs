@@ -106,6 +106,7 @@ markdown_extensions:
 # Navigation
 nav:
   - Home:                  index.md
+  - Experiments:                 pages/Experiments.md
   - Contributing:          
         - Contributing overview:     pages/contributing/index.md   
         - Edit this Documentation: pages/contributing/Edit-Config-Docs.md
