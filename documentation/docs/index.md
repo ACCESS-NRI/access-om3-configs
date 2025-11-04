@@ -67,7 +67,7 @@ Additional configuration information, like if the configuration includes biogeoc
 
 Currently the following released configurations are available:
 
-- [`release-MC_100km_jra_ryf`](https://github.com/ACCESS-NRI/access-om3-configs/tree/release-MC_25km_jra_ryf)
+- [`release-MC_25km_jra_ryf`](https://github.com/ACCESS-NRI/access-om3-configs/tree/release-MC_25km_jra_ryf)
 
 Currently the following development configurations are available:
 
