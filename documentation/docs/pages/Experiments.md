@@ -1,4 +1,17 @@
 
+<!-- some hacks to hide the table of contents and make the links sidebar smaller, 
+so the table has more screen real estate -->
+<style>
+.md-sidebar--secondary:not([hidden]){
+  display: none 
+}
+
+.md-sidebar {
+    width: 8rem
+}
+
+</style>
+
 # Key experiments used for current development
 
 | Date completed | Description  | Model build | Length (years) | Configuration | ESM Datastore | Data output | 
