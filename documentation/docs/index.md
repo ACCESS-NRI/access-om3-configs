@@ -67,7 +67,8 @@ Additional configuration information, like if the configuration includes biogeoc
 
 Currently the following released configurations are available:
 
-- [`release-MC_100km_jra_ryf`](https://github.com/ACCESS-NRI/access-om3-configs/tree/release-MC_25km_jra_ryf)
+- [`release-MC_25km_jra_ryf`](https://github.com/ACCESS-NRI/access-om3-configs/tree/release-MC_25km_jra_ryf)
+- [`release-MC_25km_iaf_ryf`](https://github.com/ACCESS-NRI/access-om3-configs/tree/release-MC_25km_jra_iaf)
 
 Currently the following development configurations are available:
 
@@ -79,7 +80,6 @@ Currently the following development configurations are available:
 - [`dev-MC_25km_jra_ryf`](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MC_25km_jra_ryf)
 - [`dev-MC_25km_jra_iaf`](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MC_25km_jra_iaf)
 - [`dev-MC_25km_jra_ryf+wombatlite`](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MC_25km_jra_ryf+wombatlite)
-- [`25km-iaf-test-for-AK`](https://github.com/ACCESS-NRI/access-om3-configs/tree/25km-iaf-test-for-AK)
 
 **MOM6-CICE6-WW3-DATM-DROF configurations**
 
