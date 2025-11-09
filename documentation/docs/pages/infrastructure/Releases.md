@@ -5,4 +5,4 @@ The main publicly announced releases related to ACCESS OM3 are releases of model
 The stages (alpha, beta, full) and standard for releases are [defined in the ACCESS-HIVE docs](https://docs.access-hive.org.au/about/releases/)
 and there is a [checklist for developers](https://forum.access-hive.org.au/t/model-release-checklist-template/4371) to follow when undertaking releases.
 
-Releases are [announced](https://forum.access-hive.org.au/t/access-om3-release-information/4494) on the ACCESS-HIVE forum
+Releases are [announced](https://forum.access-hive.org.au/t/access-om3-release-information/4494) on the ACCESS-HIVE forum and citable through [DOI's published on zenodo](https://zenodo.org/communities/access-nri/records?q=conceptdoi:16294824).
