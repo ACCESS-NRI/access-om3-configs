@@ -6,7 +6,7 @@ The sections that follow explain why we selected each model parameter for the gl
 
 ### Horizontal grid
 
-The 25km configuration uses a tripolar grid to avoid a singularity at the North Pole. The domain is zonally periodic `REENTRANT_X = True` and open at the north via a tripolar fold `TRIPOLAR_N = True` while closed in the south `REENTRANT_Y = False`. The horizontal grid has `1440x1152` tracer points. This is closely aligned with prior models, such as `ACCESS-OM2-025` and `GFDL OM4/OM5` (`1440x1080`) and provides eddy-permitting detail in the ocean while maintaining numerical stability. See [Grids](../Grids/) for more information. 
+The 25km configuration uses a tripolar grid to avoid a singularity at the North Pole. The domain is zonally periodic `REENTRANT_X = True` and open at the north via a tripolar fold `TRIPOLAR_N = True` while closed in the south `REENTRANT_Y = False`. The horizontal grid has `1440x1152` tracer points. This is closely aligned with prior models, such as `ACCESS-OM2-025` and `GFDL OM4/OM5` (`1440x1080`) and provides eddy-permitting detail in the ocean while maintaining numerical stability. See [Grids](../../inputs/Grids/) for more information. 
 
 ### Vertical resolution and ALE coordinate
 This configuration uses 75 vertical layers (`NK=75`) with an arbitrary Lagrangian Euler (`ALE`) vertical coordinate scheme [@griffies2020primer]. The `ALE` scheme is enabled by `USE_REGRIDDING = True` (activating the “split-explicit” layered/regridding algorithm). MOM6 also supports true hybrid vertical coordinates, such as "layered isopycnal-z", where layers follow density surfaces in the ocean interior but transition to z-coordinates near the surface or bottom. However, that mode is not used in this configuration. We adopt a stretched $z^*$ vertical coordinate `REGRIDDING_COORDINATE_MODE = "ZSTAR"`. The vertical grid spacing is specified via an input file (`ALE_COORDINATE_CONFIG = "FILE:ocean_vgrid.nc,interfaces=zeta"`). The deepest ocean depth is set to `MAXIMUM_DEPTH = 6000.0`. The gravitational acceleration is `G_EARTH = 9.8` $m/s^2$. The Boussinesq approximation is made (`BOUSSINESQ = True`), meaning density variations only affect buoyancy, with all other terms using a reference density `RHO_0 = 1035` $kg/m^3$, the standard value. In our configuration, sea level is computed assuming a reference density (here using the fixed reference density for sea-level calc since `CALC_RHO_FOR_SEA_LEVEL = False`).
@@ -107,7 +107,7 @@ This document walks through each of these namelist groups and provides a short e
 This group defines time-stepping, run length, output frequencies, initial conditions, and I/O settings.
 
 - Time-stepping and run length
-    - The timestep `dt` is not defined in `ice_in` directly; it is overwritten in the CICE NUOPC cap to match the driver timestep (coupling timestep). See [NUOPC driver](../NUOPC-driver/) for more information.
+    - The timestep `dt` is not defined in `ice_in` directly; it is overwritten in the CICE NUOPC cap to match the driver timestep (coupling timestep). See [NUOPC driver](../../infrastructure/NUOPC-driver/) for more information.
 - Initialisation: 
     - [`ice_ic`](https://cice-consortium-cice.readthedocs.io/en/cice6.0/user_guide/ug_case_settings.html#:~:text=*-,ice_ic,-default)
         - When set to `"default"`, CICE initialises sea ice concentration and thickness based on latitude.
