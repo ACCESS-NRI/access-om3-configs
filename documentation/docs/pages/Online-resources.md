@@ -16,4 +16,4 @@ We draw on experience from [COSIMA's](https://cosima.org.au/) other MOM6 project
 
 ## Infrastructure
 
-- [Technical Report 1 - Coupling Infrastructure Capability in UFS Weather Model](https://doi.org/10.25923/dvv2-3g03): uses similar model components and NUOPC coupler.
+- [Technical Report - Coupling Infrastructure Capability in UFS Weather Model](https://doi.org/10.25923/dvv2-3g03): uses similar model components and NUOPC coupler.
