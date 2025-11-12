@@ -15,7 +15,9 @@ so the table has more screen real estate -->
 # ACCESS-OM3 Experiments
 
 The below lists are key experiments that are being used to improve, evaluate and drive development for OM3. We welcome scientific and technical feedback on these runs. If you would like to get involved in evaluation of these runs, see instructions [here](https://github.com/acCESS-Community-Hub/access-om3-paper-1/) and an overview [here](/contributing/#help-us-evaluate-and-improve-applications-of-om3). 
+
 As these data are from beta releases of configurations, they will not be kept long-term and will be deleted when newer control experiments are completed.
+
 This data, and the configurations they are based on, are licensed by 
 [CC-by-4.0](https://creativecommons.org/licenses/by/4.0/) and therefore can be freely shared, 
 distributed and modified. Users of ACCESS-NRI models, data, tools or expert support are required
