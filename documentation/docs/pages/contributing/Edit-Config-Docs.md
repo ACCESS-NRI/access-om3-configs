@@ -9,7 +9,7 @@ All contributions are welcome but we would particularly appreciate text suggesti
 
 The simplest and fastest way to make a change to an _existing_ page is to click the edit "pencil" on the top-right corner. This will go to the relevant GitHub markdown file and clicking the top-right pencil again on GitHub will allow you to edit the file. Once complete, click `Commit changes...`. There are then _two_ possibilities, depending on whether you have  write access to [`access-om3-configs`](https://github.com/ACCESS-NRI/access-om3-configs): 
 
-1.  **No write access** (e.g. you are not part of the `ACCESS-NRI` GitHub organisation): this will prompt you to make a fork and then a pull request (less than 1 minute!). 
+1.  **No write access**: this will prompt you to make a fork and then a pull request (less than 1 minute!). 
 1.  **You have write access**: please commit changes on a new branch and then use a pull request (this relates to the next option). 
 
 ### Larger contributions (online PR-previews)
@@ -22,7 +22,10 @@ Create a new branch, e.g. `jblogs/doc-update`, make doc changes (the documentati
 !!! tip
     Similar to the above, this method allows you create whole new pages and to preview the changes rendered into a website. It works whether or not you have write access to [`access-om3-configs`](https://github.com/ACCESS-NRI/access-om3-configs), but requires you to install `mkdocs` and takes the longest to set up.<br>
 
-Following [these instructions](https://docs.access-hive.org.au/about/contribute/contribute_on_github/) but noting the documentation sources are in [github.com/ACCESS-NRI/access-om3-configs/tree/main/documentation](https://github.com/ACCESS-NRI/access-om3-configs/tree/main/documentation). You'll need to fork and clone [github.com/ACCESS-NRI/access-om3-configs](https://github.com/ACCESS-NRI/access-om3-configs) if you want to [write your own content](https://docs.access-hive.org.au/about/contribute/contribute_on_github/) (`mkdocs serve` should be invoked from within the `documentation` directory).
+Following [these instructions](https://docs.access-hive.org.au/about/contribute/#lets-get-started) but noting the documentation sources are in [github.com/ACCESS-NRI/access-esm1.6-configs/tree/main/documentation](https://github.com/ACCESS-NRI/access-om3-configs/tree/main/documentation). You’ll need to fork the [ACCESS-Hive Docs GitHub repository](https://github.com/ACCESS-NRI/access-hive.org.au) and clone it locally if you want to write your own content. Once cloned, make sure to invoke `mkdocs serve` from within the `documentation` directory.
+
+Additional steps and contribution guidelines can be found here:
+https://docs.access-hive.org.au/about/contribute/#clone-the-forked-access-hive-docs-github-repository-locally
 
 If you want to add a new page, then you need to add another markdown file in the folder (or sub-folder as appropriate):
 [github.com/ACCESS-NRI/access-om3-configs/tree/main/documentation/docs/pages](https://github.com/ACCESS-NRI/access-om3-configs/tree/main/documentation/docs/pages)

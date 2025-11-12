@@ -13,3 +13,7 @@ We draw on experience from [COSIMA's](https://cosima.org.au/) other MOM6 project
 - our [MOM6 PanAntarctic regional configurations](https://github.com/COSIMA/mom6-panan)
 - our [MOM6 EAC regional configuration](https://github.com/COSIMA/mom6-eac)
 - Claire Yung's [ice shelf tools](https://github.com/claireyung/mom6-panAn-iceshelf-tools)
+
+## Infrastructure
+
+- [Technical Report - Coupling Infrastructure Capability in UFS Weather Model](https://doi.org/10.25923/dvv2-3g03): uses similar model components and NUOPC coupler.

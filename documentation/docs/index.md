@@ -1,4 +1,4 @@
-{% set run_access_om3 = "https://docs.access-hive.org.au/models/run-a-model/run-access-om3/" %}
+{% set run_access_om3 = "https://docs.access-hive.org.au/models/run_a_model/run_access-om3/" %}
 
 # Home
 
@@ -7,7 +7,7 @@ Welcome to the documentation for the [ACCESS-OM3 ocean-seaice model configuratio
 ACCESS-OM3 is the third generation of the ACCESS global ocean - sea ice model. It uses up-to-date releases of the [MOM6](https://github.com/ACCESS-NRI) ocean model and [CICE6](https://github.com/ACCESS-NRI/CICE) sea ice model. It is the first ACCESS model that couples model components using CMEPS ([Community Mediator for Earth Prediction Systems](https://escomp.github.io/CMEPS/versions/master/html/index.html)), built on top of NUOPC ([National Unified Operational Prediction Capability](https://earthsystemmodeling.org/nuopc/)) infrastructure.
 
 ## ACCESS-OM3 Quickstart 
-If you would like to simply run the model, see the [How to Run ACCESS OM3 documentation](https://docs.access-hive.org.au/models/run-a-model/run-access-om3/). 
+If you would like to simply run the model, see the [How to Run ACCESS OM3 documentation]({{run_access_om3}}). 
 
 <div class="text-card-group" markdown>
 [![Hive](assets/ACCESS_icon_HIVE.png){: class="icon-before-text"} Run ACCESS-OM3]({{run_access_om3}}){: class="text-card" target="_blank" rel="noopener"}
@@ -17,10 +17,10 @@ If you would like to simply run the model, see the [How to Run ACCESS OM3 docume
 
 See the navigation links on the left. Some reading tips, see:
 
- - [Contributing](/contributing) if you'd like to get involved / provide feedback on ACCESS-OM3;
- - [Inputs](/inputs/Forcing-data-models) if you would like to understand how the input files are generated;
- - [Configuration choices/Configurations](/configurations/Overview/) for information/background about specific configurations. The remaining sub-sections in `Configuration choices` provide background on key files and background on how ACCESS-OM3 configurations work/can be customised. **These parts are likely of most interest to users.**
- - [Infrastructure](/infrastructure/Architecture/) is likely of more interest to ACCESS-NRI staff and developers. Having said this, some users, might find pages such as `Architecture` useful background.
+ - [Contributing](contributing/Overview/) if you'd like to get involved / provide feedback on ACCESS-OM3;
+ - [Inputs](inputs/Forcing-data-models/) if you would like to understand how the input files are generated;
+ - [Configuration choices/Configurations](configurations/Overview/) for information/background about specific configurations. The remaining sub-sections in `Configuration choices` provide background on key files and background on how ACCESS-OM3 configurations work/can be customised. **These parts are likely of most interest to users.**
+ - [Infrastructure](infrastructure/Architecture/) is likely of more interest to ACCESS-NRI staff and developers. Having said this, some users, might find pages such as `Architecture` useful background.
 
 ## ACCESS-OM3-Configs Overview
 ACCESS-OM3 configurations are provided via branches in the [access-om3-configs](https://github.com/ACCESS-NRI/access-om3-configs) GitHub repository. The [access-om3-configs](https://github.com/ACCESS-NRI/access-om3-configs) repository contains several configurations using the following components:
@@ -67,7 +67,7 @@ Additional configuration information, like if the configuration includes biogeoc
 
 Currently the following released configurations are available:
 
-- [`release-MC_100km_jra_ryf`](https://github.com/ACCESS-NRI/access-om3-configs/tree/release-MC_25km_jra_ryf)
+- [`release-MC_25km_jra_ryf`](https://github.com/ACCESS-NRI/access-om3-configs/tree/release-MC_25km_jra_ryf)
 
 Currently the following development configurations are available:
 
@@ -77,6 +77,7 @@ Currently the following development configurations are available:
 - [`dev-MC_100km_jra_iaf`](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MC_100km_jra_iaf)
 - [`dev-MC_100km_jra_ryf+wombatlite`](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MC_100km_jra_ryf+wombatlite)
 - [`dev-MC_25km_jra_ryf`](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MC_25km_jra_ryf)
+- [`dev-MC_25km_jra_iaf`](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MC_25km_jra_iaf)
 - [`dev-MC_25km_jra_ryf+wombatlite`](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MC_25km_jra_ryf+wombatlite)
 
 **MOM6-CICE6-WW3-DATM-DROF configurations**
@@ -90,20 +91,21 @@ Currently the following development configurations are available:
 ### Comparison table
 The following links can be used to easily compare different configuration branches
 
-**MC → MC**
+**MC ← MC**
 
-- [`release-MC_25km_jra_ryf`⬅️`dev-MC_25km_jra_iaf`](https://github.com/ACCESS-NRI/access-om3-configs/compare/release-MC_25km_jra_ryf..dev-MC_25km_jra_ryf)
+- [`release-MC_25km_jra_ryf`⬅️`dev-MC_25km_jra_ryf`](https://github.com/ACCESS-NRI/access-om3-configs/compare/release-MC_25km_jra_ryf..dev-MC_25km_jra_ryf)
 - [`dev-MC_100km_jra_ryf`⬅️`dev-MC_100km_jra_iaf`](https://github.com/ACCESS-NRI/access-om3-configs/compare/dev-MC_100km_jra_ryf..dev-MC_100km_jra_iaf)
 - [`dev-MC_100km_jra_ryf`⬅️`dev-MC_100km_jra_ryf+wombatlite`](https://github.com/ACCESS-NRI/access-om3-configs/compare/dev-MC_100km_jra_ryf..dev-MC_100km_jra_ryf+wombatlite)
 - [`dev-MC_100km_jra_ryf`⬅️`dev-MC_25km_jra_ryf`](https://github.com/ACCESS-NRI/access-om3-configs/compare/dev-MC_100km_jra_ryf..dev-MC_25km_jra_ryf)
 - [`dev-MC_100km_jra_ryf+wombatlite`⬅️`dev-MC_25km_jra_ryf+wombatlite`](https://github.com/ACCESS-NRI/access-om3-configs/compare/dev-MC_100km_jra_ryf+wombatlite..dev-MC_25km_jra_ryf+wombatlite)
+- [`dev-MC_25km_jra_ryf`⬅️`dev-MC_25km_jra_iaf`](https://github.com/ACCESS-NRI/access-om3-configs/compare/dev-MC_25km_jra_ryf..dev-MC_25km_jra_iaf)
 - [`dev-MC_25km_jra_ryf`⬅️`dev-MC_25km_jra_ryf+wombatlite`](https://github.com/ACCESS-NRI/access-om3-configs/compare/dev-MC_25km_jra_ryf..dev-MC_25km_jra_ryf+wombatlite)
 
-**MCW → MCW**
+**MCW ← MCW**
 
 - [`dev-MCW_100km_jra_ryf`⬅️`dev-MCW_100km_jra_iaf`](https://github.com/ACCESS-NRI/access-om3-configs/compare/dev-MCW_100km_jra_ryf..dev-MCW_100km_jra_iaf)
 
-**MC → MCW**
+**MC ← MCW**
 
 - [`dev-MC_100km_jra_ryf`⬅️`dev-MCW_100km_jra_ryf`](https://github.com/ACCESS-NRI/access-om3-configs/compare/dev-MC_100km_jra_ryf..dev-MCW_100km_jra_ryf)
 - [`dev-MC_100km_jra_iaf`⬅️`dev-MCW_100km_jra_iaf`](https://github.com/ACCESS-NRI/access-om3-configs/compare/dev-MC_100km_jra_iaf..dev-MCW_100km_jra_iaf)

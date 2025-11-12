@@ -29,3 +29,6 @@ MC_25km_jra_ryf
 MC_25km_jra_ryf+wombatlite
 MCW_100km_jra_ryf
 MCW_100km_jra_iaf
+dev-MC_4km_jra_ryf+regionalpanan+isf
+dev-MC_4km_jra_ryf+regionalpanan
+all-configurations
