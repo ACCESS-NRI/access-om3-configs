@@ -1,7 +1,7 @@
 # ACCESS-OM3 architecture
 The schematic below illustrates the structure of the MOM6-CICE6-WW3 ACCESS-OM3 executable. ACCESS-OM3 is a single executable, consisting of the NUOPC driver (the main program) and several model components, each wrapped in a NUOPC cap; the caps are coupled through the [CMEPS mediator](https://escomp.github.io/CMEPS/versions/master/html/index.html) via NUOPC connectors. NUOPC is an interoperability layer for ESMF which standardises how model components interact. See discussions [here](https://github.com/COSIMA/access-om3/discussions/7#discussioncomment-3446345) and [here](https://github.com/COSIMA/access-om3/discussions/9) for more information.
 
-![ACCESS-OM3 architecture](../assets/nuopc_overview.png){: loading="lazy" }
+![ACCESS-OM3 architecture](../../assets/nuopc_overview.png){: loading="lazy" }
 
 The coupled fields and remapping methods used are recorded in the mediator log output file and can be found with `grep '^ mapping' archive/output000/log/med.log`; see [here](https://escomp.github.io/CMEPS/versions/master/html/esmflds.html) for how to decode this. See [the Configurations Overview page](../../configurations/Overview/#coupling) for details on how the coupling is determined.
 
@@ -27,10 +27,10 @@ The model components are coupled exclusively through the mediator via their NUOP
 - [Overview of how NUOPC works](https://earthsystemmodeling.org/nuopc/)
 - [CMEPS docs](https://escomp.github.io/CMEPS/versions/master/html/index.html)
 - [NUOPC and ESMF docs](https://earthsystemmodeling.org/doc/)
-  - [NUOPC how-to](https://earthsystemmodeling.org/docs/release/ESMF_8_3_1/NUOPC_howtodoc/)
-  - [NUOPC reference](https://earthsystemmodeling.org/docs/release/ESMF_8_3_1/NUOPC_refdoc/NUOPC_refdoc.html)
-  - [ESMF superstructure](https://earthsystemmodeling.org/docs/release/ESMF_8_3_1/ESMF_refdoc/node4.html)
-  - [ESMF glossary](https://earthsystemmodeling.org/docs/release/ESMF_8_3_1/ESMF_usrdoc/node15.html)
+    - [NUOPC how-to](https://earthsystemmodeling.org/docs/release/ESMF_8_7_0/NUOPC_howtodoc/)
+    - [NUOPC reference](https://earthsystemmodeling.org/docs/release/ESMF_8_7_0/NUOPC_refdoc/NUOPC_refdoc.html)
+    - [ESMF superstructure](https://earthsystemmodeling.org/docs/release/ESMF_8_7_0/ESMF_refdoc/node4.html)
+    - [ESMF glossary](https://earthsystemmodeling.org/docs/release/ESMF_8_7_0/ESMF_usrdoc/node15.html)
 - [MOM6 NUOPC cap docs](https://ncar.github.io/MOM6/APIs/nuopc_cap.html)
 
 

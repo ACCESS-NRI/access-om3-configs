@@ -54,18 +54,6 @@ theme:
 copyright: Copyright &copy; 2025 ACCESS-NRI
 
 plugins:
-  - include-stubs:
-      repo: ACCESS-NRI/access-om3-configs
-      main_website:
-        pattern: "dev-* release-*"
-        ref_type: branch
-      preview_website:
-        pattern: ""
-        ref_type: branch
-      stubs_parent_url: pages/configurations
-      stubs_nav_path: Configurations
-      stubs_dir: documentation/stub
-
   - git-revision-date-localized:
       type: date
       enable_creation_date: false
@@ -107,7 +95,7 @@ markdown_extensions:
 nav:
   - Home:                  index.md
   - Contributing:          
-        - Contributing overview:     pages/contributing/index.md   
+        - Overview:     pages/contributing/Overview.md   
         - Edit this Documentation: pages/contributing/Edit-Config-Docs.md
         - Add Supported Config:      pages/contributing/Add-Supported-Config.md      
   - Inputs:
@@ -119,7 +107,7 @@ nav:
 
   - Configurations:
         - Overview: pages/configurations/Overview.md
-        # At build time other configurations are added here by the mkdocs-include-configurations plugin
+        - MOM6-CICE 25km: pages/configurations/MC_25km.md
         - WW3 config: pages/configurations/MOM6-CICE6-WW3-quickstart.md
         - WW3 parameter choices: pages/configurations/WW3_parameter_choices.md
 
