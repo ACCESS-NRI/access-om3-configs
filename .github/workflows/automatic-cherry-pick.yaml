@@ -184,6 +184,18 @@ jobs:
           # We need the history of all branches
           fetch-depth: 0
 
+      - name: Import Commit-Signing Key
+        uses: crazy-max/ghaction-import-gpg@01dd5d3ca463c7f10f7f4f7b4f177225ac661ee4  # v6.1.0
+        with:
+          gpg_private_key: ${{ secrets.GH_ACTIONS_BOT_GPG_PRIVATE_KEY }}
+          passphrase: ${{ secrets.GH_ACTIONS_BOT_GPG_PASSPHRASE }}
+          git_config_global: true
+          git_committer_name: ${{ vars.GH_ACTIONS_BOT_GIT_USER_NAME }}
+          git_committer_email: ${{ vars.GH_ACTIONS_BOT_GIT_USER_EMAIL }}
+          git_user_signingkey: true
+          git_commit_gpgsign: true
+          git_tag_gpgsign: true
+          
       - name: Determine branch information
         id: info
         run: |
@@ -194,10 +206,6 @@ jobs:
         id: cherry-pick
         continue-on-error: true
         run: |
-          # We use the github-actions bot account for creating the commits. Note that this will not work if the repository requires signed commits.
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-        
           git checkout -b ${{ steps.info.outputs.new_branch }} origin/${{ matrix.branch }}
           git cherry-pick ${{ needs.process_comment.outputs.commits }}
 
