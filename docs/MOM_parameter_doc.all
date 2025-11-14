@@ -64,7 +64,7 @@ DT = 400.0                      !   [s]
                                 ! The (baroclinic) dynamics time step.  The time-step that is actually used will
                                 ! be an integer fraction of the forcing time-step (DT_FORCING in ocean-only mode
                                 ! or the coupling timestep in coupled mode.)
-DT_THERM = 400.0                !   [s] default = 400.0
+DT_THERM = 800.0                !   [s] default = 400.0
                                 ! The thermodynamic time step. Ideally DT_THERM should be an integer multiple of
                                 ! DT and of DT_TRACER_ADVECT and less than the forcing or coupling time-step.
                                 ! However, if THERMO_SPANS_COUPLING is true, DT_THERM can be an integer multiple
@@ -74,7 +74,7 @@ THERMO_SPANS_COUPLING = True    !   [Boolean] default = False
                                 ! coupling timestep. The actual thermodynamic timestep that is used in this case
                                 ! is the largest integer multiple of the coupling timestep that is less than or
                                 ! equal to DT_THERM.
-DT_TRACER_ADVECT = 400.0        !   [s] default = 400.0
+DT_TRACER_ADVECT = 800.0        !   [s] default = 800.0
                                 ! The tracer advection time step. Ideally DT_TRACER_ADVECT should be an integer
                                 ! multiple of DT, less than DT_THERM, and less than the forcing or coupling
                                 ! time-step. However, if TRADV_SPANS_COUPLING is true, DT_TRACER_ADVECT can be
@@ -90,11 +90,11 @@ THICKNESSDIFFUSE = False        !   [Boolean] default = False
 APPLY_INTERFACE_FILTER = False  !   [Boolean] default = False
                                 ! If true, model interface heights are subjected to a grid-scale dependent
                                 ! spatial smoothing, often with biharmonic filter.
-HMIX_SFC_PROP = 1.0             !   [m] default = 1.0
+HMIX_SFC_PROP = 2.0             !   [m] default = 1.0
                                 ! If BULKMIXEDLAYER is false, HMIX_SFC_PROP is the depth over which to average
                                 ! to find surface properties like SST and SSS or density (but not surface
                                 ! velocities).
-HMIX_UV_SFC_PROP = 0.0          !   [m] default = 0.0
+HMIX_UV_SFC_PROP = 2.0          !   [m] default = 0.0
                                 ! If BULKMIXEDLAYER is false, HMIX_UV_SFC_PROP is the depth over which to
                                 ! average to find surface flow properties, SSU, SSV. A non-positive value
                                 ! indicates no averaging.
@@ -106,7 +106,7 @@ HFREEZE = 10.0                  !   [m] default = -1.0
 INTERPOLATE_P_SURF = False      !   [Boolean] default = False
                                 ! If true, linearly interpolate the surface pressure over the coupling time
                                 ! step, using the specified value at the end of the step.
-DTBT_RESET_PERIOD = 0.0         !   [s] default = 400.0
+DTBT_RESET_PERIOD = 0.0         !   [s] default = 800.0
                                 ! The period between recalculations of DTBT (if DTBT <= 0). If DTBT_RESET_PERIOD
                                 ! is negative, DTBT is set based only on information available at
                                 ! initialization.  If 0, DTBT will be set every dynamics time step. The default
@@ -447,7 +447,7 @@ RESTARTFILE = "MOM.res"         ! default = "MOM.res"
                                 ! The name-root of the restart file.
 MAX_FIELDS = 100                ! default = 100
                                 ! The maximum number of restart fields that can be used.
-RESTART_CHECKSUMS_REQUIRED = True !   [Boolean] default = True
+RESTART_CHECKSUMS_REQUIRED = False !   [Boolean] default = True
                                 ! If true, require the restart checksums to match and error out otherwise. Users
                                 ! may want to avoid this comparison if for example the restarts are made from a
                                 ! run with a different mask_table than the current run, in which case the
@@ -2460,7 +2460,7 @@ MIN_THICKNESS_SIMPLE_CALVE = 0.0 !   [m] default = 0.0
                                 ! Min thickness rule for the very simple calving law
 USTAR_SHELF_BG = 6.0E-04        !   [m s-1] default = 0.0
                                 ! The minimum value of ustar under ice shelves.
-CDRAG_SHELF = 0.0025            !   [nondim] default = 0.003
+CDRAG_SHELF = 0.007             !   [nondim] default = 0.003
                                 ! CDRAG is the drag coefficient relating the magnitude of the velocity field to
                                 ! the surface stress.
 USTAR_SHELF_FROM_VEL = True     !   [Boolean] default = True
