@@ -245,7 +245,7 @@ The default CICE IC is "default" which has full ice cover below 60S (and above 6
 
 ### OBC instructions
 
-Firstly, generate file using script. Needs hh5 analysis-22.10 at the moment. https://github.com/claireyung/mom6-panAn-iceshelf-tools/blob/main/generate-obcs/ACCESS-OM2_panan_boundary_forcing_005.ipynb
+Firstly, generate the files using [this script](https://github.com/claireyung/mom6-panAn-iceshelf-tools/blob/main/generate-obcs/ACCESS-OM2_panan_boundary_forcing_8km.ipynb). Needs hh5 analysis-22.10 at the moment, but some minor updates to the xarray syntax should allow the notebook to run with updated xarray versions in newer analysis environments.
 
 Check files, sensible numbers e.g. temperature in celcius.
 
