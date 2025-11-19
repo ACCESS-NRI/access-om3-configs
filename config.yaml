@@ -7,6 +7,7 @@
 # Force payu to always find, and save, files in this scratch project directory
 # (you may need to add the corresponding PBS -l storage flag in sync_data.sh)
 # shortpath: /scratch/v45
+shortpath: /scratch/pawsey0889/cbull
 
 queue: normal
 ncpus: 240
@@ -18,35 +19,37 @@ jobname: 1deg_jra55do_iaf
 
 model: access-om3
 
-exe: access-om3-MOM6-CICE6
+exe: /software/projects/pawsey0889/cbull/setonix/2025.08/environments/om3_take2/.spack-env/view/bin/access-om3-MOM6-CICE6
 input:
-    - /g/data/vk83/configurations/inputs/access-om3/share/meshes/global.1deg/2024.01.25/access-om2-1deg-ESMFmesh.nc
-    - /g/data/vk83/configurations/inputs/access-om3/share/meshes/global.1deg/2024.01.25/access-om2-1deg-nomask-ESMFmesh.nc
-    - /g/data/vk83/configurations/inputs/access-om3/share/meshes/share/2024.09.16/JRA55do-datm-ESMFmesh.nc
-    - /g/data/vk83/configurations/inputs/access-om3/share/meshes/share/2024.09.16/JRA55do-drof-ESMFmesh.nc
-    - /g/data/vk83/configurations/inputs/access-om3/share/grids/global.1deg/2020.10.22/topog.nc
-    - /g/data/vk83/configurations/inputs/access-om3/mom/grids/mosaic/global.1deg/2020.05.30/ocean_hgrid.nc
-    - /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/grids/vertical/share/2025.03.12/ocean_vgrid.nc
-    - /g/data/vk83/configurations/inputs/access-om3/mom/initial_conditions/global.1deg/2020.10.22/ocean_temp_salt.res.nc
-    - /g/data/vk83/configurations/inputs/access-om3/mom/surface_salt_restoring/global.1deg/2020.05.30/salt_sfc_restore.nc
-    - /g/data/vk83/configurations/inputs/access-om3/cice/grids/global.1deg/2024.05.14/kmt.nc
-    - /g/data/vk83/configurations/inputs/access-om3/cice/initial_conditions/global.1deg/2023.07.28/iced.1900-01-01-10800.nc
-    - /g/data/qv56/replicas/input4MIPs/CMIP6/OMIP/MRI/MRI-JRA55-do-1-4-0
+  
+    - /scratch/pawsey0889/cbull/om3forcing/vk83/configurations/inputs/access-om3/share/meshes/global.1deg/2024.01.25/access-om2-1deg-ESMFmesh.nc
+    - /scratch/pawsey0889/cbull/om3forcing/vk83/configurations/inputs/access-om3/share/meshes/global.1deg/2024.01.25/access-om2-1deg-nomask-ESMFmesh.nc
+    - /scratch/pawsey0889/cbull/om3forcing/vk83/configurations/inputs/access-om3/share/meshes/share/2024.09.16/JRA55do-datm-ESMFmesh.nc
+    - /scratch/pawsey0889/cbull/om3forcing/vk83/configurations/inputs/access-om3/share/meshes/share/2024.09.16/JRA55do-drof-ESMFmesh.nc
+    - /scratch/pawsey0889/cbull/om3forcing/vk83/configurations/inputs/access-om3/share/grids/global.1deg/2020.10.22/topog.nc
+    - /scratch/pawsey0889/cbull/om3forcing/vk83/configurations/inputs/access-om3/mom/grids/mosaic/global.1deg/2020.05.30/ocean_hgrid.nc
+    - /scratch/pawsey0889/cbull/om3forcing/vk83/prerelease/configurations/inputs/access-om3/mom/grids/vertical/share/2025.03.12/ocean_vgrid.nc
+    - /scratch/pawsey0889/cbull/om3forcing/vk83/configurations/inputs/access-om3/mom/initial_conditions/global.1deg/2020.10.22/ocean_temp_salt.res.nc
+    - /scratch/pawsey0889/cbull/om3forcing/vk83/configurations/inputs/access-om3/mom/surface_salt_restoring/global.1deg/2020.05.30/salt_sfc_restore.nc
+    - /scratch/pawsey0889/cbull/om3forcing/vk83/configurations/inputs/access-om3/cice/grids/global.1deg/2024.05.14/kmt.nc
+    - /scratch/pawsey0889/cbull/om3forcing/vk83/configurations/inputs/access-om3/cice/initial_conditions/global.1deg/2023.07.28/iced.1900-01-01-10800.nc
+    #- /g/data/qv56/replicas/input4MIPs/CMIP6/OMIP/MRI/MRI-JRA55-do-1-4-0
+    - /scratch/pawsey0889/cbull/om3forcing/qv56/replicas/input4MIPs/CMIP6/OMIP/MRI/MRI-JRA55-do-1-4-0
  
 collate: false
 runlog: false
 metadata: 
     enable: false
 
-userscripts:
-    setup: /usr/bin/bash /g/data/vk83/apps/om3-scripts/payu_config/setup.sh
-    archive: /usr/bin/bash /g/data/vk83/apps/om3-scripts/payu_config/archive.sh
-
-modules:
-    use:
-        - /g/data/vk83/modules
-    load:
-        - access-om3/2025.01.2
-        - nco/5.0.5
+#userscripts:
+#    setup: /usr/bin/bash /g/data/vk83/apps/om3-scripts/payu_config/setup.sh
+#    archive: /usr/bin/bash /g/data/vk83/apps/om3-scripts/payu_config/archive.sh
+#
+#modules:
+#    use:
+#        - /g/data/vk83/modules
+#    load:
+#        - access-om3/2025.01.2
+#        - nco/5.0.5
 
 payu_minimum_version: 1.1.6
