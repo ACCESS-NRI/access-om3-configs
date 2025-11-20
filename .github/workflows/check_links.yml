@@ -1,0 +1,22 @@
+# =========== IMPORTANT!! READ THIS!! ============ #
+# This file is used to check links and can be copied to be used in other websites.
+# When you copy this file, make sure to modify the inputs that here are marked
+# with `MODIFY IF NEEDED`.
+# ============================================== #
+
+name: Check links
+
+on: 
+  pull_request:
+    types: [opened, reopened, synchronize]
+  push:
+    branches: [main, development]
+  workflow_dispatch:
+
+jobs:
+  check-links:
+    uses: access-nri/access-hive-docs/.github/workflows/check_links_workflow.yml@main
+    with:
+      mkdocs_yaml: "mkdocs.yml"  # MODIFY IF NEEDED: Path to your mkdocs.yml file
+      python_requirements_txt: "requirements.txt"  # MODIFY IF NEEDED: Path to your python requirements.txt file.
+    #   lychee_config: ".github/workflows/lychee_config.toml"  # MODIFY IF NEEDED: Path to your lychee configuration file. If omitted the default one from Hive Docs will be used.
