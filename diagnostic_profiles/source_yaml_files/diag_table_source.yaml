@@ -169,6 +169,8 @@ diag_table:
             reduction_method: mean
             module_name: ocean_model_z
             file_name_diag_coord: "z"
+            auxiliary_fields:
+                h: # Layer thickness
         fields:
             agessc: # Sea water age since surface contact
             rhopot0: # Potential density referenced to 0 dbar
@@ -187,6 +189,8 @@ diag_table:
             reduction_method: mean
             module_name: ocean_model_rho2
             file_name_diag_coord: "rho2"
+            auxiliary_fields:
+                    volcello: # Layer volume
         fields:  # comment out all of these if not needed, as remapping to density slows model by ~30% - see https://github.com/ACCESS-NRI/access-om3-configs/pull/622#issuecomment-3031962668
             e: # Interface height relative to mean sea level
             umo: # Ocean Mass X Transport
@@ -241,7 +245,6 @@ diag_table:
             tos: # Sea Surface Temperature
             sos: # Sea Surface Salinity
             speed: # Sea Surface Speed
-#            lrunoff: # Runoff
     'daily 2D ice shelf fields':
         defaults:
             file_name_dimension: 2d  # descriptor for filename, e.g. 3d, 2d, scalar
@@ -252,10 +255,7 @@ diag_table:
             reduction_method: mean # mean, snap, rms, pow##, min, max, or diurnal##
         fields:
             melt: # melt rate
-            #mass_flux: # mass flux
-            #thermal_driving: # thermal driving
-            #haline_driving: # haline driving
-            #tfreeze: # tfreeze
+            thermal_driving: # thermal driving
             ustar_shelf: #friction velocity
     'monthly 2d ice shelf fields':
         defaults:  # these can be overridden for individual fields below

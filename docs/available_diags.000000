@@ -1,4 +1,4 @@
-"volcello"  [Unused]
+"volcello"  [Used]
     ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
     ! dimensions: xh, yh, zl
     ! long_name: Ocean grid-cell volume
@@ -1695,7 +1695,7 @@
     ! units: m2 s-2
     ! cell_methods: xh:mean yh:mean zl:mean area:mean
     ! variants: {uv,uv_xyave}
-"h"  [Unused]
+"h"  [Used]
     ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
     ! dimensions: xh, yh, zl
     ! long_name: Layer Thickness

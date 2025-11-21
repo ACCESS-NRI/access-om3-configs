@@ -249,7 +249,7 @@ FRAC_DP_AT_POS_NEGATIVE_P_BUGFIX = True !   [Boolean] default = False
                                 ! input to density EOS is negative.
 TRIMMING_USES_REMAPPING = True  !   [Boolean] default = False
                                 ! When trimming the column, also remap T and S.
-OBC_SEGMENT_001_DATA = "U=file:forcing_access_yr2_8km_fill.nc(u),V=file:forcing_access_yr2_8km_fill.nc(v),SSH=file:forcing_access_yr2_8km_fill.nc(eta_t),TEMP=file:forcing_access_yr2_8km_fill.nc(pot_temp),SALT=file:forcing_access_yr2_8km_fill.nc(salt)" !
+OBC_SEGMENT_001_DATA = "U=file:forcing_access_yr2_8km_fill_mod.nc(u),V=file:forcing_access_yr2_8km_fill_mod.nc(v),SSH=file:forcing_access_yr2_8km_fill_mod.nc(eta_t),TEMP=file:forcing_access_yr2_8km_fill_mod.nc(pot_temp),SALT=file:forcing_access_yr2_8km_fill_mod.nc(salt)" !
                                 ! OBC segment docs
 
 ! === module MOM_diag_mediator ===
@@ -708,7 +708,7 @@ DENSITY_ICE = 917.0             !   [kg m-3] default = 900.0
                                 ! A typical density of ice.
 USTAR_SHELF_BG = 0.0006          !   [m s-1] default = 0.0
                                 ! The minimum value of ustar under ice shelves.
-CDRAG_SHELF = 0.007
+CDRAG_SHELF = 0.0075
 ICE_PROFILE_CONFIG = "FILE"     !
                                 ! This specifies how the initial ice profile is specified. Valid values are:
                                 ! CHANNEL, FILE, and USER.
@@ -723,6 +723,11 @@ AUTO_MASKTABLE = False
 LAYOUT = 84,49
 IO_LAYOUT = 12,7
 MASKTABLE = "mask_table.1490.84x49"
+
+!LAYOUT = 110,55
+!IO_LAYOUT = 10,5
+!MASKTABLE = "mask_table.2232.110x55"
+
 ! This section contains non default debugging parameters which are set.
 ! ------------------------
 ! === module MOM_vert_friction ===
@@ -748,7 +753,7 @@ PARALLEL_RESTARTFILES = True
 !AUTO_IO_LAYOUT_FAC = 7
 
 !DEBUG = True
-RESTART_CHECKSUMS_REQUIRED = False
+!RESTART_CHECKSUMS_REQUIRED = False
 
 HMIX_SFC_PROP = 2
 HMIX_UV_SFC_PROP = 2

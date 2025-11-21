@@ -101,11 +101,11 @@ work/INPUT/diag_rho2.nc:
   hashes:
     binhash: 36ef1761b629df34ea5443850b2f18b4
     md5: b8abcb148bb3ef71282d6be4531e491e
-work/INPUT/forcing_access_yr2_8km_fill.nc:
-  fullpath: /g/data/tm70/cy8964/mom6/input/input-8km/forcing_access_yr2_8km_fill.nc
+work/INPUT/forcing_access_yr2_8km_fill_mod.nc:
+  fullpath: /g/data/tm70/cy8964/mom6/input/input-8km/forcing_access_yr2_8km_fill_mod.nc
   hashes:
-    binhash: 9f1cce5f9ee771acf098ceb58de7f5dc
-    md5: 08ea05256043a07e62a5aea57e0f816d
+    binhash: cce484e1cea5aaf5a622eea80c376094
+    md5: 487153ac346d933eb3a0f1fefd991a8c
 work/INPUT/ice_thickness_Charrassin_regridded_cropped_add_area_where_iceelev_noGL5m_ADDHMASKFILLTHICK_150925.nc:
   fullpath: /g/data/tm70/cy8964/mom6/input/input-8km/150925/ice_thickness_Charrassin_regridded_cropped_add_area_where_iceelev_noGL5m_ADDHMASKFILLTHICK_150925.nc
   hashes:
