@@ -3386,6 +3386,11 @@ work/INPUT/bottom_roughness.nc:
   hashes:
     binhash: e28f832d8cf239fb52e8a835047c9529
     md5: 014f9b95036b9e5a54a24e3643de675b
+work/INPUT/chl_globcolour_monthly_clim.nc:
+  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/chlorophyll/global.100km/2025.11.25/chl_globcolour_monthly_clim.nc
+  hashes:
+    binhash: 5e580f19cb229602926802917f24312c
+    md5: d18a52a5e8c7e67de67e0924580f6a10
 work/INPUT/iced.1900-01-01-10800.nc:
   fullpath: /g/data/vk83/configurations/inputs/access-om3/cice/initial_conditions/global.100km/2023.07.28/iced.1900-01-01-10800.nc
   hashes:
