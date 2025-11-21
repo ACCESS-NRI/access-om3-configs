@@ -645,6 +645,14 @@ USE_RIVER_HEAT_CONTENT = True   !   [Boolean] default = False
 USE_CALVING_HEAT_CONTENT = True !   [Boolean] default = False
                                 ! If true, use the fluxes%calving_Hflx field to set the heat carried by runoff,
                                 ! instead of using SST*CP*froz_runoff.
+VAR_PEN_SW = True               !   [Boolean] default = False
+                                ! If true, use one of the CHL_A schemes specified by OPACITY_SCHEME to determine
+                                ! the e-folding depth of incoming short wave radiation.
+CHL_FILE = "chl_globcolour_monthly_clim.nc" !
+                                ! CHL_FILE is the file containing chl_a concentrations in the variable CHL_A. It
+                                ! is used when VAR_PEN_SW and CHL_FROM_FILE are true.
+CHL_VARNAME = "CHL"             ! default = "CHL_A"
+                                ! Name of CHL_A variable in CHL_FILE.
 
 ! === module MOM_energetic_PBL ===
 ML_OMEGA_FRAC = 0.001           !   [nondim] default = 0.0
@@ -708,11 +716,8 @@ LT_MOD_LAC5 = 0.22              !   [nondim] default = 0.95
                                 ! unstable Obukhov depth.
 
 ! === module MOM_opacity ===
-PEN_SW_SCALE = 15.0             !   [m] default = 0.0
-                                ! The vertical absorption e-folding depth of the penetrating shortwave
-                                ! radiation.
-PEN_SW_FRAC = 0.42              !   [nondim] default = 0.0
-                                ! The fraction of the shortwave radiation that penetrates below the surface.
+PEN_SW_NBANDS = 3               ! default = 1
+                                ! The number of bands of penetrating shortwave radiation.
 
 ! === module MOM_tracer_advect ===
 TRACER_ADVECTION_SCHEME = "PPM:H3" ! default = "PLM"

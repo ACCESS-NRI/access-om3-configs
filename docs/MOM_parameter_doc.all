@@ -2163,9 +2163,16 @@ USE_CALVING_HEAT_CONTENT = True !   [Boolean] default = False
                                 ! instead of using SST*CP*froz_runoff.
 DO_BRINE_PLUME = False          !   [Boolean] default = False
                                 ! If true, use a brine plume parameterization from Nguyen et al., 2009.
-VAR_PEN_SW = False              !   [Boolean] default = False
+VAR_PEN_SW = True               !   [Boolean] default = False
                                 ! If true, use one of the CHL_A schemes specified by OPACITY_SCHEME to determine
                                 ! the e-folding depth of incoming short wave radiation.
+CHL_FROM_FILE = True            !   [Boolean] default = True
+                                ! If true, chl_a is read from a file.
+CHL_FILE = "chl_globcolour_monthly_clim.nc" !
+                                ! CHL_FILE is the file containing chl_a concentrations in the variable CHL_A. It
+                                ! is used when VAR_PEN_SW and CHL_FROM_FILE are true.
+CHL_VARNAME = "CHL"             ! default = "CHL_A"
+                                ! Name of CHL_A variable in CHL_FILE.
 
 ! === module MOM_energetic_PBL ===
 ML_OMEGA_FRAC = 0.001           !   [nondim] default = 0.0
@@ -2323,17 +2330,15 @@ REGULARIZE_SURFACE_LAYERS = False !   [Boolean] default = False
                                 ! much lateral variations to allow for sensible lateral barotropic transports.
 
 ! === module MOM_opacity ===
-EXP_OPACITY_SCHEME = "SINGLE_EXP" ! default = "SINGLE_EXP"
-                                ! This character string specifies which exponential opacity scheme to utilize.
-                                ! Currently valid options include:
-                                !        SINGLE_EXP - Single Exponent decay.
-                                !        DOUBLE_EXP - Double Exponent decay.
-PEN_SW_SCALE = 15.0             !   [m] default = 0.0
-                                ! The vertical absorption e-folding depth of the penetrating shortwave
-                                ! radiation.
-PEN_SW_FRAC = 0.42              !   [nondim] default = 0.0
-                                ! The fraction of the shortwave radiation that penetrates below the surface.
-PEN_SW_NBANDS = 1               ! default = 1
+OPACITY_SCHEME = "MANIZZA_05"   ! default = "MANIZZA_05"
+                                ! This character string specifies how chlorophyll concentrations are translated
+                                ! into opacities. Currently valid options include:
+                                !        MANIZZA_05 - Use Manizza et al., GRL, 2005.
+                                !        MOREL_88 - Use Morel, JGR, 1988.
+                                !        OHLMANN_03 - Use Ohlmann, J Clim, 2003. (only use if dz(1)>2.0m)
+BLUE_FRAC_SW = 0.5              !   [nondim] default = 0.5
+                                ! The fraction of the penetrating shortwave radiation that is in the blue band.
+PEN_SW_NBANDS = 3               ! default = 1
                                 ! The number of bands of penetrating shortwave radiation.
 OPTICS_ANSWER_DATE = 99991231   ! default = 99991231
                                 ! The vintage of the order of arithmetic and expressions in the optics
@@ -2347,6 +2352,18 @@ PEN_SW_FLUX_ABSORB = 2.5E-11    !   [degC m s-1] default = 2.5E-11
 PEN_SW_ABSORB_MINTHICK = 1.0    !   [m] default = 1.0
                                 ! A thickness that is used to absorb the remaining penetrating shortwave heat
                                 ! flux when it drops below PEN_SW_FLUX_ABSORB.
+OPACITY_VALUES_MANIZZA = 0.0232, 0.074, 0.225, 0.037, 2.86, 0.0 !   [m-1] default = 0.0232, 0.074, 0.225, 0.037, 2.86, 0.0
+                                ! Pairs of opacity coefficients for blue, red and near-infrared radiation with
+                                ! parameterizations following the functional form from Manizza et al., GRL 2005,
+                                ! namely in the form opacity = coef_1 + coef_2 * chl**pow for each band.
+                                ! Although coefficients are set for 3 bands, more or less bands may actually be
+                                ! used, with extra bands following the same properties as band 3.
+CHOROPHYLL_POWER_MANIZZA = 0.674, 0.629, 0.0 !   [nondim] default = 0.674, 0.629, 0.0
+                                ! Powers of chlorophyll for blue, red and near-infrared radiation bands in
+                                ! expressions for opacity of the form opacity = coef_1 + coef_2 * chl**pow.
+OPACITY_BAND_WAVELENGTHS = 0.0, 550.0, 700.0, 2800.0 !   [nm] default = 0.0, 550.0, 700.0, 2800.0
+                                ! The bounding wavelengths for the various bands of shortwave radiation, with
+                                ! defaults that depend on the setting for OPACITY_SCHEME.
 OPACITY_LAND_VALUE = 10.0       !   [m-1] default = 10.0
                                 ! The value to use for opacity over land. The default is 10 m-1 - a value for
                                 ! muddy water.

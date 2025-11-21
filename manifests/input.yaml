@@ -131,6 +131,11 @@ work/INPUT/init_ocean_wombatlite.res.nc:
   hashes:
     binhash: e415490f397aec6bae8f142e1528975f
     md5: 31878038be41546c64875d26b7e637ec
+work/INPUT/chl_globcolour_monthly_clim.nc:
+  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/chlorophyll/global.25km/2025.11.21/chl_globcolour_monthly_clim.nc
+  hashes:
+    binhash: c42a775b34ab909b7352381004fad9db
+    md5: 269f4492ae65f6ef9dd6e2a59f2bff4b
 work/INPUT/kmt.nc:
   fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/cice/grids/global.25km/2025.09.03/kmt.nc
   hashes:
