@@ -4,7 +4,7 @@ The sections that follow explain why we selected each model parameter for the gl
 
 ## MOM6 parameter choices
 
-### Horizontal grid
+### Horizontal grid 
 
 The 25km configuration uses a tripolar grid to avoid a singularity at the North Pole. The domain is zonally periodic `REENTRANT_X = True` and open at the north via a tripolar fold `TRIPOLAR_N = True` while closed in the south `REENTRANT_Y = False`. The horizontal grid has `1440x1152` tracer points. This is closely aligned with prior models, such as `ACCESS-OM2-025` and `GFDL OM4/OM5` (`1440x1080`) and provides eddy-permitting detail in the ocean while maintaining numerical stability. See [Grids](../../inputs/Grids/) for more information. 
 
