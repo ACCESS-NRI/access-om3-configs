@@ -213,6 +213,7 @@ diag_table:
             umo_2d: # Ocean Mass X Transport Vertical Sum
             vmo_2d: # Ocean Mass Y Transport Vertical Sum
             pbo: # Sea Water Pressure at Sea Floor
+            SW_pen: # Penetrating shortwave radiation flux into ocean
 
     'monthly 2d max fields':
         defaults:  # these can be overridden for individual fields below
