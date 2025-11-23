@@ -3335,7 +3335,7 @@
     ! long_name: Increase in mstar due to Langmuir Turbulence.
     ! units: nondim
     ! cell_methods: xh:mean yh:mean area:mean
-"SW_pen"  [Unused]
+"SW_pen"  [Used]
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
     ! long_name: Penetrating shortwave radiation flux into ocean
