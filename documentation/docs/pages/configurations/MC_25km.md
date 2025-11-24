@@ -91,6 +91,8 @@ By using `MEKE`, the model is effectively resolution-aware, as resolution increa
 #### Isopycnal tracer mixing (`Redi`)
 Neutral tracer diffusion is turned on with `USE_NEUTRAL_DIFFUSION = True`, which means that tracers are mixed primarily along surfaces of constant density, which greatly reduces spurious diapycnal mixing in stratified oceans. The coefficient for along-isopycnal tracer diffusion is set to `KHTR = 50.0`. This number is adopted from [GFDL OM4_05 configuration](https://github.com/NOAA-GFDL/MOM6-examples/blob/3c1de3512e2200bfc10d9e5150715c9df76dbd30/ice_ocean_SIS2/Baltic_OM4_05/MOM_parameter_doc.all#L2419). In addition, we also use `USE_STORED_SLOPES = True` and keep `NDIFF_CONTINUOUS = True`. 
 
+#### Shortwave penetration
+Shortwave penetration into the ocean is calculated using the [@manizza2005bio] chlorophyll-based opacity scheme with three shortwave radiation bands (`VAR_PEN_SW = True`, `PEN_SW_NBANDS = 3`). The monthly climatology of surface chlorophyll concentration is calculated from the [Copernicus-GlobColour](https://data.marine.copernicus.eu/product/OCEANCOLOUR_GLO_BGC_L4_MY_009_104/description) product using [Laplace interpolation to fill missing regions](https://github.com/ACCESS-NRI/om3-scripts/blob/main/chlorophyll/chl_climatology_and_fill.py).
 
 ## CICE namelist
 The CICE sea ice model is configured using a Fortran namelist file called `ice_in`. This file contains a series of named blocks, each starting with `&groupname` and ending with `/`. Each block represents a different component of the sea ice model, for example:
@@ -245,6 +247,6 @@ This group namelist controls how the computational domain is divided among proce
         - `f_smassice = "m"`: mass of ice in snow from smice tracer,
         - `f_smassliq = "m"`: mass of liquid in snow from smliq tracer,
 
-### References
+## References
 
 \bibliography
