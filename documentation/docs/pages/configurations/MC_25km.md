@@ -62,7 +62,7 @@ An additional Rayleigh drag is applied to layers within the bottom boundary laye
 A hybrid Laplacian-biharmonic viscosity scheme is used to parameterise unresolved horizontal turbulent mixing of momentum (`LAPLACIAN = True`, `BIHARMONIC = True`). The scheme helps remove small-scale kinetic energy, while preserving large-scale eddy structures, targetting the smaller scales more selectively than just using a Laplacian scheme. See the [MOM6 documentation](https://mom6.readthedocs.io/en/main/api/generated/modules/mom_hor_visc.html#namespacemom-hor-visc-1section-horizontal-viscosity:~:text=Laplacian%20viscosity%20coefficient) for details of how the horizontal viscosity is calculated. The biharmonic viscosity includes:
 
 - no constant background viscosity (`AH = 0.0`)
-- a grid-dependent background viscosity (`AH_TIME_SCALE = 0.0`, `AH_TIME_SCALE = 0.0`)
+- a grid-dependent background viscosity (`AH_VEL_SCALE = 0.01`, `AH_TIME_SCALE = 0.0`)
 - a dynamic Smagorinsky nonlinear eddy viscosity (`SMAGORINSKY_AH = True`, `SMAG_BI_CONST = 0.06`, `LEITH_AH = False`)
 
 The Lapacian viscosity includes:
