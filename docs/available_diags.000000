@@ -3081,7 +3081,7 @@
     ! units: W m-2
     ! cell_methods: xh:mean yh:mean zl:mean area:mean
     ! variants: {Kd_Nikurashin_Work,Kd_Nikurashin_Work_xyave}
-"Kd_Lowmode_Work"  [Used]
+"Kd_Lowmode_Work"  [Unused]
     ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
     ! dimensions: xh, yh, zl
     ! long_name: Work done by Internal Tide Diapycnal Mixing (low modes)

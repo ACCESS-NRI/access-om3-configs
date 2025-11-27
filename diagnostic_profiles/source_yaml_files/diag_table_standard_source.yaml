@@ -180,7 +180,6 @@ diag_table:
             vo: # v velocity
             KE: # Layer Kinetic energy per unit mass
             Kd_Itidal_Work: # Work done by Internal Tide Diapycnal Mixing
-            Kd_Lowmode_Work: # Work done by Internal Tide Diapycnal Mixing (low modes)
             rsdoabsorb: #  Convergence of Penetrative Shortwave Flux in Sea Water Layer
 
     'monthly 3d fields on rho2':
