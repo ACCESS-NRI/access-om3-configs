@@ -1,0 +1,21 @@
+name: Delete PR preview comment
+on:
+  pull_request:
+    types:
+      - closed
+env:
+  PR_PREVIEW_COMMENT_LABEL: pr-preview-comment
+
+jobs:
+  # Delete PR preview comment
+  delete-pr-preview-comment:
+    name: Delete PR preview comment
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+    steps:
+      - name: Remove PR preview comment
+        uses: access-nri/actions/.github/actions/comment@main
+        with:
+          delete: true
+          label: ${{ env.PR_PREVIEW_COMMENT_LABEL }}

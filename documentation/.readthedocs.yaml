@@ -1,0 +1,36 @@
+# =========== IMPORTANT!! READ THIS!! ============ #
+# This file can be copied to be used for websites deployments with RTD.
+# When you copy this file, make sure to check and modify the fields
+# that here are marked with `MODIFY IF NEEDED`.
+
+# The post_build job in this file checks links using ACCESS-Hive-Docs check_links_workflow 
+# (https://github.com/ACCESS-NRI/ACCESS-Hive-Docs/blob/main/.github/workflows/check_links_workflow.yml)
+# By default this uses the ACCESS-Hive-Docs lychee config (https://github.com/ACCESS-NRI/ACCESS-Hive-Docs/blob/main/.github/workflows/lychee_config.toml)
+# To use a custom lychee config, add `.github/workflows/lychee_config.toml` to this repo.
+# ============================================== #
+
+
+# Read the Docs configuration file
+# See https://docs.readthedocs.io/en/stable/config-file/v2.html for details
+
+# ReadtheDocs config version
+version: 2
+
+# Set the ReadtheDocs Docker image OS, Python version, and other tools you might need
+build:
+  os: ubuntu-24.04
+  tools:
+    python: "3.13"
+  # jobs:
+    # post_checkout: # MODIFY IF NEEDED: uncomment to cancel the RTD build
+    #   - exit 183
+
+# Build documentation with Mkdocs
+mkdocs:
+  configuration: documentation/mkdocs.yml # MODIFY IF NEEDED: path to mkdocs.yml
+
+# Python requirements to build your documentation
+# See https://docs.readthedocs.io/en/stable/guides/reproducible-builds.html
+python:
+  install:
+    - requirements: documentation/requirements.txt # MODIFY IF NEEDED: path to requirements.txt

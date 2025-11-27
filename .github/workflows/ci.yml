@@ -13,6 +13,7 @@ on:
       - config/**
       - .*
       - '*.md'
+      - 'documentation/**'
   # For config-pr-2-confirm.yml and '!test' comment commands
   issue_comment:
     types:
@@ -24,6 +25,9 @@ on:
       - 'release-*'
     paths:
       - 'metadata.yaml'
+    paths-ignore:
+      # These are ignored because they don't have anything to do with the model itself
+      - 'documentation/**'
 jobs:
   ###########
   # PR jobs #
