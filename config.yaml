@@ -31,7 +31,7 @@ jobname: 025km_jra_iaf
 model: access-om3
 exe: access-om3-MOM6-CICE6
 input:
-    - /g/data/vk83/prerelease/configurations/inputs/access-om3/cice/grids/global.25km/2025.011.27/kmt.nc
+    - /g/data/vk83/prerelease/configurations/inputs/access-om3/cice/grids/global.25km/2025.11.27/kmt.nc
     - /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/grids/mosaic/global.25km/2025.09.02/ocean_hgrid.nc
     - /g/data/vk83/configurations/inputs/access-om3/mom/grids/vertical/global.25km/2025.03.12/ocean_vgrid.nc
     - /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/initial_conditions/global.25km/2025.10.24/woa23_ts_01_mom.nc
@@ -44,7 +44,7 @@ input:
     - /g/data/vk83/prerelease/configurations/inputs/access-om3/share/meshes/global.25km/2025.11.27/access-om3-25km-nomask-ESMFmesh.nc
     - /g/data/vk83/configurations/inputs/access-om3/share/meshes/share/2024.09.16/JRA55do-datm-ESMFmesh.nc
     - /g/data/vk83/configurations/inputs/access-om3/share/meshes/share/2024.09.16/JRA55do-drof-ESMFmesh.nc
-    -  /g/data/vk83/prerelease/configurations/inputs/access-om3/cmeps/remap_weights/global.25km/2025.11.27/access-om3-25km-rof-remap-weights.nc
+    - /g/data/vk83/prerelease/configurations/inputs/access-om3/cmeps/remap_weights/global.25km/2025.11.27/access-om3-25km-rof-remap-weights.nc
     - /g/data/qv56/replicas/input4MIPs/CMIP6Plus/OMIP/MRI/MRI-JRA55-do-1-6-0/
 
 runlog: true
