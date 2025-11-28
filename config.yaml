@@ -30,7 +30,8 @@ walltime: 02:00:00
 jobname: 100km_jra55do_iaf
 
 model: access-om3
-exe: /software/projects/pawsey0889/cbull/setonix/2025.08/environments/om3_take2/.spack-env/view/bin/access-om3-MOM6-CICE6
+#exe: /software/projects/pawsey0889/cbull/setonix/2025.08/environments/om3_take2/.spack-env/view/bin/access-om3-MOM6-CICE6
+exe: /software/projects/pawsey0889/cbull/setonix/2025.08/environments/om3_take3/.spack-env/view/bin/access-om3-MOM6-CICE6
 input:
     - /scratch/pawsey0889/cbull/om3forcing/e85f985e36457e02d09bdebdc174ed9037dcef26/vk83/configurations/inputs/access-om3/share/meshes/global.100km/2024.01.25/access-om2-100km-ESMFmesh.nc
     - /scratch/pawsey0889/cbull/om3forcing/e85f985e36457e02d09bdebdc174ed9037dcef26/vk83/configurations/inputs/access-om3/share/meshes/global.100km/2024.01.25/access-om2-100km-nomask-ESMFmesh.nc
