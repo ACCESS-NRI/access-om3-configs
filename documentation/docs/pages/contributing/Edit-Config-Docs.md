@@ -22,7 +22,7 @@ Create a new branch, e.g. `jblogs/doc-update`, make doc changes (the documentati
 !!! tip
     Similar to the above, this method allows you create whole new pages and to preview the changes rendered into a website. It works whether or not you have write access to [`access-om3-configs`](https://github.com/ACCESS-NRI/access-om3-configs), but requires you to install `mkdocs` and takes the longest to set up.<br>
 
-Following [these instructions](https://docs.access-hive.org.au/about/contribute/#lets-get-started) but noting the documentation sources are in [github.com/ACCESS-NRI/access-esm1.6-configs/tree/main/documentation](https://github.com/ACCESS-NRI/access-om3-configs/tree/main/documentation). You’ll need to fork the [ACCESS-Hive Docs GitHub repository](https://github.com/ACCESS-NRI/access-hive.org.au) and clone it locally if you want to write your own content. Once cloned, make sure to invoke `mkdocs serve` from within the `documentation` directory.
+Following [these instructions](https://docs.access-hive.org.au/about/contribute/#lets-get-started) but noting the documentation sources are in [github.com/ACCESS-NRI/access-om3-configs/tree/main/documentation](https://github.com/ACCESS-NRI/access-om3-configs/tree/main/documentation). You’ll need to fork the [access-OM3-configs repository](https://github.com/ACCESS-NRI/access-om3-configs) and clone it locally if you want to write your own content. Once cloned, make sure to invoke `mkdocs serve` from within the `documentation` directory.
 
 Additional steps and contribution guidelines can be found here:
 https://docs.access-hive.org.au/about/contribute/#clone-the-forked-access-hive-docs-github-repository-locally
