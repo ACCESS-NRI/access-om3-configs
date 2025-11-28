@@ -11,7 +11,7 @@ The ACCESS-OM3 software is built from libraries containing the code for each mod
 
 The top level code (main program) for an ACCESS-OM3 executable is the CMEPS NUOPC driver [`CMEPS/CMEPS/cesm/driver/esmApp.F90`](https://github.com/ESCOMP/CMEPS/blob/606eb397d4e66f8fa3417e7e8fd2b2b4b3c222b4/cesm/driver/esmApp.F90).
 
-The [software deployment](https://github.com/accESS-NRI/access-om3) compiles a single executable for the model. Each single exectuable contains the driver, [CMEPS](https://github.com/access-nri/access-om3/tree/master/CMEPS) NUOPC mediator and different selections of these model components:
+The [software deployment](https://github.com/accESS-NRI/access-om3) compiles a single executable for the model. Each single exectuable contains the driver, [CMEPS](https://github.com/access-nri/access3-share/tree/master/CMEPS) NUOPC mediator and different selections of these model components:
 
 - ocean: [MOM6](https://github.com/access-nri/MOM6) active model or DOCN prescribed data model from [CDEPS](https://github.com/access-nri/access3-share/tree/master/CDEPS) or nothing (stub)
 - sea ice: [CICE6](https://github.com/access-nri/CICE) active model or DICE prescribed data model from [CDEPS](https://github.com/access-nri/access3-share/tree/master/CDEPS) or nothing (stub)
