@@ -2,7 +2,7 @@ We have [adopted the NUOPC driver from CESM](https://github.com/COSIMA/access-om
 
 ## Component initialisation
 
-Model component initialisation strategy is specified through a combination of flags set in the [`nuopc.runconfig`](https://github.com/ACCESS-NRI/access-om3-configs/blob/1deg_jra55do_ryf/nuopc.runconfig) configuration file and the input parameter files for each component.
+Model component initialisation strategy is specified through a combination of flags set in the [`nuopc.runconfig`](https://github.com/ACCESS-NRI/access-om3-configs/blob/dev-MC_100km_jra_ryf/nuopc.runconfig) configuration file and the input parameter files for each component.
 
 The [`start_type`](https://github.com/search?q=repo%3AACCESS-NRI%2Faccess-om3-configs+path%3Adoc%2Fnuopc.runconfig+start_type&type=code) parameter in the `ALLCOMP_attributes` section of `nuopc.runconfig` can be set to one of three values (note that the `access-om3` Payu driver automatically sets this parameter depending on whether the run is an initial or restart run):
 
