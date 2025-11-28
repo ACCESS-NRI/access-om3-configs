@@ -121,6 +121,9 @@ ACCESS-OM3
 "access-om3.mom6.2d.pbo.1mon.mean.%4yr", 1, "months", 1, "days", "time", 1, "years"
 "ocean_model", "pbo", "pbo", "access-om3.mom6.2d.pbo.1mon.mean.%4yr", "all", "average", "none", 2
 
+"access-om3.mom6.2d.SW_pen.1mon.mean.%4yr", 1, "months", 1, "days", "time", 1, "years"
+"ocean_model", "SW_pen", "SW_pen", "access-om3.mom6.2d.SW_pen.1mon.mean.%4yr", "all", "average", "none", 2
+
 
 # monthly 2d max fields
 
