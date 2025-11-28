@@ -1,6 +1,6 @@
-contact: ezhilsabareesh8
-email: ezhilsabareesh@gmail.com
-created: '2025-11-28'
+contact: Add your name here
+email: Add your email address here
+created: Add the date you started the experiment here (YYYY-MM-DD)
 description: |-
   25km ACCESS-OM3 global configuration under interannual forcing.
   Initial conditions are WOA23 practical temperature and practical salinity.
@@ -10,17 +10,15 @@ notes: |-
   following the examples at https://www.access-nri.org.au/resources/acknowledging-us/ 
   and https://cosima.org.au/index.php/get-involved/
 keywords:
-- JRA55
-- access-om3
-- interannual
-- global
+  - JRA55
+  - access-om3
+  - interannual
+  - global
 realm:
-- ocean
-- seaIce
+  - ocean
+  - seaIce
 nominal_resolution: 25 km
 license: CC-BY-4.0
 model: ACCESS-OM3
-url: git@github.com:ACCESS-NRI/access-om3-configs.git
+url: https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MC_25km_jra_iaf
 version: 1.0-beta
-experiment_uuid: 50100439-659e-40ff-a07a-e207ac6a6dc2
-name: dev-MC_25km_jra_iaf_release_test-879-MC_25km_jra_iaf-50100439
