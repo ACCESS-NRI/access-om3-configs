@@ -1,6 +1,9 @@
 # Generating MOM6 Initial Conditions Using WOA23 dataset
 
-This guide outlines the steps to generate initial-condition fields for MOM6 from **World Ocean Atlas 2023 (WOA23)** data. The workflow produces **Conservative Temperature (CT)** and **Absolute Salinity (SA)**, the prognostic variables required by the TEOS-10 equation of state (EOS) for use in ACCESS-OM3.
+This guide outlines the steps to generate initial-condition fields for MOM6 from **World Ocean Atlas 2023 (WOA23)** data. The workflow produces **Conservative Temperature (CT)** and **Absolute Salinity (SA)**, the prognostic variables required by the TEOS-10 equation of state (EOS; `ROQUET_RHO`) for use in ACCESS-OM3. 
+
+!!! warning
+    The units for the inputs (Conservative Temperature and Absolute Salinity) will be the same as the outputs when `USE_CONTEMP_ABSSAL = True`, see [details](../../inputs/Grids/Initial-conditions-generation).
 
 
 ## Repository and Requirements
