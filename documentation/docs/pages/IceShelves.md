@@ -4,7 +4,7 @@ Here, we describe a regional OM3 configuration covering a pan-Antarctic circumpo
 ### Truncating a global setup
 One of the easiest ways to set up a pan-Antarctic configuration is to truncate a global OM3 configuration. Detailed step-by-step instructions are provided [here](https://github.com/claireyung/access-om3-configs/blob/8km_jra_ryf_obc2-sapphirerapid-Charrassin-newparams-rerun-Wright-spinup-accessom2IC-yr9/panantarctic_instructions.md) but the main steps involve:
  
-1. Cloning the global model at desired resolution, and creating a new branch
+1. Cloning a global model at desired resolution, and creating a new branch. The global model at the desired resolution may not exist and, in this case, you will need to create one first.
 
 2. Truncating netcdf files from the global model using `ncks` and ensuring buth supergrid and normal grid y coordinates are correct/match
 
@@ -12,14 +12,16 @@ One of the easiest ways to set up a pan-Antarctic configuration is to truncate a
 
 4. Modifying namelists to use the correct cropped netcdf files (searching by `.nc` is helpful) and changing the y index size to be correct. This involves changing `datm_in`, `MOM_input`, `ice_in` (where `history_chunksize`, `grid_type = "regional"` and `ns_boundary_type = "open"` are also needed), `nuopc.runconfig`.
 
-5. Changing `config.yaml` file names if needed, and ensuring you are using a symmetric MOM6 memory exe (currently from an ACCESS-OM3 prerelease)
+5. Changing `config.yaml` file names if needed, and ensuring you are using a symmetric MOM6 memory exe (currently from an ACCESS-OM3 release)
 
-6. Open boundary conditions in MOM6 can be added using input from the MOM6-SIS2 COSIMA configuration, see [this notebook](https://github.com/claireyung/mom6-panAn-iceshelf-tools/blob/main/generate-obcs/ACCESS-OM2_panan_boundary_forcing_8km.ipynb) for the OBC generation using ACCESS-OM2-01 data. Extra lines need to be added into `MOM_input` to define these.
+6. Open boundary conditions in MOM6 can be added using input from the MOM6-SIS2 COSIMA configuration, see [this notebook](https://github.com/claireyung/mom6-panAn-iceshelf-tools/blob/main/generate-obcs/ACCESS-OM2_panan_boundary_forcing_8km.ipynb) for the OBC generation using ACCESS-OM2-01 data. Other datasets may be used for boundary conditions (such as ACCESS-OM3 outputs) but it is advisable to use the same product for initial and boundary conditions.
 
-7. It may be helpful to use `MOM_override` to avoid changing `MOM_input` and pick up upstream global model changes more easily.
+7.  Extra lines need to be added into `MOM_input` to define the boundary conditions and location of the boundary condition input files.
+
+8. It may be helpful to use `MOM_override` to avoid changing `MOM_input` and pick up upstream global model changes more easily.
 
 ### 1/12th degree/4km pan-Antarctic setup
-Here we describe a proposed ACCESS-NRI-supported 1/12th degree/4km pan-Antarctic regional OM3 configuration. The configuration has a similar resolution to a future 8km global OM3, but due to its polar latitudes is better described as a 4km resolution model. Here we focus on the configuration with ice shelf cavities closed (i.e. Antarctic ice shelf melt is represented as surface runoff, and there is no circulation in cavities), though development of an equivalent model with ice shelf cavities open is ongoing.
+Here we describe a proposed ACCESS-NRI-supported 4km (1/12 degree) pan-Antarctic regional OM3 configuration. The configuration has a similar resolution to a future 8km global OM3, but due to its polar latitudes is better described as a 4km resolution model. Here we focus on the configuration with ice shelf cavities closed (i.e. Antarctic ice shelf melt is represented as surface runoff, and there is no circulation in cavities), though development of an equivalent model with ice shelf cavities open is ongoing.
 
 #### Grid
 The grid was generated using the `ocean_grid_generator` at 1/12th degree resolution with no displaced pole and a transition from Mercator to fixed latitude cells at 75$^\circ$S.
@@ -38,7 +40,7 @@ The CICE sea ice categories were modified to be `ncat=7` with `kcatbound=2`.
 
 #### Model behaviour
 
-The simulation is generally stable and is being evaluated [here](https://github.com/claireyung/mom6-panAn-iceshelf-tools/issues/15). Often the model crashes with a segfault immediately on initialisation, but persistent resubmission can get over this (a `resub.sh` [script](https://github.com/COSIMA/01deg_jra55_iaf/blob/01deg_jra55v140_iaf_cycle4_rerun_from_2002/resub.sh) can be helpful) 
+The simulation is generally stable and is being evaluated [here](https://github.com/claireyung/mom6-panAn-iceshelf-tools/issues/15). Often the model crashes with a segfault immediately on initialisation, but persistent resubmission can get over this (a `resub.sh` [script](https://github.com/COSIMA/01deg_jra55_iaf/blob/01deg_jra55v140_iaf_cycle4_rerun_from_2002/resub.sh) can be helpful). 
 
 ## Optimization of 1/12th degree/4km pan-Antarctic configuration
 
