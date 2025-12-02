@@ -106,12 +106,17 @@ identifiers:
   - description: "The concept DOI of all ACCESS-OM3 configurations."
     type: doi
     value: 10.5281/zenodo.16294824
+  - description: "The versioned DOI"
+    type: doi
+    value: " "
 repository-code: 'https://github.com/accESS-NRI/access-om3-configs'
 url: 'https://access-om3-configs.access-hive.org.au/'
+repository-artifact: >-
+  https://github.com/ACCESS-NRI/access-om3-configs/archive/refs/tags/release-MC_25km_jra55_iaf_1.0-beta.tar.gz
 abstract: >-
   This is an initial beta prerelease of a model
   configuration of ACCESS-OM3. This uses a release of the
-  ACCESS-OM3 software (version 2025.05.001), a global grid
+  ACCESS-OM3 software (version 2025.08.001), a global grid
   with 25km nominal resolution, bathymetry generated from
   GEBCO 2024 and initial conditions generated from WOA2023.
   Interannual Forcing (IAF) from the 
@@ -126,6 +131,8 @@ abstract: >-
   National Unified Operational Prediction Capability),
   infrastructure to connect these model components.
 license: CC-BY-4.0
+version: release-MC_25km_jra_iaf-1.0-beta
+date-released: " "
 keywords:
   - access-om3
   - climate

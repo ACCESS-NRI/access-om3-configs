@@ -12,19 +12,19 @@ work/INPUT/JRA55do-drof-ESMFmesh.nc:
     binhash: fa1322dbc0ab951527b165f8327c7b5b
     md5: 3b46260b8c14d12925cf70f82da6658e
 work/INPUT/access-om3-25km-ESMFmesh.nc:
-  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/share/meshes/global.25km/2025.11.27/access-om3-25km-ESMFmesh.nc
+  fullpath: /g/data/vk83/configurations/inputs/access-om3/share/meshes/global.25km/2025.11.27/access-om3-25km-ESMFmesh.nc
   hashes:
-    binhash: ea2b9dcdd06c9636692f1347858ca9f8
+    binhash: 772cf9c667ca5e67a3d2870890e2ea55
     md5: 0ae5ab11f801a02f2537fb7e1ec02674
 work/INPUT/access-om3-25km-nomask-ESMFmesh.nc:
-  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/share/meshes/global.25km/2025.11.27/access-om3-25km-nomask-ESMFmesh.nc
+  fullpath: /g/data/vk83/configurations/inputs/access-om3/share/meshes/global.25km/2025.11.27/access-om3-25km-nomask-ESMFmesh.nc
   hashes:
-    binhash: c4c4ed00d810542822a1c2fa832c17e0
+    binhash: bc20c96c3827517fb82b157b1062a886
     md5: c3cdd8ea948c41e78e55709ebaf4ca91
 work/INPUT/access-om3-25km-rof-remap-weights.nc:
-  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/cmeps/remap_weights/global.25km/2025.11.27/access-om3-25km-rof-remap-weights.nc
+  fullpath: /g/data/vk83/configurations/inputs/access-om3/cmeps/remap_weights/global.25km/2025.11.27/access-om3-25km-rof-remap-weights.nc
   hashes:
-    binhash: ee881fd8c76f5fe7b2943ad004c09426
+    binhash: 39c2a25bec7d738a530ebd6a5fe603ef
     md5: 80067fb4b5b6a46e483e6d346636b3db
 ? work/INPUT/atmos/3hr/prra/gr/v20240531/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-6-0_gr_195801010130-195812312230.nc
 : fullpath: /g/data/qv56/replicas/input4MIPs/CMIP6Plus/OMIP/MRI/MRI-JRA55-do-1-6-0/atmos/3hr/prra/gr/v20240531/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-6-0_gr_195801010130-195812312230.nc
@@ -3387,19 +3387,19 @@ work/INPUT/atmos/fx/sftof/gr/v20240531/sftof_input4MIPs_atmosphericState_OMIP_MR
     binhash: 7f98fc486410cff8df3232d390e5a05b
     md5: f5034ec4d5228d648be6375b13ed2c98
 work/INPUT/bottom_roughness.nc:
-  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/tidal_external_files/global.25km/2025.09.03/bottom_roughness.nc
+  fullpath: /g/data/vk83/configurations/inputs/access-om3/mom/tidal_external_files/global.25km/2025.09.03/bottom_roughness.nc
   hashes:
-    binhash: 4af02df5f147dc8528a1f4657a0de2c4
+    binhash: 5aee86b7b6d0fcdb232dd9412c37d62f
     md5: 99698827fe5c5129dce971d006e4fdfc
 work/INPUT/chl_globcolour_monthly_clim.nc:
-  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/chlorophyll/global.25km/2025.11.21/chl_globcolour_monthly_clim.nc
+  fullpath: /g/data/vk83/configurations/inputs/access-om3/mom/chlorophyll/global.25km/2025.11.21/chl_globcolour_monthly_clim.nc
   hashes:
-    binhash: c42a775b34ab909b7352381004fad9db
+    binhash: f30a3f69bee2f2174596d238e1de822e
     md5: 269f4492ae65f6ef9dd6e2a59f2bff4b
 work/INPUT/kmt.nc:
-  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/cice/grids/global.25km/2025.11.27/kmt.nc
+  fullpath: /g/data/vk83/configurations/inputs/access-om3/cice/grids/global.25km/2025.11.27/kmt.nc
   hashes:
-    binhash: 90818679b612ed7ddcf6333a51507e21
+    binhash: eb989f5ba7c3c3bae2551daefe151698
     md5: 64bc07e338d1a5d4bc2364f49e77fb96
 work/INPUT/land/day/friver/gr/v20240531/friver_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-6-0_gr_19580101-19581231.nc:
   fullpath: /g/data/qv56/replicas/input4MIPs/CMIP6Plus/OMIP/MRI/MRI-JRA55-do-1-6-0/land/day/friver/gr/v20240531/friver_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-6-0_gr_19580101-19581231.nc
@@ -4427,9 +4427,9 @@ work/INPUT/ocean/yrC/vos/gr/v20240531/vos_input4MIPs_atmosphericState_OMIP_MRI-J
     binhash: a38d3b8f25e2f9d6fa8274227d4981fc
     md5: 73930e505055b301e7b452389a95f995
 work/INPUT/ocean_hgrid.nc:
-  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/grids/mosaic/global.25km/2025.09.02/ocean_hgrid.nc
+  fullpath: /g/data/vk83/configurations/inputs/access-om3/mom/grids/mosaic/global.25km/2025.09.02/ocean_hgrid.nc
   hashes:
-    binhash: fca9384e7595cfcafe6e970d68598a35
+    binhash: a7882fb994abd0e402809e39545dc2c5
     md5: dd9cb78712fedbdd3e5930f7066bcac8
 work/INPUT/ocean_vgrid.nc:
   fullpath: /g/data/vk83/configurations/inputs/access-om3/mom/grids/vertical/global.25km/2025.03.12/ocean_vgrid.nc
@@ -4437,9 +4437,9 @@ work/INPUT/ocean_vgrid.nc:
     binhash: cbc588e29d819ce8898d77760a65e20d
     md5: 66f71f2b24bd00b1c220787505e0106e
 work/INPUT/salt_sfc_restore.nc:
-  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/surface_salt_restoring/global.25km/2025.10.24/salt_sfc_restore.nc
+  fullpath: /g/data/vk83/configurations/inputs/access-om3/mom/surface_salt_restoring/global.25km/2025.10.24/salt_sfc_restore.nc
   hashes:
-    binhash: 07904ddaf9f52342e79d42b2ba4e40c6
+    binhash: 54166d28383dfc561138638479cec1db
     md5: 0e59f79a3da9a989eb9ce854277599f8
 ? work/INPUT/seaIce/3hrPt/siconca/gr/v20240531/siconca_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-6-0_gr_195801010000-195812312100.nc
 : fullpath: /g/data/qv56/replicas/input4MIPs/CMIP6Plus/OMIP/MRI/MRI-JRA55-do-1-6-0/seaIce/3hrPt/siconca/gr/v20240531/siconca_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-6-0_gr_195801010000-195812312100.nc
@@ -5112,17 +5112,17 @@ work/INPUT/salt_sfc_restore.nc:
     binhash: f29cf9116519b7e44db54de0a1452bcd
     md5: f98dca7628637e1c245fe80267baaf86
 work/INPUT/tideamp.nc:
-  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/tidal_external_files/global.25km/2025.09.03/tideamp.nc
+  fullpath: /g/data/vk83/configurations/inputs/access-om3/mom/tidal_external_files/global.25km/2025.09.03/tideamp.nc
   hashes:
-    binhash: b91933f5694d0e2c0c1ac0b3bc0fc3f6
+    binhash: 0b69afaa564866597b1232be5ec00dad
     md5: 1aa1db4e7b14f0486d3546b9bc2a035a
 work/INPUT/topog.nc:
-  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/share/grids/global.25km/2025.11.27/topog.nc
+  fullpath: /g/data/vk83/configurations/inputs/access-om3/share/grids/global.25km/2025.11.27/topog.nc
   hashes:
-    binhash: b180d0c828a9f833cbdd9b20640b62ec
+    binhash: 6e15c0bea662cdb8f7df8d75af70ad3a
     md5: 3a1d6b02a276985b038ddaafac909083
 work/INPUT/woa23_ts_01_mom.nc:
-  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/initial_conditions/global.25km/2025.10.24/woa23_ts_01_mom.nc
+  fullpath: /g/data/vk83/configurations/inputs/access-om3/mom/initial_conditions/global.25km/2025.10.24/woa23_ts_01_mom.nc
   hashes:
-    binhash: 2d69410d03d8a39d17dc6e37cd71aa09
+    binhash: a56e68e159c8007dd75cfa3d2d22cb6c
     md5: bd9559e8a3dbefa16080d0340b26be12
