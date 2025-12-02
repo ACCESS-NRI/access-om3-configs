@@ -67,7 +67,7 @@
   tfrz_option = "linear_salt"
   update_ocn_f = .true.
   ustar_min = 0.0005
-  wave_spec_type = "random"
+  wave_spec_type = "none"
   /
 &domain_nml
   block_size_x = 15
