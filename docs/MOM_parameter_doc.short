@@ -132,8 +132,13 @@ TFREEZE_FORM = "TEOS_POLY"      ! default = "TEOS10"
 ! === module MOM_tracer_flow_control ===
 USE_IDEAL_AGE_TRACER = True     !   [Boolean] default = False
                                 ! If true, use the ideal_age_example tracer package.
+USE_generic_tracer = True       !   [Boolean] default = False
+                                ! If true and _USE_GENERIC_TRACER is defined as a preprocessor macro, use the
+                                ! MOM_generic_tracer packages.
 
 ! === module ideal_age_example ===
+
+! === module register_MOM_generic_tracer ===
 
 ! === module MOM_fixed_initialization ===
 
