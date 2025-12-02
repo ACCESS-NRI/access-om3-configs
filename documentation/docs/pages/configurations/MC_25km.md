@@ -103,7 +103,8 @@ The CICE sea ice model is configured using a Fortran namelist file called `ice_i
 4. dynamics and advection
 5. diagnostics and output settings
 
-This document walks through each of these namelist groups and provides a short explanation of what each group controls and how it is configured in our `ACCESS-OM3` configurations.
+This document walks through each of these namelist groups and provides a short explanation of what each group controls and some configuration
+options set in this `ACCESS-OM3` configurations. In general, the `ice_in` file only includes changes from defaults. For a complete list of runtime configuration settings (including defaults)  For detailed explanations of parameters, refer to [CICE Documentation](https://cice-consortium-cice.readthedocs.io) and [Icepack Documentation](https://cice-consortium-icepack.readthedocs.io)(for vertical sea ice processes only).
 
 ### `setup_nml`
 This group defines time-stepping, run length, output frequencies, initial conditions, and I/O settings.
@@ -135,7 +136,7 @@ This group defines the spatial grid, land mask, and ice thickness category struc
 - Horizontal Grid
     - Tripolar grid at 25 km nominal resolution: `grid_type = "tripole"`
     - Grid files:
-        - The grid is defined by `grid_file = "./INPUT/ocean_hgrid.nc"`. We use the MOM grid file in CICE for best consistency between model components.
+        - The grid is defined by `grid_file = "./INPUT/ocean_hgrid.nc"` and `grid_format = "mom_nc"`. We use the MOM grid file in CICE for best consistency between model components.
         - Land mask file `kmt_file = "./INPUT/kmt.nc"`,
         - Bathymetry file `bathymetry_file = "./INPUT/topog.nc"`. (not currently used)
 - Grid staggering
@@ -159,7 +160,7 @@ Controls thermodynamic processes in sea ice.
 Configures sea ice motion and advection.
 
 - Dynamics:
-    - Uses elastic-viscous-plastic (`EVP`) rheology [@hunke1997elastic],
+    - Uses the default elastic-viscous-plastic (`EVP`) rheology [@hunke1997elastic], 
     - Default `EVP` subcycling count `ndte = 120`.
 - Advection:
     - `advection = "remap"`: Uses incremental remapping for ice and tracer transport [@dukowicz2000incremental].
@@ -176,10 +177,11 @@ This group deals with how solar radiation is treated in the ice model and the su
     - `albsnowv = 0.98`, `albsnowi = 0.70` are for cold snow albedo (`v` and `IR`respectively). By using these two values, we assumes fresh dry snow is bright in visible (98%)
 and also high in near-`IR` (70%). 
 - Albedo thickness dependence:
-    - `ahmax = 0.1` is the thickness parameter for albedo, which is constant above this thickness. In our configuration, it means once ice is ~10cm thick, it is treated optically like thick ice and there will be no further albedo increase. Thinner ice, which is less than 10cm, will have a lower effective albedo. 
+    - `ahmax = 0.1` is the thickness parameter for albedo, which is constant above this thickness. In our configuration, it means once ice is ~10cm thick, it is treated optically like thick ice and there will be no further albedo increase. Thinner ice, which is less than 10cm, will have a lower effective albedo. This value is set for consistency with [ACCESS-OM2](https://github.com/ACCESS-NRI/access-om2-configs/blob/0a29b451744dcbc82a90a8b663ce5f7f0d3f2bc2/ice/cice_in.nml#L107).
 - Pond/algae effects:
     - [`kalg = 0.0`](https://github.com/CICE-Consortium/CICE/blob/2cdd3d007a409d26cb0c16d946678a544ada55fa/doc/source/user_guide/ug_case_settings.rst#L556:~:text=1.5-,kalg,-real) means no additional algae-related absorption,
     - [`r_snw = 0.0`](https://github.com/CICE-Consortium/CICE/blob/2cdd3d007a409d26cb0c16d946678a544ada55fa/doc/source/user_guide/ug_case_settings.rst#L556:~:text=0.0-,R_snw,-real) is a tuning parameter for snow (broadband albedo) from Delta-Eddingon shortwave, here it is 0, which means not using additional boradband albedo tuning.
+    - [`sw_redist = .true.`](https://cice-consortium-icepack.readthedocs.io/en/main/science_guide/sg_thermo.html#thermodynamics) - if penetrating shortwave radiation is greater than the amount which can be absorbed, then redistribute it to the top surface
 
 ### `forcing_nml`
 The forcing namelist governs how external forcing (`atm` and` ocn`) is applied to the ice, including coupling flux adjustments.
