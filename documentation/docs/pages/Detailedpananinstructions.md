@@ -5,35 +5,37 @@
 Contents:
 
 1. Make 25km panan from 25km OM3 and add boundary conditions
-2. Convert to 8km panan using GEBCO bathy
+2. Convert to 8km pan-An using GEBCO bathy
 3. Use Charrassin bathy instead
 4. Use new parameters
 5. Fix bugs
 
 # 1.  Make 25km panan from 25km OM3 and add boundary conditions
 
-These instructions were used by Claire and Helen to make a 25km pan-An regional config. There are no open boundary conditions yet. We start with a global domain, truncate it, and then change configuration files as required. This is a work in progress!!
+These instructions were used to make a test 25km pan-An regional config. We suggest that developers wanting to copy the workflow should start at "convert to 8km pan-AN using GEBCO bathy". We start with a global domain, truncate it, and then change configuration files as required.
 
-First, we load modules so that we can use `payu`:
+First, load modules for `payu`:
 ```
 module use /g/data/vk83/modules
 module load payu
 ```
 
-We chose the clone the current dev 25km branch:
+Then clone the current dev 25km branch:
 
 ```
+mkdir  ~/access-om3-configs/
+cd  ~/access-om3-configs/
 payu clone --new-branch expt --branch dev-MC_25km_jra_ryf https://github.com/ACCESS-NRI/access-om3-configs 25km_jra_ryf
 ```
 
-Entering this folder, `cd 25km_jra_ryf`, you can see in `config.yaml` what the input files are. These need to be modified for the regional domain. We did this by creating a new folder **Make generic, uses Claire's folder right now**
+`config,yaml`, in the folder `25km_jra_ryf`, shows the location of the input files. These need to be modified for the regional domain which can be done in a new folder:
 
 ```
 mkdir /g/data/x77/cy8964/mom6/input
 mkdir /g/data/x77/cy8964/mom6/input/input-25km
 ```
 
-We enter this folder and then copy the files listed in the `config.yaml` so we have a local copy and don't accidentally touch anything we didn't want to! If using a different starting configuration your file names will be different.
+Then copy the files listed in the `config.yaml` so there is a local copy. Note that file names and paths may differ for different varients of the base global configuration.
 
 ```
 cd /g/data/x77/cy8964/mom6/input/input-25km
@@ -45,53 +47,53 @@ cp /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/surface_salt_res
 cp /g/data/vk83/prerelease/configurations/inputs/access-om3/share/grids/2025.02.17/topog.nc .
 ```
 
-In this case, `ocean_mask.nc` was not listed in the `config.yaml`, and we could not find it, so we had to generate it. **Skip to next section if you already have `ocean_mask.nc`.**
+In this case, `ocean_mask.nc` is not listed in `config.yaml` and if it can't be found then a new one needs generating 
 
-### Generating `ocean_mask.nc` (and other bathymetry files)
-First we need to clone the `make_OM3_025deg_topo` tools. First `cd` into a suitable directory (for me I chose in my `home` drive)
+### Generating `ocean_mask.nc`
+Clone the `make_OM3_025deg_topo` tools. First `cd` into a suitable directory (e.g, your `home` drive)
 ```
 git clone git@github.com:ACCESS-NRI/make_OM3_025deg_topo.git
 ```
 
-Since it contains import submodules, we do
+To download the import submodules,do:
 
 ```
 git submodule update --init --recursive
 ```
 
-which downloads the correct branch of the submodules. Note that for some reason I was getting a conflict with the xp86 conda environemnt and starting a new gadi terminal fixed the issue.
+which downloads the correct branch of the submodules. Note starting a new gadi terminal will fix conflict with the xp86 conda environemnt.
 
-We then follow the instructions on `https://github.com/ACCESS-NRI/make_OM3_025deg_topo` which requires modifying the `gen_topog.sh` script to 1. Add the gdata to your project in the `#PBS -l storage=` line and 2. Use `qsub` to submit.
+We then follow the instructions on `https://github.com/ACCESS-NRI/make_OM3_025deg_topo` which requires modifying the `gen_topog.sh` script to 1. Add the gdata to your project in the `#PBS -l storage=` line and 2. Use `qsub` to submit:
 ```
 qsub -v INPUT_HGRID="/path/to/ocean_hgrid.nc",INPUT_VGRID="/path/to/ocean_vgrid.nc",INPUT_GBCO="/path/to/GEBCO_2024.nc" -P $PROJECT gen_topo.sh
 ```
-For me this looked like
+For the 25km Pan-an development this looked like:
 ```
 qsub -v INPUT_HGRID=/g/data/x77/cy8964/mom6/input/input-25km/ocean_hgrid.nc,INPUT_VGRID=/g/data/x77/cy8964/mom6/input/input-25km/ocean_vgrid.nc,INPUT_GBCO=/g/data/ik11/inputs/GEBCO_2024/GEBCO_2024.nc -P x77 gen_topo.sh
 ```
-**(Note it looks like a missed the last step, to finalise output files. Oops)**
-
-This generates the file where you cloned the `make_OM3_025deg_topo` repo and you can copy it to the place where your input files are.
+This generates the files where you cloned the `make_OM3_025deg_topo` repo and needs to be copied to the folder containing the input files (e.g. `/g/data/x77/cy8964/mom6/input/input-25km`.
+ 
+Note that bathymetry-tools pipeline used here has built in topo edits for the 025 deg config and these topo edits will need removing.
 
 ### Cropping netcdf files to regional domain
-
-Now you have all your files copied over. Note that we assumed `ocean_mask.nc` was created using the same script as the rest: it probably would have been better to generate all the files together and then copy them over! Also, the bathymetry-tools pipeline has built in topo edits for the 025 deg config so the line calling that text file would need to be removed and some renaming of sunsequent calls if using a different grid where the topo edits indices don't match up.
 
 We can now use `nco` as an efficient `netcdf` chopper. Load module:
 ```
 module load nco/5.0.5
 module load netcdf
 ```
-You can use `ncdump -h XX.nc` to check what the y coordinate name and size are. To crop the domain to approximately 37.5 degrees S, we did trial and error to get the right index. For `ocean_hgrid.nc` it is on a supergrid so has twice the number of points (ish) as the other variables.
+The command `ncdump -h XX.nc` (where 'XX.nc' is your netcdf file) can be used to check the y coordinate name and size. To crop the domain to approximately 37.5 degrees S, some trial and error may be needed get the right index. 
 
 ```
 ncks -d nyp,0,790 -d ny,0,789 ocean_hgrid.nc ocean_hgrid_cropped.nc
 ncdump -v "y" ocean_hgrid_cropped.nc | tail -5
 ```
 
-Note `nyp` number is one larger than `ny` number. The output of the second command will tell you the latitude it finishes at, adjust the nyp and ny numbers until satisfied.
+The output of the second command will tell you the latitude that the model was cropped to. Adjust the nyp and ny numbers until satisfied with the cropping latitude.
+Note that  `ocean_hgrid.nc` it is on a supergrid so has twice the number of points as variables in other netcdf files not on the supergrid.
+Note also that the `nyp` index is one larger than the `ny` index. 
 
-Now we do the same for the smaller netcdf files, noting ny in `ocean_hgrid`=2 times ny in other files. These numbers do need to work out!
+Now do the same for the smaller netcdf files, noting ny in `ocean_hgrid`=2 times ny in other files.
 
 ```
 ncks -d ny,0,394 kmt.nc kmt_cropped.nc
@@ -101,18 +103,15 @@ ncks -d lat,0,394 salt_sfc_restore.nc salt_sfc_restore_cropped.nc
 ncks -d ny,0,394 ocean_mask.nc ocean_mask_cropped.nc
 ```
 
-We also renamed the `ocean_vgrid.nc` file even though it has no y coordinate.
+For consistency, rename the `ocean_vgrid.nc` file even though it has no y coordinate.
 
 ```
 mv ocean_vgrid.nc ocean_vgrid_cropped.nc
 ```
 
-There are some more input files related to meshes for the nuopc coupler. These need to be generated from the new files, they can't simply be cropped from the global version. Using the `om3-scripts` submodule in the `make_OM3_025deg_topo` repository, there are scripts to make them. Alternatively if you didn't already use `make_OM3_025deg_topo`, you could do `git clone git@github.com:ACCESS-NRI/om3-scripts.git` and then check out the right branch (looks like some updates happening).
+There are some more input files related to meshes for the nuopc coupler. These need to be generated from the new files, they can't simply be cropped from the global version. Using the `om3-scripts` submodule in the `make_OM3_025deg_topo` repository, there are scripts to make them. 
 
-**Hint**: The metadata at the end of `ncdump -h XX.nc` of the original input files in `config.yaml` have instructions for what to do!
-
-If not already loaded, need conda env:
-
+If not already loaded:
 ```
 module use /g/data/xp65/public/modules
 module load conda/analysis3
@@ -126,7 +125,8 @@ python3 /home/156/cy8964/model-tools/om3-scripts/mesh_generation/generate_mesh.p
 python3 /home/156/cy8964/model-tools/om3-scripts/mesh_generation/generate_mesh.py --grid-type=mom --grid-filename=/g/data/x77/cy8964/mom6/input/input-25km/ocean_hgrid_cropped.nc --mesh-filename=/g/data/x77/cy8964/mom6/input/input-25km/access-om3-025deg-nomask-ESMFmesh_cropped.nc --wrap-lons
 ```
 
-For the `access-om3-025deg-rof-remap-weights_cropped.nc` file I got a segfault so instead submitted a similar PBS script to that that made `ocean_mask.nc`. Perhaps related to hh5 vs xp86 environemnt, or to memory issue? Anyway, generated this new file `gen_rof.sh`:
+Generating the `access-om3-025deg-rof-remap-weights_cropped.nc` file requires a PBS submission using a PBS script similar to this:
+
 ```
 #!/usr/bin/env sh
 # Copyright 2025 ACCESS-NRI and contributors. See the top-level COPYRIGHT file for details.
@@ -147,25 +147,16 @@ set -e #exit on error
 python3 ./om3-scripts/mesh_generation/generate_rof_weights.py --mesh_filename=/g/data/x77/cy8964/mom6/input/input-25km/access-om3-025deg-ESMFmesh_cropped.nc --weights_filename=/g/data/x77/cy8964/mom6/input/input-25km/access-om3-025deg-rof-remap-weights_cropped.nc
 
 ```
+Adjust file names and project storage as appropriate.
 
-Now you have all the input files, yay!
+All input files have now been generated and the next steps are to modify the input configuration files.
 
 ### Modifying namelist files
-The next step is to modify the namelists in the run directory folder where we originally cloned the global model. First, we modify `config.yaml`. This needs the following:
+The next step is to modify the namelists in the run directory folder where we originally cloned the global model (`cd  ~/access-om3-configs/25km_jra_ryf`). First, we modify `config.yaml`. This needs the following:
 - project code
 - set `runlog: true`
-- change access-om3 executable to be symmetric (the pr75-1 build)
-```
-modules:
-    use:
-        - /g/data/vk83/prerelease/modules
-    load:
-        - access-om3/pr75-1
-        - nco/5.0.5
 
-```
-
-Update input paths to where your new cropped input files are stored. For me, this looked like:
+Update input paths to where your new cropped input files are stored. For the pan-An 25 km configurations, this looks like:
 
 ```
 input:
@@ -182,19 +173,19 @@ input:
     - /g/data/x77/cy8964/mom6/input/input-25km/access-om3-025deg-rof-remap-weights_cropped.nc
     - /g/data/vk83/experiments/inputs/JRA-55/RYF/v1-4/data
 ```
-Noting that the JRA55do atmosphere input stays the same and does not need to change. Also, we start from a deafult CIC initial condition; otherwise that could also be an input file.
+Noting that the JRA55do atmosphere input stays the same and does not need to change. Also, we start from a deafult CICE initial condition; otherwise that could also be an input file.
 
-Next we modify `datm_in` with the new y length (ny in the kmt_cropped file i.e. real grid size not supergrid):
+Next modify `datm_in` with the new y length (ny in the kmt_cropped file i.e. real grid size not supergrid):
+
 ```
 model_maskfile = "./INPUT/access-om3-025deg-nomask-ESMFmesh_cropped.nc"
-  model_meshfile = "./INPUT/access-om3-025deg-nomask-ESMFmesh_cropped.nc"
-  nx_global = 1440
-  ny_global = 395
-
+model_meshfile = "./INPUT/access-om3-025deg-nomask-ESMFmesh_cropped.nc"
+nx_global = 1440
+ny_global = 395
 ```
-We do the same changes in `drof_in`.
+Do the same changes in `drof_in`.
 
-In `MOM_input` we need to change `NJ_GLOBAL = 395` and `TRIPOLAR = False`. Additionally, change all the netcdf files (seach for "nc") to be the cropped name.
+In `MOM_input` we need to change `NJ_GLOBAL = 395` and `TRIPOLAR = False`. Additionally, change all the netcdf files (seach for "*.nc") to align with the new cropped name (e.g. `ocean_hgrid.nc` => `ocean_hgrid_cropped.nc`.
 
 For `ice_in`, the `history_chunksize` needs to be changed. Choose something proportional to the original i.e. decrease second number by ratio of new ny to old ny):
 ```
@@ -209,6 +200,7 @@ Also change grid info:
   nx_global = 1440
   ny_global = 395
 ```
+Where `ny_global` is the new non-supergrid y-dimention
 
 and file names:
 ```
@@ -224,7 +216,7 @@ and file names:
   kmt_file = "./INPUT/kmt_cropped.nc"
 ```
 
-`nuopc.runconfig` also needs the updated netcdf file names (search nc)
+`nuopc.runconfig` also needs the updated netcdf file names (search "*.nc")
 
 Then add into `MOM_override`:
 ```
@@ -239,15 +231,15 @@ and `payu run`. You can check the status with the command `uqstat`. Errors will 
 The 25km panAn ran in 2.5 hours and used 6.9 kSU.
 
 ### CICE initial conditions
-The default CICE IC is "default" which has full ice cover below 60S (and above 60N). Since starting in January, makes more sense to start with zero ice cover. I haven't done this but imagine it is controlled in `ice_in` with
+The default CICE IC is "default" which has full ice cover below 60S (and above 60N). Since the simulation starts in January, a zero ice cover initial condition may be more appropriate. This wasn't tested by we suggest it could be controlled in `ice_in` with
 
 `setup_nml`: `ice_ic` to `'none'` instread of `'deafult'`.
 
 ### OBC instructions
 
-Firstly, generate the files using [this script](https://github.com/claireyung/mom6-panAn-iceshelf-tools/blob/main/generate-obcs/ACCESS-OM2_panan_boundary_forcing_8km.ipynb). Needs hh5 analysis-22.10 at the moment, but some minor updates to the xarray syntax should allow the notebook to run with updated xarray versions in newer analysis environments.
+The boundary condition files can be generated by using [this script](https://github.com/claireyung/mom6-panAn-iceshelf-tools/blob/main/generate-obcs/ACCESS-OM2_panan_boundary_forcing_8km.ipynb). However, this script is now depreciated and will need some minor updates to the xarray syntax to allow the notebook to run with updated xarray versions in newer analysis environments (the notebook previously ran on hh5).
 
-Check files, sensible numbers e.g. temperature in celcius.
+Before running, check that the files give sensible numbers e.g. temperature in celcius.
 
 Then add file to `config.yaml`:
 ```
@@ -276,7 +268,7 @@ OBC_TRACER_RESERVOIR_LENGTH_SCALE_IN = 3000
 ! sponges
 SPONGE = False
 ```
-These are copied from MOM6-SIS2 panantarctic: https://github.com/COSIMA/mom6-panan/blob/panan-005/MOM_input
+These parameter choices are copied from MOM6-SIS2 panantarctic: https://github.com/COSIMA/mom6-panan/blob/panan-005/MOM_input
 
 
 # 2. Moving to 8km domain
