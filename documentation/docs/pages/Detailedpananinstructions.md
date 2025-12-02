@@ -273,35 +273,35 @@ These parameter choices are copied from MOM6-SIS2 panantarctic: https://github.c
 
 # 2. Moving to 8km domain
 
-Thus far I've used the [25km domain](https://github.com/claireyung/access-om3-configs/tree/25km_jra_ryf-obc) subsetted from the [global 25km dev model](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MC_25km_jra_ryf). 
+The above instructions create a [25km domain](https://github.com/claireyung/access-om3-configs/tree/25km_jra_ryf-obc) subsetted from the [global 25km dev model](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MC_25km_jra_ryf). 
 
 Now we want to use an 8km model domain.
 
 First, we use the 8km [global grid that Angus made](https://github.com/claireyung/mom6-panAn-iceshelf-tools/issues/7). Copy files from Angus `/g/data/x77/ahg157/inputs/mom6/global-8km/`
 
-As before, this is a global grid so we truncate to get the desired grid size. I chose the top boundary to be so the top `nyp` `y` value is -37.4627 (which matches the [initial conditions Wilton has set up](https://github.com/claireyung/mom6-panAn-iceshelf-tools/issues/3)).
+As before, this is a global grid which needs truncating to get the desired grid size. The top boundary is chosen such that the top `nyp` `y` value is -37.4627 (to matche the [initial conditions](https://github.com/claireyung/mom6-panAn-iceshelf-tools/issues/3)).
 
 ```
 ncks -d nyp,0,2884 -d ny,0,2883 ocean_hgrid.nc ocean_hgrid_cropped.nc
 ncdump -v "y" ocean_hgrid_cropped.nc | tail -5
 ```
-We do the same for `ocean_mask` and `topog` with the different smaller numbers since it's not on the supergrid
+A similar operation is needed for for `ocean_mask` and `topog` except the different `ny` as these are not on the supergrid
 ```
 ncks -d ny,0,1441 topog.nc topog_cropped.nc
 ncks -d ny,0,1441 ocean_mask.nc ocean_mask_cropped.nc
 ```
 
-Copy the vertical grid from the 25km model **thoughts??**
+The vertical grid can be used from the 25km model (which was a renamed version of the global model vertical grid)
 ```
 cp ../input-25km/ocean_vgrid_cropped.nc .
 ```
 
-The kmt (sea ice mask file) is in this case the same as ocean_mask (**it won't be with ice shelf cavities!**) so rename it:
+The kmt (sea ice mask file) is in this case the same as ocean_mask (not that it won't be when ice shelf cavities are introduced) so rename it:
 ```
 ncrename -O -v mask,kmt ocean_mask_cropped.nc kmt_cropped.nc
 ncks -O -x -v geolon_t,geolat_t kmt_cropped.nc kmt_cropped.nc
 ```
-Then follow the previous pipeline in `make_OM3_025deg_topo` to generate the new mesh files. I did this in a PBS script with the following commands.
+Then follow the previous pipeline in `make_OM3_025deg_topo` to generate the new mesh files.This was done in a PBS script with the following commands.
 
 ```
 python3 /home/156/cy8964/model-tools/om3-scripts/mesh_generation/generate_mesh.py --grid-type=mom --grid-filename=/g/data/x77/cy8964/mom6/input/input-8km/ocean_hgrid_cropped.nc --mesh-filename=/g/data/x77/cy8964/mom6/input/input-8km/access-om3-8km-ESMFmesh_cropped.nc --mask-filename=/g/data/x77/cy8964/mom6/input/input-8km/ocean_mask_cropped.nc --wrap-lons
@@ -311,13 +311,50 @@ python3 /home/156/cy8964/model-tools/om3-scripts/mesh_generation/generate_mesh.p
 python3 ./om3-scripts/mesh_generation/generate_rof_weights.py --mesh_filename=/g/data/x77/cy8964/mom6/input/input-8km/access-om3-8km-ESMFmesh_cropped.nc --weights_filename=/g/data/x77/cy8964/mom6/input/input-8km/access-om3-8km-rof-remap-weights_cropped.nc
 ```
 
-I also repeated the OBC script as for 8km.
+The OBC conditions are created in a similar manner to the 25 km pan-An domain by using [this script](https://github.com/claireyung/mom6-panAn-iceshelf-tools/blob/main/generate-obcs/ACCESS-OM2_panan_boundary_forcing_8km.ipynb). Note that this script is now depreciated and will need some minor updates to the xarray syntax before rerunning.
 
-Next step was to modify all the names in `config.yaml` to point to the correct, new files. 
+Next step are to modify all the names in `config.yaml` to point to the correct, new files. 
+```
+    - /g/data/tm70/cy8964/mom6/input/input-8km/ocean_hgrid_cropped.nc
+    - /g/data/tm70/cy8964/mom6/input/input-8km/ocean_vgrid_cropped.nc
+    - /g/data/tm70/cy8964/mom6/input/input-8km/ACCESS-OM2_IC_bfilled_smoothedland.nc
+    - /g/data/tm70/cy8964/mom6/input/input-8km/salt_restore_interpolated_nearest.nc
+    - /g/data/tm70/cy8964/mom6/input/input-8km/topog_Charrassin_nocavity_cropped.nc
+    - /g/data/tm70/cy8964/mom6/input/input-8km/access-om3-8km-ESMFmesh_Charrassin_nocavity_cropped.nc 
+    - /g/data/tm70/cy8964/mom6/input/input-8km/access-om3-8km-nomask-ESMFmesh_Charrassin_nocavity_cropped.nc
+```
+Then, change the latitude AND longitude size numbers in `datm_in`, `drof_in`, `ice_in`, `nuopc.runcofig` as well as update names. 
+In datm_in:
+```
+ny_global = 1142
+  model_maskfile = "./INPUT/access-om3-8km-nomask-ESMFmesh_Charrassin_nocavity_cropped.nc"
+  model_meshfile = "./INPUT/access-om3-8km-nomask-ESMFmesh_Charrassin_nocavity_cropped.nc"
+  nx_global = 4320
+  ny_global = 1442
+```
 
-Then, change the latitude AND longitude size numbers in `datm_in`, `drof_in`, `ice_in`, `nuopc.runcofig` as well as update names. (**note in previous 25km I didn't change any sizes of lat/lon in nuopc.runconfig and that for some reason didn't cause issues???**)
+In drof_in:
+```
+  model_maskfile = "./INPUT/access-om3-8km-nomask-ESMFmesh_Charrassin_nocavity_cropped.nc"
+  model_meshfile = "./INPUT/access-om3-8km-nomask-ESMFmesh_Charrassin_nocavity_cropped.nc"
+  nx_global = 4320
+  ny_global = 1442
+```
+In ice_in:
+```
+  history_chunksize = 720, 186
+  ndtd = 3
+  bathymetry_file = "./INPUT/topog_Charrassin_nocavity_cropped.nc"
+  grid_file = "./INPUT/ocean_hgrid_cropped.nc"
+  grid_type = "regional"
+  kcatbound = 2
+  kmt_file = "./INPUT/kmt_Charrassin_nocavity_cropped.nc"
+  ncat = 7
+```
 
-I also turned salt restoring OFF since I didn't manage to generate the file yet in the `MOM_override` and decreased the timesteps `DT` and `DT_THERM` by 3 (25km/8km ~ 3).
+For now, turn salt restoring OFF since as the file has not been generated. Alse decrease the timesteps `DT` and `DT_THERM` by 3 (25km/8km ~ 3).
+
+In MOM_override:
 
 ```
 #override RESTORE_SALINITY = False
@@ -328,9 +365,11 @@ I also turned salt restoring OFF since I didn't manage to generate the file yet 
 !#override DEBUG = True
 ```
 
-Finally, I updated the `nuopc.runconfig` to have an updated `PELAYOUT_attributes::` section based on what Minghang has been working on. Since that has more processors going to ocean than current CPUs, I also increased the number of CPUs to 2016 (a multiple of 48) **but this choice was arbirary and I don't know what to choose**.
+Finally,  `nuopc.runconfig`  `PELAYOUT_attributes::` are updated with optimisation experinment layout. 
 
-To run for a shorter time (since it is expensive) I changed `nuopc.runconfig` `CLOCK_attributes` section to have `nmonths`. `ndays` probably works too. Killing the job early still allowed me to look at output netcdf files.
+Since that has more processors going to ocean than current CPUs, increase thw number of CPUs to 2016 (a multiple of 48 but otherwise the number choice was somewhat arbitrary). 
+
+Change `nuopc.runconfig` `CLOCK_attributes` section to have `nmonths` as the model runs slower than the global models.
 
 ```
 restart_n = 1
@@ -343,7 +382,7 @@ stop_n = 1
 stop_option = nmonths
 ```
 
-To monitor the progress of the job after submitting it via `payu` I did
+To monitor the progress of the job after submitting it via `payu` use:
 ```
 tail -f work/log/ocn.log
 ```
@@ -351,19 +390,17 @@ which updates with some information every day.
 
 # Optimisation
 
-It is slow. Some suggestions from Manodeep, Minghang and Anton on optimisation.
+This configurations is slow and below are some suggestions to help optimise the configuration and others like it.
 
-1. use sapphire rapids. requires extra lines in `config.yaml`
+1. use sapphire rapids. This requires an extra lines in `config.yaml`
 
 ```
 platform:
   nodesize: 104
   nodemem: 512
 ```
-
-2. try to monitor state using aps profiler
-requires adding
-`modules: load: - intel-vtune/2025.0.1` in `config.yaml`, and `exe_prefix: aps`.
+Note that the ACCESS-NRI released executables are optised to work on saffhire rapids and we strongly suggest trying this.
+2. try to monitor state using aps profiler. This requires adding `modules: load: - intel-vtune/2025.0.1` in `config.yaml`, and `exe_prefix: aps`.
 
 This seems to slow the model down.... but you can look at output by following instructions here https://www.intel.com/content/www/us/en/docs/vtune-profiler/cookbook/2025-0/profiling-mpi-applications.html
 
@@ -372,29 +409,26 @@ module load intel-vtune/2025.0.1
 aps --report ./work/aps_result_20250528_141890971.gadi-pbs
 ```
 
-and then download the .html file produced and look at it
-(requries model to not crash during run - having problems with the restart generation in runtime and timestep not consistent- try modifying ocn_cpl_dt and runtime in nuopc.runconfig)
+and then download the .html file produced and look at it. This will only work if the model does not crash during run. 
 
 3. try sea ice settings
-`ice.log` tells you about blocks
-maybe block sizes are too small - ideal is 3-8
+`ice.log` tells you about blocks. If block sizes are too small it could slow the model down. The ideal number is 3-8.
 
-chance `domain_nml` block size in `ice_in` 
+To explore this option, change `domain_nml` block size in `ice_in` 
 
-Unfortunately when I changed it it crashed - maybe a specific number is required.
+This is still experinmental as tests on these settings thus far have crashed.
 
 
-# 3. Step 3: add Charrassin bathymetry (still no ice shelves)
+# 3. Step 3: add Charrassin bathymetry (no ice shelves)
 
-Follow notebooks in https://github.com/claireyung/mom6-panAn-iceshelf-tools/generate-draft/Generate-Charrassin-bathy.ipynb and https://github.com/claireyung/mom6-panAn-iceshelf-tools/generate-draft/process-topo.ipynb.These notebooks also generate files for ice shelf cavities opened.
+Bathymetry files for the Charrissin bathymetry were created in [these](https://github.com/claireyung/mom6-panAn-iceshelf-tools/generate-draft/Generate-Charrassin-bathy.ipynb) [notebooks](https://github.com/claireyung/mom6-panAn-iceshelf-tools/generate-draft/process-topo.ipynb).These notebooks also generate files for ice shelf cavities opened when this configuration comes online.
 
-As before, truncate files, and regenerate mesh files. Rename in config.yaml, and other files, no other changes needed since same grid size
+As before: truncate files, regenerate mesh files and update the netcdf name in the configuration files. No changes are needed to the grid-size parameters (`nx', `ny') when using the above 8k pan-An configuration as a stencil as the grid size is the same.
 
 Copy config dir 
 ```
 cp -r 8km_jra_ryf_obc2-sapphirerapid 8km_jra_ryf_obc2-sapphirerapid-Charrassin
 cd 8km_jra_ryf_obc2-sapphirerapid-Charrassin
-ls
 module use /g/data/vk83/modules
 module load payu
 payu checkout -b 8km_jra_ryf_obc2-sapphirerapid-Charrassin
@@ -408,7 +442,7 @@ ncks -d ny,0,1441 ocean_mask_Charrassin_nocavity.nc ocean_mask_Charrassin_nocavi
 ncks -d ny,0,1441 kmt_Charrassin_nocavity.nc kmt_Charrassin_nocavity_cropped.nc
 ```
 
-and make rof, mask files etc (`cd /home/156/cy8964/model-tools/make_OM3_8k_topo`)
+and make rof, mask files etc (`cd /home/156/cy8964/model-tools/make_OM3_8k_topo`) through submission of below PBS script on Gadi.
 
 ```
 # Copyright 2025 ACCESS-NRI and contributors. See the top-level COPYRIGHT file for details.
@@ -449,7 +483,7 @@ python3 ./om3-scripts/mesh_generation/generate_rof_weights.py --mesh_filename=/g
 
 ```
 
-Added files and renamed netcdf names to `config.yaml`, `datm_in`, `ice_in`, `drof_in`, `nuopc.runconfig`, `MOM_override`
+Move files to the input directory ('/g/data/x77/cy8964/mom6/input/input-8km') and update the netcdf names in `config.yaml`, `datm_in`, `ice_in`, `drof_in`, `nuopc.runconfig`, `MOM_override`
 
 # 4. Add new parameters
 Firstly, note that the coupling timestep is actually controlled in `nuopc.runseq` by the number in the top right hand corner. Making this not a ratio of 3x the timestep makes it work i.e. produces restart files
