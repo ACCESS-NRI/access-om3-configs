@@ -14,7 +14,7 @@ In the ACCESS-OM3, the typical configurations include the ocean model (MOM6) cou
 
 ### Preprocessing & Binary Input Files Required by WW3
 
-![WW3 Workflow](../../assets/WW3_workflow.png){: loading="lazy"}
+![WW3 Workflow](/assets/WW3_workflow.png){: loading="lazy"}
 
 The **grid preprocessor** (`ww3_grid`) takes static grid data files located in the `WW3_PreProc` directory — including `OM2_1.Dpt` (bathymetry), `OM2_1.Lat` and `OM2_1.Lon` (coordinates), `OM2_1.Mask` (land mask), and `OM2_1.Obstr` (obstruction) — and produces the binary grid definition file `mod_def.ww3`. Similarly, an **initialization tool** (`ww3_strt`) creates a binary `restart.ww3` based on the `ww3_strt.inp`  file representing the initial wave state. These binary files are then consumed by the WW3 model during the simulation.
 

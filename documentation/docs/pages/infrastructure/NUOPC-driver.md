@@ -45,7 +45,7 @@ Note, restarts are used for the CDEPS components in ACCESS-OM3 only for performa
 
 ## Time-steps
 
-Also see timestepping section [here](../../configurations/Overview/#timesteps).
+Also see timestepping section [here](/configurations/Overview/#timesteps).
 
 ### Coupling and driver time-step
 

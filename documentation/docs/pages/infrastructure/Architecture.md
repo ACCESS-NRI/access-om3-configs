@@ -1,9 +1,9 @@
 # ACCESS-OM3 architecture
 The schematic below illustrates the structure of the MOM6-CICE6-WW3 ACCESS-OM3 executable. ACCESS-OM3 is a single executable, consisting of the NUOPC driver (the main program) and several model components, each wrapped in a NUOPC cap; the caps are coupled through the [CMEPS mediator](https://escomp.github.io/CMEPS/versions/master/html/index.html) via NUOPC connectors. NUOPC is an interoperability layer for ESMF which standardises how model components interact. See discussions [here](https://github.com/COSIMA/access-om3/discussions/7#discussioncomment-3446345) and [here](https://github.com/COSIMA/access-om3/discussions/9) for more information.
 
-![ACCESS-OM3 architecture](../../assets/nuopc_overview.png){: loading="lazy" }
+![ACCESS-OM3 architecture](/assets/nuopc_overview.png){: loading="lazy" }
 
-The coupled fields and remapping methods used are recorded in the mediator log output file and can be found with `grep '^ mapping' archive/output000/log/med.log`; see [here](https://escomp.github.io/CMEPS/versions/master/html/esmflds.html) for how to decode this. See [the Configurations Overview page](../../configurations/Overview/#coupling) for details on how the coupling is determined.
+The coupled fields and remapping methods used are recorded in the mediator log output file and can be found with `grep '^ mapping' archive/output000/log/med.log`; see [here](https://escomp.github.io/CMEPS/versions/master/html/esmflds.html) for how to decode this. See [the Configurations Overview page](/configurations/Overview/#coupling) for details on how the coupling is determined.
 
 ## Overview of codebase
 
