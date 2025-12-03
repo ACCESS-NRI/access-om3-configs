@@ -2,15 +2,16 @@
 <file id="stream" version="2.0">
   <metadata>
     <File_type>DROF xml file provides river runoff data</File_type>
-    <date_generated>2024-09-16 13:45:03</date_generated>
-    <history>Created by aek156 (Andrew Kiss) on 2024-09-16, using https://github.com/COSIMA/om3-scripts/blob/b4048fd0d3230112c9572d1ad5bb5120e7ddeee9/data_stream_xml_generation/generate_xml_drof.py: /g/data/vk83/apps/om3-scripts/data_stream_xml_generation/generate_xml_drof.py 1900 1900</history>
+    <date_generated>2025-07-04 10:28:08</date_generated>
+    <history>Created by as2285 (anton-seaice) on 2025-07-04, using https://github.com/ACCESS-NRI/om3-scripts/blob/ffad24e7448649c5797bffe6a4e6184741dd87a5/data_stream_xml_generation/generate_xml_drof.py: /g/data/vk83/apps/om3-scripts/data_stream_xml_generation/generate_xml_drof.py 1900 1900</history>
   </metadata>
   <stream_info name="JRA55do.FRIVER">
     <taxmode>cycle</taxmode>
-    <tintalgo>upper</tintalgo>
+    <dtlimit>1.0</dtlimit>
+    <tintalgo>linear</tintalgo>
+    <offset>0</offset>
     <readmode>single</readmode>
     <mapalgo>bilinear</mapalgo>
-    <dtlimit>3.0</dtlimit>
     <year_first>1900</year_first>
     <year_last>1900</year_last>
     <year_align>1900</year_align>
@@ -23,14 +24,14 @@
     <datavars>
       <var>friver Forr_rofl</var>
     </datavars>
-    <offset>0</offset>
   </stream_info>
   <stream_info name="JRA55do.LICALVF">
     <taxmode>cycle</taxmode>
-    <tintalgo>upper</tintalgo>
+    <dtlimit>1.0</dtlimit>
+    <tintalgo>linear</tintalgo>
+    <offset>0</offset>
     <readmode>single</readmode>
     <mapalgo>bilinear</mapalgo>
-    <dtlimit>3.0</dtlimit>
     <year_first>1900</year_first>
     <year_last>1900</year_last>
     <year_align>1900</year_align>
@@ -43,6 +44,5 @@
     <datavars>
       <var>licalvf Forr_rofi</var>
     </datavars>
-    <offset>0</offset>
   </stream_info>
 </file>

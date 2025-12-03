@@ -1,27 +1,3 @@
-! This section contains non default debugging parameters which are set.
-! ------------------------
-! === module MOM_vert_friction ===
-U_TRUNC_FILE = "U_velocity_truncations" ! default = ""
-                                ! The absolute path to a file into which the accelerations leading to zonal
-                                ! velocity truncations are written. Undefine this for efficiency if this
-                                ! diagnostic is not needed.
-V_TRUNC_FILE = "V_velocity_truncations" ! default = ""
-                                ! The absolute path to a file into which the accelerations leading to meridional
-                                ! velocity truncations are written. Undefine this for efficiency if this
-                                ! diagnostic is not needed.
-
-! === module MOM_file_parser ===
-FATAL_UNUSED_PARAMS = True      !   [Boolean] default = False
-                                ! If true, kill the run if there are any unused parameters.
-
-! This section contains non default layout parameters which are set.
-! ------------------------
-! === module MOM_domains ===
-AUTO_MASKTABLE = True           !   [Boolean] default = False
-                                ! Turn on automatic mask table generation to eliminate land blocks.
-
-! This section is formatted the same as the MOM_parameter_short.doc output file.
-! ------------------------
 ! This file was written by the model and records the non-default parameters used at run-time.
 
 ! === module MOM ===
