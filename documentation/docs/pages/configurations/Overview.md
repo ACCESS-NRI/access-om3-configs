@@ -18,7 +18,7 @@ The configurations have much in common. Here we provide a quick overview of the 
 
 ### Where to set parameters
 #### Model exectuable version
-  - [`modules: load:`](https://github.com/search?q=repo%3AACCESS-NRI%2Faccess-om3-configs+path%3Adoc%2Fconfig.yaml+load:&type=code) in `config.yaml`. This sets the [released version](https://github.com/ACCESS-NRI/ACCESS-OM3/releases) if using a pre-built executable. If using a prerelease [build](../../infrastructure/Building#ad-hoc-builds), set `modules: use` to `/g/data/vk83/prerelease/modules` and `modules: load` to the prerelease version (e.g. `access-om3/pr999-9`).
+  - [`modules: load:`](https://github.com/search?q=repo%3AACCESS-NRI%2Faccess-om3-configs+path%3Adoc%2Fconfig.yaml+load:&type=code) in `config.yaml`. This sets the [released version](https://github.com/ACCESS-NRI/ACCESS-OM3/releases) if using a pre-built executable. If using a prerelease [build](/infrastructure/Building#ad-hoc-builds), set `modules: use` to `/g/data/vk83/prerelease/modules` and `modules: load` to the prerelease version (e.g. `access-om3/pr999-9`).
 #### Coupling
 ##### active model components
   - [`component_list`](https://github.com/search?q=repo%3AACCESS-NRI%2Faccess-om3-configs+path%3Adoc%2Fnuopc.runconfig+component_list&type=code) and entries in [`ALLCOMP_attributes`](https://github.com/search?q=repo%3AACCESS-NRI%2Faccess-om3-configs+path%3Adoc%2Fnuopc.runconfig+ALLCOMP_attributes&type=code) section in `nuopc.runconfig`, e.g.
