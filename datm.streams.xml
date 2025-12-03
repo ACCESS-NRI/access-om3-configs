@@ -2,8 +2,8 @@
 <file id="stream" version="2.0">
   <metadata>
     <File_type>DATM xml file provides forcing data</File_type>
-    <date_generated>2025-08-13 09:13:24</date_generated>
-    <history>Created by aek156 (Andrew Kiss) on 2025-08-13, using https://github.com/ACCESS-NRI/om3-scripts/blob/3882a182abf6cfa94d0461e8ce43d6b958dfc5b7/data_stream_xml_generation/generate_xml_datm.py: /g/data/vk83/apps/om3-scripts/data_stream_xml_generation/generate_xml_datm.py 1958 2023</history>
+    <date_generated>2025-07-04 10:29:42</date_generated>
+    <history>Created by as2285 (anton-seaice) on 2025-07-04, using https://github.com/ACCESS-NRI/om3-scripts/blob/ffad24e7448649c5797bffe6a4e6184741dd87a5/data_stream_xml_generation/generate_xml_datm.py: /g/data/vk83/apps/om3-scripts/data_stream_xml_generation/generate_xml_datm.py 1958 2024</history>
   </metadata>
   <stream_info name="JRA55do.PRSN">
     <taxmode>extend</taxmode>
@@ -11,7 +11,7 @@
     <readmode>single</readmode>
     <mapalgo>bilinear</mapalgo>
     <year_first>1958</year_first>
-    <year_last>2023</year_last>
+    <year_last>2024</year_last>
     <year_align>1958</year_align>
     <vectors>null</vectors>
     <meshfile>./INPUT/JRA55do-datm-ESMFmesh.nc</meshfile>
@@ -83,6 +83,7 @@
       <file>./INPUT/atmos/3hr/prsn/gr/v20240531/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-6-0_gr_202101010130-202112312230.nc</file>
       <file>./INPUT/atmos/3hr/prsn/gr/v20240531/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-6-0_gr_202201010130-202212312230.nc</file>
       <file>./INPUT/atmos/3hr/prsn/gr/v20240531/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-6-0_gr_202301010130-202312312230.nc</file>
+      <file>./INPUT/atmos/3hr/prsn/gr/v20240531/prsn_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-6-0_gr_202401010130-202402012230.nc</file>
     </datafiles>
     <datavars>
       <var>prsn  Faxa_prsn</var>
@@ -96,7 +97,7 @@
     <readmode>single</readmode>
     <mapalgo>bilinear</mapalgo>
     <year_first>1958</year_first>
-    <year_last>2023</year_last>
+    <year_last>2024</year_last>
     <year_align>1958</year_align>
     <vectors>null</vectors>
     <meshfile>./INPUT/JRA55do-datm-ESMFmesh.nc</meshfile>
@@ -168,6 +169,7 @@
       <file>./INPUT/atmos/3hr/prra/gr/v20240531/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-6-0_gr_202101010130-202112312230.nc</file>
       <file>./INPUT/atmos/3hr/prra/gr/v20240531/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-6-0_gr_202201010130-202212312230.nc</file>
       <file>./INPUT/atmos/3hr/prra/gr/v20240531/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-6-0_gr_202301010130-202312312230.nc</file>
+      <file>./INPUT/atmos/3hr/prra/gr/v20240531/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-6-0_gr_202401010130-202402012230.nc</file>
     </datafiles>
     <datavars>
       <var>prra  Faxa_prrn</var>
@@ -181,7 +183,7 @@
     <readmode>single</readmode>
     <mapalgo>bilinear</mapalgo>
     <year_first>1958</year_first>
-    <year_last>2023</year_last>
+    <year_last>2024</year_last>
     <year_align>1958</year_align>
     <vectors>null</vectors>
     <meshfile>./INPUT/JRA55do-datm-ESMFmesh.nc</meshfile>
@@ -253,6 +255,7 @@
       <file>./INPUT/atmos/3hr/rlds/gr/v20240531/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-6-0_gr_202101010130-202112312230.nc</file>
       <file>./INPUT/atmos/3hr/rlds/gr/v20240531/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-6-0_gr_202201010130-202212312230.nc</file>
       <file>./INPUT/atmos/3hr/rlds/gr/v20240531/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-6-0_gr_202301010130-202312312230.nc</file>
+      <file>./INPUT/atmos/3hr/rlds/gr/v20240531/rlds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-6-0_gr_202401010130-202402012230.nc</file>
     </datafiles>
     <datavars>
       <var>rlds  Faxa_lwdn</var>
@@ -266,7 +269,7 @@
     <readmode>single</readmode>
     <mapalgo>bilinear</mapalgo>
     <year_first>1958</year_first>
-    <year_last>2023</year_last>
+    <year_last>2024</year_last>
     <year_align>1958</year_align>
     <vectors>null</vectors>
     <meshfile>./INPUT/JRA55do-datm-ESMFmesh.nc</meshfile>
@@ -338,6 +341,7 @@
       <file>./INPUT/atmos/3hr/rsds/gr/v20240531/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-6-0_gr_202101010130-202112312230.nc</file>
       <file>./INPUT/atmos/3hr/rsds/gr/v20240531/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-6-0_gr_202201010130-202212312230.nc</file>
       <file>./INPUT/atmos/3hr/rsds/gr/v20240531/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-6-0_gr_202301010130-202312312230.nc</file>
+      <file>./INPUT/atmos/3hr/rsds/gr/v20240531/rsds_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-6-0_gr_202401010130-202402012230.nc</file>
     </datafiles>
     <datavars>
       <var>rsds  Faxa_swdn</var>
@@ -351,7 +355,7 @@
     <readmode>single</readmode>
     <mapalgo>bilinear</mapalgo>
     <year_first>1958</year_first>
-    <year_last>2023</year_last>
+    <year_last>2024</year_last>
     <year_align>1958</year_align>
     <vectors>null</vectors>
     <meshfile>./INPUT/JRA55do-datm-ESMFmesh.nc</meshfile>
@@ -423,6 +427,7 @@
       <file>./INPUT/atmos/3hrPt/huss/gr/v20240531/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-6-0_gr_202101010000-202112312100.nc</file>
       <file>./INPUT/atmos/3hrPt/huss/gr/v20240531/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-6-0_gr_202201010000-202212312100.nc</file>
       <file>./INPUT/atmos/3hrPt/huss/gr/v20240531/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-6-0_gr_202301010000-202312312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/huss/gr/v20240531/huss_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-6-0_gr_202401010000-202402012100.nc</file>
     </datafiles>
     <datavars>
       <var>huss  Sa_shum</var>
@@ -436,7 +441,7 @@
     <readmode>single</readmode>
     <mapalgo>bilinear</mapalgo>
     <year_first>1958</year_first>
-    <year_last>2023</year_last>
+    <year_last>2024</year_last>
     <year_align>1958</year_align>
     <vectors>null</vectors>
     <meshfile>./INPUT/JRA55do-datm-ESMFmesh.nc</meshfile>
@@ -508,6 +513,7 @@
       <file>./INPUT/atmos/3hrPt/psl/gr/v20240531/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-6-0_gr_202101010000-202112312100.nc</file>
       <file>./INPUT/atmos/3hrPt/psl/gr/v20240531/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-6-0_gr_202201010000-202212312100.nc</file>
       <file>./INPUT/atmos/3hrPt/psl/gr/v20240531/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-6-0_gr_202301010000-202312312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/psl/gr/v20240531/psl_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-6-0_gr_202401010000-202402012100.nc</file>
     </datafiles>
     <datavars>
       <var>psl  Sa_pslv</var>
@@ -521,7 +527,7 @@
     <readmode>single</readmode>
     <mapalgo>bilinear</mapalgo>
     <year_first>1958</year_first>
-    <year_last>2023</year_last>
+    <year_last>2024</year_last>
     <year_align>1958</year_align>
     <vectors>null</vectors>
     <meshfile>./INPUT/JRA55do-datm-ESMFmesh.nc</meshfile>
@@ -593,6 +599,7 @@
       <file>./INPUT/atmos/3hrPt/tas/gr/v20240531/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-6-0_gr_202101010000-202112312100.nc</file>
       <file>./INPUT/atmos/3hrPt/tas/gr/v20240531/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-6-0_gr_202201010000-202212312100.nc</file>
       <file>./INPUT/atmos/3hrPt/tas/gr/v20240531/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-6-0_gr_202301010000-202312312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/tas/gr/v20240531/tas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-6-0_gr_202401010000-202402012100.nc</file>
     </datafiles>
     <datavars>
       <var>tas  Sa_tbot</var>
@@ -606,7 +613,7 @@
     <readmode>single</readmode>
     <mapalgo>bilinear</mapalgo>
     <year_first>1958</year_first>
-    <year_last>2023</year_last>
+    <year_last>2024</year_last>
     <year_align>1958</year_align>
     <vectors>null</vectors>
     <meshfile>./INPUT/JRA55do-datm-ESMFmesh.nc</meshfile>
@@ -678,6 +685,7 @@
       <file>./INPUT/atmos/3hrPt/uas/gr/v20240531/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-6-0_gr_202101010000-202112312100.nc</file>
       <file>./INPUT/atmos/3hrPt/uas/gr/v20240531/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-6-0_gr_202201010000-202212312100.nc</file>
       <file>./INPUT/atmos/3hrPt/uas/gr/v20240531/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-6-0_gr_202301010000-202312312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/uas/gr/v20240531/uas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-6-0_gr_202401010000-202402012100.nc</file>
     </datafiles>
     <datavars>
       <var>uas  Sa_u</var>
@@ -691,7 +699,7 @@
     <readmode>single</readmode>
     <mapalgo>bilinear</mapalgo>
     <year_first>1958</year_first>
-    <year_last>2023</year_last>
+    <year_last>2024</year_last>
     <year_align>1958</year_align>
     <vectors>null</vectors>
     <meshfile>./INPUT/JRA55do-datm-ESMFmesh.nc</meshfile>
@@ -763,6 +771,7 @@
       <file>./INPUT/atmos/3hrPt/vas/gr/v20240531/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-6-0_gr_202101010000-202112312100.nc</file>
       <file>./INPUT/atmos/3hrPt/vas/gr/v20240531/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-6-0_gr_202201010000-202212312100.nc</file>
       <file>./INPUT/atmos/3hrPt/vas/gr/v20240531/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-6-0_gr_202301010000-202312312100.nc</file>
+      <file>./INPUT/atmos/3hrPt/vas/gr/v20240531/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-6-0_gr_202401010000-202402012100.nc</file>
     </datafiles>
     <datavars>
       <var>vas  Sa_v</var>
