@@ -2496,7 +2496,7 @@ ICE_SHELF = False               !   [Boolean] default = False
                                 ! If true, enables the ice shelf model.
 ICEBERGS_APPLY_RIGID_BOUNDARY = False !   [Boolean] default = False
                                 ! If true, allows icebergs to change boundary condition felt by ocean
-USE_WAVES = True                !   [Boolean] default = False
+USE_WAVES = False               !   [Boolean] default = False
                                 ! If true, enables surface wave modules.
 
 ! === module MOM_surface_forcing_nuopc ===
@@ -2636,62 +2636,6 @@ CHARNOCK_0_WIND_INTERCEPT = -0.005 !   [nondim] default = -0.005
                                 ! The intercept of the fit for the Charnock coefficient in the limit of no wind.
                                 ! Note that this can be negative because CHARNOCK_MIN will keep the final value
                                 ! for the Charnock coefficient from being from being negative.
-LAGRANGIAN_MIXING = False       !   [Boolean] default = False
-                                ! Flag to use Lagrangian Mixing of momentum
-STOKES_MIXING = False           !   [Boolean] default = False
-                                ! Flag to use Stokes Mixing of momentum
-CORIOLIS_STOKES = False         !   [Boolean] default = False
-                                ! Flag to use Coriolis Stokes acceleration
-STOKES_VF = False               !   [Boolean] default = False
-                                ! Flag to use Stokes vortex force
-PASSIVE_STOKES_VF = False       !   [Boolean] default = False
-                                ! Flag to make Stokes vortex force diagnostic only.
-STOKES_PGF = False              !   [Boolean] default = False
-                                ! Flag to use Stokes-induced pressure gradient anomaly
-PASSIVE_STOKES_PGF = False      !   [Boolean] default = False
-                                ! Flag to make Stokes-induced pressure gradient anomaly diagnostic only.
-STOKES_DDT = False              !   [Boolean] default = False
-                                ! Flag to use Stokes d/dt
-PASSIVE_STOKES_DDT = False      !   [Boolean] default = False
-                                ! Flag to make Stokes d/dt diagnostic only
-WAVE_METHOD = "SURFACE_BANDS"   ! default = "EMPTY"
-                                ! Choice of wave method, valid options include:
-                                !  TEST_PROFILE  - Prescribed from surface Stokes drift
-                                !                  and a decay wavelength.
-                                !  SURFACE_BANDS - Computed from multiple surface values
-                                !                  and decay wavelengths.
-                                !  DHH85         - Uses Donelan et al. 1985 empirical
-                                !                  wave spectrum with prescribed values.
-                                !  LF17          - Infers Stokes drift profile from wind
-                                !                  speed following Li and Fox-Kemper 2017.
-                                !  EFACTOR       - Applies an enhancement factor to the KPP
-                                !                  turbulent velocity scale received
-                                !                  directly from WW3 and is based on the
-                                !                  surface layer and projected Langmuir
-                                !                  number (Li 2016)
-SURFBAND_MIN_THICK_AVG = 0.1    !   [m] default = 0.1
-                                ! A layer thickness below which the cell-center Stokes drift is used instead of
-                                ! the cell average.  This is only used if WAVE_INTERFACE_ANSWER_DATE < 20230101.
-SURFBAND_SOURCE = "COUPLER"     ! default = "EMPTY"
-                                ! Choice of SURFACE_BANDS data mode, valid options include:
-                                !  DATAOVERRIDE  - Read from NetCDF using FMS DataOverride.
-                                !  COUPLER       - Look for variables from coupler pass
-                                !  INPUT         - Testing with fixed values.
-STK_BAND_COUPLER = 3            ! default = 1
-                                ! STK_BAND_COUPLER is the number of Stokes drift bands in the coupler. This has
-                                ! to be consistent with the number of Stokes drift bands in WW3, or the model
-                                ! will fail.
-SURFBAND_WAVENUMBERS = 0.04, 0.11, 0.3305 !   [rad/m] default = 0.12566
-                                ! Central wavenumbers for surface Stokes drift bands.
-LA_MISALIGNMENT = False         !   [Boolean] default = False
-                                ! Flag (logical) if using misalignment between shear and waves in LA
-MIN_LANGMUIR = 0.05             !   [nondim] default = 0.05
-                                ! A minimum value for all Langmuir numbers that is not physical, but is likely
-                                ! only encountered when the wind is very small and therefore its effects should
-                                ! be mostly benign.
-LANGMUIR_STOKES_BACKGROUND = 1.0E-10 !   [m s-1] default = 1.0E-10
-                                ! A small background Stokes velocity used in the denominator of some expressions
-                                ! for the Langmuir number.
 
 ! === module MOM_file_parser ===
 SEND_LOG_TO_STDOUT = False      !   [Boolean] default = False
