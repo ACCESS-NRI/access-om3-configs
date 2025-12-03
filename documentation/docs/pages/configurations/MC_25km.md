@@ -109,7 +109,7 @@ This document walks through each of these namelist groups and provides a short e
 This group defines time-stepping, run length, output frequencies, initial conditions, and I/O settings.
 
 - Time-stepping and run length
-    - The timestep `dt` is not defined in `ice_in` directly; it is overwritten in the CICE NUOPC cap to match the driver timestep (coupling timestep). See [NUOPC driver](../../infrastructure/NUOPC-driver/) for more information.
+    - The timestep `dt` is not defined in `ice_in` directly; it is overwritten in the CICE NUOPC cap to match the driver timestep (coupling timestep). See [NUOPC driver](/infrastructure/NUOPC-driver/) for more information.
 - Initialisation: 
     - [`ice_ic`](https://cice-consortium-cice.readthedocs.io/en/cice6.0/user_guide/ug_case_settings.html#:~:text=*-,ice_ic,-default)
         - When set to `"default"`, CICE initialises sea ice concentration and thickness based on latitude.
