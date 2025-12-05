@@ -1,6 +1,6 @@
 # MOM6-CICE 25km Global Configurations
 
-The sections that follow explain why we selected each model parameter for the global MOM6-CICE 25km global model configuration and how they work together across the coupled system. We start with the MOM6 ocean settings, then step through the CICE sea‑ice namelist. For every group of parameters you’ll find a description, links to the relevant code or literature, and practical guidance on when you might wish to adjust the defaults. Use this as both a quick reference and a roadmap for deeper dives into the individual configuration files such as [`MOM_parameter_doc.all`](https://github.com/ACCESS-NRI/access-om3-configs/blob/release-MC_25km_jra_ryf/docs/MOM_parameter_doc.all), the list of all [MOM6](https://github.com/ACCESS-NRI/mom6) parameters, and [`cice_in`](https://github.com/ACCESS-NRI/access-om3-configs/blob/release-MC_25km_jra_ryf/ice_in), the [CICE](https://github.com/ACCESS-NRI/cice) namelist file.
+The sections that follow explain why we selected each model parameter for the global MOM6-CICE 25km global model configurations and how they work together across the coupled system. We start with the MOM6 ocean settings, then step through the CICE sea‑ice namelist. For every group of parameters you’ll find a description, links to the relevant code or literature, and practical guidance on when you might wish to adjust the defaults. Use this as both a quick reference and a roadmap for deeper dives into the individual configuration files such as [`MOM_parameter_doc.all`](https://github.com/ACCESS-NRI/access-om3-configs/blob/release-MC_25km_jra_ryf/docs/MOM_parameter_doc.all), the list of all [MOM6](https://github.com/ACCESS-NRI/mom6) parameters, and [`cice_in`](https://github.com/ACCESS-NRI/access-om3-configs/blob/release-MC_25km_jra_ryf/ice_in), the [CICE](https://github.com/ACCESS-NRI/cice) namelist file.
 
 ## MOM6 parameter choices
 
@@ -103,7 +103,8 @@ The CICE sea ice model is configured using a Fortran namelist file called `ice_i
 4. dynamics and advection
 5. diagnostics and output settings
 
-This document walks through each of these namelist groups and provides a short explanation of what each group controls and how it is configured in our `ACCESS-OM3` setup.
+This document walks through each of these namelist groups and provides a short explanation of what each group controls and some configuration
+options set in this `ACCESS-OM3` configurations. In general, the `ice_in` file only includes changes from defaults. For a complete list of runtime configuration settings (including defaults)  For detailed explanations of parameters, refer to [CICE Documentation](https://cice-consortium-cice.readthedocs.io) and [Icepack Documentation](https://cice-consortium-icepack.readthedocs.io)(for vertical sea ice processes only).
 
 ### `setup_nml`
 This group defines time-stepping, run length, output frequencies, initial conditions, and I/O settings.
@@ -111,11 +112,13 @@ This group defines time-stepping, run length, output frequencies, initial condit
 - Time-stepping and run length
     - The timestep `dt` is not defined in `ice_in` directly; it is overwritten in the CICE NUOPC cap to match the driver timestep (coupling timestep). See [NUOPC driver](/infrastructure/NUOPC-driver/) for more information.
 - Initialisation: 
-    - [`ice_ic`](https://cice-consortium-cice.readthedocs.io/en/cice6.0/user_guide/ug_case_settings.html#:~:text=*-,ice_ic,-default)
-        - When set to `"default"`, CICE initialises sea ice concentration and thickness based on latitude.
-        - If set to `"none"`, the model starts with no sea ice.
-- Ouput frequencies
-   - Defines up to five output streams:
+    - When there is no existing restart file to set the initial state, initialisation is set by [`ice_ic`](https://cice-consortium-cice.readthedocs.io/en/cice6.0/user_guide/ug_case_settings.html#:~:text=*-,ice_ic,-default)
+        - We use `"none"` and the model starts with no sea ice.
+        - We don't use `"default"`, as CICE initialises sea ice concentration and thickness based on latitude and this leads to very large areas of sea ice.
+
+- Output frequencies for history:
+
+    - Up to five output streams are available:
    ```bash
     histfreq = "d", "m", "x", "x", "x"
     hist_suffix = ".1day.mean", ".1mon.mean", "x", "x", "x"
@@ -125,15 +128,15 @@ This group defines time-stepping, run length, output frequencies, initial condit
     - Monthly averaged output: `.1mon.mean`
     - Streams marked `"x"` are unused.
 
-   - History files use `hist_time_axis = "middle"` to center timestamps in the averaging interval.
+   - History files use `hist_time_axis = "middle"` to centre timestamps in the averaging interval.
 
 ### `grid_nml`
-This groups defines the spatial grid, land mask, and ice thickness category structure.
+This group defines the spatial grid, land mask, and ice thickness category structure.
 
 - Horizontal Grid
     - Tripolar grid at 25 km nominal resolution: `grid_type = "tripole"`
     - Grid files:
-        - The grid is defined by `grid_file = "./INPUT/ocean_hgrid.nc"`. We use the MOM grid file in CICE for best consistency between model components.
+        - The grid is defined by `grid_file = "./INPUT/ocean_hgrid.nc"` and `grid_format = "mom_nc"`. We use the MOM grid file in CICE for best consistency between model components.
         - Land mask file `kmt_file = "./INPUT/kmt.nc"`,
         - Bathymetry file `bathymetry_file = "./INPUT/topog.nc"`. (not currently used)
 - Grid staggering
@@ -157,7 +160,7 @@ Controls thermodynamic processes in sea ice.
 Configures sea ice motion and advection.
 
 - Dynamics:
-    - Uses elastic-viscous-plastic (`EVP`) rheology [@hunke1997elastic],
+    - Uses the default elastic-viscous-plastic (`EVP`) rheology [@hunke1997elastic], 
     - Default `EVP` subcycling count `ndte = 120`.
 - Advection:
     - `advection = "remap"`: Uses incremental remapping for ice and tracer transport [@dukowicz2000incremental].
@@ -174,10 +177,11 @@ This group deals with how solar radiation is treated in the ice model and the su
     - `albsnowv = 0.98`, `albsnowi = 0.70` are for cold snow albedo (`v` and `IR`respectively). By using these two values, we assumes fresh dry snow is bright in visible (98%)
 and also high in near-`IR` (70%). 
 - Albedo thickness dependence:
-    - `ahmax = 0.1` is the thickness parameter for albedo, which is constant above this thickness. In our configuration, it means once ice is ~10cm thick, it is treated optically like thick ice and there will be no further albedo increase. Thinner ice, which is less than 10cm, will have a lower effective albedo. 
+    - `ahmax = 0.1` is the thickness parameter for albedo, which is constant above this thickness. In our configuration, it means once ice is ~10cm thick, it is treated optically like thick ice and there will be no further albedo increase. Thinner ice, which is less than 10cm, will have a lower effective albedo. This value is set for consistency with [ACCESS-OM2](https://github.com/ACCESS-NRI/access-om2-configs/blob/0a29b451744dcbc82a90a8b663ce5f7f0d3f2bc2/ice/cice_in.nml#L107).
 - Pond/algae effects:
     - [`kalg = 0.0`](https://github.com/CICE-Consortium/CICE/blob/2cdd3d007a409d26cb0c16d946678a544ada55fa/doc/source/user_guide/ug_case_settings.rst#L556:~:text=1.5-,kalg,-real) means no additional algae-related absorption,
     - [`r_snw = 0.0`](https://github.com/CICE-Consortium/CICE/blob/2cdd3d007a409d26cb0c16d946678a544ada55fa/doc/source/user_guide/ug_case_settings.rst#L556:~:text=0.0-,R_snw,-real) is a tuning parameter for snow (broadband albedo) from Delta-Eddingon shortwave, here it is 0, which means not using additional boradband albedo tuning.
+    - [`sw_redist = .true.`](https://cice-consortium-icepack.readthedocs.io/en/main/science_guide/sg_thermo.html#thermodynamics) - if penetrating shortwave radiation is greater than the amount which can be absorbed, then redistribute it to the top surface
 
 ### `forcing_nml`
 The forcing namelist governs how external forcing (`atm` and` ocn`) is applied to the ice, including coupling flux adjustments.
@@ -188,7 +192,7 @@ The forcing namelist governs how external forcing (`atm` and` ocn`) is applied t
     - `update_ocn_f = .true.`: uses coupled frazil water/salt fluxes from ocean,
     - `ustar_min = 0.0005`: Minimum ocean friction velocity to ensure stability.
 - Freezing temperature
-    - `tfrz_option = "linear_salt"`: Freezing point depends on salinity. [Thermodynamics and Equation of State (TEOS-10)](#thermodynamics-and-equation-of-state-teos-10) for more information,
+    - `tfrz_option = "linear_salt"`: Freezing point depends on salinity. This is inconsistent with the [Thermodynamics and Equation of State (TEOS-10)](#thermodynamics-and-equation-of-state-teos-10) freezing point calculated in the ocean model. See [issue 235](https://github.com/ACCESS-NRI/access-om3-configs/issues/235#issuecomment-3082612603) and [CICE-Icepack issue](https://github.com/CICE-Consortium/Icepack/issues/540)
     - `ice_ref_salinity = 5`: sets the reference salinity of newly formed ice and the baseline for salt flux calculations. It means when sea water freezes, the ice is assumed to trap salt at 5 psu and the remainder is rejected to the ocean. This field is set for consistency with the constants assumed by MOM6.
 
 ### `domain_nml`
@@ -202,8 +206,8 @@ This group namelist controls how the computational domain is divided among proce
     - `distribution_type = "roundrobin"`: Assigns blocks cyclically to spread out computational load. See [CICE Documentation](https://cice-consortium-cice.readthedocs.io/en/cice6.0/user_guide/ug_implementation.html?highlight=roundrobin#:~:text=While%20the%20Cartesian,needed%20to%20communicate.) for more information.
 - Processor shape
     -  `processor_shape = "square-ice"` indicates the model guess on how to arrange MPI tasks in X vs Y dimension. `“square-ice”` is a pre-set suggesting a slightly X-dominated partition for sea ice. It means the decomposition of blocks to processors will result in more processor domains along x-direction (longitude) than y (latitude), roughly balancing to a square domain per proc. 
-- Max Blocks
-    - `max_blocks = -1` Internally calculated number of blocks per processor,
+- Computational Blocks
+    - `max_blocks = -1`: Internally calculated number of blocks per processor,
     - `maskhalo_bound`, `maskhalo_dyn`, `maskhalo_remap` = `.true.`: Mask unused halo cells for boundary handling.
 
 ### Output variables and diagnostics (`icefields_nml` and others)
@@ -217,13 +221,13 @@ This group namelist controls how the computational domain is divided among proce
 - Our output diagnostics are configured to focus on:
     1. Sea ice state
         - `f_aice = "md"`: concentration (ie, fractional area of ice cover),
-        - `f_hi = "md"`: grid-cell mean ice thickness,
-        - `f_hs = "md"`: snow depth on ice,
-        - `f_aicen = "m"`: ice area in each thickness category,
-        - `f_vicen = "m"`:  ice volume in each category,
-        - `f_snoice = "md"`: snow-ice formation field,
-        - `f_congel = "md"`: congelation ice growth; “congel” refers to new ice freezing at the bottom of existing ice (opposite of frazil which is open-water freezing),
-        - `f_frazil = "md"`: frazil ice formation (freezing of open water),
+        - `f_hi = "md"`: sea ice volume divided by grid cell area,
+        - `f_hs = "md"`: snow (on sea ice) volume divided by grid cell area,
+        - `f_aicen = "m"`: ice fraction in each thickness category,
+        - `f_vicen = "m"`:  ice volume (divided by grid cell area) in each category,
+        - `f_snoice = "md"`: snow-ice formation,
+        - `f_congel = "md"`: congelation ice growth,
+        - `f_frazil = "md"`: frazil ice formation due to frazil heat flux from ocean,
         - `f_frzmlt = "md"`: freeze/melt potential,
         - `f_dvidtd = "md"`: ice volume tendency due to dynamics/transport,
         - `f_dvidtt = "md"`: ice volume tendency due to thermodynamics,
@@ -238,14 +242,9 @@ This group namelist controls how the computational domain is divided among proce
     3. Momentum:
         - `f_uvel = "md"`, `f_vvel = "md"`: sea ice velocity components (u,v) ,
 
-    4. Snow and Pond:
-        - `f_fsloss = "m"`: rate of snow loss to leads,
-        - `f_meltsliq = "m"`: melted snow liquid,
-        - `f_rhos_cmp = "m"`: density of snow due to wind compaction,
-        - `f_rhos_cnt = "m"`: density of ice and liquid content of snow,
-        - `f_rsnw = "m"`: snow grain radius,
-        - `f_smassice = "m"`: mass of ice in snow from smice tracer,
-        - `f_smassliq = "m"`: mass of liquid in snow from smliq tracer,
+- Some diagnostics are on by default in CICE, and others are configured on in the `ice_in` file. For the complete list, it's best to refer to the history output files or the `ice.log` file in model output.
+- Most diagnostics are averaged over grid-cell areas (not sea ice area). Where a variable name ends in `_ai` then it is averaged over grid cell area, if there is another variable of the same name without the `_ai`, then it is an ice area average. If turning on _CMIP_ style diagnostics (those starting with `si`), then refer to the metadata to confirm if it is an ice area or grid cell area average.
+- For time-invarient grid information, its best to use the areas and latitutes/longitudes stored in the `access-om3.cice.static.nc` output file.
 
 ## References
 
