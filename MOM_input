@@ -722,8 +722,7 @@ EPS_OMESH = 1.0E-13             !   [degrees] default = 1.0E-04
 RESTORE_SALINITY = True         !   [Boolean] default = False
                                 ! If true, the coupled driver will add a globally-balanced fresh-water flux that
                                 ! drives sea-surface salinity toward specified values.
-USE_WAVES = True
-                                ! "default = False
+USE_WAVES = True                ! "default = False
                                 ! If true, enables surface wave modules."
 WAVE_METHOD = "SURFACE_BANDS"   ! default = "EMPTY"
                                 ! Choice of wave method, valid options include:
@@ -751,7 +750,6 @@ STK_BAND_COUPLER = 3            ! default = 1
                                 ! will fail.
 SURFBAND_WAVENUMBERS = 0.04, 0.11, 0.3305 !   [rad/m] default = 0.12566
                                 ! Central wavenumbers for surface Stokes drift bands.
-
 ! === module MOM_surface_forcing_nuopc ===
 LATENT_HEAT_FUSION = 3.337E+05  !   [J/kg] default = 3.34E+05
                                 ! The latent heat of fusion.
