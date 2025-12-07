@@ -3237,12 +3237,6 @@
     ! units: W m-2
     ! standard_name: nondownwelling_shortwave_flux_in_sea_water
     ! cell_methods: xh:mean yh:mean area:mean
-"Chl_opac"  [Unused]
-    ! modules: {ocean_model,ocean_model_d2}
-    ! dimensions: xh, yh
-    ! long_name: Surface chlorophyll A concentration used to find opacity
-    ! units: mg m-3
-    ! cell_methods: xh:mean yh:mean area:mean
 "ePBL_h_ML"  [Unused]
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
@@ -3354,20 +3348,6 @@
     ! units: m-1
     ! cell_methods: xh:mean yh:mean zl:mean area:mean
     ! variants: {opac_1,opac_1_xyave}
-"opac_2"  [Unused]
-    ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
-    ! dimensions: xh, yh, zl
-    ! long_name: Opacity for shortwave radiation in band 2, saved as L^-1 tanh(Opacity * L) for L = 10^-10 m
-    ! units: m-1
-    ! cell_methods: xh:mean yh:mean zl:mean area:mean
-    ! variants: {opac_2,opac_2_xyave}
-"opac_3"  [Unused]
-    ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
-    ! dimensions: xh, yh, zl
-    ! long_name: Opacity for shortwave radiation in band 3, saved as L^-1 tanh(Opacity * L) for L = 10^-10 m
-    ! units: m-1
-    ! cell_methods: xh:mean yh:mean zl:mean area:mean
-    ! variants: {opac_3,opac_3_xyave}
 "KHTR_u"  [Unused]
     ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
     ! dimensions: xq, yh, zi
