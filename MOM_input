@@ -511,12 +511,28 @@ MLE_USE_PBL_MLD = True          !   [Boolean] default = False
 USE_LEGACY_DIABATIC_DRIVER = False !   [Boolean] default = True
                                 ! If true, use a legacy version of the diabatic subroutine. This is temporary
                                 ! and is needed to avoid change in answers.
-ENERGETICS_SFC_PBL = True       !   [Boolean] default = False
-                                ! If true, use an implied energetics planetary boundary layer scheme to
-                                ! determine the diffusivity and viscosity in the surface boundary layer.
-EPBL_IS_ADDITIVE = False        !   [Boolean] default = True
-                                ! If true, the diffusivity from ePBL is added to all other diffusivities.
-                                ! Otherwise, the larger of kappa-shear and ePBL diffusivities are used.
+
+! === module MOM_CVMix_KPP ===
+! This is the MOM wrapper to CVMix:KPP
+! See http://cvmix.github.io/
+USE_KPP = True                  !   [Boolean] default = False
+                                ! If true, turns on the [CVMix] KPP scheme of Large et al., 1994, to calculate
+                                ! diffusivities and non-local transport in the OBL.
+KPP%
+N_SMOOTH = 3                    ! default = 0
+                                ! The number of times the 1-1-4-1-1 Laplacian filter is applied on OBL depth.
+MATCH_TECHNIQUE = "MatchGradient" ! default = "SimpleShapes"
+                                ! CVMix method to set profile function for diffusivity and NLT, as well as
+                                ! matching across OBL base. Allowed values are:
+                                !    SimpleShapes      = sigma*(1-sigma)^2 for both diffusivity and NLT
+                                !    MatchGradient     = sigma*(1-sigma)^2 for NLT; diffusivity profile from
+                                !      matching
+                                !    MatchBoth         = match gradient for both diffusivity and NLT
+                                !    ParabolicNonLocal = sigma*(1-sigma)^2 for diffusivity; (1-sigma)^2 for NLT
+KPP_IS_ADDITIVE = False         !   [Boolean] default = True
+                                ! If true, adds KPP diffusivity to diffusivity from other schemes.
+                                ! If false, KPP is the only diffusivity wherever KPP is non-zero.
+%KPP
 
 ! === module MOM_set_diffusivity ===
 
@@ -627,67 +643,6 @@ CHL_FILE = "chl_globcolour_monthly_clim.nc" !
                                 ! is used when VAR_PEN_SW and CHL_FROM_FILE are true.
 CHL_VARNAME = "CHL"             ! default = "CHL_A"
                                 ! Name of CHL_A variable in CHL_FILE.
-
-! === module MOM_energetic_PBL ===
-ML_OMEGA_FRAC = 0.001           !   [nondim] default = 0.0
-                                ! When setting the decay scale for turbulence, use this fraction of the absolute
-                                ! rotation rate blended with the local value of f, as sqrt((1-of)*f^2 +
-                                ! of*4*omega^2).
-TKE_DECAY = 0.01                !   [nondim] default = 2.5
-                                ! TKE_DECAY relates the vertical rate of decay of the TKE available for
-                                ! mechanical entrainment to the natural Ekman depth.
-EPBL_MSTAR_SCHEME = "OM4"       ! default = "CONSTANT"
-                                ! EPBL_MSTAR_SCHEME selects the method for setting mstar.  Valid values are:
-                                !    CONSTANT   - Use a fixed mstar given by MSTAR
-                                !    OM4        - Use L_Ekman/L_Obukhov in the stabilizing limit, as in OM4
-                                !    REICHL_H18 - Use the scheme documented in Reichl & Hallberg, 2018.
-MSTAR_CAP = 1.25                !   [nondim] default = -1.0
-                                ! If this value is positive, it sets the maximum value of mstar allowed in ePBL.
-                                ! (This is not used if EPBL_MSTAR_SCHEME = CONSTANT).
-MSTAR2_COEF1 = 0.29             !   [nondim] default = 0.3
-                                ! Coefficient in computing mstar when rotation and stabilizing effects are both
-                                ! important (used if EPBL_MSTAR_SCHEME = OM4).
-MSTAR2_COEF2 = 0.152            !   [nondim] default = 0.085
-                                ! Coefficient in computing mstar when only rotation limits the total mixing
-                                ! (used if EPBL_MSTAR_SCHEME = OM4)
-NSTAR = 0.06                    !   [nondim] default = 0.2
-                                ! The portion of the buoyant potential energy imparted by surface fluxes that is
-                                ! available to drive entrainment at the base of mixed layer when that energy is
-                                ! positive.
-MSTAR_CONV_ADJ = 0.667          !   [nondim] default = 0.0
-                                ! Coefficient used for reducing mstar during convection due to reduction of
-                                ! stable density gradient.
-EPBL_TRANSITION_SCALE = 0.01    !   [nondim] default = 0.1
-                                ! A scale for the mixing length in the transition layer at the edge of the
-                                ! boundary layer as a fraction of the boundary layer thickness.
-MIX_LEN_EXPONENT = 1.0          !   [nondim] default = 2.0
-                                ! The exponent applied to the ratio of the distance to the MLD and the MLD depth
-                                ! which determines the shape of the mixing length. This is only used if
-                                ! USE_MLD_ITERATION is True.
-USE_LA_LI2016 = True            !   [Boolean] default = False
-                                ! A logical to use the Li et al. 2016 (submitted) formula to determine the
-                                ! Langmuir number.
-EPBL_LANGMUIR_SCHEME = "ADDITIVE" ! default = "NONE"
-                                ! EPBL_LANGMUIR_SCHEME selects the method for including Langmuir turbulence.
-                                ! Valid values are:
-                                !    NONE     - Do not do any extra mixing due to Langmuir turbulence
-                                !    RESCALE  - Use a multiplicative rescaling of mstar to account for Langmuir
-                                !      turbulence
-                                !    ADDITIVE - Add a Langmuir turbulence contribution to mstar to other
-                                !      contributions
-LT_ENHANCE_COEF = 0.044         !   [nondim] default = 0.447
-                                ! Coefficient for Langmuir enhancement of mstar
-LT_ENHANCE_EXP = -1.5           !   [nondim] default = -1.33
-                                ! Exponent for Langmuir enhancement of mstar
-LT_MOD_LAC1 = 0.0               !   [nondim] default = -0.87
-                                ! Coefficient for modification of Langmuir number due to MLD approaching Ekman
-                                ! depth.
-LT_MOD_LAC4 = 0.0               !   [nondim] default = 0.95
-                                ! Coefficient for modification of Langmuir number due to ratio of Ekman to
-                                ! stable Obukhov depth.
-LT_MOD_LAC5 = 0.22              !   [nondim] default = 0.95
-                                ! Coefficient for modification of Langmuir number due to ratio of Ekman to
-                                ! unstable Obukhov depth.
 
 ! === module MOM_opacity ===
 PEN_SW_NBANDS = 3               ! default = 1
