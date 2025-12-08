@@ -98,7 +98,7 @@ ALLCOMP_attributes::
      hostname = gadi
      ice_ncat = 5
      mediator_present = true
-     mesh_atm = ./INPUT/access-om2-100km-nomask-ESMFmesh.nc
+     mesh_atm = ./INPUT/JRA55do-datm-ESMFmesh.nc
      mesh_ice = ./INPUT/access-om2-100km-ESMFmesh.nc
      mesh_lnd = UNSET
      mesh_mask = ./INPUT/access-om2-100km-ESMFmesh.nc
@@ -122,14 +122,14 @@ ALLCOMP_attributes::
 ::
 
 MED_attributes::
-     Verbosity = off
+     Verbosity = 2
      aoflux_grid = ogrid
      atm2ice_map = unset
      atm2lnd_map = unset
      atm2ocn_map = unset
      atm2wav_map = unset
-     atm_nx = 360
-     atm_ny = 300
+     atm_nx = 640
+     atm_ny = 320
      budget_ann = 1
      budget_daily = 0
      budget_inst = 0
@@ -203,31 +203,31 @@ MED_attributes::
      histaux_rof2med_file1_history_option = nhours
      histaux_rof2med_file1_ntperfile = 2
      history_n_atm_avg = -999
-     history_n_atm_inst = -999
+     history_n_atm_inst = 1
      history_n_glc_avg = -999
      history_n_glc_inst = -999
      history_n_ice_avg = -999
-     history_n_ice_inst = -999
+     history_n_ice_inst = 1
      history_n_lnd_avg = -999
      history_n_lnd_inst = -999
-     history_n_med_inst = -999
+     history_n_med_inst = 1
      history_n_ocn_avg = -999
-     history_n_ocn_inst = -999
+     history_n_ocn_inst = 1
      history_n_rof_avg = -999
-     history_n_rof_inst = -999
+     history_n_rof_inst = 1
      history_n_wav_avg = -999
      history_n_wav_inst = -999
      history_option_atm_avg = never
-     history_option_atm_inst = never
+     history_option_atm_inst = nsteps
      history_option_glc_avg = never
      history_option_glc_inst = never
      history_option_ice_avg = never
-     history_option_ice_inst = never
+     history_option_ice_inst = nsteps
      history_option_lnd_avg = never
      history_option_lnd_inst = never
-     history_option_med_inst = never
+     history_option_med_inst = nsteps
      history_option_ocn_avg = never
-     history_option_ocn_inst = never
+     history_option_ocn_inst = nsteps
      history_option_rof_avg = never
      history_option_rof_inst = never
      history_option_wav_avg = never
@@ -251,8 +251,8 @@ MED_attributes::
      rof2ocn_fmapname = unset
      rof2ocn_ice_rmapname = unset
      rof2ocn_liq_rmapname = unset
-     rof_nx = 360
-     rof_ny = 300
+     rof_nx = 1440
+     rof_ny = 720
      wav2ocn_smapname = unset
      wav_nx = 0
      wav_ny = 0
@@ -285,7 +285,7 @@ CLOCK_attributes::
 ::
 
 ATM_attributes::
-     Verbosity = off
+     Verbosity = 5
      aqua_planet = .false.
      perpetual = .false.
      perpetual_ymd = -999
