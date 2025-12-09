@@ -79,8 +79,8 @@ work/INPUT/access-om3-25km-nomask-ESMFmesh.nc:
 work/INPUT/access-om3-25km-rof-remap-weights.nc:
   fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/cmeps/remap_weights/global.25km/2025.11.27/access-om3-25km-rof-remap-weights.nc
   hashes:
-    binhash: 21d1b40f07f6f7b1264a818a2425fc32
-    md5: bad64e2a35312bb66a412c139543a5a9
+    binhash: ee881fd8c76f5fe7b2943ad004c09426
+    md5: 80067fb4b5b6a46e483e6d346636b3db
 work/INPUT/bottom_roughness.nc:
   fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/tidal_external_files/global.25km/2025.09.03/bottom_roughness.nc
   hashes:
@@ -94,8 +94,8 @@ work/INPUT/chl_globcolour_monthly_clim.nc:
 work/INPUT/kmt.nc:
   fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/cice/grids/global.25km/2025.11.27/kmt.nc
   hashes:
-    binhash: 8152c8ce2bb292b6d5399c1b8f01e40c
-    md5: 51219455bb690389583fc5fda9a858c7
+    binhash: 90818679b612ed7ddcf6333a51507e21
+    md5: 64bc07e338d1a5d4bc2364f49e77fb96
 work/INPUT/ocean_hgrid.nc:
   fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/grids/mosaic/global.25km/2025.09.02/ocean_hgrid.nc
   hashes:
