@@ -22,9 +22,9 @@ modules:
         - model-tools/mppnccombine-fast
 
 queue: normalsr
-ncpus: 1976
+ncpus: 2704
 jobfs: 10GB
-mem: 9500GB
+mem: 13000GB
 walltime: 6:00:00
 jobname: 025km_jra_ryf
 
@@ -46,6 +46,7 @@ input:
     - /g/data/vk83/configurations/inputs/access-om3/share/meshes/share/2024.09.16/JRA55do-drof-ESMFmesh.nc
     - /g/data/vk83/prerelease/configurations/inputs/access-om3/cmeps/remap_weights/global.25km/2025.11.27/access-om3-25km-rof-remap-weights.nc
     - /g/data/vk83/configurations/inputs/JRA-55/RYF/v1-6/data
+    - /g/data/vk83/prerelease/configurations/inputs/access-om3/share/grids/global.25km/2025.11.27/mask_table.1038.63x56
 
 runlog: true
 metadata: 
