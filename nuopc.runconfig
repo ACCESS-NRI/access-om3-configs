@@ -101,7 +101,7 @@ ALLCOMP_attributes::
      mesh_atm = ./INPUT/JRA55do-datm-ESMFmesh.nc
      mesh_ice = ./INPUT/access-om2-100km-ESMFmesh.nc
      mesh_lnd = UNSET
-     mesh_mask = ./INPUT/access-om2-100km-ESMFmesh.nc
+     mesh_mask = UNSET
      mesh_ocn = ./INPUT/access-om2-100km-ESMFmesh.nc
      model_version = unknown
      ocn2glc_coupling = .false.

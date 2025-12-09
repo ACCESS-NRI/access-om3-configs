@@ -2,15 +2,15 @@ format: yamanifest
 version: 1.0
 ---
 work/INPUT/JRA55do-datm-ESMFmesh.nc:
-  fullpath: /g/data/vk83/configurations/inputs/access-om3/share/meshes/share/2024.09.16/JRA55do-datm-ESMFmesh.nc
+  fullpath: /g/data/tm70/as2285/making_inputs/om3-scripts/mesh_generation/JRA55do-datm-ESMFmesh.nc
   hashes:
-    binhash: 3aa7bd11a69390ed8739af63e41462fd
-    md5: f583b0fc505afc28f1d7c949a715cccb
+    binhash: d3742720788e5d30b10db32b8b1c3d80
+    md5: bde2c187dd122af1da709967bc32fe29
 work/INPUT/JRA55do-drof-ESMFmesh.nc:
-  fullpath: /g/data/vk83/configurations/inputs/access-om3/share/meshes/share/2024.09.16/JRA55do-drof-ESMFmesh.nc
+  fullpath: /g/data/tm70/as2285/making_inputs/om3-scripts/mesh_generation/JRA55do-drof-ESMFmesh.nc
   hashes:
-    binhash: fa1322dbc0ab951527b165f8327c7b5b
-    md5: 3b46260b8c14d12925cf70f82da6658e
+    binhash: 99d650f80dd897ceb89bd0e59cc6d599
+    md5: 46a61fe77c2dba00ce5674609a25e2d9
 work/INPUT/RYF.friver.1990_1991.nc:
   fullpath: /g/data/vk83/configurations/inputs/JRA-55/RYF/v1-6/data/RYF.friver.1990_1991.nc
   hashes:

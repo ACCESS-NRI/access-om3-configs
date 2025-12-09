@@ -11,7 +11,7 @@
     <tintalgo>linear</tintalgo>
     <offset>0</offset>
     <readmode>single</readmode>
-    <mapalgo>bilinear</mapalgo>
+    <mapalgo>redist</mapalgo>
     <year_first>1900</year_first>
     <year_last>1900</year_last>
     <year_align>1900</year_align>
@@ -31,7 +31,7 @@
     <tintalgo>linear</tintalgo>
     <offset>0</offset>
     <readmode>single</readmode>
-    <mapalgo>bilinear</mapalgo>
+    <mapalgo>redist</mapalgo>
     <year_first>1900</year_first>
     <year_last>1900</year_last>
     <year_align>1900</year_align>
