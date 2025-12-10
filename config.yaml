@@ -46,8 +46,8 @@ input:
     - /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/chlorophyll/global.100km/2025.11.25/chl_globcolour_monthly_clim.nc
     - /g/data/vk83/configurations/inputs/access-om3/cice/grids/global.100km/2024.05.14/kmt.nc
     - /g/data/vk83/configurations/inputs/access-om3/cice/initial_conditions/global.100km/2023.07.28/iced.1900-01-01-10800.nc
-    - /g/data/tm70/ek4684/771-MCW_100km_jra_ryf_IC4/WW3_PreProc/restart.ww3
-    - /g/data/tm70/ek4684/771-MCW_100km_jra_ryf_IC4/WW3_PreProc/mod_def.ww3
+    - /g/data/tm70/ek4684/771-MCW_100km_jra_ryf_IC4_KPP/WW3_PreProc/restart.ww3
+    - /g/data/tm70/ek4684/771-MCW_100km_jra_ryf_IC4_KPP/WW3_PreProc/mod_def.ww3
     - /g/data/vk83/configurations/inputs/JRA-55/RYF/v1-6/data
  
 collate: false
