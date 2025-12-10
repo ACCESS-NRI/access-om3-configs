@@ -66,4 +66,4 @@ userscripts:
 postscript: -v PROJECT,SCRIPTS_DIR=/g/data/vk83/apps/om3-scripts -lstorage=${PBS_NCI_STORAGE}+gdata/xp65 /g/data/vk83/apps/om3-scripts/payu_config/postscript.sh
 
 restart_freq: 1YS
-payu_minimum_version: 1.1.7
+payu_minimum_version: 1.2.0
