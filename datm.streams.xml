@@ -20,7 +20,7 @@
       <file>./INPUT/RYF.prsn.1990_1991.nc</file>
     </datafiles>
     <datavars>
-      <var>prsn  Faxa_prsn</var>
+      <var>prsn  Faxa_snow</var>
     </datavars>
     <offset>0</offset>
     <tintalgo>linear</tintalgo>
@@ -40,7 +40,7 @@
       <file>./INPUT/RYF.prra.1990_1991.nc</file>
     </datafiles>
     <datavars>
-      <var>prra  Faxa_prrn</var>
+      <var>prra  Faxa_rain</var>
     </datavars>
     <offset>0</offset>
     <tintalgo>linear</tintalgo>
