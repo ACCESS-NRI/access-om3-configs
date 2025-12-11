@@ -14,8 +14,8 @@
 &generic_wombatlite_nml
     co2_calc='mocsy'
     do_caco3_dynamics=.true.
-    do_burial=.false.
-    do_conserve_tracers=.false.
+    do_burial=.true.
+    do_conserve_tracers=.true.
 /
 
 &fms_nml
