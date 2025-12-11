@@ -16,11 +16,10 @@ sync:
 #Model software version
 modules:
     use:
-        - /g/data/vk83/modules
+        - /g/data/vk83/prerelease/modules
     load:
-        - access-om3/2025.08.001
-
-queue: express
+        - access-om3/pr169-3
+queue: normal
 ncpus: 240
 jobfs: 10GB
 mem: 960GB
@@ -33,8 +32,8 @@ exe: access-om3-MOM6-CICE6
 input:
     - /g/data/vk83/configurations/inputs/access-om3/share/meshes/global.100km/2024.01.25/access-om2-100km-ESMFmesh.nc
     - /g/data/vk83/configurations/inputs/access-om3/share/meshes/global.100km/2024.01.25/access-om2-100km-nomask-ESMFmesh.nc
-    - /g/data/tm70/as2285/making_inputs/om3-scripts/mesh_generation/JRA55do-datm-ESMFmesh.nc
-    - /g/data/tm70/as2285/making_inputs/om3-scripts/mesh_generation/JRA55do-drof-ESMFmesh.nc
+    - /g/data/vk83/prerelease/configurations/inputs/access-om3/share/meshes/2025.12.12/JRA55do-datm-ESMFmesh.nc
+    - /g/data/vk83/prerelease/configurations/inputs/access-om3/share/meshes/2025.12.12/JRA55do-drof-ESMFmesh.nc
     - /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/tidal_external_files/global.100km/2025.09.22/bottom_roughness.nc
     - /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/tidal_external_files/global.100km/2025.09.22/tideamp.nc
     - /g/data/vk83/configurations/inputs/access-om3/share/grids/global.100km/2020.10.22/topog.nc
