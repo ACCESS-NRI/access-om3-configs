@@ -121,21 +121,21 @@ work/INPUT/bottom_roughness.nc:
   hashes:
     binhash: 4af02df5f147dc8528a1f4657a0de2c4
     md5: 99698827fe5c5129dce971d006e4fdfc
+work/INPUT/chl_globcolour_monthly_clim.nc:
+  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/chlorophyll/global.25km/2025.11.21/chl_globcolour_monthly_clim.nc
+  hashes:
+    binhash: c42a775b34ab909b7352381004fad9db
+    md5: 269f4492ae65f6ef9dd6e2a59f2bff4b
 work/INPUT/grid_spec.nc:
   fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/grids/mosaic/share/2024.05.08/grid_spec.nc
   hashes:
     binhash: 2fb8d504904e652a37185852f17dbcd4
     md5: 709268cd891e6f0e827f6de0249f1a3d
 work/INPUT/init_ocean_wombatlite.res.nc:
-  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/wombat/initial_conditions/global.25km/2025.09.29/init_ocean_wombatlite.res.nc
+  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/wombat/initial_conditions/global.25km/2025.12.11/init_ocean_wombatlite.res.nc
   hashes:
-    binhash: e415490f397aec6bae8f142e1528975f
-    md5: 31878038be41546c64875d26b7e637ec
-work/INPUT/chl_globcolour_monthly_clim.nc:
-  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/chlorophyll/global.25km/2025.11.21/chl_globcolour_monthly_clim.nc
-  hashes:
-    binhash: c42a775b34ab909b7352381004fad9db
-    md5: 269f4492ae65f6ef9dd6e2a59f2bff4b
+    binhash: 88ad6bbeecb2a0b805ea2512e626bbbd
+    md5: 17c80ee5ec63ba7c47b7f2def3bc4415
 work/INPUT/kmt.nc:
   fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/cice/grids/global.25km/2025.11.27/kmt.nc
   hashes:
