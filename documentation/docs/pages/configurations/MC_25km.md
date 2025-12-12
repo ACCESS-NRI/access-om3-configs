@@ -77,7 +77,7 @@ The Lapacian viscosity includes:
 The Laplacian and biharmonic coefficients are both limited locally to guarantee stability (`BOUND_KH = True`, `BETTER_BOUND_KH = True`, `BOUND_AH = True`, `BETTER_BOUND_AH = True`).
 
 ### Isopycnal mixing
-Baroclinic instability converts available potential energy (APE) stored in sloping isopycnals into eddy kinetic energy (EKE). In an eddy-permitting 25km configuration, this conversion is only partly resolved hence the model does not fully capture the eddy processes that naturally flattern isopycnals and release APE. As a result, isopycnal slopes remain steeper than they should be unless the unresolved eddy effects are parameterised. More details can be found in [@mitgcm_gmredi].
+Baroclinic instability converts available potential energy (APE) stored in sloping isopycnals into eddy kinetic energy (EKE). In an eddy-permitting 25km configuration, this conversion is only partly resolved hence the model does not fully capture the eddy processes that naturally flatten isopycnals and release APE. As a result, isopycnal slopes remain steeper than they should be unless the unresolved eddy effects are parameterised. More details can be found in [@mitgcm_gmredi].
 
 Mesoscale eddies also induce irreversible mixing of tracers but primarily along neutral density surfaces rather than vertically. This diabatic component needs to be represented through an isopycnal diffusion parameterisation that diffuses tracers along neutral surfaces while avoiding spurious diapycnal mixing.
 
