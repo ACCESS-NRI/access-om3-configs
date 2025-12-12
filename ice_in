@@ -3,7 +3,7 @@
   conserv_check = .false.
   diagfreq = 960
   dumpfreq = "x"
-  histfreq = "d", "m", "1", "x", "x"
+  histfreq = "d", "m", "x", "x", "x"
   hist_suffix = ".1day.mean", ".1mon.mean", "x", "x", "x"
   hist_time_axis = "middle"
   history_deflate = 1
@@ -110,13 +110,13 @@
   f_smassliq = "m"
 /
 &icefields_nml
-  f_aice = "md1"
+  f_aice = "md"
   f_aicen = "m"
   f_bounds = .false.
   f_fcondtopn_ai = "m"
   f_congel = "md"
   f_dvidtd = "md"
-  f_dvidtt = "md1"
+  f_dvidtt = "md"
   f_fmelttn_ai = "m"
   f_frzmlt = "md"
   f_frazil = "md"
@@ -154,7 +154,7 @@
   f_fbot = 'x'
   f_fhocn = 'x'
   f_flat = 'x'
-  f_fresh = '1'
+  f_fresh = 'x'
   f_fswthru = 'x'
   f_fsurf_ai = 'x'
   f_hisnap = 'x', f_aisnap = 'x',

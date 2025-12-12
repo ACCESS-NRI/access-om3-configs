@@ -2,8 +2,8 @@
 <file id="stream" version="2.0">
   <metadata>
     <File_type>DROF xml file provides river runoff data</File_type>
-    <date_generated>2025-07-04 10:28:08</date_generated>
-    <history>Created by as2285 (anton-seaice) on 2025-07-04, using https://github.com/ACCESS-NRI/om3-scripts/blob/ffad24e7448649c5797bffe6a4e6184741dd87a5/data_stream_xml_generation/generate_xml_drof.py: /g/data/vk83/apps/om3-scripts/data_stream_xml_generation/generate_xml_drof.py 1900 1900</history>
+    <date_generated>2025-12-12 11:13:45</date_generated>
+    <history>Created by as2285 (anton-seaice) on 2025-12-12, using https://github.com/ACCESS-NRI/om3-scripts/blob/1d75d8fdc06e14f36177e630f2d736d647260b6d./generate_xml_drof.py: ./generate_xml_drof.py 1900 1900</history>
   </metadata>
   <stream_info name="JRA55do.FRIVER">
     <taxmode>cycle</taxmode>
@@ -11,7 +11,7 @@
     <tintalgo>linear</tintalgo>
     <offset>0</offset>
     <readmode>single</readmode>
-    <mapalgo>redist</mapalgo>
+    <mapalgo>consd</mapalgo>
     <year_first>1900</year_first>
     <year_last>1900</year_last>
     <year_align>1900</year_align>
@@ -31,7 +31,7 @@
     <tintalgo>linear</tintalgo>
     <offset>0</offset>
     <readmode>single</readmode>
-    <mapalgo>redist</mapalgo>
+    <mapalgo>consd</mapalgo>
     <year_first>1900</year_first>
     <year_last>1900</year_last>
     <year_align>1900</year_align>

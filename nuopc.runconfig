@@ -98,10 +98,10 @@ ALLCOMP_attributes::
      hostname = gadi
      ice_ncat = 5
      mediator_present = true
-     mesh_atm = ./INPUT/JRA55do-datm-ESMFmesh.nc
+     mesh_atm = ./INPUT/access-om2-100km-nomask-ESMFmesh.nc
      mesh_ice = ./INPUT/access-om2-100km-ESMFmesh.nc
      mesh_lnd = UNSET
-     mesh_mask = UNSET
+     mesh_mask = ./INPUT/access-om2-100km-ESMFmesh.nc
      mesh_ocn = ./INPUT/access-om2-100km-ESMFmesh.nc
      model_version = unknown
      ocn2glc_coupling = .false.
@@ -122,14 +122,14 @@ ALLCOMP_attributes::
 ::
 
 MED_attributes::
-     Verbosity = 2
+     Verbosity = off
      aoflux_grid = ogrid
      atm2ice_map = unset
      atm2lnd_map = unset
      atm2ocn_map = unset
      atm2wav_map = unset
-     atm_nx = 640
-     atm_ny = 320
+     atm_nx = 360
+     atm_ny = 300
      budget_ann = 1
      budget_daily = 0
      budget_inst = 0
@@ -251,8 +251,8 @@ MED_attributes::
      rof2ocn_fmapname = unset
      rof2ocn_ice_rmapname = unset
      rof2ocn_liq_rmapname = unset
-     rof_nx = 1440
-     rof_ny = 720
+     rof_nx = 360
+     rof_ny = 300
      wav2ocn_smapname = unset
      wav_nx = 0
      wav_ny = 0
@@ -285,7 +285,7 @@ CLOCK_attributes::
 ::
 
 ATM_attributes::
-     Verbosity = 5
+     Verbosity = off
      aqua_planet = .false.
      perpetual = .false.
      perpetual_ymd = -999

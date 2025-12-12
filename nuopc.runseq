@@ -5,7 +5,6 @@ runSeq::
   MED med_phases_ocnalb_run
   MED med_phases_diag_ocn
   MED med_phases_prep_ocn_avg
-  MED med_phases_diag_atm
   MED -> OCN :remapMethod=redist
   OCN
   MED med_phases_prep_ice
@@ -19,6 +18,7 @@ runSeq::
   ATM
   ATM -> MED :remapMethod=redist
   MED med_phases_post_atm
+  MED med_phases_diag_atm
   MED med_phases_diag_ice_med2ice
   ROF -> MED :remapMethod=redist
   MED med_phases_post_rof
