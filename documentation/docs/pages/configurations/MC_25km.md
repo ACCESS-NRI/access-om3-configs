@@ -86,7 +86,7 @@ To represent both the flattening of isopycnals and the along-isopycnal tracer mi
 - thickness diffusivity ($KHTH$ in MOM6)
 - isopycnal tracer diffusivity ($KHTR$ in MOM6)
 
-In MOM5, thses coefficients were prescribed constants or latitude-dependent maps, but these choices are ad-hoc and not dynamically constrained. Hence MOM6 also offers the Mesoscale Eddy Kinetic Energy (MEKE) scheme [@mom6_mom_meke] which provides a flow-dependent, scale-aware GM diffusivity. MEKE prognostically computes an eddy kinetic energy field $E(x,y,z,t)$ from which it derives an eddy velocity scale,
+In MOM5, these coefficients were prescribed constants or latitude-dependent maps, but these choices are ad-hoc and not dynamically constrained. Hence MOM6 also offers the Mesoscale Eddy Kinetic Energy (MEKE) scheme [@mom6_mom_meke] which provides a flow-dependent, scale-aware GM diffusivity. MEKE prognostically computes an eddy kinetic energy field $E(x,y,z,t)$ from which it derives an eddy velocity scale,
 
 $$
 U_{eddy}=\sqrt{2E}
