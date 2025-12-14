@@ -11,7 +11,7 @@
 sync:
     enable: False # set path below and change to true
     path: null # Set to location on /g/data (e.g. /g/data/PROJECT/USER/EXPERIMENT)
-    restart: True
+    restarts: True
 
 #Model software version
 modules:
