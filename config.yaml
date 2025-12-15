@@ -27,7 +27,7 @@ ncpus: 2704
 jobfs: 10GB
 mem: 13000GB
 walltime: 6:00:00
-jobname: 025km_jra_iaf
+jobname: 25km_jra_iaf
 
 model: access-om3
 exe: access-om3-MOM6-CICE6
