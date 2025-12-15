@@ -27,7 +27,7 @@ ncpus: 1976
 jobfs: 10GB
 mem: 9500GB
 walltime: 6:00:00
-jobname: 025km_jra_ryf
+jobname: 25km_jra_ryf
 
 model: access-om3
 exe: access-om3-MOM6-CICE6
