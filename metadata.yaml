@@ -3,7 +3,7 @@ email: Add your email address here
 created: Add the date you started the experiment here (YYYY-MM-DD)
 description: |-
   25km ACCESS-OM3 global configuration under interannual forcing.
-  Initial conditions are WOA23 practical temperature and practical salinity.
+  Initial conditions of temperature and salinity are from WOA23.
   Run with JRA55-do v1.6.0 interannually-varying forcing, 1 Jan 1958 - 31 Dec 2023.
 notes: |-
   ACCESS-NRI and COSIMA request that users of this model acknowledge those organisations 
@@ -20,5 +20,5 @@ realm:
 nominal_resolution: 25 km
 license: CC-BY-4.0
 model: ACCESS-OM3
-url: https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MC_25km_jra_iaf
+url: https://github.com/ACCESS-NRI/access-om3-configs/tree/release-MC_25km_jra_iaf
 version: 1.0-beta
