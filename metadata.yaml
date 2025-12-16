@@ -1,6 +1,6 @@
-contact: Add your name here
-email: Add your email address here
-created: Add the date you started the experiment here (YYYY-MM-DD)
+contact: Angus Gibson
+email: angus@agibson.me
+created: '2025-10-30'
 description: |-
     25km ACCESS-OM3 global configuration under the RYF9091 Repeat
     Year Forcing strategy outlined by Stewart et al (2020), 
@@ -13,15 +13,17 @@ notes: |-
   following the examples at https://www.access-nri.org.au/resources/acknowledging-us/ 
   and https://cosima.org.au/index.php/get-involved/
 keywords:
-  - JRA55
-  - access-om3
-  - repeat-year
-  - global
+- JRA55
+- access-om3
+- repeat-year
+- global
 realm:
-  - ocean
-  - seaIce
+- ocean
+- seaIce
 nominal_resolution: 25 km
 license: CC-BY-4.0
 model: ACCESS-OM3
-url: https://github.com/ACCESS-NRI/access-om3-configs/tree/release-MC_25km_jra_ryf
+url: https://github.com/access-nri/access-om3-configs
 version: 1.0-beta
+experiment_uuid: 3758ae6d-2238-46f8-835f-5e1ff0291392
+name: 20250826-global-8km-angus-g/global-8km-3758ae6d
