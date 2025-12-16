@@ -365,11 +365,11 @@ OCN_modelio::
 ROF_modelio::
      diro = ./log
      logfile = rof.log
-     pio_async_interface = .false.
+     pio_async_interface = .false. 
      pio_netcdf_format = nothing
      pio_numiotasks = 1
-     pio_rearranger = 2
-     pio_root = 1
+     pio_rearranger = 2 
+     pio_root = 1 
      pio_stride = 1
      pio_typename = netcdf4p
 ::
