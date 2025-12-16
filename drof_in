@@ -1,9 +1,9 @@
 &drof_nml
   datamode = "copyall"
-  model_maskfile = "./INPUT/access-om3-25km-nomask-ESMFmesh.nc"
-  model_meshfile = "./INPUT/access-om3-25km-nomask-ESMFmesh.nc"
-  nx_global = 1440
-  ny_global = 1142
+  model_maskfile = "./INPUT/access-om3-8km-nomask-ESMFmesh.nc"
+  model_meshfile = "./INPUT/access-om3-8km-nomask-ESMFmesh.nc"
+  nx_global = 4320
+  ny_global = 3672
   restfilm = "null"
   skip_restart_read = .false.
 /

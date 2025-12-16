@@ -1,12 +1,12 @@
 # Payu configuration
 
-# If submitting to a different project to your default, uncomment line below 
+# If submitting to a different project to your default, uncomment line below
 # and change project code as appropriate; also set shortpath below
-# project: x77
+project: g40
 # Force payu to always find, and save, files in this scratch project directory
-# shortpath: /scratch/v45
+shortpath: /scratch/x77
 
-# Using payu sync is recommend to copy data from ephemeral scratch space to 
+# Using payu sync is recommend to copy data from ephemeral scratch space to
 # longer term storage
 sync:
     enable: False # set path below and change to true
@@ -15,38 +15,51 @@ sync:
 
 #Model software version
 modules:
-    use:
-        - /g/data/vk83/modules
-    load:
-        - access-om3/2025.05.001
+  use:
+    - /g/data/vk83/modules
+  load:
+    - access-om3/2025.08.001
 
 queue: normalsr
-ncpus: 1664
+#ncpus: 1664 # 16 nodes
+ncpus: 4992 # 48 nodes
+#ncpus: 3328 # 32 nodes
+#ncpus: 2912 # 28 nodes
 jobfs: 10GB
-mem: 8000GB
-walltime: 6:00:00
-jobname: 025km_jra_ryf
+#mem: 8000GB
+walltime: 05:00:00
+jobname: 8km_jra_ryf
+
+# env:
+#   ESMF_RUNTIME_PROFILE: "on"
+#   ESMF_RUNTIME_TRACE: "on"
+#   ESMF_RUNTIME_PROFILE_OUTPUT: "SUMMARY BINARY"
 
 model: access-om3
 exe: access-om3-MOM6-CICE6
 input:
-    - /g/data/vk83/configurations/inputs/access-om3/cice/grids/global.25km/2025.05.15/kmt.nc
-    - /g/data/vk83/configurations/inputs/access-om3/mom/grids/mosaic/global.25km/2025.05.15/ocean_hgrid.nc
-    - /g/data/vk83/configurations/inputs/access-om3/mom/grids/vertical/global.25km/2025.03.12/ocean_vgrid.nc
-    - /g/data/vk83/configurations/inputs/access-om3/mom/initial_conditions/global.25km/2025.06.17/ocean_temp_salt.res.nc
-    - /g/data/vk83/configurations/inputs/access-om3/mom/surface_salt_restoring/global.25km/2025.06.17/salt_sfc_restore.nc
-    - /g/data/vk83/configurations/inputs/access-om3/mom/tidal_external_files/global.25km/2025.05.15/bottom_roughness.nc
-    - /g/data/vk83/configurations/inputs/access-om3/mom/tidal_external_files/global.25km/2025.05.15/tideamp.nc
-    - /g/data/vk83/configurations/inputs/access-om3/share/grids/global.25km/2025.05.15/topog.nc
-    - /g/data/vk83/configurations/inputs/access-om3/share/meshes/global.25km/2025.05.15/access-om3-25km-ESMFmesh.nc
-    - /g/data/vk83/configurations/inputs/access-om3/share/meshes/global.25km/2025.05.15/access-om3-25km-nomask-ESMFmesh.nc
-    - /g/data/vk83/configurations/inputs/access-om3/share/meshes/share/2024.09.16/JRA55do-datm-ESMFmesh.nc
-    - /g/data/vk83/configurations/inputs/access-om3/share/meshes/share/2024.09.16/JRA55do-drof-ESMFmesh.nc
-    - /g/data/vk83/configurations/inputs/access-om3/cmeps/remap_weights/global.25km/2025.05.15/access-om3-25km-rof-remap-weights.nc
-    - /g/data/vk83/configurations/inputs/JRA-55/RYF/v1-6/data
+  # - /g/data/x77/ahg157/inputs/mom6/global-8km/mask_table.2489.72x96
+  # - /g/data/x77/ahg157/inputs/mom6/global-8km/mask_table.1193.48x36
+  # - /g/data/x77/ahg157/inputs/mom6/global-8km/mask_table.2567.72x54
+  - /g/data/x77/ahg157/inputs/mom6/global-8km/mask_table.4448.96x72
+  - /g/data/x77/ahg157/inputs/mom6/global-8km/kmt.nc
+  - /g/data/x77/ahg157/inputs/mom6/global-8km/ocean_hgrid.nc
+  - /g/data/vk83/configurations/inputs/access-om3/mom/grids/vertical/global.25km/2025.03.12/ocean_vgrid.nc
+  - /g/data/x77/ahg157/inputs/mom6/global-8km/topog.nc
+  - /g/data/x77/ahg157/inputs/mom6/global-8km/access-om3-8km-ESMFmesh.nc
+  - /g/data/x77/ahg157/inputs/mom6/global-8km/access-om3-8km-nomask-ESMFmesh.nc
+  - /g/data/x77/ahg157/inputs/mom6/global-8km/access-om3-8km-rof-remap-weights.nc
+  - /g/data/x77/ahg157/inputs/mom6/global-8km/access-om3-8km-vmap-weights.nc
+  - /g/data/vk83/configurations/inputs/JRA-55/RYF/v1-6/data
+  - /g/data/vk83/configurations/inputs/access-om3/share/meshes/share/2024.09.16/JRA55do-datm-ESMFmesh.nc
+  - /g/data/vk83/configurations/inputs/access-om3/share/meshes/share/2024.09.16/JRA55do-drof-ESMFmesh.nc
+  - /g/data/x77/ahg157/inputs/mom6/global-8km/ocean_temp_salt.res.nc
+  - /g/data/x77/ahg157/inputs/mom6/global-8km/salt_sfc_restore.nc
+  - /g/data/x77/ahg157/inputs/mom6/global-8km/bottom_roughness.nc
+  # - /g/data/vk83/configurations/inputs/access-om3/mom/tidal_external_files/global.25km/2025.05.15/tideamp.nc
 
 runlog: true
-metadata: 
+metadata:
     enable: true
 manifest:
   reproduce:
@@ -56,19 +69,24 @@ platform:
     nodesize: 104
     nodemem: 512
 
-collate:
-  restart: true
-  mpi: true
-  walltime: 1:00:00
-  mem: 30GB
-  ncpus: 4
-  queue: expresssr
-  exe: /g/data/vk83/apps/mppnccombine-fast/0.2/bin/mppnccombine-fast
+storage:
+  gdata:
+    - x77
+
+collate: false
+# collate:
+#   restart: true
+#   mpi: true
+#   walltime: 1:00:00
+#   mem: 30GB
+#   ncpus: 4
+#   queue: expresssr
+#   exe: /g/data/vk83/apps/mppnccombine-fast/0.2/bin/mppnccombine-fast
 
 userscripts:
     archive: /usr/bin/bash /g/data/vk83/apps/om3-scripts/payu_config/archive.sh
 
 postscript: -v PROJECT,SCRIPTS_DIR=/g/data/vk83/apps/om3-scripts -lstorage=${PBS_NCI_STORAGE}+gdata/xp65 /g/data/vk83/apps/om3-scripts/payu_config/postscript.sh
 
-restart_freq: 1YS
+#restart_freq: 1YS
 payu_minimum_version: 1.1.7

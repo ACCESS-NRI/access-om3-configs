@@ -66,58 +66,63 @@ work/INPUT/RYF.vas.1990_1991.nc:
   hashes:
     binhash: f353a71a014062723ed2b56353932caf
     md5: 30b92b1e409cff9a9900692aa961aba4
-work/INPUT/access-om3-25km-ESMFmesh.nc:
-  fullpath: /g/data/vk83/configurations/inputs/access-om3/share/meshes/global.25km/2025.05.15/access-om3-25km-ESMFmesh.nc
+work/INPUT/access-om3-8km-ESMFmesh.nc:
+  fullpath: /g/data/x77/ahg157/inputs/mom6/global-8km/access-om3-8km-ESMFmesh.nc
   hashes:
-    binhash: 00f100d18622f9a912f773c4729ff78e
-    md5: a98052c00d51f105615141ff2f961ad2
-work/INPUT/access-om3-25km-nomask-ESMFmesh.nc:
-  fullpath: /g/data/vk83/configurations/inputs/access-om3/share/meshes/global.25km/2025.05.15/access-om3-25km-nomask-ESMFmesh.nc
+    binhash: a9740a484e7e9a729dcdc9f82dbab77d
+    md5: 483db5b68e183914369582dad689a1c6
+work/INPUT/access-om3-8km-nomask-ESMFmesh.nc:
+  fullpath: /g/data/x77/ahg157/inputs/mom6/global-8km/access-om3-8km-nomask-ESMFmesh.nc
   hashes:
-    binhash: 57a32c9a04755452994f76dc4695ced2
-    md5: d9dd454a184ba0c48409e433b635a795
-work/INPUT/access-om3-25km-rof-remap-weights.nc:
-  fullpath: /g/data/vk83/configurations/inputs/access-om3/cmeps/remap_weights/global.25km/2025.05.15/access-om3-25km-rof-remap-weights.nc
+    binhash: ae38ec873cd05a4e84656dfa7831c1cd
+    md5: 58c30e0a380ef7ffd857dd27c54d3892
+work/INPUT/access-om3-8km-rof-remap-weights.nc:
+  fullpath: /g/data/x77/ahg157/inputs/mom6/global-8km/access-om3-8km-rof-remap-weights.nc
   hashes:
-    binhash: c631fd5b78a41f321b6e66072eadb02a
-    md5: 41657fc054785cc0e1741dd3639c3c16
+    binhash: 169f0071669815edae26b82a2df3d926
+    md5: 9b8c9f7f294ffd2283a09cbb7a07f48b
+work/INPUT/access-om3-8km-vmap-weights.nc:
+  fullpath: /g/data/x77/ahg157/inputs/mom6/global-8km/access-om3-8km-vmap-weights.nc
+  hashes:
+    binhash: d579cfcc5df8acefe81476d6c43f9826
+    md5: c2eb7d65432e728a3d519f37bfcf6892
 work/INPUT/bottom_roughness.nc:
-  fullpath: /g/data/vk83/configurations/inputs/access-om3/mom/tidal_external_files/global.25km/2025.05.15/bottom_roughness.nc
+  fullpath: /g/data/x77/ahg157/inputs/mom6/global-8km/bottom_roughness.nc
   hashes:
-    binhash: 2cea3acdc0c370f4ea0115fb79db35cb
-    md5: 061dec8e4022c0dadccd10db8d31c567
+    binhash: bc59de9339d10035cac71ceba76dd542
+    md5: 1dfab48c6276d7ce7525c199d9183a33
 work/INPUT/kmt.nc:
-  fullpath: /g/data/vk83/configurations/inputs/access-om3/cice/grids/global.25km/2025.05.15/kmt.nc
+  fullpath: /g/data/x77/ahg157/inputs/mom6/global-8km/kmt.nc
   hashes:
-    binhash: ab134606e29b174d908c323a5126b433
-    md5: 44eb366d5aec8f55b938a74c8df83e14
+    binhash: 0fff96657f4906e04dd1118c484593c1
+    md5: e0ead34b617a8c909e0f82c11e14a913
+work/INPUT/mask_table.4448.96x72:
+  fullpath: /g/data/x77/ahg157/inputs/mom6/global-8km/mask_table.4448.96x72
+  hashes:
+    binhash: 744148f724498669516454e55ef7271d
+    md5: 41926095b76013b740411916ce4d0303
 work/INPUT/ocean_hgrid.nc:
-  fullpath: /g/data/vk83/configurations/inputs/access-om3/mom/grids/mosaic/global.25km/2025.05.15/ocean_hgrid.nc
+  fullpath: /g/data/x77/ahg157/inputs/mom6/global-8km/ocean_hgrid.nc
   hashes:
-    binhash: bd6c76132d900736b2a15cf990078d17
-    md5: e37b7499e33443c504c2873961ef3f8c
+    binhash: e101cd4d49c425755f0e100799a09cf6
+    md5: 257e9fd6e2fbc21ae401dcac05e0541d
 work/INPUT/ocean_temp_salt.res.nc:
-  fullpath: /g/data/vk83/configurations/inputs/access-om3/mom/initial_conditions/global.25km/2025.06.17/ocean_temp_salt.res.nc
+  fullpath: /g/data/x77/ahg157/inputs/mom6/global-8km/ocean_temp_salt.res.nc
   hashes:
-    binhash: 947a34e3214b0e0e1d374d6573d64fed
-    md5: 511ff8e161cacbb723e8df467414ab6c
+    binhash: 2d6092916c78984389c18713347d074a
+    md5: 26bdc77845852fa7fb67d662d4067812
 work/INPUT/ocean_vgrid.nc:
   fullpath: /g/data/vk83/configurations/inputs/access-om3/mom/grids/vertical/global.25km/2025.03.12/ocean_vgrid.nc
   hashes:
     binhash: cbc588e29d819ce8898d77760a65e20d
     md5: 66f71f2b24bd00b1c220787505e0106e
 work/INPUT/salt_sfc_restore.nc:
-  fullpath: /g/data/vk83/configurations/inputs/access-om3/mom/surface_salt_restoring/global.25km/2025.06.17/salt_sfc_restore.nc
+  fullpath: /g/data/x77/ahg157/inputs/mom6/global-8km/salt_sfc_restore.nc
   hashes:
-    binhash: 093a204af1c771eee3078f49f3d1c1dc
-    md5: 7321048de4769db405b3949c038a2bc4
-work/INPUT/tideamp.nc:
-  fullpath: /g/data/vk83/configurations/inputs/access-om3/mom/tidal_external_files/global.25km/2025.05.15/tideamp.nc
-  hashes:
-    binhash: 8c97c3eb8e655c900e34658d289a2b31
-    md5: dc4b570589028ce3d09d55d64a7153f5
+    binhash: 7e8d6919538c569e2c17b58c920513fc
+    md5: 8be892b8b36211ab587bbdb28290435f
 work/INPUT/topog.nc:
-  fullpath: /g/data/vk83/configurations/inputs/access-om3/share/grids/global.25km/2025.05.15/topog.nc
+  fullpath: /g/data/x77/ahg157/inputs/mom6/global-8km/topog.nc
   hashes:
-    binhash: f0b530f0e5531c708035a31f908164b2
-    md5: d51a26354790eab768b648d88ccfb464
+    binhash: 8740a0d404421393e773c17e61a51958
+    md5: 362529f0412c7fe6c69c332a357c2fc9
