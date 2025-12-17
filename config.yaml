@@ -74,7 +74,7 @@ platform:
 collate:
   restart: true
   mpi: true
-  walltime: 3:00:00
+  walltime: 6:00:00
   mem: 30GB
   ncpus: 4
   queue: normalsr
