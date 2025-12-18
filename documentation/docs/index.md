@@ -26,7 +26,7 @@ See the navigation links on the left. Some reading tips, see:
 ACCESS-OM3 configurations are provided via branches in the [access-om3-configs](https://github.com/ACCESS-NRI/access-om3-configs) GitHub repository. The [access-om3-configs](https://github.com/ACCESS-NRI/access-om3-configs) repository contains several configurations using the following components:
 
 - [MOM6](https://mom6.readthedocs.io/) ocean model
-- [CICE](https://cice-consortium-cice.readthedocs.io/en/) sea ice model
+- [CICE](https://cice-consortium-cice.readthedocs.io/) sea ice model
 - [WW3](https://github.com/NOAA-EMC/WW3/wiki/About-WW3) wave model
 - [DATM](https://escomp.github.io/CDEPS/versions/master/html/datm.html) atmosphere data model
 - [DROF](https://escomp.github.io/CDEPS/versions/master/html/drof.html) runoff data model

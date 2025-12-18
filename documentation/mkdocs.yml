@@ -63,6 +63,7 @@ plugins:
   - bibtex:
       bib_file: references.bib
       csl_file: https://raw.githubusercontent.com/citation-style-language/styles/26eccff9e537f71494a4da7b91afac1adf571dc9/apa.csl
+  - resolve-absolute-urls
 
 markdown_extensions: 
   - attr_list
@@ -116,6 +117,7 @@ nav:
         - Architecture:          pages/infrastructure/Architecture.md
         - NUOPC driver:          pages/infrastructure/NUOPC-driver.md
         - Building:              pages/infrastructure/Building.md
+        - MOM6 node PR testing:  pages/infrastructure/MOM6-node-PR-testing.md
         - MOM6 generic tracers:  pages/infrastructure/MOM6-generic-tracers.md
         - Optimisation:          pages/infrastructure/Optimisation.md
         - Git practices:         pages/infrastructure/Git-practices.md
