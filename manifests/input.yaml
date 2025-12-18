@@ -96,6 +96,11 @@ work/INPUT/kmt.nc:
   hashes:
     binhash: 90818679b612ed7ddcf6333a51507e21
     md5: 64bc07e338d1a5d4bc2364f49e77fb96
+work/INPUT/mask_table.1038.63x56:
+  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/share/grids/global.25km/2025.11.27/mask_table.1038.63x56
+  hashes:
+    binhash: b8009cf7cfd6124bd6a8fda60cb30556
+    md5: 5211afd6388db65a67067967abe57b7f
 work/INPUT/ocean_hgrid.nc:
   fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/grids/mosaic/global.25km/2025.09.02/ocean_hgrid.nc
   hashes:
