@@ -1,6 +1,15 @@
 # MOM6-CICE 25km Global Configurations
 
-The sections that follow explain why we selected each model parameter for the global MOM6-CICE 25km global model configuration and how they work together across the coupled system. We start with the MOM6 ocean settings, then step through the CICE sea‑ice namelist. For every group of parameters you’ll find a description, links to the relevant code or literature, and practical guidance on when you might wish to adjust the defaults. Use this as both a quick reference and a roadmap for deeper dives into the individual configuration files such as [`MOM_parameter_doc.all`](https://github.com/ACCESS-NRI/access-om3-configs/blob/release-MC_25km_jra_ryf/docs/MOM_parameter_doc.all), the list of all [MOM6](https://github.com/ACCESS-NRI/mom6) parameters, and [`cice_in`](https://github.com/ACCESS-NRI/access-om3-configs/blob/release-MC_25km_jra_ryf/ice_in), the [CICE](https://github.com/ACCESS-NRI/cice) namelist file.
+The sections that follow explain why we selected each model parameter for the global MOM6-CICE 25km global model configurations (currently: `release-MC_25km_jra_ryf` and `release-MC_25km_jra_iaf`) and how they work together across the coupled system. We start with the MOM6 ocean settings, then step through the CICE sea‑ice namelist. For every group of parameters you’ll find a description, links to the relevant code or literature, and practical guidance on when you might wish to adjust the defaults. Use this as both a quick reference and a roadmap for deeper dives into the individual configuration files. For [MOM6](https://github.com/ACCESS-NRI/mom6) parameters, we mean the `MOM_parameter_doc.all` ([`release-MC_25km_jra_ryf`](https://github.com/ACCESS-NRI/access-om3-configs/blob/release-MC_25km_jra_ryf/docs/MOM_parameter_doc.all) or [`release-MC_25km_jra_iaf`](https://github.com/ACCESS-NRI/access-om3-configs/blob/release-MC_25km_jra_iaf/docs/MOM_parameter_doc.all). For the [CICE](https://github.com/ACCESS-NRI/cice) namelist file we mean `cice_in` ([`release-MC_25km_jra_ryf`](https://github.com/ACCESS-NRI/access-om3-configs/blob/release-MC_25km_jra_ryf/ice_in) or [`release-MC_25km_jra_iaf`](https://github.com/ACCESS-NRI/access-om3-configs/blob/release-MC_25km_jra_iaf/ice_in)).
+
+Note: the below refers to the released configurations (`release-MC_25km_jra_ryf` and `release-MC_25km_jra_iaf`), care should be taken if using a dev configuration where the following links can highlight the differences:
+
+ - [release-MC_25km_jra_ryf⬅️dev-MC_25km_jra_ryf](https://github.com/ACCESS-NRI/access-om3-configs/compare/release-MC_25km_jra_ryf..dev-MC_25km_jra_ryf);
+ - [release-MC_25km_jra_iaf⬅️dev-MC_25km_jra_iaf](https://github.com/ACCESS-NRI/access-om3-configs/compare/release-MC_25km_jra_iaf..dev-MC_25km_jra_iaf).
+
+It's also possible to compare the differences _between_ `release-MC_25km_jra_ryf` and `release-MC_25km_jra_iaf` with:
+
+ - [release-MC_25km_jra_ryf⬅️release-MC_25km_jra_iaf](https://github.com/ACCESS-NRI/access-om3-configs/compare/release-MC_25km_jra_ryf..release-MC_25km_jra_iaf).
 
 ## MOM6 parameter choices
 
