@@ -17,12 +17,24 @@ FATAL_UNUSED_PARAMS = True      !   [Boolean] default = False
 ! This section contains non default layout parameters which are set.
 ! ------------------------
 ! === module MOM_domains ===
-AUTO_MASKTABLE = True           !   [Boolean] default = False
-                                ! Turn on automatic mask table generation to eliminate land blocks.
-AUTO_IO_LAYOUT_FAC = 6          ! default = 0
-                                ! When AUTO_MASKTABLE is enabled, io layout is calculated by performing integer
-                                ! division of the runtime-determined domain layout with this factor. If the
-                                ! factor is set to 0 (default), the io layout is set to 1,1.
+MASKTABLE = "mask_table.1038.63x56" ! default = "MOM_mask_table"
+                                ! A text file to specify n_mask, layout and mask_list. This feature masks out
+                                ! processors that contain only land points. The first line of mask_table is the
+                                ! number of regions to be masked out. The second line is the layout of the model
+                                ! and must be consistent with the actual model layout. The following (n_mask)
+                                ! lines give the logical positions of the processors that are masked out. The
+                                ! mask_table can be created by tools like check_mask. The following example of
+                                ! mask_table masks out 2 processors, (1,2) and (3,6), out of the 24 in a 4x6
+                                ! layout:
+                                !  2
+                                !  4,6
+                                !  1,2
+                                !  3,6
+LAYOUT = 63, 56                 !
+                                ! The processor layout that was actually used.
+IO_LAYOUT = 9, 8                ! default = 1, 1
+                                ! The processor layout to be used, or 0,0 to automatically set the io_layout to
+                                ! be the same as the layout.
 
 ! This section is formatted the same as the MOM_parameter_short.doc output file.
 ! ------------------------
@@ -173,6 +185,12 @@ TFREEZE_FORM = "TEOS_POLY"      ! default = "TEOS10"
                                 ! TFREEZE_FORM determines which expression should be used for the freezing
                                 ! point.  Currently, the valid choices are "LINEAR", "MILLERO_78", "TEOS_POLY",
                                 ! "TEOS10"
+
+! === module MOM_restart ===
+PARALLEL_RESTARTFILES = True    !   [Boolean] default = False
+                                ! If true, the IO layout is used to group processors that write to the same
+                                ! restart file or each processor writes its own (numbered) restart file. If
+                                ! false, a single restart file is generated combining output from all PEs.
 
 ! === module MOM_tracer_flow_control ===
 USE_IDEAL_AGE_TRACER = True     !   [Boolean] default = False
@@ -640,6 +658,14 @@ USE_RIVER_HEAT_CONTENT = True   !   [Boolean] default = False
 USE_CALVING_HEAT_CONTENT = True !   [Boolean] default = False
                                 ! If true, use the fluxes%calving_Hflx field to set the heat carried by runoff,
                                 ! instead of using SST*CP*froz_runoff.
+VAR_PEN_SW = True               !   [Boolean] default = False
+                                ! If true, use one of the CHL_A schemes specified by OPACITY_SCHEME to determine
+                                ! the e-folding depth of incoming short wave radiation.
+CHL_FILE = "chl_globcolour_monthly_clim.nc" !
+                                ! CHL_FILE is the file containing chl_a concentrations in the variable CHL_A. It
+                                ! is used when VAR_PEN_SW and CHL_FROM_FILE are true.
+CHL_VARNAME = "CHL"             ! default = "CHL_A"
+                                ! Name of CHL_A variable in CHL_FILE.
 
 ! === module MOM_energetic_PBL ===
 ML_OMEGA_FRAC = 0.001           !   [nondim] default = 0.0
@@ -703,11 +729,8 @@ LT_MOD_LAC5 = 0.22              !   [nondim] default = 0.95
                                 ! unstable Obukhov depth.
 
 ! === module MOM_opacity ===
-PEN_SW_SCALE = 15.0             !   [m] default = 0.0
-                                ! The vertical absorption e-folding depth of the penetrating shortwave
-                                ! radiation.
-PEN_SW_FRAC = 0.42              !   [nondim] default = 0.0
-                                ! The fraction of the shortwave radiation that penetrates below the surface.
+PEN_SW_NBANDS = 3               ! default = 1
+                                ! The number of bands of penetrating shortwave radiation.
 
 ! === module MOM_tracer_advect ===
 TRACER_ADVECTION_SCHEME = "PPM:H3" ! default = "PLM"
@@ -784,3 +807,5 @@ USE_RIGID_SEA_ICE = True        !   [Boolean] default = False
 SEA_ICE_RIGID_MASS = 100.0      !   [kg m-2] default = 1000.0
                                 ! The mass of sea-ice per unit area at which the sea-ice starts to exhibit
                                 ! rigidity
+
+! === module MOM_restart ===

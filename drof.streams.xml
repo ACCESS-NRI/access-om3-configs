@@ -2,8 +2,8 @@
 <file id="stream" version="2.0">
   <metadata>
     <File_type>DROF xml file provides river runoff data</File_type>
-    <date_generated>2025-08-13 09:13:56</date_generated>
-    <history>Created by aek156 (Andrew Kiss) on 2025-08-13, using https://github.com/ACCESS-NRI/om3-scripts/blob/3882a182abf6cfa94d0461e8ce43d6b958dfc5b7/data_stream_xml_generation/generate_xml_drof.py: /g/data/vk83/apps/om3-scripts/data_stream_xml_generation/generate_xml_drof.py 1958 2023</history>
+    <date_generated>2025-07-04 10:29:34</date_generated>
+    <history>Created by as2285 (anton-seaice) on 2025-07-04, using https://github.com/ACCESS-NRI/om3-scripts/blob/ffad24e7448649c5797bffe6a4e6184741dd87a5/data_stream_xml_generation/generate_xml_drof.py: /g/data/vk83/apps/om3-scripts/data_stream_xml_generation/generate_xml_drof.py 1958 2024</history>
   </metadata>
   <stream_info name="JRA55do.FRIVER">
     <taxmode>extend</taxmode>
@@ -13,7 +13,7 @@
     <readmode>single</readmode>
     <mapalgo>bilinear</mapalgo>
     <year_first>1958</year_first>
-    <year_last>2023</year_last>
+    <year_last>2024</year_last>
     <year_align>1958</year_align>
     <vectors>null</vectors>
     <meshfile>./INPUT/JRA55do-drof-ESMFmesh.nc</meshfile>
@@ -85,6 +85,7 @@
       <file>./INPUT/land/day/friver/gr/v20240531/friver_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-6-0_gr_20210101-20211231.nc</file>
       <file>./INPUT/land/day/friver/gr/v20240531/friver_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-6-0_gr_20220101-20221231.nc</file>
       <file>./INPUT/land/day/friver/gr/v20240531/friver_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-6-0_gr_20230101-20231231.nc</file>
+      <file>./INPUT/land/day/friver/gr/v20240531/friver_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-6-0_gr_20240101-20240201.nc</file>
     </datafiles>
     <datavars>
       <var>friver Forr_rofl</var>
@@ -98,7 +99,7 @@
     <readmode>single</readmode>
     <mapalgo>bilinear</mapalgo>
     <year_first>1958</year_first>
-    <year_last>2023</year_last>
+    <year_last>2024</year_last>
     <year_align>1958</year_align>
     <vectors>null</vectors>
     <meshfile>./INPUT/JRA55do-drof-ESMFmesh.nc</meshfile>
@@ -170,6 +171,7 @@
       <file>./INPUT/landIce/day/licalvf/gr/v20240531/licalvf_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-6-0_gr_20210101-20211231.nc</file>
       <file>./INPUT/landIce/day/licalvf/gr/v20240531/licalvf_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-6-0_gr_20220101-20221231.nc</file>
       <file>./INPUT/landIce/day/licalvf/gr/v20240531/licalvf_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-6-0_gr_20230101-20231231.nc</file>
+      <file>./INPUT/landIce/day/licalvf/gr/v20240531/licalvf_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-6-0_gr_20240101-20240201.nc</file>
     </datafiles>
     <datavars>
       <var>licalvf Forr_rofi</var>
