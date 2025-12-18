@@ -24,7 +24,7 @@ jobs:
       rtd_project: 'access-om3-configs'  # MODIFY: change this to the Read the Docs project
       python_requirements_txt: 'documentation/requirements.txt' # MODIFY: Uncomment to add requirements.txt path. If not included, 'requirements.txt' is used.
       mkdocs_yaml: 'documentation/mkdocs.yml' # MODIFY: Uncomment to add mkdocs.yml path. If not included, 'mkdocs.yml' is used.
-    #   lychee_config: '/path/to/lychee_config.toml' # MODIFY: Uncomment to add lychee config path. If not included, the Hive Docs' one gets used.
+      lychee_config: '.github/workflows/lychee_config.toml'
     #   # MODIFY: Uncomment the lines below if the repo is private. You also need to create a secret named REPO_READ_TOKEN with a token that has repo read permissions.
     # secrets:
     #   repo_read_token: ${{ secrets.REPO_READ_TOKEN }}
