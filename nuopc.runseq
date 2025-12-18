@@ -12,7 +12,7 @@ runSeq::
   ICE
   ROF
   MED med_phases_diag_rof
-  MED med_phases_diag_ice_ice2med 
+  MED med_phases_diag_ice_ice2med
   ICE -> MED :remapMethod=redist
   MED med_phases_post_ice
   MED med_phases_prep_wav_accum
@@ -35,5 +35,5 @@ runSeq::
   MED med_phases_history_write
   MED med_phases_restart_write
   MED med_phases_profile
-@ 
+@
 ::
