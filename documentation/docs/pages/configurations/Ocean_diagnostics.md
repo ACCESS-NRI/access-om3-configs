@@ -23,7 +23,7 @@ The diagnostic filename conventions used by ACCESS-OM3 configurations are summar
 - `<dimension_or_mode>`: 
     - One of `2d` or `3d` for spatial diagnostics,
     - `static` for static 2D grid data,
-    - `scalar` for (`0d`) scalar diagnostics,
+    - `scalar` for (`0d`) scalar diagnostics.
 
 ### Field name or mode token
 - `<field_or_mode>`
