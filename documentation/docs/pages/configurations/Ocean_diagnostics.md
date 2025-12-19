@@ -15,7 +15,8 @@ The diagnostic filename conventions used by ACCESS-OM3 configurations are summar
 <file_prefix>.<model>.<dimension_or_mode>.<field_or_mode>[.<vertical_coordinate>][.<d2>].<frequency>.<time_cell_method>.<datestamp>.nc
 ```
 
-!!! tip Although several components are shown as optional, not all combinations are valid. In practice, filenames fall into a small number of well-defined cases, described below.
+!!! important 
+    Although several components are shown as optional, not all combinations are valid. In practice, filenames fall into a small number of well-defined cases, described below.
 
 ### Common components
 - `<file_prefix>`: Always `access-om3`,
