@@ -15,7 +15,7 @@ The diagnostic filename conventions used by ACCESS-OM3 configurations are summar
 <file_prefix>.<model>.<dimension_or_mode>.<field_or_mode>[.<vertical_coordinate>][.<d2>].<frequency>.<time_cell_method>.<datestamp>.nc
 ```
 
-!!! important 
+!!! important
     Although several components are shown as optional, not all combinations are valid. In practice, filenames fall into a small number of well-defined cases, described below.
 
 ### Common components
@@ -33,7 +33,8 @@ The diagnostic filename conventions used by ACCESS-OM3 configurations are summar
         - `static` files do not include a field name,
         - `scalar` files do not include a field name and instead contain multiple scalar diagnostics in a single file.
 
-!!! tip The ACCESS-OM3 convention is to write one physical field per file, except in the two special cases above.
+!!! note
+    The ACCESS-OM3 convention is to write one physical field per file, except in the two special cases above.
 
 ### Temporal components
 - `frequency`: The output interval between records, specified using MOM/FMS frequency strings, such as "1day", "3hour", "1month" etc
