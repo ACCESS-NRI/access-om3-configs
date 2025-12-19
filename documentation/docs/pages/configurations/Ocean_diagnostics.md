@@ -12,8 +12,7 @@ The `diag_table` consists of three sections: `<title>`, `<file>`, and `<field>`.
 ## ACCESS file name naming schemes
 The diagnostic filename conventions used by ACCESS-OM3 configurations are summarised [here](https://github.com/ACCESS-NRI/access-om3-configs/issues/374#issuecomment-2750096126). At a high level, diagnostic files follow the pattern:
 ```
-<file_prefix>.<model>.<dimension_or_mode>.<field_or_mode>
-[.<vertical_coordinate>][.<d2>].<frequency>.<time_cell_method>.<datestamp>.nc
+<file_prefix>.<model>.<dimension_or_mode>.<field_or_mode>[.<vertical_coordinate>][.<d2>].<frequency>.<time_cell_method>.<datestamp>.nc
 ```
 
 !!! tip Although several components are shown as optional, not all combinations are valid. In practice, filenames fall into a small number of well-defined cases, described below.
