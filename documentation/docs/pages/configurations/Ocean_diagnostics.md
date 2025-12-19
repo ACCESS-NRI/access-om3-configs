@@ -1,6 +1,16 @@
 # Ocean diagnostics
 
-Ocean diagnostics in MOM6 are configured via the `diag_table` file, which controls all runtime diagnostic output. Full details of the `diag_table` format and semantics are available in the [MOM6 docs](https://mom6.readthedocs.io/en/main/api/generated/pages/Diagnostics.html). This documentation focuses specifically on the diagnostic filename conventions used by ACCESS-OM3 configurations.
+Ocean diagnostics in MOM6 are configured via the `diag_table` file, which controls all runtime diagnostic output. Full details of the `diag_table` format and semantics are available in the [MOM6 docs](https://mom6.readthedocs.io/en/main/api/generated/pages/Diagnostics.html). 
+
+In ACCESS-OM3, however, users are not expected to edit `diag_table` directly. Instead, `diag_table` is generated from higher-level configuration inputs. Users should refer to the `README.md` under `diagnostic_profiles` in each configuration branch for guidance. Hence this documentation mainly focuses on the resulting diagnostic filename conventions, with only a brief introduction to the process used to generate `diag_table`.
+
+## How `diag_table` is generated in ACCESS-OM3
+ACCESS-OM3 diagnostics are defined using the following components:
+
+- `diagnostic_profiles/source_yaml_files/diag_table_source.yaml` - a user-editable yaml file that specifies diagnostic definitions,
+- [`make_diag_table.py`](https://github.com/COSIMA/make_diag_table) - a Python-based helper script (available under `/g/data/vk83/modules`) that generates a valid MOM6 `diag_table` from the the above yaml file.
+
+The generated `diag_table` is treated as a derived file and should generally not be edited by hand, as manual changes may be overwritten when configurations are regenerated.
 
 ## `diag_table` Structure
 The `diag_table` consists of three sections: `<title>`, `<file>`, and `<field>`.
@@ -9,7 +19,7 @@ The `diag_table` consists of three sections: `<title>`, `<file>`, and `<field>`.
 - The file section defines diagnostic output files and their output frequency. Each file entry may contain one or more diagnostic fields.
 - The field section defines individual diagnostic fields. Because MOM6 is a general-coordinate model, diagnostics may be written either in the native model coordinate system, or in user-defined (remapped) coordinates.
 
-## ACCESS file name naming schemes
+## ACCESS-OM3 diagnostic filename conventions
 The diagnostic filename conventions used by ACCESS-OM3 configurations are summarised [here](https://github.com/ACCESS-NRI/access-om3-configs/issues/374#issuecomment-2750096126). At a high level, diagnostic files follow the pattern:
 ```
 <file_prefix>.<model>.<dimension_or_mode>.<field_or_mode>[.<vertical_coordinate>][.<d2>].<frequency>.<time_cell_method>.<datestamp>.nc
