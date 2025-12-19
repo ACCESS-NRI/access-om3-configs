@@ -20,7 +20,7 @@ The `diag_table` consists of three sections: `<title>`, `<file>`, and `<field>`.
 - The field section defines individual diagnostic fields. Because MOM6 is a general-coordinate model, diagnostics may be written either in the native model coordinate system, or in user-defined (remapped) coordinates.
 
 ## ACCESS-OM3 diagnostic filename conventions
-The diagnostic filename conventions used by ACCESS-OM3 configurations are summarised [here](https://github.com/ACCESS-NRI/access-om3-configs/issues/374#issuecomment-2750096126). At a high level, diagnostic files follow the pattern:
+The diagnostic filename conventions used by ACCESS-OM3 configurations are summarised [here](https://github.com/ACCESS-NRI/access-om3-configs/issues/374). At a high level, diagnostic files follow the pattern:
 ```
 <file_prefix>.<model>.<dimension_or_mode>.<field_or_mode>[.<vertical_coordinate>][.<d2>].<frequency>.<time_cell_method>.<datestamp>.nc
 ```
