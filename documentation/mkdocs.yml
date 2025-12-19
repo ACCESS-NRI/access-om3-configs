@@ -145,6 +145,7 @@ extra_css:
   - fontello/css/fontello-ie7.css
   - fontello/css/fontello.css
   - css/custom.css
+  - https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css
 
 extra_javascript:
   - javascripts/mathjax.js # For pymdownx.arithmatex extension
