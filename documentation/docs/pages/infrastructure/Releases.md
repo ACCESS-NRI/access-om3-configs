@@ -12,7 +12,7 @@ Releases are prepared in branches with the `dev-` prefix, and the merging of a p
 There is a [checklist for developers](https://forum.access-hive.org.au/t/model-release-checklist-template/4371) to follow when undertaking releases. 
 When undertaking releases, the following actions are needed to implement the items on the checklist for developers:
 
-- Move inputs from `/g/data/vk83/prerelease/configurations` into `/g/data/vk83/configurations` using [model-config-inputs](https://github.com/ACCESS-NRI/model-config-inputs/). [^1]
+- Move inputs from `/g/data/vk83/prerelease/configurations` into `/g/data/vk83/configurations` using [model-config-inputs](https://github.com/ACCESS-NRI/model-config-inputs/actions/). [^1]
 [^1]:
     Use the same version (CalVer) between prerelease and release folders.
     for example:
