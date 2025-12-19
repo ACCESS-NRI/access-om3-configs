@@ -10,14 +10,13 @@ The `diag_table` consists of three sections: `<title>`, `<file>`, and `<field>`.
 - The field section defines individual diagnostic fields. Because MOM6 is a general-coordinate model, diagnostics may be written either in the native model coordinate system, or in user-defined (remapped) coordinates.
 
 ## ACCESS file name naming schemes
-The diagnostic filename conventions used by ACCESS-OM3 configurations are summarised in https://github.com/ACCESS-NRI/access-om3-configs/issues/374#issuecomment-2750096126.
-
-At a high level, diagnostic files follow the pattern:
+The diagnostic filename conventions used by ACCESS-OM3 configurations are summarised [here](https://github.com/ACCESS-NRI/access-om3-configs/issues/374#issuecomment-2750096126). At a high level, diagnostic files follow the pattern:
 ```
 <file_prefix>.<model>.<dimension_or_mode>.<field_or_mode>
 [.<vertical_coordinate>][.<d2>].<frequency>.<time_cell_method>.<datestamp>.nc
 ```
-!!! important Although several components are shown as optional, not all combinations are valid. In practice, filenames fall into a small number of well-defined cases, described below.
+
+!!! tip Although several components are shown as optional, not all combinations are valid. In practice, filenames fall into a small number of well-defined cases, described below.
 
 ### Common components
 - `<file_prefix>`: Always `access-om3`,
@@ -47,7 +46,7 @@ At a high level, diagnostic files follow the pattern:
     - `NIGLOBAL` / `Layout_X` divisible by 2
     - `NJGLOBAL` / `Layout_Y` divisible by 2
 
-    where `NIGLOBAL` and `NJGLOBAL` are the global horizontal grid sizes, and `Layout_X`, `Layout_Y` are the processor layouts. Related issue was discussed in https://github.com/ACCESS-NRI/access-om3-configs/issues/539
+    where `NIGLOBAL` and `NJGLOBAL` are the global horizontal grid sizes, and `Layout_X`, `Layout_Y` are the processor layouts. Related issue was discussed [here](https://github.com/ACCESS-NRI/access-om3-configs/issues/539).
 
 ### Practical filename cases
 In practice, ACCESS-OM3 uses three distinct filename classes.
