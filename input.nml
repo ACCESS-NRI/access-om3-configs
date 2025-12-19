@@ -14,9 +14,6 @@
 
 &diag_manager_nml
     flush_nc_files = .true.
-    max_axes = 400
-    max_files = 200
-    max_num_axis_sets = 200
 /
 
 &mpp_io_nml
@@ -24,6 +21,7 @@
 /
 
 &fms2_io_nml
+    ncchksz = 4194304
     netcdf_default_format = "netcdf4"
     deflate_level = 4
     shuffle = .true.

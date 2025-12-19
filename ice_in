@@ -2,29 +2,28 @@
   bfbflag = "off" 
   conserv_check = .false.
   diagfreq = 960
-  dumpfreq = "x"
+  dumpfreq = "y"
+  dump_last = .true.
   histfreq = "d", "m", "x", "x", "x"
-  hist_suffix = ".1day.mean", ".1mon.mean", "x", "x", "x"
+  hist_suffix = "", "m", "x", "x", "x" !limited to one character due to https://github.com/COSIMA/access-om3/issues/201
   hist_time_axis = "middle"
   history_deflate = 1
   history_chunksize = 180, 150
   history_precision = 8
   restart_deflate = 1
   ice_ic = "./INPUT/iced.1900-01-01-10800.nc"
-  lcdf64 = .false.
   npt = 35040
-  pointer_file = './rpointer.ice'
-  print_global = .false.
+  pointer_file      = './rpointer.ice'
+  print_global      = .false.
 /
 &grid_nml
   bathymetry_file = "./INPUT/topog.nc"
   grid_atm = "A"
-  grid_file = "./INPUT/ocean_hgrid.nc"
-  grid_format = "mom_nc"
+  grid_file = "./INPUT/grid.nc"
+  grid_format = "nc"
   grid_ice = "B"
   grid_ocn = "A"
   grid_type = "tripole"
-  grid_outfile = .true.
   kcatbound = 0
   kmt_file = "./INPUT/kmt.nc"
   nblyr = 1
@@ -70,18 +69,18 @@
   wave_spec_type = "random"
   /
 &domain_nml
-  block_size_x = 15
-  block_size_y = 20
+  block_size_x = 16
+  block_size_y = 15
   distribution_type = "cartesian"
   distribution_wght = "latitude"
   maskhalo_bound = .true.
   maskhalo_dyn = .true.
   maskhalo_remap = .true.
-  max_blocks = 15
+  max_blocks = 10
   ns_boundary_type = "tripole"
   nx_global = 360
   ny_global = 300
-  processor_shape = "slenderX1"
+  processor_shape = "slenderX2"
 /
 &ice_prescribed_nml
 /
