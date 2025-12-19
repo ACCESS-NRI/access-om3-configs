@@ -52,8 +52,7 @@ In practice, ACCESS-OM3 uses three distinct filename classes.
 
 #### 1. Standard 2D / 3D diagnostics (most common)
 ```
-access-om3.mom6.<2d|3d>.<field_name>
-[.<vertical_coordinate>][.d2].<frequency>.<time_cell_method>.<datestamp>.nc
+access-om3.mom6.<2d|3d>.<field_name>[.<vertical_coordinate>][.d2].<frequency>.<time_cell_method>.<datestamp>.nc
 ```
 
 Example:
