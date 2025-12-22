@@ -419,7 +419,7 @@ To explore this option, change `domain_nml` block size in `ice_in`
 This is still experinmental as tests on these settings thus far have crashed.
 
 
-# 3. Step 3: add Charrassin bathymetry (no ice shelves)
+# Step 3: add Charrassin bathymetry (no ice shelves)
 
 Bathymetry files for the Charrissin bathymetry were created in [these](https://github.com/claireyung/mom6-panAn-iceshelf-tools/generate-draft/Generate-Charrassin-bathy.ipynb) [notebooks](https://github.com/claireyung/mom6-panAn-iceshelf-tools/generate-draft/process-topo.ipynb).These notebooks also generate files for ice shelf cavities opened when this configuration comes online.
 
@@ -486,18 +486,13 @@ python3 ./om3-scripts/mesh_generation/generate_rof_weights.py --mesh_filename=/g
 Move files to the input directory ('/g/data/x77/cy8964/mom6/input/input-8km') and update the netcdf names in `config.yaml`, `datm_in`, `ice_in`, `drof_in`, `nuopc.runconfig`, `MOM_override`
 
 # 4. Add new parameters
-Firstly, note that the coupling timestep is actually controlled in `nuopc.runseq` by the number in the top right hand corner. Making this not a ratio of 3x the timestep makes it work i.e. produces restart files
+A few parameters were changed as outlined below.
+1. The coupling timestep is set on line 2 of `nuopc.runseq`. This needs to not a ratio of 3x the timestep to produce restart files
 
-Also, using cascade lake nodes removes the segfault from running from a restart
+2. Parameters in `MOM_input` were altered to match the new OM3 parameters (similar to GFDL OM5). Note that this was done in `MOM_override`
 
-I updated MOM_input to match the new OM3 parameters (similar to GFDL OM5). Requires some changes mentioned in `MOM_override`
-
-Changes that I want to make to these parameters for a high res model setup are in `MOM_override_newparams`
-
-The new internal tide mixing scheme requires two new files with roughness and tidal amplitude. I found Minghang's script through the netcdf metadata of OM3 versions, and am reproducing them:
-
+3. The new internal tide mixing scheme requires two new files with roughness and tidal amplitude. This is done by reproducung the method for creating these in ACCESS-OM3 models:
 https://github.com/ACCESS-NRI/om3-scripts/pull/53 
-
 ```
 qsub -I -P x77 -q normalbw -l ncpus=28,mem=120G,walltime=05:00:00,storage=gdata/hh5+gdata/ik11+gdata/x77+scratch/x77+gdata/xp65
 module use /g/data/xp65/public/modules
@@ -509,62 +504,62 @@ mpirun -n 28 python3 generate_bottom_roughness_polyfit.py --topo-file=/g/data/ik
 
 python3 generate_tide_amplitude.py --hgrid-file=/g/data/x77/cy8964/mom6/input/input-8km/ocean_hgrid_cropped.nc --mask-file=/g/data/x77/cy8964/mom6/input/input-8km/ocean_mask_Charrassin_nocavity_cropped.nc --method=conservative_normed --data-path=/g/data/ik11/inputs/TPXO10_atlas_v2 --output=/g/data/x77/cy8964/mom6/input/input-8km/tideamp_Charrassin_nocavity_cropped.nc
 ```
+This takes about an hour to calculate bottom_roughness and about 30 minutes for tideamp.
 
-**Do these work with cavities?** No: https://github.com/claireyung/mom6-panAn-iceshelf-tools/issues/8
 
-bottom_roughness took about an hour, tideamp half an hour
+Note that this [will not work in configurations with ice-shelf cavities] .(https://github.com/claireyung/mom6-panAn-iceshelf-tools/issues/8)
 
-Also aiming to increase the  timestep after a few days of spinup. However, also need to make sure dt_therm not too big: https://bb.cgd.ucar.edu/cesm/threads/limit-on-dt_therm-in-regional-configs.8226/
 
-Also copied diag rho coordinates from the panan. not sure about the formatting....
+4. For stability the timestep is reduces although it might be able to be increased after a few days of spinup. Note that `dt_therm` cannot be [too big](https://bb.cgd.ucar.edu/cesm/threads/limit-on-dt_therm-in-regional-configs.8226/)
 
-And diag z coordinates regridded (ocean_month_z) since I spent a good morning freaking out about warm western boundary currents that were actually vanished.
+5. The diag rho coordinates were copied from a [previous panantactic configuration](https://github.com/COSIMA/mom6-panan).
+
+6. Diag z coordinates were regridded (ocean_month_z) to address a warmer than expected western boundary currents. This issue did vanish so the regridding may not be needed.
 
 
 # Step 5: Fix bugs
 
-Northern boundary issue (fast velocities due to SSH gradient at northerb boundary) resolved by reverting to `WRIGHT_REDUCED` EOS
+### Minor bugs
+There was a Northern boundary issue where fast velocities were generated due to SSH gradient at northern boundary. A few different changes were made in an attempt to resolve this: 
+1. Reverting to `WRIGHT_REDUCED` equation of state(EOS) (to make the initial and boundary conditions). This didn't fix the issue but does mean that the boundary inputs and internal model has consistent EOS.
 
-Just kidding, not resolved. Need to use ACCESS-OM2-01 second year output https://github.com/claireyung/mom6-panAn-iceshelf-tools/blob/claire_working/initial-conditions/ACCESSOM2_IC_into_8km_grid.ipynb
+2. Using the ACCESS-OM2-01 second year output https://github.com/claireyung/mom6-panAn-iceshelf-tools/blob/claire_working/initial-conditions/ACCESSOM2_IC_into_8km_grid.ipynb
 
-Also changed to `WRIGHT_FULL` (https://github.com/claireyung/mom6-panAn-iceshelf-tools/issues/13)
+We also changed to `WRIGHT_FULL`. See [here](https://github.com/claireyung/mom6-panAn-iceshelf-tools/issues/13) for details.
 
-And added Stewart Allen's suggested Antarctic ice thickness categories ("I might suggest ncat=7, with similar spacing (kcatbound=2), but that has it's highest at about 2.2m.")
+We added Stewart Allen's suggested Antarctic ice thickness categories (He suggested ncat=7, with similar spacing (kcatbound=2), noting that this has it's highest at about 2.2m.)
 
-### Sapphire rapid bug
-Originally SR crashed with a segfault and unhelpful link to sea ice initialisation not being able to find a file on restart, despite being fine the first time.
+Salinity was restoring to zero at E-W boundary and this was deactivated.
+### Sapphire rapid bugs
+The model crashed when running on Sapphire rapid (SR) with a segfault as the model was unable to find an exisiting and previously findable file for seaice initialisation during the restart. This was resolved by moving to Minghang's optimised and working number of cores/layout for the [ACCESS-OM3 global 25km config](github.com/ACCESS-NRI/access-om3-configs/pull/591/files) (note the`MOM_parameter_doclayout` file can be ignored as it is for a different domain). 
 
-This was resolved by moving to Minghang's optimised and working number of cores/layout for the ACCESS-OM3 global 25km config /github.com/ACCESS-NRI/access-om3-configs/pull/591/files - ignore the `MOM_parameter_doclayout` stuff because it is for a different domain. The sea ice block size could be a useful change though, and I added it to the current spinup run.
-
-To change number of CPUs in the run, you can change ncpus in config.yaml, to a multiple of 104 for SR. I guess mem would also need to change accordingly - 500 GB max per SR node.
-If you decrease ncpus below one of the numbers in `nuopc.runconfig`>`PE_LAYOUT` which afaik assigns processors to each model component, then it will complain, so then the numbers in `nuopc.runconfig` may need to change
-
-I don't really understand the `nuopc.runconfig` part of it, so I just copied the numbers that Minghang found best for the 25km global OM3: https://github.com/ACCESS-NRI/access-om3-configs/pull/591/files
-It looks to me though that in `nuopc.runseq` this has the instructions for `nuopc`, and I don't think it's a coincidence that 1300 (the ocean number) + 364 (other components that might happen in parallel) = 1664 (total CPUs) but I'm not really sure how these particular numbers were chosen. Potentially other combinations would prevent waiting if some parts of the model are faster/slower than eachother
-
-This change also slightly improved the efficiency (comparing the first run only)
+The number of CPUs used in the run can be set by `ncpus` in `config.yaml`, to a multiple of 104 for SR. The `mem` can also change accordingly (500 GB max per SR node). Note that if you decrease `ncpus` below to be less than any values set in `PELAYOUT_attributes`'s (set in `nuopc.runconfig`) then you will get an error message (`PELAYOUT_attributes` distributes the CPUs to different components of the model) 
 
 ### Timestep
-Running on cascade lake, I bumped into a lot of `bad_depature_points` errors which are CICE going over the CFL limit. I reduced the timesteps to be
+When running on cascade lake (CL), a lot of `bad_depature_points` errors were reported. These occurs when CICE goes over the CFL limit. To fix this, the timesteps were reduced to be
 ```
 DT = 450
 DT_THERM = 900
 nuopc.runseq corner number 450 (coupling timestep)
 ```
-I tried to change `ndtd` and `dt` in `ice_in` to force CICE to use a different timestep (default is the coupling timestepm, you can see this in `work/log/ice.log`. However I got a lot of segfaults when I changed the ice timesteps (straight away on initialisation) so the most stable configuration is just to run it like this. However, the ocean component has CFLs of 0.2ish which is quite low suggesting it could be improved.
+Attempts were made to change `ndtd` and `dt` in `ice_in` to force CICE to use a different timestep (default is the coupling timestep, you can see this in `work/log/ice.log`). However this produced segfaults and the timestemps are not decoupled. The resulting ocean component has CFLs of 0.2ish which is quite low. 
 
-After the first year of simulation on CL, I decided to try again and add `ndtd = 3`, `DT_THERM = 1200`, `DT = 600`, coupling timestep 600. This seems to be working well and in ran for the second year a bit cheaper than the first. I am not sure why I was getting so many segfaults before, but I think it is best to optimise for the stable one without sporadic segfaults that I can't explain..
+Further attempts to decouple the ocean and ice timesteps were attempted after a year of simulation:
+```
+ndtd = 3`
+DT_THERM = 1200
+DT = 600
+coupling timestep 600
+```
+This worked but it is still unknown why the decoupling did not work in the first year of the simulation. 
 
-A further restriction on timesteps for future reference is that
-1. we want the timesteps to all go into 1 day and ideally into 1 hour since almost all runlengths will be integer multiples of those. So 450, 600, 900 all good. Also, they need to be multiples of each other and match at the restart time, otherwise you get an unused buoyancy flux crash https://github.com/ACCESS-NRI/access-om3-configs/pull/556#issuecomment-2939907442
-2. the coupling timestep cannot be 3x dt, then you have a problem https://github.com/ACCESS-NRI/access-om3-configs/issues/380 for unknown reasons
-3. the thermodynamic timestep cannot be too long from past experience with the MOM6 panan https://github.com/COSIMA/mom6-panan/issues/28
-                                                                                                                                                                    532,1         Bot
+Note that when varing timesteps during the simulation, we want to impose these restrictions:
+1. timesteps are divisors of 1 day and ideally 1 hour since almost all runlengths will be integer multiples of those. So 450, 600, 900 all good. They also need to be multiples of each other and match at the restart time, otherwise you get a [buoyancy flux crash](https://github.com/ACCESS-NRI/access-om3-configs/pull/556#issuecomment-2939907442).
+2. the coupling timestep [cannot be 3x dt](https://github.com/ACCESS-NRI/access-om3-configs/issues/380) this issue needs further investigation.
+3. the thermodynamic timestep [cannot be too long](https://github.com/COSIMA/mom6-panan/issues/28)
 
-### Optimisation improvements
+## Optimisation improvements
 
-Merged improvements from Ed's optimisation into my CL branch https://github.com/claireyung/access-om3-configs/pull/1 which has the most upto date config
+Optimisation experinments that [improve runtime](https://github.com/claireyung/access-om3-configs/pull/1) have been pulled into the cascade lakes branch. Note the executable is not the most up to date MOM6 codebase.
 
-Note the executable is one Ed made i.e. not the most up to date MOM6 codebase, but rather, same as before.
 
-Also fixed bug that had salinity restoring zero at E-W boundary
