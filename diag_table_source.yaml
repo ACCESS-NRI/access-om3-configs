@@ -33,7 +33,9 @@ global_defaults:
         - file_name_prefix
         - file_name_dimension
         - field_name  # substituted by field name in diag_table section below
-        - file_name_diag_coord
+        - '+':
+            - file_name_diag_coord
+            - file_name_downsample
         - output_freq
         - '':
             - output_freq_units
@@ -87,7 +89,8 @@ global_defaults:
         average: mean
         'True': mean
         None: ""  # for empty items
-    file_name_diag_coord: "" # name of diagnostic vertical coordinate as specified in DIAG_COORDS in MOM_input; use "" for native coordinate
+    file_name_diag_coord: "" # vertical coordinate descriptor to be added to filename as specified in DIAG_COORDS in MOM_input. Use "" for native coordinate
+    file_name_downsample: "" # downsampling descriptor to be added to filename. Only d2 is supported by MOM currently. Use "" for no downsampling.
 # %yr, %mo, %dy, %hr %mi, %sc are expanded to the current year, month, day, hour, minute and second respectively,
 
 #######################################################################################################
