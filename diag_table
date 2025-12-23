@@ -43,44 +43,44 @@ ACCESS-OM3
 
 # monthly 3d fields on z
 
-"access-om3.mom6.3d.agessc.z.1mon.mean.%4yr", 1, "months", 1, "days", "time", 1, "years"
-"ocean_model_z", "agessc", "agessc", "access-om3.mom6.3d.agessc.z.1mon.mean.%4yr", "all", "average", "none", 2
+"access-om3.mom6.3d.agessc+z.1mon.mean.%4yr", 1, "months", 1, "days", "time", 1, "years"
+"ocean_model_z", "agessc", "agessc", "access-om3.mom6.3d.agessc+z.1mon.mean.%4yr", "all", "average", "none", 2
 
-"access-om3.mom6.3d.rhopot2.z.1mon.mean.%4yr", 1, "months", 1, "days", "time", 1, "years"
-"ocean_model_z", "rhopot2", "rhopot2", "access-om3.mom6.3d.rhopot2.z.1mon.mean.%4yr", "all", "average", "none", 2
+"access-om3.mom6.3d.rhopot2+z.1mon.mean.%4yr", 1, "months", 1, "days", "time", 1, "years"
+"ocean_model_z", "rhopot2", "rhopot2", "access-om3.mom6.3d.rhopot2+z.1mon.mean.%4yr", "all", "average", "none", 2
 
-"access-om3.mom6.3d.temp.z.1mon.mean.%4yr", 1, "months", 1, "days", "time", 1, "years"
-"ocean_model_z", "temp", "temp", "access-om3.mom6.3d.temp.z.1mon.mean.%4yr", "all", "average", "none", 2
+"access-om3.mom6.3d.temp+z.1mon.mean.%4yr", 1, "months", 1, "days", "time", 1, "years"
+"ocean_model_z", "temp", "temp", "access-om3.mom6.3d.temp+z.1mon.mean.%4yr", "all", "average", "none", 2
 
-"access-om3.mom6.3d.salt.z.1mon.mean.%4yr", 1, "months", 1, "days", "time", 1, "years"
-"ocean_model_z", "salt", "salt", "access-om3.mom6.3d.salt.z.1mon.mean.%4yr", "all", "average", "none", 2
+"access-om3.mom6.3d.salt+z.1mon.mean.%4yr", 1, "months", 1, "days", "time", 1, "years"
+"ocean_model_z", "salt", "salt", "access-om3.mom6.3d.salt+z.1mon.mean.%4yr", "all", "average", "none", 2
 
-"access-om3.mom6.3d.uo.z.1mon.mean.%4yr", 1, "months", 1, "days", "time", 1, "years"
-"ocean_model_z", "uo", "uo", "access-om3.mom6.3d.uo.z.1mon.mean.%4yr", "all", "average", "none", 2
+"access-om3.mom6.3d.uo+z.1mon.mean.%4yr", 1, "months", 1, "days", "time", 1, "years"
+"ocean_model_z", "uo", "uo", "access-om3.mom6.3d.uo+z.1mon.mean.%4yr", "all", "average", "none", 2
 
-"access-om3.mom6.3d.vo.z.1mon.mean.%4yr", 1, "months", 1, "days", "time", 1, "years"
-"ocean_model_z", "vo", "vo", "access-om3.mom6.3d.vo.z.1mon.mean.%4yr", "all", "average", "none", 2
+"access-om3.mom6.3d.vo+z.1mon.mean.%4yr", 1, "months", 1, "days", "time", 1, "years"
+"ocean_model_z", "vo", "vo", "access-om3.mom6.3d.vo+z.1mon.mean.%4yr", "all", "average", "none", 2
 
-"access-om3.mom6.3d.KE.z.1mon.mean.%4yr", 1, "months", 1, "days", "time", 1, "years"
-"ocean_model_z", "KE", "KE", "access-om3.mom6.3d.KE.z.1mon.mean.%4yr", "all", "average", "none", 2
+"access-om3.mom6.3d.KE+z.1mon.mean.%4yr", 1, "months", 1, "days", "time", 1, "years"
+"ocean_model_z", "KE", "KE", "access-om3.mom6.3d.KE+z.1mon.mean.%4yr", "all", "average", "none", 2
 
 
 # monthly 3d fields on rho2
 
-"access-om3.mom6.3d.e.rho2.1mon.mean.%4yr", 1, "months", 1, "days", "time", 1, "years"
-"ocean_model_rho2", "e", "e", "access-om3.mom6.3d.e.rho2.1mon.mean.%4yr", "all", "average", "none", 2
+"access-om3.mom6.3d.e+rho2.1mon.mean.%4yr", 1, "months", 1, "days", "time", 1, "years"
+"ocean_model_rho2", "e", "e", "access-om3.mom6.3d.e+rho2.1mon.mean.%4yr", "all", "average", "none", 2
 
-"access-om3.mom6.3d.umo.rho2.1mon.mean.%4yr", 1, "months", 1, "days", "time", 1, "years"
-"ocean_model_rho2", "umo", "umo", "access-om3.mom6.3d.umo.rho2.1mon.mean.%4yr", "all", "average", "none", 2
+"access-om3.mom6.3d.umo+rho2.1mon.mean.%4yr", 1, "months", 1, "days", "time", 1, "years"
+"ocean_model_rho2", "umo", "umo", "access-om3.mom6.3d.umo+rho2.1mon.mean.%4yr", "all", "average", "none", 2
 
-"access-om3.mom6.3d.vmo.rho2.1mon.mean.%4yr", 1, "months", 1, "days", "time", 1, "years"
-"ocean_model_rho2", "vmo", "vmo", "access-om3.mom6.3d.vmo.rho2.1mon.mean.%4yr", "all", "average", "none", 2
+"access-om3.mom6.3d.vmo+rho2.1mon.mean.%4yr", 1, "months", 1, "days", "time", 1, "years"
+"ocean_model_rho2", "vmo", "vmo", "access-om3.mom6.3d.vmo+rho2.1mon.mean.%4yr", "all", "average", "none", 2
 
-"access-om3.mom6.3d.uhGM.rho2.1mon.mean.%4yr", 1, "months", 1, "days", "time", 1, "years"
-"ocean_model_rho2", "uhGM", "uhGM", "access-om3.mom6.3d.uhGM.rho2.1mon.mean.%4yr", "all", "average", "none", 2
+"access-om3.mom6.3d.uhGM+rho2.1mon.mean.%4yr", 1, "months", 1, "days", "time", 1, "years"
+"ocean_model_rho2", "uhGM", "uhGM", "access-om3.mom6.3d.uhGM+rho2.1mon.mean.%4yr", "all", "average", "none", 2
 
-"access-om3.mom6.3d.vhGM.rho2.1mon.mean.%4yr", 1, "months", 1, "days", "time", 1, "years"
-"ocean_model_rho2", "vhGM", "vhGM", "access-om3.mom6.3d.vhGM.rho2.1mon.mean.%4yr", "all", "average", "none", 2
+"access-om3.mom6.3d.vhGM+rho2.1mon.mean.%4yr", 1, "months", 1, "days", "time", 1, "years"
+"ocean_model_rho2", "vhGM", "vhGM", "access-om3.mom6.3d.vhGM+rho2.1mon.mean.%4yr", "all", "average", "none", 2
 
 
 # monthly 2d fields
