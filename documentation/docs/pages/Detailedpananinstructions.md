@@ -1,4 +1,3 @@
-**Note**: The below docs are a copy of [this markdown file](https://github.com/claireyung/access-om3-configs/blob/8km_jra_ryf_obc2-sapphirerapid-Charrassin-newparams-rerun-Wright-spinup-accessom2IC-yr9/panantarctic_instructions.md)
 
 # Instructions to generate pan-Antarctic regional domain from global ACCESS-OM3 Configuration 
 
@@ -7,17 +6,20 @@ Contents:
 1. Introduction
 2. Make 25km panan from 25km OM3 and add boundary conditions
 3. Convert to 8km pan-An using GEBCO bathy
-4. Use Charrassin bathy instead
-5. Use new parameters
-6. Fix bugs
+4. Optimisation
+5. Use Charrassin bathy instead
+6. Use new parameters
+7. Fix bugs
+  
 
 # 1. Introduction 
 This page outlines the steps followed to create the pan-Antarctic configurations (ACCESS-rOM3-panan). It also describes some of the bugs encountered and outlines remaining issues to investigate. The purpose of this document is to:
 1. have a record of the steps followed to create the domain and,
 2. Document an example workflow for creating a regional domain as a subset of a global domain.
 
-When modifying this workflow to create a user-defined regional domain, be aware that subsetting of the global domain will need to occur in the x- and y- directions for non-polar domains 
-# 1.  Make 25km panan from 25km OM3 and add boundary conditions
+When modifying this workflow to create a user-defined regional domain, be aware that subsetting of the global domain will need to occur in the x- and y- directions for non-polar domains.
+**Note**: The below docs are based off [this markdown file](https://github.com/claireyung/access-om3-configs/blob/8km_jra_ryf_obc2-sapphirerapid-Charrassin-newparams-rerun-Wright-spinup-accessom2IC-yr9/panantarctic_instructions.md)
+# 2.  Make 25km panan from 25km OM3 and add boundary conditions
 
 These instructions were used to make a test 25km pan-An regional config. This configuration is a test configuration used for development, including developing the workflow for creating a regional domain from a global domain. We start with a global domain, truncate it, and then change configuration files as required.
 
@@ -278,7 +280,7 @@ SPONGE = False
 These parameter choices are copied from MOM6-SIS2 panantarctic: https://github.com/COSIMA/mom6-panan/blob/panan-005/MOM_input
 
 
-# 2. Moving to 8km domain
+# 3. Moving to 8km domain
 
 The above instructions create a [25km domain](https://github.com/claireyung/access-om3-configs/tree/25km_jra_ryf-obc) subsetted from the [global 25km dev model](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MC_25km_jra_ryf). 
 
@@ -395,9 +397,10 @@ tail -f work/log/ocn.log
 ```
 which updates with some information every day.
 
-# Optimisation
+# 4. Optimisation
+Optimisation experinments that [improve runtime](https://github.com/claireyung/access-om3-configs/pull/1) have been pulled into the cascade lakes branch. Note the executable is not the most up to date MOM6 codebase.
 
-This configurations is slow and below are some suggestions to help optimise the configuration and others like it.
+This configurations is slow and below are some more suggestions to help optimise the configuration and others like it.
 
 1. use sapphire rapids. This requires an extra lines in `config.yaml`
 
@@ -426,7 +429,7 @@ To explore this option, change `domain_nml` block size in `ice_in`
 This is still experinmental as tests on these settings thus far have crashed.
 
 
-# Step 3: add Charrassin bathymetry (no ice shelves)
+# 5. Add Charrassin bathymetry (no ice shelves)
 
 Bathymetry files for the Charrissin bathymetry were created in [these](https://github.com/claireyung/mom6-panAn-iceshelf-tools/generate-draft/Generate-Charrassin-bathy.ipynb) [notebooks](https://github.com/claireyung/mom6-panAn-iceshelf-tools/generate-draft/process-topo.ipynb).These notebooks also generate files for ice shelf cavities opened when this configuration comes online.
 
@@ -492,7 +495,7 @@ python3 ./om3-scripts/mesh_generation/generate_rof_weights.py --mesh_filename=/g
 
 Move files to the input directory ('/g/data/x77/cy8964/mom6/input/input-8km') and update the netcdf names in `config.yaml`, `datm_in`, `ice_in`, `drof_in`, `nuopc.runconfig`, `MOM_override`
 
-# 4. Add new parameters
+# 6. Add new parameters
 A few parameters were changed as outlined below.
 1. The coupling timestep is set on line 2 of `nuopc.runseq`. This needs to not a ratio of 3x the timestep to produce restart files
 
@@ -524,7 +527,7 @@ Note that this [will not work in configurations with ice-shelf cavities] .(https
 6. Diag z coordinates were regridded (ocean_month_z) to address a warmer than expected western boundary currents. This issue did vanish so the regridding may not be needed.
 
 
-# Step 5: Fix bugs
+# 7. Fix bugs
 
 ### Minor bugs
 There was a Northern boundary issue where fast velocities were generated due to SSH gradient at northern boundary. A few different changes were made in an attempt to resolve this: 
@@ -565,8 +568,7 @@ Note that when varing timesteps during the simulation, we want to impose these r
 2. the coupling timestep [cannot be 3x dt](https://github.com/ACCESS-NRI/access-om3-configs/issues/380) this issue needs further investigation.
 3. the thermodynamic timestep [cannot be too long](https://github.com/COSIMA/mom6-panan/issues/28)
 
-## Optimisation improvements
 
-Optimisation experinments that [improve runtime](https://github.com/claireyung/access-om3-configs/pull/1) have been pulled into the cascade lakes branch. Note the executable is not the most up to date MOM6 codebase.
+
 
 
