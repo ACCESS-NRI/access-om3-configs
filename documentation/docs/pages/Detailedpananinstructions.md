@@ -4,15 +4,22 @@
 
 Contents:
 
-1. Make 25km panan from 25km OM3 and add boundary conditions
-2. Convert to 8km pan-An using GEBCO bathy
-3. Use Charrassin bathy instead
-4. Use new parameters
-5. Fix bugs
+1. Introduction
+2. Make 25km panan from 25km OM3 and add boundary conditions
+3. Convert to 8km pan-An using GEBCO bathy
+4. Use Charrassin bathy instead
+5. Use new parameters
+6. Fix bugs
 
+# 1. Introduction 
+This page outlines the steps followed to create the pan-Antarctic configurations (ACCESS-rOM3-panan). It also describes some of the bugs encountered and outlines remaining issues to investigate. The purpose of this document is to:
+1. have a record of the steps followed to create the domain and,
+2. Document an example workflow for creating a regional domain as a subset of a global domain.
+
+When modifying this workflow to create a user-defined regional domain, be aware that subsetting of the global domain will need to occur in the x- and y- directions for non-polar domains 
 # 1.  Make 25km panan from 25km OM3 and add boundary conditions
 
-These instructions were used to make a test 25km pan-An regional config. We suggest that developers wanting to copy the workflow should start at "convert to 8km pan-AN using GEBCO bathy". We start with a global domain, truncate it, and then change configuration files as required.
+These instructions were used to make a test 25km pan-An regional config. This configuration is a test configuration used for development, including developing the workflow for creating a regional domain from a global domain. We start with a global domain, truncate it, and then change configuration files as required.
 
 First, load modules for `payu`:
 ```
