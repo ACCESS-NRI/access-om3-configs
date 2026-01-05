@@ -124,10 +124,6 @@ ALLCOMP_attributes::
 MED_attributes::
      Verbosity = off
      aoflux_grid = ogrid
-     atm2ice_map = unset
-     atm2lnd_map = unset
-     atm2ocn_map = unset
-     atm2wav_map = unset
      atm_nx = 1440
      atm_ny = 1152
      budget_ann = 1
