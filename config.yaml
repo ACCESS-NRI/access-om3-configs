@@ -17,9 +17,9 @@ sync:
 #Model software version
 modules:
     use:
-        - /g/data/vk83/modules
+        - /g/data/vk83/prerelease/modules
     load:
-        - access-om3/2025.08.001
+        - access-om3/pr152-5
 
 queue: normal
 ncpus: 288
@@ -47,8 +47,8 @@ input:
     - /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/chlorophyll/global.100km/2025.11.25/chl_globcolour_monthly_clim.nc
     - /g/data/vk83/configurations/inputs/access-om3/cice/grids/global.100km/2024.05.14/kmt.nc
     - /g/data/vk83/configurations/inputs/access-om3/cice/initial_conditions/global.100km/2023.07.28/iced.1900-01-01-10800.nc
-    - /g/data/vk83/prerelease/configurations/inputs/access-om3/ww3/initial_conditions/global.100km/2025.12.16/restart.ww3
-    - /g/data/vk83/prerelease/configurations/inputs/access-om3/ww3/mod_def/global.100km/2025.12.16/mod_def.ww3
+    - /g/data/tm70/ek4684/MCW_100km_jra_iaf_IC4_KPP/WW3_PreProc/restart.ww3
+    - /g/data/tm70/ek4684/MCW_100km_jra_iaf_IC4_KPP/WW3_PreProc/mod_def.ww3
     - /g/data/qv56/replicas/input4MIPs/CMIP6Plus/OMIP/MRI/MRI-JRA55-do-1-6-0/
  
 collate: false
