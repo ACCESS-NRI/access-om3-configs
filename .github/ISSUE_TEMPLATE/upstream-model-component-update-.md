@@ -14,30 +14,30 @@ This issue is intended as a place to discuss which upstream model versions we sh
  - [ ] added to the OM3 project board.
 
 ## Components 
-| Component              | CESM | current ACCESS-OM3 | Proposed ACCESS-OM3 |
-| ---------------------- | ---- | ------------------ | ------------------- |
-| access3                |      |                    |                     |
-| access-cice            |      |                    |                     |
-| access-mom6            |      |                    |                     |
-| access-ww3             |      |                    |                     |
-| access3-share          |      |                    |                     |
-| CDEPS                  |      |                    |                     |
-| CMEPS                  |      |                    |                     |
-| CESM_share             |      |                    |                     |
-| access-generic-tracers |      |                    |                     |
-| access-mocsy           |      |                    |                     |
+| Component | CESM | current ACCESS-OM3 | Proposed ACCESS-OM3 | Notes |
+| --- | ---- | --- | --- | --- |
+| access3 |  |  |  |  |
+| access-cice |  |  |  |  |
+| access-mom6 |  |  |  |  |
+| access-ww3 |  |  |  |  |
+| access3-share |  |  |  |  |
+| CDEPS |  |  |  |  |
+| CMEPS |  |  |  |  |
+| CESM_share |  |  |  |  |
+| access-generic-tracers |  |  |  |
+| access-mocsy |  |  |  |
 
 ## Dependencies
-| Dependency     | CESM                                                                                                                                                                                                                                                     | current ACCESS-OM3 | Proposed ACCESS-OM3 |
-| -------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------ | ------------------- |
-| esmf           |  |                    |                     |
-| parallelio     |                                                                                                                                                                                                                                                          |                    |                     |
-| netcdf-c       |            |                    |                     |
-| netcdf-fortran |                                        |                    |                     |
-| fms            |                                                                                                                                                                                                                                                          |                    |                     |
-| openmpi        |                                                                                                                                                                                                                                                          |                    |                     |
-| fortranxml     |                                                                                                                                                                                                                                                          |                    |                     |
-| gcc-runtime    |                                                                                                                                                                                                                                                          |                    |                     |
+| Dependency | CESM | current ACCESS-OM3 | Proposed ACCESS-OM3 | Notes |
+| --- | --- | --- | --- | --- |
+| esmf |  |  |  |  |
+| parallelio |  |  |  |  |
+| netcdf-c |  |  |  |  |
+| netcdf-fortran |  |  |  |  |
+| fms |  |  |  |  |
+| openmpi |  |  |  |  |
+| fortranxml |  |  |  |  |
+| gcc-runtime |  |  |  |  |
 
 ## Comments
  -
