@@ -53,7 +53,7 @@ Building a prerelease with `build_type=Debug` can be useful for getting more inf
 
 When it is needed to update the model components to incorporate upstream updates to code, this triggers a new major release of the access-om3 executable. Incorporating upstream updates means that bug fixes and new features developed by the development communities are included. This is a release of the executable only and generally is not publicly announced. The new exectuables are then used in configurations. Note this is a distinct activity from configuration releases, which will use a specific ACCESS-OM3 executable version and are publicly announced. The assumption is that most users will run or start from a release configuration, and often will not change the executable directly.
 
-Definitions are as follows, see [spack.yaml](https://github.com/ACCESS-NRI/ACCESS-OM3/blob/main/spack.yaml). Components consist of: `access3`, `access-cice`, `access-mom6`, `access-ww3`, `access3-share`, `access-generic-tracers`, `access-mocsy`. Dependencies are: `esmf`, `parallelio`, `netcdf-c`, `netcdf-fortran`, `fms`, `openmpi`, `fortranxml`. The compiler is listed under `all`, e.g. `'%oneapi@2025.2.0'`.
+Definitions are as follows, see also under commented headings in [spack.yaml](https://github.com/ACCESS-NRI/ACCESS-OM3/blob/main/spack.yaml). `Main Components` consist of: `access3`, `access-cice`, `access-mom6`, `access-ww3`, `access3-share`, `access-generic-tracers`, `access-mocsy`. `Other Dependencies` are: `esmf`, `parallelio`, `netcdf-c`, `netcdf-fortran`, `fms`, `openmpi`, `fortranxml`. The `Compiler` is listed under `all`, e.g. `'%oneapi@2025.2.0'`.
 
 These are the high-level steps to update the model component versions:
 
