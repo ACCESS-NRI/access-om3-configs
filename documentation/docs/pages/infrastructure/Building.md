@@ -53,6 +53,8 @@ Building a prerelease with `build_type=Debug` can be useful for getting more inf
 
 When it is needed to update the model components to incorporate upstream updates to code, this triggers a new major release of the access-om3 executable. Incorporating upstream updates means that bug fixes and new features developed by the development communities are included. This is a release of the executable only and generally is not publicly announced. The new exectuables are then used in configurations. Note this is a distinct activity from configuration releases, which will use a specific ACCESS-OM3 executable version and are publicly announced. The assumption is that most users will run or start from a release configuration, and often will not change the executable directly.
 
+Definitions are as follows, see [spack.yaml](https://github.com/ACCESS-NRI/ACCESS-OM3/blob/main/spack.yaml). Components consist of: `access3`, `access-cice`, `access-mom6`, `access-ww3`, `access3-share`, `access-generic-tracers`, `access-mocsy`. Dependencies are: `esmf`, `parallelio`, `netcdf-c`, `netcdf-fortran`, `fms`, `openmpi`, `fortranxml`. The compiler is listed under `all`, e.g. `'%oneapi@2025.2.0'`.
+
 These are the high-level steps to update the model component versions:
 
 1. **Choose new component versions**: These need to be chosen based on currently known issues/bugs and desired features in the new release. The versions in [https://github.com/ESCOMP/CESM/blob/cesm3.0-alphabranch/.gitmodules](https://github.com/ESCOMP/CESM/blob/cesm3.0-alphabranch/.gitmodules) are a good starting point, as we know NCAR have already checked for compatibility between these versions. Make a [new issue](https://github.com/ACCESS-NRI/access-om3-configs/issues/new/choose) to discuss the new versions.
@@ -87,10 +89,10 @@ The versions can be changed in the access-om3 deployment repository by changing 
 
     e.g. 
 
-    - first change the compiler, then run repro-CI and see the if the answers change
-    - second, update external depencies
-    - third, update access3-share and access3
-    - fourth, update model components one by one
+    - first: change the compiler, then run repro-CI and see the if the answers change
+    - second: update external depencies
+    - third: update access3-share and access3
+    - fourth: update model components one by one
 
     You may find components have interrelated changes and cannot be built seperately. Seperately, the config will often need the field dictionary updated from [upstream](https://github.com/ESCOMP/CMEPS/blob/main/mediator/fd_cesm.yaml). Each model component and cap may have other changes as described in the release note / git history for that component. Work through any issues and updates until the model runs. 
 
