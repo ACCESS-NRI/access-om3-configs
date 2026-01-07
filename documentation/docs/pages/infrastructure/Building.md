@@ -89,10 +89,10 @@ The versions can be changed in the access-om3 deployment repository by changing 
 
     e.g. 
 
-    - first: change the compiler, then run repro-CI and see the if the answers change
-    - second: update external depencies
-    - third: update access3-share and access3
-    - fourth: update model components one by one
+    - first: change the compiler, then run repro-CI and see the if the answers change;
+    - second: update external depencies;
+    - third: update access3-share and access3;
+    - fourth: update remaining model components one by one.
 
     You may find components have interrelated changes and cannot be built seperately. Seperately, the config will often need the field dictionary updated from [upstream](https://github.com/ESCOMP/CMEPS/blob/main/mediator/fd_cesm.yaml). Each model component and cap may have other changes as described in the release note / git history for that component. Work through any issues and updates until the model runs. 
 
