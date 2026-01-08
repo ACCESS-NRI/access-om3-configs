@@ -112,9 +112,10 @@ nav:
         - MOM6-CICE 25km: pages/configurations/MC_25km.md
         - WW3 config: pages/configurations/MOM6-CICE6-WW3-quickstart.md
         - WW3 parameter choices: pages/configurations/WW3_parameter_choices.md
-        - IceShelves:    
-              - Overview: pages/IceShelves.md
-              - Detailed: pages/Detailedpananinstructions.md
+        - pan-Antarctic:    
+              - Overview: pages/configurations/pan-Antartic/Overview.md
+              - Detailed: pages/configurations/pan-Antartic/Detailedpananinstructions.md
+              - Run ISF: pages/configurations/pan-Antartic/run_panan_isf.md
   - Infrastructure:
         - Architecture:          pages/infrastructure/Architecture.md
         - NUOPC driver:          pages/infrastructure/NUOPC-driver.md
