@@ -59,10 +59,24 @@ Definitions are as follows, see also under commented headings in [spack.yaml](ht
 These are the high-level steps to update the model component versions:
 
 1. **Choose new component versions**: These need to be chosen based on currently known issues/bugs and desired features in the new release. The versions in [ESCOMP/CESM/ submodules file](https://github.com/ESCOMP/CESM/blob/cesm3.0-alphabranch/.gitmodules) are a good starting point, as we know NCAR have already checked for compatibility between these versions. Make a [new issue using the template](https://github.com/ACCESS-NRI/access-om3-configs/issues/new?template=upstream-model-component-update-.md) to discuss the new versions.
-2. **Choose new dependency versions**: Similarly, choose new versions for external dependencies and compilers. The current versions are listed in [spack.yaml](https://github.com/ACCESS-NRI/ACCESS-OM3/blob/main/spack.yaml). The available versions are limited to those available in the current install of spack packages.
-3. **Setup a pre-release** with the changes only to dependencies and compilers. Then use a draft-PR to test builds run and for reproducability with previous builds. A draft-PR to [dev-MC_100km_jra_ryf](https://github.com/ACCESS-NRI/access-om3-configs/blob/e836a710b4324a6f942c8bd9855afb627c16e685/config/ci.json#L28-L29) can be a good choice as it runs [all](https://github.com/ACCESS-NRI/model-config-tests/?tab=readme-ov-file#selecting-tests-using-markers) (historical, determinism and determinism over restart) reproducability tests. If changing compilers, it may make sense to run these tests without compiler optisations on (e.g. -O0).
+1. **Choose new dependency versions**: Similarly, choose new versions for external dependencies and compilers. The current versions are listed in [spack.yaml](https://github.com/ACCESS-NRI/ACCESS-OM3/blob/main/spack.yaml). The available versions are limited to those available in the current install of spack packages.
+1. **Setup a pre-release** with the changes only to dependencies and compilers in [ACCESS-OM3 MDR](https://github.com/ACCESS-NRI/ACCESS-OM3/pulls).
+1. **Setup a draft-PR** on a configuration. This allows for testing that the new build runs and has reproducability with previous builds. A draft-PR to [dev-MC_100km_jra_ryf](https://github.com/ACCESS-NRI/access-om3-configs/blob/e836a710b4324a6f942c8bd9855afb627c16e685/config/ci.json#L28-L29) can be a good choice as it runs [all](https://github.com/ACCESS-NRI/model-config-tests/?tab=readme-ov-file#selecting-tests-using-markers) (historical, determinism and determinism over restart) reproducability tests. Here are some suggested steps:
+
+```bash
+cd path/to/clone/of/access-om3-configs
+gh issue create --title "Testing model upstream component and dependencies update: 2026.01.000" --body "Issue to discuss the testing of new model build 2026.01.000." --assignee "@me" --label "all-configurations"
+
+git checkout dev-MC_100km_jra_ryf
+git checkout -b 1032-model-buid-update-test
+#edit `spack.yaml`
+git push origin 1032-model-buid-update-test
+gh pr create --title "Testing model build 2026.01.000 on " -B dev-MC_100km_jra_ryf --body "Closes #1032. PR to test new om3 build 2026.01.000." -d
+```
+
+If changing compilers, it may make sense to run these tests without compiler optisations on (e.g. -O0).
 The versions can be changed in the access-om3 deployment repository by changing the [spack.yaml](https://github.com/ACCESS-NRI/ACCESS-OM3/blob/main/spack.yaml). Unless there is an interface change between depedencies, the old access-om3 model components should still build with the new dependencies.
-4. **Update component repositories**
+1. **Update component repositories**
 
 
     For [access3-share](https://github.com/accESS-NRI/access3-share)
@@ -102,12 +116,12 @@ The versions can be changed in the access-om3 deployment repository by changing 
     Once every component is updated in the PR, and you are generally happy the changes are correct, move to the next step. Hopefully you can iterate and modify such that only the model components which were expected to change answers (based on information from MOM/CICE consortia and release notes) have changed answers.
 
 
-6. **Tag the build components**: Once you are happy with the build, tag each model component fork with the new release number. Typically the first release from a _2025.08_ branch would be _2025.08.000_, or from the _CICE6.6.1-x_ branch would be _CICE6.6.1-0_
+1. **Tag the build components**: Once you are happy with the build, tag each model component fork with the new release number. Typically the first release from a _2025.08_ branch would be _2025.08.000_, or from the _CICE6.6.1-x_ branch would be _CICE6.6.1-0_
 
     Add the tags to spack-packages ([see example PR](https://github.com/ACCESS-NRI/spack-packages/pull/297)) and update the spack packages with any version dependencies found.
 
-7. **Deploy**: Deploy the new version, using the new release versions using the CD process in [https://github.com/ACCESS-NRI/ACCESS-OM3](https://github.com/ACCESS-NRI/ACCESS-OM3).
+1. **Deploy**: Deploy the new version, using the new release versions using the CD process in [https://github.com/ACCESS-NRI/ACCESS-OM3](https://github.com/ACCESS-NRI/ACCESS-OM3).
 
-8. **Update the configurations**: Update all [https://github.com/ACCESS-NRI/access-om3-configs](https://github.com/ACCESS-NRI/access-om3-configs) dev-branches with the build from the new access-om3 deployment & related changes (e.g. `fd.yaml` and other config changes needed for it to run, including minimum payu version)
+1. **Update the configurations**: Update all [https://github.com/ACCESS-NRI/access-om3-configs](https://github.com/ACCESS-NRI/access-om3-configs) dev-branches with the build from the new access-om3 deployment & related changes (e.g. `fd.yaml` and other config changes needed for it to run, including minimum payu version)
 
 **For new minor releases**, these steps can be simplified. Instead of making new branches for model components and updating from upstream, instead make PRs to the existing branches and tag with an incremented minor version number (e.g. following from the examples above, the minor update would be 2025.08.001 or CICE6.6.1-1). Unless necessary, typically minor releases would not change compilers or external depedencies.
