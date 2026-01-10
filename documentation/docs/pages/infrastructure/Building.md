@@ -71,7 +71,7 @@ These are the high-level steps to update the model component versions:
         git push origin 1032-model-buid-update-test
         gh pr create --title "Testing model build 2026.01.000 on " -B dev-MC_100km_jra_ryf --body "Closes #1032. PR to test new om3 build 2026.01.000." -d
 
-If changing compilers, it may make sense to run these tests without compiler optisations on (e.g. -O0).
+   If changing compilers, it may make sense to run these tests without compiler optisations on (e.g. -O0).
 The versions can be changed in the access-om3 deployment repository by changing the [spack.yaml](https://github.com/ACCESS-NRI/ACCESS-OM3/blob/main/spack.yaml). Unless there is an interface change between depedencies, the old access-om3 model components should still build with the new dependencies.
 
 1. **Update component repositories**
