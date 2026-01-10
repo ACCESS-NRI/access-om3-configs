@@ -76,8 +76,8 @@ gh pr create --title "Testing model build 2026.01.000 on " -B dev-MC_100km_jra_r
 
 If changing compilers, it may make sense to run these tests without compiler optisations on (e.g. -O0).
 The versions can be changed in the access-om3 deployment repository by changing the [spack.yaml](https://github.com/ACCESS-NRI/ACCESS-OM3/blob/main/spack.yaml). Unless there is an interface change between depedencies, the old access-om3 model components should still build with the new dependencies.
-1. **Update component repositories**
 
+1. **Update component repositories**
 
     For [access3-share](https://github.com/accESS-NRI/access3-share)
 
