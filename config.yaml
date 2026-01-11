@@ -84,4 +84,5 @@ platform:
   nodesize: 104
   nodemem: 512
 
-restart_freq: 1
+restart_freq: 1YS
+payu_minimum_version: 1.2.0
