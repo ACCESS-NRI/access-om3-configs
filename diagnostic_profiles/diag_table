@@ -76,12 +76,6 @@ ACCESS-OM3
 "access-om3.mom6.3d.vmo.rho2.1mon.mean.%4yr", 1, "months", 1, "days", "time", 1, "years"
 "ocean_model_rho2", "vmo", "vmo", "access-om3.mom6.3d.vmo.rho2.1mon.mean.%4yr", "all", "average", "none", 2
 
-"access-om3.mom6.3d.uhGM.rho2.1mon.mean.%4yr", 1, "months", 1, "days", "time", 1, "years"
-"ocean_model_rho2", "uhGM", "uhGM", "access-om3.mom6.3d.uhGM.rho2.1mon.mean.%4yr", "all", "average", "none", 2
-
-"access-om3.mom6.3d.vhGM.rho2.1mon.mean.%4yr", 1, "months", 1, "days", "time", 1, "years"
-"ocean_model_rho2", "vhGM", "vhGM", "access-om3.mom6.3d.vhGM.rho2.1mon.mean.%4yr", "all", "average", "none", 2
-
 
 # monthly 2d fields
 
@@ -136,6 +130,18 @@ ACCESS-OM3
 "access-om3.mom6.2d.pbo.1mon.mean.%4yr", 1, "months", 1, "days", "time", 1, "years"
 "ocean_model", "pbo", "pbo", "access-om3.mom6.2d.pbo.1mon.mean.%4yr", "all", "average", "none", 2
 
+"access-om3.mom6.2d.lrunoff.1mon.mean.%4yr", 1, "months", 1, "days", "time", 1, "years"
+"ocean_model", "lrunoff", "lrunoff", "access-om3.mom6.2d.lrunoff.1mon.mean.%4yr", "all", "average", "none", 2
+
+"access-om3.mom6.2d.fsitherm.1mon.mean.%4yr", 1, "months", 1, "days", "time", 1, "years"
+"ocean_model", "fsitherm", "fsitherm", "access-om3.mom6.2d.fsitherm.1mon.mean.%4yr", "all", "average", "none", 2
+
+"access-om3.mom6.2d.salt_flux.1mon.mean.%4yr", 1, "months", 1, "days", "time", 1, "years"
+"ocean_model", "salt_flux", "salt_flux", "access-om3.mom6.2d.salt_flux.1mon.mean.%4yr", "all", "average", "none", 2
+
+"access-om3.mom6.2d.precip.1mon.mean.%4yr", 1, "months", 1, "days", "time", 1, "years"
+"ocean_model", "precip", "precip", "access-om3.mom6.2d.precip.1mon.mean.%4yr", "all", "average", "none", 2
+
 
 # monthly 2d max fields
 
@@ -159,6 +165,9 @@ ACCESS-OM3
 
 "access-om3.mom6.2d.speed.1day.mean.%4yr", 1, "days", 1, "days", "time", 1, "years"
 "ocean_model", "speed", "speed", "access-om3.mom6.2d.speed.1day.mean.%4yr", "all", "average", "none", 2
+
+"access-om3.mom6.2d.lrunoff.1day.mean.%4yr", 1, "days", 1, "days", "time", 1, "years"
+"ocean_model", "lrunoff", "lrunoff", "access-om3.mom6.2d.lrunoff.1day.mean.%4yr", "all", "average", "none", 2
 
 
 # daily scalar timeseries
