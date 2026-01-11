@@ -11,7 +11,7 @@
             "markers": "repro or access_om3 or dev_config"
         },
         "dev-MCW_100km_jra_ryf": {
-            "markers": "repro or access_om3 or dev_config"
+            "markers": "repro and (not repro_restart) or access_om3 or dev_config"
         },
          "dev-MC_25km_jra_ryf": {
             "markers": "repro or access_om3 or dev_config"
