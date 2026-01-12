@@ -39,5 +39,11 @@ This issue is intended as a place to discuss which upstream model versions we sh
 | fortranxml |  |  |  |  |
 | gcc-runtime |  |  |  |  |
 
+## Infrastructure
+| Dependency | current ACCESS-OM3 | Proposed ACCESS-OM3 | Notes |
+| --- | --- | --- | --- |
+| spack |  |  |  |
+| access-spack-packages |  |  |  |
+
 ## Comments
  -
