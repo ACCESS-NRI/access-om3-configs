@@ -30,6 +30,7 @@ This issue is intended as a place to discuss which upstream model versions we sh
 ## Dependencies
 | Dependency | CESM | current ACCESS-OM3 | Proposed ACCESS-OM3 | Notes |
 | --- | --- | --- | --- | --- |
+| access-generic-tracers |  |  |  |  |
 | esmf |  |  |  |  |
 | parallelio |  |  |  |  |
 | netcdf-c |  |  |  |  |
