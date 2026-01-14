@@ -146,7 +146,7 @@ DTFREEZE_DP = -7.75E-08         !   [degC Pa-1] default = 0.0
                                 ! temperature with pressure.
 
 ! === module MOM_tracer_flow_control ===
-USE_generic_tracer = True       !   [Boolean] default = False
+USE_generic_tracer = False       !   [Boolean] default = False
                                 ! If true and _USE_GENERIC_TRACER is defined as a preprocessor macro, use the
                                 ! MOM_generic_tracer packages.
 

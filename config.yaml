@@ -26,7 +26,10 @@ input:
     - /g/data/ol01/ee8016/regional_wombat/vcoord.nc
     - /g/data/ol01/ee8016/regional_wombat/modifiedfiles/bathymetry.nc
     - /g/data/ol01/ee8016/regional_wombat/modifiedfiles/init_tracers_mod.nc
-    - /g/data/ol01/ee8016/regional_wombat/modifiedfiles/obgc_obc.nc
+    - /g/data/ol01/ee8016/regional_wombat/forcing_obc_segment_001.nc
+    - /g/data/ol01/ee8016/regional_wombat/forcing_obc_segment_002.nc
+    - /g/data/ol01/ee8016/regional_wombat/forcing_obc_segment_003.nc
+    - /g/data/ol01/ee8016/regional_wombat/forcing_obc_segment_004.nc
     - /g/data/ol01/ee8016/regional_wombat/init_eta.nc
     - /g/data/ol01/ee8016/regional_wombat/init_vel.nc
     - /g/data/ol01/ee8016/regional_wombat/grid_spec.nc

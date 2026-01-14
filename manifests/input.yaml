@@ -3391,6 +3391,26 @@ work/INPUT/bathymetry.nc:
   hashes:
     binhash: ba82a01f837a995c272b0f43a315bfc3
     md5: 2639cdb91c8e7bec43c8dd74943e24a6
+work/INPUT/forcing_obc_segment_001.nc:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/forcing_obc_segment_001.nc
+  hashes:
+    binhash: 05a1be0ecf53c745b30c6a7c948ada1b
+    md5: f3d4a7f55de2aba99d0ada571659a016
+work/INPUT/forcing_obc_segment_002.nc:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/forcing_obc_segment_002.nc
+  hashes:
+    binhash: 51c35b8728e85536b1e220fe74523fd0
+    md5: f361fbcfecdaf6d53d91bbae6e6b086c
+work/INPUT/forcing_obc_segment_003.nc:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/forcing_obc_segment_003.nc
+  hashes:
+    binhash: 288ed379052140897b7f7537d33c5862
+    md5: 70f225c81d328294bbd0e2f3755c555c
+work/INPUT/forcing_obc_segment_004.nc:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/forcing_obc_segment_004.nc
+  hashes:
+    binhash: 22b8e650f2f60ac37f9bb5e7ec7deb80
+    md5: 37dc66117e591fac54013451266a2406
 work/INPUT/grid_spec.nc:
   fullpath: /g/data/ol01/ee8016/regional_wombat/grid_spec.nc
   hashes:
@@ -4086,11 +4106,6 @@ work/INPUT/land/day/friver/gr/v20240531/friver_input4MIPs_atmosphericState_OMIP_
   hashes:
     binhash: fb4da82e21b01ccd4ef5e7a99f31f4e5
     md5: 6838f869a96238b2b162103794739519
-work/INPUT/obgc_obc.nc:
-  fullpath: /g/data/ol01/ee8016/regional_wombat/modifiedfiles/obgc_obc.nc
-  hashes:
-    binhash: 4b3126e1c3d78cd200cfd9d57b86a44f
-    md5: f302c043cebc28cbd81fe94056cc149d
 work/INPUT/ocean/day/tos/gn/v20240531/tos_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-6-0_gn_19580101-19581231.nc:
   fullpath: /g/data/qv56/replicas/input4MIPs/CMIP6Plus/OMIP/MRI/MRI-JRA55-do-1-6-0/ocean/day/tos/gn/v20240531/tos_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-6-0_gn_19580101-19581231.nc
   hashes:

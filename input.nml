@@ -6,8 +6,8 @@
 /
 
 &generic_tracer_nml
-    do_generic_tracer=.true.
-    do_generic_WOMBATlite=.true.
+    do_generic_tracer=.false.
+    do_generic_WOMBATlite=.false.
     force_update_fluxes=.false. !This has to be set for THERMO_SPANS_COUPLING to work
 /
 
