@@ -45,7 +45,8 @@ input:
     - /g/data/vk83/prerelease/configurations/inputs/access-om3/share/meshes/global.25km/2025.11.27/access-om3-25km-nomask-ESMFmesh.nc
     - /g/data/vk83/configurations/inputs/access-om3/share/meshes/share/2024.09.16/JRA55do-datm-ESMFmesh.nc
     - /g/data/vk83/configurations/inputs/access-om3/share/meshes/share/2024.09.16/JRA55do-drof-ESMFmesh.nc
-    - /g/data/vk83/prerelease/configurations/inputs/access-om3/cmeps/remap_weights/global.25km/2025.11.27/access-om3-25km-rof-remap-weights.nc
+    # - /g/data/vk83/prerelease/configurations/inputs/access-om3/cmeps/remap_weights/global.25km/2025.11.27/access-om3-25km-rof-remap-weights.nc
+    - /g/data/tm70/as2285/making_inputs/om3-scripts/mesh_generation/access-om3-25km-rof-remap-weights.nc
     - /g/data/vk83/configurations/inputs/JRA-55/RYF/v1-6/data
 
 runlog: true
@@ -54,7 +55,7 @@ metadata:
 manifest:
   reproduce:
     exe: True
-    input: True
+    input: False
 
 platform:
     nodesize: 104
