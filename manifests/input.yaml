@@ -1,6 +1,21 @@
 format: yamanifest
 version: 1.0
 ---
+work/INPUT/.ipynb_checkpoints/check_ic_boundary_files-checkpoint.ipynb:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/.ipynb_checkpoints/check_ic_boundary_files-checkpoint.ipynb
+  hashes:
+    binhash: 039bd72e6e019169c85f1c2f7fe956e8
+    md5: 2f6cceae1d861df553a6ebb64b6862ef
+work/INPUT/.ipynb_checkpoints/dustfile-checkpoint.ipynb:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/.ipynb_checkpoints/dustfile-checkpoint.ipynb
+  hashes:
+    binhash: 21625a2489ec235d3f6dbca291a52e82
+    md5: 2d4d824cff5149810ef90ed580b98648
+work/INPUT/.ipynb_checkpoints/mom6r-bgc-checkpoint.ipynb:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/.ipynb_checkpoints/mom6r-bgc-checkpoint.ipynb
+  hashes:
+    binhash: e3a4bd467ccd541375a12b75ae1acb82
+    md5: 7b77770ed92572f9c8e7d25fc86cccb2
 work/INPUT/JRA55do-datm-ESMFmesh.nc:
   fullpath: /g/data/vk83/configurations/inputs/access-om3/share/meshes/share/2024.09.16/JRA55do-datm-ESMFmesh.nc
   hashes:
@@ -11,6 +26,891 @@ work/INPUT/JRA55do-drof-ESMFmesh.nc:
   hashes:
     binhash: fa1322dbc0ab951527b165f8327c7b5b
     md5: 3b46260b8c14d12925cf70f82da6658e
+work/INPUT/OM3_25km_jra_ryf+wombatlite/README:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/README
+  hashes:
+    binhash: 11be1059fd00f817b53dbc5ba666c3b5
+    md5: 266db5fe17bb75014c52f0131fdcb2a6
+work/INPUT/OM3_25km_jra_ryf+wombatlite/output019/access-om3.mom6.2d.SSH.1mon.mean.1919.nc:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/output019/access-om3.mom6.2d.SSH.1mon.mean.1919.nc
+  hashes:
+    binhash: 401b2ab1194370b218aff7fc43f681a6
+    md5: c0bf3269ac56fa8053c20fc8450eda8c
+work/INPUT/OM3_25km_jra_ryf+wombatlite/output019/access-om3.mom6.2d.caco3_sediment.1mon.mean.1919.nc:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/output019/access-om3.mom6.2d.caco3_sediment.1mon.mean.1919.nc
+  hashes:
+    binhash: a624a1c0e1023c0991239f4564fc594d
+    md5: a568110943ad68dabc0c8933196463c5
+work/INPUT/OM3_25km_jra_ryf+wombatlite/output019/access-om3.mom6.2d.det_sediment.1mon.mean.1919.nc:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/output019/access-om3.mom6.2d.det_sediment.1mon.mean.1919.nc
+  hashes:
+    binhash: 1bac527d1adda9aced83cf86987044cb
+    md5: e95071e7034b2bb86afbf81c325d663f
+work/INPUT/OM3_25km_jra_ryf+wombatlite/output019/access-om3.mom6.2d.detfe_sediment.1mon.mean.1919.nc:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/output019/access-om3.mom6.2d.detfe_sediment.1mon.mean.1919.nc
+  hashes:
+    binhash: a2b3033ed96e7f9b1407081a652e088f
+    md5: 4c0eabc70f4315ddce664e0e909e3fe1
+work/INPUT/OM3_25km_jra_ryf+wombatlite/output019/access-om3.mom6.3d.alk.1mon.mean.1919.nc:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/output019/access-om3.mom6.3d.alk.1mon.mean.1919.nc
+  hashes:
+    binhash: 2beda94f2cfde2ac237978d7ef07df9a
+    md5: d747e7aaaab3e995fb35c5a356d2dfa8
+work/INPUT/OM3_25km_jra_ryf+wombatlite/output019/access-om3.mom6.3d.caco3.1mon.mean.1919.nc:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/output019/access-om3.mom6.3d.caco3.1mon.mean.1919.nc
+  hashes:
+    binhash: a007a6266534bfee6f1c11b9eebac2e7
+    md5: 5c253f15db814cecfe067b79e2816a16
+work/INPUT/OM3_25km_jra_ryf+wombatlite/output019/access-om3.mom6.3d.det.1mon.mean.1919.nc:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/output019/access-om3.mom6.3d.det.1mon.mean.1919.nc
+  hashes:
+    binhash: 9d5f0bec846f4cd704c750ade4d1ce3d
+    md5: 5d0fd95c7dedf2442782cdf581ad9fb2
+work/INPUT/OM3_25km_jra_ryf+wombatlite/output019/access-om3.mom6.3d.detfe.1mon.mean.1919.nc:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/output019/access-om3.mom6.3d.detfe.1mon.mean.1919.nc
+  hashes:
+    binhash: 1fcbdb3ad1298fc98f933dc7e06be389
+    md5: 1061a7be7dc07fbbabfa6a1437c0cb6d
+work/INPUT/OM3_25km_jra_ryf+wombatlite/output019/access-om3.mom6.3d.dic.1mon.mean.1919.nc:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/output019/access-om3.mom6.3d.dic.1mon.mean.1919.nc
+  hashes:
+    binhash: 11bead937deefa5091652c8881a41f68
+    md5: ad21794c53065cd15f33c73cc256a362
+work/INPUT/OM3_25km_jra_ryf+wombatlite/output019/access-om3.mom6.3d.dicp.1mon.mean.1919.nc:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/output019/access-om3.mom6.3d.dicp.1mon.mean.1919.nc
+  hashes:
+    binhash: eafd4ef05d31d890386521ed3c7517eb
+    md5: bd97ae58f5ed7b6a2313b9470918e434
+work/INPUT/OM3_25km_jra_ryf+wombatlite/output019/access-om3.mom6.3d.dicr.1mon.mean.1919.nc:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/output019/access-om3.mom6.3d.dicr.1mon.mean.1919.nc
+  hashes:
+    binhash: f84465fe28f8528b47f93a422e2694cb
+    md5: e5663c57d8576d990be39863142e34fd
+work/INPUT/OM3_25km_jra_ryf+wombatlite/output019/access-om3.mom6.3d.fe.1mon.mean.1919.nc:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/output019/access-om3.mom6.3d.fe.1mon.mean.1919.nc
+  hashes:
+    binhash: ce3ebea015262863ae51398b109f744d
+    md5: bfb3dfa4104d7e461f8e7db3ad702b71
+work/INPUT/OM3_25km_jra_ryf+wombatlite/output019/access-om3.mom6.3d.no3.1mon.mean.1919.nc:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/output019/access-om3.mom6.3d.no3.1mon.mean.1919.nc
+  hashes:
+    binhash: dfced6044e9cc688537f8d01f35a61e3
+    md5: 1c577d0c9956a71326a7403878612d9c
+work/INPUT/OM3_25km_jra_ryf+wombatlite/output019/access-om3.mom6.3d.o2.1mon.mean.1919.nc:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/output019/access-om3.mom6.3d.o2.1mon.mean.1919.nc
+  hashes:
+    binhash: 110308b23a3b82c39535f375afc6f676
+    md5: e9989c8b7a8453e84c2388543d0f6e1f
+work/INPUT/OM3_25km_jra_ryf+wombatlite/output019/access-om3.mom6.3d.pchl.1mon.mean.1919.nc:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/output019/access-om3.mom6.3d.pchl.1mon.mean.1919.nc
+  hashes:
+    binhash: 960637ac405dd40ef1bde4c1f506c903
+    md5: 8cb9a9dcd52d12b1a47e033fe61e7e90
+work/INPUT/OM3_25km_jra_ryf+wombatlite/output019/access-om3.mom6.3d.phy.1mon.mean.1919.nc:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/output019/access-om3.mom6.3d.phy.1mon.mean.1919.nc
+  hashes:
+    binhash: 5d27f1531ca700725e8d7389153de678
+    md5: 8a085f4e1029e907c004ee580ac60663
+work/INPUT/OM3_25km_jra_ryf+wombatlite/output019/access-om3.mom6.3d.phyfe.1mon.mean.1919.nc:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/output019/access-om3.mom6.3d.phyfe.1mon.mean.1919.nc
+  hashes:
+    binhash: 552f97a7437fa4e6cc009770f5945adc
+    md5: e79843f27e86e95524aa61c39e73b08a
+work/INPUT/OM3_25km_jra_ryf+wombatlite/output019/access-om3.mom6.3d.so.1mon.mean.1919.nc:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/output019/access-om3.mom6.3d.so.1mon.mean.1919.nc
+  hashes:
+    binhash: 6b200493f0f65563e8301d39e8949bf0
+    md5: 3b1659a6f65482b2444719f34e4cebd8
+work/INPUT/OM3_25km_jra_ryf+wombatlite/output019/access-om3.mom6.3d.thetao.1mon.mean.1919.nc:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/output019/access-om3.mom6.3d.thetao.1mon.mean.1919.nc
+  hashes:
+    binhash: 3c96d896af5653682f43be0c47befa4b
+    md5: ed742a18247bc584412d319ca406246f
+work/INPUT/OM3_25km_jra_ryf+wombatlite/output019/access-om3.mom6.3d.uo.1mon.mean.1919.nc:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/output019/access-om3.mom6.3d.uo.1mon.mean.1919.nc
+  hashes:
+    binhash: 0c568ddadec0e7bece8b41fca50f970d
+    md5: 17fc7978959cd1f13e7bfa69e1b722cd
+work/INPUT/OM3_25km_jra_ryf+wombatlite/output019/access-om3.mom6.3d.vo.1mon.mean.1919.nc:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/output019/access-om3.mom6.3d.vo.1mon.mean.1919.nc
+  hashes:
+    binhash: 9c424271f0b655b9b82afdca89d15690
+    md5: dc09259fdec50ca18035d567a3585e28
+work/INPUT/OM3_25km_jra_ryf+wombatlite/output019/access-om3.mom6.3d.zoo.1mon.mean.1919.nc:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/output019/access-om3.mom6.3d.zoo.1mon.mean.1919.nc
+  hashes:
+    binhash: 42136ae3f425652567d463742dd3f59e
+    md5: 9ad9e48939f80c06929e269055e85ad9
+work/INPUT/OM3_25km_jra_ryf+wombatlite/output019/access-om3.mom6.3d.zoofe.1mon.mean.1919.nc:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/output019/access-om3.mom6.3d.zoofe.1mon.mean.1919.nc
+  hashes:
+    binhash: 9b5659f4783c10eeed141b95c4d92660
+    md5: ae50845c5cb78bfc271e0db5f458b3e0
+work/INPUT/OM3_25km_jra_ryf+wombatlite/output019/access-om3.mom6.static.nc:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/output019/access-om3.mom6.static.nc
+  hashes:
+    binhash: 6aa3f9f417b7f0e407434f6d4f03398e
+    md5: 74b78ca3478e5bb5caf57a2bab1d7dfe
+work/INPUT/OM3_25km_jra_ryf+wombatlite/output020/access-om3.mom6.2d.SSH.1mon.mean.1920.nc:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/output020/access-om3.mom6.2d.SSH.1mon.mean.1920.nc
+  hashes:
+    binhash: ca088117e7a54a23a3f5f167a364d356
+    md5: 979df9a2dc51290ddfc3c9cda4d5add5
+work/INPUT/OM3_25km_jra_ryf+wombatlite/output020/access-om3.mom6.2d.caco3_sediment.1mon.mean.1920.nc:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/output020/access-om3.mom6.2d.caco3_sediment.1mon.mean.1920.nc
+  hashes:
+    binhash: af62eb0b8d350cf0a1edb777a38e430c
+    md5: 19e1b8c06a920f837a79d53d3a885ce9
+work/INPUT/OM3_25km_jra_ryf+wombatlite/output020/access-om3.mom6.2d.det_sediment.1mon.mean.1920.nc:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/output020/access-om3.mom6.2d.det_sediment.1mon.mean.1920.nc
+  hashes:
+    binhash: c2e6c7aa884e7126e24103d590c127d5
+    md5: f5929bf2e9156067390204fc5b568a09
+work/INPUT/OM3_25km_jra_ryf+wombatlite/output020/access-om3.mom6.2d.detfe_sediment.1mon.mean.1920.nc:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/output020/access-om3.mom6.2d.detfe_sediment.1mon.mean.1920.nc
+  hashes:
+    binhash: f7b7e528fd1f64790803e2178b08f74e
+    md5: dd383445a13d754a58477551dedfa03c
+work/INPUT/OM3_25km_jra_ryf+wombatlite/output020/access-om3.mom6.3d.alk.1mon.mean.1920.nc:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/output020/access-om3.mom6.3d.alk.1mon.mean.1920.nc
+  hashes:
+    binhash: 89004e5b1c2d2eba3f4836d5d45d4306
+    md5: c56db1870884909649c299367f27fb55
+work/INPUT/OM3_25km_jra_ryf+wombatlite/output020/access-om3.mom6.3d.caco3.1mon.mean.1920.nc:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/output020/access-om3.mom6.3d.caco3.1mon.mean.1920.nc
+  hashes:
+    binhash: 5bf93e33128fab3cdba5c8338ca3d37b
+    md5: 26bf5e4fe7444851e3312d53d5b73505
+work/INPUT/OM3_25km_jra_ryf+wombatlite/output020/access-om3.mom6.3d.det.1mon.mean.1920.nc:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/output020/access-om3.mom6.3d.det.1mon.mean.1920.nc
+  hashes:
+    binhash: 120b97f2983049e8a89acd12ef793dbe
+    md5: b2a05f4f281ded9f05cf411d8280d3ec
+work/INPUT/OM3_25km_jra_ryf+wombatlite/output020/access-om3.mom6.3d.detfe.1mon.mean.1920.nc:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/output020/access-om3.mom6.3d.detfe.1mon.mean.1920.nc
+  hashes:
+    binhash: 16737a87783991e761b96a119064ac96
+    md5: 2ea0250a6d031e5dcee3a6d2af0ce617
+work/INPUT/OM3_25km_jra_ryf+wombatlite/output020/access-om3.mom6.3d.dic.1mon.mean.1920.nc:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/output020/access-om3.mom6.3d.dic.1mon.mean.1920.nc
+  hashes:
+    binhash: 0ba2e25891a5a4d038df71e2fe15a163
+    md5: ec91c7852d44e1b1bd829a18ca3bd2e4
+work/INPUT/OM3_25km_jra_ryf+wombatlite/output020/access-om3.mom6.3d.dicp.1mon.mean.1920.nc:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/output020/access-om3.mom6.3d.dicp.1mon.mean.1920.nc
+  hashes:
+    binhash: 69c034680257c9006fb547f43345ec2c
+    md5: 8405ca9c925e75ee5c63b8c32f0a7ea9
+work/INPUT/OM3_25km_jra_ryf+wombatlite/output020/access-om3.mom6.3d.dicr.1mon.mean.1920.nc:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/output020/access-om3.mom6.3d.dicr.1mon.mean.1920.nc
+  hashes:
+    binhash: f81a2f20791544fc846de2943d08e2a4
+    md5: 3668db5452a6258737903fab8bb907db
+work/INPUT/OM3_25km_jra_ryf+wombatlite/output020/access-om3.mom6.3d.fe.1mon.mean.1920.nc:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/output020/access-om3.mom6.3d.fe.1mon.mean.1920.nc
+  hashes:
+    binhash: f6c8710c1ed2429a9d572fda1e8a323f
+    md5: 589df4ad94adbb46f6c8cd6d110e3eed
+work/INPUT/OM3_25km_jra_ryf+wombatlite/output020/access-om3.mom6.3d.no3.1mon.mean.1920.nc:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/output020/access-om3.mom6.3d.no3.1mon.mean.1920.nc
+  hashes:
+    binhash: 30a69675e9c5623651d2ad79e79a2ed7
+    md5: a67a59ebeb7ef64e38c8b011d7e52fc6
+work/INPUT/OM3_25km_jra_ryf+wombatlite/output020/access-om3.mom6.3d.o2.1mon.mean.1920.nc:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/output020/access-om3.mom6.3d.o2.1mon.mean.1920.nc
+  hashes:
+    binhash: 3387bd2c450a2b4f60b7613d39762210
+    md5: ed05f1f32be06aa2c90eeff5e6e864e7
+work/INPUT/OM3_25km_jra_ryf+wombatlite/output020/access-om3.mom6.3d.pchl.1mon.mean.1920.nc:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/output020/access-om3.mom6.3d.pchl.1mon.mean.1920.nc
+  hashes:
+    binhash: 3ace836f54d761d273e07eacc42c9db5
+    md5: 28bf9f118702c9081a37f7334d341f34
+work/INPUT/OM3_25km_jra_ryf+wombatlite/output020/access-om3.mom6.3d.phy.1mon.mean.1920.nc:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/output020/access-om3.mom6.3d.phy.1mon.mean.1920.nc
+  hashes:
+    binhash: 855d3ebca0153f9aea841f79ce110fef
+    md5: 44f458053d2d656be19c2238b207e85c
+work/INPUT/OM3_25km_jra_ryf+wombatlite/output020/access-om3.mom6.3d.phyfe.1mon.mean.1920.nc:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/output020/access-om3.mom6.3d.phyfe.1mon.mean.1920.nc
+  hashes:
+    binhash: bbca14c1765e43d3a5d1c126a189a56e
+    md5: b0f702da5040d5519ff11c55c825a70c
+work/INPUT/OM3_25km_jra_ryf+wombatlite/output020/access-om3.mom6.3d.so.1mon.mean.1920.nc:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/output020/access-om3.mom6.3d.so.1mon.mean.1920.nc
+  hashes:
+    binhash: 1ff267a371c5a9857e2c79b83b1c1633
+    md5: 73bad4621d4fbe8b6466629e9fb7cd33
+work/INPUT/OM3_25km_jra_ryf+wombatlite/output020/access-om3.mom6.3d.thetao.1mon.mean.1920.nc:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/output020/access-om3.mom6.3d.thetao.1mon.mean.1920.nc
+  hashes:
+    binhash: df5ee11a1685623e24a0fabeb4a705ed
+    md5: 2156ff662565023decdfd89e74a2ba26
+work/INPUT/OM3_25km_jra_ryf+wombatlite/output020/access-om3.mom6.3d.uo.1mon.mean.1920.nc:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/output020/access-om3.mom6.3d.uo.1mon.mean.1920.nc
+  hashes:
+    binhash: 71a370d4524f0bef441803bd40c8a412
+    md5: 34bb9a320fbd42f40b73562eef87eb51
+work/INPUT/OM3_25km_jra_ryf+wombatlite/output020/access-om3.mom6.3d.vo.1mon.mean.1920.nc:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/output020/access-om3.mom6.3d.vo.1mon.mean.1920.nc
+  hashes:
+    binhash: b7ed6c948126aeba2dbb0ea82af9f46d
+    md5: 03b9f80093d04d50a6bd8a4d4376e384
+work/INPUT/OM3_25km_jra_ryf+wombatlite/output020/access-om3.mom6.3d.zoo.1mon.mean.1920.nc:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/output020/access-om3.mom6.3d.zoo.1mon.mean.1920.nc
+  hashes:
+    binhash: 798e2acbf854024c021eeb084acbba44
+    md5: 3bf0403fb40f5e487177cc1af64d3381
+work/INPUT/OM3_25km_jra_ryf+wombatlite/output020/access-om3.mom6.3d.zoofe.1mon.mean.1920.nc:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/output020/access-om3.mom6.3d.zoofe.1mon.mean.1920.nc
+  hashes:
+    binhash: 24381448d5f0efc398b89793f8313529
+    md5: 1b932ad89685108413cb574459ed41e8
+work/INPUT/OM3_25km_jra_ryf+wombatlite/output020/access-om3.mom6.static.nc:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/output020/access-om3.mom6.static.nc
+  hashes:
+    binhash: 98652b3a40f55b3e10b4d02d586c9a62
+    md5: 941af5721c0c73c927b4f41d2131a94b
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart019/access-om3.cice.r.1920-01-01-00000.nc:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart019/access-om3.cice.r.1920-01-01-00000.nc
+  hashes:
+    binhash: 713145e2ef929e2d21a8221a05f43335
+    md5: 4012c43dc0cafd3c881d997780edb5b2
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart019/access-om3.cpl.r.1920-01-01-00000.nc:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart019/access-om3.cpl.r.1920-01-01-00000.nc
+  hashes:
+    binhash: 3e5388ac21e459037e0a45f7bd1c348a
+    md5: 97bf3039cf0cc77eedf38481e49cd70c
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart019/access-om3.datm.r.1920-01-01-00000.nc:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart019/access-om3.datm.r.1920-01-01-00000.nc
+  hashes:
+    binhash: 21b81b7abbb66c1e4216ee453030cbaa
+    md5: c87e8ec464bbcc95cc5dc210a52d3357
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart019/access-om3.drof.r.1920-01-01-00000.nc:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart019/access-om3.drof.r.1920-01-01-00000.nc
+  hashes:
+    binhash: 7e3ad81cad63547e5eb4e1829fbc580d
+    md5: 477dc3b180ee4ff7b8e9c7d7ada81280
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart019/access-om3.mom6.r.1920-01-01-00000.nc:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart019/access-om3.mom6.r.1920-01-01-00000.nc
+  hashes:
+    binhash: 6da68dfa2f0ad86de7dd809dcdb7f406
+    md5: a5346bc7be5e8992c74339e28aa51244
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart019/access-om3.mom6.r.1920-01-01-00000_1.nc:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart019/access-om3.mom6.r.1920-01-01-00000_1.nc
+  hashes:
+    binhash: 907cbe46f1a3e58b0a4b36828f3f2e7a
+    md5: 9205b8098f7704630f144c123f6a8ba3
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart019/access-om3.mom6.r.1920-01-01-00000_2.nc:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart019/access-om3.mom6.r.1920-01-01-00000_2.nc
+  hashes:
+    binhash: bb0ca1d1e5bea0adac57b4cf5d85d7a2
+    md5: 0b50ab57fa4d7729c286fea13a9aca06
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart019/access-om3.mom6.r.1920-01-01-00000_3.nc:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart019/access-om3.mom6.r.1920-01-01-00000_3.nc
+  hashes:
+    binhash: 0d595dbf73014f6a8dfb60cc0801370d
+    md5: 9f1facb2af135d9381799fe3494a5ed3
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart019/access-om3.mom6.r.1920-01-01-00000_4.nc:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart019/access-om3.mom6.r.1920-01-01-00000_4.nc
+  hashes:
+    binhash: 16d97194143510e07c0af5c44b4dda6c
+    md5: 61e662fcc9dfb99675cb1a8f04f5f95f
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart019/access-om3.mom6.r.1920-01-01-00000_5.nc:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart019/access-om3.mom6.r.1920-01-01-00000_5.nc
+  hashes:
+    binhash: 43b868698aa10154f6321b0492e3724f
+    md5: 660f137e5697a2e24fbe5a8b6e090447
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart019/access-om3.mom6.r.1920-01-01-00000_6.nc:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart019/access-om3.mom6.r.1920-01-01-00000_6.nc
+  hashes:
+    binhash: 73decf67f943794bfecc39338f96fe0b
+    md5: e9975218385b35c4eab57ba2415b3da0
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart019/access-om3.mom6.r.1920-01-01-00000_7.nc:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart019/access-om3.mom6.r.1920-01-01-00000_7.nc
+  hashes:
+    binhash: 035e7449370097ec9590788f359c537a
+    md5: 001192e7059bfcd15dd21a28d320a60e
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart019/access-om3.mom6.r.1920-01-01-00000_8.nc:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart019/access-om3.mom6.r.1920-01-01-00000_8.nc
+  hashes:
+    binhash: 41bbde2fe542c2659c26d6aa54c78ee0
+    md5: 883ed8632e92b1be4697d35bd9215792
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart019/ocean_wombatlite_airsea_flux.res.nc.0001:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart019/ocean_wombatlite_airsea_flux.res.nc.0001
+  hashes:
+    binhash: 3e90b81152d60f3c5e3036118ddb34ce
+    md5: c32dd9c2d2ec19a9122819dec800ece0
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart019/ocean_wombatlite_airsea_flux.res.nc.0002:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart019/ocean_wombatlite_airsea_flux.res.nc.0002
+  hashes:
+    binhash: 01d74f68c179b78f96b821c1cdbbc021
+    md5: 8375894f14fa6f49db115a4a75ee2cd2
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart019/ocean_wombatlite_airsea_flux.res.nc.0003:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart019/ocean_wombatlite_airsea_flux.res.nc.0003
+  hashes:
+    binhash: 53b77152f16129f337e16b26c2ad73fb
+    md5: e3a7a2f2d1ac2a91b111d5acbb7e8a6f
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart019/ocean_wombatlite_airsea_flux.res.nc.0004:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart019/ocean_wombatlite_airsea_flux.res.nc.0004
+  hashes:
+    binhash: 7761303d1f195ec6472ca237039ca2f6
+    md5: 632a12d74277ad0d13706648e9358e82
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart019/ocean_wombatlite_airsea_flux.res.nc.0006:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart019/ocean_wombatlite_airsea_flux.res.nc.0006
+  hashes:
+    binhash: 6db9cd12b0b82c78110f5be0c4e7c95e
+    md5: f36cf2860183ba2d20c3a1160edb18da
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart019/ocean_wombatlite_airsea_flux.res.nc.0007:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart019/ocean_wombatlite_airsea_flux.res.nc.0007
+  hashes:
+    binhash: bacc344fa69b91a348bbe81e1fcad4c6
+    md5: b703caba3eadeeb9785244c1cb62e257
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart019/ocean_wombatlite_airsea_flux.res.nc.0008:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart019/ocean_wombatlite_airsea_flux.res.nc.0008
+  hashes:
+    binhash: c382cc148819671eabfc35cdb48030a0
+    md5: 03ccb5608e01098d1540d61f2416a4e5
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart019/ocean_wombatlite_airsea_flux.res.nc.0009:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart019/ocean_wombatlite_airsea_flux.res.nc.0009
+  hashes:
+    binhash: 7119c14fc1663ea4d5f957d6c702c0ad
+    md5: 87547d461fd035adec9c0800a006ddb3
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart019/ocean_wombatlite_airsea_flux.res.nc.0010:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart019/ocean_wombatlite_airsea_flux.res.nc.0010
+  hashes:
+    binhash: 82ab49cf0c9bbbcbb8ff8b66f7d6c7db
+    md5: c22509865ea8ba37efe1b61d2fd6f349
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart019/ocean_wombatlite_airsea_flux.res.nc.0011:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart019/ocean_wombatlite_airsea_flux.res.nc.0011
+  hashes:
+    binhash: 6e8233515cdfd34e7da1700f62704d4f
+    md5: 9539dcd3d5dd95ac612a0382bc64205d
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart019/ocean_wombatlite_airsea_flux.res.nc.0012:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart019/ocean_wombatlite_airsea_flux.res.nc.0012
+  hashes:
+    binhash: 14edc5d48b9d481350f556af723f9e67
+    md5: d42ad57b97b8d1717f5d73278ee76340
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart019/ocean_wombatlite_airsea_flux.res.nc.0013:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart019/ocean_wombatlite_airsea_flux.res.nc.0013
+  hashes:
+    binhash: 858d74585805be103d65ba6a04314414
+    md5: bdebde4c72421c4b28aba985d4350f13
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart019/ocean_wombatlite_airsea_flux.res.nc.0014:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart019/ocean_wombatlite_airsea_flux.res.nc.0014
+  hashes:
+    binhash: 2f5d9da000beff097c6725d49dd7e089
+    md5: 8781d7f310ca3ff8bc53dd49b0d37ee7
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart019/ocean_wombatlite_airsea_flux.res.nc.0015:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart019/ocean_wombatlite_airsea_flux.res.nc.0015
+  hashes:
+    binhash: 1993fe95b4515767f37f81cff1d48288
+    md5: 0cfd2eb06bcf49b43e7ed389718a0d56
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart019/ocean_wombatlite_airsea_flux.res.nc.0016:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart019/ocean_wombatlite_airsea_flux.res.nc.0016
+  hashes:
+    binhash: c3415ad25ba6718b2e787be53778e960
+    md5: f6873305754de7cab3d92c665de993a7
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart019/ocean_wombatlite_airsea_flux.res.nc.0017:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart019/ocean_wombatlite_airsea_flux.res.nc.0017
+  hashes:
+    binhash: b1dd8435489fe1a63cb99ea72c2cdd53
+    md5: 098a793d20ac814cc965ea37b1c0190c
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart019/ocean_wombatlite_airsea_flux.res.nc.0018:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart019/ocean_wombatlite_airsea_flux.res.nc.0018
+  hashes:
+    binhash: 546b7af17da369c71540eaf379d7cd38
+    md5: 47eb535f3e74c74ec5e308be1e04e252
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart019/ocean_wombatlite_airsea_flux.res.nc.0019:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart019/ocean_wombatlite_airsea_flux.res.nc.0019
+  hashes:
+    binhash: ce45d38467b770684c052eb572acdeb8
+    md5: 24529ac312524d759a7a72d21c72ab44
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart019/ocean_wombatlite_airsea_flux.res.nc.0020:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart019/ocean_wombatlite_airsea_flux.res.nc.0020
+  hashes:
+    binhash: 9d327c4aca5865bb64be2051ffa8ca51
+    md5: 1b6151aeba27469f7bb732d88a3e75e6
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart019/ocean_wombatlite_airsea_flux.res.nc.0021:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart019/ocean_wombatlite_airsea_flux.res.nc.0021
+  hashes:
+    binhash: e5dd64f3cd31b989d7fa0949e1ecfc08
+    md5: 41568f73ceeda09e0c78c41e2f370205
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart019/ocean_wombatlite_airsea_flux.res.nc.0022:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart019/ocean_wombatlite_airsea_flux.res.nc.0022
+  hashes:
+    binhash: 14e6a8c1e7dec89c6fc2f1986cf06194
+    md5: 0c744e906aeac982fd6c41e3aea77092
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart019/ocean_wombatlite_airsea_flux.res.nc.0023:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart019/ocean_wombatlite_airsea_flux.res.nc.0023
+  hashes:
+    binhash: 0231d083cd0380050cf31f3060551d97
+    md5: 8dd3e66c62e2176d578348af06f97ca1
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart019/ocean_wombatlite_airsea_flux.res.nc.0024:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart019/ocean_wombatlite_airsea_flux.res.nc.0024
+  hashes:
+    binhash: f310da5ec559d37c145067975d3b8f61
+    md5: 4fe749e770cc089a381276e2322fc319
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart019/ocean_wombatlite_airsea_flux.res.nc.0025:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart019/ocean_wombatlite_airsea_flux.res.nc.0025
+  hashes:
+    binhash: 7303932c2d0db80cb1239b45a1be780e
+    md5: a30eeb1986e54e5494db371063ec031d
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart019/ocean_wombatlite_airsea_flux.res.nc.0026:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart019/ocean_wombatlite_airsea_flux.res.nc.0026
+  hashes:
+    binhash: d465f031b37284200fff61833d1ea61d
+    md5: d8c4ae38a263692a7d23c7aff223420e
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart019/ocean_wombatlite_airsea_flux.res.nc.0027:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart019/ocean_wombatlite_airsea_flux.res.nc.0027
+  hashes:
+    binhash: 6ad6148c123fa3235104d8d1275ba660
+    md5: 95da9e63b7df4faf66ee1f2de10104ec
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart019/ocean_wombatlite_airsea_flux.res.nc.0028:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart019/ocean_wombatlite_airsea_flux.res.nc.0028
+  hashes:
+    binhash: 83f845729e3b6300be25d8d2b5eb36e1
+    md5: 532f259c368c921487e79baa5d9be320
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart019/ocean_wombatlite_airsea_flux.res.nc.0029:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart019/ocean_wombatlite_airsea_flux.res.nc.0029
+  hashes:
+    binhash: 9bef223aff547c2a7f4dbf24dc23d8c3
+    md5: 21d3c3c5111934053c970306fe519e82
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart019/ocean_wombatlite_airsea_flux.res.nc.0030:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart019/ocean_wombatlite_airsea_flux.res.nc.0030
+  hashes:
+    binhash: be7cd3ddcd978baef7ab1cea471e1c50
+    md5: 76603f0785a8d643fbd2c46d0f713c56
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart019/ocean_wombatlite_airsea_flux.res.nc.0031:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart019/ocean_wombatlite_airsea_flux.res.nc.0031
+  hashes:
+    binhash: f3d2ab34dd3f3bbbfb6db2d9080cc070
+    md5: ca5e601b69f43fdb7516e0f9395e7a45
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart019/ocean_wombatlite_airsea_flux.res.nc.0032:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart019/ocean_wombatlite_airsea_flux.res.nc.0032
+  hashes:
+    binhash: 782c6e715e4ebb5131ab1d16fa052bba
+    md5: 54e27c84dff5d02ae26c82496189bb28
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart019/ocean_wombatlite_airsea_flux.res.nc.0033:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart019/ocean_wombatlite_airsea_flux.res.nc.0033
+  hashes:
+    binhash: 9066134b29fe23a1f4b9d066d2cc6331
+    md5: 7813fd32c72f79f54e43cddc93722773
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart019/ocean_wombatlite_airsea_flux.res.nc.0034:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart019/ocean_wombatlite_airsea_flux.res.nc.0034
+  hashes:
+    binhash: 4f3efddac67e11f5cd2bd28377d7bfaa
+    md5: 78c5be206fc659c647e19903e8f03735
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart019/ocean_wombatlite_airsea_flux.res.nc.0035:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart019/ocean_wombatlite_airsea_flux.res.nc.0035
+  hashes:
+    binhash: 316adeed12a87e3eba5f7b127f78ac69
+    md5: 711abb5e18160de37bfa3ceec270d267
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart019/ocean_wombatlite_airsea_flux.res.nc.0036:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart019/ocean_wombatlite_airsea_flux.res.nc.0036
+  hashes:
+    binhash: ad8b575b94ef588f4e89c9521d8fb0b9
+    md5: 00ef58963a117dac0c118e2fbd6532bf
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart019/ocean_wombatlite_airsea_flux.res.nc.0037:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart019/ocean_wombatlite_airsea_flux.res.nc.0037
+  hashes:
+    binhash: d7707cd0b70a05af8c0b4fec0a9a6a87
+    md5: 2b8200427854e13695c5d6f887c69810
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart019/ocean_wombatlite_airsea_flux.res.nc.0038:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart019/ocean_wombatlite_airsea_flux.res.nc.0038
+  hashes:
+    binhash: 5e3e807ef7df8c8a28408d0d0d1137ed
+    md5: 222a503f7c9e7c3aa66d97a8ee1c2138
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart019/ocean_wombatlite_airsea_flux.res.nc.0039:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart019/ocean_wombatlite_airsea_flux.res.nc.0039
+  hashes:
+    binhash: fa4e765f7a5e9125e9ea3311508cb502
+    md5: 7243e212535012f0b318c01336ac6bca
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart019/ocean_wombatlite_airsea_flux.res.nc.0040:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart019/ocean_wombatlite_airsea_flux.res.nc.0040
+  hashes:
+    binhash: 21279259212c38b1d7013f321797e717
+    md5: 4d93539bd31b3f06452f1015995fdd91
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart019/ocean_wombatlite_airsea_flux.res.nc.0041:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart019/ocean_wombatlite_airsea_flux.res.nc.0041
+  hashes:
+    binhash: 9c7051fc42d21e7dbbff5450f203f33d
+    md5: 2e8d6409f0c9c94a6603424b1144755e
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart019/ocean_wombatlite_airsea_flux.res.nc.0042:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart019/ocean_wombatlite_airsea_flux.res.nc.0042
+  hashes:
+    binhash: eb0c79c6fb983238c8d9250c02eb0871
+    md5: 0916914d0a131f305b0d8dffba2c3b60
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart019/ocean_wombatlite_airsea_flux.res.nc.0043:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart019/ocean_wombatlite_airsea_flux.res.nc.0043
+  hashes:
+    binhash: 75b6cccfcf02248a4fc8f36d3be7f4fa
+    md5: 7d2cbaccddd7c26cc6ce3e4873e59b0d
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart019/ocean_wombatlite_airsea_flux.res.nc.0044:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart019/ocean_wombatlite_airsea_flux.res.nc.0044
+  hashes:
+    binhash: 09bad8c9386f1b6ee5cc6e0b01197d0f
+    md5: c437c961a0c697e15ec210840853353e
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart019/ocean_wombatlite_airsea_flux.res.nc.0045:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart019/ocean_wombatlite_airsea_flux.res.nc.0045
+  hashes:
+    binhash: 026d721f1f236da2ee5d7d8c598115c1
+    md5: c42bdd6e22e547869c589e25b3b3f992
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart019/ocean_wombatlite_airsea_flux.res.nc.0046:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart019/ocean_wombatlite_airsea_flux.res.nc.0046
+  hashes:
+    binhash: e48e91eccbf1b5a5c1bcdb501464fee6
+    md5: 34e5edaf60bcdcdd8b557da363ab1d50
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart019/ocean_wombatlite_airsea_flux.res.nc.0047:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart019/ocean_wombatlite_airsea_flux.res.nc.0047
+  hashes:
+    binhash: 1c9b67860b882ee2582431abb00b1f91
+    md5: ede89d2b77f025e26f2a715e73bc1b19
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart019/rpointer.atm:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart019/rpointer.atm
+  hashes:
+    binhash: f271f97cbc9a7389a1f5797c6335c192
+    md5: 8012266955144811adfd35769c481891
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart019/rpointer.cpl:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart019/rpointer.cpl
+  hashes:
+    binhash: bba8e5eaf16cd4780358887d7a011e3c
+    md5: 0be62bf2882647bb35486a8f0ef633ea
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart019/rpointer.ice:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart019/rpointer.ice
+  hashes:
+    binhash: 440d57aa9cb6781a55d9793926dc603b
+    md5: 404a35756eb9df9b68ec55386981402b
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart019/rpointer.ocn:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart019/rpointer.ocn
+  hashes:
+    binhash: 6659ea5f24fb9c0a31fdd361733d53dd
+    md5: f4c87a1b3a1063390cf7c052416b78b1
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart019/rpointer.rof:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart019/rpointer.rof
+  hashes:
+    binhash: 7087f56fce3abb402e3862d2fbf9d89c
+    md5: e229c1c014a022a71c7d7cd5075142cf
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart020/access-om3.cice.r.1921-01-01-00000.nc:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart020/access-om3.cice.r.1921-01-01-00000.nc
+  hashes:
+    binhash: b0fdfdf810b85bb90ef9234b6aaeab29
+    md5: e2ebd986f79a18be88885c4284377d81
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart020/access-om3.cpl.r.1921-01-01-00000.nc:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart020/access-om3.cpl.r.1921-01-01-00000.nc
+  hashes:
+    binhash: 49f2aaed48beb5a0763c5b5bc799fc6a
+    md5: d499b8432c344734eeefd6e1aaa3d403
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart020/access-om3.datm.r.1921-01-01-00000.nc:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart020/access-om3.datm.r.1921-01-01-00000.nc
+  hashes:
+    binhash: 2fa8386bc884dd3a77f44c4f0cb13421
+    md5: c87e8ec464bbcc95cc5dc210a52d3357
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart020/access-om3.drof.r.1921-01-01-00000.nc:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart020/access-om3.drof.r.1921-01-01-00000.nc
+  hashes:
+    binhash: a37bfe78c9099eaec95aca6d82829c91
+    md5: 477dc3b180ee4ff7b8e9c7d7ada81280
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart020/access-om3.mom6.r.1921-01-01-00000.nc:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart020/access-om3.mom6.r.1921-01-01-00000.nc
+  hashes:
+    binhash: 27966d9b3b4521c7f8275a410bfb19ff
+    md5: ebe7de82f1784e6c95546739a088f2fc
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart020/access-om3.mom6.r.1921-01-01-00000_1.nc:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart020/access-om3.mom6.r.1921-01-01-00000_1.nc
+  hashes:
+    binhash: fd0e31946c726c935549dcf2391b37b8
+    md5: 0416cf405f9ed131c5fcebcfe08358de
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart020/access-om3.mom6.r.1921-01-01-00000_2.nc:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart020/access-om3.mom6.r.1921-01-01-00000_2.nc
+  hashes:
+    binhash: 98e55a20d781d404206ebb1a0a096141
+    md5: fe4dbaee3124eeb7f03b894d26430771
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart020/access-om3.mom6.r.1921-01-01-00000_3.nc:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart020/access-om3.mom6.r.1921-01-01-00000_3.nc
+  hashes:
+    binhash: 159b42603c2314c2cdb5ad9989403abb
+    md5: 39a3d8cb1811f0c123cb88c291bddce7
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart020/access-om3.mom6.r.1921-01-01-00000_4.nc:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart020/access-om3.mom6.r.1921-01-01-00000_4.nc
+  hashes:
+    binhash: f3253a6de79e4b0f448b6ecf5ff41541
+    md5: a868799b30db0282774efd332d0e77ff
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart020/access-om3.mom6.r.1921-01-01-00000_5.nc:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart020/access-om3.mom6.r.1921-01-01-00000_5.nc
+  hashes:
+    binhash: 4481e3e30db349f2411c19196e71712a
+    md5: 826d9abe3756aa4c8ffe6d7c21dc0abb
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart020/access-om3.mom6.r.1921-01-01-00000_6.nc:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart020/access-om3.mom6.r.1921-01-01-00000_6.nc
+  hashes:
+    binhash: f7f16baf7d26095ce4ee58be32a2cc5d
+    md5: 7bf09963d64e65452d91690a5dbf88a0
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart020/access-om3.mom6.r.1921-01-01-00000_7.nc:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart020/access-om3.mom6.r.1921-01-01-00000_7.nc
+  hashes:
+    binhash: 838a00318206b884444c2db648c77d32
+    md5: e106fd4ecdcc081e0e950bbd304bc00e
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart020/access-om3.mom6.r.1921-01-01-00000_8.nc:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart020/access-om3.mom6.r.1921-01-01-00000_8.nc
+  hashes:
+    binhash: 619f328263e819eaac5ea81ce5f2c832
+    md5: c9467cd3476c6ed577d2c9f7a18ac1bc
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart020/ocean_wombatlite_airsea_flux.res.nc.0001:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart020/ocean_wombatlite_airsea_flux.res.nc.0001
+  hashes:
+    binhash: e448e7aa4f2364cc0ab69cae60d14b3e
+    md5: 5e4415dac5ca758b3f59a59340eeedda
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart020/ocean_wombatlite_airsea_flux.res.nc.0002:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart020/ocean_wombatlite_airsea_flux.res.nc.0002
+  hashes:
+    binhash: 59278237a3a8fee3b042f52eb7c5d247
+    md5: 373d74a8dcf7fad763daba464386bc5a
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart020/ocean_wombatlite_airsea_flux.res.nc.0003:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart020/ocean_wombatlite_airsea_flux.res.nc.0003
+  hashes:
+    binhash: 7ed981c6be0e38e642491e39c1997cac
+    md5: 434e747a746f626493efd3a264216ec5
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart020/ocean_wombatlite_airsea_flux.res.nc.0004:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart020/ocean_wombatlite_airsea_flux.res.nc.0004
+  hashes:
+    binhash: 43184c384f746062b1049f70777f50a4
+    md5: 419a5963131219bf12bbcf00c48c9f35
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart020/ocean_wombatlite_airsea_flux.res.nc.0006:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart020/ocean_wombatlite_airsea_flux.res.nc.0006
+  hashes:
+    binhash: 74819d283100f30606951cec9149bfb3
+    md5: ea4fa5d927dde48c420f485ed7d0598c
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart020/ocean_wombatlite_airsea_flux.res.nc.0007:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart020/ocean_wombatlite_airsea_flux.res.nc.0007
+  hashes:
+    binhash: 93d6ee3b456dfcdcdf848630d181d089
+    md5: 6d70c47a1844aa9049e4d7b2ab1d551a
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart020/ocean_wombatlite_airsea_flux.res.nc.0008:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart020/ocean_wombatlite_airsea_flux.res.nc.0008
+  hashes:
+    binhash: 94d9c081576f37ecd6204ceb8854779a
+    md5: ed88f7b4ea3bf03b9442cf6348d8a951
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart020/ocean_wombatlite_airsea_flux.res.nc.0009:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart020/ocean_wombatlite_airsea_flux.res.nc.0009
+  hashes:
+    binhash: 91b778e9813bb65dad466f1091cddc85
+    md5: 2396234316017d2c7aa22d5877c8194f
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart020/ocean_wombatlite_airsea_flux.res.nc.0010:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart020/ocean_wombatlite_airsea_flux.res.nc.0010
+  hashes:
+    binhash: a6c04f1ad88a1655aef7876938618ef4
+    md5: a1b7f207f990338e7f5bd59143e33b7b
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart020/ocean_wombatlite_airsea_flux.res.nc.0011:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart020/ocean_wombatlite_airsea_flux.res.nc.0011
+  hashes:
+    binhash: dc575938899f9748c7eb7bb6974637f9
+    md5: 4e1f0fcd918b504b3f78fd55e8df528a
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart020/ocean_wombatlite_airsea_flux.res.nc.0012:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart020/ocean_wombatlite_airsea_flux.res.nc.0012
+  hashes:
+    binhash: b013f1f9b2332dab624703a1d53c79eb
+    md5: 2bf282a40a3ac13f88c6a52faebdb4ae
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart020/ocean_wombatlite_airsea_flux.res.nc.0013:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart020/ocean_wombatlite_airsea_flux.res.nc.0013
+  hashes:
+    binhash: b5ae1b886b29486f490e99c658e583d1
+    md5: dfa1ca131c234fe7ee8229c5906d7334
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart020/ocean_wombatlite_airsea_flux.res.nc.0014:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart020/ocean_wombatlite_airsea_flux.res.nc.0014
+  hashes:
+    binhash: 09a2a108ba62a37eaea937c6b76f04da
+    md5: 56ca8d3caa3536b2a69304024e6296f7
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart020/ocean_wombatlite_airsea_flux.res.nc.0015:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart020/ocean_wombatlite_airsea_flux.res.nc.0015
+  hashes:
+    binhash: a203e86a6946d2db782f288593c65784
+    md5: e90867cf792c2a1f7d0a71e636b1e598
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart020/ocean_wombatlite_airsea_flux.res.nc.0016:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart020/ocean_wombatlite_airsea_flux.res.nc.0016
+  hashes:
+    binhash: a702bca03a9da7094e384293c7ffd4b5
+    md5: 1e48629694e6232427ef3a8313668fe3
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart020/ocean_wombatlite_airsea_flux.res.nc.0017:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart020/ocean_wombatlite_airsea_flux.res.nc.0017
+  hashes:
+    binhash: 9c6a2d624b3325ab2e5d8b8bb3e59414
+    md5: 312d6ebf8a89eca4a0a62ef7ae882fcd
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart020/ocean_wombatlite_airsea_flux.res.nc.0018:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart020/ocean_wombatlite_airsea_flux.res.nc.0018
+  hashes:
+    binhash: edbe862e88cdc55d9cad16ba2d9f4531
+    md5: c52f7046107267d5343d31b74703ec55
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart020/ocean_wombatlite_airsea_flux.res.nc.0019:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart020/ocean_wombatlite_airsea_flux.res.nc.0019
+  hashes:
+    binhash: 042dc6c9735c27d89eac94c37b785730
+    md5: a02c5b174aeb8654ef5018eeeefa4f95
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart020/ocean_wombatlite_airsea_flux.res.nc.0020:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart020/ocean_wombatlite_airsea_flux.res.nc.0020
+  hashes:
+    binhash: 90e2b7c32604bcc73ee73261449c3d20
+    md5: c5cf86882d58b97a8cb35566f28289b1
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart020/ocean_wombatlite_airsea_flux.res.nc.0021:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart020/ocean_wombatlite_airsea_flux.res.nc.0021
+  hashes:
+    binhash: 3d69912df029a5b791d03808fcf6e0b9
+    md5: bff1b7089cb8ca5bc279574b42b05db3
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart020/ocean_wombatlite_airsea_flux.res.nc.0022:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart020/ocean_wombatlite_airsea_flux.res.nc.0022
+  hashes:
+    binhash: 71718f46f0043c2c2d58d333949dc5ca
+    md5: dea71a6132bbbbae53d8f2faa4c1ff75
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart020/ocean_wombatlite_airsea_flux.res.nc.0023:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart020/ocean_wombatlite_airsea_flux.res.nc.0023
+  hashes:
+    binhash: 6c753a5c145dd9852099d3412bb4f61e
+    md5: 9d56467c41e804e8b3a653c511c63ba0
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart020/ocean_wombatlite_airsea_flux.res.nc.0024:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart020/ocean_wombatlite_airsea_flux.res.nc.0024
+  hashes:
+    binhash: 56ee401bd56fb84ed17d022bd35ceb1c
+    md5: 3cfda62c98541f1ab8dbd3b3849eeea0
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart020/ocean_wombatlite_airsea_flux.res.nc.0025:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart020/ocean_wombatlite_airsea_flux.res.nc.0025
+  hashes:
+    binhash: f83cd0c330fc383169591a41ee5cba8b
+    md5: 012342abf9506c4ede40c04ebb479cd0
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart020/ocean_wombatlite_airsea_flux.res.nc.0026:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart020/ocean_wombatlite_airsea_flux.res.nc.0026
+  hashes:
+    binhash: 0bc0885d21ce974ba6dfb678a4d6bc24
+    md5: 6f90f8a2dfe4facef4d6e92c4a733bea
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart020/ocean_wombatlite_airsea_flux.res.nc.0027:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart020/ocean_wombatlite_airsea_flux.res.nc.0027
+  hashes:
+    binhash: dac3eb07a0d95fbcbe449f23d925f0cd
+    md5: 5050f4c3202a05e51e903ca54c433171
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart020/ocean_wombatlite_airsea_flux.res.nc.0028:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart020/ocean_wombatlite_airsea_flux.res.nc.0028
+  hashes:
+    binhash: 2805cf2ff13896e55e9b4191403b0663
+    md5: 53fa59a565faaf2ff5a2612dedfd9d60
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart020/ocean_wombatlite_airsea_flux.res.nc.0029:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart020/ocean_wombatlite_airsea_flux.res.nc.0029
+  hashes:
+    binhash: 308c1917af45061e541862e30be802e0
+    md5: b9db7605b80ab1c60e583e54dc98e767
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart020/ocean_wombatlite_airsea_flux.res.nc.0030:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart020/ocean_wombatlite_airsea_flux.res.nc.0030
+  hashes:
+    binhash: 6acf1ed40f90d7971648e8cae1b3002a
+    md5: 75b14af8f0749db4b50d66edbbead4e6
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart020/ocean_wombatlite_airsea_flux.res.nc.0031:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart020/ocean_wombatlite_airsea_flux.res.nc.0031
+  hashes:
+    binhash: b65ec3bc0b7e6bfea56e259981e92607
+    md5: 71c53a277cfc90992a4f321baed1f1de
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart020/ocean_wombatlite_airsea_flux.res.nc.0032:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart020/ocean_wombatlite_airsea_flux.res.nc.0032
+  hashes:
+    binhash: def135da4a9644e7259e9e64cecd0d01
+    md5: 0ff7dc09475561e5725027ac21f0a6da
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart020/ocean_wombatlite_airsea_flux.res.nc.0033:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart020/ocean_wombatlite_airsea_flux.res.nc.0033
+  hashes:
+    binhash: 45bae40cc31ce31a84067dc2380a9c82
+    md5: 9f9b167c963a54cb0b7cf395f0ca8bea
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart020/ocean_wombatlite_airsea_flux.res.nc.0034:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart020/ocean_wombatlite_airsea_flux.res.nc.0034
+  hashes:
+    binhash: d255e2d63c4d6401759e234b03df1860
+    md5: 6d31a83c27708db1027cd6b2fd0305ff
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart020/ocean_wombatlite_airsea_flux.res.nc.0035:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart020/ocean_wombatlite_airsea_flux.res.nc.0035
+  hashes:
+    binhash: 4fbdf1d9a9590912f04b3fe06b6ff65e
+    md5: 60e905800051c0c2e0396465ba19e8f2
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart020/ocean_wombatlite_airsea_flux.res.nc.0036:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart020/ocean_wombatlite_airsea_flux.res.nc.0036
+  hashes:
+    binhash: dacffcb6fa294463281a5158cf63c8bc
+    md5: 60bc9a9ccdc1b9743fa7f1a0d76fed69
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart020/ocean_wombatlite_airsea_flux.res.nc.0037:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart020/ocean_wombatlite_airsea_flux.res.nc.0037
+  hashes:
+    binhash: 2f1c1d200f9f4f4c22c7fed14994b80f
+    md5: e3ddcab07f3427c4cf2bff3f05e73ea2
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart020/ocean_wombatlite_airsea_flux.res.nc.0038:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart020/ocean_wombatlite_airsea_flux.res.nc.0038
+  hashes:
+    binhash: 7c3116cc4c2e33b35178867fd87b1e52
+    md5: c0f2207a8f77945a666a2fa0abde8863
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart020/ocean_wombatlite_airsea_flux.res.nc.0039:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart020/ocean_wombatlite_airsea_flux.res.nc.0039
+  hashes:
+    binhash: 862bfc4e7ac38c87cbbec0bf1934d846
+    md5: 1806a2cd0b137b1cef171be7c565f2a0
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart020/ocean_wombatlite_airsea_flux.res.nc.0040:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart020/ocean_wombatlite_airsea_flux.res.nc.0040
+  hashes:
+    binhash: e932dd368aed23477138dfc235e38c4f
+    md5: 2a5ac62951c632f63a77fe88bf77c71d
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart020/ocean_wombatlite_airsea_flux.res.nc.0041:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart020/ocean_wombatlite_airsea_flux.res.nc.0041
+  hashes:
+    binhash: 6df79b30d7dbf5a66660e0ffb5a02ece
+    md5: 21b209c6fc6d6a2d5a359693b0870718
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart020/ocean_wombatlite_airsea_flux.res.nc.0042:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart020/ocean_wombatlite_airsea_flux.res.nc.0042
+  hashes:
+    binhash: cc720564a628a60467dcca85cf5c8402
+    md5: 7e0864bb60e92beb2bd03cde2d01c268
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart020/ocean_wombatlite_airsea_flux.res.nc.0043:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart020/ocean_wombatlite_airsea_flux.res.nc.0043
+  hashes:
+    binhash: 7f359963392d2d5d160a0690a50bc3ba
+    md5: df57040ae645cf073c1740ea6fbd6cae
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart020/ocean_wombatlite_airsea_flux.res.nc.0044:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart020/ocean_wombatlite_airsea_flux.res.nc.0044
+  hashes:
+    binhash: 1c947e09c2c0b6e60f7b0ce2ac5f1a03
+    md5: 3c3949534701bdd2459ba113fd3ab516
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart020/ocean_wombatlite_airsea_flux.res.nc.0045:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart020/ocean_wombatlite_airsea_flux.res.nc.0045
+  hashes:
+    binhash: fa68e37c74bde5c3e706ad983cc9c157
+    md5: dea2ba2dcbf62f2d9352c5e7b8b81962
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart020/ocean_wombatlite_airsea_flux.res.nc.0046:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart020/ocean_wombatlite_airsea_flux.res.nc.0046
+  hashes:
+    binhash: c8a342d4a01ba5b9af54056415508970
+    md5: 8e67578d0d19b9bf23e34cd278d206d2
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart020/ocean_wombatlite_airsea_flux.res.nc.0047:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart020/ocean_wombatlite_airsea_flux.res.nc.0047
+  hashes:
+    binhash: 1ede5cef9fe13f64029737ec0e1fe75f
+    md5: 32dd1c6c08da3461c3ae01fa7ecbd16b
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart020/rpointer.atm:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart020/rpointer.atm
+  hashes:
+    binhash: 9de936d556b7bd1152b3d7b5ea1e788d
+    md5: 824c0e883fc904ec833bd575ca0d47a5
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart020/rpointer.cpl:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart020/rpointer.cpl
+  hashes:
+    binhash: c4cba2d358a9cb8353deaef4c9adaf7c
+    md5: f232086fc61e4caf767cc7d7d5341a0a
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart020/rpointer.ice:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart020/rpointer.ice
+  hashes:
+    binhash: 036ba0315e11bb960a90f704d0e3ebcd
+    md5: 1145ec08657d408619f074c0fa267a6b
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart020/rpointer.ocn:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart020/rpointer.ocn
+  hashes:
+    binhash: 0e05d6f3e2ae3f07b2244b58d00ce638
+    md5: 582676426b2c5c1e37e5d29b3530ccc8
+work/INPUT/OM3_25km_jra_ryf+wombatlite/restart020/rpointer.rof:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/OM3_25km_jra_ryf+wombatlite/restart020/rpointer.rof
+  hashes:
+    binhash: 567a7e8201a01f7411d882a5cd2d06de
+    md5: bb298ad730e57755f8a4123252e0f5fc
 work/INPUT/SFe_Hamiltonetal2020_monthly_clim.nc:
   fullpath: /g/data/ol01/ee8016/regional_wombat/SFe_Hamiltonetal2020_monthly_clim.nc
   hashes:
@@ -3387,10 +4287,45 @@ work/INPUT/atmos/fx/sftof/gr/v20240531/sftof_input4MIPs_atmosphericState_OMIP_MR
     binhash: 7f98fc486410cff8df3232d390e5a05b
     md5: f5034ec4d5228d648be6375b13ed2c98
 work/INPUT/bathymetry.nc:
-  fullpath: /g/data/ol01/ee8016/regional_wombat/modifiedfiles/bathymetry.nc
+  fullpath: /g/data/ol01/ee8016/regional_wombat/bathymetry.nc
   hashes:
-    binhash: ba82a01f837a995c272b0f43a315bfc3
-    md5: 2639cdb91c8e7bec43c8dd74943e24a6
+    binhash: 18e59225f17304237f54bc2fc93f9c5a
+    md5: ea895d1c28887f28194e13d01906ed54
+work/INPUT/bathymetry_original.nc:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/bathymetry_original.nc
+  hashes:
+    binhash: 27c491fffb9b9a47f91f15d79eea4039
+    md5: f6703e89808e2bd4de5304f76864a812
+work/INPUT/bathymetry_unfinished.nc:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/bathymetry_unfinished.nc
+  hashes:
+    binhash: 8094346c503223f80e36539a049538ea
+    md5: 84defcb4e7fb83269bce9440b614a6eb
+work/INPUT/check_ic_boundary_files.ipynb:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/check_ic_boundary_files.ipynb
+  hashes:
+    binhash: 6a8d1046d5c20b9bf7b61e5d3aa3e5b2
+    md5: 5a37cc4524bd43ddce9803b1d10f1679
+work/INPUT/dust.nc:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/dust.nc
+  hashes:
+    binhash: d0073468bcc32d722cb909aa25a6ca4d
+    md5: f5e64d45508819d9160da1464e7f1b6e
+work/INPUT/dust_DS.nc:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/dust_DS.nc
+  hashes:
+    binhash: 5a63e9526ff1a285e7ce992c83cd5c19
+    md5: 149ed14ffc73f8908fa1f8e84146c6bc
+work/INPUT/dust_model_year.nc:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/dust_model_year.nc
+  hashes:
+    binhash: 58d63090ede1b793d1a6317b2107c4be
+    md5: 53ab31cf32568a8e8f439c6cc08b1a96
+work/INPUT/dustfile.ipynb:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/dustfile.ipynb
+  hashes:
+    binhash: 5ce01b178014542b27ef378569571dfb
+    md5: ca0993405f7604c6c929020e9b72bdfa
 work/INPUT/forcing_obc_segment_001.nc:
   fullpath: /g/data/ol01/ee8016/regional_wombat/forcing_obc_segment_001.nc
   hashes:
@@ -3426,11 +4361,11 @@ work/INPUT/init_eta.nc:
   hashes:
     binhash: 2ed9e771a5859c6dedf4bebd8d4bce11
     md5: ac513ed38027ddb183b5f281e14060e1
-work/INPUT/init_tracers_mod.nc:
-  fullpath: /g/data/ol01/ee8016/regional_wombat/modifiedfiles/init_tracers_mod.nc
+work/INPUT/init_tracers.nc:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/init_tracers.nc
   hashes:
-    binhash: 7d8cbe573b420978834fb026c399490f
-    md5: 84fb8cf3b28406e959b73e10f29ab4fa
+    binhash: c1336100ec0d3b9ecf1facb0f6bb32cb
+    md5: 309408ce42f1b50c881f86c69d2fa6bb
 work/INPUT/init_vel.nc:
   fullpath: /g/data/ol01/ee8016/regional_wombat/init_vel.nc
   hashes:
@@ -4106,6 +5041,36 @@ work/INPUT/land/day/friver/gr/v20240531/friver_input4MIPs_atmosphericState_OMIP_
   hashes:
     binhash: fb4da82e21b01ccd4ef5e7a99f31f4e5
     md5: 6838f869a96238b2b162103794739519
+work/INPUT/modifiedfiles/bathymetry.nc:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/modifiedfiles/bathymetry.nc
+  hashes:
+    binhash: ba82a01f837a995c272b0f43a315bfc3
+    md5: 2639cdb91c8e7bec43c8dd74943e24a6
+work/INPUT/modifiedfiles/dust_model_year.nc:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/modifiedfiles/dust_model_year.nc
+  hashes:
+    binhash: 4d7bb749ea75cb19df35f773a037c22f
+    md5: 41a4ca25f99703f392e373a66624d8c5
+work/INPUT/modifiedfiles/init_tracers_mod.nc:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/modifiedfiles/init_tracers_mod.nc
+  hashes:
+    binhash: 7d8cbe573b420978834fb026c399490f
+    md5: 84fb8cf3b28406e959b73e10f29ab4fa
+work/INPUT/modifiedfiles/obgc_obc.nc:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/modifiedfiles/obgc_obc.nc
+  hashes:
+    binhash: 4b3126e1c3d78cd200cfd9d57b86a44f
+    md5: f302c043cebc28cbd81fe94056cc149d
+work/INPUT/modifiedfiles/wombatinitbry.ipynb:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/modifiedfiles/wombatinitbry.ipynb
+  hashes:
+    binhash: bae35f0117997a046fa20683f6b7cdf2
+    md5: baf4ceac5a3238c2447e919e26f71cd0
+work/INPUT/mom6r-bgc.ipynb:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/mom6r-bgc.ipynb
+  hashes:
+    binhash: 4b2ac129793b359c3eeed17e1f755e91
+    md5: 7b77770ed92572f9c8e7d25fc86cccb2
 work/INPUT/ocean/day/tos/gn/v20240531/tos_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-6-0_gn_19580101-19581231.nc:
   fullpath: /g/data/qv56/replicas/input4MIPs/CMIP6Plus/OMIP/MRI/MRI-JRA55-do-1-6-0/ocean/day/tos/gn/v20240531/tos_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-6-0_gn_19580101-19581231.nc
   hashes:
@@ -5136,6 +6101,11 @@ work/INPUT/ocean_mosaic.nc:
   hashes:
     binhash: f29cf9116519b7e44db54de0a1452bcd
     md5: f98dca7628637e1c245fe80267baaf86
+work/INPUT/tmp:
+  fullpath: /g/data/ol01/ee8016/regional_wombat/tmp
+  hashes:
+    binhash: 7c3db1258340ec61cdea8c657ab90f06
+    md5: d8e8fca2dc0f896fd7cb4cb0031ba249
 work/INPUT/vcoord.nc:
   fullpath: /g/data/ol01/ee8016/regional_wombat/vcoord.nc
   hashes:
