@@ -67,9 +67,12 @@ D:      5.911E+01 7.093E+01-> water depth i,j and i,j+1
 
 @minghangli-uni's, just some suggestions.. just delete if you don't have time.
 
-### How to plot the output of truncation log files
+### How to read in and plot the output of truncation log files
+
+https://github.com/ACCESS-NRI/access-eval-recipes/blob/main/ocean/Examine_truncation_data.ipynb
 
 ### How to change the parameters that 
+
 
 
 
