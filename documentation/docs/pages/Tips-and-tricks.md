@@ -65,11 +65,12 @@ uh++:  -1.980E-06 -1.907E-06 i,j+1,k
 D:      5.911E+01 7.093E+01-> water depth i,j and i,j+1
 ```
 
-@minghang-li, just some suggestions.. just delete if you don't have time.
+@minghangli-uni's, just some suggestions.. just delete if you don't have time.
 
 ### How to plot the output of truncation log files
 
 ### How to change the parameters that 
+
 
 
 
