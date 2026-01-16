@@ -59,6 +59,17 @@ uh+-:   9.218E-04  8.521E-04 i,j,k
  uhC+-:  9.845E-04  8.517E-04 averaged zonal transport between the local point (i,j,k) and i+1, j,k over this timestep
 ```
 
+```
 uh++:  -1.980E-06 -1.907E-06 i,j+1,k
  uhC++: -7.857E-04 -8.803E-04 averaged zonal transport between the local point (i,j+1,k) and i+1, j+1,k over this timestep
 D:      5.911E+01 7.093E+01-> water depth i,j and i,j+1
+```
+
+@minghang-li, just some suggestions.. just delete if you don't have time.
+
+### How to plot the output of truncation log files
+
+### How to change the parameters that 
+
+
+
