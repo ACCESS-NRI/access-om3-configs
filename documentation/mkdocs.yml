@@ -114,7 +114,8 @@ nav:
         - WW3 parameter choices: pages/configurations/WW3_parameter_choices.md
         - pan-Antarctic:    
               - Overview: pages/configurations/pan-Antartic/Overview.md
-              - Detailed: pages/configurations/pan-Antartic/Detailedpananinstructions.md
+              - Detailed noISF: pages/configurations/pan-Antartic/Detailedpananinstructions.md
+              - Detailed ISF: pages/configurations/pan-Antartic/Detailed_panan_isf.md
               - Run ISF: pages/configurations/pan-Antartic/run_panan_isf.md
   - Infrastructure:
         - Architecture:          pages/infrastructure/Architecture.md
