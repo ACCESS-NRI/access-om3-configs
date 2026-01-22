@@ -4,7 +4,7 @@ There are several ways we welcome feedback and contributions on ACCESS-OM3 devel
 
 ### Interact with developers in person
 
-If you would like to interact in person with [the development team](https://www.access-nri.org.au/ocean-model-team/), we have fortnightly technical working group meetings on Wednesdays at 3pm. They are announced [on the access hive forum](https://forum.access-hive.org.au/t/cosima-twg-announce/401/69) (subscribe to this thread for notifications) and the meeting minutes are [in the TWG category](https://forum.access-hive.org.au/c/cosima/twg/39). Everyone is welcome to suggest agenda items and participate.
+If you would like to interact in person with [the development team](https://www.access-nri.org.au/teams/ocean-model-team/), we have fortnightly technical working group meetings on Wednesdays at 3pm. They are announced [on the access hive forum](https://forum.access-hive.org.au/t/cosima-twg-announce/401/69) (subscribe to this thread for notifications) and the meeting minutes are [in the TWG category](https://forum.access-hive.org.au/c/cosima/twg/39). Everyone is welcome to suggest agenda items and participate.
 
 We also have an active and vibrant user community: [the COSIMA working group](https://cosima.org.au/). They have meetings on Thursday at 11:30am that are announced in [this access hive forum topic](https://forum.access-hive.org.au/t/cosima-working-group-announce/238/156). More information about getting involved is [here](https://cosima.org.au/index.php/get-involved/).
 
