@@ -6,8 +6,8 @@ The sections that follow explain why we selected each model parameter for the gl
 
 Code-formatted text in the following sections gives the parameter values set in the `MOM_input` configuration file.
 
-### Grid resolution
-The configuration uses a zonally-periodic tripolar grid to avoid a singularity at the North Pole (`REENTRANT_X = True`, `TRIPOLAR_N = True`). The horizontal grid has 1440 x 1152 tracer points providing eddy-permitting resolution similar to ACCESS-OM2-025 and GFDL's OM4/OM5 global models (1440 x 1080). See [Grids](../../inputs/Grids/) for more information. 
+### Grid description
+The 25km configuration uses a tripolar grid to avoid a singularity at the North Pole. The domain is zonally periodic `REENTRANT_X = True` and open at the north via a tripolar fold `TRIPOLAR_N = True` while closed in the south `REENTRANT_Y = False`. The horizontal grid has `1440x1152` [tracer points](https://github.com/NOAA-GFDL/MOM6-examples/blob/f33849827fba879cf0a2ef39aba11822daef93f1/ice_ocean_SIS2/OM4_025/MOM_parameter_doc.all#L219-L224). This is closely aligned with prior models, such as `ACCESS-OM2-025` and `GFDL OM4/OM5` (`1440x1080`) and provides eddy-permitting detail in the ocean while maintaining numerical stability. See [Grids](/inputs/Grids/) for more information. 
 
 There are 75 vertical layers (`NK = 75`). MOM6 supports an arbitrary Lagrangian Euler (ALE) vertical coordinate scheme [@griffies2020primer] that allows for completely general vertical coordinates. A number of coordinates are supported "out-of-the-box", including isopycnal, geopotential, terrain-following, HYCOM1 etc. This configuration uses ALE with a stretched geopotential (z-star) vertical coordinate (`USE_REGRIDDING = True`, `REGRIDDING_COORDINATE_MODE = "ZSTAR"`). The layer spacing specified via an input file (`ALE_COORDINATE_CONFIG = "FILE:ocean_vgrid.nc,interfaces=zeta"`). The deepest ocean depth is set to `MAXIMUM_DEPTH = 6000.0`. Further details of the vertical grid can be found [here](https://access-om3-configs.access-hive.org.au/inputs/Grids/#vertical-grid).
 
