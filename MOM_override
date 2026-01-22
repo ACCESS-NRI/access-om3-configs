@@ -1,32 +1,7 @@
-! === Added with RM6 ===
-#override MINIMUM_DEPTH = 4.5 !None
-#override OBC_NUMBER_OF_SEGMENTS = 4 !None
-#override OBC_FREESLIP_VORTICITY = False !None
-#override OBC_FREESLIP_STRAIN = False !None
-#override OBC_COMPUTED_VORTICITY = True !None
-#override OBC_COMPUTED_STRAIN = True !None
-#override OBC_ZERO_BIHARMONIC = True !None
-#override OBC_TRACER_RESERVOIR_LENGTH_SCALE_OUT = 3.0E+04 !None
-#override OBC_TRACER_RESERVOIR_LENGTH_SCALE_IN = 3000.0 !None
-#override BRUSHCUTTER_MODE = True !None
-#override OBC_SEGMENT_001 = "J=N,I=N:0,FLATHER,ORLANSKI,NUDGED,ORLANSKI_TAN,NUDGED_TAN" !None
-#override OBC_SEGMENT_001_VELOCITY_NUDGING_TIMESCALES = 0.3, 360.0 !None
-#override OBC_SEGMENT_001_DATA = "U=file:forcing_obc_segment_001.nc(u),V=file:forcing_obc_segment_001.nc(v),SSH=file:forcing_obc_segment_001.nc(eta),TEMP=file:forcing_obc_segment_001.nc(temp),SALT=file:forcing_obc_segment_001.nc(salt)" !None
-#override OBC_SEGMENT_002 = "J=0,I=0:N,FLATHER,ORLANSKI,NUDGED,ORLANSKI_TAN,NUDGED_TAN" !None
-#override OBC_SEGMENT_002_VELOCITY_NUDGING_TIMESCALES = 0.3, 360.0 !None
-#override OBC_SEGMENT_002_DATA = "U=file:forcing_obc_segment_002.nc(u),V=file:forcing_obc_segment_002.nc(v),SSH=file:forcing_obc_segment_002.nc(eta),TEMP=file:forcing_obc_segment_002.nc(temp),SALT=file:forcing_obc_segment_002.nc(salt)" !None
-#override OBC_SEGMENT_003 = "I=N,J=0:N,FLATHER,ORLANSKI,NUDGED,ORLANSKI_TAN,NUDGED_TAN" !None
-#override OBC_SEGMENT_003_VELOCITY_NUDGING_TIMESCALES = 0.3, 360.0 !None
-#override OBC_SEGMENT_003_DATA = "U=file:forcing_obc_segment_003.nc(u),V=file:forcing_obc_segment_003.nc(v),SSH=file:forcing_obc_segment_003.nc(eta),TEMP=file:forcing_obc_segment_003.nc(temp),SALT=file:forcing_obc_segment_003.nc(salt)" !None
-#override OBC_SEGMENT_004 = "I=0,J=N:0,FLATHER,ORLANSKI,NUDGED,ORLANSKI_TAN,NUDGED_TAN" !None
-#override OBC_SEGMENT_004_VELOCITY_NUDGING_TIMESCALES = 0.3, 360.0 !None
-#override OBC_SEGMENT_004_DATA = "U=file:forcing_obc_segment_004.nc(u),V=file:forcing_obc_segment_004.nc(v),SSH=file:forcing_obc_segment_004.nc(eta),TEMP=file:forcing_obc_segment_004.nc(temp),SALT=file:forcing_obc_segment_004.nc(salt)" !None
-#override TIDES = False !None
-#override OBC_TIDE_ADD_EQ_PHASE = False !None
-#override OBC_TIDE_N_CONSTITUENTS = 0 !None
-#override OBC_TIDE_CONSTITUENTS = "0" !None
-#override OBC_TIDE_REF_DATE = 2017, 1, 1 !None
+! Use this file for overriding MOM_input variables.
+! For regional experiments, it's good practice to keep all of of the variables 
+! defining your experiment here, rather than in MOM_input. 
+! Note that if a variable is overriden twice, MOM6 will throw a fatal error.
+! === User added overrides below ===
 
-&MOM_memory_nml
-    SYMMETRIC_MEMORY = True
-/
+
