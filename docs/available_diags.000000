@@ -1119,30 +1119,6 @@
     ! long_name: Barotropic meridional transport difference
     ! units: m3 s-1
     ! cell_methods: xh:mean yq:point
-"SSH_u_OBC"  [Unused]
-    ! modules: {ocean_model,ocean_model_d2}
-    ! dimensions: xq, yh
-    ! long_name: Outer sea surface height at u OBC points
-    ! units: m
-    ! cell_methods: xq:point yh:mean
-"SSH_v_OBC"  [Unused]
-    ! modules: {ocean_model,ocean_model_d2}
-    ! dimensions: xh, yq
-    ! long_name: Outer sea surface height at v OBC points
-    ! units: m
-    ! cell_methods: xh:mean yq:point
-"ubt_OBC"  [Unused]
-    ! modules: {ocean_model,ocean_model_d2}
-    ! dimensions: xq, yh
-    ! long_name: Outer u velocity at OBC points
-    ! units: m
-    ! cell_methods: xq:point yh:mean
-"vbt_OBC"  [Unused]
-    ! modules: {ocean_model,ocean_model_d2}
-    ! dimensions: xh, yq
-    ! long_name: Outer v velocity at OBC points
-    ! units: m
-    ! cell_methods: xh:mean yq:point
 "uh"  [Used]
     ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
     ! dimensions: xq, yh, zl

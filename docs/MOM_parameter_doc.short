@@ -43,10 +43,10 @@ SAVE_INITIAL_CONDS = True       !   [Boolean] default = False
 ! === module MOM_domains ===
 REENTRANT_X = False             !   [Boolean] default = True
                                 ! If true, the domain is zonally reentrant.
-NIGLOBAL = 140                  !
+NIGLOBAL = 151                  !
                                 ! The total number of thickness grid points in the x-direction in the physical
                                 ! domain. With STATIC_MEMORY_ this is set in MOM_memory.h at compile time.
-NJGLOBAL = 249                  !
+NJGLOBAL = 117                  !
                                 ! The total number of thickness grid points in the y-direction in the physical
                                 ! domain. With STATIC_MEMORY_ this is set in MOM_memory.h at compile time.
 
@@ -96,70 +96,8 @@ TOPO_CONFIG = "file"            !
                                 !     USER - call a user modified routine.
 TOPO_FILE = "bathymetry.nc"     ! default = "topog.nc"
                                 ! The file from which the bathymetry is read.
-MINIMUM_DEPTH = 4.5             !   [m] default = 0.0
-                                ! If MASKING_DEPTH is unspecified, then anything shallower than MINIMUM_DEPTH is
-                                ! assumed to be land and all fluxes are masked out. If MASKING_DEPTH is
-                                ! specified, then all depths shallower than MINIMUM_DEPTH but deeper than
-                                ! MASKING_DEPTH are rounded to MINIMUM_DEPTH.
 MAXIMUM_DEPTH = 4500.0          !   [m]
                                 ! The maximum depth of the ocean.
-
-! === module MOM_open_boundary ===
-! Controls where open boundaries are located, what kind of boundary condition to impose, and what data to apply,
-! if any.
-OBC_NUMBER_OF_SEGMENTS = 4      ! default = 0
-                                ! The number of open boundary segments.
-OBC_FREESLIP_VORTICITY = False  !   [Boolean] default = True
-                                ! If true, sets the normal gradient of tangential velocity to zero in the
-                                ! relative vorticity on open boundaries. This cannot be true if another
-                                ! OBC_XXX_VORTICITY option is True.
-OBC_COMPUTED_VORTICITY = True   !   [Boolean] default = False
-                                ! If true, uses the external values of tangential velocity in the relative
-                                ! vorticity on open boundaries. This cannot be true if another OBC_XXX_VORTICITY
-                                ! option is True.
-OBC_FREESLIP_STRAIN = False     !   [Boolean] default = True
-                                ! If true, sets the normal gradient of tangential velocity to zero in the strain
-                                ! use in the stress tensor on open boundaries. This cannot be true if another
-                                ! OBC_XXX_STRAIN option is True.
-OBC_COMPUTED_STRAIN = True      !   [Boolean] default = False
-                                ! If true, sets the normal gradient of tangential velocity to zero in the strain
-                                ! use in the stress tensor on open boundaries. This cannot be true if another
-                                ! OBC_XXX_STRAIN option is True.
-OBC_ZERO_BIHARMONIC = True      !   [Boolean] default = False
-                                ! If true, zeros the Laplacian of flow on open boundaries in the biharmonic
-                                ! viscosity term.
-OBC_SEGMENT_001 = "J=N,I=N:0,FLATHER,ORLANSKI,NUDGED,ORLANSKI_TAN,NUDGED_TAN" !
-                                ! Documentation needs to be dynamic?????
-OBC_SEGMENT_001_VELOCITY_NUDGING_TIMESCALES = 0.3, 360.0 !   [days]
-                                ! Timescales in days for nudging along a segment, for inflow, then outflow.
-                                ! Setting both to zero should behave like SIMPLE obcs for the baroclinic
-                                ! velocities.
-OBC_SEGMENT_002 = "J=0,I=0:N,FLATHER,ORLANSKI,NUDGED,ORLANSKI_TAN,NUDGED_TAN" !
-                                ! Documentation needs to be dynamic?????
-OBC_SEGMENT_002_VELOCITY_NUDGING_TIMESCALES = 0.3, 360.0 !   [days]
-                                ! Timescales in days for nudging along a segment, for inflow, then outflow.
-                                ! Setting both to zero should behave like SIMPLE obcs for the baroclinic
-                                ! velocities.
-OBC_SEGMENT_003 = "I=N,J=0:N,FLATHER,ORLANSKI,NUDGED,ORLANSKI_TAN,NUDGED_TAN" !
-                                ! Documentation needs to be dynamic?????
-OBC_SEGMENT_003_VELOCITY_NUDGING_TIMESCALES = 0.3, 360.0 !   [days]
-                                ! Timescales in days for nudging along a segment, for inflow, then outflow.
-                                ! Setting both to zero should behave like SIMPLE obcs for the baroclinic
-                                ! velocities.
-OBC_SEGMENT_004 = "I=0,J=N:0,FLATHER,ORLANSKI,NUDGED,ORLANSKI_TAN,NUDGED_TAN" !
-                                ! Documentation needs to be dynamic?????
-OBC_SEGMENT_004_VELOCITY_NUDGING_TIMESCALES = 0.3, 360.0 !   [days]
-                                ! Timescales in days for nudging along a segment, for inflow, then outflow.
-                                ! Setting both to zero should behave like SIMPLE obcs for the baroclinic
-                                ! velocities.
-OBC_TRACER_RESERVOIR_LENGTH_SCALE_OUT = 3.0E+04 !   [m] default = 0.0
-                                ! An effective length scale for restoring the tracer concentration at the
-                                ! boundaries to externally imposed values when the flow is exiting the domain.
-OBC_TRACER_RESERVOIR_LENGTH_SCALE_IN = 3000.0 !   [m] default = 0.0
-                                ! An effective length scale for restoring the tracer concentration at the
-                                ! boundaries to values from the interior when the flow is entering the domain.
-BRUSHCUTTER_MODE = True         !   [Boolean] default = False
-                                ! If true, read external OBC data on the supergrid.
 
 ! === module MOM_verticalGrid ===
 ! Parameters providing information about the vertical grid.
@@ -178,17 +116,9 @@ DTFREEZE_DP = -7.75E-08         !   [degC Pa-1] default = 0.0
 
 ! === module MOM_tracer_flow_control ===
 
-! === module MOM_boundary_update ===
-
-! === module segment_tracer_registry_init ===
-
 ! === module MOM_fixed_initialization ===
 
 ! === module MOM_grid_init ===
-
-! === module MOM_open_boundary ===
-! Controls where open boundaries are located, what kind of boundary condition to impose, and what data to apply,
-! if any.
 
 ! === module MOM_coord_initialization ===
 REGRIDDING_COORDINATE_MODE = "ZSTAR" ! default = "LAYER"
@@ -242,7 +172,7 @@ INIT_LAYERS_FROM_Z_FILE = True  !   [Boolean] default = False
                                 ! Z-space file on a latitude-longitude grid.
 
 ! === module MOM_initialize_layers_from_Z ===
-TEMP_SALT_Z_INIT_FILE = "init_tracers_mod.nc" ! default = "temp_salt_z.nc"
+TEMP_SALT_Z_INIT_FILE = "init_tracers.nc" ! default = "temp_salt_z.nc"
                                 ! The name of the z-space input file used to initialize temperatures (T) and
                                 ! salinities (S). If T and S are not in the same file, TEMP_Z_INIT_FILE and
                                 ! SALT_Z_INIT_FILE must be set.
@@ -277,14 +207,6 @@ VELOCITY_CONFIG = "file"        ! default = "zero"
                                 !     USER - call a user modified routine.
 VELOCITY_FILE = "init_vel.nc"   !
                                 ! The name of the velocity initial condition file.
-OBC_SEGMENT_001_DATA = "U=file:forcing_obc_segment_001.nc(u),V=file:forcing_obc_segment_001.nc(v),SSH=file:forcing_obc_segment_001.nc(eta),TEMP=file:forcing_obc_segment_001.nc(temp),SALT=file:forcing_obc_segment_001.nc(salt)" !
-                                ! OBC segment docs
-OBC_SEGMENT_002_DATA = "U=file:forcing_obc_segment_002.nc(u),V=file:forcing_obc_segment_002.nc(v),SSH=file:forcing_obc_segment_002.nc(eta),TEMP=file:forcing_obc_segment_002.nc(temp),SALT=file:forcing_obc_segment_002.nc(salt)" !
-                                ! OBC segment docs
-OBC_SEGMENT_003_DATA = "U=file:forcing_obc_segment_003.nc(u),V=file:forcing_obc_segment_003.nc(v),SSH=file:forcing_obc_segment_003.nc(eta),TEMP=file:forcing_obc_segment_003.nc(temp),SALT=file:forcing_obc_segment_003.nc(salt)" !
-                                ! OBC segment docs
-OBC_SEGMENT_004_DATA = "U=file:forcing_obc_segment_004.nc(u),V=file:forcing_obc_segment_004.nc(v),SSH=file:forcing_obc_segment_004.nc(eta),TEMP=file:forcing_obc_segment_004.nc(temp),SALT=file:forcing_obc_segment_004.nc(salt)" !
-                                ! OBC segment docs
 
 ! === module MOM_diag_mediator ===
 DIAG_COORD_DEF_Z = "FILE:vcoord.nc,interfaces=zi" ! default = "WOA09"

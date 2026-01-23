@@ -10,8 +10,8 @@
     iradsw = 1
     model_maskfile = './INPUT/access-rom3-nomask-ESMFmesh.nc'
     model_meshfile = './INPUT/access-rom3-nomask-ESMFmesh.nc'
-    nx_global = 140
-    ny_global = 249
+    nx_global = 151
+    ny_global = 117
     restfilm = 'null'
     skip_restart_read = .false.
 /

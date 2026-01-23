@@ -21,7 +21,7 @@ model: access-om3
 exe: access-om3-MOM6
 input:
     # Ocean input files
-    - /g/data/ol01/ab8992/rmom6_inputdirs/rom3-tas
+    - /g/data/ol01/ab8992/rom3-inputdirs/rom3-tas
     # Mesh files for JRA atmospheric forcing
     - /g/data/vk83/configurations/inputs/access-om3/share/meshes/share/2024.09.16/JRA55do-datm-ESMFmesh.nc
     - /g/data/vk83/configurations/inputs/access-om3/share/meshes/share/2024.09.16/JRA55do-drof-ESMFmesh.nc

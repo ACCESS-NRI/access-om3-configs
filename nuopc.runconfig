@@ -241,8 +241,8 @@ MED_attributes::
      mapuv_with_cart3d = .true.
      ocn2atm_map = unset
      ocn2wav_smapname = unset
-     ocn_nx = 140
-     ocn_ny = 249
+     ocn_nx = 151
+     ocn_ny = 117
      ocn_surface_flux_scheme = 0
      rof2lnd_map = unset
      rof2ocn_fmapname = unset
