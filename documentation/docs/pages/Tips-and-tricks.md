@@ -100,7 +100,7 @@ D:      2.985E+02 2.019E+02
 - A [notebook](https://github.com/ACCESS-NRI/access-eval-recipes/blob/main/ocean/Examine_truncation_data.ipynb) is provided to demonstrate how to read, interpret, and visualise truncation log output.
 
 ### Payu cloning access-om3-configs quickly
-A trivial  bash function to help one payu clone an access-om3-config.
+A trivial  bash function to help one payu clone an access-om3-config. The idea is that one can very quickly run a new experiment and doesn't have to remember the full git urls/payu syntax.
 
 ```bash
 function eclone()
@@ -130,4 +130,4 @@ function eclone()
 }
 ```
 
-For more complicated operations take a look at the [experiment generator tool](https://access-experiment-generator.access-hive.org.au/).
+For more complicated experiment generation operations take a look at the [experiment generator tool](https://access-experiment-generator.access-hive.org.au/). If you would like to only clone a repository then this `gh` alias may be useful `'!gh repo clone access-nri/$1 && cd $1 && gh repo set-default access-nri/$1'`.
