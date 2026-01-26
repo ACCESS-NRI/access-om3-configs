@@ -130,4 +130,5 @@ function eclone()
 }
 ```
 
-For more complicated experiment generation operations take a look at the [experiment generator tool](https://access-experiment-generator.access-hive.org.au/). If you would like to only clone a repository then this `gh` alias may be useful `'!gh repo clone access-nri/$1 && cd $1 && gh repo set-default access-nri/$1'`.
+For more complicated experiment generation operations take a look at the [experiment generator tool](https://access-experiment-generator.access-hive.org.au/). If you would like to only clone a repository then this `gh` alias may be useful `'!gh repo clone access-nri/$1 -- --recursive && cd $1 && gh repo set-default access-nri/$1'`.
+
