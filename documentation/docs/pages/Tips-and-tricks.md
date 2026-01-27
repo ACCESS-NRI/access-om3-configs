@@ -98,3 +98,44 @@ D:      2.985E+02 2.019E+02
 #### 3. Read and plot truncation log output
 
 - A [notebook](https://github.com/ACCESS-NRI/access-eval-recipes/blob/main/ocean/Examine_truncation_data.ipynb) is provided to demonstrate how to read, interpret, and visualise truncation log output.
+
+### Payu cloning access-om3-configs quickly
+`payuexp`: A trivial bash function to help one payu clone an access-om3-config. The idea is that one can very quickly run a new experiment and doesn't have to remember the full git urls/payu syntax.
+
+```bash
+function payuexp()
+{
+    if [[ ( $# -eq 0 ) || ( $1 == "--help" ) || ( $1 == "-h" ) ]] ; then
+        echo "Usage:   payuexp BRANCH."
+        echo "Purpose: clone an access-om3-config and path to the folder on NCI."
+        echo "       "
+        echo "Mandatory arguments: "
+        echo "BRANCH:   branch on om3-configs we'll clone"
+        echo "This:"
+        echo "payuexp dev-MC_100km_jra_ryf"
+        echo "       "
+        echo "Becomes:"
+        echo "payu clone -b expt -B dev-MC_100km_jra_ryf  https://github.com/ACCESS-NRI/access-om3-configs dev-MC_100km_jra_ryf"
+        To make payuexp available in your shell, copy the function into your shell startup file, such as `. ~/.bashrc` for bash then reload your environment by `source ~/.bashrc`
+        return 1
+    fi
+    echo "We are payu cloning branch "$1
+    echo ""
+    module purge
+    module use /g/data/vk83/modules
+    module load payu
+    module list
+    work_dir=/g/data/$PROJECT/$USER/access-om3-runs
+    mkdir -p $work_dir
+    cd $work_dir
+    payu clone -b expt -B $1 https://github.com/ACCESS-NRI/access-om3-configs $1
+    echo ""
+    cd $1
+    CWD="$(pwd)"
+    echo "Experiment folder is: "$CWD
+    echo ""
+}
+```
+
+For more complicated experiment generation operations take a look at the [experiment generator tool](https://access-experiment-generator.access-hive.org.au/). If you would like to only clone a repository, then this `gh` alias may be useful `'!gh repo clone access-nri/$1 -- --recursive && cd $1 && gh repo set-default access-nri/$1'`. This has the advantage that you do not have to remember the full url for the repository.
+
