@@ -4,13 +4,6 @@ Ocean diagnostics in MOM6 are configured via the `diag_table` file, which contro
 
 In ACCESS-OM3, `diag_table` is treated as a derived file and should not be edited directly, as any manual changes may be overwritten when configurations are regenerated. Instead, it is generated from the user-editable configuration file `diag_table_source.yaml` using the Python helper script [`make_diag_table.py`](https://github.com/COSIMA/make_diag_table), available under `/g/data/vk83/modules`. Hence this documentation mainly focuses on the resulting diagnostic filename conventions, rather than the generation workflow.
 
-## `diag_table` Structure
-The `diag_table` consists of three sections: `<title>`, `<file>`, and `<field>`.
-
-- The title section is mandatory. It appears at the top of the file and consists of a title string and a reference date specified by 6 integers.
-- The file section defines diagnostic output files and their output frequency. Each file entry may contain one or more diagnostic fields.
-- The field section defines individual diagnostic fields. Because MOM6 is a general-coordinate model, diagnostics may be written either in the native model coordinate system, or in user-defined (remapped) coordinates.
-
 ## ACCESS-OM3 diagnostic filename conventions
 The diagnostic filename conventions used by ACCESS-OM3 configurations are summarised [here](https://github.com/ACCESS-NRI/access-om3-configs/issues/374) and [here](https://github.com/ACCESS-NRI/access-om3-configs/issues/1024). At a high level, diagnostic files follow the pattern:
 ```
