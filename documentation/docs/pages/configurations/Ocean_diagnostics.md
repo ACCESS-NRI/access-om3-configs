@@ -77,7 +77,6 @@ Charateristics:
 - Applies to spatial diagnostics on the native model grid (`2d`, `3d`),
 - `<vertical_coordinate>` is included only for non-native vertical coordinates (e.g. `z`, `rho2`),
 - `d2` indicates half-resolution output and is supported only for standard `2d` / `3d` diagnostics.
-- Not valid for `static` or `scalar` outputs.
 
 #### 2. Static grid diagnostics
 Static grid variables are written once per run and grouped into a single file.
