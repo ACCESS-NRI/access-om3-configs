@@ -74,7 +74,6 @@ access-om3.mom6.3d.thkcello+rho2+d2.1mon.mean.1990.nc
 Charateristics:
 
 - One `2d` or `3d` diagnostic field per file,
-- Applies to spatial diagnostics on the native model grid (`2d`, `3d`),
 - `<vertical_coordinate>` is included only for non-native vertical coordinates (e.g. `z`, `rho2`),
 - `d2` indicates half-resolution output and is supported only for standard `2d` / `3d` diagnostics.
 
