@@ -1,10 +1,34 @@
 # Optimisation
 
-## Load balancing
+This documentation focuses on optimisation work that can be done at the configuration level, without changing the ACCESS-OM3 source code. In practice, many of the largest performance differences between runs come from how the model is built and how work is distributed across components, rather than from changes to the model numerics themselves. The main areas covered here are compiler optimisation flags, and processor layout and load balancing across model components, including MOM6, CICE, the mediator (MED), and the data components (DATM and DROF).
 
-The following describes the workflow to generate a suite of simulations that enable load balancing to be completed. We use the folowing tools: [access-experiment-generator](http://github.com/accESS-NRI/access-experiment-generator) and [access-experiment-runner](http://github.com/accESS-NRI/access-experiment-runner).
+All of the optimisation work described in this guide is driven by runtime evidence. We rely on ESMF tracing, using the ACCESS-NRI [`esmf-trace`](https://github.com/ACCESS-NRI/esmf-trace) repository, as the primary tool for understanding where time is actually spent during a run. Trace data provides a detailed breakdown of component-level timings, making it possible to see load imbalance, coupling wait times, and scaling limitations that are often hidden when looking only at overall wallclock performance.
 
-To access these python modules, one needs to on Gadi: `module purge;module use /g/data/vk83/prerelease/modules; module load payu/dev;module list`. Documentation for the experiment generator [is available here](https://access-experiment-generator.access-hive.org.au/).
+To keep optimisation experiments consistent and reproducible, this documentation also describes a structured workflow built around,
+ - [access-experiment-generator](https://github.com/ACCESS-NRI/access-experiment-generator)
+ - [access-experiment-runner](https://github.com/ACCESS-NRI/access-experiment-runner)
+
+These tools are used to generate controlled sets of configuration variants, run them in a consistent way, and collect comparable performance results with minimal manual effort. Combined with trace-based analysis, this approach makes it much easier to reproduce results, review optimisation choices, and build on previous work across different configurations and users.
+
+
+## 1. Compiler flag workflow
+
+
+## 2. Load balancing workflow
+
+The following describes the workflow to generate a suite of simulations that enable load balancing to be completed. We'll take the 100km RYF configuration as an example.
+
+### 2.1 Modules
+To access [access-experiment-generator](https://github.com/ACCESS-NRI/access-experiment-generator) and [access-experiment-runner](https://github.com/ACCESS-NRI/access-experiment-runner), one needs to load `payu/dev` on Gadi:
+
+```
+module purge
+module use /g/data/vk83/prerelease/modules
+module load payu/dev
+```
+
+### 2.2 Simulation suite
+
 
 ### Using the Experiment generator to create simulation suite 
 
