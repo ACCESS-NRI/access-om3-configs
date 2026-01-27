@@ -107,16 +107,17 @@ function payuexp()
 {
     if [[ ( $# -eq 0 ) || ( $1 == "--help" ) || ( $1 == "-h" ) ]] ; then
         echo "Usage:   payuexp BRANCH."
-        echo "Purpose: clone an access-om3-config and path to the folder on NCI."
+        echo "Purpose: clone an access-om3-config and path to the folder on Gadi (NCI)."
         echo "       "
         echo "Mandatory arguments: "
         echo "BRANCH:   branch on om3-configs we'll clone"
         echo "This:"
-        echo "payuexp dev-MC_100km_jra_ryf"
+        echo "  payuexp dev-MC_100km_jra_ryf"
         echo "       "
         echo "Becomes:"
-        echo "payu clone -b expt -B dev-MC_100km_jra_ryf  https://github.com/ACCESS-NRI/access-om3-configs dev-MC_100km_jra_ryf"
-        To make payuexp available in your shell, copy the function into your shell startup file, such as `. ~/.bashrc` for bash then reload your environment by `source ~/.bashrc`
+        echo "  payu clone -b expt -B dev-MC_100km_jra_ryf https://github.com/ACCESS-NRI/access-om3-configs dev-MC_100km_jra_ryf"
+        echo "       "
+        echo "To make payuexp available in your shell, copy the function into your shell startup file, such as '. ~/.bashrc' for bash then reload your environment by 'source ~/.bashrc'"
         return 1
     fi
     echo "We are payu cloning branch "$1
@@ -138,4 +139,5 @@ function payuexp()
 ```
 
 For more complicated experiment generation operations take a look at the [experiment generator tool](https://access-experiment-generator.access-hive.org.au/). If you would like to only clone a repository, then this `gh` alias may be useful `'!gh repo clone access-nri/$1 -- --recursive && cd $1 && gh repo set-default access-nri/$1'`. This has the advantage that you do not have to remember the full url for the repository.
+
 
