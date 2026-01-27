@@ -106,5 +106,4 @@ access-om3.mom6.scalar.1day.snap.1990.nc
 Characteristics:
 
 - No field name
-- No `d2` support
 - Contains multiple scalar diagnostics (e.g. `masso`, `soga`, `thetaoga`, `tosga`)
