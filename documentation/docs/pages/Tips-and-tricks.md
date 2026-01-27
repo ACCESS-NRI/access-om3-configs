@@ -115,7 +115,7 @@ function payuexp()
         echo "  payuexp dev-MC_100km_jra_ryf"
         echo "       "
         echo "Becomes:"
-        echo "  payu clone -b expt -B dev-MC_100km_jra_ryf  https://github.com/ACCESS-NRI/access-om3-configs dev-MC_100km_jra_ryf"
+        echo "  payu clone -b expt -B dev-MC_100km_jra_ryf https://github.com/ACCESS-NRI/access-om3-configs dev-MC_100km_jra_ryf"
         echo "       "
         echo "To make payuexp available in your shell, copy the function into your shell startup file, such as '. ~/.bashrc' for bash then reload your environment by 'source ~/.bashrc'"
         return 1
