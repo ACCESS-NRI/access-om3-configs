@@ -2,7 +2,7 @@
 
 Ocean diagnostics in MOM6 are configured via the `diag_table` file, which controls all runtime diagnostic output. Full details of the `diag_table` format and semantics are available in the [MOM6 docs](https://mom6.readthedocs.io/en/main/api/generated/pages/Diagnostics.html). 
 
-In ACCESS-OM3, however, users are not expected to edit `diag_table` directly. Instead, `diag_table` is generated from higher-level configuration inputs. Users should refer to the `README.md` under `diagnostic_profiles` in each configuration branch for guidance. Hence this documentation mainly focuses on the resulting diagnostic filename conventions, with only a brief introduction to the process used to generate `diag_table`.
+In ACCESS-OM3, however, users are not expected to edit `diag_table` directly. Instead, `diag_table` is generated using a Python script and configuration file. Users should refer to the `README.md` under `diagnostic_profiles` in each configuration branch for guidance. Hence this documentation mainly focuses on the resulting diagnostic filename conventions, with only a brief introduction to the process used to generate `diag_table`.
 
 ## How `diag_table` is generated in ACCESS-OM3
 ACCESS-OM3 diagnostics are defined using the following components:
@@ -22,22 +22,22 @@ The `diag_table` consists of three sections: `<title>`, `<file>`, and `<field>`.
 ## ACCESS-OM3 diagnostic filename conventions
 The diagnostic filename conventions used by ACCESS-OM3 configurations are summarised [here](https://github.com/ACCESS-NRI/access-om3-configs/issues/374). At a high level, diagnostic files follow the pattern:
 ```
-<file_prefix>.<model>.<dimension_or_mode>.<field_or_mode>[.<vertical_coordinate>][.<d2>].<frequency>.<time_cell_method>.<datestamp>.nc
+<file_prefix>.<model>.<dimension>[.<field>[+<vertical_coordinate>][+<d2>]].<frequency>.<time_cell_method>.<datestamp>.nc
 ```
 
 !!! important
-    Although several components are shown as optional, not all combinations are valid. In practice, filenames fall into a small number of well-defined cases, described below.
+    In practice, filenames fall into a small number of well-defined cases, described below.
 
 ### Common components
 - `<file_prefix>`: Always `access-om3`,
 - `<model>`: Always `mom6` for the ocean model,
-- `<dimension_or_mode>`: 
+- `<dimension>`: 
     - One of `2d` or `3d` for spatial diagnostics,
-    - `static` for static 2D grid data,
-    - `scalar` for (`0d`) scalar diagnostics.
+    - `static` for static grid data,
+    - `scalar` for scalar diagnostics.
 
 ### Field name or mode token
-- `<field_or_mode>`
+- `<field>`
     - For standard `2d` / `3d` diagnostics, this is the diagnostic field name.
     - For special cases:
         - `static` files do not include a field name,
@@ -47,9 +47,9 @@ The diagnostic filename conventions used by ACCESS-OM3 configurations are summar
     The ACCESS-OM3 convention is to write one physical field per file, except in the two special cases above.
 
 ### Temporal components
-- `frequency`: The output interval between records, specified using MOM/FMS frequency strings, such as "1day", "3hour", "1month" etc
+- `frequency`: The output interval between records, following naming conventions given in [this schema](https://github.com/ACCESS-NRI/schema/blob/dfaf21913f1159a4d76b70ea783a0ecb54798631/au.org.access-nri/model/output/file-metadata/1-0-1.json#L68-L92).
 - `<time_cell_method>`: Specifies how values are accumulated within each output interval, such as "mean", "max", "min", "snap" etc.
-- `<datestamp>`: Uses FMS time-string formatting, such as "%4yr" (4-digit year), other options can be "%dy" (day), "%mo" (month), "%hr" (hour), "%mn" (minute), "%sc" ("second") etc.
+- `<datestamp>`: Uses FMS time-string formatting, such as "%4yr" (4-digit year), other options can be "%dy" (day), "%mo" (month), "%hr" (hour), "%mn" (minute), "%sc" ("second") etc. The datestamp indicates the frequency at which new files are written. E.g. `YYYY` indicates yearly, `YYYY-MM` indicates monthly etc.
 
 ### Optional spatial components
 - `<vertical_coordinate>`: Is included only for non-native vertical coordinates, such as `z`, `rho2` etc
@@ -64,12 +64,12 @@ In practice, ACCESS-OM3 uses three distinct filename classes.
 
 #### 1. Standard 2D / 3D diagnostics (most common)
 ```
-access-om3.mom6.<2d|3d>.<field_name>[.<vertical_coordinate>][.d2].<frequency>.<time_cell_method>.<datestamp>.nc
+access-om3.mom6.<2d|3d>.<field_name>[+<vertical_coordinate>][+d2].<frequency>.<time_cell_method>.<datestamp>.nc
 ```
 
 Example:
 ```
-access-om3.mom6.3d.thkcello.rho2.d2.1mon.mean.1990.nc
+access-om3.mom6.3d.thkcello+rho2+d2.1mon.mean.1990.nc
 ```
 Charateristics:
 
