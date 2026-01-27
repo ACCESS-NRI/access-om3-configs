@@ -110,6 +110,7 @@ nav:
   - Configurations:
         - Overview: pages/configurations/Overview.md
         - MOM6-CICE 25km: pages/configurations/MC_25km.md
+        - Ocean diagnostics (diag_table): pages/configurations/Ocean_diagnostics.md
         - WW3 config: pages/configurations/MOM6-CICE6-WW3-quickstart.md
         - WW3 parameter choices: pages/configurations/WW3_parameter_choices.md
 
@@ -144,6 +145,7 @@ extra_css:
   - fontello/css/fontello-ie7.css
   - fontello/css/fontello.css
   - css/custom.css
+  - https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css
 
 extra_javascript:
   - javascripts/mathjax.js # For pymdownx.arithmatex extension
