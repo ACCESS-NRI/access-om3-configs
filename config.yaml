@@ -46,7 +46,7 @@ input:
     - /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/chlorophyll/global.100km/2025.11.25/chl_globcolour_monthly_clim.nc
     - /g/data/vk83/configurations/inputs/access-om3/cice/grids/global.100km/2024.05.14/kmt.nc
     - /g/data/vk83/configurations/inputs/access-om3/cice/initial_conditions/global.100km/2023.07.28/iced.1900-01-01-10800.nc
-    - /g/data/vk83/configurations/inputs/JRA-55/RYF/v1-6/data
+    - /g/data/tm70/as2285/making_inputs/om3-scripts/make_ryf/
  
 collate: false
 runlog: false
