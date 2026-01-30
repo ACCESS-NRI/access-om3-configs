@@ -1173,7 +1173,7 @@ ETA_TOLERANCE = 1.0E-06         !   [m] default = 3.75E-09
                                 ! total tolerance for SSH is 4 times this value.  The default is
                                 ! 0.5*NK*ANGSTROM, and this should not be set less than about
                                 ! 10^-15*MAXIMUM_DEPTH.
-VELOCITY_TOLERANCE = 3.0E+08    !   [m s-1] default = 3.0E+08
+VELOCITY_TOLERANCE = 1.0E-04    !   [m s-1] default = 3.0E+08
                                 ! The tolerance for barotropic velocity discrepancies between the barotropic
                                 ! solution and  the sum of the layer thicknesses.
 CONT_PPM_AGGRESS_ADJUST = False !   [Boolean] default = False
@@ -1204,7 +1204,7 @@ CORIOLIS_EN_DIS = False         !   [Boolean] default = False
                                 ! If true, two estimates of the thickness fluxes are used to estimate the
                                 ! Coriolis term, and the one that dissipates energy relative to the other one is
                                 ! used.
-CORIOLIS_SCHEME = "SADOURNY75_ENERGY" ! default = "SADOURNY75_ENERGY"
+CORIOLIS_SCHEME = "SADOURNY75_ENSTRO" ! default = "SADOURNY75_ENERGY"
                                 ! CORIOLIS_SCHEME selects the discretization for the Coriolis terms. Valid
                                 ! values are:
                                 !    SADOURNY75_ENERGY - Sadourny, 1975; energy cons.
@@ -1869,7 +1869,7 @@ LOTW_BBL_USE_OMEGA = True       !   [Boolean] default = True
                                 ! Otherwise, N is N.
 VON_KARMAN_BBL = 0.41           !   [nondim] default = 0.41
                                 ! The value the von Karman constant as used in calculating the BBL diffusivity.
-LOTW_BBL_ANSWER_DATE = 20190101 ! default = 20190101
+LOTW_BBL_ANSWER_DATE = 99991231 ! default = 20190101
                                 ! The vintage of the order of arithmetic and expressions in the LOTW_BBL
                                 ! calculations.  Values below 20240630 recover the original answers, while
                                 ! higher values use more accurate expressions.  This only applies when
@@ -2079,10 +2079,10 @@ IGNORE_FLUXES_OVER_LAND = False !   [Boolean] default = False
 DO_RIVERMIX = False             !   [Boolean] default = False
                                 ! If true, apply additional mixing wherever there is runoff, so that it is mixed
                                 ! down to RIVERMIX_DEPTH if the ocean is that deep.
-USE_RIVER_HEAT_CONTENT = False  !   [Boolean] default = False
+USE_RIVER_HEAT_CONTENT = True   !   [Boolean] default = False
                                 ! If true, use the fluxes%runoff_Hflx field to set the heat carried by runoff,
                                 ! instead of using SST*CP*liq_runoff.
-USE_CALVING_HEAT_CONTENT = False !   [Boolean] default = False
+USE_CALVING_HEAT_CONTENT = True !   [Boolean] default = False
                                 ! If true, use the fluxes%calving_Hflx field to set the heat carried by runoff,
                                 ! instead of using SST*CP*froz_runoff.
 DO_BRINE_PLUME = False          !   [Boolean] default = False
@@ -2308,7 +2308,7 @@ CHECK_DIFFUSIVE_CFL = True      !   [Boolean] default = False
                                 ! If true, use enough iterations the diffusion to ensure that the diffusive
                                 ! equivalent of the CFL limit is not violated.  If false, always use the greater
                                 ! of 1 or MAX_TR_DIFFUSION_CFL iteration.
-MAX_TR_DIFFUSION_CFL = -1.0     !   [nondim] default = -1.0
+MAX_TR_DIFFUSION_CFL = 2.0      !   [nondim] default = -1.0
                                 ! If positive, locally limit the along-isopycnal tracer diffusivity to keep the
                                 ! diffusive CFL locally at or below this value.  The number of diffusive
                                 ! iterations is often this value or the next greater integer.
@@ -2446,7 +2446,7 @@ WIND_STAGGER = "A"              ! default = "C"
 WIND_STRESS_MULTIPLIER = 1.0    !   [nondim] default = 1.0
                                 ! A factor multiplying the wind-stress given to the ocean by the coupler. This
                                 ! is used for testing and should be =1.0 for any production runs.
-ENTHALPY_FROM_COUPLER = False   !   [Boolean] default = False
+ENTHALPY_FROM_COUPLER = True    !   [Boolean] default = False
                                 ! If True, the heat (enthalpy) associated with mass entering/leaving the ocean
                                 ! is provided via coupler.
 FLUXCONST = 0.11                !   [m day-1] default = 0.0
