@@ -49,7 +49,7 @@ input:
     - /g/data/tm70/cy8964/mom6/input/input-8km/forcing_access_yr2_8km_fill.nc
     - /g/data/tm70/cy8964/mom6/input/input-8km/diag_rho2.nc
 
-runlog: True
+runlog: true
 metadata: 
     enable: true
 manifest:
