@@ -27,28 +27,28 @@ DRIVER_attributes::
 ::
 
 PELAYOUT_attributes::
-     atm_ntasks = 291
+     atm_ntasks = 364
      atm_nthreads = 1
      atm_pestride = 1
      atm_rootpe = 0
-     cpl_ntasks = 291
+     cpl_ntasks = 364
      cpl_nthreads = 1
      cpl_pestride = 1
      cpl_rootpe = 0
      esmf_logging = ESMF_LOGKIND_NONE
-     ice_ntasks = 291
+     ice_ntasks = 364
      ice_nthreads = 1
      ice_pestride = 1
      ice_rootpe = 0
      ninst = 1
-     ocn_ntasks = 1685
+     ocn_ntasks = 2626
      ocn_nthreads = 1
      ocn_pestride = 1
-     ocn_rootpe = 291
+     ocn_rootpe = 364
      pio_asyncio_ntasks = 0
      pio_asyncio_rootpe = 1
      pio_asyncio_stride = 0
-     rof_ntasks = 291
+     rof_ntasks = 364
      rof_nthreads = 1
      rof_pestride = 1
      rof_rootpe = 0
@@ -98,11 +98,11 @@ ALLCOMP_attributes::
      hostname = gadi
      ice_ncat = 5
      mediator_present = true
-     mesh_atm = ./INPUT/access-om3-25km-ESMFmesh.nc
-     mesh_ice = ./INPUT/access-om3-25km-ESMFmesh.nc
+     mesh_atm = ./INPUT/access-om3-8km-nomask-ESMFmesh_Charrassin_nocavity_cropped.nc
+     mesh_ice = ./INPUT/access-om3-8km-ESMFmesh_Charrassin_nocavity_cropped.nc
      mesh_lnd = UNSET
-     mesh_mask = ./INPUT/access-om3-25km-ESMFmesh.nc
-     mesh_ocn = ./INPUT/access-om3-25km-ESMFmesh.nc
+     mesh_mask = ./INPUT/access-om3-8km-ESMFmesh_Charrassin_nocavity_cropped.nc
+     mesh_ocn = ./INPUT/access-om3-8km-ESMFmesh_Charrassin_nocavity_cropped.nc
      model_version = unknown
      ocn2glc_coupling = .false.
      ocn2glc_levels = 1:10:19:26:30:33:35
@@ -119,17 +119,18 @@ ALLCOMP_attributes::
      tfreeze_option = linear_salt
      wav_coupling_to_cice = .false.
      restart_pointer_append_date = .false.
+     additional_restart_dir = RESTART
 ::
 
 MED_attributes::
-     Verbosity = off
+     Verbosity = max
      aoflux_grid = ogrid
      atm2ice_map = unset
      atm2lnd_map = unset
      atm2ocn_map = unset
      atm2wav_map = unset
-     atm_nx = 1440
-     atm_ny = 1152
+     atm_nx = 4320
+     atm_ny = 1442
      budget_ann = 1
      budget_daily = 0
      budget_inst = 0
@@ -137,7 +138,7 @@ MED_attributes::
      budget_ltend = 0
      budget_month = 1
      budget_table_version = v1
-     check_for_nans = .true.
+     check_for_nans = .true. # .false. # .true.
      coupling_mode = cesm
      do_budgets = .true.
      flux_albav = .true.
@@ -210,9 +211,9 @@ MED_attributes::
      history_n_ice_inst = -999
      history_n_lnd_avg = -999
      history_n_lnd_inst = -999
-     history_n_med_inst = -999
-     history_n_ocn_avg = -999
-     history_n_ocn_inst = -999
+     history_n_med_inst = -999 #1 #-999 #1
+     history_n_ocn_avg = -999 #1 # -999
+     history_n_ocn_inst = -999 #1 #-999 # 1
      history_n_rof_avg = -999
      history_n_rof_inst = -999
      history_n_wav_avg = -999
@@ -225,17 +226,17 @@ MED_attributes::
      history_option_ice_inst = never
      history_option_lnd_avg = never
      history_option_lnd_inst = never
-     history_option_med_inst = never
-     history_option_ocn_avg = never
-     history_option_ocn_inst = never
+     history_option_med_inst = never # ndays # nsteps # never # nsteps
+     history_option_ocn_avg = never # ndays # nsteps # never
+     history_option_ocn_inst = never # ndays # nsteps # never # nsteps
      history_option_rof_avg = never
      history_option_rof_inst = never
      history_option_wav_avg = never
      history_option_wav_inst = never
      ice2atm_map = unset
      ice2wav_smapname = unset
-     ice_nx = 1440
-     ice_ny = 1152
+     ice_nx = 4320
+     ice_ny = 1442
      info_debug = 1
      lnd2atm_map = unset
      lnd2rof_map = unset
@@ -244,15 +245,15 @@ MED_attributes::
      mapuv_with_cart3d = .true.
      ocn2atm_map = unset
      ocn2wav_smapname = unset
-     ocn_nx = 1440
-     ocn_ny = 1152
+     ocn_nx = 4320
+     ocn_ny = 1442
      ocn_surface_flux_scheme = 0
      rof2lnd_map = unset
      rof2ocn_fmapname = unset
-     rof2ocn_ice_rmapname = ./INPUT/access-om3-25km-rof-remap-weights.nc
-     rof2ocn_liq_rmapname = ./INPUT/access-om3-25km-rof-remap-weights.nc
-     rof_nx = 1440
-     rof_ny = 1152
+     rof2ocn_ice_rmapname = ./INPUT/access-om3-8km-rof-remap-weights_Charrassin_nocavity_cropped.nc
+     rof2ocn_liq_rmapname = ./INPUT/access-om3-8km-rof-remap-weights_Charrassin_nocavity_cropped.nc
+     rof_nx = 4320
+     rof_ny = 1442
      wav2ocn_smapname = unset
      wav_nx = 0
      wav_ny = 0
@@ -267,15 +268,15 @@ CLOCK_attributes::
      history_ymd = -999
      ice_cpl_dt = 99999 #not used
      lnd_cpl_dt = 99999 #not used
-     ocn_cpl_dt = 900 #ignored (coupling timestep set by nuopc.runseq) unless stop_option is nsteps
+     ocn_cpl_dt = 600 # 1200 #ignored (coupling timestep set by nuopc.runseq) unless stop_option is nsteps
      restart_n = 1
-     restart_option = nyears
+     restart_option = nmonths
      restart_ymd = -999
      rof_cpl_dt = 99999 #not used
      start_tod = 0
      start_ymd = 19000101
      stop_n = 1
-     stop_option = nyears
+     stop_option = nmonths
      stop_tod = 0
      stop_ymd = -999
      tprof_n = -999
@@ -302,7 +303,7 @@ OCN_attributes::
 
 ROF_attributes::
      Verbosity = off
-     mesh_rof = ./INPUT/access-om3-25km-nomask-ESMFmesh.nc
+     mesh_rof = ./INPUT/access-om3-8km-nomask-ESMFmesh_Charrassin_nocavity_cropped.nc
 ::
 
 MED_modelio::
