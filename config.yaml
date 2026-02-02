@@ -72,6 +72,7 @@ postscript: -v PROJECT,SCRIPTS_DIR=/g/data/vk83/apps/om3-scripts
 #Model software version
 modules:
   use:
+  - /g/data/vk83/modules
   - /g/data/vk83/prerelease/modules
   load:
   - model-tools/mppnccombine-fast/2025.07.000
@@ -86,3 +87,5 @@ platform:
 
 restart_freq: 1YS
 payu_minimum_version: 1.2.0
+
+restart: /scratch/x77/cy8964/access-om3/archive/ice_shelf_panan-spin-up-211125/restart065
