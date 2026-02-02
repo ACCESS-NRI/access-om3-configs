@@ -145,6 +145,7 @@ For more complicated experiment generation operations take a look at the [experi
 Imagine one wants to update a few parameters across multiple configs. One could create multiple PRs, update the checksums, review, merge. It's faster though to use the github cherry-pick workflow.
 
 There are a number of advantages to this, when it works:
+
  - You aren't manually making the same change to multiple branches
  - The cherry-picked PRs are opened by the access-bot so you can review and merge them yourself
 
@@ -157,8 +158,7 @@ MEKE_KHTR_FAC = 0.3
 MEKE_VISCOSITY_COEFF_KU = 0.6
 ```
 
-Here's a related PR:
-https://github.com/ACCESS-NRI/access-om3-configs/pull/1101
+Here is a [PR](https://github.com/ACCESS-NRI/access-om3-configs/pull/1101) with the changes applied.
 
 Here are the steps to use the Git Hub cherry-pick workflow
 
@@ -168,3 +168,4 @@ Here are the steps to use the Git Hub cherry-pick workflow
 1. Use `!cherry-pick` workflow to cherry-pick changes (except for commit updating checksums) into other configs (see [example](https://github.com/ACCESS-NRI/access-om3-configs/pull/1098) and where it came [from](https://github.com/ACCESS-NRI/access-om3-configs/pull/1092#issuecomment-3815178906)). This will automatically open PRs for you.
 1. Run `!test repro commit` in each of the cherry-picked PRs.
 2. Review and merge.
+
