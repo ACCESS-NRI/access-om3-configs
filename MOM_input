@@ -310,13 +310,13 @@ MEKE_GMCOEFF = 1.0              !   [nondim] default = -1.0
                                 ! conversion is not used or calculated.
 MEKE_BGSRC = 1.0E-13            !   [W kg-1] default = 0.0
                                 ! A background energy source for MEKE.
-MEKE_KHTH_FAC = 0.5             !   [nondim] default = 0.0
+MEKE_KHTH_FAC = 0.3             !   [nondim] default = 0.0
                                 ! A factor that maps MEKE%Kh to KhTh.
-MEKE_KHTR_FAC = 0.5             !   [nondim] default = 0.0
+MEKE_KHTR_FAC = 0.3             !   [nondim] default = 0.0
                                 ! A factor that maps MEKE%Kh to KhTr.
 MEKE_KHMEKE_FAC = 1.0           !   [nondim] default = 0.0
                                 ! A factor that maps MEKE%Kh to Kh for MEKE itself.
-MEKE_VISCOSITY_COEFF_KU = 1.0   !   [nondim] default = 0.0
+MEKE_VISCOSITY_COEFF_KU = 0.6   !   [nondim] default = 0.0
                                 ! If non-zero, is the scaling coefficient in the expression forviscosity used to
                                 ! parameterize harmonic lateral momentum mixing byunresolved eddies represented
                                 ! by MEKE. Can be negative torepresent backscatter from the unresolved eddies.
