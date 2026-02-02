@@ -15,19 +15,19 @@
   npt = 35040
   pointer_file = './rpointer.ice'
   print_global = .false.
-  ndtd = 3
+  ndtd = 4
 /
 &grid_nml
-  bathymetry_file = "./INPUT/topog.nc"
+  bathymetry_file = "./INPUT/topog_Charrassin_sea_ice_from_iceelev_new150925.nc"
   grid_atm = "A"
-  grid_file = "./INPUT/ocean_hgrid.nc"
+  grid_file = "./INPUT/ocean_hgrid_cropped.nc"
   grid_format = "mom_nc"
   grid_ice = "B"
   grid_ocn = "A"
   grid_type = "regional"
   grid_outfile = .true.
   kcatbound = 2
-  kmt_file = "./INPUT/kmt.nc"
+  kmt_file = "./INPUT/kmt_Charrassin_sea_ice_from_iceelev_new150925.nc"
   nblyr = 1
   ncat = 7
   nfsd = 1
@@ -69,8 +69,8 @@
   ustar_min = 0.0005
 /
 &domain_nml
-  block_size_x = 60
-  block_size_y = 54
+  block_size_x = 48
+  block_size_y = 36
   distribution_type = "sectrobin"
   distribution_wght = "latitude"
   maskhalo_bound = .true.

@@ -889,12 +889,6 @@
     ! long_name: Meridional Anomalous Barotropic Pressure Force Acceleration
     ! units: m s-2
     ! cell_methods: xh:mean yq:point
-"etaPF_anom"  [Unused]
-    ! modules: {ocean_model,ocean_model_d2}
-    ! dimensions: xh, yh
-    ! long_name: Eta anomalies used for pressure forces averaged over a baroclinic timestep
-    ! units: m
-    ! cell_methods: xh:mean yh:mean area:mean
 "CoruBT"  [Unused]
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xq, yh
@@ -1011,18 +1005,6 @@
     ! units: nondim
     ! cell_methods: xh:mean yq:point zl:mean
     ! variants: {visc_rem_v,visc_rem_v_xyave}
-"bt_rem_u"  [Unused]
-    ! modules: {ocean_model,ocean_model_d2}
-    ! dimensions: xq, yh
-    ! long_name: Barotropic viscous remnant per barotropic step at u
-    ! units: nondim
-    ! cell_methods: xq:point yh:mean
-"bt_rem_v"  [Unused]
-    ! modules: {ocean_model,ocean_model_d2}
-    ! dimensions: xh, yq
-    ! long_name: Barotropic viscous remnant per barotropic step at v
-    ! units: nondim
-    ! cell_methods: xh:mean yq:point
 "gtot_n"  [Unused]
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
@@ -1069,12 +1051,6 @@
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
     ! long_name: High Frequency Predictor Barotropic SSH
-    ! units: m
-    ! cell_methods: xh:mean yh:mean area:mean
-"etaPF_hifreq"  [Unused]
-    ! modules: {ocean_model,ocean_model_d2}
-    ! dimensions: xh, yh
-    ! long_name: High Frequency Barotropic SSH anomalies used for pressure forces
     ! units: m
     ! cell_methods: xh:mean yh:mean area:mean
 "uhbt_hifreq"  [Unused]
@@ -1212,30 +1188,6 @@
     ! dimensions: xh, yq
     ! long_name: Barotropic meridional transport difference
     ! units: m3 s-1
-    ! cell_methods: xh:mean yq:point
-"SSH_u_OBC"  [Unused]
-    ! modules: {ocean_model,ocean_model_d2}
-    ! dimensions: xq, yh
-    ! long_name: Outer sea surface height at u OBC points
-    ! units: m
-    ! cell_methods: xq:point yh:mean
-"SSH_v_OBC"  [Unused]
-    ! modules: {ocean_model,ocean_model_d2}
-    ! dimensions: xh, yq
-    ! long_name: Outer sea surface height at v OBC points
-    ! units: m
-    ! cell_methods: xh:mean yq:point
-"ubt_OBC"  [Unused]
-    ! modules: {ocean_model,ocean_model_d2}
-    ! dimensions: xq, yh
-    ! long_name: Outer u velocity at OBC points
-    ! units: m
-    ! cell_methods: xq:point yh:mean
-"vbt_OBC"  [Unused]
-    ! modules: {ocean_model,ocean_model_d2}
-    ! dimensions: xh, yq
-    ! long_name: Outer v velocity at OBC points
-    ! units: m
     ! cell_methods: xh:mean yq:point
 "uh"  [Unused]
     ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
@@ -1743,7 +1695,7 @@
     ! units: m2 s-2
     ! cell_methods: xh:mean yh:mean zl:mean area:mean
     ! variants: {uv,uv_xyave}
-"h"  [Unused]
+"h"  [Used]
     ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
     ! dimensions: xh, yh, zl
     ! long_name: Layer Thickness
@@ -1778,7 +1730,7 @@
     ! units: kg m-3
     ! cell_methods: xh:mean yh:mean zl:mean area:mean
     ! variants: {Rho_cv,Rho_cv_xyave}
-"rhopot0"  [Unused]
+"rhopot0"  [Used]
     ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
     ! dimensions: xh, yh, zl
     ! long_name: Potential density referenced to surface
@@ -2208,24 +2160,6 @@
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
     ! long_name: Mixed layer depth for energy value set to  250000.00 J/m2 (Energy set by 3rd MLD_EN_VALS)
-    ! units: m
-    ! cell_methods: xh:mean yh:mean area:mean
-"BMLD_EN1"  [Unused]
-    ! modules: {ocean_model,ocean_model_d2}
-    ! dimensions: xh, yh
-    ! long_name: Bottom mixed layer depth for energy value set to      25.00 J/m2 (Energy set by 1st MLD_EN_VALS)
-    ! units: m
-    ! cell_methods: xh:mean yh:mean area:mean
-"BMLD_EN2"  [Unused]
-    ! modules: {ocean_model,ocean_model_d2}
-    ! dimensions: xh, yh
-    ! long_name: Bottom mixed layer depth for energy value set to    2500.00 J/m2 (Energy set by 2nd MLD_EN_VALS)
-    ! units: m
-    ! cell_methods: xh:mean yh:mean area:mean
-"BMLD_EN3"  [Unused]
-    ! modules: {ocean_model,ocean_model_d2}
-    ! dimensions: xh, yh
-    ! long_name: Bottom mixed layer depth for energy value set to  250000.00 J/m2 (Energy set by 3rd MLD_EN_VALS)
     ! units: m
     ! cell_methods: xh:mean yh:mean area:mean
 "subML_N2"  [Unused]
@@ -2719,7 +2653,7 @@
     ! units: PSU
     ! cell_methods: xh:mean yh:mean zl:mean area:mean
     ! variants: {salt_predia,salt_predia_xyave}
-"Kd_interface"  [Unused]
+"Kd_interface"  [Used]
     ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
     ! dimensions: xh, yh, zi
     ! long_name: Total diapycnal diffusivity at interfaces
@@ -2872,7 +2806,7 @@
     ! units: W m-2
     ! cell_methods: xh:mean yh:mean zl:sum area:mean
     ! variants: {frazil_heat_tendency,frazil_heat_tendency_xyave}
-"frazil_heat_tendency_2d"  [Unused]
+"frazil_heat_tendency_2d"  [Used]
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
     ! long_name: Depth integrated heat tendency due to frazil formation
@@ -3112,12 +3046,6 @@
     ! units: W m-2
     ! standard_name: nondownwelling_shortwave_flux_in_sea_water
     ! cell_methods: xh:mean yh:mean area:mean
-"Chl_opac"  [Unused]
-    ! modules: {ocean_model,ocean_model_d2}
-    ! dimensions: xh, yh
-    ! long_name: Surface chlorophyll A concentration used to find opacity
-    ! units: mg m-3
-    ! cell_methods: xh:mean yh:mean area:mean
 "ePBL_h_ML"  [Unused]
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
@@ -3129,18 +3057,6 @@
     ! dimensions: xh, yh
     ! long_name: Surface mixed layer depth based on active turbulence
     ! units: m
-    ! cell_methods: xh:mean yh:mean area:mean
-"ePBL_ustar"  [Unused]
-    ! modules: {ocean_model,ocean_model_d2}
-    ! dimensions: xh, yh
-    ! long_name: Surface friction in ePBL
-    ! units: m s-1
-    ! cell_methods: xh:mean yh:mean area:mean
-"ePBL_bflx"  [Unused]
-    ! modules: {ocean_model,ocean_model_d2}
-    ! dimensions: xh, yh
-    ! long_name: Surface buoyancy flux in ePBL
-    ! units: m2 s-3
     ! cell_methods: xh:mean yh:mean area:mean
 "ePBL_TKE_wind"  [Unused]
     ! modules: {ocean_model,ocean_model_d2}
@@ -3241,20 +3157,6 @@
     ! units: m-1
     ! cell_methods: xh:mean yh:mean zl:mean area:mean
     ! variants: {opac_1,opac_1_xyave}
-"opac_2"  [Unused]
-    ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
-    ! dimensions: xh, yh, zl
-    ! long_name: Opacity for shortwave radiation in band 2, saved as L^-1 tanh(Opacity * L) for L = 10^-10 m
-    ! units: m-1
-    ! cell_methods: xh:mean yh:mean zl:mean area:mean
-    ! variants: {opac_2,opac_2_xyave}
-"opac_3"  [Unused]
-    ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
-    ! dimensions: xh, yh, zl
-    ! long_name: Opacity for shortwave radiation in band 3, saved as L^-1 tanh(Opacity * L) for L = 10^-10 m
-    ! units: m-1
-    ! cell_methods: xh:mean yh:mean zl:mean area:mean
-    ! variants: {opac_3,opac_3_xyave}
 "KHTR_u"  [Unused]
     ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
     ! dimensions: xq, yh, zi
@@ -4363,7 +4265,7 @@
     ! long_name: Virtual liquid precip into ocean due to SSS restoring
     ! units: kg m-2 s-1
     ! cell_methods: xh:mean yh:mean area:mean
-"frunoff"  [Unused] (CMOR equivalent is "ficeberg")
+"frunoff"  [Used] (CMOR equivalent is "ficeberg")
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
     ! long_name: Frozen runoff (calving) and iceberg melt into ocean
@@ -4492,7 +4394,7 @@
 "total_net_massin"  [Used]
     ! modules: ocean_model
     ! dimensions: scalar
-    ! long_name: Area integrated mass entering ocean due to precip, runoff, ice melt
+    ! long_name: Area integrated mass entering ocean due to predip, runoff, ice melt
     ! units: kg s-1
 "PRCmE_ga"  [Unused]
     ! modules: ocean_model
