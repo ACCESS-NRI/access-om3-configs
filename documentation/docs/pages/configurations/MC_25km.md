@@ -4,10 +4,10 @@ The sections that follow explain why we selected each model parameter for the gl
 
 ## MOM6 parameter choices
 
-Code-formatted text in the following sections gives the parameter values set in the `MOM_input` configuration file.
+Code-formatted text (`example`) in the following sections gives the parameter values set in the `MOM_input` configuration file.
 
 ### Grid description
-The 25km configuration uses a tripolar grid to avoid a singularity at the North Pole. The domain is zonally periodic `REENTRANT_X = True` and open at the north via a tripolar fold `TRIPOLAR_N = True` while closed in the south `REENTRANT_Y = False`. The horizontal grid has `1440x1152` [tracer points](https://github.com/NOAA-GFDL/MOM6-examples/blob/f33849827fba879cf0a2ef39aba11822daef93f1/ice_ocean_SIS2/OM4_025/MOM_parameter_doc.all#L219-L224). This is closely aligned with prior models, such as `ACCESS-OM2-025` and `GFDL OM4/OM5` (`1440x1080`) and provides eddy-permitting detail in the ocean while maintaining numerical stability. See [Grids](/inputs/Grids/) for more information. 
+The 25km configuration uses a tripolar grid to avoid a singularity at the North Pole. The domain is zonally periodic `REENTRANT_X = True` and open at the north via a tripolar fold `TRIPOLAR_N = True` while closed in the south `REENTRANT_Y = False`. The horizontal grid has `1440x1152` tracer points. This is closely aligned with prior models, such as `ACCESS-OM2-025` and `GFDL OM4/OM5` (`1440x1080`) and provides eddy-permitting detail in the ocean while maintaining numerical stability. See [Grids](/inputs/Grids/) for more information. 
 
 There are 75 vertical layers (`NK = 75`). MOM6 supports an arbitrary Lagrangian Euler (ALE) vertical coordinate scheme [@griffies2020primer] that allows for completely general vertical coordinates. A number of coordinates are supported "out-of-the-box", including isopycnal, geopotential, terrain-following, HYCOM1 etc. This configuration uses ALE with a stretched geopotential (z-star) vertical coordinate (`USE_REGRIDDING = True`, `REGRIDDING_COORDINATE_MODE = "ZSTAR"`). The layer spacing specified via an input file (`ALE_COORDINATE_CONFIG = "FILE:ocean_vgrid.nc,interfaces=zeta"`). The deepest ocean depth is set to `MAXIMUM_DEPTH = 6000.0`. Further details of the vertical grid can be found [here](/inputs/Grids/#vertical-grid).
 
@@ -19,7 +19,13 @@ The configuration uses the "ROQUET_RHO" equation of state for seawater thermodyn
 The freezing conservative temperature is calculated from absolute salinity and pressure using a 23-term polynomial fit refactored from the TEOS-10 package (`TFREEZE_FORM = "TEOS_POLY"`). More relevant discussion can be found in the [COSIMA TWG 23-July-2025 meeting minutes](https://forum.access-hive.org.au/t/cosima-twg-meeting-minutes-2025/4067/17#:~:text=Freezing%20temperature%20consistency%20between%20mom6%20and%20cice). 
 
 ### Frazil formation
-Frazil formation in the ocean is turned on (`FRAZIL = TRUE`). This scheme works upwards through each water column, transferring heat downwards from the layer above as needed to prevent the in-situ temperature falling below the local freezing point in each layer in turn. If the top layer is below freezing, heat is extracted from the sea ice model, which grows frazil ice in response. More details are [here](https://mom6.readthedocs.io/en/main/api/generated/pages/Frazil_Ice.html).
+Frazil ice typically consists of individual particles that appear like a coarse slush. Frazil ice can contribute to the creation of first-year sea ice, evolving to form a soupy ‘grease ice’ layer on the ocean surface, which may then develop into pancake ice. Frazil formation in the ocean is turned on (`FRAZIL = TRUE`, `ENABLE_THERMODYNAMICS = True`), Frazil ice forms in the model when the in situ temperature drops below the local freezing point, taking into account the in situ salinity and pressure. This scheme works upwards through each water column, transferring heat downwards from the layer above as needed to prevent the in-situ temperature falling below the local freezing point in each layer in turn. If the top layer is below freezing, heat is extracted from the sea ice model, which grows frazil ice in response. In these configurations, we also have:
+ 
+ 1. `MASK_SRESTORE_UNDER_ICE = False`, i.e. disables SSS restoring under sea-ice based on a frazil criteria;
+  1. `PRESSURE_DEPENDENT_FRAZIL = True` a pressure dependent freezing temperature is used when making frazil;
+  1. `RECLAIM_FRAZIL = True` use any frazil heat deficit to cool any overlying layers down to the freezing point.
+
+More details are [here](https://mom6.readthedocs.io/en/main/api/generated/pages/Frazil_Ice.html.
 
 In regions where there is no frazil formation, sea-ice melt/freeze potential is calculated over the smaller of the top 10m of the ocean and the boundary layer depth (`HFREEZE = 10.0`).
 
@@ -31,11 +37,11 @@ Salinity is limited to be positive to prevent the sea-ice model from asking for 
 ### Diagnostics
 Three-dimensional ocean diagnostics are output on either $z*$- or density-coordinates, depending on the diagnostic, rather than on the model's native coordinate. Specifically, `NUM_DIAG_COORDS = 2` with `DIAG_COORDS = "z Z ZSTAR", "rho2 RHO2 RHO"` and the vertical coordinate levels for each are defined by `DIAG_COORD_DEF_Z = "FILE:ocean_vgrid.nc,interfaces=zeta"` and `DIAG_COORD_DEF_RHO2 = "RFNC1:76,999.5,1020.,1034.1,3.1,1041.,0.002"` (relevant info can be found at [PR/622](https://github.com/ACCESS-NRI/access-om3-configs/pull/622)).
 
-An ideal age tracer is configured (`USE_IDEAL_AGE_TRACER = True`). This tracer ages at a rate of 1/year once it is isolated from the surface and is useful for  understanding water mass ventilation and residence times.
+An ideal age tracer is initialised (`USE_IDEAL_AGE_TRACER = True`). This tracer, once isolated from the surface, ages at a rate of 1 per year. It is useful for  understanding water mass ventilation and residence times.
 
 ### Vertical mixing parameterisations
 #### Energetic planetary boundary layer (ePBL)
-The configuration handles the vertical mixing in the ocean surface boundary layer with the ePBL scheme rather the the traditional KPP. The ePBL scheme is an energy-based 1D turbulence closure approach that integrates a boundary layer energy budget to determine mixing coefficients. It was developed by [@reichl2018simplified] to improve upon KPP for climate simulations by including the effect of turbulent kinetic energy input and wind-driven mixing in a more physically constrained way. Relevant discussion can be found in [issues/465](https://github.com/ACCESS-NRI/access-om3-configs/issues/465), [issues/426](https://github.com/ACCESS-NRI/access-om3-configs/issues/426), [issues/373](https://github.com/ACCESS-NRI/access-om3-configs/issues/373).
+The energetic Planetary Boundary Layer (ePBL) mixing scheme is an energy-based 1D turbulence closure approach that integrates a boundary layer energy budget to determine mixing coefficients. It was developed by [@reichl2018simplified] to improve upon KPP for climate simulations by including the effect of turbulent kinetic energy input and wind-driven mixing in a more physically constrained way. Relevant discussion can be found in [issues/465](https://github.com/ACCESS-NRI/access-om3-configs/issues/465), [issues/426](https://github.com/ACCESS-NRI/access-om3-configs/issues/426), [issues/373](https://github.com/ACCESS-NRI/access-om3-configs/issues/373).
 
 The ePBL scheme parameters in the configuration are based on the [GFDL OM5 configuration](https://github.com/NOAA-GFDL/MOM6-examples/blob/3c1de3512e2200bfc10d9e5150715c9df76dbd30/ice_ocean_SIS2/Baltic_OM5_025/MOM_parameter_doc.all), including:
 
@@ -45,13 +51,13 @@ The ePBL scheme parameters in the configuration are based on the [GFDL OM5 confi
 - Replacing shear-induced diffusivities with ePBL diffusivities when the latter is larger than the former (`EPBL_IS_ADDITIVE = False`)
 
 #### Interior shear-driven mixing
-Shear-driven mixing is parameterised use the Jackson-Hallberg-Legg shear mixing scheme [@jackson2008parameterization] using the MOM6 default critical Richardson number (Ri) and shear mixing rate (`USE_JACKSON_PARAM = True`, `RINO_CRIT = 0.25`, `SHEARMIX_RATE = 0.089`). This scheme targets mixing in stratified shear zones, effectively adding interior vertical diffusivity when the local Ri is less than the critical value. The shear is computed at cell vertices to better capture shear between adjacent grid cells (`VERTEX_SHEAR = True`). The Jackson-Hallberg-Legg parameterisation is energetically constrained: it iteratively finds a diffusivity such that the energy extracted from the mean flow equals the energy used in mixing plus that lost to dissipation (`MAX_RINO_IT = 25`, inherited from the [GFDL OM5 configuration](https://github.com/NOAA-GFDL/MOM6-examples/blob/3c1de3512e2200bfc10d9e5150715c9df76dbd30/ice_ocean_SIS2/Baltic_OM5_025/MOM_parameter_doc.all#L2088)).
+Shear-driven mixing is parameterised using the Jackson-Hallberg-Legg shear mixing scheme [@jackson2008parameterization] with the MOM6 default critical Richardson number (Ri; `RINO_CRIT = 0.25`) and shear mixing rate (`USE_JACKSON_PARAM = True` and `SHEARMIX_RATE = 0.089`). This scheme targets mixing in stratified shear zones, effectively adding interior vertical diffusivity when the local Ri is less than the critical value. The shear is computed at cell vertices to better capture shear between adjacent grid cells (`VERTEX_SHEAR = True`). The Jackson-Hallberg-Legg parameterisation is energetically constrained: it iteratively finds a diffusivity such that the energy extracted from the mean flow equals the energy used in mixing plus that lost to dissipation (`MAX_RINO_IT = 25`, inherited from the [GFDL OM5 configuration](https://github.com/NOAA-GFDL/MOM6-examples/blob/3c1de3512e2200bfc10d9e5150715c9df76dbd30/ice_ocean_SIS2/Baltic_OM5_025/MOM_parameter_doc.all#L2088)). See the [MOM6 documentation for further details](https://mom6.readthedocs.io/en/main/api/generated/pages/Internal_Vert_Mixing.html#shear-driven-mixing-in-jackson).
 
 #### Internal tidal mixing
 Internal tidal mixing is parameterised using the vertical profile of energy dissipation from [@polzin2009abyssal] rather than the default St. Laurent profile, following [@MeletHallbergLeggPolzin2013a] (`INT_TIDE_DISSIPATION = True`, `INT_TIDE_PROFILE = "POLZIN_09"`). Tidal mixing is informed by spatially-varying tidal amplitudes and roughness data that are read from files that [were generated](https://github.com/ACCESS-NRI/om3-scripts/tree/main/external_tidal_generation) using tidal velocities from [`TPXO10`](https://www.tpxo.net/global/tpxo10) and bathymetry from [`SYNBATH`](https://agupubs.onlinelibrary.wiley.com/doi/10.1029/2021EA002069) (`READ_TIDEAMP = True`, `TIDEAMP_FILE = "tideamp.nc"`, `H2_FILE = "bottom_roughness.nc"`). The maximum energy per area that can be injected as mixing is limited in the same way as in the [GFDL OM5 configuration](https://github.com/NOAA-GFDL/MOM6-examples/blob/3c1de3512e2200bfc10d9e5150715c9df76dbd30/ice_ocean_SIS2/Baltic_OM5_025/MOM_parameter_doc.all#L1946-L1948) (`TKE_ITIDE_MAX = 0.1`).
 
 #### Interior background mixing
-Ocean interior background mixing is also configured based on the [GFDL OM5 configuration](https://github.com/NOAA-GFDL/MOM6-examples/blob/3c1de3512e2200bfc10d9e5150715c9df76dbd30/ice_ocean_SIS2/Baltic_OM5_025/MOM_parameter_doc.all#L2004). A weak constant background diapycnal diffusivity is set for diapycnal mixing (`KD = 1.5E-05`), with a floor for numerical stability (`KD_MIN = 2.0e-6`). Vertical mixing is enhanced in the salt-fingering regime (`DOUBLE_DIFFUSION = True`) and Henyey-type internal wave scaling is configured with default MOM6 parameters (`HENYEY_IGW_BACKGROUND = True`, `HENYEY_N0_2OMEGA = 20.0`, `HENYEY_MAX_LAT = 73.0`). The total diffusivity increment from TKE-based schemes is capped to prevent unbounded growth of shear-based or convective mixing (`KD_MAX = 0.1`). This is a large upper bound that would only take effect in extremely unstable cases.
+Ocean interior background mixing is also configured based on the [GFDL OM5 configuration](https://github.com/NOAA-GFDL/MOM6-examples/blob/3c1de3512e2200bfc10d9e5150715c9df76dbd30/ice_ocean_SIS2/Baltic_OM5_025/MOM_parameter_doc.all#L2004). A weak constant background diapycnal diffusivity is set for diapycnal mixing (`KD = 1.5E-05`; m^2 s-1), with a floor for numerical stability (`KD_MIN = 2.0e-6`; m^2 s-1). Vertical mixing is enhanced in the salt-fingering regime (`DOUBLE_DIFFUSION = True`) and Henyey-type internal wave scaling is configured with default MOM6 parameters (`HENYEY_IGW_BACKGROUND = True`, `HENYEY_N0_2OMEGA = 20.0`, `HENYEY_MAX_LAT = 73.0`). The total diffusivity increment from TKE-based schemes is capped to prevent unbounded growth of shear-based or convective mixing (`KD_MAX = 0.1`; m^2 s-1). This is a large upper bound that would only take effect in extremely unstable cases.
 
 #### Bottom boundary layer
 The bottom boundary layer viscosity and thickness are calculated such that the bottom stress is quadratic and depends on the average of the velocities over the bottom 10m (`BOTTOMDRAGLAW = True`, `LINEAR_DRAG = False`, `HBBL = 10.0`, `CDRAG = 0.003`). See [here](https://mom6.readthedocs.io/en/main/api/generated/pages/Vertical_Viscosity.html?highlight=bottom%20drag#viscous-bottom-boundary-layer) for more details.
@@ -61,41 +67,42 @@ An additional Rayleigh drag is applied to layers within the bottom boundary laye
 ### Horizontal viscosity and subgrid momentum mixing
 A hybrid Laplacian-biharmonic viscosity scheme is used to parameterise unresolved horizontal turbulent mixing of momentum (`LAPLACIAN = True`, `BIHARMONIC = True`). The scheme helps remove small-scale kinetic energy, while preserving large-scale eddy structures, targetting the smaller scales more selectively than just using a Laplacian scheme. See the [MOM6 documentation](https://mom6.readthedocs.io/en/main/api/generated/modules/mom_hor_visc.html#namespacemom-hor-visc-1section-horizontal-viscosity:~:text=Laplacian%20viscosity%20coefficient) for details of how the horizontal viscosity is calculated. The biharmonic viscosity includes:
 
-- no constant background viscosity (`AH = 0.0`)
+- no constant background viscosity (`AH = 0.0` default value; `m^2 s-1`)
 - a grid-dependent background viscosity (`AH_VEL_SCALE = 0.01`, `AH_TIME_SCALE = 0.0`)
 - a dynamic Smagorinsky nonlinear eddy viscosity (`SMAGORINSKY_AH = True`, `SMAG_BI_CONST = 0.06`, `LEITH_AH = False`)
 
-The Lapacian viscosity includes:
+The [Lapacian viscosity](https://mom6.readthedocs.io/en/main/api/generated/modules/mom_hor_visc.html#laplacian-viscosity-coefficient) includes:
 
-- no constant background viscosity (`KH = 0.0`)
+- no constant background viscosity (`KH = 0.0` default value; `m^4 s-1`)
 - a grid-dependent background viscosity (`KH_VEL_SCALE = 0.01`)
 - a latitudinally-dependent background viscosity (`KH_SIN_LAT = 2000.0`, `KH_PWR_OF_SINE = 4.0`)
-- no file-base background viscosity (`USE_KH_BG_2D = False`)
+- a 2-d spatial map of background viscosity is not applied (`USE_KH_BG_2D = False`)
 - no dynamic viscosity component (`SMAGORINSKY_KH = False`, `LEITH_KH = False`)
 - reduction scaling in well-resolved regions (`RESOLN_SCALED_KH = True`) 
 - the two coefficient anisotropic viscosity scheme proposed by [@smith2003anisotropic] is not used (`ANISOTROPIC_VISCOSITY = False`)
+
 The Laplacian and biharmonic coefficients are both limited locally to guarantee stability (`BOUND_KH = True`, `BETTER_BOUND_KH = True`, `BOUND_AH = True`, `BETTER_BOUND_AH = True`).
 
 ### Isopycnal mixing
-Baroclinic instability converts available potential energy (APE) stored in sloping isopycnals into eddy kinetic energy (EKE). In an eddy-permitting 25km configuration, this conversion is only partly resolved hence the model does not fully capture the eddy processes that naturally flatten isopycnals and release APE. As a result, isopycnal slopes remain steeper than they should be unless the unresolved eddy effects are parameterised. More details can be found in [@mitgcm_gmredi].
+Baroclinic instability converts available potential energy (APE) stored in sloping isopycnals into eddy kinetic energy (EKE). In an eddy-permitting 25km configuration, this conversion is only partly resolved hence the model does not fully capture the eddy processes that naturally flatten isopycnals and release APE. As a result, isopycnal slopes remain steeper than they should be unless the unresolved eddy effects are parameterised. More details on the physical basis and mathematical formulation of the GM parameterisation can be found in [@mitgcm_gmredi].
 
-Mesoscale eddies also induce irreversible mixing of tracers but primarily along neutral density surfaces rather than vertically. This diabatic component needs to be represented through an isopycnal diffusion parameterisation that diffuses tracers along neutral surfaces while avoiding spurious diapycnal mixing.
+Mesoscale eddies also induce irreversible mixing of tracers but primarily along neutral density surfaces rather than vertically. In ocean models, this effect is represented using an isopycnal diffusion parameterisation, which diffuses tracers along neutral surfaces while minimising spurious diapycnal mixing.
 
 To represent both the flattening of isopycnals and the along-isopycnal tracer mixing, the configuration applies a hybrid mesoscale parameterisation that combines neutral diffusion [@redi1982oceanic] with the Gent-McWilliams (`GM`) eddy-induced advection scheme [@gent1990isopycnal]. Both require an eddy diffusivity,
 
 - thickness diffusivity ($KHTH$ in MOM6)
 - isopycnal tracer diffusivity ($KHTR$ in MOM6)
 
-In MOM5, these coefficients were prescribed constants or latitude-dependent maps, but these choices are ad-hoc and not dynamically constrained. Hence MOM6 also offers the Mesoscale Eddy Kinetic Energy (`MEKE`) scheme [@mom6_mom_meke] which provides a flow-dependent, scale-aware `GM` diffusivity. `MEKE` prognostically computes an eddy kinetic energy field $E(x,y,z,t)$ from which it derives an eddy velocity scale,
+In MOM5, these coefficients were prescribed constants or latitude-dependent maps, but these choices are ad-hoc and not dynamically constrained. Hence MOM6 also offers the Mesoscale Eddy Kinetic Energy (`MEKE`) scheme [@mom6_mom_meke] which provides a flow-dependent, scale-aware `GM` diffusivity. `MEKE` prognostically computes an eddy kinetic energy field $E(x,y,z,t)$ ($m^2 s^-2$) from which it derives an eddy velocity scale:
 
 $$
-U_{eddy}=\sqrt{2E}
+U_{e}=\sqrt{2E}
 $$
 
 and an eddy length scale ($L$) based on a configurable combination of multiple length scales. The GM thickness diffusivity is then computed as,
 
 $$
-KHTH = CU_{eddy}L
+KHTH = CU_{e}L
 $$,
 
 Hence when EKE is large, `GM` diffusivity increases with stronger flattening of isopycnals and similarly when EKE is small, `GM` diffusivity decreases and let the resolved eddies do the work. Hence the `GM` flattening of isopycnals becomes energetically consistent and scale-aware, adapting automatically to the local eddy field.
@@ -103,9 +110,9 @@ Hence when EKE is large, `GM` diffusivity increases with stronger flattening of 
 #### Isopycnal thickness diffusion (Gent McWilliams bolus transport)
 In MOM6, `GM` is implemented in a thickness diffusion form. MOM6 adds a diffusive flux of layer thickness to the thickness (mass continuity) equation. This height diffusion formulation is mathematically equivalent to the original scheme, which was expressed as an eddy-induced (bolus) velocity that advects tracers and layer thickness [@adcroft2019gfdl]. `GM` is turned on via `THICKNESSDIFFUSE = True`. 
 
-This configuration uses `MEKE` (`USE_MEKE = True`) to provide the `GM` diffusivity. Because we do not supply an external EKE field (`EKE_SOURCE = "prog"`), EKE is generated internally through instability growth. `MEKE_BGSRC = 1.0E-13` prevents `EKE` from decaying to zero in very quiet regions. It serves as a floor to aid numerical stability and is analogous to a background diffusivity but in energy form. `MEKE_GMCOEFF = 1.0` means the scheme converts eddy potential energy to eddy kinetic energy with 100% efficiency for the `GM` effect. `MEKE_KHTR_FAC = 0.5` and `MEKE_KHTH_FAC = 0.5` map some of the eddy energy to tracer diffusivity and thickness diffusivity, respectively. In practice, `MEKE` supplies the dynamically varying `GM` coefficient that flattens isopycnals and removes APE in a physically informed way. We use `KHTH_USE_FGNV_STREAMFUNCTION = True`, which solves a 1-D boundary-value problem to ensure the `GM` streamfunction is smooth in the vertical and vanishes at the surface and bottom [@ferrari2010boundary]. `FGNV_FILTER_SCALE = 0.1` applies light spatial filtering to reduce noise in the diagnosed streamfunction. We set `RES_SCALE_MEKE_VISC = False`, meaning viscosity is not explicitly scaled by `MEKE`.
+This configuration uses `MEKE` (`USE_MEKE = True`) to provide the `GM` diffusivity. Because we do not supply an external EKE field (`EKE_SOURCE` is not equal to "file"`), EKE is generated internally through instability growth, i.e., solving the EKE equation (`EKE_SOURCE = "prog"`). `MEKE_BGSRC = 1.0E-13` prevents `EKE` from decaying to zero in very quiet regions. It serves as a floor to aid numerical stability and is analogous to a background diffusivity but in energy form. `MEKE_GMCOEFF = 1.0` means the scheme converts eddy potential energy to eddy kinetic energy with 100% efficiency for the `GM` effect. `MEKE_KHTR_FAC = 0.5` and `MEKE_KHTH_FAC = 0.5` map some of the eddy energy to tracer diffusivity and thickness diffusivity, respectively. In practice, `MEKE` supplies the dynamically varying `GM` coefficient that flattens isopycnals and removes APE in a physically informed way. We use `KHTH_USE_FGNV_STREAMFUNCTION = True`, which solves a 1-D boundary-value problem to ensure the `GM` streamfunction is smooth in the vertical and vanishes at the surface and bottom [@ferrari2010boundary]. `FGNV_FILTER_SCALE = 0.1` applies light spatial filtering to reduce noise in the diagnosed streamfunction. We set `RES_SCALE_MEKE_VISC = False`, meaning viscosity is not explicitly scaled by `MEKE`.
 
-With `MEKE`, MOM6 becomes explicitly resolution-aware: as horizontal resolution increases and more eddy processes are partially resolved, the diagnosed `GM` coefficient naturally decreases; conversely, `GM` strengthens where eddies remain under-resolved (e.g. high latitudes), removing the need for ad-hoc spatial maps of `GM` coefficients.
+With `MEKE`, MOM6 becomes explicitly resolution-aware: as horizontal resolution increases and more eddy processes are partially resolved, the diagnosed `GM` coefficient naturally decreases; conversely, `GM` strengthens where eddies remain under-resolved (e.g. high latitudes), reducing the need for prescribed spatially varying `GM` coefficients.
 
 #### Isopycnal tracer mixing (`Redi`)
 Neutral tracer diffusion is enabled with `USE_NEUTRAL_DIFFUSION = True`, allowing tracers to mix primarily along neutral density surfaces, thus reducing spurious diapycnal mixing in stratified regions. The along-isopycnal diffusivity is set to `KHTR = 50.0`, following [GFDL OM4_05 configuration](https://github.com/NOAA-GFDL/MOM6-examples/blob/3c1de3512e2200bfc10d9e5150715c9df76dbd30/ice_ocean_SIS2/Baltic_OM4_05/MOM_parameter_doc.all#L2419). We also use `USE_STORED_SLOPES = True` and keep `NDIFF_CONTINUOUS = True` to ensure smooth neutral-direction slopes and numerical stability.
