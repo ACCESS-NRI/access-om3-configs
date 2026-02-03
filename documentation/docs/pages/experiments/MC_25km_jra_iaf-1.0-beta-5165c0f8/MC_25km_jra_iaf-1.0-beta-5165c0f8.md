@@ -4,6 +4,12 @@
  
 ## Template notebook
  
-![`00_template_notebook.ipynb`: Example figure of ACCESS-OM3 sea surface height (m).](experiments/MC_25km_jra_iaf-1.0-beta-5165c0f8/00_template_notebook1.png) 
+![`00_template_notebook.ipynb`: Example figure of ACCESS-OM3 sea surface height (m).](experiments/MC_25km_jra_iaf-1.0-beta-5165c0f8/00_template_notebook1.png){: style="height:450px;width:450px"} 
+
   Caption: `00_template_notebook.ipynb`: Example figure of ACCESS-OM3 sea surface height (m).
   
+
+
+
+![test2](experiments/MC_25km_jra_iaf-1.0-beta-5165c0f8/00_template_notebook1.png)
+![test3](/experiments/MC_25km_jra_iaf-1.0-beta-5165c0f8/00_template_notebook1.png)
