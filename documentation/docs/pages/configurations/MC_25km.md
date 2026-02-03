@@ -84,7 +84,7 @@ The [Lapacian viscosity](https://mom6.readthedocs.io/en/main/api/generated/modul
 The Laplacian and biharmonic coefficients are both limited locally to guarantee stability (`BOUND_KH = True`, `BETTER_BOUND_KH = True`, `BOUND_AH = True`, `BETTER_BOUND_AH = True`).
 
 ### Isopycnal mixing
-Baroclinic instability converts available potential energy (APE) stored in sloping isopycnals into eddy kinetic energy (EKE). In an eddy-permitting 25km configuration, this conversion is only partly resolved hence the model does not fully capture the eddy processes that naturally flatten isopycnals and release APE. As a result, isopycnal slopes remain steeper than they should be unless the unresolved eddy effects are parameterised. More details on the physical basis and mathematical formulation of the GM parameterisation can be found in [@mitgcm_gmredi].
+Baroclinic instability converts available potential energy (APE) stored in sloping isopycnals into eddy kinetic energy (EKE). In an eddy-permitting 25km configuration, this conversion is only partly resolved hence the model does not fully capture the eddy processes that naturally flatten isopycnals and release APE. As a result, isopycnal slopes remain steeper than they should be unless the unresolved eddy effects are parameterised. More details on the physical basis and mathematical formulation of the GM parameterisation can be found in the [MITgcm documentation](https://mitgcm.readthedocs.io/en/latest/phys_pkgs/gmredi.html).
 
 Mesoscale eddies also induce irreversible mixing of tracers but primarily along neutral density surfaces rather than vertically. In ocean models, this effect is represented using an isopycnal diffusion parameterisation, which diffuses tracers along neutral surfaces while minimising spurious diapycnal mixing.
 
@@ -93,7 +93,7 @@ To represent both the flattening of isopycnals and the along-isopycnal tracer mi
 - thickness diffusivity ($KHTH$ in MOM6)
 - isopycnal tracer diffusivity ($KHTR$ in MOM6)
 
-In MOM5, these coefficients were prescribed constants or latitude-dependent maps, but these choices are ad-hoc and not dynamically constrained. Hence MOM6 also offers the Mesoscale Eddy Kinetic Energy (`MEKE`) scheme [@mom6_mom_meke] which provides a flow-dependent, scale-aware `GM` diffusivity. `MEKE` prognostically computes an eddy kinetic energy field $E(x,y,z,t)$ ($m^2 s^-2$) from which it derives an eddy velocity scale:
+In MOM5, these coefficients were prescribed constants or latitude-dependent maps, but these choices are ad-hoc and not dynamically constrained. Hence MOM6 also offers the Mesoscale Eddy Kinetic Energy (`MEKE`) scheme which provides a flow-dependent, scale-aware `GM` diffusivity (documentation [here](https://mom6.readthedocs.io/en/main/api/generated/modules/mom_meke.html#detamom-meke)). `MEKE` prognostically computes an eddy kinetic energy field $E(x,y,z,t)$ ($m^2 s^-2$) from which it derives an eddy velocity scale:
 
 $$
 U_{e}=\sqrt{2E}
