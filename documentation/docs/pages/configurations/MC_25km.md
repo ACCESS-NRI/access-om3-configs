@@ -99,7 +99,7 @@ $$
 U_{e}=\sqrt{2E}
 $$
 
-and an eddy length scale ($L$) based on a configurable combination of multiple length scales. The GM thickness diffusivity is then computed as,
+and an eddy length scale ($L$) based on a configurable combination of multiple length scales. In [MOM6](https://mom6.readthedocs.io/en/main/api/generated/modules/mom_hor_visc.html), the GM thickness diffusivity is parameterised as,
 
 $$
 KHTH = CU_{e}L
