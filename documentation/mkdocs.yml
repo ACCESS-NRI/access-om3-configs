@@ -96,6 +96,7 @@ markdown_extensions:
 nav:
   - Home:                  index.md
   - Experiments:                 pages/Experiments.md
+  -     - MC_25km_jra_iaf-1.0-beta-5165c0f8: pages/Experiments/MC_25km_jra_iaf-1.0-beta-5165c0f8/MC_25km_jra_iaf-1.0-beta-5165c0f8.md
   - Contributing:          
         - Overview:     pages/contributing/Overview.md   
         - Edit this Documentation: pages/contributing/Edit-Config-Docs.md
