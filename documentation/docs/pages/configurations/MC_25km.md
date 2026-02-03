@@ -88,7 +88,7 @@ Baroclinic instability converts available potential energy (APE) stored in slopi
 
 Mesoscale eddies also induce irreversible mixing of tracers but primarily along neutral density surfaces rather than vertically. In ocean models, this effect is represented using an isopycnal diffusion parameterisation, which diffuses tracers along neutral surfaces while minimising spurious diapycnal mixing.
 
-To represent both the flattening of isopycnals and the along-isopycnal tracer mixing, the configuration applies a hybrid mesoscale parameterisation that combines neutral diffusion [@redi1982oceanic] with the Gent-McWilliams (`GM`) eddy-induced advection scheme [@gent1990isopycnal]. Both require an eddy diffusivity,
+To represent both the quasi-adiabatic flattening of isopycnals and along-isopycnal tracer mixing, the configuration applies a hybrid mesoscale parameterisation that combines neutral diffusion [@redi1982oceanic] with the Gent-McWilliams (`GM`) eddy-induced advection scheme [@gent1990isopycnal]. Both schemes require an eddy diffusivity,
 
 - thickness diffusivity ($KHTH$ in MOM6)
 - isopycnal tracer diffusivity ($KHTR$ in MOM6)
