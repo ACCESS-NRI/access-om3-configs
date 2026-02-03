@@ -35,7 +35,7 @@ Sea surface salinity is restored toward a monthly climatological dataset calcula
 Salinity is limited to be positive to prevent the sea-ice model from asking for more salt than is available and driving the salinity negative (`BOUND_SALINITY = True`, `MIN_SALINITY = 0.0`).
 
 ### Diagnostics
-Three-dimensional ocean diagnostics are output on either $z*$- or density-coordinates, depending on the diagnostic, rather than on the model's native coordinate. Specifically, `NUM_DIAG_COORDS = 2` with `DIAG_COORDS = "z Z ZSTAR", "rho2 RHO2 RHO"` and the vertical coordinate levels for each are defined by `DIAG_COORD_DEF_Z = "FILE:ocean_vgrid.nc,interfaces=zeta"` and `DIAG_COORD_DEF_RHO2 = "RFNC1:76,999.5,1020.,1034.1,3.1,1041.,0.002"` (relevant info can be found at [PR/622](https://github.com/ACCESS-NRI/access-om3-configs/pull/622)).
+Three-dimensional ocean diagnostics are output on either $z*$- or density-coordinates, depending on the diagnostic, rather than on the model's native coordinate. Specifically, `NUM_DIAG_COORDS = 2` with `DIAG_COORDS = "z Z ZSTAR", "rho2 RHO2 RHO"` and the vertical coordinate levels for each are defined by `DIAG_COORD_DEF_Z = "FILE:ocean_vgrid.nc,interfaces=zeta"` and `DIAG_COORD_DEF_RHO2 = "RFNC1:76,999.5,1020.,1034.1,3.1,1041.,0.002"` (details on the selection of the diagnostic coordinate levels can be found at [PR/622](https://github.com/ACCESS-NRI/access-om3-configs/pull/622)). Further information on diagnostics can be found in [Ocean diagnostics](/configurations/Ocean_diagnostics/).
 
 An ideal age tracer is initialised (`USE_IDEAL_AGE_TRACER = True`). This tracer, once isolated from the surface, ages at a rate of 1 per year. It is useful for  understanding water mass ventilation and residence times.
 
