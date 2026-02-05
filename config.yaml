@@ -21,10 +21,10 @@ modules:
     load:
         - access-om3/2025.08.001
 
-queue: normal
-ncpus: 240
+queue: normalsr
+ncpus: 208
 jobfs: 10GB
-mem: 960GB
+mem: 1000GB
 
 walltime: 02:00:00
 jobname: 100km_jra55do_ryf
@@ -56,6 +56,10 @@ manifest:
   reproduce:
     exe: false
     inputs: false
+
+platform:
+    nodesize: 104
+    nodemem: 512
 
 userscripts:
     archive: /usr/bin/bash /g/data/vk83/apps/om3-scripts/payu_config/archive.sh
