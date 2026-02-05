@@ -90,11 +90,11 @@ THICKNESSDIFFUSE = False        !   [Boolean] default = False
 APPLY_INTERFACE_FILTER = False  !   [Boolean] default = False
                                 ! If true, model interface heights are subjected to a grid-scale dependent
                                 ! spatial smoothing, often with biharmonic filter.
-HMIX_SFC_PROP = 2.0             !   [m] default = 1.0
+HMIX_SFC_PROP = 1.08            !   [m] default = 1.0
                                 ! If BULKMIXEDLAYER is false, HMIX_SFC_PROP is the depth over which to average
                                 ! to find surface properties like SST and SSS or density (but not surface
                                 ! velocities).
-HMIX_UV_SFC_PROP = 2.0          !   [m] default = 0.0
+HMIX_UV_SFC_PROP = 1.08         !   [m] default = 0.0
                                 ! If BULKMIXEDLAYER is false, HMIX_UV_SFC_PROP is the depth over which to
                                 ! average to find surface flow properties, SSU, SSV. A non-positive value
                                 ! indicates no averaging.
@@ -1708,7 +1708,7 @@ KD_BBL_TR = 0.0                 !   [m2 s-1] default = 0.0
                                 ! sqrt(Kd_BBL_tr*dt) over the same distance.
 TRACER_TRIDIAG = False          !   [Boolean] default = False
                                 ! If true, use the passive tracer tridiagonal solver for T and S
-MINIMUM_FORCING_DEPTH = 0.001   !   [m] default = 0.001
+MINIMUM_FORCING_DEPTH = 1.08    !   [m] default = 0.001
                                 ! The smallest depth over which forcing can be applied. This only takes effect
                                 ! when near-surface layers become thin relative to this scale, in which case the
                                 ! forcing tendencies scaled down by distributing the forcing over this depth
@@ -2489,6 +2489,9 @@ DEBUG_IS = False                !   [Boolean] default = False
                                 ! If true, write verbose debugging messages for the ice shelf.
 DYNAMIC_SHELF_MASS = False      !   [Boolean] default = False
                                 ! If true, the ice sheet mass can evolve with time.
+DATA_OVERRIDE_MELT = False      !   [Boolean] default = False
+                                ! If true, the data override feature is used for melt rate and heat flux from
+                                ! ice shelves.
 SHELF_THERMO = True             !   [Boolean] default = False
                                 ! If true, use a thermodynamically interactive ice shelf.
 SHELF_THREE_EQN = True          !   [Boolean] default = True
@@ -2544,9 +2547,12 @@ ICE_SHELF_VK_CNST = 0.4         !   [nondim] default = 0.4
                                 ! Von Karman constant.
 ICE_SHELF_RC = 0.2              !   [nondim] default = 0.2
                                 ! Critical flux Richardson number for ice melt
-ICE_SHELF_BUOYANCY_FLUX_ITT_BUG = True !   [Boolean] default = True
+ICE_SHELF_USTAR_FROM_VEL_BUGFIX = True !   [Boolean] default = False
+                                ! Bug fix for ice-area weighting of squared ocean velocities used to calculate
+                                ! friction velocity under ice shelves
+ICE_SHELF_BUOYANCY_FLUX_ITT_BUGFIX = True !   [Boolean] default = True
                                 ! Bug fix of buoyancy iteration
-ICE_SHELF_SALT_FLUX_ITT_BUG = True !   [Boolean] default = True
+ICE_SHELF_SALT_FLUX_ITT_BUGFIX = True !   [Boolean] default = True
                                 ! Bug fix of salt iteration
 ICE_SHELF_BUOYANCY_FLUX_ITT_THRESHOLD = 1.0E-04 !   [nondim] default = 1.0E-04
                                 ! Convergence criterion of Newton's method for ice shelf buoyancy iteration.
@@ -2561,7 +2567,7 @@ MIN_THICKNESS_SIMPLE_CALVE = 0.0 !   [m] default = 0.0
                                 ! Min thickness rule for the very simple calving law
 USTAR_SHELF_BG = 6.0E-04        !   [m s-1] default = 0.0
                                 ! The minimum value of ustar under ice shelves.
-CDRAG_SHELF = 0.0075            !   [nondim] default = 0.003
+CDRAG_SHELF = 0.007             !   [nondim] default = 0.003
                                 ! CDRAG is the drag coefficient relating the magnitude of the velocity field to
                                 ! the surface stress.
 USTAR_SHELF_FROM_VEL = True     !   [Boolean] default = True
