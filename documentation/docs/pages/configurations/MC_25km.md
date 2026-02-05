@@ -3,7 +3,7 @@
 The sections that follow explain why we selected each model parameter for the global MOM6-CICE 25km global model configurations and how they work together across the coupled system. We start with the MOM6 ocean settings, then step through the CICE sea‑ice namelist. For every group of parameters you’ll find a description, links to the relevant code or literature, and practical guidance on when you might wish to adjust the defaults. Use this as both a quick reference and a roadmap for deeper dives into the individual configuration files such as `MOM_input`, which contains [MOM6](https://github.com/ACCESS-NRI/mom6) input parameters, and `cice_in`, the [CICE](https://github.com/ACCESS-NRI/cice) namelist file.
 
 !!! warning
-    When reading these docs and applying them to your own 25km configurations, it is crucial that you are looking at the version of these docs that match the configuration version you are using. If in doubt, the source of truth is the `MOM_parameter_doc.all` from the relevant configuration. For example, the latest release on `release-MC_25km_jra_iaf` is [found](https://github.com/ACCESS-NRI/access-om3-configs/blob/release-MC_25km_jra_iaf/docs/MOM_parameter_doc.all): `ACCESS-NRI/access-om3-configs/blob/release-MC_25km_jra_iaf/docs/MOM_parameter_doc.all` (other releases can be browsed through [tags](https://github.com/ACCESS-NRI/access-om3-configs/tags)).
+    These docs apply to a specific configuration release or set of releases. To avoid confusion, it is important that you are reading the version of the docs that describes the configuration you are using.
 
 ## MOM6 parameter choices
 
