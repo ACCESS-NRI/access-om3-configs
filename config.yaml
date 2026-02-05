@@ -21,7 +21,7 @@ modules:
         - /g/data/vk83/modules
         - /g/data/vk83/prerelease/modules
     load:
-        - access-om3/pr142-26
+        - access-om3/pr142-36
         - model-tools/mppnccombine-fast
 
 queue: normalsr

@@ -49,11 +49,11 @@ THERMO_SPANS_COUPLING = True    !   [Boolean] default = False
                                 ! coupling timestep. The actual thermodynamic timestep that is used in this case
                                 ! is the largest integer multiple of the coupling timestep that is less than or
                                 ! equal to DT_THERM.
-HMIX_SFC_PROP = 2.0             !   [m] default = 1.0
+HMIX_SFC_PROP = 1.08            !   [m] default = 1.0
                                 ! If BULKMIXEDLAYER is false, HMIX_SFC_PROP is the depth over which to average
                                 ! to find surface properties like SST and SSS or density (but not surface
                                 ! velocities).
-HMIX_UV_SFC_PROP = 2.0          !   [m] default = 0.0
+HMIX_UV_SFC_PROP = 1.08         !   [m] default = 0.0
                                 ! If BULKMIXEDLAYER is false, HMIX_UV_SFC_PROP is the depth over which to
                                 ! average to find surface flow properties, SSU, SSV. A non-positive value
                                 ! indicates no averaging.
@@ -557,6 +557,11 @@ ENERGETICS_SFC_PBL = True       !   [Boolean] default = False
 EPBL_IS_ADDITIVE = False        !   [Boolean] default = True
                                 ! If true, the diffusivity from ePBL is added to all other diffusivities.
                                 ! Otherwise, the larger of kappa-shear and ePBL diffusivities are used.
+MINIMUM_FORCING_DEPTH = 1.08    !   [m] default = 0.001
+                                ! The smallest depth over which forcing can be applied. This only takes effect
+                                ! when near-surface layers become thin relative to this scale, in which case the
+                                ! forcing tendencies scaled down by distributing the forcing over this depth
+                                ! scale.
 FRAZIL_NOT_UNDER_ICESHELF = True !   [Boolean] default = False
                                 ! If true, do not use frazil scheme underneath ice shelves defined by
                                 ! frac_shelf_h greater than 0.
@@ -801,6 +806,9 @@ ICE_SHELF_TEMPERATURE = -20.0   !   [degC] default = -15.0
                                 ! The temperature at the center of the ice shelf.
 COL_THICK_MELT_THRESHOLD = 0.001 !   [m] default = 0.0
                                 ! The minimum ocean column thickness where melting is allowed.
+ICE_SHELF_USTAR_FROM_VEL_BUGFIX = True !   [Boolean] default = False
+                                ! Bug fix for ice-area weighting of squared ocean velocities used to calculate
+                                ! friction velocity under ice shelves
 ICE_SHELF_TIDEAMP_SCALING_FACTOR = 0.66 !   [nondim] default = 1.0
                                 ! Scale TIDEAMP_FILE or UTIDE by number in melt parameterisation friction
                                 ! velocity calculation.
@@ -810,7 +818,7 @@ DENSITY_ICE = 917.0             !   [kg m-3] default = 900.0
                                 ! A typical density of ice.
 USTAR_SHELF_BG = 6.0E-04        !   [m s-1] default = 0.0
                                 ! The minimum value of ustar under ice shelves.
-CDRAG_SHELF = 0.0075            !   [nondim] default = 0.003
+CDRAG_SHELF = 0.007             !   [nondim] default = 0.003
                                 ! CDRAG is the drag coefficient relating the magnitude of the velocity field to
                                 ! the surface stress.
 
