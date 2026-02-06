@@ -1,10 +1,12 @@
 # Generating MOM6 Initial Conditions Using WOA23 dataset
 
 This guide outlines the steps to generate initial-condition fields for MOM6 from **World Ocean Atlas 2023 (WOA23)** data. The workflow produces 3D fields of:
+
 - Conservative temperature
 - Potential temperature
 - Absolute Salinity
 - Practical Salinity
+
 on a provided MOM6 grid for use as initial conditions and for model evaluation.
 
 !!! note
@@ -20,8 +22,6 @@ cd initial_conditions_access-om3
 ```
 
 A recursive clone is needed because this repository includes Nic Hannah’s [ocean-ic](https://github.com/COSIMA/ocean-ic) code as a submodule, used to interpolate WOA23 data onto MOM6 3D grids.
-
----
 
 ## Step 1: (Optional) Regenerate Temperature & Salinity from Raw WOA23
 
@@ -59,8 +59,6 @@ The processed monthly files are output to:
 !!! note
     You only need to run this script if you're updating or modifying the WOA23 dataset or prognostic form of temperature or salinity. Otherwise, skip this step and proceed directly to regridding using `make_initial_conditions.sh`.
 
----
-
 ## Step 2: Regrid to MOM6 Grid
 
 Use the regridding script to interpolate temperature and salinity to your MOM6 model grid.
@@ -91,6 +89,7 @@ Once satisfied with the output, run:
 ```
 
 This:
+
 - Commits any changes with `git`
 - Adds Git metadata to the NetCDF metadata
 
