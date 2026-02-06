@@ -123,7 +123,7 @@ ALLCOMP_attributes::
 ::
 
 MED_attributes::
-     Verbosity = max
+     Verbosity = off
      aoflux_grid = ogrid
      atm2ice_map = unset
      atm2lnd_map = unset
@@ -138,7 +138,7 @@ MED_attributes::
      budget_ltend = 0
      budget_month = 1
      budget_table_version = v1
-     check_for_nans = .true. # .false. # .true.
+     check_for_nans = .true.
      coupling_mode = cesm
      do_budgets = .true.
      flux_albav = .true.
@@ -211,9 +211,9 @@ MED_attributes::
      history_n_ice_inst = -999
      history_n_lnd_avg = -999
      history_n_lnd_inst = -999
-     history_n_med_inst = -999 #1 #-999 #1
-     history_n_ocn_avg = -999 #1 # -999
-     history_n_ocn_inst = -999 #1 #-999 # 1
+     history_n_med_inst = -999
+     history_n_ocn_avg = -999
+     history_n_ocn_inst = -999
      history_n_rof_avg = -999
      history_n_rof_inst = -999
      history_n_wav_avg = -999
@@ -226,9 +226,9 @@ MED_attributes::
      history_option_ice_inst = never
      history_option_lnd_avg = never
      history_option_lnd_inst = never
-     history_option_med_inst = never # ndays # nsteps # never # nsteps
-     history_option_ocn_avg = never # ndays # nsteps # never
-     history_option_ocn_inst = never # ndays # nsteps # never # nsteps
+     history_option_med_inst = never
+     history_option_ocn_avg = never
+     history_option_ocn_inst = never
      history_option_rof_avg = never
      history_option_rof_inst = never
      history_option_wav_avg = never
@@ -268,7 +268,7 @@ CLOCK_attributes::
      history_ymd = -999
      ice_cpl_dt = 99999 #not used
      lnd_cpl_dt = 99999 #not used
-     ocn_cpl_dt = 600 # 1200 #ignored (coupling timestep set by nuopc.runseq) unless stop_option is nsteps
+     ocn_cpl_dt = 150 #ignored (coupling timestep set by nuopc.runseq) unless stop_option is nsteps
      restart_n = 1
      restart_option = nmonths
      restart_ymd = -999

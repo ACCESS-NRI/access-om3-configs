@@ -10,8 +10,7 @@
 # longer term storage
 sync:
     enable: False # set path below and change to true
-    path: 
-    #    /g/data/x77/cy8964/access-om3/archive/ice_shelf_panan-spin-up-211125
+    path: null # Set to location on /g/data (e.g. /g/data/PROJECT/USER/EXPERIMENT)
     restarts: True
     exclude_uncollated: False
 
@@ -29,7 +28,7 @@ ncpus: 2990
 jobfs: 10GB
 mem: 14700GB
 walltime: 4:00:00
-jobname: 8km_panAn_is
+jobname: 4km_panAn_om3_isf
 
 model: access-om3
 exe: access-om3-MOM6-CICE6
@@ -77,13 +76,9 @@ collate:
   exe: mppnccombine-fast
 
 userscripts:
-  archive: /usr/bin/bash /g/data/vk83/apps/om3-scripts/payu_config/archive.sh
-  error: resub.sh
-  run: rm -f resubmit.count
+    archive: /usr/bin/bash /g/data/vk83/apps/om3-scripts/payu_config/archive.sh
 
-postscript: -v PROJECT,SCRIPTS_DIR=/g/data/vk83/apps/om3-scripts 
-  -lstorage=${PBS_NCI_STORAGE}+gdata/xp65 
-  /g/data/vk83/apps/om3-scripts/payu_config/postscript.sh
+postscript: -v PROJECT,SCRIPTS_DIR=/g/data/vk83/apps/om3-scripts -lstorage=${PBS_NCI_STORAGE}+gdata/xp65 /g/data/vk83/apps/om3-scripts/payu_config/postscript.sh
 
 qsub_flags: -W umask=027
 
