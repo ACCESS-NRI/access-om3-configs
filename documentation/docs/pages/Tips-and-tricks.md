@@ -160,7 +160,7 @@ MEKE_VISCOSITY_COEFF_KU = 0.6
 
 The changes were first applied in this [PR](https://github.com/ACCESS-NRI/access-om3-configs/pull/1101).
 
-Here are the steps to use the Git Hub cherry-pick workflow
+Here are the steps to use the ACCESS Github cherry-pick workflow
 
 1. Open one PR to one config ([example](https://github.com/ACCESS-NRI/access-om3-configs/pull/1101)).
 1. If answer-changing, update checksums with `!test repro commit`.
