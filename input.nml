@@ -2,8 +2,7 @@
     output_directory = './'
     restart_input_dir = './'
     restart_output_dir = './'
-!    input_filename = 'n'
-!    input_filename = 'r'
+    input_filename = 'n'
     parameter_filename = 'MOM_input'
 /
 
