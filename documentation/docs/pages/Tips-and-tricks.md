@@ -146,7 +146,7 @@ Imagine one wants to update a few parameters across multiple configs. One option
 
 There are a number of advantages to this, when it works:
 
- - You aren't manually making the same change to multiple branches;
+ - You don't need to manually apply the same change to multiple branches;
  - The cherry-picked PRs are opened by the access-bot so you can review and merge them yourself.
 
 #### A GM example
