@@ -164,7 +164,7 @@ Here are the steps to use the ACCESS Github cherry-pick workflow
 
 1. Open a PR against one config ([example](https://github.com/ACCESS-NRI/access-om3-configs/pull/1101)).
 2. If the change affects answers, update checksums with `!test repro commit`.
-1. Get review and merge.
+3. Get the PR reviewed and merged.
 1. Use `!cherry-pick` workflow to cherry-pick changes (except for commit updating checksums) into other configs (see [example](https://github.com/ACCESS-NRI/access-om3-configs/pull/1098) and where it came [from](https://github.com/ACCESS-NRI/access-om3-configs/pull/1092#issuecomment-3815178906)). This will automatically open PRs for you.
 1. Run `!test repro commit` in each of the cherry-picked PRs.
 2. Review and merge.
