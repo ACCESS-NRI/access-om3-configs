@@ -142,7 +142,7 @@ For more complicated experiment generation operations take a look at the [experi
 
 ### Making small configuration updates using ACCESS Github cherry-pick workflow
 
-Imagine one wants to update a few parameters across multiple configs. One could create multiple PRs, update the checksums, review, merge. It's faster though to use the github cherry-pick workflow.
+Imagine one wants to update a few parameters across multiple configs. One option is to open multiple PRs, update checksums, get reviews, and merge them one by one. That works but it can be a bit slow. In these cases, It's faster to use the ACCESS Github cherry-pick workflow.
 
 There are a number of advantages to this, when it works:
 
