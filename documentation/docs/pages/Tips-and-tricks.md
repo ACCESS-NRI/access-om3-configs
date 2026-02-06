@@ -158,7 +158,7 @@ MEKE_KHTR_FAC = 0.3
 MEKE_VISCOSITY_COEFF_KU = 0.6
 ```
 
-Here is a [PR](https://github.com/ACCESS-NRI/access-om3-configs/pull/1101) with the changes applied.
+The changes were first applied in this [PR](https://github.com/ACCESS-NRI/access-om3-configs/pull/1101).
 
 Here are the steps to use the Git Hub cherry-pick workflow
 
