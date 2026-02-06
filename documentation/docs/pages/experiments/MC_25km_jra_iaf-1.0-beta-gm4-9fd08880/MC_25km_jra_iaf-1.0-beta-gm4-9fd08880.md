@@ -5,22 +5,22 @@ This page shows evaluation figures from ACCESS-OM3 experiment MC_25km_jra_iaf-1.
  
 ## Ocean Mixed Layer Thickness
  
-![`MLD_rendered.ipynb`: Ocean mixed layer thickness JFM (m).](/assets/experiments/MC_25km_jra_iaf-1.0-beta-gm4-9fd08880/MLD_rendered1.png){: style="height:450px;width:450px"} 
+![`MLD_rendered.ipynb`: Ocean mixed layer thickness JFM (m).](/assets/experiments/MC_25km_jra_iaf-1.0-beta-gm4-9fd08880/MLD_rendered1.png){: style="height:450px;width:800px"} 
  
   Caption: `MLD_rendered.ipynb`: Ocean mixed layer thickness JFM (m).
   
  
-![`MLD_rendered.ipynb`: Ocean mixed layer thickness JAS (m).](/assets/experiments/MC_25km_jra_iaf-1.0-beta-gm4-9fd08880/MLD_rendered2.png){: style="height:450px;width:450px"} 
+![`MLD_rendered.ipynb`: Ocean mixed layer thickness JAS (m).](/assets/experiments/MC_25km_jra_iaf-1.0-beta-gm4-9fd08880/MLD_rendered2.png){: style="height:450px;width:800px"} 
  
   Caption: `MLD_rendered.ipynb`: Ocean mixed layer thickness JAS (m).
   
  
-![`MLD_rendered.ipynb`: Ocean mixed layer thickness JFM (m).](/assets/experiments/MC_25km_jra_iaf-1.0-beta-gm4-9fd08880/MLD_rendered3.png){: style="height:450px;width:450px"} 
+![`MLD_rendered.ipynb`: Ocean mixed layer thickness JFM (m).](/assets/experiments/MC_25km_jra_iaf-1.0-beta-gm4-9fd08880/MLD_rendered3.png){: style="height:450px;width:800px"} 
  
   Caption: `MLD_rendered.ipynb`: Ocean mixed layer thickness JFM (m).
   
  
-![`MLD_rendered.ipynb`: Ocean mixed layer thickness JAS (m).](/assets/experiments/MC_25km_jra_iaf-1.0-beta-gm4-9fd08880/MLD_rendered4.png){: style="height:450px;width:450px"} 
+![`MLD_rendered.ipynb`: Ocean mixed layer thickness JAS (m).](/assets/experiments/MC_25km_jra_iaf-1.0-beta-gm4-9fd08880/MLD_rendered4.png){: style="height:450px;width:800px"} 
  
   Caption: `MLD_rendered.ipynb`: Ocean mixed layer thickness JAS (m).
   
