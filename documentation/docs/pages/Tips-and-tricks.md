@@ -140,4 +140,35 @@ function payuexp()
 
 For more complicated experiment generation operations take a look at the [experiment generator tool](https://access-experiment-generator.access-hive.org.au/). If you would like to only clone a repository, then this `gh` alias may be useful `'!gh repo clone access-nri/$1 -- --recursive && cd $1 && gh repo set-default access-nri/$1'`. This has the advantage that you do not have to remember the full url for the repository.
 
+### Making small configuration updates using ACCESS Github cherry-pick workflow
+
+Imagine one wants to update a few parameters across multiple configs. One option is to open multiple PRs, update checksums, get reviews, and merge them one by one. That works but it can be a bit slow. In these cases, It's faster to use the ACCESS Github cherry-pick workflow.
+
+There are a number of advantages to this, when it works:
+
+ - You don't need to manually apply the same change to multiple branches;
+ - The cherry-picked PRs are opened by the access-bot so you can review and merge them yourself.
+
+#### A GM example
+We've done a series of tests with the MEKE GM parameters, documented [here](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/blob/main/notebooks/GM-Testing-in-ACCESS-OM3.ipynb). In short, the original `1.0-beta` release yielded quite high GM values in the Southern Ocean, which led to poor upwelling behaviour. Based on these results, we decided to change the following parameters (from the `MC_25km_jra_iaf-1.0-beta-gm4-9fd08880` simulation):
+
+```
+MEKE_KHTH_FAC = 0.3
+MEKE_KHTR_FAC = 0.3
+MEKE_VISCOSITY_COEFF_KU = 0.6
+```
+
+The changes were first applied in this [PR](https://github.com/ACCESS-NRI/access-om3-configs/pull/1101).
+
+Here are the steps to use the ACCESS Github cherry-pick workflow
+
+1. Open a PR against one config ([example](https://github.com/ACCESS-NRI/access-om3-configs/pull/1101)).
+2. If the change affects answers, update checksums with `!test repro commit`.
+3. Update the "docs" folder ([example](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MC_25km_jra_iaf/docs)) with the latest version of the MOM docs (i.e. re-run the model and commit those files).
+4. Get the PR reviewed and merged.
+1. Use `!cherry-pick` workflow to cherry-pick changes (except for commit updating checksums) into other configs (see [example](https://github.com/ACCESS-NRI/access-om3-configs/pull/1098) and where it came [from](https://github.com/ACCESS-NRI/access-om3-configs/pull/1092#issuecomment-3815178906)). This will automatically open PRs for you.
+1. Run `!test repro commit` in each of the cherry-picked PRs.
+2. Review and merge.
+
+
 
