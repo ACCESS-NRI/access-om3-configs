@@ -140,7 +140,7 @@ function payuexp()
 
 For more complicated experiment generation operations take a look at the [experiment generator tool](https://access-experiment-generator.access-hive.org.au/). If you would like to only clone a repository, then this `gh` alias may be useful `'!gh repo clone access-nri/$1 -- --recursive && cd $1 && gh repo set-default access-nri/$1'`. This has the advantage that you do not have to remember the full url for the repository.
 
-### Doing small updates on the configs and using the cherry-pick workflow.
+### Making small configuration updates using ACCESS Github cherry-pick workflow
 
 Imagine one wants to update a few parameters across multiple configs. One could create multiple PRs, update the checksums, review, merge. It's faster though to use the github cherry-pick workflow.
 
