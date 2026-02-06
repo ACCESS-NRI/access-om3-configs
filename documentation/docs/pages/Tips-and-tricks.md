@@ -150,7 +150,7 @@ There are a number of advantages to this, when it works:
  - The cherry-picked PRs are opened by the access-bot so you can review and merge them yourself.
 
 #### A GM example
-We've done a series of tests with the MEKE GM parameters, documented [here](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/blob/main/notebooks/GM-Testing-in-ACCESS-OM3.ipynb). In short, the original `1.0-beta` release yielded quite high GM values in the Southern Ocean that gave poor upwelling behaviour and we wanted to change the following parameters:
+We've done a series of tests with the MEKE GM parameters, documented [here](https://github.com/ACCESS-Community-Hub/access-om3-paper-1/blob/main/notebooks/GM-Testing-in-ACCESS-OM3.ipynb). In short, the original `1.0-beta` release yielded quite high GM values in the Southern Ocean, which led to poor upwelling behaviour. Based on these results, we decided to change the following parameters (from the `MC_25km_jra_iaf-1.0-beta-gm4-9fd08880` simulation):
 
 ```
 MEKE_KHTH_FAC = 0.3
