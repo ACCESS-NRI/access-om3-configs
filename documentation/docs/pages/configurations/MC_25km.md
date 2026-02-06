@@ -27,7 +27,7 @@ Frazil ice typically consists of individual particles that appear like a coarse 
  1. `MASK_SRESTORE_UNDER_ICE = False`, i.e. do not disable SSS restoring under sea-ice based on a frazil criteria;
   1. `RECLAIM_FRAZIL = True` use any frazil heat deficit to cool any overlying layers down to the freezing point.
 
-More details are [here](https://mom6.readthedocs.io/en/main/api/generated/pages/Frazil_Ice.html.
+More details are [here](https://mom6.readthedocs.io/en/main/api/generated/pages/Frazil_Ice.html).
 
 In regions where there is no frazil formation, sea-ice melt/freeze potential is calculated over the smaller of the top 10m of the ocean and the boundary layer depth (`HFREEZE = 10.0`).
 
