@@ -4,15 +4,10 @@
 USE_REGRIDDING = True           !   [Boolean] default = False
                                 ! If True, use the ALE algorithm (regridding/remapping). If False, use the
                                 ! layered isopycnal algorithm.
-DT = 400.0                      !   [s]
+DT = 150.0                      !   [s]
                                 ! The (baroclinic) dynamics time step.  The time-step that is actually used will
                                 ! be an integer fraction of the forcing time-step (DT_FORCING in ocean-only mode
                                 ! or the coupling timestep in coupled mode.)
-DT_THERM = 800.0                !   [s] default = 400.0
-                                ! The thermodynamic time step. Ideally DT_THERM should be an integer multiple of
-                                ! DT and of DT_TRACER_ADVECT and less than the forcing or coupling time-step.
-                                ! However, if THERMO_SPANS_COUPLING is true, DT_THERM can be an integer multiple
-                                ! of the coupling timestep. By default DT_THERM is set to DT.
 THERMO_SPANS_COUPLING = True    !   [Boolean] default = False
                                 ! If true, the MOM will take thermodynamic timesteps that can be longer than the
                                 ! coupling timestep. The actual thermodynamic timestep that is used in this case
@@ -31,7 +26,7 @@ HFREEZE = 10.0                  !   [m] default = -1.0
                                 ! melt potential is computed will be min(HFREEZE, OBLD), where OBLD is the
                                 ! boundary layer depth. If HFREEZE <= 0 (default), melt potential will not be
                                 ! computed.
-DTBT_RESET_PERIOD = 0.0         !   [s] default = 800.0
+DTBT_RESET_PERIOD = 0.0         !   [s] default = 150.0
                                 ! The period between recalculations of DTBT (if DTBT <= 0). If DTBT_RESET_PERIOD
                                 ! is negative, DTBT is set based only on information available at
                                 ! initialization.  If 0, DTBT will be set every dynamics time step. The default
@@ -159,11 +154,6 @@ PARALLEL_RESTARTFILES = True    !   [Boolean] default = False
                                 ! If true, the IO layout is used to group processors that write to the same
                                 ! restart file or each processor writes its own (numbered) restart file. If
                                 ! false, a single restart file is generated combining output from all PEs.
-RESTART_CHECKSUMS_REQUIRED = False !   [Boolean] default = True
-                                ! If true, require the restart checksums to match and error out otherwise. Users
-                                ! may want to avoid this comparison if for example the restarts are made from a
-                                ! run with a different mask_table than the current run, in which case the
-                                ! checksums will not match and cause crash.
 
 ! === module MOM_tracer_flow_control ===
 USE_IDEAL_AGE_TRACER = True     !   [Boolean] default = False
@@ -233,6 +223,45 @@ REMAPPING_USE_OM4_SUBCELLS = False !   [Boolean] default = True
                                 ! recommend setting this option to false.
 
 ! === module MOM_state_initialization ===
+INIT_LAYERS_FROM_Z_FILE = True  !   [Boolean] default = False
+                                ! If true, initialize the layer thicknesses, temperatures, and salinities from a
+                                ! Z-space file on a latitude-longitude grid.
+
+! === module MOM_initialize_layers_from_Z ===
+TEMP_SALT_Z_INIT_FILE = "Yamazaki_ACCESS-OM2_IC_LarsenWeddellRossedits_smoothed.nc" ! default = "temp_salt_z.nc"
+                                ! The name of the z-space input file used to initialize temperatures (T) and
+                                ! salinities (S). If T and S are not in the same file, TEMP_Z_INIT_FILE and
+                                ! SALT_Z_INIT_FILE must be set.
+Z_INIT_FILE_PTEMP_VAR = "temp"  ! default = "ptemp"
+                                ! The name of the potential temperature variable in TEMP_Z_INIT_FILE.
+Z_INIT_ALE_REMAPPING = True     !   [Boolean] default = False
+                                ! If True, then remap straight to model coordinate from file.
+Z_INIT_REMAP_GENERAL = True     !   [Boolean] default = False
+                                ! If false, only initializes to z* coordinates. If true, allows initialization
+                                ! directly to general coordinates.
+TEMP_SALT_INIT_VERTICAL_REMAP_ONLY = True !   [Boolean] default = False
+                                ! If true, initial conditions are on the model horizontal grid. Extrapolation
+                                ! over missing ocean values is done using an ICE-9 procedure with vertical ALE
+                                ! remapping .
+TRIM_IC_FOR_P_SURF = True       !   [Boolean] default = False
+                                ! If true, cuts way the top of the column for initial conditions at the depth
+                                ! where the hydrostatic pressure matches the imposed surface pressure which is
+                                ! read from file.
+SURFACE_PRESSURE_FILE = "ice_thickness_Charrassin_regridded_cropped_add_area_where_iceelev_noGL5m_ADDHMASKFILLTHICK_150925.nc" !
+                                ! The initial condition file for the surface pressure exerted by ice.
+SURFACE_PRESSURE_VAR = "thick"  ! default = ""
+                                ! The initial condition variable for the surface pressure exerted by ice.
+SURFACE_PRESSURE_SCALE = 8986.6 !   [file dependent] default = 1.0
+                                ! A scaling factor to convert SURFACE_PRESSURE_VAR from file
+                                ! SURFACE_PRESSURE_FILE into a surface pressure.
+TRIM_IC_Z_TOLERANCE = 1.0E-10   !   [m] default = 1.0E-05
+                                ! The tolerance with which to find the depth matching the specified surface
+                                ! pressure with TRIM_IC_FOR_P_SURF.
+FRAC_DP_AT_POS_NEGATIVE_P_BUGFIX = True !   [Boolean] default = False
+                                ! If true, use bugfix in ice shelf TRIM_IC initialization. Otherwise, pressure
+                                ! input to density EOS is negative.
+TRIMMING_USES_REMAPPING = True  !   [Boolean] default = False
+                                ! When trimming the column, also remap T and S.
 OBC_SEGMENT_001_DATA = "U=file:forcing_access_yr2_8km_fill_mod.nc(u),V=file:forcing_access_yr2_8km_fill_mod.nc(v),SSH=file:forcing_access_yr2_8km_fill_mod.nc(eta_t),TEMP=file:forcing_access_yr2_8km_fill_mod.nc(pot_temp),SALT=file:forcing_access_yr2_8km_fill_mod.nc(salt)" !
                                 ! OBC segment docs
 
@@ -750,3 +779,12 @@ CDRAG_SHELF = 0.0075            !   [nondim] default = 0.003
                                 ! the surface stress.
 
 ! === module MOM_restart ===
+ICE_PROFILE_CONFIG = "FILE"     !
+                                ! This specifies how the initial ice profile is specified. Valid values are:
+                                ! CHANNEL, FILE, and USER.
+ICE_THICKNESS_FILE = "ice_thickness_Charrassin_regridded_cropped_add_area_where_iceelev_noGL5m_ADDHMASKFILLTHICK_150925.nc" ! default = "ice_shelf_h.nc"
+                                ! The file from which the bathymetry is read.
+ICE_THICKNESS_VARNAME = "thick" ! default = "h_shelf"
+                                ! The name of the thickness variable in ICE_THICKNESS_FILE.
+ICE_AREA_VARNAME = "area"       ! default = "area_shelf_h"
+                                ! The name of the area variable in ICE_THICKNESS_FILE.

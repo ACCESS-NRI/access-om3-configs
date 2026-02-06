@@ -49,13 +49,11 @@ input:
     - /g/data/vk83/prerelease/configurations/inputs/access-om3/share/meshes/share/2026.01.21/JRA55do-datm-ESMFmesh.nc
     - /g/data/vk83/prerelease/configurations/inputs/access-om3/share/meshes/share/2026.01.21/JRA55do-drof-ESMFmesh.nc
     - /g/data/tm70/cy8964/mom6/input/input-8km/150925/access-om3-8km-rof-remap-weights_Charrassin_nocavity_cropped.nc
-    - /g/data/vk83/experiments/inputs/JRA-55/RYF/v1-4/data
+    - /g/data/vk83/configurations/inputs/JRA-55/RYF/v1-6/data
     - /g/data/tm70/cy8964/mom6/input/input-8km/forcing_access_yr2_8km_fill_mod.nc
     - /g/data/tm70/cy8964/mom6/input/input-8km/diag_rho2.nc
     - /g/data/tm70/cy8964/mom6/input/input-8km/150925/ice_thickness_Charrassin_regridded_cropped_add_area_where_iceelev_noGL5m_ADDHMASKFILLTHICK_150925.nc
     - /g/data/tm70/cy8964/mom6/input/input-8km/mask_table.1490.84x49
-
-restart: /scratch/x77/cy8964/access-om3/archive/ice_shelf_panan-spin-up-211125/restart065
 
 runlog: true
 metadata: 
