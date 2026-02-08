@@ -85,6 +85,40 @@ The [Lapacian viscosity](https://mom6.readthedocs.io/en/main/api/generated/modul
 
 The Laplacian and biharmonic coefficients are both limited locally to guarantee stability (`BOUND_KH = True`, `BETTER_BOUND_KH = True`, `BOUND_AH = True`, `BETTER_BOUND_AH = True`).
 
+### Isopycnal mixing
+Baroclinic instability converts available potential energy (APE) stored in sloping isopycnals into eddy kinetic energy (EKE). In an eddy-permitting 25km configuration, this conversion is only partly resolved hence the model does not fully capture the eddy processes that naturally flatten isopycnals and release APE. As a result, isopycnal slopes remain steeper than they should be unless the unresolved eddy effects are parameterised. More details on the physical basis and mathematical formulation of the GM parameterisation can be found in the [MITgcm documentation](https://mitgcm.readthedocs.io/en/latest/phys_pkgs/gmredi.html).
+
+Mesoscale eddies also induce irreversible mixing of tracers but primarily along neutral density surfaces rather than vertically. In ocean models, this effect is represented using an isopycnal diffusion parameterisation, which diffuses tracers along neutral surfaces while minimising spurious diapycnal mixing.
+
+To represent both the quasi-adiabatic flattening of isopycnals and along-isopycnal tracer mixing, the configuration applies a hybrid mesoscale parameterisation that combines neutral diffusion [@redi1982oceanic] with the Gent-McWilliams (`GM`) eddy-induced advection scheme [@gent1990isopycnal]. Both schemes require an eddy diffusivity,
+
+- thickness diffusivity ($KHTH$ in MOM6)
+- isopycnal tracer diffusivity ($KHTR$ in MOM6)
+
+In MOM5, these coefficients were prescribed constants or latitude-dependent maps and were not dynamically constrained by the flow. Hence MOM6 also offers the Mesoscale Eddy Kinetic Energy (`MEKE`) scheme which provides a flow-dependent, scale-aware `GM` diffusivity (documentation [here](https://mom6.readthedocs.io/en/main/api/generated/modules/mom_meke.html#detamom-meke)). `MEKE` prognostically computes an eddy kinetic energy field $E(x,y,z,t)$ ($m^2 s^-2$) from which it derives an eddy velocity scale:
+
+$$
+U_{e}=\sqrt{2E}
+$$
+
+and an eddy length scale ($L$) based on a configurable combination of multiple length scales. In [MOM6](https://mom6.readthedocs.io/en/main/api/generated/modules/mom_hor_visc.html), the GM thickness diffusivity is parameterised as,
+
+$$
+KHTH = CU_{e}L
+$$
+
+Hence when EKE is large, `GM` diffusivity increases with stronger flattening of isopycnals and similarly when EKE is small, `GM` diffusivity decreases and let the resolved eddies do the work. Hence the `GM` flattening of isopycnals becomes energetically consistent and scale-aware, adapting automatically to the local eddy field.
+
+#### Isopycnal thickness diffusion (Gent McWilliams bolus transport)
+In MOM6, `GM` is implemented in a thickness diffusion form. MOM6 adds a diffusive flux of layer thickness to the thickness (i.e., volume per unit area) continuity equation, consistent with the Boussinesq approximation. This height diffusion formulation is mathematically equivalent to the original scheme, which was expressed as an eddy-induced (bolus) velocity that advects tracers and layer thickness [@adcroft2019gfdl]. `GM` is turned on via `THICKNESSDIFFUSE = True`.
+
+This configuration uses `MEKE` (`USE_MEKE = True`) to provide the `GM` diffusivity. Because we do not supply an external EKE field (`EKE_SOURCE` is not equal to `"file"`), EKE is generated internally through instability growth, i.e., solving the EKE equation (`EKE_SOURCE = "prog"`). `MEKE_BGSRC = 1.0E-13` prevents `EKE` from decaying to zero in very quiet regions. It serves as a floor to aid numerical stability and is analogous to a background diffusivity but in energy form. `MEKE_GMCOEFF = 1.0` means the scheme converts eddy potential energy to eddy kinetic energy with 100% efficiency for the `GM` effect. `MEKE_KHTR_FAC = 0.5` and `MEKE_KHTH_FAC = 0.5` map some of the eddy energy to tracer diffusivity and thickness diffusivity, respectively. In practice, `MEKE` supplies the dynamically varying `GM` coefficient that flattens isopycnals and removes APE in a physically informed way. We use `KHTH_USE_FGNV_STREAMFUNCTION = True`, which solves a 1-D boundary-value problem to ensure the `GM` streamfunction is smooth in the vertical and vanishes at the surface and bottom [@ferrari2010boundary]. `FGNV_FILTER_SCALE = 0.1` applies light spatial filtering to reduce noise in the diagnosed streamfunction. We set `RES_SCALE_MEKE_VISC = False`, meaning viscosity is not explicitly scaled by `MEKE`.
+
+With `MEKE`, MOM6 becomes explicitly resolution-aware: as horizontal resolution increases and more eddy processes are partially resolved, the diagnosed `GM` coefficient naturally decreases; conversely, `GM` strengthens where eddies remain under-resolved (e.g. high latitudes), reducing the need for prescribed spatially varying `GM` coefficients.
+
+#### Isopycnal tracer mixing (`Redi`)
+Neutral tracer diffusion is enabled with `USE_NEUTRAL_DIFFUSION = True`, allowing tracers to mix primarily along neutral density surfaces, thus reducing spurious diapycnal mixing in stratified regions. The along-isopycnal diffusivity is set to `KHTR = 50.0`, following [GFDL OM4_05 configuration](https://github.com/NOAA-GFDL/MOM6-examples/blob/3c1de3512e2200bfc10d9e5150715c9df76dbd30/ice_ocean_SIS2/Baltic_OM4_05/MOM_parameter_doc.all#L2419). We also use `USE_STORED_SLOPES = True` and keep `NDIFF_CONTINUOUS = True` to ensure smooth neutral-direction slopes and numerical stability.
+
 ### Shortwave penetration
 Shortwave penetration into the ocean is calculated using the [@manizza2005bio] chlorophyll-based opacity scheme with three shortwave radiation bands (`VAR_PEN_SW = True`, `PEN_SW_NBANDS = 3`). The monthly climatology of surface chlorophyll concentration is calculated from the [Copernicus-GlobColour](https://data.marine.copernicus.eu/product/OCEANCOLOUR_GLO_BGC_L4_MY_009_104/description) product using [Laplace interpolation to fill missing regions](https://github.com/ACCESS-NRI/om3-scripts/blob/main/chlorophyll/chl_climatology_and_fill.py).
 
