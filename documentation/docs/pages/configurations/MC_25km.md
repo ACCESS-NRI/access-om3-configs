@@ -85,7 +85,7 @@ The [Lapacian viscosity](https://mom6.readthedocs.io/en/main/api/generated/modul
 
 The Laplacian and biharmonic coefficients are both limited locally to guarantee stability (`BOUND_KH = True`, `BETTER_BOUND_KH = True`, `BOUND_AH = True`, `BETTER_BOUND_AH = True`).
 
-#### Shortwave penetration
+### Shortwave penetration
 Shortwave penetration into the ocean is calculated using the [@manizza2005bio] chlorophyll-based opacity scheme with three shortwave radiation bands (`VAR_PEN_SW = True`, `PEN_SW_NBANDS = 3`). The monthly climatology of surface chlorophyll concentration is calculated from the [Copernicus-GlobColour](https://data.marine.copernicus.eu/product/OCEANCOLOUR_GLO_BGC_L4_MY_009_104/description) product using [Laplace interpolation to fill missing regions](https://github.com/ACCESS-NRI/om3-scripts/blob/main/chlorophyll/chl_climatology_and_fill.py).
 
 ## CICE namelist
