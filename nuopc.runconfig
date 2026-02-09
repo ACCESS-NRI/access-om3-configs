@@ -98,11 +98,11 @@ ALLCOMP_attributes::
      hostname = gadi
      ice_ncat = 5
      mediator_present = true
-     mesh_atm = ./INPUT/access-om3-8km-nomask-ESMFmesh_Charrassin_nocavity_cropped.nc
-     mesh_ice = ./INPUT/access-om3-8km-ESMFmesh_Charrassin_nocavity_cropped.nc
+     mesh_atm = ./INPUT/access-om3-4km-nomask-ESMFmesh.nc
+     mesh_ice = ./INPUT/access-om3-4km-ESMFmesh.nc
      mesh_lnd = UNSET
-     mesh_mask = ./INPUT/access-om3-8km-ESMFmesh_Charrassin_nocavity_cropped.nc
-     mesh_ocn = ./INPUT/access-om3-8km-ESMFmesh_Charrassin_nocavity_cropped.nc
+     mesh_mask = ./INPUT/access-om3-4km-ESMFmesh.nc
+     mesh_ocn = ./INPUT/access-om3-4km-ESMFmesh.nc
      model_version = unknown
      ocn2glc_coupling = .false.
      ocn2glc_levels = 1:10:19:26:30:33:35
@@ -249,8 +249,8 @@ MED_attributes::
      ocn_surface_flux_scheme = 0
      rof2lnd_map = unset
      rof2ocn_fmapname = unset
-     rof2ocn_ice_rmapname = ./INPUT/access-om3-8km-rof-remap-weights_Charrassin_nocavity_cropped.nc
-     rof2ocn_liq_rmapname = ./INPUT/access-om3-8km-rof-remap-weights_Charrassin_nocavity_cropped.nc
+     rof2ocn_ice_rmapname = ./INPUT/access-om3-4km-rof-remap-weights.nc
+     rof2ocn_liq_rmapname = ./INPUT/access-om3-4km-rof-remap-weights.nc
      rof_nx = 4320
      rof_ny = 1442
      wav2ocn_smapname = unset
@@ -302,7 +302,7 @@ OCN_attributes::
 
 ROF_attributes::
      Verbosity = off
-     mesh_rof = ./INPUT/access-om3-8km-nomask-ESMFmesh_Charrassin_nocavity_cropped.nc
+     mesh_rof = ./INPUT/access-om3-4km-nomask-ESMFmesh.nc
 ::
 
 MED_modelio::

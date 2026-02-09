@@ -32,22 +32,22 @@ jobname: 4km_panAn_om3
 model: access-om3
 exe: access-om3-MOM6-CICE6
 input:
-    - /g/data/tm70/cy8964/mom6/input/input-8km/kmt_Charrassin_nocavity_cropped.nc
-    - /g/data/tm70/cy8964/mom6/input/input-8km/ocean_hgrid_cropped.nc
-    - /g/data/tm70/cy8964/mom6/input/input-8km/ocean_vgrid_cropped.nc
-    - /g/data/tm70/cy8964/mom6/input/input-8km/ACCESS-OM2_IC_bfilled_smoothedland.nc
-    - /g/data/tm70/cy8964/mom6/input/input-8km/salt_restore_interpolated_nearest.nc
-    - /g/data/tm70/cy8964/mom6/input/input-8km/bottom_roughness_Charrassin_nocavity_cropped.nc
-    - /g/data/tm70/cy8964/mom6/input/input-8km/tideamp_Charrassin_nocavity_cropped.nc
-    - /g/data/tm70/cy8964/mom6/input/input-8km/topog_Charrassin_nocavity_cropped.nc
-    - /g/data/tm70/cy8964/mom6/input/input-8km/access-om3-8km-ESMFmesh_Charrassin_nocavity_cropped.nc
-    - /g/data/tm70/cy8964/mom6/input/input-8km/access-om3-8km-nomask-ESMFmesh_Charrassin_nocavity_cropped.nc
+    - /g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.01.08/kmt.nc
+    - /g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.01.08/ocean_hgrid.nc
+    - /g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.01.08/ocean_vgrid.nc
+    - /g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.01.08/ocean_temp_salt.res.nc
+    - /g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.01.08/salt_sfc_restore.nc
+    - /g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.01.08/bottom_roughness.nc
+    - /g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.01.08/tideamp.nc
+    - /g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.01.08/topog.nc
+    - /g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.01.08/access-om3-4km-ESMFmesh.nc
+    - /g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.01.08/access-om3-4km-nomask-ESMFmesh.nc
     - /g/data/vk83/prerelease/configurations/inputs/access-om3/share/meshes/share/2026.01.21/JRA55do-datm-ESMFmesh.nc
     - /g/data/vk83/prerelease/configurations/inputs/access-om3/share/meshes/share/2026.01.21/JRA55do-drof-ESMFmesh.nc
-    - /g/data/tm70/cy8964/mom6/input/input-8km/access-om3-8km-rof-remap-weights_Charrassin_nocavity_cropped.nc
+    - /g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.01.08/access-om3-4km-rof-remap-weights.nc
     - /g/data/vk83/configurations/inputs/JRA-55/RYF/v1-6/data
-    - /g/data/tm70/cy8964/mom6/input/input-8km/forcing_access_yr2_8km_fill.nc
-    - /g/data/tm70/cy8964/mom6/input/input-8km/diag_rho2.nc
+    - /g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.01.08/OBC37S_forcing_access_yr2_4km.nc
+    - /g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.01.08/diag_rho2.nc
 
 runlog: true
 metadata: 
