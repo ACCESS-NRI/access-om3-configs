@@ -31,7 +31,7 @@ Use this step **only** if you want to regenerate T/S fields from a **different v
 ./inte.csh
 ```
 
-The `inte.csh` script processes World Ocean Atlas 2023 (WOA23) data to create consistent monthly temperature and salinity fields suitable for generating MOM6 initial conditions.
+The `inte.csh` script processes [World Ocean Atlas 2023](https://www.ncei.noaa.gov/access/world-ocean-atlas-2023/) (WOA23) data to create consistent monthly temperature and salinity fields suitable for generating MOM6 initial conditions. The WOA23 data used by this script is located at `/g/data/av17/access-nri/OM3/woa23`.
 
 ### Purpose
 
