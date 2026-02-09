@@ -183,3 +183,9 @@ Co-authors (alphabetically) for the notebooks that created these figures: Bull, 
  
   Caption: `timeseries_rendered.ipynb`: 
   
+## Temperature and Zonal velocity transects
+ 
+![`Equatorial_pacific_rendered.ipynb`: Contours (depth-longitude @ equator, depth-latitude @ 220E) of temperature and zonal velocity. Compared to observational estimate from Johnson et al. (2002)..](/assets/experiments/MC_25km_jra_iaf-1.0-beta-5165c0f8/Equatorial_pacific_rendered1.png) 
+ 
+  Caption: `Equatorial_pacific_rendered.ipynb`: Contours (depth-longitude @ equator, depth-latitude @ 220E) of temperature and zonal velocity. Compared to observational estimate from Johnson et al. (2002)..
+  
