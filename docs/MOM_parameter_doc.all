@@ -864,9 +864,9 @@ MEKE_GM_SRC_ALT = False         !   [Boolean] default = False
                                 ! streamfunction for the MEKE GM source term.
 MEKE_VISC_DRAG = True           !   [Boolean] default = True
                                 ! If true, use the vertvisc_type to calculate the bottom drag acting on MEKE.
-MEKE_KHTH_FAC = 0.5             !   [nondim] default = 0.0
+MEKE_KHTH_FAC = 0.3             !   [nondim] default = 0.0
                                 ! A factor that maps MEKE%Kh to KhTh.
-MEKE_KHTR_FAC = 0.5             !   [nondim] default = 0.0
+MEKE_KHTR_FAC = 0.3             !   [nondim] default = 0.0
                                 ! A factor that maps MEKE%Kh to KhTr.
 MEKE_KHMEKE_FAC = 1.0           !   [nondim] default = 0.0
                                 ! A factor that maps MEKE%Kh to Kh for MEKE itself.
@@ -879,7 +879,7 @@ MEKE_MIN_LSCALE = False         !   [Boolean] default = False
 MEKE_RD_MAX_SCALE = False       !   [Boolean] default = False
                                 ! If true, the length scale used by MEKE is the minimum of the deformation
                                 ! radius or grid-spacing. Only used if MEKE_OLD_LSCALE=True
-MEKE_VISCOSITY_COEFF_KU = 1.0   !   [nondim] default = 0.0
+MEKE_VISCOSITY_COEFF_KU = 0.6   !   [nondim] default = 0.0
                                 ! If non-zero, is the scaling coefficient in the expression forviscosity used to
                                 ! parameterize harmonic lateral momentum mixing byunresolved eddies represented
                                 ! by MEKE. Can be negative torepresent backscatter from the unresolved eddies.
