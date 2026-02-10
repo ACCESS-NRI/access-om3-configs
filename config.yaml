@@ -35,7 +35,7 @@ metadata:
 model: access-om3
 modules:
   load:
-  - access-om3/pr185-2
+  - access-om3/pr185-3
   - model-tools/mppnccombine-fast
   use:
   - /g/data/vk83/modules
