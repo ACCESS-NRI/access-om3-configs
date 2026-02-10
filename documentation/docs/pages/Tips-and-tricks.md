@@ -164,13 +164,11 @@ Here are the steps to use the ACCESS Github cherry-pick workflow
 
 1. Open a PR against one config ([example](https://github.com/ACCESS-NRI/access-om3-configs/pull/1101)).
 2. If the change affects answers, update checksums with `!test repro commit`.
-3. Update the "docs" folder ([example](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MC_25km_jra_iaf/docs)) with the latest version of the MOM docs (i.e. re-run the model and commit those files). Tip: for checking the whitespace you can always check with `git diff --no-index MOM_input docs/MOM_parameter_docs.short` after the docs dir is updated. You should not see any differences below the heading `! This section is formatted the same as the MOM_parameter_short.doc output file.` 
-4. Ensure you have completed the PR template checklist.
-5. Get the PR reviewed and merged. 
+3. Update the "docs" folder ([example](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MC_25km_jra_iaf/docs)) with the latest version of the MOM docs (i.e. re-run the model and commit those files). Tip: one can use `git diff --no-index MOM_input docs/MOM_parameter_docs.short` after the docs dir is updated for checking that any changes one might have made to `MOM_input` use the standardized formatting of the `MOM_parameter_doc.short` file. One should not see any differences below the heading `! This section is formatted the same as the MOM_parameter_short.doc output file.` This is useful elsewhere as we want to be able to parse diffs between configs ([example](https://access-om3-configs.access-hive.org.au/#comparison-table)).
+7. Ensure you have completed the PR template checklist.
+8. Get the PR reviewed and merged. 
 1. Use `!cherry-pick` workflow to cherry-pick changes (except for commit updating checksums) into other configs (see [example](https://github.com/ACCESS-NRI/access-om3-configs/pull/1098) and where it came [from](https://github.com/ACCESS-NRI/access-om3-configs/pull/1092#issuecomment-3815178906)). This command is best run on the PR in which you are cherry-picking commits from (keeps records tidy). The cherry-pick workflow will automatically open PRs for you.
 1. Run `!test repro commit` in each of the cherry-picked PRs.
-2. Review and merge.
-
-
+2. Review and merge. Note: one can review on their own because the cherry-pick workflow was used. Having said this, for more complex changes it's probably still a good idea to get an independent review.
 
 
