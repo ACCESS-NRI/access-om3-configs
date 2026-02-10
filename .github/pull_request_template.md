@@ -23,7 +23,7 @@ What ad-hoc testing was done? How are you convinced this change is correct (plot
 
 **5. CI Testing**
 <!-- Has the CI-testing been run? -->
-- [ ] `!test repro` has been run
+- [ ] `!test repro` or `!test repro commit ` has been run
 
 **6. Reproducibility**
 
