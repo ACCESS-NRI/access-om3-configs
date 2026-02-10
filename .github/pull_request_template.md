@@ -29,7 +29,7 @@ What ad-hoc testing was done? How are you convinced this change is correct (plot
 
 Is this reproducible with the previous commit? (If not, why not?)
 - [ ] Yes
-- [ ] No - `!test repro commit` has been run. <!-- add detail below for why it's answer changing --> 
+- [ ] No
 
 **7. Documentation**
 <!--Does this impact documentation? Has the wiki been updated? Have the `docs/MOM_*` files been updated ?-->
