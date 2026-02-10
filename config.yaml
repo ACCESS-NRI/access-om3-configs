@@ -38,7 +38,7 @@ metadata:
 model: access-om3
 modules:
   load:
-  - access-om3/pr185-2
+  - access-om3/pr185-3
   use:
   - /g/data/vk83/modules
   - /g/data/vk83/prerelease/modules
