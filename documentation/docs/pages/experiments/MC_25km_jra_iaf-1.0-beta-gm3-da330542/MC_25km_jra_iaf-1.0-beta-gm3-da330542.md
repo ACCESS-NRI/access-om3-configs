@@ -150,3 +150,48 @@ Co-authors (alphabetically) for the notebooks that created these figures: Bull, 
  
   Caption: `timeseries_rendered.ipynb`: 
   
+ 
+![`timeseries_rendered.ipynb`: ](/assets/experiments/MC_25km_jra_iaf-1.0-beta-gm3-da330542/total_evs_Evaporation_Where_Ice_Free_Ocean_over_Sea_Area_Integrated.png) 
+ 
+  Caption: `timeseries_rendered.ipynb`: 
+  
+ 
+![`timeseries_rendered.ipynb`: ](/assets/experiments/MC_25km_jra_iaf-1.0-beta-gm3-da330542/total_fsitherm_Water_Melt_Form_from_Sea_Ice_Area_Integrated.png) 
+ 
+  Caption: `timeseries_rendered.ipynb`: 
+  
+ 
+![`timeseries_rendered.ipynb`: ](/assets/experiments/MC_25km_jra_iaf-1.0-beta-gm3-da330542/total_precip_Area_integrated_liquid+frozen_precip_into_ocean.png) 
+ 
+  Caption: `timeseries_rendered.ipynb`: 
+  
+ 
+![`timeseries_rendered.ipynb`: ](/assets/experiments/MC_25km_jra_iaf-1.0-beta-gm3-da330542/total_prsn_Snowfall_Flux_where_Ice_Free_Ocean_over_Sea_Area_Integrated.png) 
+ 
+  Caption: `timeseries_rendered.ipynb`: 
+  
+ 
+![`timeseries_rendered.ipynb`: ](/assets/experiments/MC_25km_jra_iaf-1.0-beta-gm3-da330542/total_lprec_Area_integrated_liquid_precip_into_ocean.png) 
+ 
+  Caption: `timeseries_rendered.ipynb`: 
+  
+ 
+![`timeseries_rendered.ipynb`: ](/assets/experiments/MC_25km_jra_iaf-1.0-beta-gm3-da330542/total_ficeberg_Water_Flux_into_Seawater_from_Icebergs_Area_Integrated.png) 
+ 
+  Caption: `timeseries_rendered.ipynb`: 
+  
+ 
+![`timeseries_rendered.ipynb`: ](/assets/experiments/MC_25km_jra_iaf-1.0-beta-gm3-da330542/total_friver_Water_Flux_into_Sea_Water_From_Rivers_Area_Integrated.png) 
+ 
+  Caption: `timeseries_rendered.ipynb`: 
+  
+ 
+![`timeseries_rendered.ipynb`: ](/assets/experiments/MC_25km_jra_iaf-1.0-beta-gm3-da330542/total_net_massout_Area_integrated_mass_leaving_ocean_due_to_evap_and_seaice_form.png) 
+ 
+  Caption: `timeseries_rendered.ipynb`: 
+  
+ 
+![`timeseries_rendered.ipynb`: ](/assets/experiments/MC_25km_jra_iaf-1.0-beta-gm3-da330542/total_net_massin_Area_integrated_mass_entering_ocean_due_to_precip,_runoff,_ice_melt.png) 
+ 
+  Caption: `timeseries_rendered.ipynb`: 
+  
