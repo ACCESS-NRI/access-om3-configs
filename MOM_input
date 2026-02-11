@@ -10,6 +10,10 @@ V_TRUNC_FILE = "V_velocity_truncations" ! default = ""
                                 ! velocity truncations are written. Undefine this for efficiency if this
                                 ! diagnostic is not needed.
 
+! === module MOM_file_parser ===
+FATAL_UNUSED_PARAMS = True      !   [Boolean] default = False
+                                ! If true, kill the run if there are any unused parameters.
+
 ! This section contains non default layout parameters which are set.
 ! ------------------------
 ! === module MOM_domains ===
