@@ -166,8 +166,8 @@ Here are the steps to use the ACCESS Github cherry-pick workflow
 2. If the change affects answers, update checksums with `!test repro commit`.
 3. If you made any changes to `MOM_input` or changed the version of MOM6:
 
-  a. Update the "docs" folder ([example](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MC_25km_jra_iaf/docs)) with the latest version of the MOM docs (i.e. re-run the model and commit those files).
-  b. Check that any changes you have made to `MOM_input` use the standardized formatting of the `MOM_parameter_doc.short` file. Tip: one can use `git diff --no-index MOM_input docs/MOM_parameter_docs.short` after the docs dir is updated. One should not see any differences below the heading `! This section is formatted the same as the MOM_parameter_short.doc output file.` We require consistent formatting to make it easier to parse diffs between configs ([example](https://access-om3-configs.access-hive.org.au/#comparison-table)).
+  - Update the "docs" folder ([example](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MC_25km_jra_iaf/docs)) with the latest version of the MOM docs (i.e. re-run the model and commit those files).
+  - Check that any changes you have made to `MOM_input` use the standardized formatting of the `MOM_parameter_doc.short` file. Tip: one can use `git diff --no-index MOM_input docs/MOM_parameter_docs.short` after the docs dir is updated. One should not see any differences below the heading `! This section is formatted the same as the MOM_parameter_short.doc output file.` We require consistent formatting to make it easier to parse diffs between configs ([example](https://access-om3-configs.access-hive.org.au/#comparison-table)).
 
 7. Ensure you have completed the PR template checklist.
 8. Get the PR reviewed and merged. 
