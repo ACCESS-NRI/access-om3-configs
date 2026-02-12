@@ -7,7 +7,7 @@ The coupled fields and remapping methods used are recorded in the mediator log o
 
 ## Overview of codebase
 
-The ACCESS-OM3 software is built from libraries containing the code for each model component.
+The ACCESS-OM3 software is built from libraries containing the code for each model component. 
 
 The top level code (main program) for an ACCESS-OM3 executable is the CMEPS NUOPC driver [`CMEPS/CMEPS/cesm/driver/esmApp.F90`](https://github.com/ESCOMP/CMEPS/blob/606eb397d4e66f8fa3417e7e8fd2b2b4b3c222b4/cesm/driver/esmApp.F90).
 
@@ -18,6 +18,13 @@ The [software deployment](https://github.com/accESS-NRI/access-om3) compiles a s
 - waves: [WW3](https://github.com/access-nri/WW3) active model or DWAV prescribed data model or nothing (stub)
 - atmosphere: DATM prescribed data model from [CDEPS](https://github.com/access-nri/access3-share/tree/main/CDEPS)
 - runoff: DROF prescribed data model from [CDEPS](https://github.com/access-nri/access3-share/tree/main/CDEPS)
+
+!!! tip
+To determine the exact source code used in the model components in a configuration,
+1. find the access-om3 module version in `config.yaml` ([e.g. here](https://github.com/ACCESS-NRI/access-om3-configs/blob/release-MC_25km_jra_iaf-1.0-beta/config.yaml#L22))
+2. click the corresponding link in the [ACCESS-NRI Model Release Database](https://reporting.access-nri-store.cloud.edu.au/release-provenance/releases)
+3. click the grey GitHub logo for the component of interest
+4. click the tag icon to view the source code (note, however, that GitHub searches are restricted to the latest commit on the main branch)
 
 The default deployment [contains two builds](https://github.com/search?q=repo%3AACCESS-NRI%2FACCESS-OM3%20configurations%3D&type=code), the `access-OM3-MOM6-CICE6` executable contains the active ocean and sea ice model and no waves, and the `access-OM3-MOM6-CICE6-WW3` executable contains the active ocean, seaice and wave models. Other combinations of prescribed and active model components are possible but not probided by default.
 
