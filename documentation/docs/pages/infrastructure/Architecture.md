@@ -20,12 +20,12 @@ The [software deployment](https://github.com/accESS-NRI/access-om3) compiles a s
 - runoff: DROF prescribed data model from [CDEPS](https://github.com/access-nri/access3-share/tree/main/CDEPS)
 
 !!! tip
-To determine the exact source code used in the model components in a configuration,
-1. find the access-om3 module version in `config.yaml` ([e.g. here](https://github.com/ACCESS-NRI/access-om3-configs/blob/release-MC_25km_jra_iaf-1.0-beta/config.yaml#L22))
-2. click the corresponding link in the [ACCESS-NRI Model Release Database](https://reporting.access-nri-store.cloud.edu.au/release-provenance/releases)
-3. click the grey GitHub logo for the component of interest
-4. click the tag icon to view the source code (note, however, that GitHub searches are restricted to the latest commit on the main branch)
-
+    To determine the exact source code used in the model components in a configuration:
+    
+    1. find the access-om3 module version in `config.yaml` ([e.g. here](https://github.com/ACCESS-NRI/access-om3-configs/blob/release-MC_25km_jra_iaf-1.0-beta/config.yaml#L22))
+    2. click the corresponding link in the [ACCESS-NRI Model Release Database](https://reporting.access-nri-store.cloud.edu.au/release-provenance/releases)
+    3. click the grey GitHub logo for the component of interest
+    4. click the tag icon to view the source code (note, however, that GitHub searches are restricted to the latest commit on the main branch)
 The default deployment [contains two builds](https://github.com/search?q=repo%3AACCESS-NRI%2FACCESS-OM3%20configurations%3D&type=code), the `access-OM3-MOM6-CICE6` executable contains the active ocean and sea ice model and no waves, and the `access-OM3-MOM6-CICE6-WW3` executable contains the active ocean, seaice and wave models. Other combinations of prescribed and active model components are possible but not probided by default.
 
 The model components are coupled exclusively through the mediator via their NUOPC caps: [MOM6](https://github.com/mom-ocean/MOM6/tree/main/config_src/drivers/nuopc_cap), [CICE6](https://github.com/ESCOMP/CICE/tree/main/cicecore/drivers/nuopc/cmeps), [WW3](https://github.com/ESCOMP/WW3/blob/dev/unified/model/src/wav_import_export.F90), [DOCN](https://github.com/ESCOMP/CDEPS/tree/main/docn), [DICE](https://github.com/ESCOMP/CDEPS/tree/main/dice), [DATM](https://github.com/ESCOMP/CDEPS/tree/main/datm) and [DROF](https://github.com/ESCOMP/CDEPS/tree/main/drof).
