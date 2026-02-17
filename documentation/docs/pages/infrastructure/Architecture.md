@@ -23,7 +23,7 @@ The [software deployment](https://github.com/accESS-NRI/access-om3) compiles a s
     To determine the exact source code used in the model components in a "released" configuration:
     
     1. find the access-om3 module version in `config.yaml` ([e.g. here](https://github.com/ACCESS-NRI/access-om3-configs/blob/95ac4456b2e08a3dc1e6476e8dc96900005151ce/config.yaml#L22))
-    2. click the corresponding link in the [ACCESS-NRI Model Release Database](https://reporting.access-nri-store.cloud.edu.au/release-provenance/releases)
+    2. click the corresponding link for that model and release version in the [ACCESS-NRI Model Release Database](https://reporting.access-nri-store.cloud.edu.au/release-provenance/releases)
     3. click the grey GitHub logo for the component of interest
     4. click the tag icon to view the source code (note, however, that GitHub searches are restricted to the latest commit on the main branch)
 
