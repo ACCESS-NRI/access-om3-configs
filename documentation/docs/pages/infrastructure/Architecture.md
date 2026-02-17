@@ -20,7 +20,7 @@ The [software deployment](https://github.com/accESS-NRI/access-om3) compiles a s
 - runoff: DROF prescribed data model from [CDEPS](https://github.com/access-nri/access3-share/tree/main/CDEPS)
 
 !!! tip
-    To determine the exact source code used in the model components in a configuration:
+    To determine the exact source code used in the model components in a "released" configuration:
     
     1. find the access-om3 module version in `config.yaml` ([e.g. here](https://github.com/ACCESS-NRI/access-om3-configs/blob/release-MC_25km_jra_iaf-1.0-beta/config.yaml#L22))
     2. click the corresponding link in the [ACCESS-NRI Model Release Database](https://reporting.access-nri-store.cloud.edu.au/release-provenance/releases)
