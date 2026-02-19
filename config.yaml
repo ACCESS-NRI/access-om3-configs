@@ -20,7 +20,7 @@ modules:
   - /g/data/vk83/modules
   - /g/data/vk83/prerelease/modules
   load:
-  - access-om3/pr190-11
+  - access-om3/pr190-9
   - model-tools/mppnccombine-fast
 queue: normalsr
 ncpus: 1976
