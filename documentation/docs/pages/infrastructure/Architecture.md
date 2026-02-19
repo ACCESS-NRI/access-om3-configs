@@ -31,7 +31,7 @@ The [software deployment](https://github.com/accESS-NRI/access-om3) compiles a s
 
 The default deployment [contains two builds](https://github.com/search?q=repo%3AACCESS-NRI%2FACCESS-OM3%20configurations%3D&type=code), the `access-OM3-MOM6-CICE6` executable contains the active ocean and sea ice model and no waves, and the `access-OM3-MOM6-CICE6-WW3` executable contains the active ocean, seaice and wave models. Other combinations of prescribed and active model components are possible but not provided by default.
 
-The model components are coupled exclusively through the mediator via their NUOPC caps: [MOM6](https://github.com/access-nri/MOM6/tree/-/config_src/drivers/nuopc_cap), [CICE6](https://github.com/access-nri/CICE/tree/-/cicecore/drivers/nuopc/cmeps), [WW3](https://github.com/ESCOMP/WW3/blob/dev/unified/model/src/wav_import_export.F90), [DOCN](https://github.com/ESCOMP/CDEPS/tree/main/docn), [DICE](https://github.com/ESCOMP/CDEPS/tree/main/dice), [DATM](https://github.com/ESCOMP/CDEPS/tree/main/datm) and [DROF](https://github.com/ESCOMP/CDEPS/tree/main/drof).
+The model components are coupled exclusively through the mediator via their NUOPC caps: [MOM6](https://github.com/access-nri/MOM6/blob/-/config_src/drivers/nuopc_cap), [CICE6](https://github.com/access-nri/CICE/blob/-/cicecore/drivers/nuopc/cmeps), [WW3](https://github.com/ESCOMP/WW3/blob/dev/unified/model/src/wav_import_export.F90), [DOCN](https://github.com/ESCOMP/CDEPS/tree/main/docn), [DICE](https://github.com/ESCOMP/CDEPS/tree/main/dice), [DATM](https://github.com/ESCOMP/CDEPS/tree/main/datm) and [DROF](https://github.com/ESCOMP/CDEPS/tree/main/drof).
 
 ## Further information coupling
 - [Overview of how NUOPC works](https://earthsystemmodeling.org/nuopc/)
