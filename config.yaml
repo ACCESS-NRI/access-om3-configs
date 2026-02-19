@@ -9,18 +9,18 @@
 # Using payu sync is recommend to copy data from ephemeral scratch space to 
 # longer term storage
 sync:
-    enable: False # set path below and change to true
-    path: null # Set to location on /g/data (e.g. /g/data/PROJECT/USER/EXPERIMENT)
-    restarts: True
-    exclude_uncollated: False
+  enable: false   # set path below and change to true
+  path: null   # Set to location on /g/data (e.g. /g/data/PROJECT/USER/EXPERIMENT)
+  restarts: true
+  exclude_uncollated: false
 
 #Model software version
 modules:
-    use:
-        - /g/data/vk83/modules
-    load:
-        - access-om3/2025.08.001
-
+  use:
+  - /g/data/vk83/modules
+  - /g/data/vk83/prerelease/modules
+  load:
+  - access-om3/pr191-1
 queue: normal
 ncpus: 240
 jobfs: 10GB
@@ -32,33 +32,33 @@ jobname: 100km_jra55do_ryf
 model: access-om3
 exe: access-om3-MOM6-CICE6
 input:
-    - /g/data/vk83/configurations/inputs/access-om3/share/meshes/global.100km/2024.01.25/access-om2-100km-ESMFmesh.nc
-    - /g/data/vk83/configurations/inputs/access-om3/share/meshes/global.100km/2024.01.25/access-om2-100km-nomask-ESMFmesh.nc
-    - /g/data/vk83/prerelease/configurations/inputs/access-om3/share/meshes/share/2026.01.21/JRA55do-datm-ESMFmesh.nc
-    - /g/data/vk83/prerelease/configurations/inputs/access-om3/share/meshes/share/2026.01.21/JRA55do-drof-ESMFmesh.nc
-    - /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/tidal_external_files/global.100km/2025.09.22/bottom_roughness.nc
-    - /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/tidal_external_files/global.100km/2025.09.22/tideamp.nc
-    - /g/data/vk83/configurations/inputs/access-om3/share/grids/global.100km/2020.10.22/topog.nc
-    - /g/data/vk83/configurations/inputs/access-om3/mom/grids/mosaic/global.100km/2020.05.30/ocean_hgrid.nc
-    - /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/grids/vertical/share/2025.03.12/ocean_vgrid.nc
-    - /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/initial_conditions/global.100km/2025.10.24/woa23_ts_01_mom.nc
-    - /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/surface_salt_restoring/global.100km/2025.10.24/salt_sfc_restore.nc
-    - /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/chlorophyll/global.100km/2025.11.25/chl_globcolour_monthly_clim.nc
-    - /g/data/vk83/configurations/inputs/access-om3/cice/grids/global.100km/2024.05.14/kmt.nc
-    - /g/data/vk83/configurations/inputs/access-om3/cice/initial_conditions/global.100km/2023.07.28/iced.1900-01-01-10800.nc
-    - /g/data/vk83/configurations/inputs/JRA-55/RYF/v1-6/data
- 
+- /g/data/vk83/configurations/inputs/access-om3/share/meshes/global.100km/2024.01.25/access-om2-100km-ESMFmesh.nc
+- /g/data/vk83/configurations/inputs/access-om3/share/meshes/global.100km/2024.01.25/access-om2-100km-nomask-ESMFmesh.nc
+- /g/data/vk83/prerelease/configurations/inputs/access-om3/share/meshes/share/2026.01.21/JRA55do-datm-ESMFmesh.nc
+- /g/data/vk83/prerelease/configurations/inputs/access-om3/share/meshes/share/2026.01.21/JRA55do-drof-ESMFmesh.nc
+- /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/tidal_external_files/global.100km/2025.09.22/bottom_roughness.nc
+- /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/tidal_external_files/global.100km/2025.09.22/tideamp.nc
+- /g/data/vk83/configurations/inputs/access-om3/share/grids/global.100km/2020.10.22/topog.nc
+- /g/data/vk83/configurations/inputs/access-om3/mom/grids/mosaic/global.100km/2020.05.30/ocean_hgrid.nc
+- /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/grids/vertical/share/2025.03.12/ocean_vgrid.nc
+- /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/initial_conditions/global.100km/2025.10.24/woa23_ts_01_mom.nc
+- /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/surface_salt_restoring/global.100km/2025.10.24/salt_sfc_restore.nc
+- /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/chlorophyll/global.100km/2025.11.25/chl_globcolour_monthly_clim.nc
+- /g/data/vk83/configurations/inputs/access-om3/cice/grids/global.100km/2024.05.14/kmt.nc
+- /g/data/vk83/configurations/inputs/access-om3/cice/initial_conditions/global.100km/2023.07.28/iced.1900-01-01-10800.nc
+- /g/data/vk83/configurations/inputs/JRA-55/RYF/v1-6/data
+
 collate: false
 runlog: false
-metadata: 
-    enable: false
+metadata:
+  enable: false
 manifest:
   reproduce:
     exe: false
     inputs: false
 
 userscripts:
-    archive: /usr/bin/bash /g/data/vk83/apps/om3-scripts/payu_config/archive.sh
+  archive: /usr/bin/bash /g/data/vk83/apps/om3-scripts/payu_config/archive.sh
 
 postscript: -v PROJECT,SCRIPTS_DIR=/g/data/vk83/apps/om3-scripts -lstorage=${PBS_NCI_STORAGE}+gdata/xp65 /g/data/vk83/apps/om3-scripts/payu_config/postscript.sh
 
