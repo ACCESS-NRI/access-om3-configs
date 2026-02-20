@@ -7,7 +7,7 @@
   hist_suffix = ".1day.mean", ".1mon.mean", "x", "x", "x"
   hist_time_axis = "middle"
   history_deflate = 1
-  history_chunksize = 720, 540
+  history_chunksize = 720, 186
   history_precision = 8
   restart_deflate = 1
   ice_ic = 'none' 
@@ -15,20 +15,21 @@
   npt = 35040
   pointer_file = './rpointer.ice'
   print_global = .false.
+  ndtd = 4
 /
 &grid_nml
-  bathymetry_file = "./INPUT/topog.nc"
+  bathymetry_file = "./INPUT/topog_seaice.nc"
   grid_atm = "A"
   grid_file = "./INPUT/ocean_hgrid.nc"
   grid_format = "mom_nc"
   grid_ice = "B"
   grid_ocn = "A"
-  grid_type = "tripole"
+  grid_type = "regional"
   grid_outfile = .true.
-  kcatbound = 0
+  kcatbound = 2
   kmt_file = "./INPUT/kmt.nc"
   nblyr = 1
-  ncat = 5
+  ncat = 7
   nfsd = 1
   nilyr = 4
   nslyr = 1
@@ -68,17 +69,17 @@
   ustar_min = 0.0005
 /
 &domain_nml
-  block_size_x = 30
-  block_size_y = 27
-  distribution_type = "roundrobin"
+  block_size_x = 48
+  block_size_y = 36
+  distribution_type = "sectrobin"
   distribution_wght = "latitude"
   maskhalo_bound = .true.
   maskhalo_dyn = .true.
   maskhalo_remap = .true.
   max_blocks = -1
-  ns_boundary_type = "tripole"
-  nx_global = 1440
-  ny_global = 1152
+  ns_boundary_type = "open"
+  nx_global = 4320
+  ny_global = 1442
   processor_shape = "square-ice"
 /
 &ice_prescribed_nml
