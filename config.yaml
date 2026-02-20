@@ -21,7 +21,7 @@ modules:
         - /g/data/vk83/prerelease/modules
     load:
         - access-om3/pr142-36
-        - model-tools/mppnccombine-fast
+        - model-tools/mppnccombine-fast/2025.07.000
 
 queue: normalsr
 ncpus: 2990
@@ -33,26 +33,26 @@ jobname: 4km_panAn_om3_isf
 model: access-om3
 exe: access-om3-MOM6-CICE6
 input:
-    - /g/data/tm70/cy8964/mom6/input/input-8km/150925/kmt_Charrassin_sea_ice_from_iceelev_new150925.nc
-    - /g/data/tm70/cy8964/mom6/input/input-8km/ocean_hgrid_cropped.nc
-    - /g/data/tm70/cy8964/mom6/input/input-8km/ocean_vgrid_cropped.nc
-    - /g/data/x77/cy8964/mom6/input/input-8km/Yamazaki_ACCESS-OM2_IC_LarsenWeddellRossedits_smoothed.nc
-    - /g/data/tm70/cy8964/mom6/input/input-8km/salt_restore_interpolated_nearest.nc
-    - /g/data/tm70/cy8964/mom6/input/input-8km/150925/salt_restore_mask.nc
-    - /g/data/x77/cy8964/mom6/input/input-8km/bottom_roughness_extended_into_cavity_74Sedit.nc
-    - /g/data/x77/cy8964/mom6/input/input-8km/tideamp_Charrassin_cavity_cropped.nc
-    - /g/data/tm70/cy8964/mom6/input/input-8km/150925/topog_Charrassin_sea_ice_from_iceelev_new150925.nc
-    - /g/data/tm70/cy8964/mom6/input/input-8km/150925/topog_Charrassin_open_cavity_noGL5m_new150925.nc
-    - /g/data/tm70/cy8964/mom6/input/input-8km/150925/access-om3-8km-ESMFmesh_Charrassin_nocavity_cropped.nc
-    - /g/data/tm70/cy8964/mom6/input/input-8km/150925/access-om3-8km-nomask-ESMFmesh_Charrassin_nocavity_cropped.nc
+    - /g/data/vk83/prerelease/configurations/inputs/access-om3/panan-isf.4km/2026.01.08/kmt.nc
+    - /g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.01.08/ocean_hgrid.nc
+    - /g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.01.08/ocean_vgrid.nc
+    - /g/data/vk83/prerelease/configurations/inputs/access-om3/panan-isf.4km/2026.01.08/ocean_temp_salt.res.nc
+    - /g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.01.08/salt_sfc_restore.nc
+    - /g/data/vk83/prerelease/configurations/inputs/access-om3/panan-isf.4km/2026.01.08/salt_restore_mask.nc
+    - /g/data/vk83/prerelease/configurations/inputs/access-om3/panan-isf.4km/2026.01.08/bottom_roughness.nc
+    - /g/data/vk83/prerelease/configurations/inputs/access-om3/panan-isf.4km/2026.01.08/tideamp.nc
+    - /g/data/vk83/prerelease/configurations/inputs/access-om3/panan-isf.4km/2026.01.08/topog_seaice.nc
+    - /g/data/vk83/prerelease/configurations/inputs/access-om3/panan-isf.4km/2026.01.08/topog.nc
+    - /g/data/vk83/prerelease/configurations/inputs/access-om3/panan-isf.4km/2026.01.08/access-om3-4km-ESMFmesh.nc
+    - /g/data/vk83/prerelease/configurations/inputs/access-om3/panan-isf.4km/2026.01.08/access-om3-4km-nomask-ESMFmesh.nc
     - /g/data/vk83/prerelease/configurations/inputs/access-om3/share/meshes/share/2026.01.21/JRA55do-datm-ESMFmesh.nc
     - /g/data/vk83/prerelease/configurations/inputs/access-om3/share/meshes/share/2026.01.21/JRA55do-drof-ESMFmesh.nc
-    - /g/data/tm70/cy8964/mom6/input/input-8km/150925/access-om3-8km-rof-remap-weights_Charrassin_nocavity_cropped.nc
+    - /g/data/vk83/prerelease/configurations/inputs/access-om3/panan-isf.4km/2026.01.08/access-om3-4km-rof-remap-weights.nc
     - /g/data/vk83/configurations/inputs/JRA-55/RYF/v1-6/data
-    - /g/data/tm70/cy8964/mom6/input/input-8km/forcing_access_yr2_8km_fill_mod.nc
-    - /g/data/tm70/cy8964/mom6/input/input-8km/diag_rho2.nc
-    - /g/data/tm70/cy8964/mom6/input/input-8km/150925/ice_thickness_Charrassin_regridded_cropped_add_area_where_iceelev_noGL5m_ADDHMASKFILLTHICK_150925.nc
-    - /g/data/tm70/cy8964/mom6/input/input-8km/mask_table.1490.84x49
+    - /g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.01.08/OBC37S_forcing_access_yr2_4km.nc
+    - /g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.01.08/diag_rho2.nc
+    - /g/data/vk83/prerelease/configurations/inputs/access-om3/panan-isf.4km/2026.01.08/ice_shelf_thick.nc
+    - /g/data/vk83/prerelease/configurations/inputs/access-om3/panan-isf.4km/2026.01.08/mask_table.1490.84x49
 
 runlog: true
 metadata: 

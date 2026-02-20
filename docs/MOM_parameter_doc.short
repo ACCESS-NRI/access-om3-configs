@@ -73,7 +73,7 @@ GRID_CONFIG = "mosaic"          !
                                 !     cartesian - use a (flat) Cartesian grid.
                                 !     spherical - use a simple spherical grid.
                                 !     mercator - use a Mercator spherical grid.
-GRID_FILE = "ocean_hgrid_cropped.nc" !
+GRID_FILE = "ocean_hgrid.nc"    !
                                 ! Name of the file from which to read horizontal grid data.
 RAD_EARTH = 6.371229E+06        !   [m] default = 6.378E+06
                                 ! The radius of the Earth.
@@ -104,8 +104,6 @@ TOPO_CONFIG = "file"            !
                                 !     Phillips - ACC-like idealized topography used in the Phillips config.
                                 !     dense - Denmark Strait-like dense water formation and overflow.
                                 !     USER - call a user modified routine.
-TOPO_FILE = "topog_Charrassin_open_cavity_noGL5m_new150925.nc" ! default = "topog.nc"
-                                ! The file from which the bathymetry is read.
 MAXIMUM_DEPTH = 6000.0          !   [m]
                                 ! The maximum depth of the ocean.
 
@@ -182,7 +180,7 @@ REGRIDDING_COORDINATE_MODE = "SIGMA_SHELF_ZSTAR" ! default = "LAYER"
                                 !  HYCOM1 - HyCOM-like hybrid coordinate
                                 !  HYBGEN - Hybrid coordinate from the Hycom hybgen code
                                 !  ADAPTIVE - optimize for smooth neutral density surfaces
-ALE_COORDINATE_CONFIG = "FILE:ocean_vgrid_cropped.nc,interfaces=zeta" ! default = "UNIFORM"
+ALE_COORDINATE_CONFIG = "FILE:ocean_vgrid.nc,interfaces=zeta" ! default = "UNIFORM"
                                 ! Determines how to specify the coordinate resolution. Valid options are:
                                 !  PARAM       - use the vector-parameter ALE_RESOLUTION
                                 !  UNIFORM[:N] - uniformly distributed
@@ -228,7 +226,7 @@ INIT_LAYERS_FROM_Z_FILE = True  !   [Boolean] default = False
                                 ! Z-space file on a latitude-longitude grid.
 
 ! === module MOM_initialize_layers_from_Z ===
-TEMP_SALT_Z_INIT_FILE = "Yamazaki_ACCESS-OM2_IC_LarsenWeddellRossedits_smoothed.nc" ! default = "temp_salt_z.nc"
+TEMP_SALT_Z_INIT_FILE = "ocean_temp_salt.res.nc" ! default = "temp_salt_z.nc"
                                 ! The name of the z-space input file used to initialize temperatures (T) and
                                 ! salinities (S). If T and S are not in the same file, TEMP_Z_INIT_FILE and
                                 ! SALT_Z_INIT_FILE must be set.
@@ -247,7 +245,7 @@ TRIM_IC_FOR_P_SURF = True       !   [Boolean] default = False
                                 ! If true, cuts way the top of the column for initial conditions at the depth
                                 ! where the hydrostatic pressure matches the imposed surface pressure which is
                                 ! read from file.
-SURFACE_PRESSURE_FILE = "ice_thickness_Charrassin_regridded_cropped_add_area_where_iceelev_noGL5m_ADDHMASKFILLTHICK_150925.nc" !
+SURFACE_PRESSURE_FILE = "ice_shelf_thick.nc" !
                                 ! The initial condition file for the surface pressure exerted by ice.
 SURFACE_PRESSURE_VAR = "thick"  ! default = ""
                                 ! The initial condition variable for the surface pressure exerted by ice.
@@ -262,7 +260,7 @@ FRAC_DP_AT_POS_NEGATIVE_P_BUGFIX = True !   [Boolean] default = False
                                 ! input to density EOS is negative.
 TRIMMING_USES_REMAPPING = True  !   [Boolean] default = False
                                 ! When trimming the column, also remap T and S.
-OBC_SEGMENT_001_DATA = "U=file:forcing_access_yr2_8km_fill_mod.nc(u),V=file:forcing_access_yr2_8km_fill_mod.nc(v),SSH=file:forcing_access_yr2_8km_fill_mod.nc(eta_t),TEMP=file:forcing_access_yr2_8km_fill_mod.nc(pot_temp),SALT=file:forcing_access_yr2_8km_fill_mod.nc(salt)" !
+OBC_SEGMENT_001_DATA = "U=file:OBC37S_forcing_access_yr2_4km.nc(u),V=file:OBC37S_forcing_access_yr2_4km.nc(v),SSH=file:OBC37S_forcing_access_yr2_4km.nc(eta_t),TEMP=file:OBC37S_forcing_access_yr2_4km.nc(pot_temp),SALT=file:OBC37S_forcing_access_yr2_4km.nc(salt)" !
                                 ! OBC segment docs
 
 ! === module MOM_diag_mediator ===
@@ -273,7 +271,7 @@ DIAG_COORDS = "z Z ZSTAR", "rho2 RHO2 RHO" !
                                 ! A list of string tuples associating diag_table modules to a coordinate
                                 ! definition used for diagnostics. Each string is of the form
                                 ! "MODULE_SUFFIX,PARAMETER_SUFFIX,COORDINATE_NAME".
-DIAG_COORD_DEF_Z = "FILE:ocean_vgrid_cropped.nc,interfaces=zeta" ! default = "WOA09"
+DIAG_COORD_DEF_Z = "FILE:ocean_vgrid.nc,interfaces=zeta" ! default = "WOA09"
                                 ! Determines how to specify the coordinate resolution. Valid options are:
                                 !  PARAM       - use the vector-parameter DIAG_COORD_RES_Z
                                 !  UNIFORM[:N] - uniformly distributed
@@ -540,10 +538,7 @@ INT_TIDE_DISSIPATION = True     !   [Boolean] default = False
 READ_TIDEAMP = True             !   [Boolean] default = False
                                 ! If true, read a file (given by TIDEAMP_FILE) containing the tidal amplitude
                                 ! with INT_TIDE_DISSIPATION.
-TIDEAMP_FILE = "tideamp_Charrassin_cavity_cropped.nc" ! default = "tideamp.nc"
-                                ! The path to the file containing the spatially varying tidal amplitudes with
-                                ! INT_TIDE_DISSIPATION.
-H2_FILE = "bottom_roughness_extended_into_cavity_74Sedit.nc" !
+H2_FILE = "bottom_roughness.nc" !
                                 ! The path to the file containing the sub-grid-scale topographic roughness
                                 ! amplitude with INT_TIDE_DISSIPATION.
 BBL_EFFIC = 0.01                !   [nondim] default = 0.2
@@ -743,7 +738,7 @@ ENTHALPY_FROM_COUPLER = True    !   [Boolean] default = False
 FLUXCONST = 0.11                !   [m day-1] default = 0.0
                                 ! The constant that relates the restoring surface fluxes to the relative surface
                                 ! anomalies (akin to a piston velocity).  Note the non-MKS units.
-SALT_RESTORE_FILE = "salt_restore_interpolated_nearest.nc" ! default = "salt_restore.nc"
+SALT_RESTORE_FILE = "salt_sfc_restore.nc" ! default = "salt_restore.nc"
                                 ! A file in which to find the surface salinity to use for restoring.
 SRESTORE_AS_SFLUX = True        !   [Boolean] default = False
                                 ! If true, the restoring of salinity is applied as a salt flux instead of as a
@@ -790,7 +785,7 @@ CDRAG_SHELF = 0.007             !   [nondim] default = 0.003
 ICE_PROFILE_CONFIG = "FILE"     !
                                 ! This specifies how the initial ice profile is specified. Valid values are:
                                 ! CHANNEL, FILE, and USER.
-ICE_THICKNESS_FILE = "ice_thickness_Charrassin_regridded_cropped_add_area_where_iceelev_noGL5m_ADDHMASKFILLTHICK_150925.nc" ! default = "ice_shelf_h.nc"
+ICE_THICKNESS_FILE = "ice_shelf_thick.nc" ! default = "ice_shelf_h.nc"
                                 ! The file from which the bathymetry is read.
 ICE_THICKNESS_VARNAME = "thick" ! default = "h_shelf"
                                 ! The name of the thickness variable in ICE_THICKNESS_FILE.

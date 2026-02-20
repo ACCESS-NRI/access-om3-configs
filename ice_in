@@ -18,16 +18,16 @@
   ndtd = 4
 /
 &grid_nml
-  bathymetry_file = "./INPUT/topog_Charrassin_sea_ice_from_iceelev_new150925.nc"
+  bathymetry_file = "./INPUT/topog_seaice.nc"
   grid_atm = "A"
-  grid_file = "./INPUT/ocean_hgrid_cropped.nc"
+  grid_file = "./INPUT/ocean_hgrid.nc"
   grid_format = "mom_nc"
   grid_ice = "B"
   grid_ocn = "A"
   grid_type = "regional"
   grid_outfile = .true.
   kcatbound = 2
-  kmt_file = "./INPUT/kmt_Charrassin_sea_ice_from_iceelev_new150925.nc"
+  kmt_file = "./INPUT/kmt.nc"
   nblyr = 1
   ncat = 7
   nfsd = 1
