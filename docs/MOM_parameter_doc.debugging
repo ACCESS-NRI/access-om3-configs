@@ -92,5 +92,5 @@ WRITE_TRACER_MIN_MAX = False    !   [Boolean] default = False
 ! === module MOM_file_parser ===
 REPORT_UNUSED_PARAMS = True     !   [Boolean] default = True
                                 ! If true, report any parameter lines that are not used in the run.
-FATAL_UNUSED_PARAMS = False     !   [Boolean] default = False
+FATAL_UNUSED_PARAMS = True      !   [Boolean] default = False
                                 ! If true, kill the run if there are any unused parameters.
