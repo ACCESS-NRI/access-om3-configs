@@ -7,7 +7,7 @@ Detailed documentation on the configurations, including how to make modification
 
 ## Running OM3 and the configurations in this repository
 
-If you would like to run the model, see the [How to Run ACCESS OM3 documentation](https://docs.access-hive.org.au/models/run-a-model/run-access-om3/).
+If you would like to run the model, see the [How to Run ACCESS OM3 documentation](https://docs.access-hive.org.au/models/run_a_model/run_access-om3/).
 
 ## Contributions
 
