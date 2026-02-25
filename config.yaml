@@ -20,7 +20,7 @@ modules:
   - /g/data/vk83/modules
   - /g/data/vk83/prerelease/modules
   load:
-  - access-om3/pr163-5
+  - access-om3/pr163-4
 queue: normal
 ncpus: 240
 jobfs: 10GB
