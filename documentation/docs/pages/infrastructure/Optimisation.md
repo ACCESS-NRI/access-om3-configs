@@ -1,21 +1,41 @@
 # Optimisation
 
-This documentation focuses on optimisation work that can be achieved without changing the ACCESS-OM3 source code. In practice the largest performance differences between runs typically come from build choices and how work is distributed across model components, rather than from changes to the model themselves. The topic covered therefore include processor layout and load balancing across components such as MOM6, CICE, and the mediator (MED) and the data components (DATM and DROF) as well as build-time compiler settings.
+This documentation focuses on optimisation work that can be achieved without changing the ACCESS-OM3 source code. For a fixed model configuration and resolution, performance differences between runs are typically driven by build choices and processor layout rather than changes to the model source itself. This includes load balancing across components such as MOM6, CICE, the mediator (MED), and the data components (DATM and DROF), as well as build-time compiler settings.
 
 All of the optimisation work described in this guide is driven by runtime evidence. We rely on ESMF tracing, using the ACCESS-NRI [`esmf-trace`](https://github.com/ACCESS-NRI/esmf-trace) repository, as the primary tool for understanding where time is actually spent during a run. Trace data provides a detailed breakdown of component-level timings, making it possible to see load imbalance, coupling wait times, and scaling limitations that are often hidden when looking only at overall wallclock performance.
 
-To keep optimisation experiments consistent and reproducible, this documentation also describes a structured workflow built around,
+To keep experiments consistent and reproducible, this documentation also outlines a structured *ACCESS-style* workflow built around the following tools,
 
  - [access-experiment-generator](https://github.com/ACCESS-NRI/access-experiment-generator)
  - [access-experiment-runner](https://github.com/ACCESS-NRI/access-experiment-runner)
+ - [access-profiling](https://github.com/ACCESS-NRI/access-profiling)
+ - [access-config-utils](https://github.com/ACCESS-NRI/access-config-utils)
 
-These tools are used to generate controlled sets of configuration variants, run them in a consistent way, and collect comparable performance results with minimal manual effort. Combined with trace-based analysis, this approach makes it much easier to reproduce results, review optimisation choices, and build on previous work across different configurations and users.
+!!! note These packages are **not** runtime requirements of [`esmf-trace`](https://github.com/ACCESS-NRI/esmf-trace). Instead they define a curated working environment that supports controlled profiling studies. They are used to generate systematic configuration variants, run them in a consistent manner, and collect comparable performance results with minimal manual effort. Combined with trace-based analysis, this workflow makes it easier to reproduce results, review optimisation decisions, and build on previous work across configurations and users.
+
+## 1. Installation and Setup
+
+Within the [`esmf-trace`](https://github.com/ACCESS-NRI/esmf-trace) repository, a `setup_gadi.sh` script is provided to simplify installation on Gadi, NCI,
+
+```bash
+./setup_gadi.sh
+```
+On Gadi, this setup relies on a pre-deployed version of [`babeltrace2`](https://babeltrace.org/#bt2-get), which is required to read CTF (common trace format) traces and convert them into human-readable formats such as `.json`. The deployment is managed through the ACCESS-NRI [model-tools](https://github.com/ACCESS-NRI/model-tools) using Spack, with the corresponding spack package recipe maintained under Spack build-in [babeltrace2](https://github.com/spack/spack-packages/blob/develop/repos/spack_repo/builtin/packages/babeltrace2/package.py) package.
+
+The module can be loaded directly with,
+
+```bash
+module use /g/data/vk83/modules
+module load model-tools/babeltrace2/2.1.2
+```
+which is already handled inside `setup_gadi.sh`.
+
+!!! note As of 26 Feb 2026, there's a known issue related to a CPU `target` mismatch that prevents use via [ARE](http://are.nci.org.au/) on Gadi. The tool currently works on login nodes. Since `esmf-trace` does not do heavy computation, running it on a login node is acceptable until the issue is resolved. More details can be found in https://github.com/ACCESS-NRI/model-tools/pull/20 and in a Zulip discussion [Deploy babeltrace2 targeting x86_64 or x86_64_v3](https://access-nri.zulipchat.com/#narrow/channel/470325-model-release/topic/Deploy.20babeltrace2.20targeting.20x86_64.20or.20x86_64_v3/with/573172880). The release team is keen to address it once they have capacity.
+
+For use within a VS Code Jupyter kernel on Gadi, setup instructions are available in the documentation https://esmf-trace.readthedocs.io/latest/vscode_jupyter_kernel.
 
 
-## 1. Compiler flag workflow
 
-
-## 2. Load balancing workflow
 
 The following describes the workflow to generate a suite of simulations that enable load balancing to be completed. We'll take the 100km RYF configuration as an example.
 
