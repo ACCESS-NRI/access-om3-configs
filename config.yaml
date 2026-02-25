@@ -20,7 +20,7 @@ modules:
         - /g/data/vk83/modules
     load:
         - access-om3/2025.08.001
-        - model-tools/mppnccombine-fast
+        - model-tools/mppnccombine-fast/2025.07.000
 
 queue: normalsr
 ncpus: 2704
