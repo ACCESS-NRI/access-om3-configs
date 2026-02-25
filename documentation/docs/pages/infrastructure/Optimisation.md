@@ -11,7 +11,8 @@ To keep experiments consistent and reproducible, this documentation also outline
  - [access-profiling](https://github.com/ACCESS-NRI/access-profiling)
  - [access-config-utils](https://github.com/ACCESS-NRI/access-config-utils)
 
-!!! note These packages are **not** runtime requirements of [`esmf-trace`](https://github.com/ACCESS-NRI/esmf-trace). Instead they define a curated working environment that supports controlled profiling studies. They are used to generate systematic configuration variants, run them in a consistent manner, and collect comparable performance results with minimal manual effort. Combined with trace-based analysis, this workflow makes it easier to reproduce results, review optimisation decisions, and build on previous work across configurations and users.
+!!! note 
+    These packages are **not** runtime requirements of [`esmf-trace`](https://github.com/ACCESS-NRI/esmf-trace). Instead they define a curated working environment that supports controlled profiling studies. They are used to generate systematic configuration variants, run them in a consistent manner, and collect comparable performance results with minimal manual effort. Combined with trace-based analysis, this workflow makes it easier to reproduce results, review optimisation decisions, and build on previous work across configurations and users.
 
 ## 1. Installation and Setup
 
@@ -30,12 +31,13 @@ module load model-tools/babeltrace2/2.1.2
 ```
 which is already handled inside `setup_gadi.sh`.
 
-!!! note As of 26 Feb 2026, there's a known issue related to a CPU `target` mismatch that prevents use via [ARE](http://are.nci.org.au/) on Gadi. The tool currently works on login nodes. Since `esmf-trace` does not do heavy computation, running it on a login node is acceptable until the issue is resolved. More details can be found in https://github.com/ACCESS-NRI/model-tools/pull/20 and in a Zulip discussion [Deploy babeltrace2 targeting x86_64 or x86_64_v3](https://access-nri.zulipchat.com/#narrow/channel/470325-model-release/topic/Deploy.20babeltrace2.20targeting.20x86_64.20or.20x86_64_v3/with/573172880). The release team is keen to address it once they have capacity.
+!!! note
+    As of 26 Feb 2026, there's a known issue related to a CPU `target` mismatch that prevents use via [ARE](http://are.nci.org.au/) on Gadi. The tool currently works on login nodes. Since `esmf-trace` does not do heavy computation, running it on a login node is acceptable until the issue is resolved. More details can be found in [model-tools#20](https://github.com/ACCESS-NRI/model-tools/pull/20) and in a Zulip discussion [Deploy babeltrace2 targeting x86_64 or x86_64_v3](https://access-nri.zulipchat.com/#narrow/channel/470325-model-release/topic/Deploy.20babeltrace2.20targeting.20x86_64.20or.20x86_64_v3/with/573172880). The release team is keen to address it once they have capacity.
 
-For use within a VS Code Jupyter kernel on Gadi, setup instructions are available in the documentation https://esmf-trace.readthedocs.io/latest/vscode_jupyter_kernel.
+For use within a VS Code Jupyter kernel on Gadi, setup instructions are available in the [documentation](https://esmf-trace.readthedocs.io/latest/vscode_jupyter_kernel).
 
 
-
+## 2. Workflow demonstration
 
 The following describes the workflow to generate a suite of simulations that enable load balancing to be completed. We'll take the 100km RYF configuration as an example.
 
