@@ -37,7 +37,7 @@ input:
     - /g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.01.08/ocean_vgrid.nc
     - /g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.01.08/ocean_temp_salt.res.nc
     - /g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.01.08/salt_sfc_restore.nc
-    - /g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.01.08/bottom_roughness.nc
+    - /g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.02.27/bottom_roughness.nc
     - /g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.01.08/tideamp.nc
     - /g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.01.08/topog.nc
     - /g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.02.11/chl_globcolour_monthly_clim.nc
@@ -56,7 +56,7 @@ metadata:
 manifest:
   reproduce:
     exe: True
-    input: True
+    input: False
 
 platform:
     nodesize: 104
