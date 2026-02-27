@@ -63,7 +63,7 @@ For regional configurations, a short word describing the location of the domain 
    
 Additional configuration information, like if the configuration includes biogeochemistry, is appended to the name as a modifier, e.g.
 
-- `+wombatlite` if the configuration uses [WOMBATlite](https://wombat-docs--80.org.readthedocs.build/) biogeochemistry
+- `+wombatlite` if the configuration uses [WOMBATlite](https://wombat-docs.rtfd.io/) biogeochemistry
 
 Currently the following released configurations are available:
 
