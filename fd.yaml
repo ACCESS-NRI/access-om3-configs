@@ -440,6 +440,11 @@
        canonical_units: K
        description: atm import to med - bottom layer temperature
      #
+     - standard_name: Sa_t2m
+       alias: inst_temp_height_lowest
+       canonical_units: K
+       description: atm import to med - temperature at 2m    
+     #
      - standard_name: Sa_tskn
        alias: inst_temp_skin_temperature
        canonical_units: K
@@ -467,6 +472,11 @@
        alias: inst_wind_speed_height_lowest
        canonical_units: m s-1
        description: atm import to med - bottom layer wind speed
+     #
+     - standard_name: Sa_wspd10m
+       alias: inst_wind_speed_height_lowest
+       canonical_units: m s-1
+       description: atm import to med - wind speed at 10m   
      #
      - standard_name: Sa_z
        alias: inst_height_lowest
