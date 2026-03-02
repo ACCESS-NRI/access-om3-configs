@@ -1,8 +1,28 @@
 format: yamanifest
 version: 1.0
 ---
-work/INPUT/3hr/prra/gr/v20240531/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-6-0_gr_195801010130-195812312230.nc:
-  fullpath: /g/data/qv56/replicas/input4MIPs/CMIP6Plus/OMIP/MRI/MRI-JRA55-do-1-6-0/atmos/3hr/prra/gr/v20240531/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-6-0_gr_195801010130-195812312230.nc
+work/INPUT/ERA5-datm-ESMFmesh.nc:
+  fullpath: /g/data/ik11/inputs/access-om3/input_ERA5/mesh/ERA5-datm-ESMFmesh.nc
+  hashes:
+    binhash: acc4623cffd0617eeb80909d257ecc9e
+    md5: 22cd6e2d70af20ee75a229e054974019
+work/INPUT/JRA55do-drof-ESMFmesh.nc:
+  fullpath: /g/data/vk83/configurations/inputs/access-om3/share/meshes/share/2024.09.16/JRA55do-drof-ESMFmesh.nc
+  hashes:
+    binhash: fa1322dbc0ab951527b165f8327c7b5b
+    md5: 3b46260b8c14d12925cf70f82da6658e
+work/INPUT/access-om2-100km-ESMFmesh.nc:
+  fullpath: /g/data/vk83/configurations/inputs/access-om3/share/meshes/global.100km/2024.01.25/access-om2-100km-ESMFmesh.nc
+  hashes:
+    binhash: 1ef89b82613d3ef0e903df4aeeb395ce
+    md5: 44e508ac57b244fc357faf5b12933bed
+work/INPUT/access-om2-100km-nomask-ESMFmesh.nc:
+  fullpath: /g/data/vk83/configurations/inputs/access-om3/share/meshes/global.100km/2024.01.25/access-om2-100km-nomask-ESMFmesh.nc
+  hashes:
+    binhash: 38605aedd850ec5c9d208258f2030166
+    md5: 9b7120a42b5cb587492e7c31791eb549
+? work/INPUT/atmos/3hr/prra/gr/v20240531/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-6-0_gr_195801010130-195812312230.nc
+: fullpath: /g/data/qv56/replicas/input4MIPs/CMIP6Plus/OMIP/MRI/MRI-JRA55-do-1-6-0/atmos/3hr/prra/gr/v20240531/prra_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-6-0_gr_195801010130-195812312230.nc
   hashes:
     binhash: a647064fc4f886b999a83b6a205180fd
     md5: 570ef5d99e13d89211bdb86fa70b4eed
@@ -4072,10 +4092,10 @@ work/INPUT/kmt.nc:
     binhash: 9558dc92baa041e7fa2b7bb9219c7f57
     md5: 8e1c7e347d4cf79a64cd03f54778dab5
 work/INPUT/mod_def.ww3:
-  fullpath: /g/data/tm70/ek4684/MCW_100km_jra_iaf_IC4_KPP/WW3_PreProc/mod_def.ww3
+  fullpath: /g/data/tm70/ek4684/Standalone_WW3_ERA5/WW3_PreProc/mod_def.ww3
   hashes:
-    binhash: 4c8804722db59509de8366a030c9e1aa
-    md5: 5a307c769945ff922d9633822ef9cc17
+    binhash: 8dbf2abf05202b1eef23d869b6e050b9
+    md5: e1cd7c4efda11392868d96477ef99407
 work/INPUT/ocean/day/tos/gn/v20240531/tos_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-6-0_gn_19580101-19581231.nc:
   fullpath: /g/data/qv56/replicas/input4MIPs/CMIP6Plus/OMIP/MRI/MRI-JRA55-do-1-6-0/ocean/day/tos/gn/v20240531/tos_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-6-0_gn_19580101-19581231.nc
   hashes:
@@ -4442,9 +4462,9 @@ work/INPUT/ocean_vgrid.nc:
     binhash: 9c1f82b7ea91a8647c8857c02676a7a5
     md5: 66f71f2b24bd00b1c220787505e0106e
 work/INPUT/restart.ww3:
-  fullpath: /g/data/tm70/ek4684/MCW_100km_jra_iaf_IC4_KPP/WW3_PreProc/restart.ww3
+  fullpath: /g/data/tm70/ek4684/Standalone_WW3_ERA5/WW3_PreProc/restart.ww3
   hashes:
-    binhash: 5ebb36ed5957db413476d20e4c45e519
+    binhash: 73a02c7fc2928d921fe9c745db1a63b4
     md5: e0043b57b4de97a7df82dafa4c7a1a9f
 work/INPUT/salt_sfc_restore.nc:
   fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/surface_salt_restoring/global.100km/2026.04.07/salt_sfc_restore.nc

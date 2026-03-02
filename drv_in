@@ -1,5 +1,5 @@
 &debug_inparm
-  create_esmf_pet_files = .false.
+  create_esmf_pet_files = .true.
 /
 &papi_inparm
   papi_ctr1_str = "PAPI_FP_OPS"
