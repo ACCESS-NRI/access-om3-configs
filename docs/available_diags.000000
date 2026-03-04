@@ -4657,7 +4657,7 @@
     ! dimensions: scalar
     ! long_name: Area averaged virtual liquid precip due to SSS restoring
     ! units: kg m-2 s-1
-"heat_content_frunoff"  [Unused]
+"heat_content_frunoff"  [Used]
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
     ! long_name: Heat content (relative to 0C) of solid runoff into ocean

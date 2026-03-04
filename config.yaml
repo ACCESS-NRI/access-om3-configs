@@ -17,20 +17,24 @@ sync:
 #Model software version
 modules:
     use:
-        - /g/data/vk83/modules
+        - /g/data/vk83/prerelease/modules
     load:
-        - access-om3/2025.08.001
+        - access-om3/pr202-3
+        # - access-om3/2025.08.001
+        - linaro-forge/24.0.2
 
 queue: normal
 ncpus: 240
 jobfs: 10GB
 mem: 960GB
 
-walltime: 02:00:00
+walltime: 08:00:00
 jobname: 100km_jra55do_ryf
 
 model: access-om3
 exe: access-om3-MOM6-CICE6
+# exe: /g/data/tm70/as2285/model-code/Debug/bin/access-om3-MOM6-CICE6
+# exe: /g/data/tm70/as2285/model-code/Release/bin/access-om3-MOM6-CICE6
 input:
     - /g/data/vk83/configurations/inputs/access-om3/share/meshes/global.100km/2024.01.25/access-om2-100km-ESMFmesh.nc
     - /g/data/vk83/configurations/inputs/access-om3/share/meshes/global.100km/2024.01.25/access-om2-100km-nomask-ESMFmesh.nc
@@ -46,7 +50,8 @@ input:
     - /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/chlorophyll/global.100km/2025.11.25/chl_globcolour_monthly_clim.nc
     - /g/data/vk83/configurations/inputs/access-om3/cice/grids/global.100km/2024.05.14/kmt.nc
     - /g/data/vk83/configurations/inputs/access-om3/cice/initial_conditions/global.100km/2023.07.28/iced.1900-01-01-10800.nc
-    - /g/data/vk83/configurations/inputs/JRA-55/RYF/v1-6/data
+    - /g/data/tm70/as2285/making_inputs/om3-scripts/make_ryf
+    - /g/data/tm70/as2285/making_inputs/om3-scripts/rof_pattern_generation/access-om3-100km-rofi-spread.nc
  
 collate: false
 runlog: false
@@ -66,3 +71,9 @@ qsub_flags: -W umask=027
 
 restart_freq: 1YS
 payu_minimum_version: 1.2.0
+
+env:
+    LD_LIBRARY_PATH: /g/data/vk83/prerelease/apps/spack/0.22/release/linux-rocky8-x86_64_v4/oneapi-2025.2.0/parallelio-2.6.2-murnhndfzratkcin7zch7nf7rve3k6vv/lib:/g/data/vk83/prerelease/apps/spack/0.22/release/linux-rocky8-x86_64_v4/oneapi-2025.2.0/netcdf-c-4.9.2-t2t46hwpfaofaffmzgg5invuqhjcqisf/lib64:/g/data/vk83/prerelease/apps/spack/0.22/release/linux-rocky8-x86_64_v4/oneapi-2025.2.0/netcdf-fortran-4.6.1-kpafmjn6dnwlm4uauyf4iukpskyanlqj/lib
+
+# mpi:
+#   runcmd: ddt --connect mpirun
