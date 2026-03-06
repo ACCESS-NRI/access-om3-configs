@@ -5,6 +5,12 @@ description: |-
   25km ACCESS-OM3 global configuration under interannual forcing.
   Initial conditions of temperature and salinity are from WOA23.
   Run with JRA55-do v1.6.0 interannually-varying forcing, 1 Jan 1958 - 31 Dec 2023.
+  This configuration includes WOMBATlite biogeochemistry with time-varying, globally-
+  averaged atmospheric CO2 forcing. Initial WOMBATlite prognostic tracer
+  concentrations are:
+  - no3, o2, dic, alk: from GLODAPv2 2016b
+  - fe: from Tagliabue et al. 2016 (doi:10.1002/2015GB005289)
+  - remaining tracers: set to constant values
 notes: |-
   ACCESS-NRI and COSIMA request that users of this model acknowledge those organisations 
   following the examples at https://www.access-nri.org.au/resources/acknowledging-us/ 
@@ -14,11 +20,13 @@ keywords:
   - access-om3
   - interannual
   - global
+  - bgc
 realm:
   - ocean
   - seaIce
+  - ocnBgchem
 nominal_resolution: 25 km
 license: CC-BY-4.0
 model: ACCESS-OM3
-url: https://github.com/ACCESS-NRI/access-om3-configs/tree/release-MC_25km_jra_iaf
-version: 1.0-beta
+url: https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MC_25km_jra_iaf+wombatlite
+version: 0.0
