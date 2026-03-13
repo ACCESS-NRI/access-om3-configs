@@ -19,7 +19,7 @@ modules:
     use:
         - /g/data/vk83/prerelease/modules
     load:
-        - access-om3/pr207-2
+        - access-om3/pr207-4
         # - access-om3/2025.08.001
         - linaro-forge/24.0.2
 
