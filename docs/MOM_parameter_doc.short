@@ -779,7 +779,6 @@ SEA_ICE_RIGID_MASS = 100.0      !   [kg m-2] default = 1000.0
                                 ! rigidity
 
 ! === module MOM_restart ===
-<<<<<<< HEAD
 WAVE_METHOD = "SURFACE_BANDS"   ! default = "EMPTY"
                                 ! Choice of wave method, valid options include:
                                 !  TEST_PROFILE  - Prescribed from surface Stokes drift
@@ -806,7 +805,6 @@ STK_BAND_COUPLER = 3            ! default = 1
                                 ! will fail.
 SURFBAND_WAVENUMBERS = 0.04, 0.11, 0.3305 !   [rad/m] default = 0.12566
                                 ! Central wavenumbers for surface Stokes drift bands.
-=======
 WAVE_INTERFACE_ANSWER_DATE = 20221231 ! default = 99991231
                                 ! The vintage of the order of arithmetic and expressions in the surface wave
                                 ! calculations.  Values below 20230101 recover the answers from the end of 2022,
@@ -815,4 +813,3 @@ WAVE_INTERFACE_ANSWER_DATE = 20221231 ! default = 99991231
                                 !    >= 20230101 - More robust expressions for Update_Stokes_Drift
                                 !    >= 20230102 - More robust expressions for get_StokesSL_LiFoxKemper
                                 !    >= 20230103 - More robust expressions for ust_2_u10_coare3p5
->>>>>>> 234e274 (Set parameters whose defaults changed)
