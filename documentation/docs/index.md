@@ -106,7 +106,7 @@ Regional configurations:
 - [`MCW_100km_era5_iaf_KPP`](https://github.com/ACCESS-NRI/access-om3-configs/tree/MCW_100km_era5_iaf_KPP).
 
 !!! warning
-    These `dev_*` configurations are still under development and should **not** be used for production runs.
+    These configurations are still under development and should **not** be used for production runs.
 
 ### Comparison table
 The following links can be used to easily compare different configuration branches
@@ -133,5 +133,6 @@ The following links can be used to easily compare different configuration branch
 - [`dev-MC_100km_jra_iaf`⬅️`dev-MCW_100km_jra_iaf`](https://github.com/ACCESS-NRI/access-om3-configs/compare/dev-MC_100km_jra_iaf..dev-MCW_100km_jra_iaf)
 
 **JRA55do ← ERA5**
+
 - [`dev-MC_100km_jra_iaf`⬅️`MC_100km_era_iaf`](https://github.com/ACCESS-NRI/access-om3-configs/compare/dev-MC_100km_jra_ryf...MC_100km_era_iaf)
 
