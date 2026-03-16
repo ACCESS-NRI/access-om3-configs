@@ -134,5 +134,5 @@ The following links can be used to easily compare different configuration branch
 
 **JRA55do ← ERA5**
 
-- [`dev-MC_100km_jra_iaf`⬅️`MC_100km_era_iaf`](https://github.com/ACCESS-NRI/access-om3-configs/compare/dev-MC_100km_jra_ryf...MC_100km_era_iaf)
+- [`dev-MC_100km_jra_iaf`⬅️`MC_100km_era_iaf`](https://github.com/ACCESS-NRI/access-om3-configs/compare/dev-MC_100km_jra_iaf...MC_100km_era_iaf)
 
