@@ -33,6 +33,9 @@ global_defaults:
         - file_name_prefix
         - file_name_dimension
         - field_name  # substituted by field name in diag_table section below
+        - '+':
+            - file_name_diag_coord
+            - file_name_downsample
         - output_freq
         - '':
             - output_freq_units
@@ -86,6 +89,8 @@ global_defaults:
         average: mean
         'True': mean
         None: ""  # for empty items
+    file_name_diag_coord: "" # vertical coordinate descriptor to be added to filename as specified in DIAG_COORDS in MOM_input. Use "" for native coordinate
+    file_name_downsample: "" # downsampling descriptor to be added to filename. Only d2 is supported by MOM currently. Use "" for no downsampling.
 # %yr, %mo, %dy, %hr %mi, %sc are expanded to the current year, month, day, hour, minute and second respectively,
 
 #######################################################################################################
@@ -161,24 +166,49 @@ diag_table:
             dyCuo: # Open meridional grid spacing at u points (meter)
             dxCvo: # Open zonal grid spacing at v points (meter)
 
-    'monthly 3d fields':
+    'monthly 3d fields on z':
         defaults:  # these can be overridden for individual fields below
             file_name_dimension: 3d  # descriptor for filename, e.g. 3d, 2d, scalar
             reduction_method: mean
+            module_name: ocean_model_z
+            file_name_diag_coord: "z"
         fields:
-            h: # Layer Thickness
+            thkcello: # Cell Thickness
             agessc: # Sea water age since surface contact
+            rhopot0: # Potential density referenced to surface
             rhopot2: # Potential density referenced to 2000 dbar
             thetao: # Potential Temperature
             so: # Salinity
             uo: # u velocity
             vo: # v velocity
-            uh: # Zonal Thickness Flux
-            vh: # Meridional Thickness Flux
-            uhGM: # Time Mean Diffusive Zonal Thickness Flux
-            vhGM: # Time Mean Diffusive Meridional Thickness Flux
-            thkcello: # Cell Thickness
             KE: # Layer Kinetic energy per unit mass
+            Kd_Itidal_Work: # Work done by Internal Tide Diapycnal Mixing
+            rsdoabsorb: #  Convergence of Penetrative Shortwave Flux in Sea Water Layer
+
+    'monthly 3d fields on rho2':
+        defaults:  # these can be overridden for individual fields below
+            file_name_dimension: 3d  # descriptor for filename, e.g. 3d, 2d, scalar
+            reduction_method: mean
+            module_name: ocean_model_rho2
+            file_name_diag_coord: "rho2"
+        fields:  # comment out all of these if not needed, as remapping to density slows model by ~30% - see https://github.com/ACCESS-NRI/access-om3-configs/pull/622#issuecomment-3031962668
+            # thkcello: # Cell Thickness
+            # e: # Interface height relative to mean sea level
+            # umo: # Ocean Mass X Transport
+            # vmo: # Ocean Mass Y Transport
+            # uhGM: # Time Mean Diffusive Zonal Thickness Flux
+            # vhGM: # Time Mean Diffusive Meridional Thickness Flux
+            # GM_sfn_y: # Parameterized Meridional Overturning Streamfunction
+
+    'monthly 3d fields on native':
+        defaults:  # these can be overridden for individual fields below
+            file_name_dimension: 3d  # descriptor for filename, e.g. 3d, 2d, scalar
+            reduction_method: mean
+        fields:
+            e: # Interface height relative to mean sea level
+            thkcello: # Cell Thickness
+            Kd_interface: # Total diapycnal diffusivity at interfaces
+            Kd_ePBL: # ePBL diapycnal diffusivity at interfaces
 
     'monthly 2d fields':
         defaults:  # these can be overridden for individual fields below
@@ -193,17 +223,27 @@ diag_table:
             pso: # Pressure at ice-ocean or atmosphere-ocean interface p_surf
             sfdsi: # Net salt flux into ocean at surface (restoring + sea-ice) salt_flux
             salt_flux_added: # Salt flux into ocean at surface due to restoring or flux adjustment
-            Rd_dx: # Ratio between deformation radius and grid spacing
             mlotst: # Mixed layer depth (delta rho = 0.03) MLD_003
             speed: # Sea Surface Speed
-            SSH: # Sea Surface Height
+            zos: # Sea surface height above geoid
+            zossq: # Square of sea surface height above geoid
             tauuo: # surface_downward_x_stress taux
             tauvo: # surface_downward_y_stress tauy
             umo_2d: # Ocean Mass X Transport Vertical Sum
             vmo_2d: # Ocean Mass Y Transport Vertical Sum
             pbo: # Sea Water Pressure at Sea Floor
-            salt_flux_in: # Salt flux into ocean at surface from coupler
-            tnkebto: # Integrated Tendency of Ocean Mesoscale Eddy KE from Parameterized Eddy Advection GMwork
+            Chl_opac: # Surface chlorophyll A concentration used to find opacity
+            SW_pen: # Penetrating shortwave radiation flux into ocean
+            T_adx_2d: # Vertically Integrated Advective Zonal Flux of Heat
+            T_ady_2d: # Vertically Integrated Advective Meridional Flux of Heat
+            T_diffx_2d: # Vertically Integrated Diffusive Zonal Flux of Heat
+            T_diffy_2d: # Vertically Integrated Diffusive Meridional Flux of Heat
+            T_hbd_diffx_2d: # Vertically-integrated zonal diffusive flux from the horizontal boundary diffusion scheme for Heat
+            T_hbd_diffy_2d: # Vertically-integrated meridional diffusive flux from the horizontal boundary diffusion scheme for Heat
+            friver: # Liquid runoff (rivers) into ocean
+            ficeberg: # Frozen runoff (calving) and iceberg melt into ocean
+            ePBL_h_ML: # Surface boundary layer depth
+            h_ML: # Surface mixed layer depth based on active turbulence
 
     'monthly 2d max fields':
         defaults:  # these can be overridden for individual fields below
@@ -211,13 +251,21 @@ diag_table:
             reduction_method: max  # mean, snap, rms, pow##, min, max, or diurnal##
         fields:
             mlotst: # Mixed layer depth (delta rho = 0.03) MLD_003
+            speed: # Sea Surface Speed
+            zos: # Sea surface height above geoid
+            tos: # Sea Surface Temperature
+            sos: # Sea Surface Salinity
+            ePBL_h_ML: # Surface boundary layer depth
+            h_ML: # Surface mixed layer depth based on active turbulence
 
     'monthly 2d min fields':
         defaults:  # these can be overridden for individual fields below
             file_name_dimension: 2d  # descriptor for filename, e.g. 3d, 2d, scalar
             reduction_method: min  # mean, snap, rms, pow##, min, max, or diurnal##
         fields:
-            mlotst: # Mixed layer depth (delta rho = 0.03) MLD_003
+            zos: # Sea surface height above geoid
+            tos: # Sea Surface Temperature
+            sos: # Sea Surface Salinity
 
     'daily 2D fields':
         defaults:
@@ -232,6 +280,13 @@ diag_table:
             tos: # Sea Surface Temperature
             sos: # Sea Surface Salinity
             speed: # Sea Surface Speed
+            evs: # Evaporation/condensation at ocean surface (evaporation is negative)
+            fsitherm: # water flux to ocean from snow/sea ice melting(> 0) or formation(< 0)
+            precip: # Liquid + frozen precipitation into ocean
+            net_massout: # Net mass leaving the ocean due to evaporation, seaice formation
+            net_massin: # Net mass entering ocean due to precip, runoff, ice melt
+            massout_flux: # Net mass flux of freshwater out of the ocean (used in the boundary flux calculation)
+            massin_flux: # Net mass flux of freshwater into the ocean (used in boundary flux calculation)
 
     'daily scalar timeseries':
         defaults:  # these can be overridden for individual fields below
@@ -259,6 +314,7 @@ diag_table:
             reduction_method: snap  # mean, snap, rms, pow##, min, max, or diurnal##
             packing: 1  # double precision
         fields:
+            masso: # Mass of liquid ocean
             soga: # Global Mean Ocean Salinity
             thetaoga: # Global Mean Ocean Potential Temperature
             tosga: # Global Area Average Sea Surface Temperature sst_global
@@ -277,4 +333,10 @@ diag_table:
             total_ficeberg: # Area integrated frozen runoff (calving) & iceberg melt into ocean total_frunoff
             total_friver: # Area integrated liquid runoff into ocean total_lrunoff
             total_net_massout: # Area integrated mass leaving ocean due to evap and seaice form
-            total_net_massin: # Area integrated mass entering ocean due to predip, runoff, ice melt
+            total_net_massin: # Area integrated mass entering ocean due to precip, runoff, ice melt
+            total_PRCmE: # Area integrated net surface water flux (precip+melt+liq runoff+ice calving-evap)
+            total_evap: # Area integrated evap/condense at ocean surface
+            total_icemelt: # Area integrated sea ice melt (>0) or form (<0)
+            total_precip: # Area integrated liquid+frozen precip into ocean
+            total_frunoff: # Area integrated frozen runoff (calving) & iceberg melt into ocean
+            total_lrunoff: # Area integrated liquid runoff into ocean
