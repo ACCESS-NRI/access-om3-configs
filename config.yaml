@@ -26,7 +26,7 @@ ncpus: 416
 jobfs: 10GB
 mem: 2000GB
 
-walltime: 01:00:00
+walltime: 48:00:00
 jobname: 100km_ERA5_iaf
 
 model: access-om3
