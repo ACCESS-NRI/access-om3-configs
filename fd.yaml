@@ -430,6 +430,11 @@
        canonical_units: kg kg-1
        description: atm import to med - bottom layer specific humidiaty
      #
+     - standard_name: Sa_q2m
+       alias: inst_spec_humid_height_lowest
+       canonical_units: kg kg-1
+       description: atm import to med -  specific humidiaty at 2m
+     #
      - standard_name: Sa_shum_wiso
        alias: inst_spec_humid_height_lowest_wiso
        canonical_units: kg kg-1
@@ -1235,6 +1240,78 @@
      - standard_name: Sw_lamult
        canonical_units: 1
        description: ocean import - Langmuir multiplier
+     #
+     - standard_name: Sw_Hs
+       canonical_units: m
+       description: ocean import - Significant wave height
+     #
+     - standard_name: Sw_t0m1
+       canonical_units: s
+       description: Wind sea mean wave period (Tm0,-1)
+     #
+     - standard_name: Sw_t01
+       canonical_units: s
+       description: Wind sea mean wave period (Tm0,1)
+     #
+     - standard_name: Sw_thm
+       canonical_units: radians
+       description: Mean wave direction
+     #
+     - standard_name: Sw_Fp
+       canonical_units: 1
+       description: ocean import - Peak wave frequency
+     #
+     - standard_name: Sw_Dp
+       canonical_units: 1
+       description: ocean import - Peak wave direction
+     #
+     - standard_name: Sw_ustokes_wavenumber_1
+       canonical_units: m/s
+       description: ocean import - partitioned Stokes drift zonal wavenumber 1
+     #
+     - standard_name: Sw_vstokes_wavenumber_1
+       canonical_units: m/s
+       description: ocean import - partitioned Stokes drift meridional wavenumber 1
+     #
+     - standard_name: Sw_ustokes_wavenumber_2
+       canonical_units: m/s
+       description: ocean import - partitioned Stokes drift zonal wavenumber 2
+     #
+     - standard_name: Sw_vstokes_wavenumber_2
+       canonical_units: m/s
+       description: ocean import - partitioned Stokes drift meridional wavenumber 2
+     #
+     - standard_name: Sw_ustokes_wavenumber_3
+       canonical_units: m/s
+       description: ocean import - partitioned Stokes drift zonal wavenumber 3
+     #
+     - standard_name: Sw_vstokes_wavenumber_3
+       canonical_units: m/s
+       description: ocean import - partitioned Stokes drift meridional wavenumber 3
+     #
+     - standard_name: Sw_ustokes_wavenumber_4
+       canonical_units: m/s
+       description: ocean import - partitioned Stokes drift zonal wavenumber 4
+     #
+     - standard_name: Sw_vstokes_wavenumber_4
+       canonical_units: m/s
+       description: ocean import - partitioned Stokes drift meridional wavenumber 4
+     #
+     - standard_name: Sw_ustokes_wavenumber_5
+       canonical_units: m/s
+       description: ocean import - partitioned Stokes drift zonal wavenumber 5
+     #
+     - standard_name: Sw_vstokes_wavenumber_5
+       canonical_units: m/s
+       description: ocean import - partitioned Stokes drift meridional wavenumber 5
+     #
+     - standard_name: Sw_ustokes_wavenumber_6
+       canonical_units: m/s
+       description: ocean import - partitioned Stokes drift zonal wavenumber 6
+     #
+     - standard_name: Sw_vstokes_wavenumber_6
+       canonical_units: m/s
+       description: ocean import - partitioned Stokes drift meridional wavenumber 6
      #
      - standard_name: Sw_ustokes
        canonical_units: m/s

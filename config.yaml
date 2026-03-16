@@ -17,9 +17,9 @@ sync:
 #Model software version
 modules:
     use:
-        - /g/data/vk83/modules
+        - /g/data/vk83/prerelease/modules
     load:
-        - access-om3/2025.08.001
+        - access-om3/pr109-19
 
 queue: normal
 ncpus: 240
@@ -27,14 +27,14 @@ jobfs: 10GB
 mem: 960GB
 
 walltime: 02:00:00
-jobname: 100km_jra55do_iaf
+jobname: 100km_ERA5_iaf
 
 model: access-om3
 exe: access-om3-MOM6-CICE6
 input:
     - /g/data/vk83/configurations/inputs/access-om3/share/meshes/global.100km/2024.01.25/access-om2-100km-ESMFmesh.nc
     - /g/data/vk83/configurations/inputs/access-om3/share/meshes/global.100km/2024.01.25/access-om2-100km-nomask-ESMFmesh.nc
-    - /g/data/vk83/prerelease/configurations/inputs/access-om3/share/meshes/share/2026.01.21/JRA55do-datm-ESMFmesh.nc
+    - /g/data/ik11/inputs/access-om3/input_ERA5/mesh/ERA5-datm-ESMFmesh.nc
     - /g/data/vk83/prerelease/configurations/inputs/access-om3/share/meshes/share/2026.01.21/JRA55do-drof-ESMFmesh.nc
     - /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/tidal_external_files/global.100km/2025.09.22/bottom_roughness.nc
     - /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/tidal_external_files/global.100km/2025.09.22/tideamp.nc
@@ -65,4 +65,8 @@ postscript: -v PROJECT,SCRIPTS_DIR=/g/data/vk83/apps/om3-scripts -lstorage=${PBS
 qsub_flags: -W umask=027
 
 restart_freq: 1YS
-payu_minimum_version: 1.2.0
+storage:
+      gdata:
+        - rt52
+        - ik11
+payu_minimum_version: 1.2.1
