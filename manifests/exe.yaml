@@ -1,16 +1,8 @@
 format: yamanifest
 version: 1.0
 ---
-<<<<<<< HEAD
 work/access-om3-MOM6-CICE6-WW3:
-  fullpath: /g/data/vk83/apps/spack/0.22/release/linux-rocky8-x86_64_v4/oneapi-2025.2.0/access3-2025.08.000-n2qsfzdl7syl4k6m4dx3ydqxarpkmw6l/bin/access-om3-MOM6-CICE6-WW3
+  fullpath: /g/data/vk83/prerelease/apps/spack/1.1/release/linux-x86_64/access3-2026.03.000-pjsvvtsfxubgiekl6gsmhzyjo2obmknr/bin/access-om3-MOM6-CICE6-WW3
   hashes:
-    binhash: f0236e9ffddbd05cb1db578be61a06b4
-    md5: 2ed8cc355cfc5e803751015b9c49385b
-=======
-work/access-om3-MOM6-CICE6:
-  fullpath: /g/data/vk83/prerelease/apps/spack/0.22/release/linux-rocky8-x86_64_v4/oneapi-2025.2.0/access3-2025.08.000-xt6p2j4ekiq3x6rqkel3epfv7kjtvf64/bin/access-om3-MOM6-CICE6
-  hashes:
-    binhash: 3ad95f1ae747dd83abc71f093a4d6450
-    md5: 1c6b73ed96e5fa19b60a2c4c854baf95
->>>>>>> 234e274 (Set parameters whose defaults changed)
+    binhash: da53d4e03f7b17729a3f9c1d8e0c3530
+    md5: 70c98c79303f525fd9a4451b9ff80981
