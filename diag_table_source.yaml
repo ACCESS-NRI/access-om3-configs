@@ -1,12 +1,13 @@
 #######################################################################################################
-# This yaml file is used by make_diag_table.py to create a diag_table file specifying MOM5 diagnostics.
+# This yaml file is used by make_diag_table.py to create a diag_table file specifying MOM6 diagnostics.
 # Latest version: https://github.com/COSIMA/make_diag_table
 #
 # Define the diagnostics you want in the diag_table section below.
 #
 # The MOM diag_table format is defined here:
-# https://github.com/mom-ocean/MOM5/blob/master/src/shared/diag_manager/diag_table.F90
 # https://mom6.readthedocs.io/en/main/api/generated/pages/Diagnostics.html
+# https://www.youtube.com/watch?v=D_J8eg3G80o
+# https://github.com/NOAA-GFDL/FMS/blob/main/diag_manager/diag_table.F90
 #######################################################################################################
 
 
