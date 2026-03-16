@@ -36,11 +36,13 @@
 &tracer_nml
 /
 &thermo_nml
-  itd_area_min = 0.001
-  itd_mass_min = 0.01
+  itd_area_min = 1.e-11
+  itd_mass_min = 1.e-10
   dsdt_slow_mode = -5e-08
 /
 &dynamics_nml
+  dyn_area_min = 0.001
+  dyn_mass_min = 0.01
   advection = "remap"
   ssh_stress = "coupled"
 /
