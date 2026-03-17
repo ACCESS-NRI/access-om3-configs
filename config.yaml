@@ -19,7 +19,7 @@ modules:
     use:
         - /g/data/vk83/modules
     load:
-        - access-om3/2025.08.001
+        - access-om3/2026.03.000
         - model-tools/mppnccombine-fast/2025.07.000
 
 queue: normalsr
@@ -59,7 +59,7 @@ input:
     - /g/data/vk83/configurations/inputs/JRA-55/RYF/v1-6/data
     - /g/data/vk83/prerelease/configurations/inputs/access-om3/share/grids/global.25km/2026.02.25/mask_table.1027.72x48
 
-runlog: false
+runlog: True
 metadata: 
     enable: true
 manifest:
