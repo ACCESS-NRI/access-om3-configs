@@ -7,6 +7,11 @@ description: |-
     https://doi.org/10.1016/j.ocemod.2019.101557.
     Initial conditions of temperature and salinity are from WOA23.
     Run with JRA55-do v1.6.0 RYF9091 (1 May 1990 - 30 April 1991) repeated forcing.
+    This configuration includes WOMBATlite biogeochemistry with constant atmospheric
+    CO2 forcing. Initial WOMBATlite prognostic tracer concentrations are:
+    - no3, o2, dic, alk: from GLODAPv2 2016b
+    - fe: from Tagliabue et al. 2016 (doi:10.1002/2015GB005289)
+    - remaining tracers: set to constant values
     Spin up starts from a nominal year of 1 Jan 1900.
 notes: |-
   ACCESS-NRI and COSIMA request that users of this model acknowledge those organisations 
@@ -17,10 +22,13 @@ keywords:
   - access-om3
   - repeat-year
   - global
+  - bgc
 realm:
   - ocean
   - seaIce
+  - ocnBgchem
 nominal_resolution: 25 km
 license: CC-BY-4.0
 model: ACCESS-OM3
-url: https://github.com/ACCESS-NRI/access-om3-configs/tree/release-MC_25km_jra_ryf
+url: https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MC_25km_jra_ryf+wombatlite
+version: 0.0
