@@ -5,3 +5,7 @@
 "OCN"      , "co2_flux_pcair_atm"     , ""             , ""                                            , "none" , 315.165e-06
 "OCN"      , "o2_flux_pcair_atm"      , ""             , ""                                            , "none" , 0.21
 "OCN"      , "dry_dep_fe_flux_ice_ocn", "SFe"          , "./INPUT/SFe_Hamiltonetal2020_monthly_clim.nc", "none" , -1.0
+"OCN"      , "runoff_no3_flux_ice_ocn", ""             , ""                                            , "none" , 0.3e-4
+"OCN"      , "runoff_det_flux_ice_ocn", ""             , ""                                            , "none" , 0.1e-5
+"OCN"      , "runoff_dic_flux_ice_ocn", ""             , ""                                            , "none" , 0.96e-3  # BLING: 0.96e-3
+"OCN"      , "runoff_alk_flux_ice_ocn", ""             , ""                                            , "none" , 0.5932e-3  # BLING: 0.5932e-3
