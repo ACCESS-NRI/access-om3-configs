@@ -11,7 +11,7 @@ so the table has more screen real estate -->
 }
 
 .md-typeset table col:nth-child(1) {
-  max-width: 200px%;
+  max-width: 200px;
 }
 
 .md-typeset table col:last-child {
