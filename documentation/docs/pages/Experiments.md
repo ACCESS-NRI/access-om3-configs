@@ -11,7 +11,11 @@ so the table has more screen real estate -->
 }
 
 .min-width-column {
-  min-width: 100px; /* Adjust the value as needed (e.g., in pixels, ems, or percentages) */
+  min-width: 200px; 
+}
+
+.max-width-column {
+  min-width: 200px; 
 }
 
 </style>
@@ -29,7 +33,7 @@ distributed and modified. Users of ACCESS-NRI models, data, tools or expert supp
   in all publications/reports/public releases.
 
 
-|Experiment | Base Configuration                                                                                                          | Date completed | Description                                   | Model build                                                                      | Length (years)       | <div class="min-width-column">ESM Datastore <br/>  (output path) </div>                                                      |
+|<div class="max-width-column">Experiment</div> | Base Configuration                                                                                                          | Date completed | Description                                   | Model build                                                                      | Length (years)       | <div class="min-width-column">ESM Datastore <br/>  (output path) </div>                                                      |
 |----| --------------------------------------------------------------------------------------------------------------------------- | -------------- | --------------------------------------------- | -------------------------------------------------------------------------------- | -------------------- | ------------------------------------------------------------------------------------------------ |
 |[MC_25km_jra_ryf-1.0-beta-cdfb3543](https://github.com/ACCESS-Community-Hub/access-om3-experiments/tree/MC_25km_jra_ryf-1.0-beta-cdfb3543) | [release-MC_25km_jra_ryf](https://github.com/ACCESS-NRI/access-om3-configs/tree/4429156d3bb1ad4e04f41be8a90329684365786d) | 9-Aug-25       | Control experiment for model validation | [2025.05.001](https://github.com/ACCESS-NRI/ACCESS-OM3/releases/tag/2025.05.001) | 52 years             | `/g/data/ol01/outputs/access-om3-25km/MC_25km_jra_ryf-1.0-beta-cdfb3543/experiment_datastore.json` <br/> (`/g/data/ol01/outputs/access-om3-25km/MC_25km_jra_ryf-1.0-beta-cdfb3543/`)|
 |[25km-iaf-test-for-AK-expt-7df5ef4c](https://github.com/ACCESS-Community-Hub/access-om3-experiments/tree/25km-iaf-test-for-AK-expt-7df5ef4c) | [25km-iaf-test-for-AK](https://github.com/ACCESS-NRI/access-om3-configs/tree/96ae801c9f2d786bb710a3cb0a29a05e0ab471c2)                          | 16-Sep-25      | Control experiment for model validation | [2025.05.001](https://github.com/ACCESS-NRI/ACCESS-OM3/releases/tag/2025.05.001) | 66 years (1958-2023) | `/g/data/ol01/outputs/access-om3-25km/25km-iaf-test-for-AK-expt-7df5ef4c/datastore.json`  <br/> (`/g/data/ol01/outputs/access-om3-25km/25km-iaf-test-for-AK-expt-7df5ef4c/`) |
