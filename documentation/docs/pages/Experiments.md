@@ -10,11 +10,13 @@ so the table has more screen real estate -->
     width: 8rem
 }
 
-.md-typeset table col:nth-child(1) {
+.md-typeset table td:first-child,
+.md-typeset table th:first-child {
   max-width: 200px;
 }
 
-.md-typeset table col:last-child {
+.md-typeset table td:last-child,
+.md-typeset table th:last-child {
   min-width: 200px;
 }
 
