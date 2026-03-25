@@ -93,10 +93,6 @@ Currently the following development configurations are available:
 
 Regional configurations:
 
- - [`dev-MC_4km_jra_ryf+regionalpanan+isf`](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MC_4km_jra_ryf%2Bregionalpanan%2Bisf)
-
-**MOM6-CICE6-DATM-DROF regional configurations**
-
  - [`dev-MC_4km_jra_ryf+regionalpanan`](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MC_4km_jra_ryf%2Bregionalpanan)
 
 **MOM6-CICE6-WW3-DATM-DROF configurations**
