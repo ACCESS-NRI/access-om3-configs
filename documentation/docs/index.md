@@ -72,8 +72,10 @@ Currently the following released configurations are available:
 
 Currently the following development configurations are available:
 
-**MOM6-CICE6-DATM-DROF configurations**
+!!! warning
+    These `dev-*` configurations are still under development and should **not** be used for production runs.
 
+**MOM6-CICE6-DATM-DROF configurations**
 
 100km configurations: 
 
@@ -101,9 +103,6 @@ Regional configurations:
 
 - [`dev-MCW_100km_jra_ryf`](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MCW_100km_jra_ryf);
 - [`dev-MCW_100km_jra_iaf`](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MCW_100km_jra_iaf).
-
-!!! warning
-    These configurations are still under development and should **not** be used for production runs.
 
 ### Comparison table
 The following links can be used to easily compare different configuration branches
