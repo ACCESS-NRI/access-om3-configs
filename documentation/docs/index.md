@@ -89,7 +89,7 @@ Currently the following development configurations are available:
 - [`dev-MC_25km_jra_ryf`](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MC_25km_jra_ryf);
 - [`dev-MC_25km_jra_iaf`](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MC_25km_jra_iaf);
 - [`dev-MC_25km_jra_ryf+wombatlite`](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MC_25km_jra_ryf+wombatlite);
-- [`dev-MC_25km_jra_iaf+wombatlite`](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MC_25km_jra_iaf+wombatlite)
+- [`dev-MC_25km_jra_iaf+wombatlite`](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MC_25km_jra_iaf+wombatlite).
 
 Regional configurations:
 
