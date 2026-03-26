@@ -2,10 +2,8 @@
 <file id="stream" version="2.0">
   <metadata>
     <File_type>DATM xml file provides forcing data</File_type>
-    <date_generated>2025-07-04 10:25:50</date_generated>
-    <history>Created by as2285 (anton-seaice) on 2025-07-04, using https://github.com/ACCESS-NRI/om3-scripts/blob/ffad24e7448649c5797bffe6a4e6184741dd87a5/data_stream_xml_generation/generate_xml_datm.py: /g/data/vk83/apps/om3-scripts/data_stream_xml_generation/generate_xml_datm.py 1900 1900</history>
   </metadata>
-  <stream_info name="JRA55do.PRSN">
+  <stream_info name="JRA55do.ATM_AVE">
     <taxmode>cycle</taxmode>
     <dtlimit>1.0</dtlimit>
     <readmode>single</readmode>
@@ -17,55 +15,17 @@
     <meshfile>./INPUT/JRA55do-datm-ESMFmesh.nc</meshfile>
     <lev_dimname>null</lev_dimname>
     <datafiles>
-      <file>./INPUT/RYF.prsn.1990_1991.nc</file>
+      <file>./INPUT/RYF.atm_ave.1990_1991.nc</file>
     </datafiles>
     <datavars>
       <var>prsn  Faxa_prsn</var>
-    </datavars>
-    <offset>0</offset>
-    <tintalgo>linear</tintalgo>
-  </stream_info>
-  <stream_info name="JRA55do.PRRN">
-    <taxmode>cycle</taxmode>
-    <dtlimit>1.0</dtlimit>
-    <readmode>single</readmode>
-    <mapalgo>bilinear</mapalgo>
-    <year_first>1900</year_first>
-    <year_last>1900</year_last>
-    <year_align>1900</year_align>
-    <vectors>null</vectors>
-    <meshfile>./INPUT/JRA55do-datm-ESMFmesh.nc</meshfile>
-    <lev_dimname>null</lev_dimname>
-    <datafiles>
-      <file>./INPUT/RYF.prra.1990_1991.nc</file>
-    </datafiles>
-    <datavars>
       <var>prra  Faxa_prrn</var>
-    </datavars>
-    <offset>0</offset>
-    <tintalgo>linear</tintalgo>
-  </stream_info>
-  <stream_info name="JRA55do.LWDN">
-    <taxmode>cycle</taxmode>
-    <dtlimit>1.0</dtlimit>
-    <readmode>single</readmode>
-    <mapalgo>bilinear</mapalgo>
-    <year_first>1900</year_first>
-    <year_last>1900</year_last>
-    <year_align>1900</year_align>
-    <vectors>null</vectors>
-    <meshfile>./INPUT/JRA55do-datm-ESMFmesh.nc</meshfile>
-    <lev_dimname>null</lev_dimname>
-    <datafiles>
-      <file>./INPUT/RYF.rlds.1990_1991.nc</file>
-    </datafiles>
-    <datavars>
       <var>rlds  Faxa_lwdn</var>
     </datavars>
     <offset>0</offset>
     <tintalgo>linear</tintalgo>
   </stream_info>
-  <stream_info name="JRA55do.SWDN">
+  <stream_info name="JRA55do.ATM_SW">
     <taxmode>cycle</taxmode>
     <dtlimit>1.0</dtlimit>
     <readmode>single</readmode>
@@ -77,7 +37,7 @@
     <meshfile>./INPUT/JRA55do-datm-ESMFmesh.nc</meshfile>
     <lev_dimname>null</lev_dimname>
     <datafiles>
-      <file>./INPUT/RYF.rsds.1990_1991.nc</file>
+      <file>./INPUT/RYF.atm_ave.1990_1991.nc</file>
     </datafiles>
     <datavars>
       <var>rsds  Faxa_swdn</var>
@@ -85,7 +45,7 @@
     <offset>-5400</offset>
     <tintalgo>coszen</tintalgo>
   </stream_info>
-  <stream_info name="JRA55do.Q_10">
+  <stream_info name="JRA55do.ATM_PT">
     <taxmode>cycle</taxmode>
     <dtlimit>1.0</dtlimit>
     <readmode>single</readmode>
@@ -97,89 +57,13 @@
     <meshfile>./INPUT/JRA55do-datm-ESMFmesh.nc</meshfile>
     <lev_dimname>null</lev_dimname>
     <datafiles>
-      <file>./INPUT/RYF.huss.1990_1991.nc</file>
+      <file>./INPUT/RYF.atm_pt.1990_1991.nc</file>
     </datafiles>
     <datavars>
       <var>huss  Sa_shum</var>
-    </datavars>
-    <offset>0</offset>
-    <tintalgo>linear</tintalgo>
-  </stream_info>
-  <stream_info name="JRA55do.SLP_10">
-    <taxmode>cycle</taxmode>
-    <dtlimit>1.0</dtlimit>
-    <readmode>single</readmode>
-    <mapalgo>bilinear</mapalgo>
-    <year_first>1900</year_first>
-    <year_last>1900</year_last>
-    <year_align>1900</year_align>
-    <vectors>null</vectors>
-    <meshfile>./INPUT/JRA55do-datm-ESMFmesh.nc</meshfile>
-    <lev_dimname>null</lev_dimname>
-    <datafiles>
-      <file>./INPUT/RYF.psl.1990_1991.nc</file>
-    </datafiles>
-    <datavars>
       <var>psl  Sa_pslv</var>
-    </datavars>
-    <offset>0</offset>
-    <tintalgo>linear</tintalgo>
-  </stream_info>
-  <stream_info name="JRA55do.T_10">
-    <taxmode>cycle</taxmode>
-    <dtlimit>1.0</dtlimit>
-    <readmode>single</readmode>
-    <mapalgo>bilinear</mapalgo>
-    <year_first>1900</year_first>
-    <year_last>1900</year_last>
-    <year_align>1900</year_align>
-    <vectors>null</vectors>
-    <meshfile>./INPUT/JRA55do-datm-ESMFmesh.nc</meshfile>
-    <lev_dimname>null</lev_dimname>
-    <datafiles>
-      <file>./INPUT/RYF.tas.1990_1991.nc</file>
-    </datafiles>
-    <datavars>
       <var>tas  Sa_tbot</var>
-    </datavars>
-    <offset>0</offset>
-    <tintalgo>linear</tintalgo>
-  </stream_info>
-  <stream_info name="JRA55do.U_10">
-    <taxmode>cycle</taxmode>
-    <dtlimit>1.0</dtlimit>
-    <readmode>single</readmode>
-    <mapalgo>bilinear</mapalgo>
-    <year_first>1900</year_first>
-    <year_last>1900</year_last>
-    <year_align>1900</year_align>
-    <vectors>null</vectors>
-    <meshfile>./INPUT/JRA55do-datm-ESMFmesh.nc</meshfile>
-    <lev_dimname>null</lev_dimname>
-    <datafiles>
-      <file>./INPUT/RYF.uas.1990_1991.nc</file>
-    </datafiles>
-    <datavars>
       <var>uas  Sa_u</var>
-    </datavars>
-    <offset>0</offset>
-    <tintalgo>linear</tintalgo>
-  </stream_info>
-  <stream_info name="JRA55do.V_10">
-    <taxmode>cycle</taxmode>
-    <dtlimit>1.0</dtlimit>
-    <readmode>single</readmode>
-    <mapalgo>bilinear</mapalgo>
-    <year_first>1900</year_first>
-    <year_last>1900</year_last>
-    <year_align>1900</year_align>
-    <vectors>null</vectors>
-    <meshfile>./INPUT/JRA55do-datm-ESMFmesh.nc</meshfile>
-    <lev_dimname>null</lev_dimname>
-    <datafiles>
-      <file>./INPUT/RYF.vas.1990_1991.nc</file>
-    </datafiles>
-    <datavars>
       <var>vas  Sa_v</var>
     </datavars>
     <offset>0</offset>
