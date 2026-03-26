@@ -342,103 +342,142 @@ diag_table:
             total_frunoff: # Area integrated frozen runoff (calving) & iceberg melt into ocean
             total_lrunoff: # Area integrated liquid runoff into ocean
 
-    'monthly 3d BGC fields':
+    'monthly 3d prognostic BGC fields':
         defaults:  # these can be overridden for individual fields below
             file_name_dimension: 3d  # descriptor for filename, e.g. 3d, 2d, scalar
             reduction_method: mean
             module_name: generic_wombatlite
         fields:
-            no3:
-            o2:
-            phy:
-            det:
-            zoo:
-            phyfe:
-            detfe:
-            zoofe:
-            pchl:
-            caco3:
-            dic:
             alk:
+            caco3:
+            det:
+            detfe:
+            dic:
             dicr:
             dicp:
             fe:
-            pprod_gross:
-            zprod_gross:
+            no3:
+            o2:
+            phy:
+            phyfe:
+            pchl:
+            zoo:
+            zoofe:
+
+    'monthly 3d diagnostic BGC fields':
+        defaults:  # these can be overridden for individual fields below
+            file_name_dimension: 3d  # descriptor for filename, e.g. 3d, 2d, scalar
+            reduction_method: mean
+            module_name: generic_wombatlite
+        fields:
+            npp3d:
+            zsp3d:
             radbio:
-            radmid:
-            radmld:
+            #radmid:
+            #radmld:
             phy_mu:
-            phy_mumax:
-            pchl_mu:
-            pchl_lpar:
-            phy_kni:
-            phy_kfe:
+            #phy_muax:
+            #phy_kni:
+            #phy_kfe:
             phy_lpar:
             phy_lnit:
             phy_lfer:
             phy_dfeupt:
-            phy_feupreg:
-            phy_fedoreg:
-            feIII:
-            felig:
-            fecol:
+            #phy_feupreg:
+            #phy_fedoreg:
+            phygrow:
+            phymorl:
+            phymorq:
+            pchl_mu:
+            #feIII:
+            #felig:
+            #fecol:
+            #feprecip:
+            #fescaven:
+            #fescadet:
+            #fescoag2det:
             fesources:
             fesinks:
-            feprecip:
-            fescaven:
-            fescadet:
-            feloss:
-            fecoag2det:
             htotal:
-            ahtotal:
-            phygrow:
-            phyresp:
-            phymort:
+            omega_ara:
+            omega_cal:
+            #co3:
+            #co2_star:
+            pic2poc:
             zooeps:
             zoograzphy:
             zoograzdet:
-            zooresp:
-            zoomort:
-            zooslopphy:
-            zooslopdet:
-            zooexcrphy:
-            zooexcrdet:
-            reminr:
+            #zooassiphy:
+            #zooassidet:
+            #zooexcrphy:
+            #zooexcrdet:
+            #zooegesphy:
+            #zooegesdet:
+            #zoomorl:
+            #zoomorq:
+            #reminr:
             detremi:
-            caldiss:
-            pic2poc:
-            omega_ara:
-            omega_cal:
-            co3:
-            co2_star:
-            htotal:
+            #dissratcal:
+            #dissratara:
+            #dissratpoc:
+            #zoodiss:
+            #caldiss:
+            #aradiss:
+            #pocdiss:
             det_vmove:
-            alk_correct:
-            dic_correct:
+            caco3_vmove:
 
-    'monthly 2d BGC fields':
+    'monthly 2d diagnostic BGC fields':
         defaults:  # these can be overridden for individual fields below
             file_name_dimension: 2d  # descriptor for filename, e.g. 3d, 2d, scalar
             reduction_method: mean
             module_name: generic_wombatlite
         fields:
-            o2_stf:
-            dic_stf:
-            dicp_stf:
-            fe_stf:
             pco2:
-            paco2:
-            pprod_gross_2d:
-            export_prod:
-            export_inorg:
+            #det_sed_remin:
+            #det_sed_depst:
+            #detfe_sed_remin:
+            #detfe_sed_depst:
+            #caco3_sed_remin:
+            #caco3_sed_depst:
+            #fbury:
+            o2_stf:
+            #no3_stf:
+            #fe_stf:
+            dic_stf:
+            dic_csurf:
+            #dicp_stf:
+            #dicp_csurf:
+            #alk_stf:
+            #o2_btf:
+            #no3_btf:
+            #fe_btf:
+            #dic_btf:
+            #alk_btf:
+            #no3_vstf:
+            #dic_vstf:
+            #dicp_vstf:
+            #alk_vstf:
             det_sediment:
             detfe_sediment:
             caco3_sediment:
-            det_sed_depst:
-            detfe_sed_depst:
-            caco3_sed_depst:
-            det_sed_bury:
-            detfe_sed_bury:
-            caco3_sed_bury:
             zeuphot:
+            #sedtemp:
+            #seddep:
+            #sedmask:
+            #sedsalt:
+            #sedno3:
+            #seddic:
+            #sedalk:
+            #sedhtotal:
+            #sedco3:
+            #sedomega_cal:
+
+    'daily 2d diagnostic BGC fields':
+        defaults:  # these can be overridden for individual fields below
+            file_name_dimension: 2d  # descriptor for filename, e.g. 3d, 2d, scalar
+            reduction_method: mean
+            module_name: generic_wombatlite
+            output_freq_units: days  # time units for output: years, months, days, hours, minutes, or seconds
+        fields:
+            #zeuphot:
