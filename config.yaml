@@ -19,14 +19,14 @@ modules:
     use:
         - /g/data/vk83/prerelease/modules
     load:
-        - access-om3/pr109-19
+        - access-om3/pr109-21
 
 queue: normal
 ncpus: 240
 jobfs: 10GB
 mem: 960GB
 
-walltime: 02:00:00
+walltime: 02:30:00
 jobname: 100km_ERA5_iaf
 
 model: access-om3
