@@ -383,7 +383,7 @@ OBC_REMAPPING_USE_OM4_SUBCELLS = False !   [Boolean] default = False
                                 ! If true, use the OM4 remapping-via-subcells algorithm for neutral diffusion.
                                 ! See REMAPPING_USE_OM4_SUBCELLS for more details. We recommend setting this
                                 ! option to false.
-OBC_PROJECTION_BUG = True       !   [Boolean] default = True
+OBC_PROJECTION_BUG = False      !   [Boolean] default = True
                                 ! If false, use only interior ocean points at OBCs to specify several
                                 ! calculations at OBC points, and it avoids applying a land mask at the bay-like
                                 ! intersection of orthogonal OBC segments.  Otherwise the calculation of terms
@@ -1013,7 +1013,7 @@ MIXING_COEFS_OBC_BUG = True     !   [Boolean] default = True
                                 ! If false, use only interior data for thickness weighting in lateral mixing
                                 ! coefficient calculations and to calculate stratification and other fields at
                                 ! open boundary condition faces.
-RESOLN_FUNCTION_OBC_BUG = True  !   [Boolean] default = True
+RESOLN_FUNCTION_OBC_BUG = False !   [Boolean] default = True
                                 ! If false, use only interior data for calculating the resolution functions at
                                 ! open boundary condition faces and vertices.
 KD_SMOOTH = 1.0E-06             !   [m2 s-1] default = 1.0E-06

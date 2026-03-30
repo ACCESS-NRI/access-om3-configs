@@ -123,6 +123,13 @@ OBC_TRACER_RESERVOIR_LENGTH_SCALE_IN = 3000.0 !   [m] default = 0.0
                                 ! boundaries to values from the interior when the flow is entering the domain.
 BRUSHCUTTER_MODE = True         !   [Boolean] default = False
                                 ! If true, read external OBC data on the supergrid.
+OBC_PROJECTION_BUG = False      !   [Boolean] default = True
+                                ! If false, use only interior ocean points at OBCs to specify several
+                                ! calculations at OBC points, and it avoids applying a land mask at the bay-like
+                                ! intersection of orthogonal OBC segments.  Otherwise the calculation of terms
+                                ! like the potential vorticity used in the barotropic solver relies on
+                                ! bathymetry or other fields being projected outward across OBCs.  This option
+                                ! changes answers for some configurations that use OBCs.
 
 ! === module MOM_verticalGrid ===
 ! Parameters providing information about the vertical grid.
@@ -316,6 +323,9 @@ DIAG_COORD_DEF_RHO2 = "FILE:diag_rho2.nc,interfaces=rho2" ! default = "WOA09"
 KHTR_SLOPE_CFF = 0.25           !   [nondim] default = 0.0
                                 ! The nondimensional coefficient in the Visbeck formula for the epipycnal tracer
                                 ! diffusivity
+RESOLN_FUNCTION_OBC_BUG = False !   [Boolean] default = True
+                                ! If false, use only interior data for calculating the resolution functions at
+                                ! open boundary condition faces and vertices.
 
 ! === module MOM_set_visc ===
 CHANNEL_DRAG = True             !   [Boolean] default = False
