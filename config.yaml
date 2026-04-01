@@ -19,14 +19,14 @@ modules:
     use:
         - /g/data/vk83/prerelease/modules
     load:
-        - access-om3/pr109-21
+        - access-om3/pr109-22
 
 queue: normal
 ncpus: 240
 jobfs: 10GB
 mem: 960GB
 
-walltime: 02:30:00
+walltime: 24:00:00
 jobname: 100km_ERA5_iaf
 
 model: access-om3
@@ -47,6 +47,24 @@ input:
     - /g/data/vk83/configurations/inputs/access-om3/cice/grids/global.100km/2024.05.14/kmt.nc
     - /g/data/vk83/configurations/inputs/access-om3/cice/initial_conditions/global.100km/2023.07.28/iced.1900-01-01-10800.nc
     - /g/data/qv56/replicas/input4MIPs/CMIP6Plus/OMIP/MRI/MRI-JRA55-do-1-6-0/
+    - /g/data/rt52/era5/single-levels/reanalysis/cp
+    - /g/data/rt52/era5/single-levels/reanalysis/lsp
+    - /g/data/rt52/era5/single-levels/reanalysis/csf
+    - /g/data/rt52/era5/single-levels/reanalysis/lsf
+    - /g/data/rt52/era5/single-levels/reanalysis/strd
+    - /g/data/rt52/era5/single-levels/reanalysis/ssrd
+    - /g/data/rt52/era5/single-levels/reanalysis/ssr
+    - /g/data/rt52/era5/single-levels/reanalysis/aluvp
+    - /g/data/rt52/era5/single-levels/reanalysis/aluvd
+    - /g/data/rt52/era5/single-levels/reanalysis/alnip
+    - /g/data/rt52/era5/single-levels/reanalysis/alnid
+    - /g/data/rt52/era5/single-levels/reanalysis/sshf
+    - /g/data/rt52/era5/single-levels/reanalysis/slhf
+    - /g/data/rt52/era5/single-levels/reanalysis/msl
+    - /g/data/rt52/era5/single-levels/reanalysis/2t
+    - /g/data/rt52/era5/single-levels/reanalysis/2d
+    - /g/data/rt52/era5/single-levels/reanalysis/10u
+    - /g/data/rt52/era5/single-levels/reanalysis/10v
  
 collate: false
 runlog: false
