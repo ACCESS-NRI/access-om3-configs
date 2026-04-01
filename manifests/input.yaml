@@ -4072,10 +4072,10 @@ work/INPUT/land/day/friver/gr/v20240531/friver_input4MIPs_atmosphericState_OMIP_
     binhash: fb4da82e21b01ccd4ef5e7a99f31f4e5
     md5: 6838f869a96238b2b162103794739519
 work/INPUT/mod_def.ww3:
-  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/ww3/mod_def/global.100km/2025.12.16/mod_def.ww3
+  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/ww3/mod_def/global.100km/2026.03.24/mod_def.ww3
   hashes:
-    binhash: 8aeb158c14f92a80d6da18c9d2300607
-    md5: 5160691512866360b7661009befb18c6
+    binhash: d7242fdec55be57c601b084f129ae49a
+    md5: 5dee742e7cc8db0d6ee672a33475016f
 work/INPUT/ocean/day/tos/gn/v20240531/tos_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-6-0_gn_19580101-19581231.nc:
   fullpath: /g/data/qv56/replicas/input4MIPs/CMIP6Plus/OMIP/MRI/MRI-JRA55-do-1-6-0/ocean/day/tos/gn/v20240531/tos_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-6-0_gn_19580101-19581231.nc
   hashes:
@@ -4442,9 +4442,9 @@ work/INPUT/ocean_vgrid.nc:
     binhash: 9c1f82b7ea91a8647c8857c02676a7a5
     md5: 66f71f2b24bd00b1c220787505e0106e
 work/INPUT/restart.ww3:
-  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/ww3/initial_conditions/global.100km/2025.12.16/restart.ww3
+  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/ww3/initial_conditions/global.100km/2026.03.24/restart.ww3
   hashes:
-    binhash: 3e17c921bf7ba56546cdfb03b79e30d7
+    binhash: 24d8c6bb6948618605b7668da21b0e18
     md5: e0043b57b4de97a7df82dafa4c7a1a9f
 work/INPUT/salt_sfc_restore.nc:
   fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/surface_salt_restoring/global.100km/2025.10.24/salt_sfc_restore.nc
