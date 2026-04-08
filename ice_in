@@ -10,7 +10,7 @@
   history_chunksize = 180, 150
   history_precision = 8
   restart_deflate = 1
-  ice_ic = "./INPUT/iced.1900-01-01-10800.nc"
+  ice_ic = "none"
   lcdf64 = .false.
   npt = 35040
   pointer_file = './rpointer.ice'
@@ -75,10 +75,10 @@
   maskhalo_bound = .true.
   maskhalo_dyn = .true.
   maskhalo_remap = .true.
-  max_blocks = 15
+  max_blocks = -1
   ns_boundary_type = "tripole"
   nx_global = 360
-  ny_global = 300
+  ny_global = 324
   processor_shape = "slenderX1"
 /
 &ice_prescribed_nml

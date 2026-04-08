@@ -1,3 +1,53 @@
 format: yamanifest
 version: 1.0
---- {}
+---
+work/access-om3.cice.r.1960-01-01-00000.nc:
+  fullpath: /scratch/tm70/ek4684/access-om3/archive/dev-MC_100km_jra_iaf/restart001/access-om3.cice.r.1960-01-01-00000.nc
+  hashes:
+    binhash: 3c62460d8297b6d32c015da1cbdf458b
+    md5: eb7fab392e1cf4e197530875f9aa8171
+work/access-om3.cpl.r.1960-01-01-00000.nc:
+  fullpath: /scratch/tm70/ek4684/access-om3/archive/dev-MC_100km_jra_iaf/restart001/access-om3.cpl.r.1960-01-01-00000.nc
+  hashes:
+    binhash: 4327cfbd6735b9ea4275da4e6a961beb
+    md5: dc5201ebeb2cddcaa5cda591726a389f
+work/access-om3.datm.r.1960-01-01-00000.nc:
+  fullpath: /scratch/tm70/ek4684/access-om3/archive/dev-MC_100km_jra_iaf/restart001/access-om3.datm.r.1960-01-01-00000.nc
+  hashes:
+    binhash: eb221de55da22b92a6de673f3404941c
+    md5: 90a7a6ea5ef0166f51a7332d7ca78627
+work/access-om3.drof.r.1960-01-01-00000.nc:
+  fullpath: /scratch/tm70/ek4684/access-om3/archive/dev-MC_100km_jra_iaf/restart001/access-om3.drof.r.1960-01-01-00000.nc
+  hashes:
+    binhash: 6c88b43702a2f2d737692552ff74a038
+    md5: 380f67753e18428b885f9bc8eb48e5d0
+work/access-om3.mom6.r.1960-01-01-00000.nc:
+  fullpath: /scratch/tm70/ek4684/access-om3/archive/dev-MC_100km_jra_iaf/restart001/access-om3.mom6.r.1960-01-01-00000.nc
+  hashes:
+    binhash: 495cad1af04282c14e3e6a0a85f19d49
+    md5: 2ace7d69dcf19c11b84005f43e6fe229
+work/rpointer.atm:
+  fullpath: /scratch/tm70/ek4684/access-om3/archive/dev-MC_100km_jra_iaf/restart001/rpointer.atm
+  hashes:
+    binhash: 17fc01fe02aaa295cb1428be35bb87fb
+    md5: 60a0bd529c216cc5f3b173db3dd5ec45
+work/rpointer.cpl:
+  fullpath: /scratch/tm70/ek4684/access-om3/archive/dev-MC_100km_jra_iaf/restart001/rpointer.cpl
+  hashes:
+    binhash: ea57d92cb597f357bd57545b197b8ded
+    md5: dccd747a4f0996f40f8ce59287c8d92d
+work/rpointer.ice:
+  fullpath: /scratch/tm70/ek4684/access-om3/archive/dev-MC_100km_jra_iaf/restart001/rpointer.ice
+  hashes:
+    binhash: 34e6f064dc84a5b60d928749ed4d2f84
+    md5: 16b8ed019d23e667f325d17be0f8eb23
+work/rpointer.ocn:
+  fullpath: /scratch/tm70/ek4684/access-om3/archive/dev-MC_100km_jra_iaf/restart001/rpointer.ocn
+  hashes:
+    binhash: 0e90a72e4bcffa4bd0b8d82fb2aae7fe
+    md5: 73ec6761ee0d3be9f81ef11d818e0746
+work/rpointer.rof:
+  fullpath: /scratch/tm70/ek4684/access-om3/archive/dev-MC_100km_jra_iaf/restart001/rpointer.rof
+  hashes:
+    binhash: d73ac19f22a81136c0e2501472be847d
+    md5: d83d6296c82553bf0abe5d3c80a0abb6
