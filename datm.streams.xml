@@ -2,8 +2,8 @@
 <file id="stream" version="2.0">
   <metadata>
     <File_type>DATM xml file provides forcing data</File_type>
-    <date_generated>2026-03-31 17:01:34</date_generated>
-    <history>Created by ek4684 (ezhilsabareesh8) on 2026-03-31, using https://github.com/ACCESS-NRI/om3-scripts/blob/16a7033fbee5122fb15e5aa7ed1c9717608e1520generate_xml_datm_era5.py: generate_xml_datm_era5.py 1940 2025</history>
+    <date_generated>2026-04-08 13:45:29</date_generated>
+    <history>Created by ek4684 (ezhilsabareesh8) on 2026-04-08, using https://github.com/ACCESS-NRI/om3-scripts/blob/75c4dada03ede785af2e407170fedd55326e5d20generate_xml_datm_era5.py: generate_xml_datm_era5.py 1940 2025</history>
   </metadata>
   <stream_info name="ERA5.RAINC">
     <taxmode>extend</taxmode>
@@ -1053,6 +1053,7 @@
     <datavars>
       <var>cp  Faxa_rainc</var>
     </datavars>
+    <offset>-1800</offset>
     <tintalgo>linear</tintalgo>
   </stream_info>
   <stream_info name="ERA5.RAINL">
@@ -2103,6 +2104,7 @@
     <datavars>
       <var>lsp  Faxa_rainl</var>
     </datavars>
+    <offset>-1800</offset>
     <tintalgo>linear</tintalgo>
   </stream_info>
   <stream_info name="ERA5.SNOWC">
@@ -3153,6 +3155,7 @@
     <datavars>
       <var>csf  Faxa_snowc</var>
     </datavars>
+    <offset>-1800</offset>
     <tintalgo>linear</tintalgo>
   </stream_info>
   <stream_info name="ERA5.SNOWL">
@@ -4203,6 +4206,7 @@
     <datavars>
       <var>lsf  Faxa_snowl</var>
     </datavars>
+    <offset>-1800</offset>
     <tintalgo>linear</tintalgo>
   </stream_info>
   <stream_info name="ERA5.LWDN">
@@ -5253,6 +5257,7 @@
     <datavars>
       <var>strd  Faxa_lwdn</var>
     </datavars>
+    <offset>-1800</offset>
     <tintalgo>linear</tintalgo>
   </stream_info>
   <stream_info name="ERA5.SWDN">
@@ -6303,7 +6308,8 @@
     <datavars>
       <var>ssrd  Faxa_swdn</var>
     </datavars>
-    <tintalgo>coszen</tintalgo>
+    <offset>-1800</offset>
+    <tintalgo>linear</tintalgo>
   </stream_info>
   <stream_info name="ERA5.SWNET">
     <taxmode>extend</taxmode>
@@ -7353,7 +7359,8 @@
     <datavars>
       <var>ssr  Faxa_swnet</var>
     </datavars>
-    <tintalgo>coszen</tintalgo>
+    <offset>-1800</offset>
+    <tintalgo>linear</tintalgo>
   </stream_info>
   <stream_info name="ERA5.SWVDR">
     <taxmode>extend</taxmode>
@@ -8403,7 +8410,8 @@
     <datavars>
       <var>aluvp  Faxa_swvdr</var>
     </datavars>
-    <tintalgo>coszen</tintalgo>
+    <offset>0</offset>
+    <tintalgo>linear</tintalgo>
   </stream_info>
   <stream_info name="ERA5.SWVDF">
     <taxmode>extend</taxmode>
@@ -9453,7 +9461,8 @@
     <datavars>
       <var>aluvd  Faxa_swvdf</var>
     </datavars>
-    <tintalgo>coszen</tintalgo>
+    <offset>0</offset>
+    <tintalgo>linear</tintalgo>
   </stream_info>
   <stream_info name="ERA5.SWNDR">
     <taxmode>extend</taxmode>
@@ -10503,7 +10512,8 @@
     <datavars>
       <var>alnip  Faxa_swndr</var>
     </datavars>
-    <tintalgo>coszen</tintalgo>
+    <offset>0</offset>
+    <tintalgo>linear</tintalgo>
   </stream_info>
   <stream_info name="ERA5.SWNDF">
     <taxmode>extend</taxmode>
@@ -11553,7 +11563,8 @@
     <datavars>
       <var>alnid  Faxa_swndf</var>
     </datavars>
-    <tintalgo>coszen</tintalgo>
+    <offset>0</offset>
+    <tintalgo>linear</tintalgo>
   </stream_info>
   <stream_info name="ERA5.SEN">
     <taxmode>extend</taxmode>
@@ -12603,6 +12614,7 @@
     <datavars>
       <var>sshf  Faxa_sen</var>
     </datavars>
+    <offset>-1800</offset>
     <tintalgo>linear</tintalgo>
   </stream_info>
   <stream_info name="ERA5.LAT">
@@ -13653,6 +13665,7 @@
     <datavars>
       <var>slhf  Faxa_lat</var>
     </datavars>
+    <offset>-1800</offset>
     <tintalgo>linear</tintalgo>
   </stream_info>
   <stream_info name="ERA5.SLP_10">
@@ -14704,6 +14717,7 @@
       <var>msl  Sa_pslv</var>
       <var>msl  Sa_pbot</var>
     </datavars>
+    <offset>0</offset>
     <tintalgo>linear</tintalgo>
   </stream_info>
   <stream_info name="ERA5.T_10">
@@ -15755,6 +15769,7 @@
       <var>t2m  Sa_t2m</var>
       <var>t2m  Sa_tbot</var>
     </datavars>
+    <offset>0</offset>
     <tintalgo>linear</tintalgo>
   </stream_info>
   <stream_info name="ERA5.TDEW">
@@ -16805,6 +16820,7 @@
     <datavars>
       <var>d2m  Sa_tdew</var>
     </datavars>
+    <offset>0</offset>
     <tintalgo>linear</tintalgo>
   </stream_info>
   <stream_info name="ERA5.U_10">
@@ -17856,6 +17872,7 @@
       <var>u10  Sa_u</var>
       <var>u10  Sa_u10m</var>
     </datavars>
+    <offset>0</offset>
     <tintalgo>linear</tintalgo>
   </stream_info>
   <stream_info name="ERA5.V_10">
@@ -18907,6 +18924,7 @@
       <var>v10  Sa_v</var>
       <var>v10  Sa_v10m</var>
     </datavars>
+    <offset>0</offset>
     <tintalgo>linear</tintalgo>
   </stream_info>
 </file>
