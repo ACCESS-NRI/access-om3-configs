@@ -31,7 +31,7 @@ and **3-hourly averaged**:
 - liquid and solid precipitation;
 - downwelling surface long-wave and shortwave radiation. 
 
-Input data is first remapped from DATM to the mediator, and second from the mediator to the ocean (MOM6) or sea ice (CICE6). The first step remaps from the source grid (~55km resolution) to the access-om3 grid using bilinear interpolation spatially, and linear interpolation in time (except for downwelling shortwave, which uses "coszen" interpolation in time - _cosine of the solar zenith angle_). Weights for this first remapping are calculated automatically during model initialisation. The second stage remapping moves from the om3 grid without a landmask to the same grid with a landmask. For atmosphere forcing, the landmask is applied simply as a true/false mask, as access-om3 does not have partial ocean cells. This results in only the states and fluxes over the ocean being input as forcings.
+Input data is first remapped from DATM to the mediator, and second from the mediator to the ocean (MOM6) and sea ice (CICE6). The first step remaps from the source grid (~55km resolution) to the access-om3 grid using bilinear interpolation spatially, and linear interpolation in time (except for downwelling shortwave, which uses "coszen" interpolation in time - _cosine of the solar zenith angle_). Weights for this first remapping are calculated automatically during model initialisation. The second stage moves data from the om3 grid without a landmask to the same grid with a landmask. For atmosphere forcing, the landmask is applied simply as a true/false mask, as access-om3 does not have partial ocean cells. This results in only the states and fluxes over the ocean being input as forcings.
 
 ### Runoff
 
