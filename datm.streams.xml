@@ -2,8 +2,8 @@
 <file id="stream" version="2.0">
   <metadata>
     <File_type>DATM xml file provides forcing data</File_type>
-    <date_generated>2026-04-08 14:41:29</date_generated>
-    <history>Created by ek4684 (ezhilsabareesh8) on 2026-04-08, using https://github.com/ACCESS-NRI/om3-scripts/blob/f90bdf858b62ed8cd696c90516e10d3896184a7agenerate_xml_datm_jra55.py: generate_xml_datm_jra55.py 1958 2024</history>
+    <date_generated>2026-04-14 16:14:02</date_generated>
+    <history>Created by ek4684 (ezhilsabareesh8) on 2026-04-14, using https://github.com/ACCESS-NRI/om3-scripts/blob/5d3891c072d67767cf7670332ac8169db3ec56c9../om3-scripts-new/data_stream_xml_generation/generate_xml_datm_jra55.py: ../om3-scripts-new/data_stream_xml_generation/generate_xml_datm_jra55.py 1958 2024</history>
   </metadata>
   <stream_info name="JRA55do.PRSN">
     <taxmode>extend</taxmode>
