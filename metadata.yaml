@@ -1,6 +1,6 @@
-contact: Add your name here
-email: Add your email address here
-created: Add the date you started the experiment here (YYYY-MM-DD)
+contact: ezhilsabareesh8
+email: ezhilsabareesh@gmail.com
+created: '2026-04-16'
 description: |-
   25km ACCESS-OM3 global configuration under interannual forcing.
   Initial conditions of temperature and salinity are from WOA23.
@@ -20,7 +20,8 @@ realm:
 nominal_resolution: 25 km
 license: CC-BY-4.0
 model: ACCESS-OM3
-url: 
-  https://github.com/ACCESS-NRI/access-om3-configs/tree/release-MC_25km_jra_iaf
+url: git@github.com:ACCESS-NRI/access-om3-configs.git
 version: 1.0-beta
-experiment_uuid: b6308649-2b11-4226-847e-6fb4e96268fe
+experiment_uuid: 30a8469b-04c2-4560-879c-ae126813a4a6
+name: 
+  1111-MC_100km_jra_iaf-cherry_pick_from_pr1269_into_dev-MC_25km_jra_iaf-30a8469b
