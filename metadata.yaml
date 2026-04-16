@@ -10,15 +10,17 @@ notes: |-
   following the examples at https://www.access-nri.org.au/resources/acknowledging-us/ 
   and https://cosima.org.au/index.php/get-involved/
 keywords:
-  - JRA55
-  - access-om3
-  - interannual
-  - global
+- JRA55
+- access-om3
+- interannual
+- global
 realm:
-  - ocean
-  - seaIce
+- ocean
+- seaIce
 nominal_resolution: 25 km
 license: CC-BY-4.0
 model: ACCESS-OM3
-url: https://github.com/ACCESS-NRI/access-om3-configs/tree/release-MC_25km_jra_iaf
+url: 
+  https://github.com/ACCESS-NRI/access-om3-configs/tree/release-MC_25km_jra_iaf
 version: 1.0-beta
+experiment_uuid: b6308649-2b11-4226-847e-6fb4e96268fe
