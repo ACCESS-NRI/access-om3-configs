@@ -7,7 +7,7 @@
   hist_suffix = ".1day.mean", ".1mon.mean", "x", "x", "x"
   hist_time_axis = "middle"
   history_deflate = 1
-  history_chunksize = 180, 150
+  history_chunksize = 180, 162
   history_precision = 8
   restart_deflate = 1
   ice_ic = "none"
