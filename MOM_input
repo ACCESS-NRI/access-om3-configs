@@ -516,11 +516,6 @@ DTBT = -0.95                    !   [s or nondim] default = -0.98
                                 ! use 0, or a negative value gives the fraction of the stable value. Setting
                                 ! DTBT to 0 is the same as setting it to -0.98. The value of DTBT that will
                                 ! actually be used is an integer fraction of DT, rounding down.
-BT_ADJ_CORR_MASS_SRC = True     !   [Boolean] default = True
-                                ! If true, recalculates the barotropic mass source after predictor step. This
-                                ! should make little difference in the deep ocean but appears to help for
-                                ! vanished layers. If false, uses the same mass source as from the predictor
-                                ! step.
 
 ! === module MOM_mixed_layer_restrat ===
 MIXEDLAYER_RESTRAT = True       !   [Boolean] default = False
