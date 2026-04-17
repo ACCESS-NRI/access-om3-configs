@@ -45,8 +45,10 @@ input:
     - /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/surface_salt_restoring/global.100km/2026.04.07/salt_sfc_restore.nc
     - /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/chlorophyll/global.100km/2026.04.07/chl_globcolour_monthly_clim.nc
     - /g/data/vk83/prerelease/configurations/inputs/access-om3/cice/grids/global.100km/2026.04.07/kmt.nc 
-    - /g/data/qv56/replicas/input4MIPs/CMIP6Plus/OMIP/MRI/MRI-JRA55-do-1-6-0/
- 
+    - /g/data/qv56/replicas/input4MIPs/CMIP6Plus/OMIP/MRI/MRI-JRA55-do-1-6-0/land/
+    - /g/data/qv56/replicas/input4MIPs/CMIP6Plus/OMIP/MRI/MRI-JRA55-do-1-6-0/landIce/
+    - /g/data/qv56/replicas/input4MIPs/CMIP6Plus/OMIP/MRI/MRI-JRA55-do-1-6-0/atmos/ 
+
 collate: false
 runlog: false
 metadata: 
