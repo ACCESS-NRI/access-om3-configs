@@ -8,6 +8,7 @@ For users of ACCESS-OM3 model configurations released by ACCESS-NRI, knowledge o
 ### Executable Deployments
 
 By default, users will run exectuables stored in the `vk83` project. These are deployed automatically on completion of a Pull Request into the [ACCESS-OM3 Deployment Repository](https://github.com/accESS-NRI/access-om3).
+
 Some details on that process are in the [ACCESS-OM3 Deployment README](https://github.com/accESS-NRI/access-om3) and some high level details on these builds are in the [deployment release notes](https://github.com/ACCESS-NRI/ACCESS-OM3/releases)
 
 Three default builds are provided:
@@ -42,7 +43,9 @@ For testing and feature development, a typical approach can be:
 
 This can then be built using the pre-release build infrastructure described in this [Hive Docs article](https://docs.access-hive.org.au/models/build_a_model/create_a_prerelease/). A pre-release build uses a GitHub action to automatically build on NCI's Gadi. Please contact the ACCESS-NRI ocean team for access to the relevant github repositories and support.
 
-For more complex changes and to assist in faster iterations of code changes, it may make more sense to setup a personal spack instance, as described in [Modify and build an ACCESS model source code](https://docs.access-hive.org.au/models/build_a_model/build_source_code/). A personal spack instance allows builds from a local copy of source code on NCI's Gadi, however should not be used for experiments as provenance of the build is not stored.
+For more complex changes and to assist in faster iterations of code changes, it may make more sense to setup a personal Spack instance, as described in [Modify and build an ACCESS model source code](https://docs.access-hive.org.au/models/build_a_model/build_source_code/). A personal spack instance allows builds from a local copy of source code on NCI's Gadi, however should not be used for experiments as provenance of the build is not stored.
+
+When using either the pre-release build infrastructure or a personal Spack instance. It is possible to find the executable created via the `which` command. For example, once the relevant module or Spack environment has been loaded the command `which access-om3-MOM6` should return the full executable path of `access-om3-MOM6`.
 
 Changes to only compile time options (e.g. debug/optimisation flags, compiler choice), can normally be achieved through a pre-release build without changes to the source code of each model component. The spack documentation has some information on how to set these options. Changes to spack variants can also be achieved through a pre-release build. 
 The variants for spack-packages are in the [recipes for each spack-package](https://github.com/ACCESS-NRI/access-spack-packages/tree/api-v2/spack_repo/access/nri/packages). For example, to build a MOM6 only executable, without interactive sea ice or waves, `configurations=MOM6` can be specified as the [_configurations_ variant](https://github.com/ACCESS-NRI/spack-packages/blob/b73ecc20a21859006a6e58c2c6de8c2e32eabae4/packages/access3/package.py#L37) for _access3_. 
