@@ -86,8 +86,8 @@ postscript: -v PROJECT,SCRIPTS_DIR=/g/data/vk83/apps/om3-scripts -lstorage=${PBS
 qsub_flags: -W umask=027
 
 restart_freq: 1YS
-storage:
-      gdata:
-        - rt52
-        - ik11
 payu_minimum_version: 1.2.1
+
+manifest:
+  fasthash:
+  - binhash-xxh
