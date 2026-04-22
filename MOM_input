@@ -17,6 +17,8 @@ FATAL_UNUSED_PARAMS = True      !   [Boolean] default = False
 ! This section contains non default layout parameters which are set.
 ! ------------------------
 ! === module MOM_domains ===
+NONBLOCKING_UPDATES = True      !   [Boolean] default = False
+                                ! If true, non-blocking halo updates may be used.
 MASKTABLE = "mask_table.1027.72x48" ! default = "MOM_mask_table"
                                 ! A text file to specify n_mask, layout and mask_list. This feature masks out
                                 ! processors that contain only land points. The first line of mask_table is the
