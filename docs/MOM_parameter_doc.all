@@ -2632,7 +2632,7 @@ SALT_RESTORE_VARIABLE = "asalt" ! default = "salt"
 SRESTORE_AS_SFLUX = True        !   [Boolean] default = False
                                 ! If true, the restoring of salinity is applied as a salt flux instead of as a
                                 ! freshwater flux.
-MAX_DELTA_SRESTORE = 999.0      !   [PSU or g kg-1] default = 999.0
+MAX_DELTA_SRESTORE = 1.0        !   [PSU or g kg-1] default = 999.0
                                 ! The maximum salinity difference used in restoring terms.
 MASK_SRESTORE_UNDER_ICE = False !   [Boolean] default = False
                                 ! If true, disables SSS restoring under sea-ice based on a frazil criteria
