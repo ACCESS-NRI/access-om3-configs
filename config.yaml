@@ -70,6 +70,10 @@ platform:
     nodesize: 104
     nodemem: 512
 
+mpi:
+  flags:
+  - --mca mpi_yield_when_idle true
+
 collate:
   restart: true
   mpi: true
