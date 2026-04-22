@@ -81,7 +81,7 @@ collate:
   restart: true
   mpi: true
   walltime: 6:00:00
-  mem: 30GB
+  mem: 120GB
   ncpus: 4
   queue: normalsr
   exe: mppnccombine-fast
