@@ -306,7 +306,7 @@ MAXIMUM_DEPTH = 6000.0          !   [m]
 ! if any.
 OBC_NUMBER_OF_SEGMENTS = 0      ! default = 0
                                 ! The number of open boundary segments.
-CHANNEL_CONFIG = "none"         ! default = "none"
+CHANNEL_CONFIG = "list"         ! default = "none"
                                 ! A parameter that determines which set of channels are
                                 ! restricted to specific  widths.  Options are:
                                 !     none - All channels have the grid width.
@@ -317,6 +317,14 @@ CHANNEL_CONFIG = "none"         ! default = "none"
                                 !       test case.
                                 !     file - Read open face widths everywhere from a
                                 !       NetCDF file on the model grid.
+CHANNEL_LIST_FILE = "MOM_channel_list" ! default = "MOM_channel_list"
+                                ! The file from which the list of narrowed channels is read.
+CHANNEL_LIST_360_LON_CHECK = True !   [Boolean] default = True
+                                ! If true, the channel configuration list works for any longitudes in the range
+                                ! of -360 to 360.
+FATAL_UNUSED_CHANNEL_WIDTHS = True !   [Boolean] default = False
+                                ! If true, trigger a fatal error if there are any channel widths in
+                                ! CHANNEL_LIST_FILE that do not cause any open face widths to change.
 SUBGRID_TOPO_AT_VEL = False     !   [Boolean] default = False
                                 ! If true, use variables from TOPO_AT_VEL_FILE as parameters for porous barrier.
 ROTATION = "2omegasinlat"       ! default = "2omegasinlat"
@@ -2594,7 +2602,7 @@ MAX_P_SURF = -1.0               !   [Pa] default = -1.0
 ADJUST_NET_SRESTORE_TO_ZERO = True !   [Boolean] default = True
                                 ! If true, adjusts the salinity restoring seen to zero whether restoring is via
                                 ! a salt flux or virtual precip.
-ADJUST_NET_SRESTORE_BY_SCALING = False !   [Boolean] default = False
+ADJUST_NET_SRESTORE_BY_SCALING = True !   [Boolean] default = False
                                 ! If true, adjustments to salt restoring to achieve zero net are made by scaling
                                 ! values without moving the zero contour.
 ADJUST_NET_FRESH_WATER_TO_ZERO = True !   [Boolean] default = False
@@ -2632,7 +2640,7 @@ SALT_RESTORE_VARIABLE = "asalt" ! default = "salt"
 SRESTORE_AS_SFLUX = True        !   [Boolean] default = False
                                 ! If true, the restoring of salinity is applied as a salt flux instead of as a
                                 ! freshwater flux.
-MAX_DELTA_SRESTORE = 999.0      !   [PSU or g kg-1] default = 999.0
+MAX_DELTA_SRESTORE = 1.0        !   [PSU or g kg-1] default = 999.0
                                 ! The maximum salinity difference used in restoring terms.
 MASK_SRESTORE_UNDER_ICE = False !   [Boolean] default = False
                                 ! If true, disables SSS restoring under sea-ice based on a frazil criteria

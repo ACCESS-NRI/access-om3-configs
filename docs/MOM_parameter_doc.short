@@ -127,6 +127,20 @@ TOPO_CONFIG = "file"            !
                                 !     USER - call a user modified routine.
 MAXIMUM_DEPTH = 6000.0          !   [m]
                                 ! The maximum depth of the ocean.
+CHANNEL_CONFIG = "list"         ! default = "none"
+                                ! A parameter that determines which set of channels are
+                                ! restricted to specific  widths.  Options are:
+                                !     none - All channels have the grid width.
+                                !     global_1deg - Sets 16 specific channels appropriate
+                                !       for a 1-degree model, as used in CM2G.
+                                !     list - Read the channel locations and widths from a
+                                !       text file, like MOM_channel_list in the MOM_SIS
+                                !       test case.
+                                !     file - Read open face widths everywhere from a
+                                !       NetCDF file on the model grid.
+FATAL_UNUSED_CHANNEL_WIDTHS = True !   [Boolean] default = False
+                                ! If true, trigger a fatal error if there are any channel widths in
+                                ! CHANNEL_LIST_FILE that do not cause any open face widths to change.
 
 ! === module MOM_verticalGrid ===
 ! Parameters providing information about the vertical grid.
@@ -766,6 +780,9 @@ LATENT_HEAT_FUSION = 3.337E+05  !   [J/kg] default = 3.34E+05
                                 ! The latent heat of fusion.
 LATENT_HEAT_VAPORIZATION = 2.501E+06 !   [J/kg] default = 2.5E+06
                                 ! The latent heat of fusion.
+ADJUST_NET_SRESTORE_BY_SCALING = True !   [Boolean] default = False
+                                ! If true, adjustments to salt restoring to achieve zero net are made by scaling
+                                ! values without moving the zero contour.
 ADJUST_NET_FRESH_WATER_TO_ZERO = True !   [Boolean] default = False
                                 ! If true, adjusts the net fresh-water forcing seen by the ocean (including
                                 ! restoring) to zero.
@@ -786,6 +803,8 @@ SALT_RESTORE_VARIABLE = "asalt" ! default = "salt"
 SRESTORE_AS_SFLUX = True        !   [Boolean] default = False
                                 ! If true, the restoring of salinity is applied as a salt flux instead of as a
                                 ! freshwater flux.
+MAX_DELTA_SRESTORE = 1.0        !   [PSU or g kg-1] default = 999.0
+                                ! The maximum salinity difference used in restoring terms.
 USE_RIGID_SEA_ICE = True        !   [Boolean] default = False
                                 ! If true, sea-ice is rigid enough to exert a nonhydrostatic pressure that
                                 ! resist vertical motion.
