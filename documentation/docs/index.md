@@ -72,22 +72,33 @@ Currently the following released configurations are available:
 
 Currently the following development configurations are available:
 
+!!! warning
+    These `dev-*` configurations are still under development and should **not** be used for production runs.
+
 **MOM6-CICE6-DATM-DROF configurations**
 
-- [`dev-MC_100km_jra_ryf`](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MC_100km_jra_ryf)
-- [`dev-MC_100km_jra_iaf`](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MC_100km_jra_iaf)
-- [`dev-MC_100km_jra_ryf+wombatlite`](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MC_100km_jra_ryf+wombatlite)
-- [`dev-MC_25km_jra_ryf`](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MC_25km_jra_ryf)
-- [`dev-MC_25km_jra_iaf`](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MC_25km_jra_iaf)
-- [`dev-MC_25km_jra_ryf+wombatlite`](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MC_25km_jra_ryf+wombatlite)
+100km configurations: 
+
+- [`dev-MC_100km_jra_ryf`](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MC_100km_jra_ryf);
+- [`dev-MC_100km_jra_iaf`](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MC_100km_jra_iaf);
+- [`dev-MC_100km_jra_ryf+wombatlite`](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MC_100km_jra_ryf+wombatlite);
+- [`dev-MC_100km_jra_iaf+wombatlite`](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MC_100km_jra_iaf+wombatlite);
+
+25km configurations: 
+
+- [`dev-MC_25km_jra_ryf`](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MC_25km_jra_ryf);
+- [`dev-MC_25km_jra_iaf`](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MC_25km_jra_iaf);
+- [`dev-MC_25km_jra_ryf+wombatlite`](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MC_25km_jra_ryf+wombatlite);
+- [`dev-MC_25km_jra_iaf+wombatlite`](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MC_25km_jra_iaf+wombatlite).
+
+Regional configurations:
+
+ - [`dev-MC_4km_jra_ryf+regionalpanan`](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MC_4km_jra_ryf%2Bregionalpanan)
 
 **MOM6-CICE6-WW3-DATM-DROF configurations**
 
-- [`dev-MCW_100km_jra_ryf`](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MCW_100km_jra_ryf)
-- [`dev-MCW_100km_jra_iaf`](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MCW_100km_jra_iaf)
-
-!!! warning
-    These `dev_*` configurations are still under development and should **not** be used for production runs.
+- [`dev-MCW_100km_jra_ryf`](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MCW_100km_jra_ryf);
+- [`dev-MCW_100km_jra_iaf`](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MCW_100km_jra_iaf).
 
 ### Comparison table
 The following links can be used to easily compare different configuration branches
