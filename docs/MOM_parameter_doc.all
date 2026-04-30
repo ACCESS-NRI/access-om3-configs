@@ -2587,7 +2587,7 @@ MAX_P_SURF = -1.0               !   [Pa] default = -1.0
 ADJUST_NET_SRESTORE_TO_ZERO = True !   [Boolean] default = True
                                 ! If true, adjusts the salinity restoring seen to zero whether restoring is via
                                 ! a salt flux or virtual precip.
-ADJUST_NET_SRESTORE_BY_SCALING = False !   [Boolean] default = False
+ADJUST_NET_SRESTORE_BY_SCALING = True !   [Boolean] default = False
                                 ! If true, adjustments to salt restoring to achieve zero net are made by scaling
                                 ! values without moving the zero contour.
 ADJUST_NET_FRESH_WATER_TO_ZERO = True !   [Boolean] default = False
@@ -2625,7 +2625,7 @@ SALT_RESTORE_VARIABLE = "asalt" ! default = "salt"
 SRESTORE_AS_SFLUX = True        !   [Boolean] default = False
                                 ! If true, the restoring of salinity is applied as a salt flux instead of as a
                                 ! freshwater flux.
-MAX_DELTA_SRESTORE = 999.0      !   [PSU or g kg-1] default = 999.0
+MAX_DELTA_SRESTORE = 1.0        !   [PSU or g kg-1] default = 999.0
                                 ! The maximum salinity difference used in restoring terms.
 MASK_SRESTORE_UNDER_ICE = False !   [Boolean] default = False
                                 ! If true, disables SSS restoring under sea-ice based on a frazil criteria
