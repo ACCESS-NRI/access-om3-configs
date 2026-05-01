@@ -66,6 +66,10 @@ manifest:
     exe: false
     inputs: false
 
+mpi:
+  flags:
+  - --mca mpi_yield_when_idle true
+
 userscripts:
     archive: /usr/bin/bash /g/data/vk83/apps/om3-scripts/payu_config/archive.sh
 

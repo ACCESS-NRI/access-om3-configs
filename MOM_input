@@ -17,6 +17,8 @@ FATAL_UNUSED_PARAMS = True      !   [Boolean] default = False
 ! This section contains non default layout parameters which are set.
 ! ------------------------
 ! === module MOM_domains ===
+NONBLOCKING_UPDATES = True      !   [Boolean] default = False
+                                ! If true, non-blocking halo updates may be used.
 AUTO_MASKTABLE = True           !   [Boolean] default = False
                                 ! Turn on automatic mask table generation to eliminate land blocks.
 
@@ -769,6 +771,9 @@ LATENT_HEAT_FUSION = 3.337E+05  !   [J/kg] default = 3.34E+05
                                 ! The latent heat of fusion.
 LATENT_HEAT_VAPORIZATION = 2.501E+06 !   [J/kg] default = 2.5E+06
                                 ! The latent heat of fusion.
+ADJUST_NET_SRESTORE_BY_SCALING = True !   [Boolean] default = False
+                                ! If true, adjustments to salt restoring to achieve zero net are made by scaling
+                                ! values without moving the zero contour.
 ADJUST_NET_FRESH_WATER_TO_ZERO = True !   [Boolean] default = False
                                 ! If true, adjusts the net fresh-water forcing seen by the ocean (including
                                 ! restoring) to zero.
