@@ -13,7 +13,7 @@ GLOBAL_INDEXING = False         !   [Boolean] default = False
                                 ! depending on where they are on the staggered grid.  Also, the starting index
                                 ! of the velocity-point arrays is usually 0, not 1. This can only be set at
                                 ! compile time.
-NONBLOCKING_UPDATES = True      !   [Boolean] default = False
+NONBLOCKING_UPDATES = False     !   [Boolean] default = False
                                 ! If true, non-blocking halo updates may be used.
 THIN_HALO_UPDATES = True        !   [Boolean] default = True
                                 ! If true, optional arguments may be used to specify the width of the halos that
