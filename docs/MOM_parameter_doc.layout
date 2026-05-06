@@ -25,7 +25,7 @@ THIN_HALO_UPDATES = True        !   [Boolean] default = True
                                 ! the PE count to be changed at run time.  This can only be set at compile time.
 AUTO_MASKTABLE = False          !   [Boolean] default = False
                                 ! Turn on automatic mask table generation to eliminate land blocks.
-MASKTABLE = "mask_table.1027.72x48" ! default = "MOM_mask_table"
+MASKTABLE = "./tables_lists/mask_table.1027.72x48" ! default = "MOM_mask_table"
                                 ! A text file to specify n_mask, layout and mask_list. This feature masks out
                                 ! processors that contain only land points. The first line of mask_table is the
                                 ! number of regions to be masked out. The second line is the layout of the model
