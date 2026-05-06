@@ -17,6 +17,8 @@ FATAL_UNUSED_PARAMS = True      !   [Boolean] default = False
 ! This section contains non default layout parameters which are set.
 ! ------------------------
 ! === module MOM_domains ===
+NONBLOCKING_UPDATES = True      !   [Boolean] default = False
+                                ! If true, non-blocking halo updates may be used.
 MASKTABLE = "mask_table.1027.72x48" ! default = "MOM_mask_table"
                                 ! A text file to specify n_mask, layout and mask_list. This feature masks out
                                 ! processors that contain only land points. The first line of mask_table is the
@@ -167,6 +169,24 @@ TOPO_CONFIG = "file"            !
                                 !     USER - call a user modified routine.
 MAXIMUM_DEPTH = 6000.0          !   [m]
                                 ! The maximum depth of the ocean.
+
+! === module MOM_open_boundary ===
+! Controls where open boundaries are located, what kind of boundary condition to impose, and what data to apply,
+! if any.
+CHANNEL_CONFIG = "list"         ! default = "none"
+                                ! A parameter that determines which set of channels are
+                                ! restricted to specific  widths.  Options are:
+                                !     none - All channels have the grid width.
+                                !     global_1deg - Sets 16 specific channels appropriate
+                                !       for a 1-degree model, as used in CM2G.
+                                !     list - Read the channel locations and widths from a
+                                !       text file, like MOM_channel_list in the MOM_SIS
+                                !       test case.
+                                !     file - Read open face widths everywhere from a
+                                !       NetCDF file on the model grid.
+FATAL_UNUSED_CHANNEL_WIDTHS = True !   [Boolean] default = False
+                                ! If true, trigger a fatal error if there are any channel widths in
+                                ! CHANNEL_LIST_FILE that do not cause any open face widths to change.
 
 ! === module MOM_verticalGrid ===
 ! Parameters providing information about the vertical grid.
