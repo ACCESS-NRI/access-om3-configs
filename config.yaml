@@ -62,10 +62,6 @@ platform:
     nodesize: 104
     nodemem: 512
 
-mpi:
-  flags:
-    - --mca pml ucx --mca coll ^ucc -x UCX_RNDV_THRESH=inf
-
 collate:
   restart: true
   mpi: true
@@ -77,7 +73,7 @@ collate:
 
 mpi:
   flags:
-  - --mca mpi_yield_when_idle true
+  - --mca pml ucx --mca coll ^ucc -x UCX_RNDV_THRESH=inf --mca mpi_yield_when_idle true
 
 userscripts:
     archive: /usr/bin/bash /g/data/vk83/apps/om3-scripts/payu_config/archive.sh
