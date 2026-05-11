@@ -1,0 +1,24 @@
+#!/usr/bin/env python
+"""Case-local payu entrypoint with ACCESS-OM3 DICE component metadata.
+
+This does not modify the installed payu module. It patches the in-memory payu
+component table before delegating to payu's normal CLI.
+"""
+
+import sys
+
+
+def patch_dice_component():
+    import payu.models.cesm_cmeps as cesm_cmeps
+
+    cesm_cmeps.component_info.setdefault(
+        "dice",
+        {"config_files": ["dice_in", "dice.streams.xml"]},
+    )
+
+
+patch_dice_component()
+
+from payu.cli import parse
+
+sys.exit(parse())
