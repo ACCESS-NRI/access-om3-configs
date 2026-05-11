@@ -19,19 +19,19 @@ modules:
     use:
         - /g/data/vk83/prerelease/modules
     load:
-        - access-om3/pr109-10
+        - access-om3/pr109-32
 
 queue: normalsr
 ncpus: 208
 jobfs: 10GB
 mem: 1020GB
 
-walltime: 48:00:00
+walltime: 02:00:00
 jobname: standalone_ww3
 
 model: access-om3
 
-exe: access-om3-MOM6-CICE6-WW3
+exe: access-om3-WW3
 input:
     - /g/data/vk83/configurations/inputs/access-om3/share/meshes/global.100km/2024.01.25/access-om2-100km-ESMFmesh.nc
     - /g/data/vk83/configurations/inputs/access-om3/share/meshes/global.100km/2024.01.25/access-om2-100km-nomask-ESMFmesh.nc
@@ -50,6 +50,25 @@ input:
     - /g/data/tm70/ek4684/Standalone_WW3_ERA5/WW3_PreProc/restart.ww3
     - /g/data/tm70/ek4684/Standalone_WW3_ERA5/WW3_PreProc/mod_def.ww3
     - /g/data/qv56/replicas/input4MIPs/CMIP6Plus/OMIP/MRI/MRI-JRA55-do-1-6-0/
+    - /g/data/rt52/era5/single-levels/reanalysis/cp
+    - /g/data/rt52/era5/single-levels/reanalysis/lsp
+    - /g/data/rt52/era5/single-levels/reanalysis/csf
+    - /g/data/rt52/era5/single-levels/reanalysis/lsf
+    - /g/data/rt52/era5/single-levels/reanalysis/strd
+    - /g/data/rt52/era5/single-levels/reanalysis/ssrd
+    - /g/data/rt52/era5/single-levels/reanalysis/ssr
+    - /g/data/rt52/era5/single-levels/reanalysis/aluvp
+    - /g/data/rt52/era5/single-levels/reanalysis/aluvd
+    - /g/data/rt52/era5/single-levels/reanalysis/alnip
+    - /g/data/rt52/era5/single-levels/reanalysis/alnid
+    - /g/data/rt52/era5/single-levels/reanalysis/sshf
+    - /g/data/rt52/era5/single-levels/reanalysis/slhf
+    - /g/data/rt52/era5/single-levels/reanalysis/msl
+    - /g/data/rt52/era5/single-levels/reanalysis/2t
+    - /g/data/rt52/era5/single-levels/reanalysis/2d
+    - /g/data/rt52/era5/single-levels/reanalysis/10u
+    - /g/data/rt52/era5/single-levels/reanalysis/10v
+    - /g/data/rt52/era5/single-levels/reanalysis/ci
  
 collate: false
 runlog: false

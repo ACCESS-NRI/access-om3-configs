@@ -1,0 +1,12 @@
+&dice_nml
+  datamode = "ssmi_iaf"
+  model_meshfile = "./INPUT/access-om2-100km-ESMFmesh.nc"
+  model_maskfile = "./INPUT/access-om2-100km-ESMFmesh.nc"
+  nx_global = 360
+  ny_global = 300
+  flux_qacc = .true.
+  flux_qacc0 = 0.
+  flux_qmin = -300.e0
+  flux_swpf = 0.
+  restfilm = "null"
+/
