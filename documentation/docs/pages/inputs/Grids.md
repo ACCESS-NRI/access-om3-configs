@@ -14,6 +14,7 @@ meridional spacing scales as the cosine of latitude) between
 65&deg; N and 65&deg; S; south of 65&deg; S, the meridional grid spacing
 is held at the same value as at 65&deg; S.
 
+A 100km grid (360 x 324 cells) has also been created for ACCESS-OM3. The 100km grid keeps the same tripolar points and longitudinal seam, places C-grid zonal points exactly on the equator, and has no Arctic coarsening. It extends to 82.25&deg; S to include the full JRA forcing grid. Mercator spacing extends to 75&deg; S, with constant `dx` south of 75&deg; S.
 
 ### File formats
 
@@ -26,6 +27,21 @@ As an example, the 25km grid was once generated using the python based ocean mod
 ```python
 ocean_grid_generator.py -r 4 --no_south_cap --ensure_nj_even --bipolar_lower_lat 65 --mercator_lower_lat -75 --mercator_upper_lat 65 --match_dy so --shift_equator_to_u_point --south_ocean_lower_lat -81
 ```
+
+The 100km grid was generated using [`make_hgrid`](https://github.com/NOAA-GFDL/FRE-NCtools/blob/main/src/make-hgrid/make_hgrid.c) from the NCI `model-tools/fre-nctools/2024.05-1` module. To load this module:
+
+```bash
+module use /g/data/vk83/modules
+module load model-tools/fre-nctools/2024.05-1
+```
+
+The 100km grid was generated using this command:
+
+```bash
+make_hgrid --verbose --grid_type tripolar_grid --nxbnds 2 --nybnds 8 --xbnds -280,80 --ybnds -82.25,-75,-30,-10,10,30,65,90 --dlon 1,1 --dlat 0.25,0.25,1,0.33333333,0.333333333,1.00000001,0.4583335,0.4507575 --center c_cell --rotate_poly
+```
+
+This creates a MOM supergrid with `nx = 720` and `ny = 648`, corresponding to a 360 x 324 grid. The grid uses a tripolar projection, spherical geometry, a logically rectangular conformal discretization, and `small_circle` x-direction arcs. The `--center c_cell` option places the C-grid zonal points exactly on the equator, and `--rotate_poly` calculates polar polygon areas using rotated copies away from the pole.
 
 However refer to the metadata of the latest `ocean_hgrid.nc` to find the latest setup.
 
