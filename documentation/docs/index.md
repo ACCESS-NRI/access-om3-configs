@@ -56,7 +56,7 @@ and the nominal resolution is given in kilometers, corresponding to the nominal 
 - `10km`: 0.1°
 - `8km`: 1/12°
 
-For regional configurations, a short word describing the location of the domain is included after the nominal resolution. For example:
+For regional configurations, a short word describing the location of the domain is included before the nominal resolution. For example:
 
 - `tas5km`:    5km resolution around Tasmainia
 - `superoz4km` 4km resolution around Australia
