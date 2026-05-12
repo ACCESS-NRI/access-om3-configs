@@ -37,7 +37,7 @@ The 100km grid was generated using this command:
 make_hgrid --verbose --grid_type tripolar_grid --nxbnds 2 --nybnds 8 --xbnds -280,80 --ybnds -82.25,-75,-30,-10,10,30,65,90 --dlon 1,1 --dlat 0.25,0.25,1,0.33333333,0.333333333,1.00000001,0.4583335,0.4507575 --center c_cell --rotate_poly
 ```
 
-This creates a MOM supergrid with `nx = 720` and `ny = 648`, corresponding to a 360 x 324 grid. The grid uses a tripolar projection, spherical geometry, a logically rectangular conformal discretization, and `small_circle` x-direction arcs. The `--center c_cell` option places the C-grid zonal points exactly on the equator, and `--rotate_poly` calculates polar polygon areas using rotated copies away from the pole.
+This creates a MOM supergrid with `nx = 720` and `ny = 648`, corresponding to a 360 x 324 grid. The grid uses a tripolar projection, spherical geometry, a logically rectangular conformal discretization, and `small_circle` x-direction arcs. The 100km grid also refines the meridional spacing between 10&deg; S and 10&deg; N to increase equatorial resolution. The `--center c_cell` option places the C-grid zonal points exactly on the equator, and `--rotate_poly` calculates polar polygon areas using rotated copies away from the pole.
 
 !!! info
     A precomplied version of `make_hgrid` is available in `model-tools/fre-nctools` module. To load this module:
