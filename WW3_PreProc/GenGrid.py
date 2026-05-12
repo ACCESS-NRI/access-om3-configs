@@ -18,8 +18,8 @@ Output: dat files containing Lat, Lon, Mask and Obstruction grid
 import numpy as np
 import netCDF4 as NC
 
-grid_handle = NC.Dataset('/g/data/ik11/inputs/access-om3/0.x.0/1deg/mom/ocean_hgrid.nc', mode='r')
-topog_handle = NC.Dataset('/g/data/ik11/inputs/access-om3/0.x.0/1deg/share/topog.nc', mode='r')
+grid_handle = NC.Dataset('/g/data/vk83/prerelease/configurations/inputs/access-om3/mom/grids/mosaic/global.100km/2026.03.13/ocean_hgrid.nc', mode='r')
+topog_handle = NC.Dataset('/g/data/vk83/prerelease/configurations/inputs/access-om3/share/grids/global.100km/2026.04.07/topog.nc', mode='r')
 
 # Read in Grid
 Lon = grid_handle.variables['x'][:, :]
@@ -45,7 +45,7 @@ H_LON = Lon[1::2, 1::2]
 LLAT = len(H_LAT[:, 0])
 LLON = len(H_LAT[0, :])
 
-GRIDNAME = 'OM2_1'
+GRIDNAME = 'OM3_100km'
 
 with open(GRIDNAME + '.Mask', 'w') as f6, open(GRIDNAME + '.Dpt', 'w') as f7, open(GRIDNAME + '.Obstr', 'w') as f9, open(
         GRIDNAME + '.Lat', 'w') as f10, open(GRIDNAME + '.Lon', 'w') as f11:
@@ -75,4 +75,3 @@ f7.close()
 f9.close()
 f10.close()
 f11.close()
-
