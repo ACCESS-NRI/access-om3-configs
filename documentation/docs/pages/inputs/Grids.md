@@ -2,30 +2,52 @@
 
 All ACCESS global ocean and sea-ice models use a tripolar grid.
 For ACCESS-OM3, new grids will be created from scratch for all resolutions. So-far a new grid  (1142 x 1440 cells) has been created for 25km configurations. 
-The 25km grid and future OM3 grids largely follows the grids used in OM2, with some refinements to increase resolution and extent around Antarctica, and align the equator with model cell centres, rather than edges.
+For ACCESS-OM3, new grids will be created from scratch for all resolutions. New grids  (1142 x 1440 cells) have been created for 25km configurations and 100km (360 x 324 cells) configurations. 
+The OM3 grids largely follows the grids used in OM2, with some refinements to increase resolution and extent around Antarctica, and align the equator with model cell centres, rather than edges.
 
 Ocean cells cover the global ocean from the North Pole to
-south of the Antarctic ice shelf edge (81&deg; S). The longitude range is −280 to +80&deg; E,
+south of the Antarctic ice shelf edge. The longitude range is −280 to +80&deg; E,
 placing the join in the middle of the Indian Ocean. The grid is defined using the conventional tripolar definition[@Murray1996a] 
 in all configurations, with two northern poles placed on land at 65&deg; N, −100&deg; E and 65&deg; N, 80&deg; E,
 and a third pole at the South Pole; consequently, the grid
-directions are zonal and meridional only south of 65&deg; N. The grid is Mercator (i.e. the
+directions are zonal and meridional only south of 65&deg; N. The 25km grid is Mercator (i.e. the
 meridional spacing scales as the cosine of latitude) between
-65&deg; N and 65&deg; S; south of 65&deg; S, the meridional grid spacing
-is held at the same value as at 65&deg; S.
+65&deg; N and 75&deg; S; south of 75&deg; S, the meridional grid spacing
+is held at the same value as at 75&deg; S. 
+The 100km grid is similar but also refines the meridional spacing between 10&deg; S and 10&deg; N to increase equatorial resolution. 
 
 
 ### File formats
 
-The grid is defined in two file formats, the MOM supergrid and the ESMF mesh, however they represent the same grid.
+The grid is defined in two file formats, the MOM supergrid and the ESMF mesh, however they represent the same grid. 
+The MOM supergrid splits each model cell into four supergrid cells. 
 First the grid is created using the python [Ocean Model Grid Generator](https://github.com/ACCESS-NRI/ocean_model_grid_generator/), 
-to generate a MOM supergrid file. The MOM supergrid splits each model cell into four supergrid cells. 
+There are two tools which can be used to generate the MOM supergrid. Grids can be created using the python
+[Ocean Model Grid Generator](https://github.com/ACCESS-NRI/ocean_model_grid_generator/), or [`make_hgrid`](https://github.com/NOAA-GFDL/FRE-NCtools/blob/main/src/make-hgrid/make_hgrid.c).
 
-As an example, the 25km grid was once generated using the python based ocean model grid generator using these arguments:
+The 25km grid was once generated using the python based ocean model grid generator using these arguments:
 
 ```python
 ocean_grid_generator.py -r 4 --no_south_cap --ensure_nj_even --bipolar_lower_lat 65 --mercator_lower_lat -75 --mercator_upper_lat 65 --match_dy so --shift_equator_to_u_point --south_ocean_lower_lat -81
 ```
+
+
+The 100km grid was generated using this command:
+
+```bash
+make_hgrid --verbose --grid_type tripolar_grid --nxbnds 2 --nybnds 8 --xbnds -280,80 --ybnds -82.25,-75,-30,-10,10,30,65,90 --dlon 1,1 --dlat 0.25,0.25,1,0.33333333,0.333333333,1.00000001,0.4583335,0.4507575 --center c_cell --rotate_poly
+```
+
+This creates a MOM supergrid with `nx = 720` and `ny = 648`, corresponding to a 360 x 324 grid. The grid uses a tripolar projection, spherical geometry, a logically rectangular conformal discretization, and `small_circle` x-direction arcs. The `--center c_cell` option places the C-grid zonal points exactly on the equator, and `--rotate_poly` calculates polar polygon areas using rotated copies away from the pole.
+
+!!! info
+    A precomplied version of `make_hgrid` is available in `model-tools/fre-nctools` module. To load this module:
+     
+    ```bash
+    module use /g/data/vk83/modules
+    module load model-tools/fre-nctools/2024.05-1
+    ```
+    
 
 However refer to the metadata of the latest `ocean_hgrid.nc` to find the latest setup.
 
