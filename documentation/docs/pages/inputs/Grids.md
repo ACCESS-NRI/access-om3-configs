@@ -42,7 +42,7 @@ This creates a MOM supergrid with `nx = 720` and `ny = 648`, corresponding to a 
 
 !!! info
     A precomplied version of `make_hgrid` is available in `model-tools/fre-nctools` module. To load this module:
-        
+     
     ```bash
     module use /g/data/vk83/modules
     module load model-tools/fre-nctools/2024.05-1
