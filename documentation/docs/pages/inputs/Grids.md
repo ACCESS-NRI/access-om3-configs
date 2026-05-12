@@ -10,10 +10,10 @@ south of the Antarctic ice shelf edge. The longitude range is −280 to +80&deg;
 placing the join in the middle of the Indian Ocean. The grid is defined using the conventional tripolar definition[@Murray1996a] 
 in all configurations, with two northern poles placed on land at 65&deg; N, −100&deg; E and 65&deg; N, 80&deg; E,
 and a third pole at the South Pole; consequently, the grid
-directions are zonal and meridional only south of 65&deg; N. The grid is Mercator (i.e. the
+directions are zonal and meridional only south of 65&deg; N. The 25km grid is Mercator (i.e. the
 meridional spacing scales as the cosine of latitude) between
-65&deg; N and 65&deg; S; south of 65&deg; S, the meridional grid spacing
-is held at the same value as at 65&deg; S.
+65&deg; N and 75&deg; S; south of 75&deg; S, the meridional grid spacing
+is held at the same value as at 75&deg; S.
 
 
 ### File formats
@@ -21,7 +21,7 @@ is held at the same value as at 65&deg; S.
 The grid is defined in two file formats, the MOM supergrid and the ESMF mesh, however they represent the same grid. 
 The MOM supergrid splits each model cell into four supergrid cells. 
 First the grid is created using the python [Ocean Model Grid Generator](https://github.com/ACCESS-NRI/ocean_model_grid_generator/), 
-There are two tools which can be used to generate the MOM supergrid. Grids can be created using the python 
+There are two tools which can be used to generate the MOM supergrid. Grids can be created using the python
 [Ocean Model Grid Generator](https://github.com/ACCESS-NRI/ocean_model_grid_generator/), or [`make_hgrid`](https://github.com/NOAA-GFDL/FRE-NCtools/blob/main/src/make-hgrid/make_hgrid.c).
 
 The 25km grid was once generated using the python based ocean model grid generator using these arguments:
@@ -41,8 +41,12 @@ This creates a MOM supergrid with `nx = 720` and `ny = 648`, corresponding to a 
 
 !!! info
     A precomplied version of `make_hgrid` is available in `model-tools/fre-nctools` module. To load this module:
-    
-    
+
+```bash
+module use /g/data/vk83/modules
+module load model-tools/fre-nctools/2024.05-1
+```
+
 However refer to the metadata of the latest `ocean_hgrid.nc` to find the latest setup.
 
 Secondly, an _ESMF Mesh_ file is [derived](https://github.com/COSIMA/om3-scripts/blob/main/mesh_generation/generate_mesh.py) from the MOM supergrid. 
