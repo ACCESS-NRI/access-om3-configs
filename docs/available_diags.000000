@@ -4603,7 +4603,7 @@
     ! units: kg s-1
     ! standard_name: water_flux_into_sea_water_area_integrated
     ! variants: {total_PRCmE,total_wfo}
-"total_evap"  [Used]
+"total_evap"  [Unused]
     ! modules: ocean_model
     ! dimensions: scalar
     ! long_name: Area integrated evap/condense at ocean surface
