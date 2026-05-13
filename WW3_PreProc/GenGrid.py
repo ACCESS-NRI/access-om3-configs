@@ -26,15 +26,14 @@ Lon = grid_handle.variables['x'][:, :]
 Lat = grid_handle.variables['y'][:, :]
 H_DPT = topog_handle.variables['depth'][:, :]
 
-# Convert the data to a NumPy array
-H_DPT = np.array(H_DPT)
-
-# Replace masked values with zeros
-H_DPT[H_DPT == -9999.0] = 0.0
+# Convert the topography to a regular array and build the WW3 wet mask.
+# topog.nc uses a large negative fill value on land; WW3 needs those points
+# masked out and their depth set to zero.
+H_DPT = np.ma.filled(H_DPT, np.nan)
+H_MSK6 = np.where(np.isfinite(H_DPT) & (H_DPT > 0.0), 1, 0)
+H_DPT = np.where(H_MSK6 == 1, -np.abs(H_DPT), 0.0)
 
 print(np.shape(H_DPT))
-
-H_MSK6 = np.ones(np.shape(H_DPT))
 
 H_LAT = np.zeros(np.shape(H_DPT))
 H_LON = np.zeros(np.shape(H_DPT))
@@ -52,7 +51,7 @@ with open(GRIDNAME + '.Mask', 'w') as f6, open(GRIDNAME + '.Dpt', 'w') as f7, op
     for ii in np.arange(0, LLAT):
         for jj in np.arange(0, LLON):
             f6.write(str(int(H_MSK6[ii,jj]))+' ')
-            f7.write(str(-abs(H_DPT[ii,jj]))+' ')
+            f7.write(str(H_DPT[ii,jj])+' ')
             f9.write(str(0)+' ')
             f10.write(format(H_LAT[ii, jj], '.7e') + '   ')
             f11.write(format(H_LON[ii, jj], '.7e') + '   ')
