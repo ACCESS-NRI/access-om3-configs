@@ -20,7 +20,7 @@ modules:
         - /g/data/vk83/modules
         - /g/data/vk83/prerelease/modules
     load:
-        - access-om3/pr142-36
+        - access-om3/pr189-13
         - model-tools/mppnccombine-fast/2025.07.000
 
 queue: normalsr
@@ -54,13 +54,13 @@ input:
     - /g/data/vk83/prerelease/configurations/inputs/access-om3/panan-isf.4km/2026.01.08/ice_shelf_thick.nc
     - /g/data/vk83/prerelease/configurations/inputs/access-om3/panan-isf.4km/2026.01.08/mask_table.1490.84x49
 
-runlog: true
+runlog: false
 metadata: 
-    enable: true
+    enable: false
 manifest:
   reproduce:
-    exe: True
-    input: True
+    exe: False
+    input: False
 
 platform:
     nodesize: 104

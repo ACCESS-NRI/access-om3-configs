@@ -2,7 +2,7 @@ format: yamanifest
 version: 1.0
 ---
 work/access-om3-MOM6-CICE6:
-  fullpath: /g/data/vk83/prerelease/apps/spack/0.22/release/linux-rocky8-x86_64_v4/oneapi-2025.2.0/access3-2025.08.000-vvi3x2ud3qpmwkhecu4okiax5goguqho/bin/access-om3-MOM6-CICE6
+  fullpath: /g/data/vk83/prerelease/apps/spack/1.1/release/linux-x86_64_v4/access3-git.d63adae27696f2caae36625a80dcd436e03475cd_2026.03.000-4emfczspkr4nupc5s4jqlkq6lnmznywf/bin/access-om3-MOM6-CICE6
   hashes:
-    binhash: ffd7d05f91f51efa0506e471bfb28c06
-    md5: a0dba1d7df3aaeced3d2619333c8b2b6
+    binhash: 6967a2a06d1f99a8861a1a1ffb14291e
+    md5: 854ab704aaec68db4ea9d06fef4832eb
