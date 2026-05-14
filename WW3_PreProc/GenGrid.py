@@ -29,6 +29,7 @@ H_DPT = topog_handle.variables['depth'][:, :]
 # Convert the topography to a regular array and build the WW3 wet mask.
 # topog.nc uses a large negative fill value on land; WW3 needs those points
 # masked out and their depth set to zero.
+# WW3 wet-mask read: https://github.com/ACCESS-NRI/WW3/blob/1845b8c17321e8625829f8edad763f44722cfeac/model/src/w3gridmd.F90#L4696-L4723
 H_DPT = np.ma.filled(H_DPT, np.nan)
 H_MSK6 = np.where(np.isfinite(H_DPT) & (H_DPT > 0.0), 1, 0)
 H_DPT = np.where(H_MSK6 == 1, -np.abs(H_DPT), 0.0)
