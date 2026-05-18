@@ -47,7 +47,6 @@ where `{MODEL_COMPONENTS}` is an acronym specifying the active model components 
 - `M`: MOM6
 - `C`: CICE6
 - `W`: WW3
-- `r` : a regional configuration
   
 and the nominal resolution is given in kilometers, corresponding to the nominal resolution in degrees as follows:
 
