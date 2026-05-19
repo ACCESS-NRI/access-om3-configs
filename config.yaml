@@ -9,8 +9,8 @@
 # Using payu sync is recommend to copy data from ephemeral scratch space to 
 # longer term storage
 sync:
-    enable: False # set path below and change to true
-    path: null # Set to location on /g/data (e.g. /g/data/PROJECT/USER/EXPERIMENT)
+    enable: False   # set path below and change to true
+    base_path: null # Set to location on /g/data (e.g. /g/data/PROJECT/USER/)
     restarts: True
     exclude_uncollated: False
 
@@ -58,9 +58,9 @@ manifest:
     exe: True
     input: True
 
-platform:
-    nodesize: 104
-    nodemem: 512
+mpi:
+  flags:
+  - --mca pml ucx --mca coll ^ucc -x UCX_RNDV_THRESH=inf --mca mpi_yield_when_idle true
 
 collate:
   restart: true
@@ -71,10 +71,6 @@ collate:
   queue: normalsr
   exe: mppnccombine-fast
 
-mpi:
-  flags:
-  - --mca pml ucx --mca coll ^ucc -x UCX_RNDV_THRESH=inf --mca mpi_yield_when_idle true
-
 userscripts:
     archive: /usr/bin/bash /g/data/vk83/apps/om3-scripts/payu_config/archive.sh
 
@@ -83,4 +79,4 @@ postscript: -v PROJECT,SCRIPTS_DIR=/g/data/vk83/apps/om3-scripts -lstorage=${PBS
 qsub_flags: -W umask=027
 
 restart_freq: 1YS
-payu_minimum_version: 1.2.0
+payu_minimum_version: 1.3.0
