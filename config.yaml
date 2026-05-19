@@ -9,8 +9,8 @@
 # Using payu sync is recommend to copy data from ephemeral scratch space to 
 # longer term storage
 sync:
-    enable: False # set path below and change to true
-    path: null # Set to location on /g/data (e.g. /g/data/PROJECT/USER/EXPERIMENT)
+    enable: False   # set path below and change to true
+    base_path: null # Set to location on /g/data (e.g. /g/data/PROJECT/USER/)
     restarts: True
     exclude_uncollated: False
 
