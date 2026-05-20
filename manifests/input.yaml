@@ -3367,10 +3367,10 @@ work/INPUT/JRA55do-drof-ESMFmesh.nc:
     binhash: 9f3ee3ce42e776fcbee8026e0c3880f5
     md5: bf62c4e7786ddfbe56d61b3074d5d16d
 work/INPUT/SFe_Hamiltonetal2020_monthly_clim.nc:
-  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/wombat/forcing/global.100km/2025.10.27/SFe_Hamiltonetal2020_monthly_clim.nc
+  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/wombat/forcing/global.100km/2026.05.20/SFe_Hamiltonetal2020_monthly_clim.nc
   hashes:
-    binhash: 3bae5fe5bf090ddc0b00d08c25e3b1fa
-    md5: 9dfd43ee5150776fbcea2e97564a2e7c
+    binhash: 7b0ec17de13277a8bbd16df4b1818f43
+    md5: 63526c3cfeba77aa75bdc32784662782
 work/INPUT/access-om3-100km-ESMFmesh.nc:
   fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/share/meshes/global.100km/2026.04.07/access-om3-100km-ESMFmesh.nc
   hashes:
@@ -4076,6 +4076,11 @@ work/INPUT/fx/sftof/gr/v20240531/sftof_input4MIPs_atmosphericState_OMIP_MRI-JRA5
   hashes:
     binhash: 7f98fc486410cff8df3232d390e5a05b
     md5: f5034ec4d5228d648be6375b13ed2c98
+work/INPUT/grid_spec.nc:
+  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/grids/mosaic/share/2024.05.08/grid_spec.nc
+  hashes:
+    binhash: 2fb8d504904e652a37185852f17dbcd4
+    md5: 709268cd891e6f0e827f6de0249f1a3d
 work/INPUT/kmt.nc:
   fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/cice/grids/global.100km/2026.04.07/kmt.nc
   hashes:
@@ -4086,6 +4091,11 @@ work/INPUT/ocean_hgrid.nc:
   hashes:
     binhash: ebb07894ceadcd2845849d08b26ad0fb
     md5: 7b9d7947d9e4033143424440f59bdaa0
+work/INPUT/ocean_mosaic.nc:
+  fullpath: /g/data/vk83/configurations/inputs/access-om3/mom/grids/mosaic/global.100km/2020.05.30/ocean_mosaic.nc
+  hashes:
+    binhash: 2eff36650abbdb1e867d8300bf2710cf
+    md5: cb42e630ee31d3686156fcbdc2f9d07c
 work/INPUT/ocean_vgrid.nc:
   fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/grids/vertical/share/2025.03.12/ocean_vgrid.nc
   hashes:
