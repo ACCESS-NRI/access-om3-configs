@@ -22,9 +22,9 @@ modules:
         - access-om3/pr109-33
 
 queue: normalsr
-ncpus: 208
+ncpus: 104
 jobfs: 10GB
-mem: 1020GB
+mem: 512GB
 
 walltime: 02:00:00
 jobname: standalone_ww3
@@ -57,10 +57,6 @@ input:
     - /g/data/rt52/era5/single-levels/reanalysis/strd
     - /g/data/rt52/era5/single-levels/reanalysis/ssrd
     - /g/data/rt52/era5/single-levels/reanalysis/ssr
-    - /g/data/rt52/era5/single-levels/reanalysis/aluvp
-    - /g/data/rt52/era5/single-levels/reanalysis/aluvd
-    - /g/data/rt52/era5/single-levels/reanalysis/alnip
-    - /g/data/rt52/era5/single-levels/reanalysis/alnid
     - /g/data/rt52/era5/single-levels/reanalysis/sshf
     - /g/data/rt52/era5/single-levels/reanalysis/slhf
     - /g/data/rt52/era5/single-levels/reanalysis/msl

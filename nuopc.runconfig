@@ -52,10 +52,10 @@ PELAYOUT_attributes::
      ice_nthreads = 1
      ice_pestride = 1
      ice_rootpe = 0
-     wav_ntasks = 192
+     wav_ntasks = 104
      wav_nthreads = 1
      wav_pestride = 1
-     wav_rootpe = 16
+     wav_rootpe = 0
 ::
 
 component_list: MED ATM ICE ROF WAV
