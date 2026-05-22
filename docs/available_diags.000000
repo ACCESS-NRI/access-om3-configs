@@ -5113,7 +5113,7 @@
     ! dimensions: scalar
     ! long_name: Adjustment needed to adjust net vprec into ocean to zero
     ! units: kg m-2 s-1
-"net_fresh_water_global_adjustment"  [Used]
+"net_fresh_water_global_adjustment"  [Unused]
     ! modules: ocean_model
     ! dimensions: scalar
     ! long_name: Adjustment needed to adjust net fresh water into ocean to zero

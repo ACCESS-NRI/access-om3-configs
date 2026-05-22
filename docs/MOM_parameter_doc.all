@@ -2600,7 +2600,7 @@ ADJUST_NET_SRESTORE_TO_ZERO = True !   [Boolean] default = True
 ADJUST_NET_SRESTORE_BY_SCALING = True !   [Boolean] default = False
                                 ! If true, adjustments to salt restoring to achieve zero net are made by scaling
                                 ! values without moving the zero contour.
-ADJUST_NET_FRESH_WATER_TO_ZERO = True !   [Boolean] default = False
+ADJUST_NET_FRESH_WATER_TO_ZERO = False !   [Boolean] default = False
                                 ! If true, adjusts the net fresh-water forcing seen by the ocean (including
                                 ! restoring) to zero.
 ADJUST_NET_FRESH_WATER_BY_SCALING = False !   [Boolean] default = False
