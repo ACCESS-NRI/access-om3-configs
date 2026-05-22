@@ -81,11 +81,11 @@ work/INPUT/access-om3-4km-nomask-ESMFmesh.nc:
   hashes:
     binhash: 4f57374035be647adaaecf07db11ac0f
     md5: 2560c48184a71faf55bbf7370e96f2e5
-work/INPUT/access-om3-4km-rof-remap-weights.nc:
-  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/panan-isf.4km/2026.01.08/access-om3-4km-rof-remap-weights.nc
+work/INPUT/access-om3-panan4km+isf-rofi-climatology.nc:
+  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/cmeps/rofi_pattern/panan-isf.4km/2026.07.03/access-om3-panan4km+isf-rofi-climatology.nc
   hashes:
-    binhash: 0b87e16c64b846abcda73a04841c0b80
-    md5: 38c29881d380d2911fb31bbc1f987391
+    binhash: 126508e23c4b8ec7ba3ae9c2bebf261f
+    md5: 77dc6885f2b24d99b8924ad84702a9e1
 work/INPUT/bottom_roughness.nc:
   fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/panan-isf.4km/2026.06.17/bottom_roughness.nc
   hashes:
