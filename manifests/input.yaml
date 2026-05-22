@@ -1,14 +1,11 @@
 format: yamanifest
 version: 1.0
 ---
-<<<<<<< HEAD
 work/INPUT/CO2_gm_1750-2024.nc:
   fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/wombat/forcing/global.100km/2026.05.20/CO2_gm_1750-2024.nc
   hashes:
     binhash: 05f6b7d935e468c463740199034fdd9e
     md5: aa813b8fc7dd01fa68ba207c4de94b59
-=======
->>>>>>> 166b1ac (Update WOMBATlite initial conditions)
 work/INPUT/JRA55do-datm-ESMFmesh.nc:
   fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/share/meshes/share/2026.01.21/JRA55do-datm-ESMFmesh.nc
   hashes:
