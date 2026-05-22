@@ -46,13 +46,14 @@ input:
     - /g/data/vk83/prerelease/configurations/inputs/access-om3/share/meshes/share/2026.01.21/JRA55do-datm-ESMFmesh.nc
     - /g/data/vk83/prerelease/configurations/inputs/access-om3/share/meshes/share/2026.01.21/JRA55do-drof-ESMFmesh.nc
     - /g/data/vk83/prerelease/configurations/inputs/access-om3/cmeps/remap_weights/panan.4km/2026.06.26/access-om3-panan4km-rof-remap-weights.nc
+    - /g/data/vk83/prerelease/configurations/inputs/access-om3/cmeps/rofi_pattern/panan.4km/2026.06.26/access-om3-panan4km-rofi-climatology.nc
     - /g/data/vk83/prerelease/configurations/inputs/JRA-55/RYF/v1-6/2026.04.15
     - /g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.01.08/OBC37S_forcing_access_yr2_4km.nc
     - /g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.01.08/diag_rho2.nc
 
 runlog: true
 metadata: 
-    enable: false
+    enable: true
 manifest:
   reproduce:
     exe: True

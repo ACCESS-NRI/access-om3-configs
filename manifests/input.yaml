@@ -86,6 +86,11 @@ work/INPUT/access-om3-panan4km-rof-remap-weights.nc:
   hashes:
     binhash: 309e9bbf1256a14633d1388e08d5b425
     md5: 7cdf32f1b4af8745be6f3b4082d5754d
+work/INPUT/access-om3-panan4km-rofi-climatology.nc:
+  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/cmeps/rofi_pattern/panan.4km/2026.06.26/access-om3-panan4km-rofi-climatology.nc
+  hashes:
+    binhash: a3139c2e816768d59480fe77016d1c74
+    md5: 829e373426a0361eaf2596c15486658a
 work/INPUT/bottom_roughness.nc:
   fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.02.27/bottom_roughness.nc
   hashes:

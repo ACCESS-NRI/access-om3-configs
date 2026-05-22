@@ -250,7 +250,8 @@ MED_attributes::
      rof2lnd_map = unset
      rof2ocn_fmapname = unset
      rof2ocn_ice_rmapname = ./INPUT/access-om3-panan4km-rof-remap-weights.nc
-     rof2ocn_liq_rmapname = ./INPUT/access-om3-panan4km-rof-remap-weights.nc
+     rof2ocn_liq_rmapname = unset
+     rof2ocn_ice_spread = ./INPUT/access-om3-panan4km-rofi-climatology.nc
      rof_nx = 4320
      rof_ny = 1442
      wav2ocn_smapname = unset
