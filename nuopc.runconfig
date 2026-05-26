@@ -312,7 +312,7 @@ ROF_attributes::
 
 WAV_attributes::
      Verbosity = off
-     mesh_wav = ./INPUT/access-om2-100km-nomask-ESMFmesh.nc
+     mesh_wav = ./INPUT/access-om3-100km-nomask-ESMFmesh.nc
 ::
 MED_modelio::
      diro = ./log
