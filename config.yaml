@@ -22,9 +22,9 @@ modules:
         - access-om3/pr109-33
 
 queue: normalsr
-ncpus: 416
+ncpus: 208
 jobfs: 10GB
-mem: 2000GB
+mem: 1000GB
 
 walltime: 48:00:00
 jobname: 100km_ERA5_iaf
