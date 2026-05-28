@@ -17,7 +17,7 @@ FATAL_UNUSED_PARAMS = True      !   [Boolean] default = False
 ! This section contains non default layout parameters which are set.
 ! ------------------------
 ! === module MOM_domains ===
-MASKTABLE = "./auxilary_input/mask_table.1027.72x48" ! default = "MOM_mask_table"
+MASKTABLE = "./auxiliary_input/mask_table.1027.72x48" ! default = "MOM_mask_table"
                                 ! A text file to specify n_mask, layout and mask_list. This feature masks out
                                 ! processors that contain only land points. The first line of mask_table is the
                                 ! number of regions to be masked out. The second line is the layout of the model
@@ -182,7 +182,7 @@ CHANNEL_CONFIG = "list"         ! default = "none"
                                 !       test case.
                                 !     file - Read open face widths everywhere from a
                                 !       NetCDF file on the model grid.
-CHANNEL_LIST_FILE = "./auxilary_input/MOM_channel_list" ! default = "MOM_channel_list"
+CHANNEL_LIST_FILE = "./auxiliary_input/MOM_channel_list" ! default = "MOM_channel_list"
                                 ! The file from which the list of narrowed channels is read.
 FATAL_UNUSED_CHANNEL_WIDTHS = True !   [Boolean] default = False
                                 ! If true, trigger a fatal error if there are any channel widths in
