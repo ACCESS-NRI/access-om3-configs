@@ -138,7 +138,7 @@ CHANNEL_CONFIG = "list"         ! default = "none"
                                 !       test case.
                                 !     file - Read open face widths everywhere from a
                                 !       NetCDF file on the model grid.
-CHANNEL_LIST_FILE = "./auxilary_input/MOM_channel_list" ! default = "MOM_channel_list"
+CHANNEL_LIST_FILE = "./auxiliary_input/MOM_channel_list" ! default = "MOM_channel_list"
                                 ! The file from which the list of narrowed channels is read.
 FATAL_UNUSED_CHANNEL_WIDTHS = True !   [Boolean] default = False
                                 ! If true, trigger a fatal error if there are any channel widths in
