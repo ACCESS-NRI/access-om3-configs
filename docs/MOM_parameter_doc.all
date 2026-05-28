@@ -317,7 +317,7 @@ CHANNEL_CONFIG = "list"         ! default = "none"
                                 !       test case.
                                 !     file - Read open face widths everywhere from a
                                 !       NetCDF file on the model grid.
-CHANNEL_LIST_FILE = "./auxilary_input/MOM_channel_list" ! default = "MOM_channel_list"
+CHANNEL_LIST_FILE = "./auxiliary_input/MOM_channel_list" ! default = "MOM_channel_list"
                                 ! The file from which the list of narrowed channels is read.
 CHANNEL_LIST_360_LON_CHECK = True !   [Boolean] default = True
                                 ! If true, the channel configuration list works for any longitudes in the range
