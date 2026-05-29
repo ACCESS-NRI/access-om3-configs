@@ -28,7 +28,7 @@ There are two tools which can be used to generate the MOM supergrid. Grids can b
 The 25km grid was once generated using the python based ocean model grid generator using these arguments:
 
 ```python
-ocean_grid_generator.py -r 4 --no_south_cap --ensure_nj_even --bipolar_lower_lat 65 --mercator_lower_lat -75 --mercator_upper_lat 65 --match_dy so --shift_equator_to_u_point --south_ocean_lower_lat -81
+ocean_grid_generator.py -r 4 --no_south_cap --ensure_nj_even --mercator_lower_lat -75 --mercator_upper_lat 65 --match_dy so --shift_equator_to_u_point --south_ocean_lower_lat -81 --target_ny 1152
 ```
 
 
