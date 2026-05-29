@@ -71,6 +71,53 @@ The atmosphere-ocean stress components `Faox_taux` and `Faox_tauy` are [calculat
 We calculate `Faox_taux` and `Faox_tauy` using [`ocn_surface_flux_scheme = 0`](https://github.com/search?q=repo%3AACCESS-NRI%2Faccess-om3-configs+path%3Adoc%2Fnuopc.runconfig+ocn_surface_flux_scheme&type=code) in `nuopc.runconfig`, which is the [default CESM1.2 scheme](https://github.com/ESCOMP/CMEPS/blob/bc29792d76c16911046dbbfcfc7f4c3ae89a6f00/cesm/flux_atmocn/shr_flux_mod.F90#L335-L506).
 This [iterates towards convergence of `ustar`](https://github.com/ESCOMP/CMEPS/blob/bc29792d76c16911046dbbfcfc7f4c3ae89a6f00/cesm/flux_atmocn/shr_flux_mod.F90#L393) to a relative error of less than [`flux_convergence = 0.01`](https://github.com/search?q=repo%3AACCESS-NRI%2Faccess-om3-configs+path%3Adoc%2Fnuopc.runconfig+flux_convergence&type=code), if this can be achieved in [`flux_max_iteration = 5`](https://github.com/search?q=repo%3AACCESS-NRI%2Faccess-om3-configs+path%3Adoc%2Fnuopc.runconfig+flux_max_iteration&type=code) iterations or fewer. The atmosphere-ocean stress is [calculated using the relative wind](https://github.com/ESCOMP/CMEPS/blob/bc29792d76c16911046dbbfcfc7f4c3ae89a6f00/cesm/flux_atmocn/shr_flux_mod.F90#L434-L438), i.e. the difference between the surface wind and surface current velocity.
 
+## Ocean surface fluxes
+
+### Salt fluxes
+
+The net salt flux across the ocean's surface is given by the `salt_flux` diagnostic. Salt fluxes are associtated to two different processes:
+
+1. Salt fluxes from sea ice, captured by the `salt_flux_in` diagnostic.
+2. Salt fluxes from restoring, captured by `salt_flux_added`. Note that restoring can be applied as either salt or freshwater fluxes, which is determined in the `MOM_input` file.
+
+### Freshwater fluxes
+
+The net freshwater flux across the ocean's surface is given by either the `wfo` or `PRCmE` diagnostics. Freshwater fluxes are associated to six different processes:
+
+1. Precipitation, captured by the `precip` diagnostic. Total precipitation is the sum of: 
+   - Liquid precipitation, captured by `lprec`
+   - Frozen precipitation, captured by `fprec`
+2. Evaporation, captured by `evap`
+3. Liquid runoff, captured by `lrunoff` or `friver`
+4. Frozen runoff, captured by `frunoff` or `ficeberg`
+5. Sea ice melt/formation, captured by `seaice_melt`
+6. Virtual precipitation from salinity restoring, captured by `vprec`
+
+There are also two other summarising diagnostics, `net_massin` and `net_massout` which contain the net mass of freshwater into and out of the ocean respectively. Note that these are made up of a combination of the individual fluxes described above, but that `seaice_melt` contributes to both depending on whether ice is formed or melted.
+   
+### Heat fluxes
+
+The net heat flux across the ocean's surface is given by either `hfds` or `net_heat_surface`. Heat fluxes are associated to eight different processes:
+
+1. Shortwave radiation, captured by `SW`
+2. Longwave radiation, captured by `LW`
+3. Latent heat, captured by `latent`. Latent heat can be further partitioned into:
+   - `latent_evap`, latent heat from evaporation
+   - `latent_fprec_diag`, latent heat from frozen precipitation
+   - `latent_frunoff`, latent heat from frozen runoff
+   - `latent_frunoff_glc`, latent heat from frozen runoff from glaciers   
+4. Sensible heat, captured by `sensible`
+5. Heat from melt/freezing of sea ice, captured by `seaice_melt_heat`
+6. Heat from frazil formation, captured by `frazil`
+7. Heat from mass transfer, frozen or liquid, given by `heat_content_surfwater`, which can be further partitioned into:  
+   - `heat_content_evap`, from evaporation
+   - `heat_content_cond`, from condensation
+   - `hfrainds`, from liquid and frozen precipitation, further split into (i) `heat_content_lprec` and (ii) `heat_content_fprec`
+   - `hfrunuoffds` from liquid and frozen runoff, further split into (i) `heat_content_lrunoff` and (ii) `heat_content_frunoff`   
+8. Heat from flux adjustments, captured by `heat_added`.
+
+Note that the diagnostic `net_heat_coupler` includes processes 1. to 5., but _not_ 6., 7. or 8.
+
 ## References
 
 K.D. Stewart, W.M. Kim, S. Urakawa, A.McC. Hogg, S. Yeager, H. Tsujino, H. Nakano, A.E. Kiss, G. Danabasoglu,
