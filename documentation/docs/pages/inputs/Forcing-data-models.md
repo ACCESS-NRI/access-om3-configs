@@ -87,7 +87,7 @@ The net freshwater flux across the ocean's surface is given by the `wfo` diagnos
 1. Precipitation, captured by the `precip` diagnostic. Total precipitation is the sum of: 
    - Liquid precipitation, captured by `lprec`
    - Frozen precipitation, captured by `fprec`
-2. Evaporation, captured by `evap`
+2. Evaporation, captured by `evap`. (This also includes sublimation, condensation and deposition).
 3. Liquid runoff, captured by `lrunoff` or `friver`
 4. Frozen runoff, captured by `frunoff` or `ficeberg`
 5. Sea ice melt/formation, captured by `seaice_melt`
