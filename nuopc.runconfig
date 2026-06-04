@@ -249,8 +249,9 @@ MED_attributes::
      ocn_surface_flux_scheme = 0
      rof2lnd_map = unset
      rof2ocn_fmapname = unset
-     rof2ocn_ice_rmapname = ./INPUT/access-om3-25km-rof-remap-weights.nc
+     rof2ocn_ice_rmapname = unset
      rof2ocn_liq_rmapname = ./INPUT/access-om3-25km-rof-remap-weights.nc
+     rof2ocn_ice_spread = ./INPUT/access-om3-25km-rofi-climatology.nc
      rof_nx = 1440
      rof_ny = 1152
      wav2ocn_smapname = unset

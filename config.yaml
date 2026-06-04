@@ -19,7 +19,7 @@ modules:
     use:
         - /g/data/vk83/modules
     load:
-        - access-om3/2026.03.000
+        - access-om3/2026.05.001
         - model-tools/mppnccombine-fast/2025.07.000
 
 queue: normalsr
@@ -46,6 +46,7 @@ input:
     - /g/data/vk83/prerelease/configurations/inputs/access-om3/share/meshes/share/2026.01.21/JRA55do-datm-ESMFmesh.nc
     - /g/data/vk83/prerelease/configurations/inputs/access-om3/share/meshes/share/2026.01.21/JRA55do-drof-ESMFmesh.nc
     - /g/data/vk83/prerelease/configurations/inputs/access-om3/cmeps/remap_weights/global.25km/2026.03.17/access-om3-25km-rof-remap-weights.nc
+    - /g/data/vk83/prerelease/configurations/inputs/access-om3/cmeps/rofi_pattern/global.25km/2026.05.22/access-om3-25km-rofi-climatology.nc
     - /g/data/qv56/replicas/input4MIPs/CMIP6Plus/OMIP/MRI/MRI-JRA55-do-1-6-0/land/
     - /g/data/qv56/replicas/input4MIPs/CMIP6Plus/OMIP/MRI/MRI-JRA55-do-1-6-0/landIce/
     - /g/data/qv56/replicas/input4MIPs/CMIP6Plus/OMIP/MRI/MRI-JRA55-do-1-6-0/atmos/

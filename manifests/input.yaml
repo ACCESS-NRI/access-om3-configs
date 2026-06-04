@@ -3376,6 +3376,11 @@ work/INPUT/access-om3-25km-rof-remap-weights.nc:
   hashes:
     binhash: 5d50138723dc4e7027d6dccff99010fe
     md5: 0ba2c5582c2e5daff1842995718e3432
+work/INPUT/access-om3-25km-rofi-climatology.nc:
+  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/cmeps/rofi_pattern/global.25km/2026.05.22/access-om3-25km-rofi-climatology.nc
+  hashes:
+    binhash: 6c87b069b39ee6466c6152ca437ae094
+    md5: 24ce1a25aa4ac8e185e4bcc2416ed0fb
 work/INPUT/bottom_roughness.nc:
   fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/tidal_external_files/global.25km/2026.02.26/bottom_roughness.nc
   hashes:
