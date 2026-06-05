@@ -351,8 +351,8 @@ diag_table:
             det:
             detfe:
             dic:
-            dicr:
-            dicp:
+            #dicr:
+            #dicp:
             fe:
             no3:
             o2:
@@ -413,6 +413,8 @@ diag_table:
             #zooegesdet:
             #zoomorl:
             #zoomorq:
+            #zooprefphy:
+            #zooprefdet:
             #reminr:
             detremi:
             #dissratcal:
@@ -424,6 +426,11 @@ diag_table:
             #pocdiss:
             det_vmove:
             caco3_vmove:
+            #tri_mumax:
+            #tri_lpar:
+            #tri_lfer:
+            #nitrfix:
+            #ligK:
 
     'monthly 2d diagnostic BGC fields':
         defaults:  # these can be overridden for individual fields below
@@ -438,7 +445,9 @@ diag_table:
             #detfe_sed_depst:
             #caco3_sed_remin:
             #caco3_sed_depst:
+            #det_sed_denit:
             #fbury:
+            #fdenit:
             o2_stf:
             #no3_stf:
             #fe_stf:
@@ -470,6 +479,7 @@ diag_table:
             #sedhtotal:
             #sedco3:
             #sedomega_cal:
+            #sedo2:
 
     'daily 2d diagnostic BGC fields':
         defaults:  # these can be overridden for individual fields below
