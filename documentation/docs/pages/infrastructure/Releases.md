@@ -34,7 +34,7 @@ When undertaking releases, the following actions are needed to implement the ite
 - After the release, navigate to the page for the new DOI and upload the tarball from the github release and fill in any details before publishing the DOI.
 
 - Create a tag on the main branch to represent the current state of the config documentation. Tags should used the prefix `docs-` and follow CALVER. For example, if a config is released in August 2025, create a tag from the main branch with the name `docs-2025.08.000` [^3].
-[^3]:To correct documentation related to a prior release, use patch versions, i.e. `docs-2025.08.000.1`)
+[^3]:To correct documentation related to a prior release, use patch versions, e.g. `docs-2025.08.000.1`
 
 ## Control Experiments
 
