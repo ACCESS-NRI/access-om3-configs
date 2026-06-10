@@ -78,7 +78,7 @@ This [iterates towards convergence of `ustar`](https://github.com/ESCOMP/CMEPS/b
 The net salt flux across the ocean's surface is given by the `salt_flux` diagnostic. Salt fluxes are associated with two different processes:
 
 1. Salt fluxes from sea ice, captured by the `salt_flux_in` diagnostic.
-2. Salt fluxes from restoring, captured by `salt_flux_added`. Note that restoring can be applied as either salt or freshwater fluxes, which is determined in the `MOM_input` file.
+2. Salt fluxes from sea surface salinity restoring, captured by `salt_flux_added` (note that SSS restoring is applied as a salt (rather than freshwater) flux in ACCESS-OM3, because we set `SRESTORE_AS_SFLUX = True` in the `MOM_input` file).
 
 ### Freshwater fluxes
 
