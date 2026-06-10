@@ -82,7 +82,7 @@ The net salt flux across the ocean's surface is given by the `salt_flux` diagnos
 
 ### Freshwater fluxes
 
-The net freshwater flux across the ocean's surface is given by the `wfo` diagnostics (sometimes the native MOM name `PRCmE` is used). Freshwater fluxes are associated to six different processes:
+The net freshwater flux across the ocean's surface is given by the `wfo` diagnostic (sometimes the native MOM name `PRCmE` is used). Freshwater fluxes are associated with six different processes:
 
 1. Precipitation, captured by the `precip` diagnostic. Total precipitation is the sum of: 
    - Liquid precipitation, captured by `lprec`
