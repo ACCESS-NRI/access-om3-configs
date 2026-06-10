@@ -29,22 +29,13 @@
     },
     "reproducibility": {
         "default": {
-            "markers": "repro and (not slow)"
-        },
-        "dev-MC_100km_jra_ryf": {
-            "markers": "repro"
-        },
-        "dev-MC_100km_jra_ryf+wombatlite": {
             "markers": "repro"
         },
         "dev-MCW_100km_jra_ryf": {
-            "markers": "repro"
+            "markers": "repro and (not repro_restart)"
         },
-        "release-MC_100km_jra_ryf": {
-            "markers": "repro"
-        },
-        "release-MCW_100km_jra_ryf": {
-            "markers": "repro"
+        "dev-MCW_100km_jra_iaf": {
+            "markers": "repro and (not repro_restart)"
         },
         "release-.*": {
             "model-config-tests-version": "0.2.2",
