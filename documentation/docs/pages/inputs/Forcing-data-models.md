@@ -101,11 +101,7 @@ The net heat flux across the ocean's surface is given by either `hfds` or `net_h
 
 1. Shortwave radiation, captured by `SW`
 2. Longwave radiation, captured by `LW`
-3. Latent heat, captured by `latent`. Latent heat can be further partitioned into:
-   - `latent_evap`, latent heat from evaporation
-   - `latent_fprec_diag`, latent heat from frozen precipitation
-   - `latent_frunoff`, latent heat from frozen runoff
-   - `latent_frunoff_glc`, latent heat from frozen runoff from glaciers   
+3. Latent heat, captured by `latent`. This is the sum of latent heat from evaporation `latent_evap`, latent heat from frozen precipitation `latent_fprec_diag`, latent heat from frozen runoff `latent_frunoff` and latent heat from frozen runoff from glaciers `latent_frunoff_glc` (which is zero in ACCESS-OM3, since we don't couple to an active ice sheet model).    
 4. Sensible heat, captured by `sensible`
 5. Heat from melt/freezing of sea ice, captured by `seaice_melt_heat`
 6. Heat from frazil formation, captured by `frazil`
