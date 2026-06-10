@@ -90,7 +90,7 @@ The net freshwater flux across the ocean's surface is given by the `wfo` diagnos
 2. Evaporation, captured by `evap`. (This also includes sublimation, condensation and deposition).
 3. Liquid runoff, captured by `lrunoff` or `friver`
 4. Frozen runoff, captured by `frunoff` or `ficeberg`
-5. Sea ice melt/formation, captured by `seaice_melt`
+5. Sea ice melt/formation, captured by `seaice_melt` (same as the CICE diagnostic `fresh`)
 6. Virtual precipitation from salinity restoring, captured by `vprec`
 
 There are also two other summarising diagnostics, `net_massin` and `net_massout` which contain the net mass of freshwater into and out of the ocean respectively. Note that these are made up of a combination of the individual fluxes described above, but that `seaice_melt` contributes to both depending on whether ice is formed or melted.
