@@ -75,7 +75,7 @@ This [iterates towards convergence of `ustar`](https://github.com/ESCOMP/CMEPS/b
 
 ### Salt fluxes
 
-The net salt flux across the ocean's surface is given by the `salt_flux` diagnostic. Salt fluxes are associtated to two different processes:
+The net salt flux across the ocean's surface is given by the `salt_flux` diagnostic. Salt fluxes are associated with two different processes:
 
 1. Salt fluxes from sea ice, captured by the `salt_flux_in` diagnostic.
 2. Salt fluxes from restoring, captured by `salt_flux_added`. Note that restoring can be applied as either salt or freshwater fluxes, which is determined in the `MOM_input` file.
