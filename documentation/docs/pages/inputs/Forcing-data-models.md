@@ -84,9 +84,7 @@ The net salt flux across the ocean's surface is given by the `salt_flux` diagnos
 
 The net freshwater flux across the ocean's surface is given by the `wfo` diagnostic (sometimes the native MOM name `PRCmE` is used). Freshwater fluxes are associated with six different processes:
 
-1. Precipitation, captured by the `precip` diagnostic. Total precipitation is the sum of: 
-   - Liquid precipitation, captured by `lprec`
-   - Frozen precipitation, captured by `fprec`
+1. Total precipitation, captured by the `precip` diagnostic. This is the sum of liquid precipitation `lprec` and frozen precipitation `fprec`.
 2. Evaporation, captured by `evap`. (This also includes sublimation, condensation and deposition).
 3. Liquid runoff, captured by `lrunoff` or `friver`
 4. Frozen runoff, captured by `frunoff` or `ficeberg`
