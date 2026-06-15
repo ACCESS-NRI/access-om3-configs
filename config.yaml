@@ -51,7 +51,7 @@ input:
     - /g/data/vk83/prerelease/configurations/inputs/access-om3/cice/grids/global.100km/2026.04.07/kmt.nc
     - /g/data/vk83/prerelease/configurations/inputs/access-om3/wombat/forcing/global.100km/2026.05.20/SFe_Hamiltonetal2020_monthly_clim.nc
     - /g/data/vk83/configurations/inputs/access-om3/wombat/initial_conditions/share/2026.05.07/wombatlite_ic.nc
-    - /g/data/vk83/prerelease/configurations/inputs/JRA-55/RYF/v1-6/2026.04.15
+    - /g/data/vk83/configurations/inputs/JRA-55/RYF/v1-6/2026.04.15
 
 collate: false
 runlog: false
