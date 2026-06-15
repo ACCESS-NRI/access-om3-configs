@@ -2,14 +2,14 @@ format: yamanifest
 version: 1.0
 ---
 work/INPUT/JRA55do-datm-ESMFmesh.nc:
-  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/share/meshes/share/2026.01.21/JRA55do-datm-ESMFmesh.nc
+  fullpath: /g/data/vk83/configurations/inputs/access-om3/share/meshes/share/2026.01.21/JRA55do-datm-ESMFmesh.nc
   hashes:
-    binhash: c0e9a071f20670930d0e117f13399d78
+    binhash: a94de44546b145640eb49467b7b3da1f
     md5: 0ecb68f878b91b8adc90838e2c413914
 work/INPUT/JRA55do-drof-ESMFmesh.nc:
-  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/share/meshes/share/2026.01.21/JRA55do-drof-ESMFmesh.nc
+  fullpath: /g/data/vk83/configurations/inputs/access-om3/share/meshes/share/2026.01.21/JRA55do-drof-ESMFmesh.nc
   hashes:
-    binhash: 9f3ee3ce42e776fcbee8026e0c3880f5
+    binhash: 780e2ab02c4560e247c96bba2817ccc5
     md5: bf62c4e7786ddfbe56d61b3074d5d16d
 work/INPUT/RYF.friver.1990_1991.nc:
   fullpath: /g/data/vk83/prerelease/configurations/inputs/JRA-55/RYF/v1-6/2026.04.15/RYF.friver.1990_1991.nc
@@ -102,9 +102,9 @@ work/INPUT/chl_globcolour_monthly_clim.nc:
     binhash: 65988a701ab9e7ee4cebd9825f83ed39
     md5: 2dfb11e85b74519d0b14f9f2f067d13d
 work/INPUT/grid_spec.nc:
-  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/grids/mosaic/share/2024.05.08/grid_spec.nc
+  fullpath: /g/data/vk83/configurations/inputs/access-om3/mom/grids/mosaic/share/2024.05.08/grid_spec.nc
   hashes:
-    binhash: 2fb8d504904e652a37185852f17dbcd4
+    binhash: 6229f4160b5d9b9406b9585d110e7477
     md5: 709268cd891e6f0e827f6de0249f1a3d
 work/INPUT/kmt.nc:
   fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/cice/grids/global.100km/2026.04.07/kmt.nc
@@ -147,7 +147,7 @@ work/INPUT/woa23_ts_01_mom.nc:
     binhash: a522eb19cdf53482d0598915b752662f
     md5: 062218ef55cc32c5360c188d77a267dc
 work/INPUT/wombatlite_ic.nc:
-  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/wombat/initial_conditions/share/2026.05.07/wombatlite_ic.nc
+  fullpath: /g/data/vk83/configurations/inputs/access-om3/wombat/initial_conditions/share/2026.05.07/wombatlite_ic.nc
   hashes:
-    binhash: 2a044fce9d667825e2575edfbf639b27
+    binhash: 7d5328cd1de7472c6836f9e967e6e238
     md5: b06bb6902d518887a30fb6154989c7ea
