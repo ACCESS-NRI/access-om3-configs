@@ -108,7 +108,7 @@ The net heat flux across the ocean's surface is given by either `hfds` or `net_h
    - `heat_content_cond`, from condensation
    - `hfrainds`, from liquid and frozen precipitation, further split into (i) `heat_content_lprec` and (ii) `heat_content_fprec`
    - `hfrunuoffds` from liquid and frozen runoff, further split into (i) `heat_content_lrunoff` and (ii) `heat_content_frunoff`   
-8. Heat from flux adjustments, captured by `heat_added`.
+8. Heat from flux adjustments, captured by `heat_added` (zero in ACCESS-OM3).
 
 Note that the diagnostic `net_heat_coupler` includes processes 1. to 5., but _not_ 6., 7. or 8.
 
