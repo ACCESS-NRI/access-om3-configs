@@ -34,8 +34,8 @@ exe: access-om3-MOM6-CICE6
 input:
     - /g/data/vk83/prerelease/configurations/inputs/access-om3/share/meshes/global.100km/2026.04.07/access-om3-100km-ESMFmesh.nc
     - /g/data/vk83/prerelease/configurations/inputs/access-om3/share/meshes/global.100km/2026.04.07/access-om3-100km-nomask-ESMFmesh.nc
-    - /g/data/vk83/prerelease/configurations/inputs/access-om3/share/meshes/share/2026.01.21/JRA55do-datm-ESMFmesh.nc
-    - /g/data/vk83/prerelease/configurations/inputs/access-om3/share/meshes/share/2026.01.21/JRA55do-drof-ESMFmesh.nc
+    - /g/data/vk83/configurations/inputs/access-om3/share/meshes/share/2026.01.21/JRA55do-datm-ESMFmesh.nc
+    - /g/data/vk83/configurations/inputs/access-om3/share/meshes/share/2026.01.21/JRA55do-drof-ESMFmesh.nc
     - /g/data/vk83/prerelease/configurations/inputs/access-om3/cmeps/remap_weights/global.100km/2026.04.07/access-om3-100km-rof-remap-weights.nc
     - /g/data/vk83/prerelease/configurations/inputs/access-om3/cmeps/rofi_pattern/global.100km/2026.06.16/access-om3-100km-rofi-climatology.nc
     - /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/tidal_external_files/global.100km/2026.04.07/bottom_roughness.nc
@@ -43,7 +43,7 @@ input:
     - /g/data/vk83/prerelease/configurations/inputs/access-om3/share/grids/global.100km/2026.04.07/topog.nc
     - /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/grids/mosaic/global.100km/2026.03.13/ocean_hgrid.nc 
     - /g/data/vk83/configurations/inputs/access-om3/mom/grids/mosaic/global.100km/2020.05.30/ocean_mosaic.nc
-    - /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/grids/mosaic/share/2024.05.08/grid_spec.nc
+    - /g/data/vk83/configurations/inputs/access-om3/mom/grids/mosaic/share/2024.05.08/grid_spec.nc
     - /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/grids/vertical/share/2025.03.12/ocean_vgrid.nc
     - /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/initial_conditions/global.100km/2026.04.07/woa23_ts_01_mom.nc
     - /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/surface_salt_restoring/global.100km/2026.04.07/salt_sfc_restore.nc
@@ -51,7 +51,7 @@ input:
     - /g/data/vk83/prerelease/configurations/inputs/access-om3/cice/grids/global.100km/2026.04.07/kmt.nc 
     - /g/data/vk83/prerelease/configurations/inputs/access-om3/wombat/forcing/global.100km/2026.05.20/SFe_Hamiltonetal2020_monthly_clim.nc
     - /g/data/vk83/prerelease/configurations/inputs/access-om3/wombat/forcing/global.100km/2026.05.20/CO2_gm_1750-2024.nc
-    - /g/data/vk83/prerelease/configurations/inputs/access-om3/wombat/initial_conditions/share/2026.05.07/wombatlite_ic.nc
+    - /g/data/vk83/configurations/inputs/access-om3/wombat/initial_conditions/share/2026.05.07/wombatlite_ic.nc
     - /g/data/qv56/replicas/input4MIPs/CMIP6Plus/OMIP/MRI/MRI-JRA55-do-1-6-0/land/
     - /g/data/qv56/replicas/input4MIPs/CMIP6Plus/OMIP/MRI/MRI-JRA55-do-1-6-0/landIce/
     - /g/data/qv56/replicas/input4MIPs/CMIP6Plus/OMIP/MRI/MRI-JRA55-do-1-6-0/atmos/
