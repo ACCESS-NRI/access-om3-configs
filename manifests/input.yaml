@@ -62006,6 +62006,16 @@ work/INPUT/access-om3-100km-rof-remap-weights.nc:
   hashes:
     binhash: 507072984b31ac2fdcd57e191753bfc7
     md5: a91d74daa3fe143132ea254c4eb00f9d
+work/INPUT/bottom_roughness.nc:
+  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/tidal_external_files/global.100km/2026.04.07/bottom_roughness.nc
+  hashes:
+    binhash: 82a813c39add8b5b1a4b53ecc292a9a4
+    md5: 1c8ef07e27b88f78eb6dabcdf118318c
+work/INPUT/chl_globcolour_monthly_clim.nc:
+  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/chlorophyll/global.100km/2026.04.07/chl_globcolour_monthly_clim.nc
+  hashes:
+    binhash: 666a5b583a27dfe266f8e63636597c83
+    md5: 51d0986b369a2476c5d9681696a4fa77
 work/INPUT/day/friver/gr/v20240531/friver_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-6-0_gr_19580101-19581231.nc:
   fullpath: /g/data/qv56/replicas/input4MIPs/CMIP6Plus/OMIP/MRI/MRI-JRA55-do-1-6-0/land/day/friver/gr/v20240531/friver_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-6-0_gr_19580101-19581231.nc
   hashes:
@@ -62676,41 +62686,31 @@ work/INPUT/day/licalvf/gr/v20240531/licalvf_input4MIPs_atmosphericState_OMIP_MRI
   hashes:
     binhash: fb4da82e21b01ccd4ef5e7a99f31f4e5
     md5: 6838f869a96238b2b162103794739519
-work/INPUT/mod_def.ww3:
-  fullpath: /g/data/tm70/ek4684/Standalone_WW3_ERA5/WW3_PreProc/mod_def.ww3
+work/INPUT/kmt.nc:
+  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/cice/grids/global.100km/2026.04.07/kmt.nc
   hashes:
-    binhash: 8dbf2abf05202b1eef23d869b6e050b9
-    md5: e1cd7c4efda11392868d96477ef99407
+    binhash: 9558dc92baa041e7fa2b7bb9219c7f57
+    md5: 8e1c7e347d4cf79a64cd03f54778dab5
+work/INPUT/mod_def.ww3:
+  fullpath: /g/data/tm70/ek4684/MCW_100km_era5_iaf_KPP/WW3_PreProc/mod_def.ww3
+  hashes:
+    binhash: 3f0780578a5a7f56b8126d5c41d94126
+    md5: 7833523ddaea170c18c8e95cd880c3d3
+work/INPUT/ocean_hgrid.nc:
+  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/grids/mosaic/global.100km/2026.03.13/ocean_hgrid.nc
+  hashes:
+    binhash: ebb07894ceadcd2845849d08b26ad0fb
+    md5: 7b9d7947d9e4033143424440f59bdaa0
 work/INPUT/ocean_vgrid.nc:
   fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/grids/vertical/share/2025.03.12/ocean_vgrid.nc
   hashes:
     binhash: 9c1f82b7ea91a8647c8857c02676a7a5
     md5: 66f71f2b24bd00b1c220787505e0106e
 work/INPUT/restart.ww3:
-  fullpath: /g/data/tm70/ek4684/Standalone_WW3_ERA5/WW3_PreProc/restart.ww3
+  fullpath: /g/data/tm70/ek4684/MCW_100km_era5_iaf_KPP/WW3_PreProc/restart.ww3
   hashes:
-    binhash: 73a02c7fc2928d921fe9c745db1a63b4
-    md5: e0043b57b4de97a7df82dafa4c7a1a9f
-work/INPUT/bottom_roughness.nc:
-  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/tidal_external_files/global.100km/2026.04.07/bottom_roughness.nc
-  hashes:
-    binhash: 82a813c39add8b5b1a4b53ecc292a9a4
-    md5: 1c8ef07e27b88f78eb6dabcdf118318c
-work/INPUT/chl_globcolour_monthly_clim.nc:
-  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/chlorophyll/global.100km/2026.04.07/chl_globcolour_monthly_clim.nc
-  hashes:
-    binhash: 666a5b583a27dfe266f8e63636597c83
-    md5: 51d0986b369a2476c5d9681696a4fa77
-work/INPUT/kmt.nc:
-  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/cice/grids/global.100km/2026.04.07/kmt.nc
-  hashes:
-    binhash: 9558dc92baa041e7fa2b7bb9219c7f57
-    md5: 8e1c7e347d4cf79a64cd03f54778dab5
-work/INPUT/ocean_hgrid.nc:
-  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/grids/mosaic/global.100km/2026.03.13/ocean_hgrid.nc
-  hashes:
-    binhash: ebb07894ceadcd2845849d08b26ad0fb
-    md5: 7b9d7947d9e4033143424440f59bdaa0
+    binhash: bab8bce072af5065545250a891efa72c
+    md5: 83451d4e0e2d029aa2032e9c5ee7ea12
 work/INPUT/salt_sfc_restore.nc:
   fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/surface_salt_restoring/global.100km/2026.04.07/salt_sfc_restore.nc
   hashes:
