@@ -19,7 +19,7 @@ modules:
   use:
     - /g/data/vk83/modules
   load:
-    - access-om3/2025.08.001
+    - access-om3/2026.03.000
     - model-tools/mppnccombine-fast/2025.07.000
 
 queue: normalsr
@@ -63,13 +63,11 @@ input:
   #
   #
   - /g/data/tm70/ek4684/8km_grid_input_files/chl_globcolour_monthly_clim.nc
+  - /g/data/tm70/ek4684/8km_grid_input_files/B_mask_8km.nc
   #
   - /g/data/tm70/ek4684/8km_grid_input_files/access-om3-8km-rofi-climatology.nc
-  - /g/data/tm70/ek4684/8km_grid_input_files/B_mask_8km.nc
-  - /g/data/tm70/ek4684/8km_grid_input_files/bottom_roughness_intermediate.nc
   - /g/data/tm70/ek4684/8km_grid_input_files/CO2_gm_1750-2024.nc
   - /g/data/tm70/ek4684/8km_grid_input_files/SFe_Hamiltonetal2020_monthly_clim.nc
-  - /g/data/tm70/ek4684/8km_grid_input_files/temp_weights.nc
   - /g/data/tm70/ek4684/8km_grid_input_files/tideamp.nc
 
 runlog: False
