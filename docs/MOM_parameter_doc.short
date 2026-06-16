@@ -642,6 +642,11 @@ PRESSURE_DEPENDENT_FRAZIL = True !   [Boolean] default = False
                                 ! If true, use a pressure dependent freezing temperature when making frazil. The
                                 ! default is false, which will be faster but is inappropriate with ice-shelf
                                 ! cavities.
+IGNORE_FLUXES_OVER_LAND = True  !   [Boolean] default = False
+                                ! If true, the model does not check if fluxes are being applied over land
+                                ! points. This is needed when the ocean is coupled with ice shelves and sea ice,
+                                ! since the sea ice mask needs to be different than the ocean mask to avoid sea
+                                ! ice formation under ice shelves. This flag only works when use_ePBL = True.
 USE_RIVER_HEAT_CONTENT = True   !   [Boolean] default = False
                                 ! If true, use the fluxes%runoff_Hflx field to set the heat carried by runoff,
                                 ! instead of using SST*CP*liq_runoff.
