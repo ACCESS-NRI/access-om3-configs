@@ -44,21 +44,33 @@ input:
   # - /g/data/x77/ahg157/inputs/mom6/global-8km/mask_table.1193.48x36
   # - /g/data/x77/ahg157/inputs/mom6/global-8km/mask_table.2567.72x54
   - /g/data/x77/ahg157/inputs/mom6/global-8km/mask_table.4448.96x72
-  - /g/data/x77/ahg157/inputs/mom6/global-8km/kmt.nc
-  - /g/data/x77/ahg157/inputs/mom6/global-8km/ocean_hgrid.nc
-  - /g/data/vk83/configurations/inputs/access-om3/mom/grids/vertical/global.25km/2025.03.12/ocean_vgrid.nc
-  - /g/data/x77/ahg157/inputs/mom6/global-8km/topog.nc
-  - /g/data/x77/ahg157/inputs/mom6/global-8km/access-om3-8km-ESMFmesh.nc
-  - /g/data/x77/ahg157/inputs/mom6/global-8km/access-om3-8km-nomask-ESMFmesh.nc
-  - /g/data/x77/ahg157/inputs/mom6/global-8km/access-om3-8km-rof-remap-weights.nc
+  - /g/data/tm70/ek4684/8km_grid_input_files/kmt.nc
+  - /g/data/tm70/ek4684/8km_grid_input_files/ocean_hgrid.nc
+  - /g/data/tm70/ek4684/8km_grid_input_files/ocean_vgrid.nc
+  - /g/data/tm70/ek4684/8km_grid_input_files/topog.nc
+  - /g/data/tm70/ek4684/8km_grid_input_files/access-om3-8km-ESMFmesh.nc
+  - /g/data/tm70/ek4684/8km_grid_input_files/access-om3-8km-nomask-ESMFmesh.nc
+  - /g/data/tm70/ek4684/8km_grid_input_files/access-om3-8km-rof-remap-weights.nc
   - /g/data/x77/ahg157/inputs/mom6/global-8km/access-om3-8km-vmap-weights.nc
   - /g/data/vk83/prerelease/configurations/inputs/JRA-55/RYF/v1-6/2026.04.15
-  - /g/data/vk83/configurations/inputs/access-om3/share/meshes/share/2024.09.16/JRA55do-datm-ESMFmesh.nc
-  - /g/data/vk83/configurations/inputs/access-om3/share/meshes/share/2024.09.16/JRA55do-drof-ESMFmesh.nc
-  - /g/data/x77/ahg157/inputs/mom6/global-8km/ocean_temp_salt.res.nc
-  - /g/data/x77/ahg157/inputs/mom6/global-8km/salt_sfc_restore.nc
-  - /g/data/x77/ahg157/inputs/mom6/global-8km/bottom_roughness.nc
+  - /g/data/vk83/prerelease/configurations/inputs/access-om3/share/meshes/share/2026.01.21/JRA55do-datm-ESMFmesh.nc
+  - /g/data/vk83/prerelease/configurations/inputs/access-om3/share/meshes/share/2026.01.21/JRA55do-drof-ESMFmesh.nc
+  - /g/data/tm70/cyb561/8km_woa_ic/woa23_ts_01_mom.nc
+  - /g/data/tm70/ek4684/8km_grid_input_files/salt_sfc_restore.nc
+  - /g/data/tm70/ek4684/8km_grid_input_files/bottom_roughness.nc
   # - /g/data/vk83/configurations/inputs/access-om3/mom/tidal_external_files/global.25km/2025.05.15/tideamp.nc
+  #
+  #
+  #
+  - /g/data/tm70/ek4684/8km_grid_input_files/chl_globcolour_monthly_clim.nc
+  #
+  - /g/data/tm70/ek4684/8km_grid_input_files/access-om3-8km-rofi-climatology.nc
+  - /g/data/tm70/ek4684/8km_grid_input_files/B_mask_8km.nc
+  - /g/data/tm70/ek4684/8km_grid_input_files/bottom_roughness_intermediate.nc
+  - /g/data/tm70/ek4684/8km_grid_input_files/CO2_gm_1750-2024.nc
+  - /g/data/tm70/ek4684/8km_grid_input_files/SFe_Hamiltonetal2020_monthly_clim.nc
+  - /g/data/tm70/ek4684/8km_grid_input_files/temp_weights.nc
+  - /g/data/tm70/ek4684/8km_grid_input_files/tideamp.nc
 
 runlog: False
 metadata:
