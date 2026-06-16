@@ -574,6 +574,10 @@ MLD_DECAYING_TFILTER = 2.592E+06 !   [s] default = 0.0
                                 ! The time-scale for a running-mean filter applied to the time-filtered BLD,
                                 ! when the latter is shallower than the running mean. A value of 0
                                 ! instantaneously sets the running mean to the current value filtered BLD.
+BODNER_HMIN_BUG = False         !   [Boolean] default = True
+                                ! If true, recover a bug where layer thicknesses in the Bodner et al. mixed
+                                ! layer restratification are not clamped at a minimum value and can therefore go
+                                ! negative.
 MIN_WSTAR2 = 1.0E-09            !   [m2 s-2] default = 1.0E-24
                                 ! The minimum lower bound to apply to the vertical momentum flux, w'u', in the
                                 ! Bodner et al., restratification parameterization. This avoids a
