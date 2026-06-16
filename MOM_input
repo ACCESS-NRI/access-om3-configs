@@ -533,6 +533,15 @@ BT_PROJECT_VELOCITY = True      !   [Boolean] default = False
                                 ! velocities, with weights of (1-BEBT) and BEBT.
 DYNAMIC_SURFACE_PRESSURE = True !   [Boolean] default = False
                                 ! If true, add a dynamic pressure due to a viscous ice shelf, for instance.
+BT_STRONG_DRAG = True           !   [Boolean] default = False
+                                ! If true, use a stronger estimate of the retarding effects of strong bottom
+                                ! drag, by making it implicit with the barotropic time-step instead of implicit
+                                ! with the baroclinic time-step and dividing by the number of barotropic steps.
+RESCALE_STRONG_DRAG = True      !   [Boolean] default = False
+                                ! If true, reduce the barotropic contribution to the layer accelerations to
+                                ! account for the difference between the forces that can be counteracted by the
+                                ! stronger drag with BT_STRONG_DRAG and the average of the layer viscous
+                                ! remnants after a baroclinic timestep.
 BEBT = 0.2                      !   [nondim] default = 0.1
                                 ! BEBT determines whether the barotropic time stepping uses the forward-backward
                                 ! time-stepping scheme or a backward Euler scheme. BEBT is valid in the range
