@@ -93,24 +93,6 @@ dic_src_var_record = 1
 dic_src_var_gridspec = NONE
 dic_valid_min = 0.0
 #
-dicp_src_file = INPUT/wombatlite_ic.nc
-dicp_src_var_name = dicp
-dicp_src_var_unit = none
-dicp_dest_var_name = dicp
-dicp_dest_var_unit = mol kg-1
-dicp_src_var_record = 1
-dicp_src_var_gridspec = NONE
-dicp_valid_min = 0.0
-#
-dicr_src_file = INPUT/wombatlite_ic.nc
-dicr_src_var_name = dicr
-dicr_src_var_unit = none
-dicr_dest_var_name = dicr
-dicr_dest_var_unit = mol kg-1
-dicr_src_var_record = 1
-dicr_src_var_gridspec = NONE
-dicr_valid_min = 0.0
-#
 alk_src_file = INPUT/wombatlite_ic.nc
 alk_src_var_name = alk
 alk_src_var_unit = none
