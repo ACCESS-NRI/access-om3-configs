@@ -3,7 +3,7 @@
     restart_input_dir = './'
     restart_output_dir = './'
     input_filename = 'n'
-    parameter_filename = 'MOM_input'
+    parameter_filename = 'MOM_input', 'MOM_override'
 /
 
 &fms_nml
