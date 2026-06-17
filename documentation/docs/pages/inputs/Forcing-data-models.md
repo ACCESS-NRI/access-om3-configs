@@ -71,43 +71,63 @@ The atmosphere-ocean stress components `Faox_taux` and `Faox_tauy` are [calculat
 We calculate `Faox_taux` and `Faox_tauy` using [`ocn_surface_flux_scheme = 0`](https://github.com/search?q=repo%3AACCESS-NRI%2Faccess-om3-configs+path%3Adoc%2Fnuopc.runconfig+ocn_surface_flux_scheme&type=code) in `nuopc.runconfig`, which is the [default CESM1.2 scheme](https://github.com/ESCOMP/CMEPS/blob/bc29792d76c16911046dbbfcfc7f4c3ae89a6f00/cesm/flux_atmocn/shr_flux_mod.F90#L335-L506).
 This [iterates towards convergence of `ustar`](https://github.com/ESCOMP/CMEPS/blob/bc29792d76c16911046dbbfcfc7f4c3ae89a6f00/cesm/flux_atmocn/shr_flux_mod.F90#L393) to a relative error of less than [`flux_convergence = 0.01`](https://github.com/search?q=repo%3AACCESS-NRI%2Faccess-om3-configs+path%3Adoc%2Fnuopc.runconfig+flux_convergence&type=code), if this can be achieved in [`flux_max_iteration = 5`](https://github.com/search?q=repo%3AACCESS-NRI%2Faccess-om3-configs+path%3Adoc%2Fnuopc.runconfig+flux_max_iteration&type=code) iterations or fewer. The atmosphere-ocean stress is [calculated using the relative wind](https://github.com/ESCOMP/CMEPS/blob/bc29792d76c16911046dbbfcfc7f4c3ae89a6f00/cesm/flux_atmocn/shr_flux_mod.F90#L434-L438), i.e. the difference between the surface wind and surface current velocity.
 
-## Ocean surface fluxes
+## Surface fluxes
 
 ### Salt fluxes
 
 The net salt flux across the ocean's surface is given by the `salt_flux` diagnostic. Salt fluxes are associated with two different processes:
 
-1. Salt fluxes from sea ice, captured by the `salt_flux_in` diagnostic.
+1. Salt fluxes from sea ice, captured by the `salt_flux_in` diagnostic in MOM6 and the `fsalt` diagnostic in CICE.
 2. Salt fluxes from sea surface salinity restoring, captured by `salt_flux_added` (note that SSS restoring is applied as a salt (rather than freshwater) flux in ACCESS-OM3, because we set `SRESTORE_AS_SFLUX = True` in the `MOM_input` file).
 
 ### Freshwater fluxes
 
-The net freshwater flux across the ocean's surface is given by the `wfo` diagnostic (sometimes the native MOM name `PRCmE` is used). Freshwater fluxes are associated with six different processes:
+Freshwater fluxes with the data models (DATM and DROF) are seperated in ocean, sea ice and land components as follows. 
+
+- **Precipitation:** precipitation over ocean and sea ice cells are scaled by the sea ice concentration in that cell. Therefore where sea ice covers part of a grid cell, a fraction of precipitation is received by each of the ocean and sea ice components, according to the sea ice concentration in that cell. Precipitation over land is discarded.
+- **Evaporation:** evaporation (including sublimation, condensation and deposition) is calculated internally by CICE for sea ice. The mediator (CMEPS) calculates evaporation for the ocean and provides this as a surface forcing to MOM6.
+- **Runoff:** runoff only enters the Ocean. Therefore 100% of the runoff from DROF goes into MOM6.
+
+The net freshwater flux across the ocean (MOM6) surface is given by the `wfo` diagnostic (sometimes the native MOM name `PRCmE` is used). Freshwater fluxes are associated with six different processes:
 
 1. Total precipitation, captured by the `precip` diagnostic. This is the sum of liquid precipitation `lprec` and frozen precipitation `fprec`.
-2. Evaporation, captured by `evap`. (This also includes sublimation, condensation and deposition).
+2. Evaporation, captured by `evap`.
 3. Liquid runoff, captured by `lrunoff` or `friver`
 4. Frozen runoff, captured by `frunoff` or `ficeberg`
 5. Sea ice melt/formation, captured by `seaice_melt` (same as the CICE diagnostic `fresh`)
 6. Virtual precipitation from salinity restoring, captured by `vprec`
 
 There are also two other summarising diagnostics, `net_massin` and `net_massout` which contain the net mass of freshwater into and out of the ocean respectively. Note that these are made up of a combination of the individual fluxes described above, but that `seaice_melt` contributes to both depending on whether ice is formed or melted.
-   
+
+The net freshwater flux across the sea ice (CICE) top surface is the sum of:
+
+1. Precipitation: captured by `rain_ai` and `snow_ai`
+2. Evaporation: captured by `evap_ai`.
+
+and the net freswater flux across the sea ice - ocean interface is `seaice_melt` / `fresh`.
+
 ### Heat fluxes
+
+Heat fluxes with the data models (DATM and DROF) are seperated in ocean, sea ice and land components as follows. 
+
+- **Radiation:** incoming shortwave from the atmosphere, over ocean and sea ice cells, are scaled by the sea ice concentration in that cell. Therefore where sea ice covers part of a grid cell, a fraction of shortwave is received by each of the ocean and sea ice components, according to the sea ice concentration in that cell. 
+- **Sensible Heat :** Sensible heat fluxes are calculated internally by CICE for sea ice. The mediator (CMEPS) calculates these for the ocean and provides this as a surface forcing to MOM6.
+- **Latent Heat (Evaporation):** Latent heat due to evaporation are calculated internally by CICE for sea ice. The mediator (CMEPS) calculates these for the ocean and provides this as a surface forcing to MOM6.
+- **Precipitation and Runoff:** Heat fluxes associated with transfer of freshwater are calculated in the relevant model components, for both MOM6 and CICE, based on the freshwater received by that component.
 
 The net heat flux across the ocean's surface is given by either `hfds` or `net_heat_surface`. Heat fluxes are associated to eight different processes:
 
 1. Shortwave radiation, captured by `SW`
 2. Longwave radiation, captured by `LW`
-3. Latent heat, captured by `latent`. This is the sum of latent heat from evaporation `latent_evap`, latent heat from frozen precipitation `latent_fprec_diag`, latent heat from frozen runoff `latent_frunoff` and latent heat from frozen runoff from glaciers `latent_frunoff_glc` (which is zero in ACCESS-OM3, since we don't couple to an active ice sheet model).    
+3. Latent heat, captured by `latent`. This is the sum of latent heat from evaporation `latent_evap`, latent heat from frozen precipitation `latent_fprec_diag`, latent heat from frozen runoff `latent_frunoff` and latent heat from frozen runoff from glaciers `latent_frunoff_glc` (which is zero in ACCESS-OM3, since we don't couple to an active ice sheet model).
 4. Sensible heat, captured by `sensible`
-5. Heat from melt/freezing of sea ice, captured by `seaice_melt_heat`
+5. Heat from melt/freezing of sea ice, captured by `seaice_melt_heat` (same as CICE diagnostic `fhocn_ai`)
 6. Heat from frazil formation, captured by `frazil`
-7. Heat from mass transfer, frozen or liquid, given by `heat_content_surfwater`, which can be further partitioned into:  
-   - `heat_content_evap`, from evaporation
-   - `heat_content_cond`, from condensation
-   - `hfrainds`, from liquid and frozen precipitation, further split into (i) `heat_content_lprec` and (ii) `heat_content_fprec`
-   - `hfrunuoffds` from liquid and frozen runoff, further split into (i) `heat_content_lrunoff` and (ii) `heat_content_frunoff`   
+7. Heat from mass transfer, frozen or liquid, given by `heat_content_surfwater`, which can be further partitioned into:
+      - `heat_content_evap`, from evaporation
+      - `heat_content_cond`, from condensation
+      - `hfrainds`, from liquid and frozen precipitation, further split into (i) `heat_content_lprec` and (ii) `heat_content_fprec`
+      - `hfrunuoffds` from liquid and frozen runoff, further split into (i) `heat_content_lrunoff` and (ii) `heat_content_frunoff`
 8. Heat from flux adjustments, captured by `heat_added` (zero in ACCESS-OM3).
 
 Note that the diagnostic `net_heat_coupler` includes processes 1. to 5., but _not_ 6., 7. or 8.
