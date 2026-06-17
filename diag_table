@@ -271,7 +271,6 @@ ACCESS-OM3
 "ocean_model", "total_salt_Flux_Added", "total_salt_Flux_Added", "access-om3.mom6.scalar.1day.snap.%4yr", "all", "none", "none", 1
 "ocean_model", "total_salt_Flux_In", "total_salt_Flux_In", "access-om3.mom6.scalar.1day.snap.%4yr", "all", "none", "none", 1
 "ocean_model", "total_salt_flux", "total_salt_flux", "access-om3.mom6.scalar.1day.snap.%4yr", "all", "none", "none", 1
-"ocean_model", "net_fresh_water_global_adjustment", "net_fresh_water_global_adjustment", "access-om3.mom6.scalar.1day.snap.%4yr", "all", "none", "none", 1
 "ocean_model", "salt_flux_global_restoring_adjustment", "salt_flux_global_restoring_adjustment", "access-om3.mom6.scalar.1day.snap.%4yr", "all", "none", "none", 1
 "ocean_model", "total_wfo", "total_wfo", "access-om3.mom6.scalar.1day.snap.%4yr", "all", "none", "none", 1
 "ocean_model", "total_evs", "total_evs", "access-om3.mom6.scalar.1day.snap.%4yr", "all", "none", "none", 1
@@ -305,12 +304,6 @@ ACCESS-OM3
 
 "access-om3.mom6.3d.dic.1mon.mean.%4yr", 1, "months", 1, "days", "time", 1, "years"
 "generic_wombatlite", "dic", "dic", "access-om3.mom6.3d.dic.1mon.mean.%4yr", "all", "average", "none", 2
-
-"access-om3.mom6.3d.dicr.1mon.mean.%4yr", 1, "months", 1, "days", "time", 1, "years"
-"generic_wombatlite", "dicr", "dicr", "access-om3.mom6.3d.dicr.1mon.mean.%4yr", "all", "average", "none", 2
-
-"access-om3.mom6.3d.dicp.1mon.mean.%4yr", 1, "months", 1, "days", "time", 1, "years"
-"generic_wombatlite", "dicp", "dicp", "access-om3.mom6.3d.dicp.1mon.mean.%4yr", "all", "average", "none", 2
 
 "access-om3.mom6.3d.fe.1mon.mean.%4yr", 1, "months", 1, "days", "time", 1, "years"
 "generic_wombatlite", "fe", "fe", "access-om3.mom6.3d.fe.1mon.mean.%4yr", "all", "average", "none", 2
