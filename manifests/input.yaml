@@ -91,6 +91,11 @@ work/INPUT/bottom_roughness.nc:
   hashes:
     binhash: 8a947441b2ee9162af7d4a3030bb4153
     md5: 7f82353f4add21c0694a793d4480e50f
+work/INPUT/chl_globcolour_monthly_clim.nc:
+  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.06.17/chl_globcolour_monthly_clim.nc
+  hashes:
+    binhash: 2b744259575758140515b504ea8b1d3f
+    md5: a47e013fdadce4326f0a4317e01919db
 work/INPUT/diag_rho2.nc:
   fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.01.08/diag_rho2.nc
   hashes:
