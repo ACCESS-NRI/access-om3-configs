@@ -412,6 +412,8 @@ USE_MARBL_TRACERS = False       !   [Boolean] default = False
                                 ! If true, use the MARBL tracer package.
 USE_REGIONAL_DYES = False       !   [Boolean] default = False
                                 ! If true, use the regional_dyes tracer package.
+USE_FILE_DYES = False           !   [Boolean] default = False
+                                ! If true, use the file dyes tracer package.
 USE_OIL_TRACER = False          !   [Boolean] default = False
                                 ! If true, use the oil_tracer tracer package.
 USE_ADVECTION_TEST_TRACER = False !   [Boolean] default = False
@@ -2477,7 +2479,7 @@ NDIFF_USE_UNMASKED_TRANSPORT_BUG = False !   [Boolean] default = False
                                 ! If true, use an older form for the accumulation of neutral-diffusion
                                 ! transports that were unmasked, as used prior to Jan 2018. This is not
                                 ! recommended.
-NDIFF_ANSWER_DATE = 20240101    ! default = 99991231
+NDIFF_ANSWER_DATE = 99991231    ! default = 99991231
                                 ! The vintage of the order of arithmetic to use for the neutral diffusion.
                                 ! Values of 20240330 or below recover the answers from the original form of the
                                 ! neutral diffusion code, while higher values use mathematically equivalent
@@ -2590,11 +2592,9 @@ ADJUST_NET_SRESTORE_TO_ZERO = True !   [Boolean] default = True
 ADJUST_NET_SRESTORE_BY_SCALING = True !   [Boolean] default = False
                                 ! If true, adjustments to salt restoring to achieve zero net are made by scaling
                                 ! values without moving the zero contour.
-ADJUST_NET_FRESH_WATER_TO_ZERO = True !   [Boolean] default = False
+ADJUST_NET_FRESH_WATER_TO_ZERO = False !   [Boolean] default = False
                                 ! If true, adjusts the net fresh-water forcing seen by the ocean (including
                                 ! restoring) to zero.
-USE_NET_FW_ADJUSTMENT_SIGN_BUG = False !   [Boolean] default = False
-                                ! If true, use the wrong sign for the adjustment to the net fresh-water.
 ADJUST_NET_FRESH_WATER_BY_SCALING = False !   [Boolean] default = False
                                 ! If true, adjustments to net fresh water to achieve zero net are made by
                                 ! scaling values without moving the zero contour.
@@ -2671,7 +2671,7 @@ LIQUID_RUNOFF_FROM_DATA = False !   [Boolean] default = False
                                 ! the component name 'OCN'.
 
 ! === module MOM_restart ===
-WAVE_INTERFACE_ANSWER_DATE = 20221231 ! default = 99991231
+WAVE_INTERFACE_ANSWER_DATE = 99991231 ! default = 99991231
                                 ! The vintage of the order of arithmetic and expressions in the surface wave
                                 ! calculations.  Values below 20230101 recover the answers from the end of 2022,
                                 ! while higher values use updated and more robust forms of the same expressions:

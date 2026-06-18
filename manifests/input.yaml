@@ -3352,14 +3352,14 @@ work/INPUT/3hrPt/vas/gr/v20240531/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55
     binhash: e437daa09050c288f69a0210ef2fd28f
     md5: eec2d7bd3e71ed5114136cccb08010d9
 work/INPUT/JRA55do-datm-ESMFmesh.nc:
-  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/share/meshes/share/2026.01.21/JRA55do-datm-ESMFmesh.nc
+  fullpath: /g/data/vk83/configurations/inputs/access-om3/share/meshes/share/2026.01.21/JRA55do-datm-ESMFmesh.nc
   hashes:
-    binhash: c0e9a071f20670930d0e117f13399d78
+    binhash: a94de44546b145640eb49467b7b3da1f
     md5: 0ecb68f878b91b8adc90838e2c413914
 work/INPUT/JRA55do-drof-ESMFmesh.nc:
-  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/share/meshes/share/2026.01.21/JRA55do-drof-ESMFmesh.nc
+  fullpath: /g/data/vk83/configurations/inputs/access-om3/share/meshes/share/2026.01.21/JRA55do-drof-ESMFmesh.nc
   hashes:
-    binhash: 9f3ee3ce42e776fcbee8026e0c3880f5
+    binhash: 780e2ab02c4560e247c96bba2817ccc5
     md5: bf62c4e7786ddfbe56d61b3074d5d16d
 work/INPUT/access-om3-100km-ESMFmesh.nc:
   fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/share/meshes/global.100km/2026.04.07/access-om3-100km-ESMFmesh.nc
@@ -3376,6 +3376,11 @@ work/INPUT/access-om3-100km-rof-remap-weights.nc:
   hashes:
     binhash: 507072984b31ac2fdcd57e191753bfc7
     md5: a91d74daa3fe143132ea254c4eb00f9d
+work/INPUT/access-om3-100km-rofi-climatology.nc:
+  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/cmeps/rofi_pattern/global.100km/2026.06.16/access-om3-100km-rofi-climatology.nc
+  hashes:
+    binhash: 6eb1e5850e289b55c5f7e23647f5b359
+    md5: 2bff12fda2c10976461507bc5ae0c7fa
 work/INPUT/bottom_roughness.nc:
   fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/tidal_external_files/global.100km/2026.04.07/bottom_roughness.nc
   hashes:
