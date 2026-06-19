@@ -10,7 +10,7 @@
         "dev-MC_100km_jra_ryf+wombatlite": {
             "markers": "repro or access_om3 or dev_config"
         },
-        "dev-MCW_100km_jra_ryf": {
+        "dev-MCW_100km_jra_iaf": {
             "markers": "repro and (not repro_restart) or access_om3 or dev_config"
         },
          "dev-MC_25km_jra_ryf": {
@@ -30,9 +30,6 @@
     "reproducibility": {
         "default": {
             "markers": "repro"
-        },
-        "dev-MCW_100km_jra_ryf": {
-            "markers": "repro and (not repro_restart)"
         },
         "dev-MCW_100km_jra_iaf": {
             "markers": "repro and (not repro_restart)"
