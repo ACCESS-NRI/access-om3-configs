@@ -57,3 +57,14 @@ Use this checklist whilst developing your configuration to make sure you include
 8. Your configuration is shared on GitHub on a branch located within a fork of `access-om3-configs` and has a shared git history with another `access-om3-configs` configuration.
 9. Check that your branch name follows the `access-om3-configs` [branch naming convention](https://access-om3-configs.access-hive.org.au/#access-om3-configs-overview) (see under the `repository-structure` heading. For regional models this should start with `dev-rM` and when specifying the resolution also add a 3-5 letter description of the location. For example: 'dev-rM-tas5km`. 
 10. Get in touch with the @ACCESS-NRI/ocean team and ask us to create a branch for you on `access-om3-configs` of the same name and origin such that a pull request can be created.
+
+#### Guidelines for what is needed to be a `dev-*` branch
+
+The following are some suggestions for what is needed for a branch to become a `dev-*` branch on `access-om3-configs`. Some of these guidelines are limited by practical considerations and so can be discussed before or at time of review:
+ - files used in the `config.yaml` need to be accessible (e.g. not in someone's personal folder but in `/g/data/vk83/prerelease/` or other widely available group workspace).
+ - input files in the `config.yaml` have appropriate metadata such that they could be reproduced if needed (this includes the related workflows being under version control).
+ - where practical the branch is up to date with using the latest build and commits from the closest related repository.
+ - updated checksums (i.e. `!test repro commit`) and docs.
+ - pass the dev "QA" [tests](https://github.com/ACCESS-NRI/model-config-tests/blob/ee4cb743816648753c36e15e6a630bedc2859853/src/model_config_tests/config_tests/qa/test_config.py#L153), these run automatically on PRs into `access-om3-configs`.
+ - as much as is practical, structured to represent the minimum set of differences relative to other established dev configurations.
+ - configuration needs to work / run at least for a little bit.
