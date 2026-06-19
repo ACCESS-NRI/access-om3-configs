@@ -68,3 +68,5 @@ The following are some suggestions for what is needed for a branch to become a `
  - pass the dev "QA" [tests](https://github.com/ACCESS-NRI/model-config-tests/blob/ee4cb743816648753c36e15e6a630bedc2859853/src/model_config_tests/config_tests/qa/test_config.py#L153), these run automatically on PRs into `access-om3-configs`.
  - as much as is practical, structured to represent the minimum set of differences relative to other established dev configurations.
  - configuration needs to work / run at least for a little bit.
+  
+Best-practice note: best not to make the target `dev-` branch until fairly close for it to be used, pull requests from forks don't work very well because the CI doesn't run but if a PR is useful then it is suggested to make a branch such as `xxx-dev-MC_4km_jra_ryf` and make a pull request into `dev-MC_4km_jra_ryf`. Here, `xxx` is the related issue number ([see related policy](https://github.com/ACCESS-NRI/dev-docs/wiki/Git-and-Github#naming-1)).
