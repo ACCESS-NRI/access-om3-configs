@@ -17,24 +17,9 @@ FATAL_UNUSED_PARAMS = True      !   [Boolean] default = False
 ! This section contains non default layout parameters which are set.
 ! ------------------------
 ! === module MOM_domains ===
-MASKTABLE = "mask_table.1027.72x48" ! default = "MOM_mask_table"
-                                ! A text file to specify n_mask, layout and mask_list. This feature masks out
-                                ! processors that contain only land points. The first line of mask_table is the
-                                ! number of regions to be masked out. The second line is the layout of the model
-                                ! and must be consistent with the actual model layout. The following (n_mask)
-                                ! lines give the logical positions of the processors that are masked out. The
-                                ! mask_table can be created by tools like check_mask. The following example of
-                                ! mask_table masks out 2 processors, (1,2) and (3,6), out of the 24 in a 4x6
-                                ! layout:
-                                !  2
-                                !  4,6
-                                !  1,2
-                                !  3,6
-LAYOUT = 72, 48                 !
-                                ! The processor layout that was actually used.
-IO_LAYOUT = 9, 6                ! default = 1, 1
-                                ! The processor layout to be used, or 0,0 to automatically set the io_layout to
-                                ! be the same as the layout.
+MASKTABLE = "mask_table.4448.96x72"
+LAYOUT = 96, 72
+IO_LAYOUT = 12, 9
 
 ! This section is formatted the same as the MOM_parameter_short.doc output file.
 ! ------------------------
@@ -49,25 +34,25 @@ USE_CONTEMP_ABSSAL = True       !   [Boolean] default = False
 USE_REGRIDDING = True           !   [Boolean] default = False
                                 ! If True, use the ALE algorithm (regridding/remapping). If False, use the
                                 ! layered isopycnal algorithm.
-DT = 900.0                      !   [s]
-                                ! The (baroclinic) dynamics time step.  The time-step that is actually used will
-                                ! be an integer fraction of the forcing time-step (DT_FORCING in ocean-only mode
-                                ! or the coupling timestep in coupled mode.)
-DT_THERM = 7200.0               !   [s] default = 900.0
-                                ! The thermodynamic time step. Ideally DT_THERM should be an integer multiple of
-                                ! DT and of DT_TRACER_ADVECT and less than the forcing or coupling time-step.
-                                ! However, if THERMO_SPANS_COUPLING is true, DT_THERM can be an integer multiple
-                                ! of the coupling timestep. By default DT_THERM is set to DT.
-THERMO_SPANS_COUPLING = True    !   [Boolean] default = False
-                                ! If true, the MOM will take thermodynamic timesteps that can be longer than the
-                                ! coupling timestep. The actual thermodynamic timestep that is used in this case
-                                ! is the largest integer multiple of the coupling timestep that is less than or
-                                ! equal to DT_THERM.
 THICKNESSDIFFUSE = True         !   [Boolean] default = False
                                 ! If true, isopycnal surfaces are diffused with a Laplacian coefficient of KHTH.
 THICKNESSDIFFUSE_FIRST = True   !   [Boolean] default = False
                                 ! If true, do thickness diffusion or interface height smoothing before dynamics.
                                 ! This is only used if THICKNESSDIFFUSE or APPLY_INTERFACE_FILTER is true.
+DT = 200.0                      !   [s]
+                                ! The (baroclinic) dynamics time step.  The time-step that is actually used will
+                                ! be an integer fraction of the forcing time-step (DT_FORCING in ocean-only mode
+                                ! or the coupling timestep in coupled mode.)
+DT_THERM = 3600.0               !   [s] default = 900.0
+                                ! The thermodynamic and tracer advection time step. Ideally DT_THERM should be
+                                ! an integer multiple of DT and less than the forcing or coupling time-step,
+                                ! unless THERMO_SPANS_COUPLING is true, in which case DT_THERM can be an integer
+                                ! multiple of the coupling timestep.  By default DT_THERM is set to DT.
+THERMO_SPANS_COUPLING = True    !   [Boolean] default = False
+                                ! If true, the MOM will take thermodynamic timesteps that can be longer than the
+                                ! coupling timestep. The actual thermodynamic timestep that is used in this case
+                                ! is the largest integer multiple of the coupling timestep that is less than or
+                                ! equal to DT_THERM.
 HFREEZE = 10.0                  !   [m] default = -1.0
                                 ! If HFREEZE > 0, melt potential will be computed. The actual depth over which
                                 ! melt potential is computed will be min(HFREEZE, OBLD), where OBLD is the
@@ -109,15 +94,17 @@ WRITE_GEOM = 2                  ! default = 1
                                 ! write the geometry and vertical grid files. Other values are invalid.
 GEOM_FILE = "access-om3.mom6.geometry.nc" ! default = "ocean_geometry"
                                 ! The file into which to write the ocean geometry.
+SAVE_INITIAL_CONDS = False       !   [Boolean] default = False
+                                ! If true, write the initial conditions to a file given by IC_OUTPUT_FILE.
 
 ! === module MOM_domains ===
 TRIPOLAR_N = True               !   [Boolean] default = False
                                 ! Use tripolar connectivity at the northern edge of the domain.  With
                                 ! TRIPOLAR_N, NIGLOBAL must be even.
-NIGLOBAL = 1440                 !
+NIGLOBAL = 4320                 !
                                 ! The total number of thickness grid points in the x-direction in the physical
                                 ! domain. With STATIC_MEMORY_ this is set in MOM_memory.h at compile time.
-NJGLOBAL = 1152                 !
+NJGLOBAL = 3672                 !
                                 ! The total number of thickness grid points in the y-direction in the physical
                                 ! domain. With STATIC_MEMORY_ this is set in MOM_memory.h at compile time.
 
@@ -605,7 +592,7 @@ KAPPA_H2_FACTOR = 0.84          !   [nondim] default = 1.0
 TKE_ITIDE_MAX = 0.1             !   [W m-2] default = 1000.0
                                 ! The maximum internal tide energy source available to mix above the bottom
                                 ! boundary layer with INT_TIDE_DISSIPATION.
-READ_TIDEAMP = True             !   [Boolean] default = False
+READ_TIDEAMP = False             !   [Boolean] default = False
                                 ! If true, read a file (given by TIDEAMP_FILE) containing the tidal amplitude
                                 ! with INT_TIDE_DISSIPATION.
 H2_FILE = "bottom_roughness.nc" !
