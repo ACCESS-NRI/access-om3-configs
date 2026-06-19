@@ -10,7 +10,7 @@
         "dev-MC_100km_jra_ryf+wombatlite": {
             "markers": "repro or access_om3 or dev_config"
         },
-        "dev-MCW_100km_jra_ryf": {
+        "dev-MCW_100km_jra_iaf": {
             "markers": "repro and (not repro_restart) or access_om3 or dev_config"
         },
          "dev-MC_25km_jra_ryf": {
@@ -21,7 +21,6 @@
         },
         "release-MC_100km_jra_ryf": { },
         "release-MC_25km_jra_ryf": { },
-        "release-MCW_100km_jra_ryf": { },
         "release-.*": {
             "model-config-tests-version": "0.2.2",
             "payu-version": "1.2.0"
@@ -30,9 +29,6 @@
     "reproducibility": {
         "default": {
             "markers": "repro"
-        },
-        "dev-MCW_100km_jra_ryf": {
-            "markers": "repro and (not repro_restart)"
         },
         "dev-MCW_100km_jra_iaf": {
             "markers": "repro and (not repro_restart)"
