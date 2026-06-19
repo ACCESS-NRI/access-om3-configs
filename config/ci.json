@@ -21,7 +21,6 @@
         },
         "release-MC_100km_jra_ryf": { },
         "release-MC_25km_jra_ryf": { },
-        "release-MCW_100km_jra_ryf": { },
         "release-.*": {
             "model-config-tests-version": "0.2.2",
             "payu-version": "1.2.0"
