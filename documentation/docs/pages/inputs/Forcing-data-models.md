@@ -5,6 +5,8 @@ Forcing is provided via [CDEPS](https://github.com/ESCOMP/CDEPS) data models [do
 - [DATM](https://escomp.github.io/CDEPS/versions/master/html/datm.html) for the atmosphere
 - [DROF](https://escomp.github.io/CDEPS/versions/master/html/drof.html) for runoff
 
+This page covers forcings for the physical climate (e.g. temeperatures, winds, freshwater etc) and doesn't cover biogeochemical (BGC)  forcings (dust, CO2 etc) used in configurations using the BGC model, WOMBAT.
+
 ## Coupling
 
 - DATM and DROF are coupled to the other components via the mediator - see the [coupling architecture here](/infrastructure/Architecture.md).
