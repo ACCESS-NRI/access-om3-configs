@@ -110,10 +110,14 @@ and the net freswater flux across the sea ice - ocean interface is `seaice_melt`
 
 Heat fluxes with the data models (DATM and DROF) are seperated in ocean, sea ice and land components as follows. 
 
-- **Radiation:** incoming shortwave from the atmosphere, over ocean and sea ice cells, are scaled by the sea ice concentration in that cell. Therefore where sea ice covers part of a grid cell, a fraction of shortwave is received by each of the ocean and sea ice components, according to the sea ice concentration in that cell. 
+- **Radiation:** incoming shortwave from the atmosphere, over ocean and sea ice cells, are scaled by the sea ice concentration in that cell. Therefore where sea ice covers part of a grid cell, a fraction of shortwave is received by each of the ocean and sea ice components, according to the sea ice concentration in that cell. A small fraction of incomings shortwave penetrates through sea ice to enter the ocean. 
 - **Sensible Heat :** Sensible heat fluxes are calculated internally by CICE for sea ice. The mediator (CMEPS) calculates these for the ocean and provides this as a surface forcing to MOM6.
 - **Latent Heat (Evaporation):** Latent heat due to evaporation are calculated internally by CICE for sea ice. The mediator (CMEPS) calculates these for the ocean and provides this as a surface forcing to MOM6.
+- **Latent Heat (Melt):** The latent heat to melt frozen runoff (i.e. icebergs) is calculated internally in MOM6.
+- **Heat from mass transfer:** The enthalpy transferred in/out of the ocean due to freshwater transfer is calculated in the mediator (CMEPS) and provided as a surface forcing to MOM6. For CICE6, this enthalpy flux is calculated internally.
 - **Precipitation and Runoff:** Heat fluxes associated with transfer of freshwater are calculated in the relevant model components, for both MOM6 and CICE, based on the freshwater received by that component.
+
+There is no prognostic process to raise/lower the temperature of freshwater fluxes to the ocean / sea ice temperature. It is assumed to enter the model at the temperature of the surrounding ocean / sea ice. There is also no process (currently) to account for latent heat to melt liquid runoff from icesheets (i.e. basal melt) - see [1197](https://github.com/ACCESS-NRI/access-om3-configs/issues/1197) for details.
 
 The net heat flux across the ocean's surface is given by either `hfds` or `net_heat_surface`. Heat fluxes are associated to eight different processes:
 
