@@ -174,7 +174,7 @@ diag_table:
             module_name: ocean_model_z
             file_name_diag_coord: "z"
         fields:
-            h: # Layer thickness
+            thkcello: # Cell thickness
             agessc: # Sea water age since surface contact
             rhopot0: # Potential density referenced to surface
             rhopot2: # Potential density referenced to 2000 dbar
