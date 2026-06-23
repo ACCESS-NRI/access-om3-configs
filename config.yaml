@@ -19,7 +19,7 @@ modules:
     use:
         - /g/data/vk83/modules
     load:
-        - access-om3/2026.03.000
+        - access-om3/2026.05.002
         - model-tools/mppnccombine-fast/2025.07.000
 
 queue: normalsr
@@ -55,7 +55,7 @@ metadata:
     enable: true
 manifest:
   reproduce:
-    exe: True
+    exe: False
     input: True
 
 mpi:
