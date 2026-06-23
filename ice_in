@@ -18,7 +18,6 @@
   ndtd = 4
 /
 &grid_nml
-  bathymetry_file = "./INPUT/topog_seaice.nc"
   grid_atm = "A"
   grid_file = "./INPUT/ocean_hgrid.nc"
   grid_format = "mom_nc"
