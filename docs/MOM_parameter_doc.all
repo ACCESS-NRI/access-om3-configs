@@ -341,19 +341,11 @@ OBC_RAD_VEL_WT = 0.3            !   [nondim] default = 0.3
                                 ! velocities. Valid values range from 0 to 1. This is only used if one of the
                                 ! open boundary segments is using Orlanski.
 OBC_TRACER_RESERVOIR_LENGTH_SCALE_OUT = 3.0E+04 !   [m] default = 0.0
-                                ! An effective length scale for the tracer reservoir update when the flow is
-                                ! exiting the domain. If positive, the reservoir relaxes toward the interior
-                                ! concentration with this length scale. If zero (default), the length scale is
-                                ! truly zero: the reservoir is set instantly to the interior concentration on
-                                ! outflow. If negative, the length scale is effectively infinite: the reservoir
-                                ! is never updated on outflow.
+                                ! An effective length scale for restoring the tracer concentration at the
+                                ! boundaries to externally imposed values when the flow is exiting the domain.
 OBC_TRACER_RESERVOIR_LENGTH_SCALE_IN = 3000.0 !   [m] default = 0.0
-                                ! An effective length scale for the tracer reservoir update when the flow is
-                                ! entering the domain. If positive, the reservoir relaxes toward the external
-                                ! OBC concentration with this length scale. If zero (default), the length scale
-                                ! is truly zero: the reservoir is set instantly to the external OBC
-                                ! concentration on inflow. If negative, the length scale is effectively
-                                ! infinite: the reservoir is never updated on inflow.
+                                ! An effective length scale for restoring the tracer concentration at the
+                                ! boundaries to values from the interior when the flow is entering the domain.
 OBC_THICKNESS_RESERVOIR_LENGTH_SCALE_OUT = 0.0 !   [m] default = 0.0
                                 ! An effective length scale for restoring the layer thickness at the boundaries
                                 ! to externally imposed values when the flow is exiting the domain.
@@ -417,13 +409,6 @@ GRID_ROTATION_ANGLE_BUGS = False !   [Boolean] default = False
                                 ! If true, use an older algorithm to calculate the sine and cosines needed
                                 ! rotate between grid-oriented directions and true north and east.  Differences
                                 ! arise at the tripolar fold.
-DT_OBC_SEG_UPDATE_OBGC = 150.0  !   [s] default = 150.0
-                                ! The time between OBC segment data updates for OBGC tracers.  This must be an
-                                ! integer multiple of DT and DT_THERM.  The default is set to DT.
-OBC_BGC_TIME_REF_BUG = True     !   [Boolean] default = True
-                                ! If true, recover a bug that the BGC OBC segment update schedule is referenced
-                                ! to the start of the current run rather than the overall start time, which can
-                                ! lead to restart reproducibility failures.
 
 ! === module MOM_verticalGrid ===
 ! Parameters providing information about the vertical grid.
@@ -886,9 +871,6 @@ DIAG_MISVAL = 1.0E+20           !   [various] default = 1.0E+20
 DIAG_AS_CHKSUM = False          !   [Boolean] default = False
                                 ! Instead of writing diagnostics to the diag manager, write a text file
                                 ! containing the checksum (bitcount) of the array.
-NUM_DIAG_DOWNSAMP_LEV = 0       ! default = 0
-                                ! The number of diagnostic downsample levels to use. For each level, an entry in
-                                ! DIAG_DOWNSAMP_LEV must be provided.
 AVAILABLE_DIAGS_FILE = "available_diags.000000" ! default = "available_diags.000000"
                                 ! A file into which to write a list of all available ocean diagnostics that can
                                 ! be included in a diag_table.
@@ -1175,9 +1157,6 @@ CHANNEL_DRAG_MAX_BBL_THICK = 5.0 !   [m] default = 5.0
                                 ! proportional to HBBL if USE_JACKSON_PARAM or DRAG_AS_BODY_FORCE is true.
 
 ! === module MOM_thickness_diffuse ===
-USE_THICKNESS_DIFFUSE_ANN = False !   [Boolean] default = False
-                                ! If true, use the ANN to compute the mesoscale streamfunction for thickness
-                                ! diffusivity.
 KHTH = 0.0                      !   [m2 s-1] default = 0.0
                                 ! The background horizontal thickness diffusivity.
 READ_KHTH = False               !   [Boolean] default = False

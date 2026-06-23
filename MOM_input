@@ -158,19 +158,11 @@ OBC_SEGMENT_001_VELOCITY_NUDGING_TIMESCALES = 0.3, 360.0 !   [days]
                                 ! Setting both to zero should behave like SIMPLE obcs for the baroclinic
                                 ! velocities.
 OBC_TRACER_RESERVOIR_LENGTH_SCALE_OUT = 3.0E+04 !   [m] default = 0.0
-                                ! An effective length scale for the tracer reservoir update when the flow is
-                                ! exiting the domain. If positive, the reservoir relaxes toward the interior
-                                ! concentration with this length scale. If zero (default), the length scale is
-                                ! truly zero: the reservoir is set instantly to the interior concentration on
-                                ! outflow. If negative, the length scale is effectively infinite: the reservoir
-                                ! is never updated on outflow.
+                                ! An effective length scale for restoring the tracer concentration at the
+                                ! boundaries to externally imposed values when the flow is exiting the domain.
 OBC_TRACER_RESERVOIR_LENGTH_SCALE_IN = 3000.0 !   [m] default = 0.0
-                                ! An effective length scale for the tracer reservoir update when the flow is
-                                ! entering the domain. If positive, the reservoir relaxes toward the external
-                                ! OBC concentration with this length scale. If zero (default), the length scale
-                                ! is truly zero: the reservoir is set instantly to the external OBC
-                                ! concentration on inflow. If negative, the length scale is effectively
-                                ! infinite: the reservoir is never updated on inflow.
+                                ! An effective length scale for restoring the tracer concentration at the
+                                ! boundaries to values from the interior when the flow is entering the domain.
 BRUSHCUTTER_MODE = True         !   [Boolean] default = False
                                 ! If true, read external OBC data on the supergrid.
 OBC_PROJECTION_BUG = False      !   [Boolean] default = True
