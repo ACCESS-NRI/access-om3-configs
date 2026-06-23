@@ -82,7 +82,7 @@ The net salt flux across the ocean's surface is given by the `salt_flux` diagnos
 
 ### Freshwater fluxes
 
-Freshwater fluxes with the data models (DATM and DROF) are seperated in ocean, sea ice and land components as follows. 
+Freshwater fluxes with the data models (DATM and DROF) are separated in ocean, sea ice and land components as follows. 
 
 - **Precipitation:** precipitation over ocean and sea ice cells are scaled by the sea ice concentration in that cell. Therefore where sea ice covers part of a grid cell, a fraction of precipitation is received by each of the ocean and sea ice components, according to the sea ice concentration in that cell. Precipitation over land is discarded.
 - **Evaporation:** evaporation (including sublimation, condensation and deposition) is calculated internally by CICE for sea ice. The mediator (CMEPS) calculates evaporation for the ocean and provides this as a surface forcing to MOM6.
@@ -131,7 +131,7 @@ The net heat flux across the ocean's surface is given by either `hfds` or `net_h
       - `heat_content_evap`, from evaporation
       - `heat_content_cond`, from condensation
       - `hfrainds`, from liquid and frozen precipitation, further split into (i) `heat_content_lprec` and (ii) `heat_content_fprec`
-      - `hfrunuoffds` from liquid and frozen runoff, further split into (i) `heat_content_lrunoff` and (ii) `heat_content_frunoff`
+      - `hfrunoffds` from liquid and frozen runoff, further split into (i) `heat_content_lrunoff` and (ii) `heat_content_frunoff`
 8. Heat from flux adjustments, captured by `heat_added` (zero in ACCESS-OM3).
 
 Note that the diagnostic `net_heat_coupler` includes processes 1. to 5., but _not_ 6., 7. or 8.
