@@ -86,9 +86,9 @@ Freshwater fluxes with the data models (DATM and DROF) are separated in ocean, s
 
 - **Precipitation:** precipitation over ocean and sea ice cells are scaled by the sea ice concentration in that cell. Therefore where sea ice covers part of a grid cell, a fraction of precipitation is received by each of the ocean and sea ice components, according to the sea ice concentration in that cell. Precipitation over land is discarded.
 - **Evaporation:** evaporation (including sublimation, condensation and deposition) is calculated internally by CICE for sea ice. The mediator (CMEPS) calculates evaporation for the ocean and provides this as a surface forcing to MOM6.
-- **Runoff:** runoff only enters the Ocean. Therefore 100% of the runoff from DROF goes into MOM6.
+- **Runoff:** runoff only enters the ocean. Therefore 100% of the runoff from DROF goes into MOM6.
 
-The net freshwater flux across the ocean (MOM6) surface is given by the `wfo` diagnostic (sometimes the native MOM name `PRCmE` is used). Freshwater fluxes are associated with six different processes:
+The net freshwater flux across the ocean (MOM6) surface is given by the `wfo` diagnostic (sometimes the native MOM name `PRCmE` is used). Freshwater fluxes are associated with five different processes:
 
 1. Total precipitation, captured by the `precip` diagnostic. This is the sum of liquid precipitation `lprec` and frozen precipitation `fprec`.
 2. Evaporation, captured by `evap`.
@@ -103,7 +103,7 @@ The net freshwater flux across the sea ice (CICE) top surface is the sum of:
 1. Precipitation: captured by `rain_ai` and `snow_ai`
 2. Evaporation: captured by `evap_ai`.
 
-and the net freswater flux across the sea ice - ocean interface is `seaice_melt` / `fresh`.
+and the net freshwater flux across the sea ice - ocean interface is `fresh` (MOM6 diagnostic `seaice_melt`).
 
 ### Heat fluxes
 
@@ -118,19 +118,18 @@ Heat fluxes with the data models (DATM and DROF) are seperated in ocean, sea ice
 
 There is no prognostic process to raise/lower the temperature of freshwater fluxes to the ocean / sea ice temperature. It is assumed to enter the model at the temperature of the surrounding ocean / sea ice. There is also no process (currently) to account for latent heat to melt liquid runoff from icesheets (i.e. basal melt) - see [1197](https://github.com/ACCESS-NRI/access-om3-configs/issues/1197) for details.
 
-The net heat flux across the ocean's surface is given by either `hfds` or `net_heat_surface`. Heat fluxes are associated to eight different processes:
+The net heat flux across the ocean's surface is given by the `hfds` diagnostic (or native MOM name `net_heat_surface`). Heat fluxes are associated to eight different processes:
 
-1. Shortwave radiation, captured by `SW`
-2. Longwave radiation, captured by `LW`
-3. Latent heat, captured by `latent`. This is the sum of latent heat from evaporation `latent_evap`, latent heat from frozen precipitation `latent_fprec_diag`, latent heat from frozen runoff `latent_frunoff` and latent heat from frozen runoff from glaciers `latent_frunoff_glc` (which is zero in ACCESS-OM3, since we don't couple to an active ice sheet model).
-4. Sensible heat, captured by `sensible`
+1. Shortwave radiation, captured by `rsntds` (or native MOM name `SW`)
+2. Longwave radiation, captured by `rlntds` (or native MOM name `LW`)
+3. Latent heat, captured by `hflso` (or native MOM name `latent`). This is the sum of latent heat from evaporation `latent_evap`, latent heat from frozen precipitation `hfsnthermds` (or native MOM name `latent_fprec_diag`), latent heat from frozen runoff `hfibthermds` (or native MOM name `latent_frunoff`) and latent heat from frozen runoff from glaciers `latent_frunoff_glc` (which is zero in ACCESS-OM3, since we don't couple to an active ice sheet model).
+4. Sensible heat, captured by `hfsso` (or native MOM name `sensible`)
 5. Heat from melt/freezing of sea ice, captured by `seaice_melt_heat` (same as CICE diagnostic `fhocn_ai`)
-6. Heat from frazil formation, captured by `frazil`
+6. Heat from frazil formation, captured by `hfsifrazil` (or native MOM name `frazil`)
 7. Heat from mass transfer, frozen or liquid, given by `heat_content_surfwater`, which can be further partitioned into:
       - `heat_content_evap`, from evaporation
-      - `heat_content_cond`, from condensation
-      - `hfrainds`, from liquid and frozen precipitation, further split into (i) `heat_content_lprec` and (ii) `heat_content_fprec`
-      - `hfrunoffds` from liquid and frozen runoff, further split into (i) `heat_content_lrunoff` and (ii) `heat_content_frunoff`
+      - `hfrainds`, from liquid and frozen precipitation and condensation, further split into `heat_content_lprec`, `heat_content_fprec` and `heat_content_cond`
+      - `hfrunoffds` from liquid and frozen runoff, further split into `heat_content_lrunoff`, `heat_content_frunoff`, `heat_content_lrunoff_glc` and `heat_content_frunoff_glc` (again, the `_glc` components are zero in ACCESS-OM3)
 8. Heat from flux adjustments, captured by `heat_added` (zero in ACCESS-OM3).
 
 Note that the diagnostic `net_heat_coupler` includes processes 1. to 5., but _not_ 6., 7. or 8.
