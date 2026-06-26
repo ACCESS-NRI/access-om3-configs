@@ -48,7 +48,7 @@ global_defaults:
     time_axis_units: days  # time units for the output file time axis: years, months, days, hours, minutes, or seconds
     time_axis_name: time  # must be "time" (case-insensitive)
     new_file_freq: 1  # optional integer: frequency (in new_file_freq_units) for closing the existing file, and creating a new file
-    new_file_freq_units: years  # time units for new_file_freq: years, months, days, hours, minutes, or seconds (optional; required if and only if new_file_freq specified)
+    new_file_freq_units: months  # time units for new_file_freq: years, months, days, hours, minutes, or seconds (optional; required if and only if new_file_freq specified)
     start_time:  # Time to start the file for the first time. The format of this string is the same as base_date (optional; requires new_file_freq, new_file_freq_units)
     file_duration:  # integer: How long file should receive data after start time (optional; requires new_file_freq, new_file_freq_units, start_time)
     file_duration_units:  # units for file_duration: years, months, days, hours, minutes, or seconds (optional; required if and only if file_duration specified)
@@ -77,7 +77,7 @@ global_defaults:
 # extra things for constructing filename:
     file_name_dimension: 3d  # descriptor for filename, e.g. 3d, 2d, scalar
     file_name_prefix: access-om3.mom6
-    file_name_date: "%4yr" # run date/time of file opening; format: %, 1 digit (#digits), one of (yr, mo, dy, hr, mi, sc); date/time components will be separated by _ in filename.
+    file_name_date: "%4yr%2mo" # run date/time of file opening; format: %, 1 digit (#digits), one of (yr, mo, dy, hr, mi, sc); date/time components will be separated by _ in filename.
     file_name_separator: "."  # used to separate filename components; best not to use "_" to avoid confusion with fields and dates
     file_name_omit_empty: true  # whether to omit empty filename components to avoid duplicate file_name_separator
     file_name_substitutions:  # string replacements for filename components
@@ -174,14 +174,17 @@ diag_table:
             module_name: ocean_model_z
             file_name_diag_coord: "z"
         fields:
-            thkcello: # Cell Thickness
+            thkcello: # Cell thickness
             agessc: # Sea water age since surface contact
+            rhopot0: # Potential density referenced to surface
             rhopot2: # Potential density referenced to 2000 dbar
             thetao: # Potential Temperature
             so: # Salinity
             uo: # u velocity
             vo: # v velocity
             KE: # Layer Kinetic energy per unit mass
+            e: # Interface height relative to mean sea level
+            Kd_interface: #Total diapycnal diffusivity at interfaces
 
     'monthly 3d fields on rho2':
         defaults:  # these can be overridden for individual fields below
@@ -218,8 +221,10 @@ diag_table:
             vmo_2d: # Ocean Mass Y Transport Vertical Sum
             pbo: # Sea Water Pressure at Sea Floor
             friver: # Liquid runoff (rivers) into ocean
+            ficeberg: # Frozen runoff (calving) and iceberg melt into ocean
             fsitherm: #  water flux to ocean from snow/sea ice melting(> 0) or formation(< 0)
             precip: # Liquid+frozen precip into ocean
+            frazil_heat_tendency_2d: # Frazil heat tendency integrated vertically
 
     'monthly 2d max fields':
         defaults:  # these can be overridden for individual fields below
@@ -241,7 +246,32 @@ diag_table:
             tos: # Sea Surface Temperature
             sos: # Sea Surface Salinity
             speed: # Sea Surface Speed
-            friver: # Liquid runoff (rivers) into ocean
+
+    'daily 2D ice shelf fields':
+        defaults:
+            file_name_dimension: 2d  # descriptor for filename, e.g. 3d, 2d, scalar
+            module_name: ice_shelf_model 
+            '':
+                - output_freq_units
+            output_freq_units: days  # time units for output: years, months, days, hours, minutes, or seconds
+            reduction_method: mean # mean, snap, rms, pow##, min, max, or diurnal##
+        fields:
+            melt: # melt rate
+            thermal_driving: # thermal driving
+            ustar_shelf: #friction velocity
+    
+    'monthly 2d ice shelf fields':
+        defaults:  # these can be overridden for individual fields below
+            file_name_dimension: 2d  # descriptor for filename, e.g. 3d, 2d, scalar
+            reduction_method: mean
+            module_name: ice_shelf_model
+        fields:
+            melt: # melt rate
+            mass_flux: # mass flux
+            thermal_driving: # thermal driving
+            haline_driving: # haline driving
+            tfreeze: # tfreeze
+            ustar_shelf: #friction velocity
 
     'daily scalar timeseries':
         defaults:  # these can be overridden for individual fields below

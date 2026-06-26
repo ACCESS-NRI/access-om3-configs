@@ -994,7 +994,7 @@
 "eta_cor"  [Unused]
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
-    ! long_name: Corrective mass flux within a timestep
+    ! long_name: Corrective mass or volume flux within a timestep
     ! units: m
     ! cell_methods: xh:mean yh:mean area:mean
 "visc_rem_u"  [Unused]
@@ -1708,6 +1708,74 @@
     ! long_name: Global Area Average Sea Surface Absolute Salinity
     ! units: psu
     ! standard_name: sea_surface_absolute_salinity
+"temp_int"  [Unused] (CMOR equivalent is "opottempmint")
+    ! modules: {ocean_model,ocean_model_d2}
+    ! dimensions: xh, yh
+    ! long_name: Density weighted column integrated potential temperature
+    ! units: degC kg m-2
+    ! cell_methods: xh:mean yh:mean area:mean
+    ! variants: {temp_int,opottempmint}
+"salt_int"  [Unused] (CMOR equivalent is "somint")
+    ! modules: {ocean_model,ocean_model_d2}
+    ! dimensions: xh, yh
+    ! long_name: Density weighted column integrated salinity
+    ! units: psu kg m-2
+    ! cell_methods: xh:mean yh:mean yh:sum area:mean
+    ! variants: {salt_int,somint}
+"absscint"  [Unused]
+    ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
+    ! dimensions: xh, yh, zl
+    ! long_name: Integral wrt depth of seawater absolute salinity expressed as salt mass content
+    ! units: kg m-2
+    ! standard_name: integral_wrt_depth_of_sea_water_absolute_salinity_expressed_as_salt_mass_content
+    ! cell_methods: xh:mean yh:mean zl:sum area:mean
+    ! variants: {absscint,absscint_xyave}
+"pfscint"  [Unused]
+    ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
+    ! dimensions: xh, yh, zl
+    ! long_name:  Integral wrt depth of seawater preformed salinity expressed as salt mass content
+    ! units: kg m-2
+    ! standard_name: integral_wrt_depth_of_sea_water_preformed_salinity_expressed_as_salt_mass_content
+    ! cell_methods: xh:mean yh:mean zl:sum area:mean
+    ! variants: {pfscint,pfscint_xyave}
+"scint"  [Unused]
+    ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
+    ! dimensions: xh, yh, zl
+    ! long_name: Integral wrt depth of seawater practical salinity expressed as salt mass content
+    ! units: kg m-2
+    ! standard_name: integral_wrt_depth_of_sea_water_practical_salinity_expressed_as_salt_mass_content
+    ! cell_methods: xh:mean yh:mean zl:sum area:mean
+    ! variants: {scint,scint_xyave}
+"chcint"  [Unused]
+    ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
+    ! dimensions: xh, yh, zl
+    ! long_name: Depth Integrated Seawater Conservative Temperature Expressed As Heat Content
+    ! units: J m-2
+    ! standard_name: integral_wrt_depth_of_sea_water_conservative_temperature_expressed_as_heat_content
+    ! cell_methods: xh:mean yh:mean zl:sum area:mean
+    ! variants: {chcint,chcint_xyave}
+"phcint"  [Unused]
+    ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
+    ! dimensions: xh, yh, zl
+    ! long_name: Integrated Ocean Heat Content from Potential Temperature
+    ! units: J m-2
+    ! standard_name: integral_wrt_depth_of_sea_water_potential_temperature_expressed_as_heat_content
+    ! cell_methods: xh:mean yh:mean zl:sum area:mean
+    ! variants: {phcint,phcint_xyave}
+"t20d"  [Unused]
+    ! modules: {ocean_model,ocean_model_d2}
+    ! dimensions: xh, yh
+    ! long_name: Depth of 20 degree Celsius Isotherm
+    ! units: m
+    ! standard_name: depth_of_isosurface_of_sea_water_potential_temperature
+    ! cell_methods: xh:mean yh:mean area:mean
+"t17d"  [Unused]
+    ! modules: {ocean_model,ocean_model_d2}
+    ! dimensions: xh, yh
+    ! long_name: Depth of 17 degree Celsius Isotherm
+    ! units: m
+    ! standard_name: depth_of_isosurface_of_sea_water_potential_temperature
+    ! cell_methods: xh:mean yh:mean area:mean
 "u"  [Used] (CMOR equivalent is "uo")
     ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
     ! dimensions: xq, yh, zl
@@ -1778,7 +1846,7 @@
     ! units: kg m-3
     ! cell_methods: xh:mean yh:mean zl:mean area:mean
     ! variants: {Rho_cv,Rho_cv_xyave}
-"rhopot0"  [Unused]
+"rhopot0"  [Used]
     ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
     ! dimensions: xh, yh, zl
     ! long_name: Potential density referenced to surface
@@ -2062,20 +2130,6 @@
     ! long_name: The column mass for calculating mass-weighted average properties
     ! units: kg m-2
     ! cell_methods: xh:mean yh:mean area:mean
-"temp_int"  [Unused] (CMOR equivalent is "opottempmint")
-    ! modules: {ocean_model,ocean_model_d2}
-    ! dimensions: xh, yh
-    ! long_name: Density weighted column integrated potential temperature
-    ! units: degC kg m-2
-    ! cell_methods: xh:mean yh:mean area:mean
-    ! variants: {temp_int,opottempmint}
-"salt_int"  [Unused] (CMOR equivalent is "somint")
-    ! modules: {ocean_model,ocean_model_d2}
-    ! dimensions: xh, yh
-    ! long_name: Density weighted column integrated salinity
-    ! units: psu kg m-2
-    ! cell_methods: xh:mean yh:mean area:mean
-    ! variants: {salt_int,somint}
 "col_mass"  [Unused]
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
@@ -2719,7 +2773,7 @@
     ! units: PSU
     ! cell_methods: xh:mean yh:mean zl:mean area:mean
     ! variants: {salt_predia,salt_predia_xyave}
-"Kd_interface"  [Unused]
+"Kd_interface"  [Used]
     ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
     ! dimensions: xh, yh, zi
     ! long_name: Total diapycnal diffusivity at interfaces
@@ -2872,7 +2926,7 @@
     ! units: W m-2
     ! cell_methods: xh:mean yh:mean zl:sum area:mean
     ! variants: {frazil_heat_tendency,frazil_heat_tendency_xyave}
-"frazil_heat_tendency_2d"  [Unused]
+"frazil_heat_tendency_2d"  [Used]
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
     ! long_name: Depth integrated heat tendency due to frazil formation
@@ -3118,6 +3172,13 @@
     ! long_name: Surface chlorophyll A concentration used to find opacity
     ! units: mg m-3
     ! cell_methods: xh:mean yh:mean area:mean
+"Kd_ePBL_col_by_col"  [Unused]
+    ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
+    ! dimensions: xh, yh, zi
+    ! long_name: ePBL diapycnal diffusivity at interfaces posted column by column
+    ! units: m2 s-1
+    ! cell_methods: xh:mean yh:mean zi:point area:mean
+    ! variants: {Kd_ePBL_col_by_col,Kd_ePBL_col_by_col_xyave}
 "ePBL_h_ML"  [Unused]
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
@@ -3629,28 +3690,28 @@
     ! dimensions: xh, yh, zl
     ! long_name: Neutral diffusion tracer content tendency for T
     ! units: W m-2
-    ! cell_methods: xh:sum yh:sum zl:sum area:sum
+    ! cell_methods: xh:mean yh:mean zl:sum area:mean
     ! variants: {T_dfxy_cont_tendency,T_dfxy_cont_tendency_xyave,opottemppmdiff,opottemppmdiff_xyave}
 "T_dfxy_cont_tendency_2d"  [Unused] (CMOR equivalent is "opottemppmdiff_2d")
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
     ! long_name: Depth integrated neutral diffusion tracer content tendency for T
     ! units: W m-2
-    ! cell_methods: xh:sum yh:sum area:sum
+    ! cell_methods: xh:mean yh:mean area:mean
     ! variants: {T_dfxy_cont_tendency_2d,opottemppmdiff_2d}
 "T_hbdxy_cont_tendency"  [Unused]
     ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
     ! dimensions: xh, yh, zl
     ! long_name: Horizontal boundary diffusion tracer content tendency for T
     ! units: W m-2
-    ! cell_methods: xh:sum yh:sum zl:sum area:sum
+    ! cell_methods: xh:mean yh:mean zl:sum area:mean
     ! variants: {T_hbdxy_cont_tendency,T_hbdxy_cont_tendency_xyave}
 "T_hbdxy_cont_tendency_2d"  [Unused]
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
     ! long_name: Depth integrated horizontal boundary diffusion of tracer content tendency for T
     ! units: W m-2
-    ! cell_methods: xh:sum yh:sum area:sum
+    ! cell_methods: xh:mean yh:mean area:mean
 "T_dfxy_conc_tendency"  [Unused]
     ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
     ! dimensions: xh, yh, zl
@@ -3841,28 +3902,28 @@
     ! dimensions: xh, yh, zl
     ! long_name: Neutral diffusion tracer content tendency for S
     ! units: kg m-2 s-1
-    ! cell_methods: xh:sum yh:sum zl:sum area:sum
+    ! cell_methods: xh:mean yh:mean zl:sum area:mean
     ! variants: {S_dfxy_cont_tendency,S_dfxy_cont_tendency_xyave,osaltpmdiff,osaltpmdiff_xyave}
 "S_dfxy_cont_tendency_2d"  [Unused] (CMOR equivalent is "osaltpmdiff_2d")
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
     ! long_name: Depth integrated neutral diffusion tracer content tendency for S
     ! units: kg m-2 s-1
-    ! cell_methods: xh:sum yh:sum area:sum
+    ! cell_methods: xh:mean yh:mean area:mean
     ! variants: {S_dfxy_cont_tendency_2d,osaltpmdiff_2d}
 "S_hbdxy_cont_tendency"  [Unused]
     ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
     ! dimensions: xh, yh, zl
     ! long_name: Horizontal boundary diffusion tracer content tendency for S
     ! units: kg m-2 s-1
-    ! cell_methods: xh:sum yh:sum zl:sum area:sum
+    ! cell_methods: xh:mean yh:mean zl:sum area:mean
     ! variants: {S_hbdxy_cont_tendency,S_hbdxy_cont_tendency_xyave}
 "S_hbdxy_cont_tendency_2d"  [Unused]
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
     ! long_name: Depth integrated horizontal boundary diffusion of tracer content tendency for S
     ! units: kg m-2 s-1
-    ! cell_methods: xh:sum yh:sum area:sum
+    ! cell_methods: xh:mean yh:mean area:mean
 "S_dfxy_conc_tendency"  [Unused]
     ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
     ! dimensions: xh, yh, zl
@@ -4053,27 +4114,27 @@
     ! dimensions: xh, yh, zl
     ! long_name: Neutral diffusion tracer content tendency for age
     ! units: yr m s-1
-    ! cell_methods: xh:sum yh:sum zl:sum area:sum
+    ! cell_methods: xh:mean yh:mean zl:sum area:mean
     ! variants: {age_dfxy_cont_tendency,age_dfxy_cont_tendency_xyave}
 "age_dfxy_cont_tendency_2d"  [Unused]
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
     ! long_name: Depth integrated neutral diffusion tracer content tendency for age
     ! units: yr m s-1
-    ! cell_methods: xh:sum yh:sum area:sum
+    ! cell_methods: xh:mean yh:mean area:mean
 "age_hbdxy_cont_tendency"  [Unused]
     ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
     ! dimensions: xh, yh, zl
     ! long_name: Horizontal boundary diffusion tracer content tendency for age
     ! units: yr m s-1
-    ! cell_methods: xh:sum yh:sum zl:sum area:sum
+    ! cell_methods: xh:mean yh:mean zl:sum area:mean
     ! variants: {age_hbdxy_cont_tendency,age_hbdxy_cont_tendency_xyave}
 "age_hbdxy_cont_tendency_2d"  [Unused]
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
     ! long_name: Depth integrated horizontal boundary diffusion tracer content tendency for age
     ! units: yr m s-1
-    ! cell_methods: xh:sum yh:sum area:sum
+    ! cell_methods: xh:mean yh:mean area:mean
 "age_dfxy_conc_tendency"  [Unused]
     ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
     ! dimensions: xh, yh, zl
@@ -4194,13 +4255,13 @@
 "ale_u2"  [Unused]
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xq, yh
-    ! long_name: Rate of change in half rho0 times depth integral of squared zonal velocity by remapping. If REMAP_VEL_CONSERVE_KE is .true. then  this measures the change before the KE-conserving correction is applied.
+    ! long_name: Rate of change in half rho0 times depth integral of squared zonal velocity by remapping. If REMAP_VEL_CONSERVE_KE is .true. then this measures the change before the KE-conserving correction is applied.
     ! units: W m-2
     ! cell_methods: xq:point yh:mean
 "ale_v2"  [Unused]
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yq
-    ! long_name: Rate of change in half rho0 times depth integral of squared meridional velocity by remapping. If REMAP_VEL_CONSERVE_KE is .true. then  this measures the change before the KE-conserving correction is applied.
+    ! long_name: Rate of change in half rho0 times depth integral of squared meridional velocity by remapping. If REMAP_VEL_CONSERVE_KE is .true. then this measures the change before the KE-conserving correction is applied.
     ! units: W m-2
     ! cell_methods: xh:mean yq:point
 "sppt_pattern"  [Unused]
@@ -4363,7 +4424,7 @@
     ! long_name: Virtual liquid precip into ocean due to SSS restoring
     ! units: kg m-2 s-1
     ! cell_methods: xh:mean yh:mean area:mean
-"frunoff"  [Unused] (CMOR equivalent is "ficeberg")
+"frunoff"  [Used] (CMOR equivalent is "ficeberg")
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
     ! long_name: Frozen runoff (calving) and iceberg melt into ocean

@@ -15,10 +15,9 @@
   npt = 35040
   pointer_file = './rpointer.ice'
   print_global = .false.
-  ndtd = 3
+  ndtd = 4
 /
 &grid_nml
-  bathymetry_file = "./INPUT/topog.nc"
   grid_atm = "A"
   grid_file = "./INPUT/ocean_hgrid.nc"
   grid_format = "mom_nc"
@@ -69,8 +68,8 @@
   ustar_min = 0.0005
 /
 &domain_nml
-  block_size_x = 60
-  block_size_y = 54
+  block_size_x = 48
+  block_size_y = 36
   distribution_type = "sectrobin"
   distribution_wght = "latitude"
   maskhalo_bound = .true.
