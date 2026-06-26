@@ -92,7 +92,8 @@ Currently the following development configurations are available:
 
 Regional configurations:
 
- - [`dev-MC_panan4km_jra_ryf`](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MC_panan4km_jra_ryf).
+ - [`dev-MC_panan4km_jra_ryf`](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MC_panan4km_jra_ryf);
+ - [`dev-MC_panan4km_jra_ryf+isf`](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MC_panan4km_jra_ryf+isf).
  
 **MOM6-CICE6-WW3-DATM-DROF configurations**
 
