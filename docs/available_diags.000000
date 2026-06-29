@@ -467,7 +467,7 @@
     ! units: m2 s-1
     ! cell_methods: xh:mean yq:point zi:point
     ! variants: {KHTH_v,KHTH_v_xyave}
-"KHTH_t"  [Unused] (CMOR equivalent is "diftrblo")
+"KHTH_t"  [Used] (CMOR equivalent is "diftrblo")
     ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
     ! dimensions: xh, yh, zl
     ! long_name: Ocean Tracer Diffusivity due to Parameterized Mesoscale Advection
@@ -1831,7 +1831,7 @@
     ! long_name: Global Mean Ocean Potential Temperature
     ! units: degC
     ! standard_name: sea_water_potential_temperature
-"bigthetaoga"  [Unused]
+"bigthetaoga"  [Used]
     ! modules: ocean_model
     ! dimensions: scalar
     ! long_name: Global Mean Ocean Conservative Temperature
@@ -1856,7 +1856,7 @@
     ! units: degC
     ! standard_name: sea_surface_temperature
     ! variants: {sst_global,tosga}
-"sscont_global"  [Unused]
+"sscont_global"  [Used]
     ! modules: ocean_model
     ! dimensions: scalar
     ! long_name: Global Area Average Sea Surface Conservative Temperature
@@ -3436,7 +3436,7 @@
     ! units: m2 s-1
     ! cell_methods: xh:mean yq:point zi:point
     ! variants: {KHTR_v,KHTR_v_xyave}
-"KHTR_h"  [Unused] (CMOR equivalent is "diftrelo")
+"KHTR_h"  [Used] (CMOR equivalent is "diftrelo")
     ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
     ! dimensions: xh, yh, zi
     ! long_name: Epipycnal tracer diffusivity at tracer cell center
@@ -3551,7 +3551,7 @@
     ! units: psu2
     ! cell_methods: xh:mean yh:mean area:mean
     ! variants: {SSS_sq,sossq}
-"conSST"  [Unused]
+"conSST"  [Used]
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
     ! long_name: Sea Surface Conservative Temperature
@@ -3673,7 +3673,7 @@
     ! units: m s-1
     ! cell_methods: xh:mean yh:mean zl:sum area:mean
     ! variants: {dynamics_h_tendency,dynamics_h_tendency_xyave}
-"contemp"  [Unused] (CMOR equivalent is "bigthetao")
+"contemp"  [Used] (CMOR equivalent is "bigthetao")
     ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
     ! dimensions: xh, yh, zl
     ! long_name: Conservative Temperature

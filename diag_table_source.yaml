@@ -179,6 +179,7 @@ diag_table:
             rhopot0: # Potential density referenced to surface
             rhopot2: # Potential density referenced to 2000 dbar
             thetao: # Potential Temperature
+            bigthetao: # Conservative Temperature
             so: # Salinity
             uo: # u velocity
             vo: # v velocity
@@ -210,6 +211,8 @@ diag_table:
             thkcello: # Cell Thickness
             Kd_interface: # Total diapycnal diffusivity at interfaces
             Kd_ePBL: # ePBL diapycnal diffusivity at interfaces
+            diftrblo: # Ocean Tracer Diffusivity due to Parameterized Mesoscale Advection
+            diftrelo: # Ocean Tracer Epineutral Laplacian Diffusivity
 
     'monthly 2d fields':
         defaults:  # these can be overridden for individual fields below
@@ -279,6 +282,7 @@ diag_table:
             tob: # Sea Water Potential Temperature at Sea Floor
             mlotst: # Mixed layer depth (delta rho = 0.03) MLD_003
             tos: # Sea Surface Temperature
+            conSST: # Sea Surface Conservative Temperature
             sos: # Sea Surface Salinity
             speed: # Sea Surface Speed
             evs: # Evaporation/condensation at ocean surface (evaporation is negative)
@@ -318,7 +322,9 @@ diag_table:
             masso: # Mass of liquid ocean
             soga: # Global Mean Ocean Salinity
             thetaoga: # Global Mean Ocean Potential Temperature
+            bigthetaoga: # Global Mean Ocean Conservative Temperature
             tosga: # Global Area Average Sea Surface Temperature sst_global
+            sscont_global: # Global Area Average Sea Surface Conservative Temperature
             sosga: # Global Area Average Sea Surface Salinity sss_global
             total_salt_Flux_Added: # Area integrated surface salt flux due to restoring or flux adjustment 
             total_salt_Flux_In: # Area integrated surface salt flux at surface from coupler
