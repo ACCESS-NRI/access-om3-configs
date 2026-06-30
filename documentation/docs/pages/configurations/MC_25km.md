@@ -69,6 +69,9 @@ The bottom boundary layer viscosity and thickness are calculated such that the b
 
 An additional Rayleigh drag is applied to layers within the bottom boundary layer to account for curvature of the bottom (`CHANNEL_DRAG = True`, `SMAG_CONST_CHANNEL = 0.15`). More details can be found [here](https://mom6.readthedocs.io/en/main/api/generated/pages/Vertical_Viscosity.html?highlight=channel%20drag#channel-drag).
 
+#### River mixing
+Additional mixing is applied wherever there is runoff, mixing it down to 40m depth where the ocean is deep enough (`DO_RIVERMIX = True`, `RIVERMIX_DEPTH = 40.0`).
+
 ### Horizontal viscosity and subgrid momentum mixing
 A hybrid Laplacian-biharmonic viscosity scheme is used to parameterise unresolved horizontal turbulent mixing of momentum (`LAPLACIAN = True`, `BIHARMONIC = True`). The scheme helps remove small-scale kinetic energy, while preserving large-scale eddy structures, targetting the smaller scales more selectively than just using a Laplacian scheme. See the [MOM6 documentation](https://mom6.readthedocs.io/en/main/api/generated/modules/mom_hor_visc.html#namespacemom-hor-visc-1section-horizontal-viscosity:~:text=Laplacian%20viscosity%20coefficient) for details of how the horizontal viscosity is calculated. The biharmonic viscosity includes:
 
