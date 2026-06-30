@@ -10,13 +10,15 @@ For users of ACCESS-OM3 model configurations released by ACCESS-NRI, knowledge o
 By default, users will run exectuables stored in the `vk83` project. These are deployed automatically on completion of a Pull Request into the [ACCESS-OM3 Deployment Repository](https://github.com/accESS-NRI/access-om3).
 Some details on that process are in the [ACCESS-OM3 Deployment README](https://github.com/accESS-NRI/access-om3) and some high level details on these builds are in the [deployment release notes](https://github.com/ACCESS-NRI/ACCESS-OM3/releases)
 
-Three default builds are provided:
+Three default ACCESS-OM3 builds are provided:
 
     access-om3-MOM6
     access-om3-MOM6-CICE6
     access-om3-MOM6-CICE6-WW3
 
-These builds are optimised for the Sapphire-Rapid hardware from Intel (e.g. the _normalsr_ queue), and may not run on Cascade-Lake (e.g. the _normal_ queue) or older hardware. The aim is to use the same executable for released configurations of non-BGC and BGC (Wombatlite) configurations and for global and regional configurations. Different executables exist where different combinations of active model components (e.g. MOM6,CICE6,WW3) are used.
+These executables are optimised for the Sapphire-Rapid hardware from Intel (e.g. the _normalsr_ queue), and may not run on Cascade-Lake (e.g. the _normal_ queue) or older hardware. The same executable is used for released non-BGC and BGC (WOMBATlite) configurations, and for global and regional configurations. Different executables exist only where different combinations of active model components (e.g. MOM6, CICE6, WW3) are used.
+
+In addition to the ACCESS-OM3 executables, a `mom6-solo` executable is also built. This uses the same MOM6 source code, but is built with the MOM6 [solo_driver](https://github.com/ACCESS-NRI/MOM6/tree/2026.05/config_src/drivers/solo_driver) instead of the NUOPC cap, so it has no NUOPC coupling infrastructure and runs MOM6 stand-alone. This is useful for testing, or for running MOM6 solo configurations, such as [ANU-tub](https://github.com/ACCESS-Community-Hub/anu-tub).
 
 ### Software Structure
 

@@ -14,6 +14,8 @@ The configuration uses a zonally-periodic tripolar grid to avoid a singularity a
 
 There are 75 vertical layers (`NK = 75`). MOM6 supports an arbitrary Lagrangian Euler (ALE) vertical coordinate scheme [@griffies2020primer] that allows for completely general vertical coordinates. A number of coordinates are supported "out-of-the-box", including isopycnal, geopotential, terrain-following, HYCOM1 etc. This configuration uses ALE with a stretched geopotential (z-star) vertical coordinate (`USE_REGRIDDING = True`, `REGRIDDING_COORDINATE_MODE = "ZSTAR"`). The layer spacing specified via an input file (`ALE_COORDINATE_CONFIG = "FILE:ocean_vgrid.nc,interfaces=zeta"`). The deepest ocean depth is set to `MAXIMUM_DEPTH = 6000.0`. Further details of the vertical grid can be found [here](/inputs/Grids/#vertical-grid).
 
+Narrow straits that are not well-resolved by the grid can permit unrealistically large transports. A list of channels with artificially narrowed widths is read in to reduce transport through the Dardanelles and Bosporus (`CHANNEL_CONFIG = "list"`, `CHANNEL_LIST_FILE = "./auxiliary_input/MOM_channel_list"`).
+
 The Boussinesq approximation is used (`BOUSSINESQ = True`), meaning density variations only affect buoyancy, with other terms using a reference density `RHO_0 = 1035` $kg/m^3$.
 
 ### Thermodynamics and Equation of State (TEOS-10)
@@ -32,7 +34,8 @@ More details are [here](https://mom6.readthedocs.io/en/main/api/generated/pages/
 In regions where there is no frazil formation, sea-ice melt/freeze potential is calculated over the smaller of the top 10m of the ocean and the boundary layer depth (`HFREEZE = 10.0`).
 
 ### Surface salinity restoring
-Sea surface salinity is restored toward a monthly climatological dataset calculated from the World Ocean Atlas 2023 available at [NOAA NCEI](https://www.ncei.noaa.gov/products/world-ocean-atlas) (`RESTORE_SALINITY = True`, `SALT_RESTORE_FILE = "salt_sfc_restore.nc"`). A piston velocity of 0.11 $m/day$ is applied to control the strength of the salinity relaxation (`FLUXCONST = 0.11`). The restoring is implemented as a virtual salt flux (`SRESTORE_AS_SFLUX = True`). This approach conserves salt overall, balanced globally by subtracting the mean flux to avoid altering global salinity (`ADJUST_NET_SRESTORE_TO_ZERO = True`). No effective limit is applied to the salinity restoring flux (`MAX_DELTA_SRESTORE = 999`). More discussion can be found in [issues/350](https://github.com/ACCESS-NRI/access-om3-configs/issues/350), [issues/325](https://github.com/ACCESS-NRI/access-om3-configs/issues/325), [issues/257](https://github.com/ACCESS-NRI/access-om3-configs/issues/257).
+Sea surface salinity is restored toward a monthly climatological dataset calculated from the World Ocean Atlas 2023 available at [NOAA NCEI](https://www.ncei.noaa.gov/products/world-ocean-atlas) (`RESTORE_SALINITY = True`, `SALT_RESTORE_FILE = "salt_sfc_restore.nc"`). A piston velocity of 0.11 $m/day$ is applied to control the strength of the salinity relaxation (`FLUXCONST = 0.11`). The restoring is implemented as a virtual salt flux (`SRESTORE_AS_SFLUX = True`). This approach conserves salt overall, balanced globally by scaling values without moving the zero contour (`ADJUST_NET_SRESTORE_TO_ZERO = True`, `ADJUST_NET_SRESTORE_BY_SCALING = True`). The
+maximum salinity difference used to calculate the restoring is limited to 1.0 or 2.0 PSU, depending on the configuration (e.g. `MAX_DELTA_SRESTORE = 1.0`). More discussion can be found in [issues/350](https://github.com/ACCESS-NRI/access-om3-configs/issues/350), [issues/325](https://github.com/ACCESS-NRI/access-om3-configs/issues/325), [issues/257](https://github.com/ACCESS-NRI/access-om3-configs/issues/257).
 
 Salinity is limited to be positive to prevent the sea-ice model from asking for more salt than is available and driving the salinity negative (`BOUND_SALINITY = True`, `MIN_SALINITY = 0.0`).
 
@@ -66,6 +69,9 @@ The bottom boundary layer viscosity and thickness are calculated such that the b
 
 An additional Rayleigh drag is applied to layers within the bottom boundary layer to account for curvature of the bottom (`CHANNEL_DRAG = True`, `SMAG_CONST_CHANNEL = 0.15`). More details can be found [here](https://mom6.readthedocs.io/en/main/api/generated/pages/Vertical_Viscosity.html?highlight=channel%20drag#channel-drag).
 
+#### River mixing
+Additional mixing is applied wherever there is runoff, mixing it down to 40m depth where the ocean is deep enough (`DO_RIVERMIX = True`, `RIVERMIX_DEPTH = 40.0`).
+
 ### Horizontal viscosity and subgrid momentum mixing
 A hybrid Laplacian-biharmonic viscosity scheme is used to parameterise unresolved horizontal turbulent mixing of momentum (`LAPLACIAN = True`, `BIHARMONIC = True`). The scheme helps remove small-scale kinetic energy, while preserving large-scale eddy structures, targetting the smaller scales more selectively than just using a Laplacian scheme. See the [MOM6 documentation](https://mom6.readthedocs.io/en/main/api/generated/modules/mom_hor_visc.html#namespacemom-hor-visc-1section-horizontal-viscosity:~:text=Laplacian%20viscosity%20coefficient) for details of how the horizontal viscosity is calculated. The biharmonic viscosity includes:
 
@@ -83,7 +89,7 @@ The [Lapacian viscosity](https://mom6.readthedocs.io/en/main/api/generated/modul
 - reduction scaling in well-resolved regions (`RESOLN_SCALED_KH = True`) 
 - the two coefficient anisotropic viscosity scheme proposed by [@smith2003anisotropic] is not used (`ANISOTROPIC_VISCOSITY = False`)
 
-The Laplacian and biharmonic coefficients are both limited locally to guarantee stability (`BOUND_KH = True`, `BETTER_BOUND_KH = True`, `BOUND_AH = True`, `BETTER_BOUND_AH = True`).
+The Laplacian and biharmonic coefficients are both limited locally to guarantee stability (`BOUND_KH = True`, `BOUND_AH = True`).
 
 ### Shortwave penetration
 Shortwave penetration into the ocean is calculated using the [@manizza2005bio] chlorophyll-based opacity scheme with three shortwave radiation bands (`VAR_PEN_SW = True`, `PEN_SW_NBANDS = 3`). The monthly climatology of surface chlorophyll concentration is calculated from the [Copernicus-GlobColour](https://data.marine.copernicus.eu/product/OCEANCOLOUR_GLO_BGC_L4_MY_009_104/description) product using [Laplace interpolation to fill missing regions](https://github.com/ACCESS-NRI/om3-scripts/blob/main/chlorophyll/chl_climatology_and_fill.py).
