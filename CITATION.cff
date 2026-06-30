@@ -9,6 +9,10 @@ authors:
     family-names: Basevi
     email: Johanna.Basevi@anu.edu.au
     affiliation: Australia’s Climate Simulator (ACCESS-NRI), Australian National University, Canberra, Australia
+  - given-names: Pearse James
+    family-names: Buchanan
+    email: Pearse.Buchanan@csiro.au
+    affiliation: CSIRO Environment, Hobart, Australia
   - given-names: Christopher Yit Sen 
     family-names: Bull
     email: chris.bull@anu.edu.au
@@ -109,23 +113,31 @@ identifiers:
   - description: "The versioned DOI"
     type: doi
     value: 10.5281/zenodo.17797678
-repository-code: 'https://github.com/accESS-NRI/access-om3-configs'
+repository-code: 'https://github.com/ACCESS-NRI/access-om3-configs'
 url: 'https://access-om3-configs.access-hive.org.au/'
 repository-artifact: >-
   https://github.com/ACCESS-NRI/access-om3-configs/archive/refs/tags/release-MC_25km_jra55_iaf_1.0-beta.tar.gz
 abstract: >-
   This is an initial beta prerelease of a model
   configuration of ACCESS-OM3. This uses a release of the
-  ACCESS-OM3 software (version 2025.08.001), a global grid
+  ACCESS-OM3 software (version 2026.05.002), a global grid
   with 25km nominal resolution, bathymetry generated from
   GEBCO 2024 and initial conditions generated from WOA2023.
   Interannual Forcing (IAF) from the 
   JRA55-do v1.6 reanalysis is used as input data.
 
+  This configuration also includes the WOMBATlite ocean
+  biogeochemistry model with time-varying, globally-
+  averaged atmospheric CO2 forcing. Initial WOMBATlite
+  prognostic tracer concentrations are:
+  - no3, o2: from WOA23
+  - dic, alk: from GLODAPv2 2016b
+  - fe: from Huang et al. 2022 (DOI: 10.5281/zenodo.6994318)
+  - remaining tracers: set to constant values
 
   ACCESS-OM3 is the third generation of the ACCESS global
   ocean-seaice model. It uses up to date releases of the
-  MOM6 ocean mode and CICE6 sea-ice model. It is the first
+  MOM6 ocean model and CICE6 sea-ice model. It is the first
   ACCESS model release using CMEPS (Community Mediator for
   Earth Prediction Systems), built on top of NUOPC (
   National Unified Operational Prediction Capability),
@@ -137,8 +149,10 @@ keywords:
   - access-om3
   - climate
   - model
+  - bgc
   - "ocean - sea ice"
   - CICE
   - MOM6
   - NUOPC
   - ESMF
+  - WOMBAT
