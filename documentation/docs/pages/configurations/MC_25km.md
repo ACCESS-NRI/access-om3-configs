@@ -14,6 +14,8 @@ The configuration uses a zonally-periodic tripolar grid to avoid a singularity a
 
 There are 75 vertical layers (`NK = 75`). MOM6 supports an arbitrary Lagrangian Euler (ALE) vertical coordinate scheme [@griffies2020primer] that allows for completely general vertical coordinates. A number of coordinates are supported "out-of-the-box", including isopycnal, geopotential, terrain-following, HYCOM1 etc. This configuration uses ALE with a stretched geopotential (z-star) vertical coordinate (`USE_REGRIDDING = True`, `REGRIDDING_COORDINATE_MODE = "ZSTAR"`). The layer spacing specified via an input file (`ALE_COORDINATE_CONFIG = "FILE:ocean_vgrid.nc,interfaces=zeta"`). The deepest ocean depth is set to `MAXIMUM_DEPTH = 6000.0`. Further details of the vertical grid can be found [here](/inputs/Grids/#vertical-grid).
 
+Narrow straits that are not well-resolved by the grid can permit unrealistically large transports. A list of channels with artificially narrowed widths is read in to reduce transport through the Dardanelles and Bosporus (`CHANNEL_CONFIG = "list"`, `CHANNEL_LIST_FILE = "./auxiliary_input/MOM_channel_list"`).
+
 The Boussinesq approximation is used (`BOUSSINESQ = True`), meaning density variations only affect buoyancy, with other terms using a reference density `RHO_0 = 1035` $kg/m^3$.
 
 ### Thermodynamics and Equation of State (TEOS-10)
