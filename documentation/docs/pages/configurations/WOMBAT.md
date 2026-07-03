@@ -5,6 +5,7 @@ to the branch name. WOMBATlite includes 15 tracers, two of which are optional. K
 features of WOMBATlite and detailed documentation can be found in the
 [WOMBAT documentation](https://wombat-docs.readthedocs.io/latest/Model_description/WOMBATlite_model_description/).
 
+<a id="version-note"></a>
 !!! note
     After opening the WOMBAT documentation, ensure you are using the version that corresponds to the
     WOMBATlite model version in your configuration. The documentation version can be changed using
@@ -15,7 +16,7 @@ features of WOMBATlite and detailed documentation can be found in the
 ACCESS-OM3 configurations that include WOMBATlite use the model's default namelist options
 and parameters. A full list of options and parameters, including their default values, can be found
 in the
-[WOMBATlite documentation](https://wombat-docs.readthedocs.io/latest/Model_description/WOMBATlite_model_description/#parameter-set-and-default-values).
+[WOMBATlite documentation](https://wombat-docs.readthedocs.io/latest/Model_description/WOMBATlite_model_description/#parameter-set-and-default-values) (again, ensuring you [have the correct version](#version-note)).
 
 ## External forcing
 
