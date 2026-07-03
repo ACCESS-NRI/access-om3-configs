@@ -8,51 +8,61 @@
 # (you may need to add the corresponding PBS -l storage flag in sync_data.sh)
 # shortpath: /scratch/v45
 
+# Model software version
+modules:
+    use:
+        - /g/data/vk83/modules
+    load:
+        - access-om3/2026.05.002
+
 queue: normalsr
 ncpus: 208
 jobfs: 10GB
 mem: 1000GB
-
 walltime: 02:00:00
 jobname: tas5km_jra_iaf
 
 model: access-om3
-
 exe: access-om3-MOM6
 input:
-    - /g/data/vk83/configurations/inputs/access-om3/share/meshes/share/2024.09.16/JRA55do-datm-ESMFmesh.nc
-    - /g/data/vk83/configurations/inputs/access-om3/share/meshes/share/2024.09.16/JRA55do-drof-ESMFmesh.nc
-    - /g/data/ol01/ee8016/regional_wombat/hgrid.nc
-    - /g/data/ol01/ee8016/regional_wombat/vcoord.nc
-    - /g/data/ol01/ee8016/regional_wombat/modifiedfiles/bathymetry.nc
-    - /g/data/ol01/ee8016/regional_wombat/modifiedfiles/init_tracers_mod.nc
-    - /g/data/ol01/ee8016/regional_wombat/modifiedfiles/obgc_obc.nc
-    - /g/data/ol01/ee8016/regional_wombat/init_eta.nc
-    - /g/data/ol01/ee8016/regional_wombat/init_vel.nc
-    - /g/data/ol01/ee8016/regional_wombat/grid_spec.nc
-    - /g/data/ol01/ee8016/regional_wombat/ocean_mosaic.nc
-    - /g/data/ol01/ee8016/regional_wombat/access-rom3-ESMFmesh.nc
-    - /g/data/ol01/ee8016/regional_wombat/access-rom3-nomask-ESMFmesh.nc
-    - /g/data/ol01/ee8016/regional_wombat/SFe_Hamiltonetal2020_monthly_clim.nc
-    - /g/data/qv56/replicas/input4MIPs/CMIP6Plus/OMIP/MRI/MRI-JRA55-do-1-6-0/
-collate: false
+    - /g/data/tm70/ds0092/model/inputs/access-rom3/rM-tas5km_jra_iaf_inputs/hgrid.nc
+    - /g/data/tm70/ds0092/model/inputs/access-rom3/rM-tas5km_jra_iaf_inputs/vcoord.nc
+    - /g/data/tm70/ds0092/model/inputs/access-rom3/rM-tas5km_jra_iaf_inputs/bathymetry.nc
+    - /g/data/tm70/ds0092/model/inputs/access-rom3/rM-tas5km_jra_iaf_inputs/init_tracers.nc
+    - /g/data/tm70/ds0092/model/inputs/access-rom3/rM-tas5km_jra_iaf_inputs/forcing_obc_segment_001.nc
+    - /g/data/tm70/ds0092/model/inputs/access-rom3/rM-tas5km_jra_iaf_inputs/forcing_obc_segment_002.nc
+    - /g/data/tm70/ds0092/model/inputs/access-rom3/rM-tas5km_jra_iaf_inputs/forcing_obc_segment_003.nc
+    - /g/data/tm70/ds0092/model/inputs/access-rom3/rM-tas5km_jra_iaf_inputs/forcing_obc_segment_004.nc
+    - /g/data/tm70/ds0092/model/inputs/access-rom3/rM-tas5km_jra_iaf_inputs/init_eta.nc
+    - /g/data/tm70/ds0092/model/inputs/access-rom3/rM-tas5km_jra_iaf_inputs/init_vel.nc
+    - /g/data/tm70/ds0092/model/inputs/access-rom3/rM-tas5km_jra_iaf_inputs/grid_spec.nc
+    - /g/data/tm70/ds0092/model/inputs/access-rom3/rM-tas5km_jra_iaf_inputs/ocean_mosaic.nc
+    - /g/data/tm70/ds0092/model/inputs/access-rom3/rM-tas5km_jra_iaf_inputs/access-rom3-ESMFmesh.nc
+    - /g/data/tm70/ds0092/model/inputs/access-rom3/rM-tas5km_jra_iaf_inputs/access-rom3-nomask-ESMFmesh.nc
+    - /g/data/vk83/configurations/inputs/access-om3/share/meshes/share/2026.01.21/JRA55do-datm-ESMFmesh.nc
+    - /g/data/vk83/configurations/inputs/access-om3/share/meshes/share/2026.01.21/JRA55do-drof-ESMFmesh.nc
+    - /g/data/qv56/replicas/input4MIPs/CMIP6Plus/OMIP/MRI/MRI-JRA55-do-1-6-0/land/
+    - /g/data/qv56/replicas/input4MIPs/CMIP6Plus/OMIP/MRI/MRI-JRA55-do-1-6-0/landIce/
+    - /g/data/qv56/replicas/input4MIPs/CMIP6Plus/OMIP/MRI/MRI-JRA55-do-1-6-0/atmos/
+
 runlog: false
 metadata: 
     enable: false
+manifest:
+  reproduce:
+    exe: true
+    input: true
 
-platform:
-    nodesize: 104
-    nodemem: 512
+mpi:
+  flags:
+  - --mca mpi_yield_when_idle true
 
-# userscripts:
-#     setup: /usr/bin/bash /g/data/vk83/apps/om3-scripts/payu_config/setup.sh
-#     archive: /usr/bin/bash /g/data/vk83/apps/om3-scripts/payu_config/archive.sh
+collate: false
 
-modules:
-    use:
-        - /g/data/vk83/prerelease/modules
-    load:
-        - access-om3/pr144-1
-        - nco/5.0.5
-env:
-payu_minimum_version: 1.1.6
+userscripts:
+    archive: /usr/bin/bash /g/data/vk83/apps/om3-scripts/payu_config/archive.sh
+
+qsub_flags: -W umask=027
+
+restart_freq: 1YS
+payu_minimum_version: 1.3.2

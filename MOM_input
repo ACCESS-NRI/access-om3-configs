@@ -1,6 +1,6 @@
 ! This section contains non default debugging parameters which are set.
 ! ------------------------
-i! === module MOM ===
+! === module MOM ===
 VERBOSITY = 9                   ! default = 2
                                 ! Integer controlling level of messaging
                                 !   0 = Only FATAL messages
@@ -146,7 +146,7 @@ DTFREEZE_DP = -7.75E-08         !   [degC Pa-1] default = 0.0
                                 ! temperature with pressure.
 
 ! === module MOM_tracer_flow_control ===
-USE_generic_tracer = True       !   [Boolean] default = False
+USE_generic_tracer = False      !   [Boolean] default = False
                                 ! If true and _USE_GENERIC_TRACER is defined as a preprocessor macro, use the
                                 ! MOM_generic_tracer packages.
 
@@ -216,7 +216,7 @@ INIT_LAYERS_FROM_Z_FILE = True  !   [Boolean] default = False
                                 ! Z-space file on a latitude-longitude grid.
 
 ! === module MOM_initialize_layers_from_Z ===
-TEMP_SALT_Z_INIT_FILE = "init_tracers_mod.nc" ! default = "temp_salt_z.nc"
+TEMP_SALT_Z_INIT_FILE = "init_tracers.nc" ! default = "temp_salt_z.nc"
                                 ! The name of the z-space input file used to initialize temperatures (T) and
                                 ! salinities (S). If T and S are not in the same file, TEMP_Z_INIT_FILE and
                                 ! SALT_Z_INIT_FILE must be set.

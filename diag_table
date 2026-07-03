@@ -1,1 +1,62 @@
-diagnostic_profiles/diag_table_standard
+ACCESS-OM3
+1900 1 1 0 0 0
+
+#########################################################################################################
+#                                                                                                       #
+# DO NOT EDIT! Instead, edit diag_table_source.yaml and run make_diag_table.py to re-generate this file #
+#                                                                                                       #
+#########################################################################################################
+
+
+# static 2d grid data
+
+"access-om3.mom6.static", -1, "months", 1, "days", "time"
+"ocean_model", "areacello", "areacello", "access-om3.mom6.static", "all", "none", "none", 1
+"ocean_model", "areacello_cu", "areacello_cu", "access-om3.mom6.static", "all", "none", "none", 1
+"ocean_model", "areacello_cv", "areacello_cv", "access-om3.mom6.static", "all", "none", "none", 1
+"ocean_model", "areacello_bu", "areacello_bu", "access-om3.mom6.static", "all", "none", "none", 1
+"ocean_model", "dxt", "dxt", "access-om3.mom6.static", "all", "none", "none", 1
+"ocean_model", "dyt", "dyt", "access-om3.mom6.static", "all", "none", "none", 1
+"ocean_model", "geolat_c", "geolat_c", "access-om3.mom6.static", "all", "none", "none", 1
+"ocean_model", "geolat", "geolat", "access-om3.mom6.static", "all", "none", "none", 1
+"ocean_model", "geolat_u", "geolat_u", "access-om3.mom6.static", "all", "none", "none", 1
+"ocean_model", "geolat_v", "geolat_v", "access-om3.mom6.static", "all", "none", "none", 1
+"ocean_model", "geolon_c", "geolon_c", "access-om3.mom6.static", "all", "none", "none", 1
+"ocean_model", "geolon", "geolon", "access-om3.mom6.static", "all", "none", "none", 1
+"ocean_model", "geolon_u", "geolon_u", "access-om3.mom6.static", "all", "none", "none", 1
+"ocean_model", "geolon_v", "geolon_v", "access-om3.mom6.static", "all", "none", "none", 1
+"ocean_model", "deptho", "deptho", "access-om3.mom6.static", "all", "none", "none", 1
+"ocean_model", "wet", "wet", "access-om3.mom6.static", "all", "none", "none", 1
+"ocean_model", "wet_c", "wet_c", "access-om3.mom6.static", "all", "none", "none", 1
+"ocean_model", "wet_u", "wet_u", "access-om3.mom6.static", "all", "none", "none", 1
+"ocean_model", "wet_v", "wet_v", "access-om3.mom6.static", "all", "none", "none", 1
+"ocean_model", "Coriolis", "Coriolis", "access-om3.mom6.static", "all", "none", "none", 1
+"ocean_model", "sin_rot", "sin_rot", "access-om3.mom6.static", "all", "none", "none", 1
+"ocean_model", "cos_rot", "cos_rot", "access-om3.mom6.static", "all", "none", "none", 1
+"ocean_model", "dxCu", "dxCu", "access-om3.mom6.static", "all", "none", "none", 1
+"ocean_model", "dyCu", "dyCu", "access-om3.mom6.static", "all", "none", "none", 1
+"ocean_model", "dxCv", "dxCv", "access-om3.mom6.static", "all", "none", "none", 1
+"ocean_model", "dyCv", "dyCv", "access-om3.mom6.static", "all", "none", "none", 1
+"ocean_model", "dyCuo", "dyCuo", "access-om3.mom6.static", "all", "none", "none", 1
+"ocean_model", "dxCvo", "dxCvo", "access-om3.mom6.static", "all", "none", "none", 1
+
+
+# monthly 3d fields on native
+
+"access-om3.mom6.3d.e.1mon.mean.%4yr-%2mo", 1, "months", 1, "days", "time", 1, "months"
+"ocean_model", "e", "e", "access-om3.mom6.3d.e.1mon.mean.%4yr-%2mo", "all", "average", "none", 2
+
+"access-om3.mom6.3d.thkcello.1mon.mean.%4yr-%2mo", 1, "months", 1, "days", "time", 1, "months"
+"ocean_model", "thkcello", "thkcello", "access-om3.mom6.3d.thkcello.1mon.mean.%4yr-%2mo", "all", "average", "none", 2
+
+"access-om3.mom6.3d.thetao.1mon.mean.%4yr-%2mo", 1, "months", 1, "days", "time", 1, "months"
+"ocean_model", "thetao", "thetao", "access-om3.mom6.3d.thetao.1mon.mean.%4yr-%2mo", "all", "average", "none", 2
+
+"access-om3.mom6.3d.so.1mon.mean.%4yr-%2mo", 1, "months", 1, "days", "time", 1, "months"
+"ocean_model", "so", "so", "access-om3.mom6.3d.so.1mon.mean.%4yr-%2mo", "all", "average", "none", 2
+
+"access-om3.mom6.3d.uo.1mon.mean.%4yr-%2mo", 1, "months", 1, "days", "time", 1, "months"
+"ocean_model", "uo", "uo", "access-om3.mom6.3d.uo.1mon.mean.%4yr-%2mo", "all", "average", "none", 2
+
+"access-om3.mom6.3d.vo.1mon.mean.%4yr-%2mo", 1, "months", 1, "days", "time", 1, "months"
+"ocean_model", "vo", "vo", "access-om3.mom6.3d.vo.1mon.mean.%4yr-%2mo", "all", "average", "none", 2
