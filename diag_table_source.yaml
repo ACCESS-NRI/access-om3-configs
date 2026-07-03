@@ -1,12 +1,13 @@
 #######################################################################################################
-# This yaml file is used by make_diag_table.py to create a diag_table file specifying MOM5 diagnostics.
+# This yaml file is used by make_diag_table.py to create a diag_table file specifying MOM6 diagnostics.
 # Latest version: https://github.com/COSIMA/make_diag_table
 #
 # Define the diagnostics you want in the diag_table section below.
 #
 # The MOM diag_table format is defined here:
-# https://github.com/mom-ocean/MOM5/blob/master/src/shared/diag_manager/diag_table.F90
 # https://mom6.readthedocs.io/en/main/api/generated/pages/Diagnostics.html
+# https://www.youtube.com/watch?v=D_J8eg3G80o
+# https://github.com/NOAA-GFDL/FMS/blob/main/diag_manager/diag_table.F90
 #######################################################################################################
 
 
@@ -33,6 +34,9 @@ global_defaults:
         - file_name_prefix
         - file_name_dimension
         - field_name  # substituted by field name in diag_table section below
+        - '+':
+            - file_name_diag_coord
+            - file_name_downsample
         - output_freq
         - '':
             - output_freq_units
@@ -86,6 +90,8 @@ global_defaults:
         average: mean
         'True': mean
         None: ""  # for empty items
+    file_name_diag_coord: "" # vertical coordinate descriptor to be added to filename as specified in DIAG_COORDS in MOM_input. Use "" for native coordinate
+    file_name_downsample: "" # downsampling descriptor to be added to filename. Only d2 is supported by MOM currently. Use "" for no downsampling.
 # %yr, %mo, %dy, %hr %mi, %sc are expanded to the current year, month, day, hour, minute and second respectively,
 
 #######################################################################################################
@@ -161,199 +167,15 @@ diag_table:
             dyCuo: # Open meridional grid spacing at u points (meter)
             dxCvo: # Open zonal grid spacing at v points (meter)
 
-    'monthly 3d fields':
+    'monthly 3d fields on native':
         defaults:  # these can be overridden for individual fields below
             file_name_dimension: 3d  # descriptor for filename, e.g. 3d, 2d, scalar
             reduction_method: mean
-            auxiliary_fields:
-              volcello: # Ocean grid-cell volume
         fields:
             e: # Interface height relative to mean sea level
-            rhopot2: # Potential density referenced to 2000 dbar
+            thkcello: # Cell Thickness
             thetao: # Potential Temperature
             so: # Salinity
             uo: # u velocity
             vo: # v velocity
-            uh: # Zonal Thickness Flux
-            vh: # Meridional Thickness Flux
-            uhGM: # Time Mean Diffusive Zonal Thickness Flux
-            vhGM: # Time Mean Diffusive Meridional Thickness Flux
-            thkcello: # Cell Thickness
-            KE: # Layer Kinetic energy per unit mass
 
-    'monthly 2d fields':
-        defaults:  # these can be overridden for individual fields below
-            file_name_dimension: 2d  # descriptor for filename, e.g. 3d, 2d, scalar
-            reduction_method: mean
-        fields:
-            hfrunoffds: # Heat content (relative to 0C) of liquid+solid runoff into ocean
-            hfrainds: # Heat content (relative to 0degC) of liquid+frozen precip entering ocean
-            net_heat_coupler: # Surface ocean heat flux from SW+LW+latent+sensible+seaice_melt_heat (via the coupler)
-            hfds: # Surface ocean heat flux from SW+LW+lat+sens+mass transfer+frazil+restore+seaice_melt_heat or flux adjustments net_heat_surface
-            wfo: # Net surface water flux (precip+melt+lrunoff+ice calving-evap) PRCmE
-            pso: # Pressure at ice-ocean or atmosphere-ocean interface p_surf
-            sfdsi: # Net salt flux into ocean at surface (restoring + sea-ice) salt_flux
-            salt_flux_added: # Salt flux into ocean at surface due to restoring or flux adjustment
-            mlotst: # Mixed layer depth (delta rho = 0.03) MLD_003
-            speed: # Sea Surface Speed
-            zos: # Sea surface height above geoid
-            zossq: # Square of sea surface height above geoid
-            tauuo: # surface_downward_x_stress taux
-            tauvo: # surface_downward_y_stress tauy
-            umo_2d: # Ocean Mass X Transport Vertical Sum
-            vmo_2d: # Ocean Mass Y Transport Vertical Sum
-            pbo: # Sea Water Pressure at Sea Floor
-
-    'daily 2D fields':
-        defaults:
-            file_name_dimension: 2d  # descriptor for filename, e.g. 3d, 2d, scalar
-            '':
-                - output_freq_units
-            output_freq_units: days  # time units for output: years, months, days, hours, minutes, or seconds
-            reduction_method: mean # mean, snap, rms, pow##, min, max, or diurnal##
-        fields:
-            tob: # Sea Water Potential Temperature at Sea Floor
-            mlotst: # Mixed layer depth (delta rho = 0.03) MLD_003
-            tos: # Sea Surface Temperature
-            sos: # Sea Surface Salinity
-            speed: # Sea Surface Speed
-
-    'monthly 2d max fields':
-        defaults:  # these can be overridden for individual fields below
-            file_name_dimension: 2d  # descriptor for filename, e.g. 3d, 2d, scalar
-            reduction_method: max  # mean, snap, rms, pow##, min, max, or diurnal##
-        fields:
-            mlotst: # Mixed layer depth (delta rho = 0.03) MLD_003
-
-    'monthly scalar timeseries':
-        defaults:  # these can be overridden for individual fields below
-            file_name_dimension: scalar  # descriptor for filename, e.g. 3d, 2d, scalar
-            file_name:  # String, or list of components, for file name (without trailing ".nc").
-            # If a list, its elements are a mixture of strings and dictionaries.
-            # String list elements are concatenated, each preceded by file_name_separator.
-            # Dictionary list elements must have one key-value pair; the value is a list
-            # containing 1 or more strings to be concatenated, each preceded by the key
-            # (a string) instead of file_name_separator. The key may be an empty string,
-            # which is useful if file_name_date begins with %, since FMS prepends _ .
-            # All filename list string elements (other than field_name) must exist as keys in global_defaults.
-            # If file_name_date is used, it must be the last item.
-            # Key values are looked up, converted to strings and then substituted using file_name_substitutions.
-            # Empty strings (and their preceding separator) are ignored if file_name_omit_empty is true.
-            # A separator is not used prior to the first item.
-                - file_name_prefix
-                - file_name_dimension
-                - output_freq
-                - '':
-                    - output_freq_units
-                - reduction_method
-                - file_name_date
-            output_freq_units: days  # time units for output: years, months, days, hours, minutes, or seconds
-            reduction_method: snap  # mean, snap, rms, pow##, min, max, or diurnal##
-            packing: 1  # double precision
-        fields:
-            soga: # Global Mean Ocean Salinity
-            thetaoga: # Global Mean Ocean Potential Temperature
-            tosga: # Global Area Average Sea Surface Temperature sst_global
-            sosga: # Global Area Average Sea Surface Salinity sss_global
-            total_salt_Flux_Added: # Area integrated surface salt flux due to restoring or flux adjustment 
-            total_salt_Flux_In: # Area integrated surface salt flux at surface from coupler
-            total_salt_flux: # Area integrated surface salt flux
-            net_fresh_water_global_adjustment: # Adjustment needed to adjust net fresh water into ocean to zero
-            salt_flux_global_restoring_adjustment: # Adjustment needed to balance net global salt flux into ocean at surface
-            total_wfo: # Area integrated net surface water flux (precip+melt+liq runoff+ice calving-evap) total_PRCmE
-            total_evs: # Area integrated evap/condense at ocean surface total_evap
-            total_fsitherm: # Area integrated sea ice melt (>0) or form (<0) total_icemelt
-            total_precip: # Area integrated liquid+frozen precip into ocean
-            total_prsn: # Area integrated frozen precip into ocean total_fprec
-            total_lprec: # Area integrated liquid precip into ocean
-            total_ficeberg: # Area integrated frozen runoff (calving) & iceberg melt into ocean total_frunoff
-            total_friver: # Area integrated liquid runoff into ocean total_lrunoff
-            total_net_massout: # Area integrated mass leaving ocean due to evap and seaice form
-            total_net_massin: # Area integrated mass entering ocean due to predip, runoff, ice melt
-
-    'monthly 3d BGC fields':
-        defaults:  # these can be overridden for individual fields below
-            file_name_dimension: 3d  # descriptor for filename, e.g. 3d, 2d, scalar
-            reduction_method: mean
-            module_name: generic_wombatlite
-        fields:
-            adic:
-            alk:
-            caco3:
-            caco3_sediment:
-            det:
-            det_sediment:
-            dic:
-            fe:
-            no3:
-            npp3d:
-            o2:
-            phy:
-            pprod_gross:
-            radbio3d:
-            zoo:
-            zprod_gross:
-
-    'monthly 2d BGC fields':
-        defaults:  # these can be overridden for individual fields below
-            file_name_dimension: 2d  # descriptor for filename, e.g. 3d, 2d, scalar
-            reduction_method: mean
-            module_name: generic_wombatlite
-        fields:
-            adic_stf:
-            adic_vstf:
-            adic_btf:
-            adic_alpha:
-            adic_csurf:
-            adic_sc_no:
-            alk_stf:
-            alk_vstf:
-            alk_btf:
-            dic_stf:
-            dic_vstf:
-            dic_btf:
-            dic_alpha:
-            dic_csurf:
-            dic_sc_no:
-            fe_stf:
-            fe_btf:
-            no3_stf:
-            no3_vstf:
-            no3_btf:
-            o2_stf:
-            o2_btf:
-            o2_alpha:
-            o2_csurf:
-            o2_sc_no:
-            caco3_sed_remin:
-            caco3_sed_depst:
-            det_sed_remin:
-            det_sed_depst:
-            adic_intmld:
-            det_intmld:
-            dic_intmld:
-            fe_intmld:
-            no3_intmld:
-            npp_intmld:
-            o2_intmld:
-            phy_intmld:
-            pprod_gross_intmld:
-            radbio_intmld:
-            adic_int100:
-            det_int100:
-            dic_int100:
-            fe_int100:
-            no3_int100:
-            npp_int100:
-            o2_int100:
-            phy_int100:
-            pprod_gross_int100:
-            radbio_int100:
-            light_limit:
-            npp2d:
-            npp1:
-            pco2:
-            paco2:
-            pprod_gross_2d:
-            radbio1:
-            wdet100:
