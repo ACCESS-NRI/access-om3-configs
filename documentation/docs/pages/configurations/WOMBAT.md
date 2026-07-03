@@ -3,9 +3,10 @@
 Configurations that include the WOMBATlite ocean biogeochemistry model have `+wombatlite` appended
 to the branch name. WOMBATlite includes 15 tracers, two of which are optional. Key
 features of WOMBATlite and detailed documentation can be found in the
-[WOMBAT documentation](https://wombat-docs.readthedocs.io/latest/Model_description/WOMBATlite_model_description/)[^1].
-[^1]:
-    When reading the WOMBAT documentation, ensure you are using the version that corresponds to the
+[WOMBAT documentation](https://wombat-docs.readthedocs.io/latest/Model_description/WOMBATlite_model_description/).
+
+!!! note
+    After opening the WOMBAT documentation, ensure you are using the version that corresponds to the
     WOMBATlite model version in your configuration. The documentation version can be changed using
     the fly-out menu in the bottom right-hand corner of the screen.
 
@@ -14,7 +15,7 @@ features of WOMBATlite and detailed documentation can be found in the
 ACCESS-OM3 configurations that include WOMBATlite use the model's default namelist options
 and parameters. A full list of options and parameters, including their default values, can be found
 in the
-[WOMBATlite documentation](https://wombat-docs.readthedocs.io/latest/Model_description/WOMBATlite_model_description/#parameter-set-and-default-values)[^1].
+[WOMBATlite documentation](https://wombat-docs.readthedocs.io/latest/Model_description/WOMBATlite_model_description/#parameter-set-and-default-values).
 
 ## External forcing
 
