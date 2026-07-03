@@ -1,12 +1,5 @@
 ! This section contains non default debugging parameters which are set.
 ! ------------------------
-! === module MOM ===
-VERBOSITY = 9                   ! default = 2
-                                ! Integer controlling level of messaging
-                                !   0 = Only FATAL messages
-                                !   2 = Only FATAL, WARNING, NOTE [default]
-                                !   9 = All)
-
 ! === module MOM_vert_friction ===
 U_TRUNC_FILE = "U_velocity_truncations" ! default = ""
                                 ! The absolute path to a file into which the accelerations leading to zonal
@@ -18,7 +11,7 @@ V_TRUNC_FILE = "V_velocity_truncations" ! default = ""
                                 ! diagnostic is not needed.
 
 ! === module MOM_file_parser ===
-FATAL_UNUSED_PARAMS = False      !   [Boolean] default = False
+FATAL_UNUSED_PARAMS = True      !   [Boolean] default = False
                                 ! If true, kill the run if there are any unused parameters.
 
 ! This section contains non default layout parameters which are set.
@@ -136,7 +129,7 @@ NK = 75                         !   [nondim]
                                 ! The number of model layers.
 
 ! === module MOM_EOS ===
-EQN_OF_STATE = "WRIGHT_REDUCED" ! default = "WRIGHT"
+EQN_OF_STATE = "WRIGHT_REDUCED" ! default = "WRIGHT_FULL"
                                 ! EQN_OF_STATE determines which ocean equation of state should be used.
                                 ! Currently, the valid choices are "LINEAR", "UNESCO", "JACKETT_MCD", "WRIGHT",
                                 ! "WRIGHT_REDUCED", "WRIGHT_FULL", "NEMO", "ROQUET_RHO", "ROQUET_SPV" and
@@ -146,11 +139,6 @@ DTFREEZE_DP = -7.75E-08         !   [degC Pa-1] default = 0.0
                                 ! temperature with pressure.
 
 ! === module MOM_tracer_flow_control ===
-USE_generic_tracer = False      !   [Boolean] default = False
-                                ! If true and _USE_GENERIC_TRACER is defined as a preprocessor macro, use the
-                                ! MOM_generic_tracer packages.
-
-! === module register_MOM_generic_tracer ===
 
 ! === module MOM_boundary_update ===
 
@@ -189,9 +177,24 @@ ALE_COORDINATE_CONFIG = "FILE:vcoord.nc,interfaces=zi" ! default = "UNIFORM"
                                 !  FNC1:string - FNC1:dz_min,H_total,power,precision
                                 !  HYBRID:string - read from a file. The string specifies
                                 !                the filename and two variable names, separated
-                                !                by a comma or space, for sigma-2 and dz. e.g.
-                                !                HYBRID:vgrid.nc,sigma2,dz
-!ALE_RESOLUTION = 11.092098076435915, 11.12589544733533, 11.165918086620376, 11.213306058249117, 11.269405557709561, 11.335805113860857, 11.414377717524317, 11.507329670725412, 11.617256981273385, 11.747210121002269, 11.900767900902267, 12.082121062640923, 12.296165903074183, 12.548607782597145, 12.846073650390167, 13.196231663509366, 13.607914479412557, 14.091240747579036, 14.657726598738321, 15.320375433883754, 16.093730012474765, 16.993865811613148, 18.03829916245229, 19.245778371728136, 20.63592195573483, 22.22866685820685, 24.043493287542788, 26.098404231537188, 28.408659426442966, 30.985297348839254, 33.83352429499399, 36.951102794253245, 40.32692362139596, 43.93998287341037, 47.75899167530645, 51.74280691482443, 55.84178142011456, 60.0, 64.15821857988544, 68.25719308517557, 72.24100832469344, 76.06001712658963, 79.67307637860404, 83.0488972057467, 86.16647570500595, 89.01470265116063, 91.59134057355709, 93.90159576846281, 95.95650671245721, 97.7713331417931, 99.36407804426517, 100.75422162827181, 101.96170083754782, 103.00613418838702, 103.90626998752532, 104.67962456611622, 105.34227340126154, 105.90875925242108, 106.39208552058744, 106.80376833649052, 107.15392634960972, 107.45139221740283, 107.70383409692568, 1
+                                !                by a comma or space, for sigma-2 and dz.
+                                !                e.g. HYBRID:vgrid.nc,sigma2,dz
+                                !  HYBRID_3D:string - read from a file. The string specifies
+                                !                the filename and two 3D variable names, separated
+                                !                by a comma or space, for sigma-2 and dz. The
+                                !                latter can be FNC1:string which is used everywhere.
+                                !                e.g. HYBRID_3D:vgrid.nc,sigma2,dz
+                                !  HYBRID_MAP:string - read from a file. The string specifies
+                                !                the filename and three variable names, separated
+                                !                by a comma or space, for map, sigma-2 and dz.
+                                !                Map is a spatial index array with, maxval(map)=N,
+                                !                and the others are 2D arrays containing N profiles.
+                                !                Map typically contains integer values, but it can
+                                !                contain real values, I+w, which imply using
+                                !                the weighted sum of profiles I and I+1.
+                                !                Dz can be FNC1:string which is used everywhere.
+                                !                e.g. HYBRID_MAP:vgrid.nc,map,sigma2,dz
+!ALE_RESOLUTION = 4.821854240081545, 4.859984607250117, 4.905138354135806, 4.958601706742593, 5.021893449723606, 5.0968057694840425, 5.185451783873582, 5.290320654151742, 5.414341209641762, 5.560955008310259, 5.734199683069228, 5.938803250158976, 6.180289736801626, 6.465095959853201, 6.800698477363284, 7.195748543446456, 7.660211207542389, 8.205502381884045, 8.844614624217613, 9.592218438227832, 10.46472103971513, 11.48025886438404, 12.658593926869258, 14.02087816297535, 15.589245283393126, 17.38618825028462, 19.433684734663643, 21.752045799682975, 24.358487558038235, 27.265463675613546, 30.478847922557293, 33.996115973003725, 37.804734342087784, 41.881006318719415, 46.18963163367914, 50.68419241672501, 55.30867647397531, 60.0, 64.69132352602458, 69.31580758327505, 73.81036836632086, 78.11899368128059, 82.19526565791216, 86.00388402699627, 89.5211520774426, 92.73453632438645, 95.64151244196182, 98.24795420031705, 100.56631526533624, 102.6138117497153, 104.41075471660679, 105.97912183702465, 107.34140607313066, 108.51974113561573, 109.53527896028481, 110.40778156177203, 111.15538537578232, 111.79449761811611, 112.33978879245751, 112.80425145655363, 113.19930152263669, 113.53490404014701, 113.81971026319843, 114.0611967498
 REMAPPING_SCHEME = "PPM_H4"     ! default = "PLM"
                                 ! This sets the reconstruction scheme used for vertical remapping for all
                                 ! variables. It can be one of the following schemes:
@@ -267,8 +270,23 @@ DIAG_COORD_DEF_Z = "FILE:vcoord.nc,interfaces=zi" ! default = "WOA09"
                                 !  FNC1:string - FNC1:dz_min,H_total,power,precision
                                 !  HYBRID:string - read from a file. The string specifies
                                 !                the filename and two variable names, separated
-                                !                by a comma or space, for sigma-2 and dz. e.g.
-                                !                HYBRID:vgrid.nc,sigma2,dz
+                                !                by a comma or space, for sigma-2 and dz.
+                                !                e.g. HYBRID:vgrid.nc,sigma2,dz
+                                !  HYBRID_3D:string - read from a file. The string specifies
+                                !                the filename and two 3D variable names, separated
+                                !                by a comma or space, for sigma-2 and dz. The
+                                !                latter can be FNC1:string which is used everywhere.
+                                !                e.g. HYBRID_3D:vgrid.nc,sigma2,dz
+                                !  HYBRID_MAP:string - read from a file. The string specifies
+                                !                the filename and three variable names, separated
+                                !                by a comma or space, for map, sigma-2 and dz.
+                                !                Map is a spatial index array with, maxval(map)=N,
+                                !                and the others are 2D arrays containing N profiles.
+                                !                Map typically contains integer values, but it can
+                                !                contain real values, I+w, which imply using
+                                !                the weighted sum of profiles I and I+1.
+                                !                Dz can be FNC1:string which is used everywhere.
+                                !                e.g. HYBRID_MAP:vgrid.nc,map,sigma2,dz
 
 ! === module MOM_lateral_mixing_coeffs ===
 
@@ -321,6 +339,9 @@ CORIOLIS_SCHEME = "SADOURNY75_ENSTRO" ! default = "SADOURNY75_ENERGY"
                                 !    ARAKAWA_LAMB81    - Arakawa & Lamb, 1981; En. + Enst.
                                 !    ARAKAWA_LAMB_BLEND - A blend of Arakawa & Lamb with
                                 !                         Arakawa & Hsu and Sadourny energy
+                                !    WENOVI5TH_PV_ENSTRO   - 5th-order WENO PV enstrophy
+                                !    WENOVI3RD_PV_ENSTRO   - 3rd-order WENO PV enstrophy
+                                !    WENOVI7TH_PV_ENSTRO  - 7th-order WENO PV enstrophy
 BOUND_CORIOLIS = True           !   [Boolean] default = False
                                 ! If true, the Coriolis terms at u-points are bounded by the four estimates of
                                 ! (f+rv)v from the four neighboring v-points, and similarly at v-points.  This
@@ -346,8 +367,6 @@ SMAG_BI_CONST = 0.06            !   [nondim] default = 0.0
 HMIX_FIXED = 0.5                !   [m]
                                 ! The prescribed depth over which the near-surface viscosity and diffusivity are
                                 ! elevated when the bulk mixed layer is not used.
-MAXVEL = 6.0                    !   [m s-1] default = 3.0E+08
-                                ! The maximum velocity allowed before the velocity components are truncated.
 
 ! === module MOM_barotropic ===
 BOUND_BT_CORRECTION = True      !   [Boolean] default = False
@@ -455,10 +474,10 @@ EPBL_MSTAR_SCHEME = "REICHL_H18" ! default = "CONSTANT"
                                 !    REICHL_H18 - Use the scheme documented in Reichl & Hallberg, 2018.
 MSTAR_CAP = 10.0                !   [nondim] default = -1.0
                                 ! If this value is positive, it sets the maximum value of mstar allowed in ePBL.
-                                ! (This is not used if EPBL_MSTAR_SCHEME = CONSTANT).
+                                ! (This is not used if EPBL_mstar_scheme = CONSTANT).
 RH18_MSTAR_CN3 = -6.0           !   [nondim] default = -5.0
                                 ! MSTAR_N coefficient 3 (exponential decay coefficient). The value of -5.0 is
-                                ! given in RH18.  Increasing this increases how quickly the value of MSTAR
+                                ! given in RH18.  Increasing this increases how quickly the value of mstar
                                 ! decreases as Hf/ust increases.
 NSTAR = 0.06                    !   [nondim] default = 0.2
                                 ! The portion of the buoyant potential energy imparted by surface fluxes that is
@@ -514,6 +533,8 @@ CHECK_DIFFUSIVE_CFL = True      !   [Boolean] default = False
                                 ! of 1 or MAX_TR_DIFFUSION_CFL iteration.
 
 ! === module MOM_sum_output ===
+MAXVEL = 6.0                    !   [m s-1] default = 3.0E+08
+                                ! The maximum velocity allowed before the velocity components are truncated.
 
 ! === module ocean_stochastics_init ===
 
