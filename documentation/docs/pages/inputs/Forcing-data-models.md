@@ -110,7 +110,7 @@ and the net freshwater flux across the sea ice - ocean interface is `fresh` (MOM
 #### Global Freshwater Balance
 
 For global model configurations, incoming precipitation is scaled such that the global volume of freshwater entering the ocean and sea ice total system is zero.
-As the evaporation parameterisations used in the activate model components are not consistent with those used in atmosphere and runoff forcing data (JRA55do), 
+As the evaporation parameterisations used in the active model components are not consistent with those used in atmosphere and runoff forcing data (JRA55do), 
 a correction is applied to incoming precipitation to prevent drift in the total ocean and sea ice mass. 
 The scaling is applied such that the global sum of runoff, precipitation and evaporation is zero. 
 In this parapgrah and diagram below, we use the convention of evaporation to include evaporation, condensation, deposition and sublimation, precipitation to
