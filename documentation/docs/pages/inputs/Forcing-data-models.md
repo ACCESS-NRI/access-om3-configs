@@ -86,7 +86,7 @@ The net salt flux across the ocean's surface is given by the `salt_flux` diagnos
 
 Freshwater fluxes with the data models (DATM and DROF) are separated in ocean, sea ice and land components as follows. 
 
-- **Precipitation:** precipitation over ocean and sea ice cells are scaled by the sea ice concentration in that cell. Therefore where sea ice covers part of a grid cell, a fraction of precipitation is received by each of the ocean and sea ice components, according to the sea ice concentration in that cell. Precipitation over land is discarded. Precipitation is secondly scaled such that the global freshwater going into the ocean and sea ice system. See ???
+- **Precipitation:** precipitation over ocean and sea ice cells are scaled by the sea ice concentration in that cell. Therefore where sea ice covers part of a grid cell, a fraction of precipitation is received by each of the ocean and sea ice components, according to the sea ice concentration in that cell. Precipitation over land is discarded. Precipitation is secondly scaled such that the global freshwater going into the ocean and sea ice system, see [Global Freshwater Balance](#global-freshwater-balance).
 - **Evaporation:** evaporation (including sublimation, condensation and deposition) is calculated internally by CICE for sea ice. The mediator (CMEPS) calculates evaporation for the ocean and provides this as a surface forcing to MOM6.
 - **Runoff:** runoff only enters the ocean. Therefore 100% of the runoff from DROF goes into MOM6.
 
@@ -114,7 +114,7 @@ As the evaporation parameterisations used in the activate model components are n
 a correction is applied to incoming precipitation to prevent drift in the total ocean and sea ice mass. 
 The scaling is applied such that the global sum of runoff, precipitation and evaporation is zero. 
 In this parapgrah and diagram below, we use the convention of evaporation to include evaporation, condensation, deposition and sublimation, precipitation to
-include rain and snow and runoff to inclue both river and icesheet runoff (consistent with names of coupled fields in the model).
+include rain and snow and runoff to inclue both river and icesheet runoff.
 
 
 ```mermaid
