@@ -86,7 +86,7 @@ The net salt flux across the ocean's surface is given by the `salt_flux` diagnos
 
 Freshwater fluxes with the data models (DATM and DROF) are separated in ocean, sea ice and land components as follows. 
 
-- **Precipitation:** precipitation over ocean and sea ice cells are scaled by the sea ice concentration in that cell. Therefore where sea ice covers part of a grid cell, a fraction of precipitation is received by each of the ocean and sea ice components, according to the sea ice concentration in that cell. Precipitation over land is discarded.
+- **Precipitation:** precipitation over ocean and sea ice cells are scaled by the sea ice concentration in that cell. Therefore where sea ice covers part of a grid cell, a fraction of precipitation is received by each of the ocean and sea ice components, according to the sea ice concentration in that cell. Precipitation over land is discarded. Precipitation is secondly scaled such that the global freshwater going into the ocean and sea ice system. See ???
 - **Evaporation:** evaporation (including sublimation, condensation and deposition) is calculated internally by CICE for sea ice. The mediator (CMEPS) calculates evaporation for the ocean and provides this as a surface forcing to MOM6.
 - **Runoff:** runoff only enters the ocean. Therefore 100% of the runoff from DROF goes into MOM6.
 
@@ -106,6 +106,69 @@ The net freshwater flux across the sea ice (CICE) top surface is the sum of:
 2. Evaporation: captured by `evap_ai`.
 
 and the net freshwater flux across the sea ice - ocean interface is `fresh` (MOM6 diagnostic `seaice_melt`).
+
+#### Global Freshwater Balance
+
+For global model configurations, incoming precipitation is scaled such that the global volume of freshwater entering the ocean and sea ice total system is zero.
+As the evaporation parameterisations used in the activate model components are not consistent with those used in atmosphere and runoff forcing data (JRA55do), 
+a correction is applied to incoming precipitation to prevent drift in the total ocean and sea ice mass. 
+The scaling is applied such that the global sum of runoff, precipitation and evaporation is zero. 
+In this parapgrah and diagram below, we use the convention of evaporation to include evaporation, condensation, deposition and sublimation, precipitation to
+include rain and snow and runoff to inclue both river and icesheet runoff (consistent with names of coupled fields in the model).
+
+
+```mermaid
+---
+config:
+  theme: redux
+  layout: fixed
+---
+flowchart TB
+ subgraph s2["JRA55-do"]
+        n1["Runoff (DROF)"]
+        n6["Precipitation (DATM)"]
+  end
+ subgraph s3[" "]
+        n2["Ocean (MOM6)"]
+        n4["Sea Ice (CICE)"]
+  end
+ subgraph s6["Mediator - Evaporation"]
+        n5["Evaporation (CMEPS and CICE)"]
+        n7["Sea ice evaporation is calcualted in CICE, whilst ocean evaporation is calculated in CMEPS."]
+  end
+ subgraph s7["Mediator - Precipitation"]
+        n3["Scaled Precipitation (CMEPS)"]
+        n8["Precipitation (from JRA55do) is scaled such that the global sum of runoff, precipitation and evaporation is zero at each timestep."]
+  end
+
+    n3 --> n2 & n4
+    n4 --> n5
+    n2 --> n5
+    n6 --> n3
+    n5 --> n3
+    n1 --> n3
+    n1 --> n2
+
+    n1@{ shape: rounded}
+    n6@{ shape: rounded}
+    n4@{ shape: rect}
+    n7@{ shape: text}
+    n3@{ shape: rounded}
+    n8@{ shape: text}
+    style n1 fill:#757575,color:#ffffff
+    style n6 color:#ffffff,fill:#757575
+    style n4 stroke:#FF6D00
+    style n5 fill:#C8E6C9
+    style n3 fill:#C8E6C9
+    linkStyle 0 stroke:#00C853,fill:none
+    linkStyle 1 stroke:#00C853,fill:none
+    linkStyle 2 stroke:#FF6D00,fill:none
+    linkStyle 3 stroke:#00C853,fill:none
+    linkStyle 5 stroke:#00C853,fill:none
+```
+
+The scaling is implemented by including [`med_phases_scalefreshwater_run`](https://github.com/ACCESS-NRI/CMEPS/blob/HEAD/mediator/med_phases_scalefluxes_mod.F90) in 
+[`nuopc.runseq`](https://github.com/ACCESS-NRI/access-om3-configs/commit/200242fdce3c15fc97831d9aa7bdf43f81eb531c#diff-a38027e841650d12250f4828301a4a336a0a3170b80dfaa90ee370455ed36951) and setting the MOM6 option `ADJUST_NET_FRESH_WATER_TO_ZERO` to False
 
 ### Heat fluxes
 
