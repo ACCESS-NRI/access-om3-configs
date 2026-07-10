@@ -97,7 +97,7 @@ ALLCOMP_attributes::
     - [`*_cpl_dt`](https://github.com/search?q=repo%3AACCESS-NRI%2Faccess-om3-configs+path%3Adoc%2Fnuopc.runconfig+_cpl_dt&type=code) in `CLOCK_attributes` in `nuopc.runconfig`
     - [`nuopc.runseq`](https://github.com/ACCESS-NRI/access-om3-configs/blob/dev-MC_100km_jra_ryf/nuopc.runseq)
   - MOM6 timestepping - see [here](/infrastructure/NUOPC-driver/#mom6-time-steps)
-    - There are 4 timesteps. From shortest to longest they are: barotropic, baroclinic (Lagrangian), tracer, vertical remapping - see [here](https://youtu.be/JKMwd8VXYcU?t=383) and [here](https://youtu.be/JKMwd8VXYcU?t=2165) and [here](https://mom6.readthedocs.io/en/main/api/generated/pages/Timestep_Overview.html)
+    - There are 5 timesteps. From shortest to longest they are: barotropic, baroclinic (Lagrangian), thermodynamic, tracer advection and vertical remapping - see [here](/infrastructure/NUOPC-driver/#mom6-time-steps)
   - CICE6 timestepping - see [here](/infrastructure/NUOPC-driver/#cice6-time-steps)
     - There are 3 timesteps. From shortest to longest they are elastic, dynamic and thermodynamic - see [here](https://cice-consortium-cice.readthedocs.io/en/cice6.5.0/user_guide/ug_implementation.html#choosing-an-appropriate-time-step)
     - The thermodynamic timestep is determined by the coupling (and driver) timestep (so _`dt` should **not** be explicitly set in `ice_in`_ - see [here](/infrastructure/NUOPC-driver/#cice6-time-steps))
