@@ -96,6 +96,16 @@ cp ../input-25km/ocean_vgrid_cropped.nc .
 
 ### 5. NUOPC input
 We need to provide the coupler with a mesh mask of where to apply coupling between atmosphere - sea ice - ocean. Similar to the pan-Antarctic [version without ice shelves](https://access-om3-configs.access-hive.org.au/pr-previews/573/configurations/pan-Antartic/Overview/), but using the [sea ice topography](https://github.com/claireyung/mom6-panAn-iceshelf-tools/blob/claire_working/generate-draft/process-topo-8k-minimal-topoedited.ipynb) (topography file with only open ocean) since NUOPC shouldn't be exchanging fields between the atmosphere and ocean below ice shelves. This requires [code changes to MOM6](https://github.com/ACCESS-NRI/MOM6/issues/29) to allow this to run so ensure an appropriate MOM6 executable is being used.
+The changes are decumented [here](https://github.com/ACCESS-NRI/ACCESS-OM3/pull/189) and the following lines in `config.yaml` point to the executable:
+```
+modules:
+    use:
+        - /g/data/vk83/modules
+        - /g/data/vk83/prerelease/modules
+    load:
+        - access-om3/pr189-19
+        - model-tools/mppnccombine-fast/2025.07.000
+```
 
 In the final version I used the following, which draws on these [python scripts for mesh generation](https://github.com/ACCESS-NRI/om3-scripts/tree/main/mesh_generation) 
 ```
@@ -114,7 +124,7 @@ Copy these files to your input directory.
 
 ### 6. Set up config
 
-The easiest place to start is by cloning an existing ice shelf config, e.g. the alpha release **when it is available **(https://github.com/ACCESS-NRI/access-om3-configs/pull/814)
+The easiest place to start is by cloning an [existing ice shelf config](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MC_panan4km_jra_ryf%2Bisf).
 
 You can use `payu` to do this, for example
 ```
@@ -122,7 +132,7 @@ module use /g/data/vk83/modules
 module load payu
 payu clone --new-branch expt --branch dev-MC_4km_jra_ryf+regionalpanan+isf https://github.com/ACCESS-NRI/access-om3-configs dev-MC_4km_jra_ryf+regionalpanan+isf
 ```
-This config has ice shelf parameters, links to input files, `diag_table` with diagnostics for ice shelves (make sure to save the `e` variable for plotting, and the `ice_shelf_model` diagnostics e.g. `melt_rate`), and modified runoff streams files `drof.streams.xml` without the liquid runoff file (remove the [`FRIVER` related lines](https://github.com/ACCESS-NRI/access-om3-configs/issues/728)). You can update `config.yaml` with the correct project, shortpath, input files etc. You may need to update other files elsewhere, e.g. in `MOM_input` the initial conditions, topo file etc, tidal amplitude file (see step 13 and turn `READ_TIDEAMP = False` for now), and other grid-related files in `ice_in`, `nuopc.runconfig`, `drof_in`, `datm_in`. If changing layout, it might be easiest to not use a mask table and just use the automatic layout method.
+This config has ice shelf parameters, links to input files, `diag_table` with diagnostics for ice shelves (make sure to save the `e` variable for plotting, and the `ice_shelf_model` diagnostics e.g. `melt_rate`), and modified runoff streams files `drof.streams.xml` without the liquid runoff file (remove the [`FRIVER` related lines](https://github.com/ACCESS-NRI/access-om3-configs/issues/728)). You can update `config.yaml` with the correct project, shortpath, input files etc. You may need to update other files elsewhere, e.g. in `MOM_input` the initial conditions, topo file etc, tidal amplitude file (see step 13 and turn `READ_TIDEAMP = False` for now), and other grid-related files in `ice_in`, `nuopc.runconfig`, `drof_in`, `datm_in`. If changing layout, it might be easiest to not use a mask table and use the automatic layout method.
 
 Alternatively, you could start with a non-ice shelf config and modify it. See section 9 for ice shelf-related parameters I recommend.
 
