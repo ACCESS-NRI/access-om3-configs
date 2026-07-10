@@ -60,7 +60,11 @@ Salt restoring [used a similar method](https://github.com/claireyung/mom6-panAn-
 Discussion: https://github.com/claireyung/mom6-panAn-iceshelf-tools/issues/3 and https://github.com/claireyung/mom6-panAn-iceshelf-tools/issues/13
 
 ### 4. Boundary Conditions
-We generated boundary conditions at our chosen boundary latitude using the same method as the COSIMA panan using [this script](https://github.com/claireyung/mom6-panAn-iceshelf-tools/blob/main/generate-obcs/ACCESS-OM2_panan_boundary_forcing_8km.ipynb). This script uses daily output from the second year of ACCESS-OM2-01 output, potential temperature and practical salinity, to be consistent with the initial conditions. **Didn't work with recent conda environments, so may need a code update**
+We generated boundary conditions at our chosen boundary latitude using the same method as the COSIMA panan using [this script](https://github.com/claireyung/mom6-panAn-iceshelf-tools/blob/main/generate-obcs/ACCESS-OM2_panan_boundary_forcing_8km.ipynb). This script uses daily output from the second year of ACCESS-OM2-01 output, potential temperature and practical salinity, to be consistent with the initial conditions. Note that this notebook does not work on recent verions of `analysis 3`, older versions are recommended.
+Axis information was added after file creation:
+```
+ncatted -a axis,nx_segment_001,c,c,x -a axis,ny_segment_001,c,c,y -O forcing_access_yr2_8km_fill_mod.nc
+```
 
 ### 5. Truncating files
 If our files are on a global grid, then we need to truncate them to the pan-Antarctic domain. We need to ensure this is consistent with all the files. We can use `nco` as an efficient `netcdf` chopper.
