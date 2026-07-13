@@ -110,8 +110,9 @@ and the net freshwater flux across the sea ice - ocean interface is `fresh` (MOM
 #### Global Freshwater Balance
 
 For global model configurations, incoming precipitation is scaled such that the global volume of freshwater entering the ocean and sea ice total system is zero.
-As the evaporation parameterisations used in the active model components are not consistent with those used in atmosphere and runoff forcing data (JRA55do), 
-a correction is applied to incoming precipitation to prevent drift in the total ocean and sea ice mass. 
+The evaporation used in the active model components are not consistent with those used in atmosphere and runoff forcing data (JRA55do), 
+due to different parameter choices and differences between real and modelled ocean surface conditions. 
+Therefore a correction is applied to incoming precipitation to prevent drift in the total ocean and sea ice mass. 
 The scaling is applied such that the global sum of runoff, precipitation and evaporation is zero. 
 In this paragraph and diagram below:
 - evaporation includes evaporation, condensation, deposition and sublimation;
@@ -140,7 +141,7 @@ flowchart TB
   end
  subgraph s7["Mediator - Precipitation"]
         n3["Scaled Precipitation (CMEPS)"]
-        n8["Precipitation (from JRA55do) is scaled such that the global sum of runoff, precipitation and evaporation is zero at each timestep."]
+        n8["Precipitation (from JRA55do) is scaled such that the global sum of runoff, precipitation and evaporation is zero at each timestep. All Runoff enters the ocean."]
   end
 
     n3 --> n2 & n4
@@ -149,7 +150,6 @@ flowchart TB
     n6 --> n3
     n5 --> n3
     n1 --> n3
-    n1 --> n2
 
     n1@{ shape: rounded}
     n6@{ shape: rounded}
@@ -170,7 +170,14 @@ flowchart TB
 ```
 
 The scaling is implemented by including [`med_phases_scalefreshwater_run`](https://github.com/ACCESS-NRI/CMEPS/blob/HEAD/mediator/med_phases_scalefluxes_mod.F90) in 
-[`nuopc.runseq`](https://github.com/ACCESS-NRI/access-om3-configs/commit/200242fdce3c15fc97831d9aa7bdf43f81eb531c#diff-a38027e841650d12250f4828301a4a336a0a3170b80dfaa90ee370455ed36951) and setting the MOM6 option `ADJUST_NET_FRESH_WATER_TO_ZERO` to False
+[`nuopc.runseq`](https://github.com/ACCESS-NRI/access-om3-configs/commit/200242fdce3c15fc97831d9aa7bdf43f81eb531c#diff-a38027e841650d12250f4828301a4a336a0a3170b80dfaa90ee370455ed36951) and setting the MOM6 option `ADJUST_NET_FRESH_WATER_TO_ZERO` to False.
+
+There's a couple of quirks that mean that the freshwater scaling achieves very close to zero freshwater at each timestep,
+with is a small variation in global ocean mass ( annual variation of approximatly ±1e-6%). This appears to be 
+related to CICE treatment of freshwater fluxes. Sea ice evaporation is calculated during the sea ice timestep, so is different to the
+evaporation used when balancing the global freshwater fluxes which is completed before the sea ice is run. 
+In addition, precipitation is added to sea ice during the 
+sea ice timestep, and therefore the area of sea ice to catch precipitation has changed slightly since the balancing.
 
 ### Heat fluxes
 
