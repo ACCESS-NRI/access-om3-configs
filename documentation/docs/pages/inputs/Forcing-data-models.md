@@ -172,8 +172,7 @@ flowchart TB
 The scaling is implemented by including [`med_phases_scalefreshwater_run`](https://github.com/ACCESS-NRI/CMEPS/blob/HEAD/mediator/med_phases_scalefluxes_mod.F90) in 
 [`nuopc.runseq`](https://github.com/ACCESS-NRI/access-om3-configs/commit/200242fdce3c15fc97831d9aa7bdf43f81eb531c#diff-a38027e841650d12250f4828301a4a336a0a3170b80dfaa90ee370455ed36951) and setting the MOM6 option `ADJUST_NET_FRESH_WATER_TO_ZERO` to False.
 
-There's a couple of quirks that mean that the freshwater scaling achieves very close to zero freshwater at each timestep,
-with is a small variation in global ocean mass ( annual variation of approximatly ±1e-6%). This appears to be 
+Note, the scaling approach does not achieve exactly zero freshwater at each timestep and there is a small variation in global ocean mass (annual variation of approximately ±1e-6%). This appears to be 
 related to CICE treatment of freshwater fluxes. Sea ice evaporation is calculated during the sea ice timestep, so is different to the
 evaporation used when balancing the global freshwater fluxes which is completed before the sea ice is run. 
 In addition, precipitation is added to sea ice during the 
