@@ -71,7 +71,7 @@ MOM6 has 5 timesteps - see these references:
 - [Lecture: MOM6 time stepping (Summary)](https://youtu.be/JKMwd8VXYcU?t=2165)
 - [MOM6 ReadtheDocs](https://mom6.readthedocs.io/en/main/api/generated/pages/Timestep_Overview.html). 
 
-From shortest to longest they are: barotropic (DTBT), baroclinic Lagrangian (DTBT), tracer advection (DT_TRACER_ADVECT), thermodynamic (DT_THERM) and vertical remapping. 
+From shortest to longest they are: barotropic (`DTBT`), baroclinic Lagrangian (`DTBT`), tracer advection (`DT_TRACER_ADVECT`), thermodynamic (`DT_THERM`) and vertical remapping. 
 Note that currently in MOM6 remapping is performed as part of the thermodynamic step so their timesteps cannot be set independently. 
 It is common to set at least these 3 timesteps in the `MOM_input` file:
 
