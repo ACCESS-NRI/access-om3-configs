@@ -68,6 +68,8 @@ Currently the following released configurations are available:
 
 - [`release-MC_25km_jra_ryf`](https://github.com/ACCESS-NRI/access-om3-configs/tree/release-MC_25km_jra_ryf)
 - [`release-MC_25km_jra_iaf`](https://github.com/ACCESS-NRI/access-om3-configs/tree/release-MC_25km_jra_iaf)
+- [`release-MC_25km_jra_ryf+wombatlite`](https://github.com/ACCESS-NRI/access-om3-configs/tree/release-MC_25km_jra_ryf+wombatlite)
+- [`release-MC_25km_jra_iaf+wombatlite`](https://github.com/ACCESS-NRI/access-om3-configs/tree/release-MC_25km_jra_iaf+wombatlite)
 
 Currently the following development configurations are available:
 
