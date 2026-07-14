@@ -12,10 +12,7 @@ description: |-
   - dic, alk: from GLODAPv2 2016b
   - fe: from Huang et al. 2022 (DOI: 10.5281/zenodo.6994318)
   - remaining tracers: set to constant values
-notes: |-
-  ACCESS-NRI and COSIMA request that users of this model acknowledge those organisations 
-  following the examples at https://www.access-nri.org.au/resources/acknowledging-us/ 
-  and https://cosima.org.au/index.php/get-involved/
+notes: "ACCESS-NRI and COSIMA request that users of this model acknowledge those organisations \nfollowing the examples at https://www.access-nri.org.au/resources/acknowledging-us/ \nand https://cosima.org.au/index.php/get-involved/"
 keywords:
   - JRA55
   - access-om3
@@ -30,4 +27,4 @@ nominal_resolution: 25 km
 license: CC-BY-4.0
 model: ACCESS-OM3
 url: https://github.com/ACCESS-NRI/access-om3-configs/tree/release-MC_25km_jra_iaf+wombatlite
-version: 0.0
+version: 1.0-beta
