@@ -1,12 +1,13 @@
 #######################################################################################################
-# This yaml file is used by make_diag_table.py to create a diag_table file specifying MOM5 diagnostics.
+# This yaml file is used by make_diag_table.py to create a diag_table file specifying MOM6 diagnostics.
 # Latest version: https://github.com/COSIMA/make_diag_table
 #
 # Define the diagnostics you want in the diag_table section below.
 #
 # The MOM diag_table format is defined here:
-# https://github.com/mom-ocean/MOM5/blob/master/src/shared/diag_manager/diag_table.F90
 # https://mom6.readthedocs.io/en/main/api/generated/pages/Diagnostics.html
+# https://www.youtube.com/watch?v=D_J8eg3G80o
+# https://github.com/NOAA-GFDL/FMS/blob/main/diag_manager/diag_table.F90
 #######################################################################################################
 
 
@@ -33,7 +34,9 @@ global_defaults:
         - file_name_prefix
         - file_name_dimension
         - field_name  # substituted by field name in diag_table section below
-        - file_name_diag_coord
+        - '+':
+            - file_name_diag_coord
+            - file_name_downsample
         - output_freq
         - '':
             - output_freq_units
@@ -87,7 +90,8 @@ global_defaults:
         average: mean
         'True': mean
         None: ""  # for empty items
-    file_name_diag_coord: "" # name of diagnostic vertical coordinate as specified in DIAG_COORDS in MOM_input; use "" for native coordinate
+    file_name_diag_coord: "" # vertical coordinate descriptor to be added to filename as specified in DIAG_COORDS in MOM_input. Use "" for native coordinate
+    file_name_downsample: "" # downsampling descriptor to be added to filename. Only d2 is supported by MOM currently. Use "" for no downsampling.
 # %yr, %mo, %dy, %hr %mi, %sc are expanded to the current year, month, day, hour, minute and second respectively,
 
 #######################################################################################################
@@ -175,6 +179,7 @@ diag_table:
             rhopot0: # Potential density referenced to surface
             rhopot2: # Potential density referenced to 2000 dbar
             thetao: # Potential Temperature
+            bigthetao: # Conservative Temperature
             so: # Salinity
             uo: # u velocity
             vo: # v velocity
@@ -206,6 +211,8 @@ diag_table:
             thkcello: # Cell Thickness
             Kd_interface: # Total diapycnal diffusivity at interfaces
             Kd_ePBL: # ePBL diapycnal diffusivity at interfaces
+            diftrblo: # Ocean Tracer Diffusivity due to Parameterized Mesoscale Advection
+            diftrelo: # Ocean Tracer Epineutral Laplacian Diffusivity
 
     'monthly 2d fields':
         defaults:  # these can be overridden for individual fields below
@@ -275,6 +282,7 @@ diag_table:
             tob: # Sea Water Potential Temperature at Sea Floor
             mlotst: # Mixed layer depth (delta rho = 0.03) MLD_003
             tos: # Sea Surface Temperature
+            conSST: # Sea Surface Conservative Temperature
             sos: # Sea Surface Salinity
             speed: # Sea Surface Speed
             evs: # Evaporation/condensation at ocean surface (evaporation is negative)
@@ -314,12 +322,13 @@ diag_table:
             masso: # Mass of liquid ocean
             soga: # Global Mean Ocean Salinity
             thetaoga: # Global Mean Ocean Potential Temperature
+            bigthetaoga: # Global Mean Ocean Conservative Temperature
             tosga: # Global Area Average Sea Surface Temperature sst_global
+            sscont_global: # Global Area Average Sea Surface Conservative Temperature
             sosga: # Global Area Average Sea Surface Salinity sss_global
             total_salt_Flux_Added: # Area integrated surface salt flux due to restoring or flux adjustment 
             total_salt_Flux_In: # Area integrated surface salt flux at surface from coupler
             total_salt_flux: # Area integrated surface salt flux
-            net_fresh_water_global_adjustment: # Adjustment needed to adjust net fresh water into ocean to zero
             salt_flux_global_restoring_adjustment: # Adjustment needed to balance net global salt flux into ocean at surface
             total_wfo: # Area integrated net surface water flux (precip+melt+liq runoff+ice calving-evap) total_PRCmE
             total_evs: # Area integrated evap/condense at ocean surface total_evap
@@ -332,7 +341,6 @@ diag_table:
             total_net_massout: # Area integrated mass leaving ocean due to evap and seaice form
             total_net_massin: # Area integrated mass entering ocean due to precip, runoff, ice melt
             total_PRCmE: # Area integrated net surface water flux (precip+melt+liq runoff+ice calving-evap)
-            total_evap: # Area integrated evap/condense at ocean surface
             total_icemelt: # Area integrated sea ice melt (>0) or form (<0)
             total_precip: # Area integrated liquid+frozen precip into ocean
             total_frunoff: # Area integrated frozen runoff (calving) & iceberg melt into ocean
