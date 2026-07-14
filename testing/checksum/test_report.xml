@@ -1,98 +1,103 @@
-<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="1" skipped="0" tests="1" time="427.756" timestamp="2025-02-27T10:46:56.562442+11:00" hostname="gadi-login-09.gadi.nci.org.au"><testcase classname="test-venv.lib.python3.10.site-packages.model_config_tests.test_bit_reproducibility.TestBitReproducibility" name="test_bit_repro_historical" time="427.072"><failure message="AssertionError: Checksums were not equal. The new checksums have been written to /scratch/tm70/repro-ci/experiments/access-om3-configs/dev-025deg_jra55do_ryf/checksum/historical-3hr-checksum.json.&#10;assert {'output': {'...ion': '1-0-0'} == {'output': {'...ion': '1-0-0'}&#10;  &#10;  Omitting 1 identical items, use -vv to show&#10;  Differing items:&#10;  {'output': {'CFL': ['0.00000', '0.19694'], 'En': ['6.3048230599477494E-22', '4.7656791183785772E-04'], 'M': ['1.36283E+21', '1.36283E+21'], 'Me': ['0.00E+00', '-1.71E-10'], ...}} != {'output': {'CAu': ['A4FE6700E78CF3A4'], 'CAv': ['BFA2EEC3B6A95ED4'], 'DTBT': ['4034AA97033F7BA1'], 'First_direction': ['0'], ...}}&#10;  Use -v to get more diff">self = &lt;model_config_tests.test_bit_reproducibility.TestBitReproducibility object at 0x7f9a888a3a90&gt;
-output_path = PosixPath('/scratch/tm70/repro-ci/experiments/access-om3-configs/dev-025deg_jra55do_ryf')
-control_path = PosixPath('/scratch/tm70/repro-ci/experiments/access-om3-configs/dev-025deg_jra55do_ryf/base-experiment')
-checksum_path = None, keep_archive = False
+<?xml version="1.0" encoding="utf-8"?><testsuites name="pytest tests"><testsuite name="pytest" errors="1" failures="0" skipped="0" tests="1" time="3.185" timestamp="2026-07-14T15:33:17.753955+10:00" hostname="gadi-login-08.gadi.nci.org.au"><testcase classname="test-venv.lib.python3.10.site-packages.model_config_tests.config_tests.test_bit_reproducibility.TestBitReproducibility" name="test_repro_historical" time="1.498"><error message="failed on setup with &quot;RuntimeError: Failed to run payu setup:&#10;Return code: 1&#10;--- stdout ---&#10;laboratory path:  /scratch/tm70/repro-ci/experiments/access-om3-configs/generate-checksums/release-MC_25km_jra_ryf+wombatlite/8d929be80952ede1e9c5c20bdf018b5a3a83e1eb/lab&#10;binary path:  /scratch/tm70/repro-ci/experiments/access-om3-configs/generate-checksums/release-MC_25km_jra_ryf+wombatlite/8d929be80952ede1e9c5c20bdf018b5a3a83e1eb/lab/bin&#10;input path:  /scratch/tm70/repro-ci/experiments/access-om3-configs/generate-checksums/release-MC_25km_jra_ryf+wombatlite/8d929be80952ede1e9c5c20bdf018b5a3a83e1eb/lab/input&#10;work path:  /scratch/tm70/repro-ci/experiments/access-om3-configs/generate-checksums/release-MC_25km_jra_ryf+wombatlite/8d929be80952ede1e9c5c20bdf018b5a3a83e1eb/lab/work&#10;archive path:  /scratch/tm70/repro-ci/experiments/access-om3-configs/generate-checksums/release-MC_25km_jra_ryf+wombatlite/8d929be80952ede1e9c5c20bdf018b5a3a83e1eb/lab/archive&#10;Experiment name is configured in config.yaml:  exp_default_runtime&#10;&#10;--- stderr ---&#10;Traceback (most recent call last):&#10;  File &quot;/opt/conda/payu-1.2.0/bin/payu&quot;, line 10, in &lt;module&gt;&#10;    sys.exit(parse())&#10;  File &quot;/g/data/vk83/apps/base_conda/envs/payu-1.2.0/lib/python3.10/site-packages/payu/cli.py&quot;, line 49, in parse&#10;    run_cmd(**args)&#10;  File &quot;/g/data/vk83/apps/base_conda/envs/payu-1.2.0/lib/python3.10/site-packages/payu/subcommands/setup_cmd.py&quot;, line 28, in runcmd&#10;    expt.setup(force_archive=force_archive)&#10;  File &quot;/g/data/vk83/apps/base_conda/envs/payu-1.2.0/lib/python3.10/site-packages/payu/experiment.py&quot;, line 63, in wrapper&#10;    result = func(self, *args, **kwargs)&#10;  File &quot;/g/data/vk83/apps/base_conda/envs/payu-1.2.0/lib/python3.10/site-packages/payu/experiment.py&quot;, line 473, in setup&#10;    self.check_payu_version()&#10;  File &quot;/g/data/vk83/apps/base_conda/envs/payu-1.2.0/lib/python3.10/site-packages/payu/experiment.py&quot;, line 464, in check_payu_version&#10;    raise RuntimeError(&#10;RuntimeError: Payu version 1.2.0 does not meet the configured minimum version. A version &gt;= 1.3.2 is required to run this configuration.&quot;">request = &lt;SubRequest 'experiments' for &lt;Function test_repro_historical&gt;&gt;
+output_path = PosixPath('/scratch/tm70/repro-ci/experiments/access-om3-configs/generate-checksums/release-MC_25km_jra_ryf+wombatlite/8d929be80952ede1e9c5c20bdf018b5a3a83e1eb')
+control_path = PosixPath('/scratch/tm70/repro-ci/experiments/access-om3-configs/generate-checksums/release-MC_25km_jra_ryf+wombatlite/8d929be80952ede1e9c5c20bdf018b5a3a83e1eb/base-experiment')
+keep_archive = False
 
-    @pytest.mark.checksum
-    def test_bit_repro_historical(
-        self,
-        output_path: Path,
-        control_path: Path,
-        checksum_path: Optional[Path],
-        keep_archive: Optional[bool],
+    @pytest.fixture(scope="class")
+    def experiments(
+        request, output_path: Path, control_path: Path, keep_archive: Optional[bool]
     ):
         """
-        Test that a run reproduces historical checksums
+        Parse the experiments markers from the requested tests and
+        submit all necessary experiments at the same time.
     
-        Parameters (these are fixtures defined in conftest.py)
-        ----------
-        output_path: Path
-            Output directory for test output and where the control and
-            lab directories are stored for the payu experiments. Default is
-            set in conftest.py
-        control_path: Path
-            Path to the model configuration to test. This is copied for
-            for control directories in experiments. Default is set in
-            conftests.py
-        checksum_path: Optional[Path]
-            Path to checksums to compare model output against. Default is
-            set to checksums saved on model configuration (set in )
-        keep_archive: Optional[bool]
-            This flag is used in testing for test code to use a previous test
-            archive, and to disable running the model with payu
+        The scope is class so the experiments are only run once before all repro
+        tests.
         """
-        # Setup checksum output directory
-        checksum_output_dir = set_checksum_output_dir(output_path=output_path)
     
-        # Setup experiment
-        exp = setup_exp(
-            control_path, output_path, "test_bit_repro_historical", keep_archive
-        )
+        # Parse the experiments markers from the requested tests
+        experiments_markers = []
+        for item in request.session.items:
+            if item.parent == request.node:
+                marker = item.get_closest_marker("experiments")
+                if marker:
+                    experiments_markers.append(marker.args[0])
     
-        # Set model runtime using the configured default
-        exp.model.set_model_runtime()
-    
-        # Run the experiment using payu
-        status, stdout, stderr, output_files = exp.setup_and_run()
-    
-        if status != 0 or not exp.model.output_exists():
-            # Log the run information
-            exp.print_run_logs(status, stdout, stderr, output_files)
-    
-        assert status == 0, (
-            "There was an error running the experiment. "
-            "See the logs for more infomation on the experiment run"
-        )
-    
-        assert exp.model.output_exists(), (
-            "Output file for the model does not exist. "
-            "See the logs for more information on the experiment run"
-        )
-    
-        # Set the checksum output filename using the model default runtime
-        runtime_hours = exp.model.default_runtime_seconds // HOUR_IN_SECONDS
-        checksum_filename = f"historical-{runtime_hours}hr-checksum.json"
-    
-        # Read the historical checksum file
-        hist_checksums = read_historical_checksums(
-            control_path, checksum_filename, checksum_path
-        )
-    
-        # Use historical file checksums schema version for parsing checksum,
-        # otherwise use the model default, if file does not exist
-        schema_version = (
-            hist_checksums["schema_version"]
-            if hist_checksums
-            else exp.model.default_schema_version
-        )
-    
-        # Extract checksums
-        checksums = exp.extract_checksums(schema_version=schema_version)
-    
-        # Write out checksums to output file
-        checksum_output_file = checksum_output_dir / checksum_filename
-        with open(checksum_output_file, "w") as file:
-            json.dump(checksums, file, indent=2)
-    
-&gt;       assert (
-            hist_checksums == checksums
-        ), f"Checksums were not equal. The new checksums have been written to {checksum_output_file}."
-E       AssertionError: Checksums were not equal. The new checksums have been written to /scratch/tm70/repro-ci/experiments/access-om3-configs/dev-025deg_jra55do_ryf/checksum/historical-3hr-checksum.json.
-E       assert {'output': {'...ion': '1-0-0'} == {'output': {'...ion': '1-0-0'}
-E         
-E         Omitting 1 identical items, use -vv to show
-E         Differing items:
-E         {'output': {'CFL': ['0.00000', '0.19694'], 'En': ['6.3048230599477494E-22', '4.7656791183785772E-04'], 'M': ['1.36283E+21', '1.36283E+21'], 'Me': ['0.00E+00', '-1.71E-10'], ...}} != {'output': {'CAu': ['A4FE6700E78CF3A4'], 'CAv': ['BFA2EEC3B6A95ED4'], 'DTBT': ['4034AA97033F7BA1'], 'First_direction': ['0'], ...}}
-E         Use -v to get more diff
+&gt;       return _experiments(experiments_markers, output_path, control_path, keep_archive)
 
-../test-venv/lib/python3.10/site-packages/model_config_tests/test_bit_reproducibility.py:131: AssertionError</failure></testcase></testsuite></testsuites>
+../test-venv/lib/python3.10/site-packages/model_config_tests/config_tests/test_bit_reproducibility.py:147: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+../test-venv/lib/python3.10/site-packages/model_config_tests/config_tests/test_bit_reproducibility.py:113: in _experiments
+    experiments.setup_and_submit(
+../test-venv/lib/python3.10/site-packages/model_config_tests/exp_test_helper.py:366: in setup_and_submit
+    exp.submit_payu_run(n_runs=n_runs)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = &lt;model_config_tests.exp_test_helper.ExpTestHelper object at 0x7f550afd4a00&gt;
+n_runs = 1
+
+    def submit_payu_run(self, n_runs: int = None) -&gt; str:
+        """
+        Submit a payu run job.
+    
+        Parameters
+        ----------
+        n_runs: int
+            The number of runs to submit with --nruns.
+    
+        Returns
+        ----------
+        str
+            The job ID of the submitted payu run job
+        """
+        if self.disable_payu_run:
+            return
+    
+        owd = Path.cwd()
+        try:
+            # Change to experiment directory and run.
+            os.chdir(self.control_path)
+    
+            print("Running payu setup")
+            result = sp.run(
+                ["payu", "setup", "--lab", str(self.lab_path)],
+                capture_output=True,
+                text=True,
+            )
+            if result.returncode != 0:
+                # Add additional error messaging for debugging
+                error_msg = (
+                    "Failed to run payu setup:\n"
+                    f"Return code: {result.returncode}\n"
+                    f"--- stdout ---\n{result.stdout}\n"
+                    f"--- stderr ---\n{result.stderr}"
+                )
+                print(error_msg)
+&gt;               raise RuntimeError(error_msg)
+E               RuntimeError: Failed to run payu setup:
+E               Return code: 1
+E               --- stdout ---
+E               laboratory path:  /scratch/tm70/repro-ci/experiments/access-om3-configs/generate-checksums/release-MC_25km_jra_ryf+wombatlite/8d929be80952ede1e9c5c20bdf018b5a3a83e1eb/lab
+E               binary path:  /scratch/tm70/repro-ci/experiments/access-om3-configs/generate-checksums/release-MC_25km_jra_ryf+wombatlite/8d929be80952ede1e9c5c20bdf018b5a3a83e1eb/lab/bin
+E               input path:  /scratch/tm70/repro-ci/experiments/access-om3-configs/generate-checksums/release-MC_25km_jra_ryf+wombatlite/8d929be80952ede1e9c5c20bdf018b5a3a83e1eb/lab/input
+E               work path:  /scratch/tm70/repro-ci/experiments/access-om3-configs/generate-checksums/release-MC_25km_jra_ryf+wombatlite/8d929be80952ede1e9c5c20bdf018b5a3a83e1eb/lab/work
+E               archive path:  /scratch/tm70/repro-ci/experiments/access-om3-configs/generate-checksums/release-MC_25km_jra_ryf+wombatlite/8d929be80952ede1e9c5c20bdf018b5a3a83e1eb/lab/archive
+E               Experiment name is configured in config.yaml:  exp_default_runtime
+E               
+E               --- stderr ---
+E               Traceback (most recent call last):
+E                 File "/opt/conda/payu-1.2.0/bin/payu", line 10, in &lt;module&gt;
+E                   sys.exit(parse())
+E                 File "/g/data/vk83/apps/base_conda/envs/payu-1.2.0/lib/python3.10/site-packages/payu/cli.py", line 49, in parse
+E                   run_cmd(**args)
+E                 File "/g/data/vk83/apps/base_conda/envs/payu-1.2.0/lib/python3.10/site-packages/payu/subcommands/setup_cmd.py", line 28, in runcmd
+E                   expt.setup(force_archive=force_archive)
+E                 File "/g/data/vk83/apps/base_conda/envs/payu-1.2.0/lib/python3.10/site-packages/payu/experiment.py", line 63, in wrapper
+E                   result = func(self, *args, **kwargs)
+E                 File "/g/data/vk83/apps/base_conda/envs/payu-1.2.0/lib/python3.10/site-packages/payu/experiment.py", line 473, in setup
+E                   self.check_payu_version()
+E                 File "/g/data/vk83/apps/base_conda/envs/payu-1.2.0/lib/python3.10/site-packages/payu/experiment.py", line 464, in check_payu_version
+E                   raise RuntimeError(
+E               RuntimeError: Payu version 1.2.0 does not meet the configured minimum version. A version &gt;= 1.3.2 is required to run this configuration.
+
+../test-venv/lib/python3.10/site-packages/model_config_tests/exp_test_helper.py:241: RuntimeError</error></testcase></testsuite></testsuites>

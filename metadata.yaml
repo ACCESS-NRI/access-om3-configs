@@ -1,23 +1,8 @@
 contact: Add your name here
 email: Add your email address here
 created: Add the date you started the experiment here (YYYY-MM-DD)
-description: |-
-    25km ACCESS-OM3 global configuration under the RYF9091 Repeat
-    Year Forcing strategy outlined by Stewart et al (2020), 
-    https://doi.org/10.1016/j.ocemod.2019.101557.
-    Initial conditions of temperature and salinity are from WOA23.
-    Run with JRA55-do v1.6.0 RYF9091 (1 May 1990 - 30 April 1991) repeated forcing.
-    This configuration includes WOMBATlite biogeochemistry with constant atmospheric
-    CO2 forcing. Initial WOMBATlite prognostic tracer concentrations are:
-    - no3, o2: from WOA23
-    - dic, alk: from GLODAPv2 2016b
-    - fe: from Huang et al. 2022 (DOI: 10.5281/zenodo.6994318)
-    - remaining tracers: set to constant values
-    Spin up starts from a nominal year of 1 Jan 1900.
-notes: |-
-  ACCESS-NRI and COSIMA request that users of this model acknowledge those organisations 
-  following the examples at https://www.access-nri.org.au/resources/acknowledging-us/ 
-  and https://cosima.org.au/index.php/get-involved/
+description: "25km ACCESS-OM3 global configuration under the RYF9091 Repeat\nYear Forcing strategy outlined by Stewart et al (2020), \nhttps://doi.org/10.1016/j.ocemod.2019.101557.\nInitial conditions of temperature and salinity are from WOA23.\nRun with JRA55-do v1.6.0 RYF9091 (1 May 1990 - 30 April 1991) repeated forcing.\nThis configuration includes WOMBATlite biogeochemistry with constant atmospheric\nCO2 forcing. Initial WOMBATlite prognostic tracer concentrations are:\n- no3, o2: from WOA23\n- dic, alk: from GLODAPv2 2016b\n- fe: from Huang et al. 2022 (DOI: 10.5281/zenodo.6994318)\n- remaining tracers: set to constant values\nSpin up starts from a nominal year of 1 Jan 1900."
+notes: "ACCESS-NRI and COSIMA request that users of this model acknowledge those organisations \nfollowing the examples at https://www.access-nri.org.au/resources/acknowledging-us/ \nand https://cosima.org.au/index.php/get-involved/"
 keywords:
   - JRA55
   - access-om3
@@ -32,4 +17,4 @@ nominal_resolution: 25 km
 license: CC-BY-4.0
 model: ACCESS-OM3
 url: https://github.com/ACCESS-NRI/access-om3-configs/tree/release-MC_25km_jra_ryf+wombatlite
-version: 0.0
+version: 1.0-beta
