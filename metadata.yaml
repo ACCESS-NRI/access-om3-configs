@@ -8,8 +8,9 @@ description: |-
   This configuration includes WOMBATlite biogeochemistry with time-varying, globally-
   averaged atmospheric CO2 forcing. Initial WOMBATlite prognostic tracer
   concentrations are:
-  - no3, o2, dic, alk: from GLODAPv2 2016b
-  - fe: from Tagliabue et al. 2016 (doi:10.1002/2015GB005289)
+  - no3, o2: from WOA23
+  - dic, alk: from GLODAPv2 2016b
+  - fe: from Huang et al. 2022 (DOI: 10.5281/zenodo.6994318)
   - remaining tracers: set to constant values
 notes: |-
   ACCESS-NRI and COSIMA request that users of this model acknowledge those organisations 
@@ -28,5 +29,5 @@ realm:
 nominal_resolution: 25 km
 license: CC-BY-4.0
 model: ACCESS-OM3
-url: https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MC_25km_jra_iaf+wombatlite
+url: https://github.com/ACCESS-NRI/access-om3-configs/tree/release-MC_25km_jra_iaf+wombatlite
 version: 0.0
