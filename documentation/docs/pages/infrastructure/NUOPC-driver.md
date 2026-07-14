@@ -61,7 +61,7 @@ So I think in our case, `{model_name}_cpl_dt` are unused and the driver time-ste
 
 ### CICE6 time-steps
 
-The CICE thermodynamics time-step (`dt`) is set in the [CICE NUOPC cap](https://github.com/ESCOMP/CICE/blob/4cb296c4003014fe57d6d00f86868a78a532fc95/cicecore/drivers/nuopc/cmeps/ice_comp_nuopc.F90#L1227) to match the driver time-step, which [equals the coupling time-step](#coupling-and-driver-time-step). Setting `dt` in `ice_in` has no impact, although [other time-step related parameters](https://cice-consortium-cice.readthedocs.io/en/latest/user_guide/ug_implementation.html#choosing-an-appropriate-time-step) can be set here. Setting `ndtd` within `ice_in` allows for sub-cycling of the sea-ice dynamics to ensure numerical stability and may need to be increased during initial model spin up (the thermodynamics should be numerically stable for any time-step).
+The CICE thermodynamics time-step (`dt`; seconds) is set in the [CICE NUOPC cap](https://github.com/ESCOMP/CICE/blob/4cb296c4003014fe57d6d00f86868a78a532fc95/cicecore/drivers/nuopc/cmeps/ice_comp_nuopc.F90#L1227) to match the driver time-step, which [equals the coupling time-step](#coupling-and-driver-time-step). Setting `dt` in `ice_in` has no impact, although [other time-step related parameters](https://cice-consortium-cice.readthedocs.io/en/latest/user_guide/ug_implementation.html#choosing-an-appropriate-time-step) can be set here. Setting `ndtd` within `ice_in` allows for sub-cycling of the sea-ice dynamics to ensure numerical stability and may need to be increased during initial model spin up (the thermodynamics should be numerically stable for any time-step).
 
 ### MOM6 time-steps
 
