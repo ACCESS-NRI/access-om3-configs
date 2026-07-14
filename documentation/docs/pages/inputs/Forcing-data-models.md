@@ -39,7 +39,10 @@ Input data is first interpolated to the model time within DATM, second remapped 
 
 JRA55-do runoff provides daily mean liquid and frozen runoff fields, although the runoff at many locations in the dataset is updated less frequently than daily. In the source data, all frozen run-off is distributed at the ocean surface of the Antarctic/Greenland coastlines without spreading (see issue [#404](https://github.com/ACCESS-NRI/access-om3-configs/issues/404)). 
 
-Similar to atmospheric forcing, runoff data is first interpolated in time, second remapped from DROF to the mediator, and lastly from the mediator the the ocean (MOM6). The first and second mapping step is similar to the atmospheric forcing, namely using linear interpolation in time and conservative interpolation spatially. The last stage remapping moves from the om3 grid without a landmask to the same grid with a landmask. For runoff, the differences in landmask between the incoming data on the JRA55-do grid and the OM3 grids can cause runoff to be remapped to land cells or on cells away from the coastlines. When runoff would be placed on land cells or non-coastal ocean cells, the volume of runoff is crudely moved to the nearest coastal ocean cell using pre-generated weights from the [generate_rof_weights.py](https://github.com/ACCESS-NRI/om3-scripts/blob/main/mesh_generation/generate_rof_weights.py) script. _generate_rof_weights.py_ selects the nearest coastal ocean cell by a BallTree algorithm using Haversine distances (i.e. the shortest disance on a sphere). The combined effect of the two remapping steps is that the full global volume of runoff enters the ocean, and only at cells which abut land cells.
+Similar to atmospheric forcing, runoff data is first interpolated in time, second remapped from DROF to the mediator, and lastly from the mediator the the ocean (MOM6). The first and second mapping step is similar to the atmospheric forcing, namely using linear interpolation in time and conservative interpolation spatially. The last stage remapping moves from the om3 grid without a landmask to the same grid with a landmask. For liquid runoff and frozen runoff, the last stage is approached differently for each:
+
+- For *liquid runoff*, the differences in landmask between the incoming data on the JRA55-do grid and the OM3 grids can cause runoff to be remapped to land cells or on cells away from the coastlines. When runoff would be placed on land cells or non-coastal ocean cells, the volume of runoff is crudely moved to the nearest coastal ocean cell using pre-generated weights from the [generate_rof_weights.py](https://github.com/ACCESS-NRI/om3-scripts/blob/main/mesh_generation/generate_rof_weights.py) script. _generate_rof_weights.py_ selects the nearest coastal ocean cell by a BallTree algorithm using Haversine distances (i.e. the shortest disance on a sphere). The combined effect of the two remapping steps is that the full global volume of runoff enters the ocean, and only at cells which abut land cells.
+- For *frozen runoff*, a total volume of runoff for each ice sheet is calculated and then spread according to a pattern specified in `rof2ocn_ice_spread` in `nuopc.runconfig`. The pattern is pre-calculated using [generate_rofi_pattern.py](https://github.com/ACCESS-NRI/om3-scripts/blob/main/rof_pattern_generation/generate_rofi_pattern.py), which regrids the source pattern [@mankoff_2025] onto the OM3 grid. The pattern is a 12 monthly climatology and therefore changes for each calendar month. The pattern is normalised for each month in the model to ensure water conservation, so users are free to modify the pattern without impacting water conservation. There are likely to be refinements to this implementation in future releases - see [#404](https://github.com/ACCESS-NRI/access-om3-configs/issues/404#issuecomment-4849416706) and [#1492](https://github.com/ACCESS-NRI/access-om3-configs/issues/1492).
 
 
 ## Ice surface wind stress
@@ -86,7 +89,7 @@ The net salt flux across the ocean's surface is given by the `salt_flux` diagnos
 
 Freshwater fluxes with the data models (DATM and DROF) are separated in ocean, sea ice and land components as follows. 
 
-- **Precipitation:** precipitation over ocean and sea ice cells are scaled by the sea ice concentration in that cell. Therefore where sea ice covers part of a grid cell, a fraction of precipitation is received by each of the ocean and sea ice components, according to the sea ice concentration in that cell. Precipitation over land is discarded.
+- **Precipitation:** precipitation over ocean and sea ice cells are scaled by the sea ice concentration in that cell. Therefore where sea ice covers part of a grid cell, a fraction of precipitation is received by each of the ocean and sea ice components, according to the sea ice concentration in that cell. Precipitation over land is discarded. Precipitation is secondly scaled such that the global freshwater going into the ocean and sea ice system is zero, see [Global Freshwater Balance](#global-freshwater-balance).
 - **Evaporation:** evaporation (including sublimation, condensation and deposition) is calculated internally by CICE for sea ice. The mediator (CMEPS) calculates evaporation for the ocean and provides this as a surface forcing to MOM6.
 - **Runoff:** runoff only enters the ocean. Therefore 100% of the runoff from DROF goes into MOM6.
 
@@ -106,6 +109,77 @@ The net freshwater flux across the sea ice (CICE) top surface is the sum of:
 2. Evaporation: captured by `evap_ai`.
 
 and the net freshwater flux across the sea ice - ocean interface is `fresh` (MOM6 diagnostic `seaice_melt`).
+
+#### Global Freshwater Balance
+
+For global model configurations, incoming precipitation is scaled such that the global volume of freshwater entering the ocean and sea ice total system is zero.
+The evaporation used in the active model components are not consistent with those used in atmosphere and runoff forcing data (JRA55do), 
+due to different parameter choices and differences between real and modelled ocean surface conditions. 
+Therefore a correction is applied to incoming precipitation to prevent drift in the total ocean and sea ice mass. 
+The scaling is applied such that the global sum of runoff, precipitation and evaporation is zero. 
+In this paragraph and diagram below:
+- evaporation includes evaporation, condensation, deposition and sublimation;
+- precipitation includes rain and snow; and
+- runoff includes both river and ice-sheet runoff.
+
+
+```mermaid
+---
+config:
+  theme: redux
+  layout: fixed
+---
+flowchart TB
+ subgraph s2["JRA55-do"]
+        n1["Runoff (DROF)"]
+        n6["Precipitation (DATM)"]
+  end
+ subgraph s3[" "]
+        n2["Ocean (MOM6)"]
+        n4["Sea Ice (CICE)"]
+  end
+ subgraph s6["Mediator - Evaporation"]
+        n5["Evaporation (CMEPS and CICE)"]
+        n7["Sea ice evaporation is calculated in CICE, whilst ocean evaporation is calculated in CMEPS."]
+  end
+ subgraph s7["Mediator - Precipitation"]
+        n3["Scaled Precipitation (CMEPS)"]
+        n8["Precipitation (from JRA55do) is scaled such that the global sum of runoff, precipitation and evaporation is zero at each timestep. All Runoff enters the ocean."]
+  end
+
+    n3 --> n2 & n4
+    n4 --> n5
+    n2 --> n5
+    n6 --> n3
+    n5 --> n3
+    n1 --> n3
+
+    n1@{ shape: rounded}
+    n6@{ shape: rounded}
+    n4@{ shape: rect}
+    n7@{ shape: text}
+    n3@{ shape: rounded}
+    n8@{ shape: text}
+    style n1 fill:#757575,color:#ffffff
+    style n6 color:#ffffff,fill:#757575
+    style n4 stroke:#FF6D00
+    style n5 fill:#C8E6C9
+    style n3 fill:#C8E6C9
+    linkStyle 0 stroke:#00C853,fill:none
+    linkStyle 1 stroke:#00C853,fill:none
+    linkStyle 2 stroke:#FF6D00,fill:none
+    linkStyle 3 stroke:#00C853,fill:none
+    linkStyle 5 stroke:#00C853,fill:none
+```
+
+The scaling is implemented by including [`med_phases_scalefreshwater_run`](https://github.com/ACCESS-NRI/CMEPS/blob/HEAD/mediator/med_phases_scalefluxes_mod.F90) in 
+[`nuopc.runseq`](https://github.com/ACCESS-NRI/access-om3-configs/commit/200242fdce3c15fc97831d9aa7bdf43f81eb531c#diff-a38027e841650d12250f4828301a4a336a0a3170b80dfaa90ee370455ed36951) and setting the MOM6 option `ADJUST_NET_FRESH_WATER_TO_ZERO` to False.
+
+Note, the scaling approach does not achieve exactly zero freshwater at each timestep and there is a small variation in global ocean mass (annual variation of approximately ±1e-6%). This appears to be 
+related to CICE treatment of freshwater fluxes. Sea ice evaporation is calculated during the sea ice timestep, so is different to the
+evaporation used when balancing the global freshwater fluxes which is completed before the sea ice is run. 
+In addition, precipitation is added to sea ice during the 
+sea ice timestep, and therefore the area of sea ice to catch precipitation has changed slightly since the balancing.
 
 ### Heat fluxes
 
