@@ -66,10 +66,18 @@ Setting `dt` in `ice_in` has no impact and can only be changed by changing the c
 
 ### MOM6 time-steps
 
-MOM6 has 4 timesteps - see [here](https://youtu.be/JKMwd8VXYcU?t=383) and [here](https://youtu.be/JKMwd8VXYcU?t=2165) and [here](https://mom6.readthedocs.io/en/main/api/generated/pages/Timestep_Overview.html). From shortest to longest they are: barotropic, baroclinic (Lagrangian), tracer, and vertical remapping. Of these, it is common to set at least these 3 timesteps in the `MOM_input` file:
+MOM6 has 5 timesteps - see these references:
+
+- [Lecture: MOM6 time stepping (Vertical Langrangian Remap)](https://youtu.be/JKMwd8VXYcU?t=383)
+- [Lecture: MOM6 time stepping (Summary)](https://youtu.be/JKMwd8VXYcU?t=2165)
+- [MOM6 ReadtheDocs](https://mom6.readthedocs.io/en/main/api/generated/pages/Timestep_Overview.html). 
+
+From shortest to longest they are: barotropic (`DTBT`), baroclinic Lagrangian (`DT`), tracer advection (`DT_TRACER_ADVECT`), thermodynamic (`DT_THERM`) and vertical remapping. 
+Note that currently in MOM6 remapping is performed as part of the thermodynamic step so their timesteps cannot be set independently. 
+It is common to set at least these 3 timesteps in the `MOM_input` file:
 
 - Barotropic time-step (`DTBT`) for integration of sea surface and depth-averaged horizontal velocity. If set negative (e.g. `DTBT = -0.95`), the magnitude of `DTBT` is interpreted a fraction of the stability limit, so can be set independently of the model configuration (e.g. resolution). `DTBT_RESET_PERIOD` controls how often the stability limit is recalculated.
 
 - Baroclinic time-step (`DT`) for Lagrangian stacked shallow-water equations; often called "the" model timestep; needs to be short enough to resolve internal gravity waves, inertial oscillations and advection on the horizontal grid (i.e. this is resolution-dependent).
 
-- Tracer/thermodynamics time-step (`DT_THERM`), which can be [set to resolve the relevant physics](https://youtu.be/JKMwd8VXYcU?si=dBk09lMVPsMF3aJT&t=541) (e.g. an hour or so to capture the diurnal cycle), independent of the horizontal grid resolution. It is possible to set `DT_THERM` longer than the coupling time-step, but not with [`DIABATIC_FIRST = True`](https://github.com/search?q=repo%3AACCESS-NRI%2Faccess-om3-configs+path%3Adoc%2FMOM_input+content%3ADIABATIC_FIRST&type=code), which is the case for the current ACCESS-OM3 configurations. So `DT_THERM` should be set equal to, or less than, the coupling time-step.
+- Thermodynamics time-step (`DT_THERM`), which can be [set to resolve the relevant physics](https://youtu.be/JKMwd8VXYcU?si=dBk09lMVPsMF3aJT&t=541) (e.g. one to three hours or so to capture the diurnal cycle), independent of the horizontal grid resolution. It is possible to set `DT_THERM` longer than the coupling time-step, but only with [`DIABATIC_FIRST = False`](https://github.com/search?q=repo%3AACCESS-NRI%2Faccess-om3-configs+path%3Adoc%2FMOM_input+content%3ADIABATIC_FIRST&type=code). The tracer advection timestep (`DT_TRACER_ADVECT`) defaults to the same as `DT_THERM`.
