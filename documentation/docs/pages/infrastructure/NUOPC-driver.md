@@ -65,7 +65,13 @@ The CICE thermodynamics time-step (`dt`) is set in the [CICE NUOPC cap](https://
 
 ### MOM6 time-steps
 
-MOM6 has 5 timesteps - see [here](https://youtu.be/JKMwd8VXYcU?t=383) and [here](https://youtu.be/JKMwd8VXYcU?t=2165) and [here](https://mom6.readthedocs.io/en/main/api/generated/pages/Timestep_Overview.html). From shortest to longest they are: barotropic, baroclinic (Lagrangian), tracer advection, thermodynamic and vertical remapping (note that currently in MOM6 remapping is performed as part of the thermodynamic step so their timesteps cannot be set independently). It is common to set at least these 3 timesteps in the `MOM_input` file:
+MOM6 has 5 timesteps - see these references:
+
+- [Lecture: MOM6 time stepping (Vertical Langrangian Remap)](https://youtu.be/JKMwd8VXYcU?t=383)
+- [Lecture: MOM6 time stepping (Summary)](https://youtu.be/JKMwd8VXYcU?t=2165)
+- [MOM6 ReadtheDocs](https://mom6.readthedocs.io/en/main/api/generated/pages/Timestep_Overview.html). 
+
+From shortest to longest they are: barotropic, baroclinic (Lagrangian), tracer advection, thermodynamic and vertical remapping (note that currently in MOM6 remapping is performed as part of the thermodynamic step so their timesteps cannot be set independently). It is common to set at least these 3 timesteps in the `MOM_input` file:
 
 - Barotropic time-step (`DTBT`) for integration of sea surface and depth-averaged horizontal velocity. If set negative (e.g. `DTBT = -0.95`), the magnitude of `DTBT` is interpreted a fraction of the stability limit, so can be set independently of the model configuration (e.g. resolution). `DTBT_RESET_PERIOD` controls how often the stability limit is recalculated.
 
