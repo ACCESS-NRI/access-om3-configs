@@ -68,6 +68,8 @@ Currently the following released configurations are available:
 
 - [`release-MC_25km_jra_ryf`](https://github.com/ACCESS-NRI/access-om3-configs/tree/release-MC_25km_jra_ryf)
 - [`release-MC_25km_jra_iaf`](https://github.com/ACCESS-NRI/access-om3-configs/tree/release-MC_25km_jra_iaf)
+- [`release-MC_25km_jra_ryf+wombatlite`](https://github.com/ACCESS-NRI/access-om3-configs/tree/release-MC_25km_jra_ryf+wombatlite)
+- [`release-MC_25km_jra_iaf+wombatlite`](https://github.com/ACCESS-NRI/access-om3-configs/tree/release-MC_25km_jra_iaf+wombatlite)
 
 Currently the following development configurations are available:
 
@@ -101,22 +103,33 @@ Regional configurations:
 
 The `dev-MCW_100km_jra_ryf` configuration has been [archived](https://github.com/ACCESS-NRI/access-om3-configs/releases/tag/archive-MCW_100km_jra_ryf), and isn't currently maintained.
 
-### Comparison table
-The following links can be used to easily compare different configuration branches
+### Comparing configuration branches
 
-**MC ← MC**
+GitHub's branch comparison view can be used to see exactly what differs between any two configurations.
+This is useful, for example, to see how a `dev-*` configuration differs from the latest `release-*`
+configuration it's based on, or how two configurations at different resolutions differ.
 
-- [`release-MC_25km_jra_ryf`⬅️`release-MC_25km_jra_iaf`](https://github.com/ACCESS-NRI/access-om3-configs/compare/release-MC_25km_jra_ryf..release-MC_25km_jra_iaf)
-- [`release-MC_25km_jra_ryf`⬅️`dev-MC_25km_jra_ryf`](https://github.com/ACCESS-NRI/access-om3-configs/compare/release-MC_25km_jra_ryf..dev-MC_25km_jra_ryf)
-- [`release-MC_25km_jra_iaf`⬅️`dev-MC_25km_jra_iaf`](https://github.com/ACCESS-NRI/access-om3-configs/compare/release-MC_25km_jra_iaf..dev-MC_25km_jra_iaf)
-- [`dev-MC_100km_jra_ryf`⬅️`dev-MC_100km_jra_iaf`](https://github.com/ACCESS-NRI/access-om3-configs/compare/dev-MC_100km_jra_ryf..dev-MC_100km_jra_iaf)
-- [`dev-MC_100km_jra_ryf`⬅️`dev-MC_100km_jra_ryf+wombatlite`](https://github.com/ACCESS-NRI/access-om3-configs/compare/dev-MC_100km_jra_ryf..dev-MC_100km_jra_ryf+wombatlite)
-- [`dev-MC_100km_jra_ryf`⬅️`dev-MC_25km_jra_ryf`](https://github.com/ACCESS-NRI/access-om3-configs/compare/dev-MC_100km_jra_ryf..dev-MC_25km_jra_ryf)
-- [`dev-MC_100km_jra_ryf+wombatlite`⬅️`dev-MC_25km_jra_ryf+wombatlite`](https://github.com/ACCESS-NRI/access-om3-configs/compare/dev-MC_100km_jra_ryf+wombatlite..dev-MC_25km_jra_ryf+wombatlite)
-- [`dev-MC_25km_jra_ryf`⬅️`dev-MC_25km_jra_iaf`](https://github.com/ACCESS-NRI/access-om3-configs/compare/dev-MC_25km_jra_ryf..dev-MC_25km_jra_iaf)
-- [`dev-MC_25km_jra_ryf`⬅️`dev-MC_25km_jra_ryf+wombatlite`](https://github.com/ACCESS-NRI/access-om3-configs/compare/dev-MC_25km_jra_ryf..dev-MC_25km_jra_ryf+wombatlite)
+To compare any two branches, visit a URL of the form:
 
-**MC ← MCW**
+```
+https://github.com/ACCESS-NRI/access-om3-configs/compare/{base-branch}..{compare-branch}
+```
 
-- [`dev-MC_100km_jra_iaf`⬅️`dev-MCW_100km_jra_iaf`](https://github.com/ACCESS-NRI/access-om3-configs/compare/dev-MC_100km_jra_iaf..dev-MCW_100km_jra_iaf)
+replacing `{base-branch}` and `{compare-branch}` with the names of the branches you want to compare.
+This shows the `diff` between the `{base-branch}` and `{compare-branch}`. Lines shown in red are
+only present in `{base-branch}` (i.e. absent from `{compare-branch}`) and lines shown in green are only
+present in `{compare-branch}` (i.e. added relative to `{base-branch}`).
+
+Note that the `..` produces a ["two-dot" diff](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests/about-comparing-branches-in-pull-requests#three-dot-and-two-dot-git-diff-comparisons)
+directly between the two refs, rather than the "three-dot" diff (against their merge base) that GitHub
+uses for pull requests.
+
+Tags or commit hashes can be used in place of branch names, which is useful for comparing
+against a specific released version or commit, rather than the (potentially newer) tip
+of a branch.
+
+For example, to compare the `release-MC_25km_jra_iaf-1.0-beta` release tag with the `dev-MC_25km_jra_iaf`
+branch, visit:
+
+[`https://github.com/ACCESS-NRI/access-om3-configs/compare/release-MC_25km_jra_iaf-1.0-beta..dev-MC_25km_jra_iaf`](https://github.com/ACCESS-NRI/access-om3-configs/compare/release-MC_25km_jra_iaf-1.0-beta..dev-MC_25km_jra_iaf)
 
