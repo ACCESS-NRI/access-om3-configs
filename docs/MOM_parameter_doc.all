@@ -217,7 +217,7 @@ TRIPOLAR_N = True               !   [Boolean] default = False
 NIGLOBAL = 360                  !
                                 ! The total number of thickness grid points in the x-direction in the physical
                                 ! domain. With STATIC_MEMORY_ this is set in MOM_memory.h at compile time.
-NJGLOBAL = 300                  !
+NJGLOBAL = 324                  !
                                 ! The total number of thickness grid points in the y-direction in the physical
                                 ! domain. With STATIC_MEMORY_ this is set in MOM_memory.h at compile time.
 NIHALO = 4                      ! default = 4
@@ -412,6 +412,8 @@ USE_MARBL_TRACERS = False       !   [Boolean] default = False
                                 ! If true, use the MARBL tracer package.
 USE_REGIONAL_DYES = False       !   [Boolean] default = False
                                 ! If true, use the regional_dyes tracer package.
+USE_FILE_DYES = False           !   [Boolean] default = False
+                                ! If true, use the file dyes tracer package.
 USE_OIL_TRACER = False          !   [Boolean] default = False
                                 ! If true, use the oil_tracer tracer package.
 USE_ADVECTION_TEST_TRACER = False !   [Boolean] default = False
@@ -2477,7 +2479,7 @@ NDIFF_USE_UNMASKED_TRANSPORT_BUG = False !   [Boolean] default = False
                                 ! If true, use an older form for the accumulation of neutral-diffusion
                                 ! transports that were unmasked, as used prior to Jan 2018. This is not
                                 ! recommended.
-NDIFF_ANSWER_DATE = 99991231    ! default = 99991231
+NDIFF_ANSWER_DATE = 20240101    ! default = 99991231
                                 ! The vintage of the order of arithmetic to use for the neutral diffusion.
                                 ! Values of 20240330 or below recover the answers from the original form of the
                                 ! neutral diffusion code, while higher values use mathematically equivalent
@@ -2587,7 +2589,7 @@ MAX_P_SURF = -1.0               !   [Pa] default = -1.0
 ADJUST_NET_SRESTORE_TO_ZERO = True !   [Boolean] default = True
                                 ! If true, adjusts the salinity restoring seen to zero whether restoring is via
                                 ! a salt flux or virtual precip.
-ADJUST_NET_SRESTORE_BY_SCALING = False !   [Boolean] default = False
+ADJUST_NET_SRESTORE_BY_SCALING = True !   [Boolean] default = False
                                 ! If true, adjustments to salt restoring to achieve zero net are made by scaling
                                 ! values without moving the zero contour.
 ADJUST_NET_FRESH_WATER_TO_ZERO = True !   [Boolean] default = False

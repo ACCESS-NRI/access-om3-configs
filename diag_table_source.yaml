@@ -1,12 +1,13 @@
 #######################################################################################################
-# This yaml file is used by make_diag_table.py to create a diag_table file specifying MOM5 diagnostics.
+# This yaml file is used by make_diag_table.py to create a diag_table file specifying MOM6 diagnostics.
 # Latest version: https://github.com/COSIMA/make_diag_table
 #
 # Define the diagnostics you want in the diag_table section below.
 #
 # The MOM diag_table format is defined here:
-# https://github.com/mom-ocean/MOM5/blob/master/src/shared/diag_manager/diag_table.F90
 # https://mom6.readthedocs.io/en/main/api/generated/pages/Diagnostics.html
+# https://www.youtube.com/watch?v=D_J8eg3G80o
+# https://github.com/NOAA-GFDL/FMS/blob/main/diag_manager/diag_table.F90
 #######################################################################################################
 
 
@@ -335,7 +336,6 @@ diag_table:
             total_net_massout: # Area integrated mass leaving ocean due to evap and seaice form
             total_net_massin: # Area integrated mass entering ocean due to precip, runoff, ice melt
             total_PRCmE: # Area integrated net surface water flux (precip+melt+liq runoff+ice calving-evap)
-            total_evap: # Area integrated evap/condense at ocean surface
             total_icemelt: # Area integrated sea ice melt (>0) or form (<0)
             total_precip: # Area integrated liquid+frozen precip into ocean
             total_frunoff: # Area integrated frozen runoff (calving) & iceberg melt into ocean
