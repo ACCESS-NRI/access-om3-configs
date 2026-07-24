@@ -210,6 +210,8 @@ diag_table:
             thkcello: # Cell Thickness
             Kd_interface: # Total diapycnal diffusivity at interfaces
             Kd_ePBL: # ePBL diapycnal diffusivity at interfaces
+            EnhK: # Langmuir K-diffusivity enhancement factor inside KPP (= LangEnhK = lamult(i,j))
+            EnhVt2: # Langmuir VT2 enhancement factor inside KPP (= LangEnhVT2 = lamult(i,j))
 
     'monthly 2d fields':
         defaults:  # these can be overridden for individual fields below
@@ -225,6 +227,9 @@ diag_table:
             sfdsi: # Net salt flux into ocean at surface (restoring + sea-ice) salt_flux
             salt_flux_added: # Salt flux into ocean at surface due to restoring or flux adjustment
             mlotst: # Mixed layer depth (delta rho = 0.03) MLD_003
+            lamult: # Langmuir E-factor from WW3 after ice-fraction masking (what KPP receives)
+            KPP_OBLdepth: # KPP ocean boundary layer depth
+            KPP_uStar: # Surface friction velocity entering KPP
             speed: # Sea Surface Speed
             zos: # Sea surface height above geoid
             zossq: # Square of sea surface height above geoid
