@@ -33,15 +33,20 @@ USE_CONTEMP_ABSSAL = True       !   [Boolean] default = False
 USE_REGRIDDING = True           !   [Boolean] default = False
                                 ! If True, use the ALE algorithm (regridding/remapping). If False, use the
                                 ! layered isopycnal algorithm.
-DT = 1800.0                     !   [s]
+DT = 3600.0                     !   [s]
                                 ! The (baroclinic) dynamics time step.  The time-step that is actually used will
                                 ! be an integer fraction of the forcing time-step (DT_FORCING in ocean-only mode
                                 ! or the coupling timestep in coupled mode.)
-DT_THERM = 3600.0               !   [s] default = 1800.0
+DT_THERM = 7200.0               !   [s] default = 1800.0
                                 ! The thermodynamic time step. Ideally DT_THERM should be an integer multiple of
                                 ! DT and of DT_TRACER_ADVECT and less than the forcing or coupling time-step.
                                 ! However, if THERMO_SPANS_COUPLING is true, DT_THERM can be an integer multiple
                                 ! of the coupling timestep. By default DT_THERM is set to DT.
+THERMO_SPANS_COUPLING = True    !   [Boolean] default = False
+                                ! If true, the MOM6 dynamic and thermodynamic time stepping is done at the driver
+                                ! level with a call to a dynamics-only integration followed by a call to a
+                                ! thermodynamics-only integration. Required here because DT_THERM (7200 s) is an
+                                ! integer multiple of the coupling timestep (3600 s), not just of DT.
 THICKNESSDIFFUSE = True         !   [Boolean] default = False
                                 ! If true, isopycnal surfaces are diffused with a Laplacian coefficient of KHTH.
 THICKNESSDIFFUSE_FIRST = True   !   [Boolean] default = False
@@ -506,7 +511,7 @@ BEBT = 0.2                      !   [nondim] default = 0.1
                                 ! from 0 (for a forward-backward treatment of nonrotating gravity waves) to 1
                                 ! (for a backward Euler treatment). In practice, BEBT must be greater than about
                                 ! 0.05.
-DTBT = -0.95                    !   [s or nondim] default = -0.98
+DTBT = -0.9                     !   [s or nondim] default = -0.98
                                 ! The barotropic time step, in s. DTBT is only used with the split explicit time
                                 ! stepping. To set the time step automatically based the maximum stable value
                                 ! use 0, or a negative value gives the fraction of the stable value. Setting
