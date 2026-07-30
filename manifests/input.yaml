@@ -61982,9 +61982,9 @@ work/INPUT/2026/strd_era5_oper_sfc_20260101-20260131.nc:
     binhash: d3e0f74646f8e2ea4a5ed20dba2825e8
     md5: a77836e5e3d58350e1b4a19d005899c8
 work/INPUT/ERA5-datm-ESMFmesh.nc:
-  fullpath: /g/data/ik11/inputs/access-om3/input_ERA5/mesh/ERA5-datm-ESMFmesh.nc
+  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/share/meshes/share/2026.07.30/ERA5-datm-ESMFmesh.nc
   hashes:
-    binhash: acc4623cffd0617eeb80909d257ecc9e
+    binhash: 88d8b5dfcec7f3c17c75c31e25e2b11d
     md5: 22cd6e2d70af20ee75a229e054974019
 work/INPUT/JRA55do-drof-ESMFmesh.nc:
   fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/share/meshes/share/2026.01.21/JRA55do-drof-ESMFmesh.nc

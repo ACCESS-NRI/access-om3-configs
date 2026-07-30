@@ -93,7 +93,5 @@ qsub_flags: -W umask=027
 restart_freq: 1YS
 storage:
       gdata:
-        - ik11
-        - qv56
         - tm70
 payu_minimum_version: 1.2.1
