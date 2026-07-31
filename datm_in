@@ -1,5 +1,5 @@
 &datm_nml
-  datamode = "JRA55do"
+  datamode = "ERA5"
   factorfn_data = "null"
   factorfn_mesh = "null"
   flds_co2 = .false.

@@ -17,9 +17,9 @@ sync:
 #Model software version
 modules:
     use:
-        - /g/data/vk83/modules
+        - /g/data/vk83/prerelease/modules
     load:
-        - access-om3/2026.05.002
+        - access-om3/pr109-48
 
 queue: normal
 ncpus: 288
@@ -27,7 +27,7 @@ jobfs: 10GB
 mem: 1150GB
 
 walltime: 48:00:00
-jobname: 100km_jra55do_iaf
+jobname: 100km_ERA5_iaf
 
 model: access-om3
 
@@ -35,7 +35,7 @@ exe: access-om3-MOM6-CICE6-WW3
 input:
     - /g/data/vk83/prerelease/configurations/inputs/access-om3/share/meshes/global.100km/2026.04.07/access-om3-100km-ESMFmesh.nc
     - /g/data/vk83/prerelease/configurations/inputs/access-om3/share/meshes/global.100km/2026.04.07/access-om3-100km-nomask-ESMFmesh.nc
-    - /g/data/vk83/configurations/inputs/access-om3/share/meshes/share/2026.01.21/JRA55do-datm-ESMFmesh.nc
+    - /g/data/vk83/prerelease/configurations/inputs/access-om3/share/meshes/share/2026.07.30/ERA5-datm-ESMFmesh.nc
     - /g/data/vk83/configurations/inputs/access-om3/share/meshes/share/2026.01.21/JRA55do-drof-ESMFmesh.nc
     - /g/data/vk83/prerelease/configurations/inputs/access-om3/cmeps/remap_weights/global.100km/2026.04.07/access-om3-100km-rof-remap-weights.nc
     - /g/data/vk83/prerelease/configurations/inputs/access-om3/cmeps/rofi_pattern/global.100km/2026.06.16/access-om3-100km-rofi-climatology.nc
@@ -52,7 +52,18 @@ input:
     - /g/data/vk83/prerelease/configurations/inputs/access-om3/ww3/mod_def/global.100km/2026.05.12/mod_def.ww3
     - /g/data/qv56/replicas/input4MIPs/CMIP6Plus/OMIP/MRI/MRI-JRA55-do-1-6-0/land/
     - /g/data/qv56/replicas/input4MIPs/CMIP6Plus/OMIP/MRI/MRI-JRA55-do-1-6-0/landIce/
-    - /g/data/qv56/replicas/input4MIPs/CMIP6Plus/OMIP/MRI/MRI-JRA55-do-1-6-0/atmos/
+    - /g/data/tm70/ek4684/era5_rechunked_1h/cp
+    - /g/data/tm70/ek4684/era5_rechunked_1h/lsp
+    - /g/data/tm70/ek4684/era5_rechunked_1h/csf
+    - /g/data/tm70/ek4684/era5_rechunked_1h/lsf
+    - /g/data/tm70/ek4684/era5_rechunked_1h/strd
+    - /g/data/tm70/ek4684/era5_rechunked_1h/ssrd
+    - /g/data/tm70/ek4684/era5_rechunked_1h/ssr
+    - /g/data/tm70/ek4684/era5_rechunked_1h/msl
+    - /g/data/tm70/ek4684/era5_rechunked_1h/2t
+    - /g/data/tm70/ek4684/era5_rechunked_1h/2d
+    - /g/data/tm70/ek4684/era5_rechunked_1h/10u
+    - /g/data/tm70/ek4684/era5_rechunked_1h/10v
 
 collate: false
 runlog: false
@@ -75,4 +86,7 @@ postscript: -v PROJECT,SCRIPTS_DIR=/g/data/vk83/apps/om3-scripts -lstorage=${PBS
 qsub_flags: -W umask=027
 
 restart_freq: 1YS
-payu_minimum_version: 1.2.0
+storage:
+      gdata:
+        - tm70
+payu_minimum_version: 1.2.1
