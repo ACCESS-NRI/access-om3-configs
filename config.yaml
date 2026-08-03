@@ -21,10 +21,10 @@ modules:
     load:
         - access-om3/2026.05.002
 
-queue: normal
-ncpus: 288
+queue: normalsr
+ncpus: 208
 jobfs: 10GB
-mem: 1150GB
+mem: 1000GB
 
 walltime: 48:00:00
 jobname: 100km_jra55do_iaf
