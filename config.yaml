@@ -22,7 +22,7 @@ modules:
         - access-om3/pr109-48
 
 queue: normal
-ncpus: 288
+ncpus: 416
 jobfs: 10GB
 mem: 1150GB
 
