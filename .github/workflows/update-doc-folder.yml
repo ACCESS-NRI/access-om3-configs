@@ -33,7 +33,7 @@ jobs:
         run: |
           git fetch origin ${{ env.config-branch-name }}
           commit=$(git rev-parse --short origin/${{ env.config-branch-name }})
-          git checkout ${{ env.config-branch-name }} ${{ env.doc-files }}
+          git checkout origin/${{ env.config-branch-name }} ${{ env.doc-files }}
 
           for file in ${{ env.doc-files }}
           do
