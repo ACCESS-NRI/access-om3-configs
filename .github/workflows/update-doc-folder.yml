@@ -4,7 +4,6 @@ on:
   workflow_dispatch:
   schedule:
     - cron: '31 12 * * 0'  # At 12:38UTC on Sunday
-  push:
 env:
   config-branch-name: dev-MC_25km_jra_iaf+wombatlite
   doc-files: 'config.yaml nuopc.runconfig nuopc.runseq MOM_input ice_in docs/* auxiliary_input/MOM_channel_list'
