@@ -16,6 +16,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v7
+        with:
+        sparse-checkout: doc
       - name: Import Commit-Signing Key
         uses: crazy-max/ghaction-import-gpg@01dd5d3ca463c7f10f7f4f7b4f177225ac661ee4  # v6.1.0
         with:
@@ -29,6 +31,7 @@ jobs:
           git_tag_gpgsign: true
       - name: update doc folder from config branch
         run: |
+          cd access-om3-configs
           git checkout ${{ env.config-branch-name }}
           git pull
           commit=$(git rev-parse --short HEAD)
