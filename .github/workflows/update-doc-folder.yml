@@ -7,7 +7,7 @@ on:
   push:
 env:
   config-branch-name: dev-MC_25km_jra_iaf+wombatlite
-  doc-files: 'config.yaml nuopc.runconfig nuopc.runseq MOM_input ice_in docs'
+  doc-files: 'config.yaml nuopc.runconfig nuopc.runseq MOM_input ice_in docs auxiliary_input/MOM_channel_list'
 jobs:
   update-doc-folder:
     runs-on: ubuntu-latest 
