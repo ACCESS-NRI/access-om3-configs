@@ -40,6 +40,9 @@ jobs:
           # move them to doc folder
           mv -v ${{ env.doc-files }} doc
 
+          # cleanup from the checkout
+          git restore --staged ${{ env.doc-files }}
+
           # add and commit
           git add doc
           git commit -m "Updated doc folder from branch https://github.com/ACCESS-NRI/access-om3-configs/tree/${{ env.config-branch-name }} commit: ${commit}"
