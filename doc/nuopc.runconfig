@@ -27,28 +27,28 @@ DRIVER_attributes::
 ::
 
 PELAYOUT_attributes::
-     atm_ntasks = 24
+     atm_ntasks = 275
      atm_nthreads = 1
      atm_pestride = 1
      atm_rootpe = 0
-     cpl_ntasks = 24
+     cpl_ntasks = 275
      cpl_nthreads = 1
      cpl_pestride = 1
      cpl_rootpe = 0
      esmf_logging = ESMF_LOGKIND_NONE
-     ice_ntasks = 24
+     ice_ntasks = 275
      ice_nthreads = 1
      ice_pestride = 1
      ice_rootpe = 0
      ninst = 1
-     ocn_ntasks = 216
+     ocn_ntasks = 2429
      ocn_nthreads = 1
      ocn_pestride = 1
-     ocn_rootpe = 24
+     ocn_rootpe = 275
      pio_asyncio_ntasks = 0
      pio_asyncio_rootpe = 1
      pio_asyncio_stride = 0
-     rof_ntasks = 24
+     rof_ntasks = 275
      rof_nthreads = 1
      rof_pestride = 1
      rof_rootpe = 0
@@ -98,11 +98,11 @@ ALLCOMP_attributes::
      hostname = gadi
      ice_ncat = 5
      mediator_present = true
-     mesh_atm = ./INPUT/access-om2-1deg-nomask-ESMFmesh.nc
-     mesh_ice = ./INPUT/access-om2-1deg-ESMFmesh.nc
+     mesh_atm = ./INPUT/access-om3-25km-ESMFmesh.nc
+     mesh_ice = ./INPUT/access-om3-25km-ESMFmesh.nc
      mesh_lnd = UNSET
-     mesh_mask = ./INPUT/access-om2-1deg-ESMFmesh.nc
-     mesh_ocn = ./INPUT/access-om2-1deg-ESMFmesh.nc
+     mesh_mask = ./INPUT/access-om3-25km-ESMFmesh.nc
+     mesh_ocn = ./INPUT/access-om3-25km-ESMFmesh.nc
      model_version = unknown
      ocn2glc_coupling = .false.
      ocn2glc_levels = 1:10:19:26:30:33:35
@@ -118,6 +118,7 @@ ALLCOMP_attributes::
      start_type = startup
      tfreeze_option = linear_salt
      wav_coupling_to_cice = .false.
+     additional_restart_dir = RESTART
      restart_pointer_append_date = .false.
 ::
 
@@ -128,8 +129,8 @@ MED_attributes::
      atm2lnd_map = unset
      atm2ocn_map = unset
      atm2wav_map = unset
-     atm_nx = 360
-     atm_ny = 300
+     atm_nx = 1440
+     atm_ny = 1152
      budget_ann = 1
      budget_daily = 0
      budget_inst = 0
@@ -234,8 +235,8 @@ MED_attributes::
      history_option_wav_inst = never
      ice2atm_map = unset
      ice2wav_smapname = unset
-     ice_nx = 360
-     ice_ny = 300
+     ice_nx = 1440
+     ice_ny = 1152
      info_debug = 1
      lnd2atm_map = unset
      lnd2rof_map = unset
@@ -244,15 +245,16 @@ MED_attributes::
      mapuv_with_cart3d = .true.
      ocn2atm_map = unset
      ocn2wav_smapname = unset
-     ocn_nx = 360
-     ocn_ny = 300
+     ocn_nx = 1440
+     ocn_ny = 1152
      ocn_surface_flux_scheme = 0
      rof2lnd_map = unset
      rof2ocn_fmapname = unset
      rof2ocn_ice_rmapname = unset
-     rof2ocn_liq_rmapname = unset
-     rof_nx = 360
-     rof_ny = 300
+     rof2ocn_liq_rmapname = ./INPUT/access-om3-25km-rof-remap-weights.nc
+     rof2ocn_ice_spread = ./INPUT/access-om3-25km-rofi-climatology.nc
+     rof_nx = 1440
+     rof_ny = 1152
      wav2ocn_smapname = unset
      wav_nx = 0
      wav_ny = 0
@@ -260,22 +262,22 @@ MED_attributes::
 
 CLOCK_attributes::
      atm_cpl_dt = 99999 #not used
-     calendar = NO_LEAP
+     calendar = GREGORIAN
      end_restart = .false.
      glc_avg_period = yearly
      glc_cpl_dt = 99999 #not used
      history_ymd = -999
      ice_cpl_dt = 99999 #not used
      lnd_cpl_dt = 99999 #not used
-     ocn_cpl_dt = 3600 #ignored (coupling timestep set by nuopc.runseq) unless stop_option is nsteps
+     ocn_cpl_dt = 900 #ignored (coupling timestep set by nuopc.runseq) unless stop_option is nsteps
      restart_n = 1
-     restart_option = nmonths
+     restart_option = nyears
      restart_ymd = -999
      rof_cpl_dt = 99999 #not used
      start_tod = 0
-     start_ymd = 19000101
+     start_ymd = 19580101
      stop_n = 1
-     stop_option = nmonths
+     stop_option = nyears
      stop_tod = 0
      stop_ymd = -999
      tprof_n = -999
@@ -302,7 +304,7 @@ OCN_attributes::
 
 ROF_attributes::
      Verbosity = off
-     mesh_rof = ./INPUT/access-om2-1deg-nomask-ESMFmesh.nc
+     mesh_rof = ./INPUT/access-om3-25km-nomask-ESMFmesh.nc
 ::
 
 MED_modelio::
@@ -350,7 +352,7 @@ OCN_modelio::
      pio_rearranger = 2 #not used
      pio_root = 1 #not used
      pio_stride = 48 #not used
-     pio_typename = netcdf #not used, set in input.nml
+     pio_typename = netcdf #not used, set in INPUT.nml
 ::
 
 ROF_modelio::
