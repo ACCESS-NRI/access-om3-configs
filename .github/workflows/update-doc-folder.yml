@@ -7,7 +7,7 @@ on:
   push:
 env:
   config-branch-name: dev-MC_25km_jra_iaf+wombatlite
-  doc-files: 'config.yaml nuopc.runconfig nuopc.runseq MOM_input ice_in docs'
+  doc-files: 'config.yaml nuopc.runconfig nuopc.runseq MOM_input ice_in docs/*'
 jobs:
   update-doc-folder:
     runs-on: ubuntu-latest 
@@ -42,6 +42,6 @@ jobs:
               echo "updated ${file}"
           done
 
-          git commit -am "Updated doc folder from branch [$config-branch-name](https://github.com/ACCESS-NRI/access-om3-configs/tree/$config-branch-name) commit [${commit}](https://github.com/ACCESS-NRI/access-om3-configs/tree/${commit})"
+          git commit -am "Updated doc folder from branch [${{ env.config-branch-name }}](https://github.com/ACCESS-NRI/access-om3-configs/tree/$config-branch-name) commit [${commit}](https://github.com/ACCESS-NRI/access-om3-configs/tree/${commit})"
 
           git push
