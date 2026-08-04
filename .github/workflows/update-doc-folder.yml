@@ -19,7 +19,7 @@ jobs:
         with:
           sparse-checkout: | 
             doc
-            ${{ env.doc-files }}
+            "${{ env.doc-files }}" | tr ' ' '\n'
           fetch-depth: 0
       - name: Import Commit-Signing Key
         uses: crazy-max/ghaction-import-gpg@01dd5d3ca463c7f10f7f4f7b4f177225ac661ee4  # v6.1.0
