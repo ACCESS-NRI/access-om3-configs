@@ -35,6 +35,35 @@ and **3-hourly averaged**:
 
 Input data is first interpolated to the model time within DATM, second remapped from DATM to the mediator, and lastly copied from the mediator to the ocean (MOM6) and sea ice (CICE6). The first step uses linear interpolation in time (except for downwelling shortwave, which uses "coszen" interpolation in time - _cosine of the solar zenith angle_). The second step remaps from the source grid (~55km resolution) to the access-om3 grid. For fluxes (precipitation and radiation), conservative remapping is applied, whilst patch remapping is used for everything else (temperature, humidity, wind). Weights for this second step are calculated during model initialisation. The third stage moves data from mediator to the ocean and sea ice model components. The mediator and active model components are on the same grid, so the only operation in the third stage is to distribute fluxes to model components by scaling fluxes using the sea ice fraction, where required. For atmosphere forcing, the landmask is applied simply as a true/false mask, as access-om3 does not have partial ocean cells. Therefore only atmosphere data over the ocean are input as forcings.
 
+#### ERA5
+
+[ERA5](https://confluence.ecmwf.int/spaces/CKB/pages/76414402/ERA5+data+documentation) is ECMWF's fifth-generation global atmospheric reanalysis. The [hourly single-level product](https://cds.climate.copernicus.eu/datasets/reanalysis-era5-single-levels?tab=overview) replicated at NCI and used here is on a regular $0.25^\circ \times 0.25^\circ$ latitude-longitude grid. ERA5 forcing is currently used only in the [`dev-MCW_100km_jra_iaf` configuration](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MCW_100km_jra_iaf) to support wave-evaluation metrics and keep evaluation of the coupled MOM6–CICE6–WW3 model consistent with the [Wave Hindcast for the Australian Climate Service (WHACS)](https://data.csiro.au/collection/csiro:64350), which was forced with ERA5 hourly winds and daily sea ice.
+
+| Stream | ERA5 variable $\rightarrow$ stream fields | Treatment in CDEPS |
+| --- | --- | --- |
+| `ERA5.RAINC` | `cp` $\rightarrow$ `Faxa_rainc` | preceding-hour accumulation |
+| `ERA5.RAINL` | `lsp` $\rightarrow$ `Faxa_rainl` | preceding-hour accumulation |
+| `ERA5.SNOWC` | `csf` $\rightarrow$ `Faxa_snowc` | preceding-hour accumulation |
+| `ERA5.SNOWL` | `lsf` $\rightarrow$ `Faxa_snowl` | preceding-hour accumulation |
+| `ERA5.LWDN` | `strd` $\rightarrow$ `Faxa_lwdn` | preceding-hour accumulation |
+| `ERA5.SWDN` | `ssrd` $\rightarrow$ `Faxa_swdn` | preceding-hour accumulation; four shortwave bands derived |
+| `ERA5.SWNET` | `ssr` $\rightarrow$ `Faxa_swnet` | preceding-hour accumulation |
+| `ERA5.SLP_10` | `msl` $\rightarrow$ `Sa_pslv`, `Sa_pbot` | instantaneous; `Sa_pbot` is set from the same `msl` input |
+| `ERA5.T_10` | `t2m` $\rightarrow$ `Sa_t2m`, `Sa_tbot` | instantaneous; also copied directly to `Sa_ptem` |
+| `ERA5.TDEW` | `d2m` $\rightarrow$ `Sa_tdew` | instantaneous; `Sa_q2m` and `Sa_shum` derived with `t2m` and `msl` |
+| `ERA5.U_10` | `u10` $\rightarrow$ `Sa_u`, `Sa_u10m` | instantaneous; used with `v10` to derive `Sa_wspd10m` |
+| `ERA5.V_10` | `v10` $\rightarrow$ `Sa_v`, `Sa_v10m` | instantaneous; used with `u10` to derive `Sa_wspd10m` |
+
+The five instantaneous fields are `msl`, `t2m`, `d2m`, `u10` and `v10`; the seven accumulated fields are `cp`, `lsp`, `csf`, `lsf`, `strd`, `ssrd` and `ssr`. None of these streams is an hourly mean. ERA5 labels each accumulation at the end of the hour it represents: for example, a field stamped 07:00 covers 06:00–07:00. As established in [om3-scripts PR #122](https://github.com/ACCESS-NRI/om3-scripts/pull/122), DATM therefore applies an offset of $-1800\ \mathrm{s}$ to place accumulated fields at their interval midpoints for linear interpolation. Instantaneous fields are already valid at their timestamps and use offset zero. All streams use linear temporal interpolation. DATM reads the ERA5 source grid, then fields are remapped to the mediator on the ACCESS-OM3 grid using conservative remapping (`consf`) for accumulated fields and patch remapping (`patch`) for instantaneous fields before delivery to MOM6 and CICE6.
+
+The configured file list spans 1940–2026. `year_first=1940`, `year_last=2026` and `year_align=1940` align forcing and model years directly. `taxmode=extend` extends the stream beyond its available time axis using the nearest endpoint field rather than cycling through the forcing years. The configured range is not necessarily the safe scientific experiment range, so users should confirm file availability and select dates carefully.
+
+The [ERA5 CDEPS data mode](https://github.com/ACCESS-NRI/CDEPS/blob/6a21caa1d2b6a47a10c77e8017045fa231f5a2ad/datm/datm_datamode_era5_mod.F90#L454-L459) calculates air density from pressure, temperature and derived humidity, and sets `Sa_z` to 10 m; it therefore combines 2 m temperature and humidity with 10 m winds. Radiation accumulations are divided by $3600\ \mathrm{s}$ to convert $\mathrm{J\,m^{-2}}$ to $\mathrm{W\,m^{-2}}$. Precipitation and snowfall are multiplied by freshwater density and divided by $3600\ \mathrm{s}$ to convert metres of water equivalent to $\mathrm{kg\,m^{-2}\,s^{-1}}$.
+
+For shortwave radiation, CDEPS partitions `ssrd / 3600` into 28% visible direct, 31% near-infrared direct, 24% visible diffuse and 17% near-infrared diffuse. ERA5 `aluvp`, `aluvd`, `alnip` and `alnid` are albedo-like fields, not shortwave flux bands. 
+
+ERA5 supplies atmospheric forcing only; runoff continues to come from JRA55-do. Source files examined in [issue #1381](https://github.com/ACCESS-NRI/access-om3-configs/issues/1381) used chunks of `(time, latitude, longitude) = (93, 91, 180)`. The [yearly rechunking script](https://github.com/ACCESS-NRI/om3-scripts/blob/main/era5_rechunking/make_era5_yearly_rechunked.py) rechunks the monthly NCI `rt52` inputs to `(1, 721, 1440)` and concatenates them into one yearly file per stream. Because monthly files can use different packing, the script decodes and repacks them to a yearly `int16` encoding, then validates decoded values within the output packing tolerance. These files are not yet published as production ACCESS-NRI inputs.
+
 ### Runoff
 
 JRA55-do runoff provides daily mean liquid and frozen runoff fields, although the runoff at many locations in the dataset is updated less frequently than daily. In the source data, all frozen run-off is distributed at the ocean surface of the Antarctic/Greenland coastlines without spreading (see issue [#404](https://github.com/ACCESS-NRI/access-om3-configs/issues/404)). 
