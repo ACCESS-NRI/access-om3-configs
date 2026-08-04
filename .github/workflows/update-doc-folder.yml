@@ -38,7 +38,7 @@ jobs:
           for file in ${{ env.doc-files }}
           do
               mv ${file} doc
-              git add doc/{file}
+              git add doc/${file}
               git restore --staged ${file}
               echo "updated ${file}"
           done
