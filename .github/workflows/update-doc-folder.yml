@@ -38,10 +38,11 @@ jobs:
           for file in ${{ env.doc-files }}
           do
               mv ${file} doc
-              git add ${file}
               git restore --staged ${file}
               echo "updated ${file}"
           done
+
+          git add doc
 
           git commit -m "Updated doc folder from branch https://github.com/ACCESS-NRI/access-om3-configs/tree/${{ env.config-branch-name }} commit: ${commit}"
 
