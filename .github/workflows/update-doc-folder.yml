@@ -43,6 +43,6 @@ jobs:
               echo "updated ${file}"
           done
 
-          git commit -m "Updated doc folder from branch [${{ env.config-branch-name }}](https://github.com/ACCESS-NRI/access-om3-configs/tree/$config-branch-name) commit [${commit}](https://github.com/ACCESS-NRI/access-om3-configs/tree/${commit})"
+          git commit -m "Updated doc folder from branch https://github.com/ACCESS-NRI/access-om3-configs/tree/${{ env.config-branch-name }} commit:${commit}"
 
           git push
