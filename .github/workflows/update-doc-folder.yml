@@ -16,7 +16,10 @@ jobs:
     steps:
       - uses: actions/checkout@v7
         with:
-          sparse-checkout: doc
+          sparse-checkout: | 
+            doc
+            ${{ env.doc-files }}
+          depth: 0
       - name: Import Commit-Signing Key
         uses: crazy-max/ghaction-import-gpg@01dd5d3ca463c7f10f7f4f7b4f177225ac661ee4  # v6.1.0
         with:
@@ -30,19 +33,16 @@ jobs:
           git_tag_gpgsign: true
       - name: update doc folder from config branch
         run: |
-          git fetch origin ${{ env.config-branch-name }}
+          # figure out latest commit in config-branch
           commit=$(git rev-parse --short origin/${{ env.config-branch-name }})
+
+          # checkout config files from the config-branch
           git checkout origin/${{ env.config-branch-name }} ${{ env.doc-files }}
 
-          for file in ${{ env.doc-files }}
-          do
-              mv ${file} doc
-              git restore --staged ${file}
-              echo "updated ${file}"
-          done
+          # move them to doc folder
+          mv -v ${{ env.doc-files }} doc
 
+          # add and commit
           git add doc
-
           git commit -m "Updated doc folder from branch https://github.com/ACCESS-NRI/access-om3-configs/tree/${{ env.config-branch-name }} commit: ${commit}"
-
           git push
