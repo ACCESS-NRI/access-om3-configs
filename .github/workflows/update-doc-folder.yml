@@ -9,7 +9,7 @@ env:
   config-branch-name: dev-MC_25km_jra_iaf+wombatlite
   doc-files: 'config.yaml nuopc.runconfig nuopc.runseq MOM_input ice_in'
 jobs:
-  Update Doc Folder:
+  update-doc-folder:
     runs-on: ubuntu-latest 
     permissions:
       contents: write
