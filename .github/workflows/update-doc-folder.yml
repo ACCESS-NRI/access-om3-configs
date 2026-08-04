@@ -37,7 +37,7 @@ jobs:
           commit=$(git rev-parse --short HEAD)
           git checkout main
           git pull
-          git checkout $config-branch-name ${files[*]}
+          git checkout ${{ env.config-branch-name }} ${{ env.doc-files }}
 
           for file in ${{ env.doc-files }}
           do
