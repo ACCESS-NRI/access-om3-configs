@@ -29,7 +29,7 @@ jobs:
           git_tag_gpgsign: true
       - name: update doc folder from config branch
         run: |
-          git checkout $config-branch-name
+          git checkout ${{ env.config-branch-name }}
           git pull
           commit=$(git rev-parse --short HEAD)
           git checkout main
