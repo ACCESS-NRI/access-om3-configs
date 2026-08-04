@@ -7,7 +7,7 @@ on:
   push:
 env:
   config-branch-name: dev-MC_25km_jra_iaf+wombatlite
-  doc-files: ['config.yaml','nuopc.runconfig', 'nuopc.runseq', 'MOM_input', 'ice_in']
+  doc-files: 'config.yaml nuopc.runconfig nuopc.runseq MOM_input ice_in'
 jobs:
   create_pr:
     runs-on: ubuntu-latest 
@@ -29,14 +29,14 @@ jobs:
           git_tag_gpgsign: true
       - name: update doc folder from config branch
         run: |
-          git checkout ${branch}
+          git checkout $config-branch-name
           git pull
           commit=$(git rev-parse --short HEAD)
           git checkout main
           git pull
-          git checkout ${branch} ${files[*]}
+          git checkout $config-branch-name ${files[*]}
 
-          for file in "${files[@]}"
+          for file in ${{ env.doc-files }}
           do
               mv ${file} doc
               git restore --staged ${file}
@@ -44,4 +44,4 @@ jobs:
           done
 
           # update history in README_doc.md
-          echo "1. Updated $(date) from branch [${branch}](https://github.com/ACCESS-NRI/access-om3-configs/tree/${branch}) commit [${commit}](https://github.com/ACCESS-NRI/access-om3-configs/tree/${commit})" >> doc/README_doc.md
+          echo "1. Updated $(date) from branch [$config-branch-name](https://github.com/ACCESS-NRI/access-om3-configs/tree/$config-branch-name) commit [${commit}](https://github.com/ACCESS-NRI/access-om3-configs/tree/${commit})" >> doc/README_doc.md
