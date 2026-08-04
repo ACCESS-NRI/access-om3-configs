@@ -9,7 +9,7 @@ env:
   config-branch-name: dev-MC_25km_jra_iaf+wombatlite
   doc-files: 'config.yaml nuopc.runconfig nuopc.runseq MOM_input ice_in'
 jobs:
-  create_pr:
+  Update Doc Folder:
     runs-on: ubuntu-latest 
     permissions:
       contents: write
@@ -31,7 +31,7 @@ jobs:
           git_tag_gpgsign: true
       - name: update doc folder from config branch
         run: |
-          cd access-om3-configs
+          git fetch origin ${{ env.config-branch-name }}
           git checkout ${{ env.config-branch-name }}
           git pull
           commit=$(git rev-parse --short HEAD)
