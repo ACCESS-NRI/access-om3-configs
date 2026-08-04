@@ -46,5 +46,4 @@ jobs:
               echo "updated ${file}"
           done
 
-          # update history in README_doc.md
-          echo "1. Updated $(date) from branch [$config-branch-name](https://github.com/ACCESS-NRI/access-om3-configs/tree/$config-branch-name) commit [${commit}](https://github.com/ACCESS-NRI/access-om3-configs/tree/${commit})" >> doc/README_doc.md
+          git commit -am "Updated $(date) from branch [$config-branch-name](https://github.com/ACCESS-NRI/access-om3-configs/tree/$config-branch-name) commit [${commit}](https://github.com/ACCESS-NRI/access-om3-configs/tree/${commit})"
