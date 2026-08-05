@@ -27,7 +27,7 @@ jobfs: 10GB
 mem: 1000GB
 
 walltime: 48:00:00
-jobname: 100km_jra55do_iaf
+jobname: 100km_ERA5_iaf
 
 model: access-om3
 
