@@ -41,7 +41,7 @@ PELAYOUT_attributes::
      ice_pestride = 1
      ice_rootpe = 0
      ninst = 1
-     ocn_ntasks = 216
+     ocn_ntasks = 72
      ocn_nthreads = 1
      ocn_pestride = 1
      ocn_rootpe = 24
@@ -52,10 +52,10 @@ PELAYOUT_attributes::
      rof_nthreads = 1
      rof_pestride = 1
      rof_rootpe = 0
-     wav_ntasks = 48
+     wav_ntasks = 112
      wav_nthreads = 1
      wav_pestride = 1
-     wav_rootpe = 240
+     wav_rootpe = 96
 ::
 
 component_list: MED ATM ICE OCN ROF WAV
