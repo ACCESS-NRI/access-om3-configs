@@ -1,7 +1,7 @@
 &ww3_inparm
-  dtcfl = 180.
-  dtcfli = 300.
-  dtmax = 600.
+  dtcfl = 600.
+  dtcfli = 600.
+  dtmax = 1800.
   dtmin = 50.
   initfile = "./INPUT/restart.ww3"
 /
