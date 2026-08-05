@@ -43,7 +43,7 @@ global_defaults:
         - reduction_method
         - file_name_date
     output_freq: 1  # integer: output sampling frequency in output_freq_units (0: every timestep; -1: only at end of run)
-    output_freq_units: months  # time units for output: years, months, days, hours, minutes, or seconds
+    output_freq_units: days  # time units for output: years, months, days, hours, minutes, or seconds
     file_format: 1  # integer, must be 1, specifying NetCDF (the only format currently supported)
     time_axis_units: days  # time units for the output file time axis: years, months, days, hours, minutes, or seconds
     time_axis_name: time  # must be "time" (case-insensitive)
@@ -167,7 +167,7 @@ diag_table:
             dyCuo: # Open meridional grid spacing at u points (meter)
             dxCvo: # Open zonal grid spacing at v points (meter)
 
-    'monthly 3d fields on native':
+    'daily 3d fields on native':
         defaults:  # these can be overridden for individual fields below
             file_name_dimension: 3d  # descriptor for filename, e.g. 3d, 2d, scalar
             reduction_method: mean
@@ -178,4 +178,14 @@ diag_table:
             so: # Salinity
             uo: # u velocity
             vo: # v velocity
+
+    'daily surface fields on native':
+        defaults:  # these can be overridden for individual fields below
+            file_name_dimension: 2d  # descriptor for filename, e.g. 3d, 2d, scalar
+            reduction_method: mean
+        fields:
+            sss: # salinity
+            tos: # temperature
+            ssh: # surface height
+            speed:
 
