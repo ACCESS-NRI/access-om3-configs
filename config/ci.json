@@ -30,9 +30,6 @@
         "default": {
             "markers": "repro"
         },
-        "dev-MCW_100km_jra_iaf": {
-            "markers": "repro and (not repro_restart)"
-        },
         "release-.*": {
             "model-config-tests-version": "0.2.4",
             "payu-version": "1.3.2"
