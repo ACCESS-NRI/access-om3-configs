@@ -468,6 +468,9 @@ H_TO_M = 1.0                    !   [m H-1] default = 1.0
                                 ! A constant that translates the model's internal units of thickness into m.
 NK = 75                         !   [nondim]
                                 ! The number of model layers.
+ADVECTION_SCHEME_VARIANCE_UNDERFLOW = 1.0E-23 !   [Conc2 (tracer dependent)] default = 1.0E-23
+                                ! A tiny magnitude for variance used to determine when advection scheme variance
+                                ! production is set to 0.
 
 ! === module MOM_tracer_registry ===
 

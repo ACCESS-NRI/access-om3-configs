@@ -13,7 +13,7 @@ modules:
     use:
         - /g/data/vk83/modules
     load:
-        - access-om3/2026.05.002
+        - access-om3/2026.05.003
 
 queue: normalsr
 ncpus: 208
@@ -26,11 +26,12 @@ model: access-om3
 exe: access-om3-MOM6
 input:
     - /g/data/gb02/ab8992/rom3-inputdirs/access-rom3-demo
-    - /g/data/vk83/configurations/inputs/access-om3/share/meshes/share/2026.01.21/JRA55do-datm-ESMFmesh.nc
+    # drof/datm forcing data
     - /g/data/vk83/configurations/inputs/access-om3/share/meshes/share/2026.01.21/JRA55do-drof-ESMFmesh.nc
     - /g/data/qv56/replicas/input4MIPs/CMIP6Plus/OMIP/MRI/MRI-JRA55-do-1-6-0/land/
     - /g/data/qv56/replicas/input4MIPs/CMIP6Plus/OMIP/MRI/MRI-JRA55-do-1-6-0/landIce/
-    - /g/data/qv56/replicas/input4MIPs/CMIP6Plus/OMIP/MRI/MRI-JRA55-do-1-6-0/atmos/
+    - /g/data/vk83/prerelease/configurations/inputs/access-om3/share/meshes/share/2026.07.30/ERA5-datm-ESMFmesh.nc
+    - /g/data/av17/access-nri/OM3/era5_rechunked_1h_yearly/
 
 runlog: false
 metadata:

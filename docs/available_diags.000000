@@ -3059,7 +3059,7 @@
     ! units: m2
     ! standard_name: square_of_sea_surface_height_above_geoid
     ! cell_methods: xh:mean yh:mean area:mean
-"SSH"  [Unused]
+"SSH"  [Used]
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
     ! long_name: Sea Surface Height
@@ -3083,7 +3083,7 @@
     ! long_name: Sea Surface Meridional Velocity
     ! units: m s-1
     ! cell_methods: xh:mean yq:point
-"speed"  [Unused]
+"speed"  [Used]
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
     ! long_name: Sea Surface Speed
@@ -3101,7 +3101,7 @@
     ! long_name: Northward velocity
     ! units: m s-1
     ! cell_methods: xh:mean yh:mean area:mean
-"SST"  [Unused] (CMOR equivalent is "tos")
+"SST"  [Used] (CMOR equivalent is "tos")
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
     ! long_name: Sea Surface Temperature
@@ -3115,7 +3115,7 @@
     ! units: degC2
     ! cell_methods: xh:mean yh:mean area:mean
     ! variants: {SST_sq,tossq}
-"SSS"  [Unused] (CMOR equivalent is "sos")
+"SSS"  [Used] (CMOR equivalent is "sos")
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
     ! long_name: Sea Surface Salinity
@@ -3288,6 +3288,13 @@
     ! units: W
     ! cell_methods: xh:sum yq:point zl:sum
     ! variants: {T_hbd_diffy,T_hbd_diffy_xyave}
+"T_advection_scheme_variance_production"  [Unused]
+    ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
+    ! dimensions: xh, yh, zl
+    ! long_name: Spurious variance production of T variance due to advection
+    ! units: degC2 m s-1
+    ! cell_methods: xh:mean yh:mean zl:mean area:mean
+    ! variants: {T_advection_scheme_variance_production,T_advection_scheme_variance_production_xyave}
 "T_zint"  [Unused]
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
@@ -3500,6 +3507,13 @@
     ! units: psu m3 s-1
     ! cell_methods: xh:sum yq:point zl:sum
     ! variants: {S_hbd_diffy,S_hbd_diffy_xyave}
+"S_advection_scheme_variance_production"  [Unused]
+    ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
+    ! dimensions: xh, yh, zl
+    ! long_name: Spurious variance production of S variance due to advection
+    ! units: psu2 m s-1
+    ! cell_methods: xh:mean yh:mean zl:mean area:mean
+    ! variants: {S_advection_scheme_variance_production,S_advection_scheme_variance_production_xyave}
 "S_zint"  [Unused]
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
