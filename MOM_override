@@ -32,3 +32,4 @@
 #override OBC_SEGMENT_004 = "I=0,J=N:0,FLATHER,ORLANSKI,NUDGED,ORLANSKI_TAN,NUDGED_TAN" !None
 #override OBC_SEGMENT_004_VELOCITY_NUDGING_TIMESCALES = 0.3, 360.0 !None
 #override OBC_SEGMENT_004_DATA = "U=file:forcing_obc_segment_004.nc(u),V=file:forcing_obc_segment_004.nc(v),SSH=file:forcing_obc_segment_004.nc(eta),TEMP=file:forcing_obc_segment_004.nc(temp),SALT=file:forcing_obc_segment_004.nc(salt)" !None
+! === Added with regional-mom6 ===
