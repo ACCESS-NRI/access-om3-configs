@@ -27,6 +27,10 @@ We appreciate contributions, typo and bugs fixes to this documentation. To make 
 ### How to add a community supported ACCESS-OM3 configuration documentation
 We provide protocol and guidance on how to have your configuration supported by ACCESS-NRI. For further details see the [Add Supported Config](./Add-Supported-Config.md) page.
 
+### AI Tooling
+
+Across the repositories used to development ACCESS-OM3, contributors must disclose AI assistance in any pull request or commit where AI tooling materially shaped the changes. The tool is not credited as an author; the disclosure is for the benefit of reviewers. A brief note in the PR description should capture how and where a tool was used.
+
 ### Contribute to one of ACCESS-OM3's components
 
 There are several different ways to do this depending on the kind of contribution and the component. Best to get in touch on the [access hive forum](https://forum.access-hive.org.au/c/cosima/29), ping @ACCESS-NRI/ocean on GitHub or email `chris.bull@anu.edu.au`.
