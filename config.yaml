@@ -20,12 +20,12 @@ ncpus: 208
 jobfs: 10GB
 mem: 1000GB
 walltime: 02:00:00
-jobname: tas5km_jra_iaf
+jobname: rOM3-tassie-demo
 
 model: access-om3
 exe: access-om3-MOM6
 input:
-    - /g/data/tm70/ds0092/model/inputs/access-rom3/rM-tas5km_jra_iaf_inputs/
+    - /g/data/gb02/ab8992/rom3-inputdirs/rOM3-tassie-demo
     - /g/data/vk83/configurations/inputs/access-om3/share/meshes/share/2026.01.21/JRA55do-datm-ESMFmesh.nc
     - /g/data/vk83/configurations/inputs/access-om3/share/meshes/share/2026.01.21/JRA55do-drof-ESMFmesh.nc
     - /g/data/qv56/replicas/input4MIPs/CMIP6Plus/OMIP/MRI/MRI-JRA55-do-1-6-0/land/
@@ -33,16 +33,16 @@ input:
     - /g/data/qv56/replicas/input4MIPs/CMIP6Plus/OMIP/MRI/MRI-JRA55-do-1-6-0/atmos/
 
 runlog: false
-metadata: 
+metadata:
     enable: false
 manifest:
-  reproduce:
-    exe: true
-    input: true
+    reproduce:
+        exe: true
+        input: false
 
 mpi:
-  flags:
-  - --mca mpi_yield_when_idle true
+    flags:
+        - --mca mpi_yield_when_idle true
 
 collate: false
 
