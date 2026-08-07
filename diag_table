@@ -43,35 +43,35 @@ ACCESS-OM3
 
 # weekly 3d fields on native
 
-"access-om3.mom6.3d.e.7day.mean.%4yr-%2mo", 7, "days", 1, "days", "time", 1, "days"
-"ocean_model", "e", "e", "access-om3.mom6.3d.e.7day.mean.%4yr-%2mo", "all", "average", "none", 2
+"access-om3.mom6.3d.e.7day.mean", 7, "days", 1, "days", "time"
+"ocean_model", "e", "e", "access-om3.mom6.3d.e.7day.mean", "all", "average", "none", 2
 
-"access-om3.mom6.3d.thkcello.7day.mean.%4yr-%2mo", 7, "days", 1, "days", "time", 1, "days"
-"ocean_model", "thkcello", "thkcello", "access-om3.mom6.3d.thkcello.7day.mean.%4yr-%2mo", "all", "average", "none", 2
+"access-om3.mom6.3d.thkcello.7day.mean", 7, "days", 1, "days", "time"
+"ocean_model", "thkcello", "thkcello", "access-om3.mom6.3d.thkcello.7day.mean", "all", "average", "none", 2
 
-"access-om3.mom6.3d.thetao.7day.mean.%4yr-%2mo", 7, "days", 1, "days", "time", 1, "days"
-"ocean_model", "thetao", "thetao", "access-om3.mom6.3d.thetao.7day.mean.%4yr-%2mo", "all", "average", "none", 2
+"access-om3.mom6.3d.thetao.7day.mean", 7, "days", 1, "days", "time"
+"ocean_model", "thetao", "thetao", "access-om3.mom6.3d.thetao.7day.mean", "all", "average", "none", 2
 
-"access-om3.mom6.3d.so.7day.mean.%4yr-%2mo", 7, "days", 1, "days", "time", 1, "days"
-"ocean_model", "so", "so", "access-om3.mom6.3d.so.7day.mean.%4yr-%2mo", "all", "average", "none", 2
+"access-om3.mom6.3d.so.7day.mean", 7, "days", 1, "days", "time"
+"ocean_model", "so", "so", "access-om3.mom6.3d.so.7day.mean", "all", "average", "none", 2
 
-"access-om3.mom6.3d.uo.7day.mean.%4yr-%2mo", 7, "days", 1, "days", "time", 1, "days"
-"ocean_model", "uo", "uo", "access-om3.mom6.3d.uo.7day.mean.%4yr-%2mo", "all", "average", "none", 2
+"access-om3.mom6.3d.uo.7day.mean", 7, "days", 1, "days", "time"
+"ocean_model", "uo", "uo", "access-om3.mom6.3d.uo.7day.mean", "all", "average", "none", 2
 
-"access-om3.mom6.3d.vo.7day.mean.%4yr-%2mo", 7, "days", 1, "days", "time", 1, "days"
-"ocean_model", "vo", "vo", "access-om3.mom6.3d.vo.7day.mean.%4yr-%2mo", "all", "average", "none", 2
+"access-om3.mom6.3d.vo.7day.mean", 7, "days", 1, "days", "time"
+"ocean_model", "vo", "vo", "access-om3.mom6.3d.vo.7day.mean", "all", "average", "none", 2
 
 
 # daily surface fields on native
 
-"access-om3.mom6.2d.sss.1day.mean.%4yr-%2mo", 1, "days", 1, "days", "time", 1, "days"
-"ocean_model", "sss", "sss", "access-om3.mom6.2d.sss.1day.mean.%4yr-%2mo", "all", "average", "none", 2
+"access-om3.mom6.2d.sss.1day.mean", 1, "days", 1, "days", "time"
+"ocean_model", "sss", "sss", "access-om3.mom6.2d.sss.1day.mean", "all", "average", "none", 2
 
-"access-om3.mom6.2d.tos.1day.mean.%4yr-%2mo", 1, "days", 1, "days", "time", 1, "days"
-"ocean_model", "tos", "tos", "access-om3.mom6.2d.tos.1day.mean.%4yr-%2mo", "all", "average", "none", 2
+"access-om3.mom6.2d.tos.1day.mean", 1, "days", 1, "days", "time"
+"ocean_model", "tos", "tos", "access-om3.mom6.2d.tos.1day.mean", "all", "average", "none", 2
 
-"access-om3.mom6.2d.ssh.1day.mean.%4yr-%2mo", 1, "days", 1, "days", "time", 1, "days"
-"ocean_model", "ssh", "ssh", "access-om3.mom6.2d.ssh.1day.mean.%4yr-%2mo", "all", "average", "none", 2
+"access-om3.mom6.2d.ssh.1day.mean", 1, "days", 1, "days", "time"
+"ocean_model", "ssh", "ssh", "access-om3.mom6.2d.ssh.1day.mean", "all", "average", "none", 2
 
-"access-om3.mom6.2d.speed.1day.mean.%4yr-%2mo", 1, "days", 1, "days", "time", 1, "days"
-"ocean_model", "speed", "speed", "access-om3.mom6.2d.speed.1day.mean.%4yr-%2mo", "all", "average", "none", 2
+"access-om3.mom6.2d.speed.1day.mean", 1, "days", 1, "days", "time"
+"ocean_model", "speed", "speed", "access-om3.mom6.2d.speed.1day.mean", "all", "average", "none", 2
