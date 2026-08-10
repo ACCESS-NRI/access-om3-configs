@@ -17,7 +17,7 @@ sync:
 #Model software version
 modules:
     use:
-        - /g/data/vk83/prerelease/modules
+        - /g/data/vk83/modules
     load:
         - access-om3/2026.05.003
 
