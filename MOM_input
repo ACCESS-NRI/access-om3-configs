@@ -705,9 +705,8 @@ MIX_LEN_EXPONENT = 1.0          !   [nondim] default = 2.0
                                 ! The exponent applied to the ratio of the distance to the MLD and the MLD depth
                                 ! which determines the shape of the mixing length. This is only used if
                                 ! USE_MLD_ITERATION is True.
-USE_LA_LI2016 = True            !   [Boolean] default = False
-                                ! A logical to use the Li et al. 2016 (submitted) formula to determine the
-                                ! Langmuir number.
+EPBL_LT = True                  !   [nondim] default = False
+                                ! A logical to use a LT parameterization.
 EPBL_LANGMUIR_SCHEME = "ADDITIVE" ! default = "NONE"
                                 ! EPBL_LANGMUIR_SCHEME selects the method for including Langmuir turbulence.
                                 ! Valid values are:
@@ -716,17 +715,17 @@ EPBL_LANGMUIR_SCHEME = "ADDITIVE" ! default = "NONE"
                                 !      turbulence
                                 !    ADDITIVE - Add a Langmuir turbulence contribution to mstar to other
                                 !      contributions
-LT_ENHANCE_COEF = 0.044         !   [nondim] default = 0.447
+LT_ENHANCE_COEF = 0.105         !   [nondim] default = 0.447
                                 ! Coefficient for Langmuir enhancement of mstar
-LT_ENHANCE_EXP = -1.5           !   [nondim] default = -1.33
+LT_ENHANCE_EXP = -1.0           !   [nondim] default = -1.33
                                 ! Exponent for Langmuir enhancement of mstar
 LT_MOD_LAC1 = 0.0               !   [nondim] default = -0.87
                                 ! Coefficient for modification of Langmuir number due to MLD approaching Ekman
                                 ! depth.
-LT_MOD_LAC4 = 0.0               !   [nondim] default = 0.95
+LT_MOD_LAC4 = 0.8               !   [nondim] default = 0.95
                                 ! Coefficient for modification of Langmuir number due to ratio of Ekman to
                                 ! stable Obukhov depth.
-LT_MOD_LAC5 = 0.22              !   [nondim] default = 0.95
+LT_MOD_LAC5 = 0.8               !   [nondim] default = 0.95
                                 ! Coefficient for modification of Langmuir number due to ratio of Ekman to
                                 ! unstable Obukhov depth.
 
