@@ -19,7 +19,7 @@ modules:
     use:
         - /g/data/vk83/prerelease/modules
     load:
-        - access-om3/pr109-48
+        - access-om3/2026.05.003
 
 queue: normalsr
 ncpus: 208
