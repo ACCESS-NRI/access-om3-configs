@@ -202,7 +202,6 @@ diag_table:
         fields:
             hfrunoffds: # Heat content (relative to 0C) of liquid+solid runoff into ocean
             hfrainds: # Heat content (relative to 0degC) of liquid+frozen precip entering ocean
-            net_heat_coupler: # Surface ocean heat flux from SW+LW+latent+sensible+seaice_melt_heat (via the coupler)
             hfds: # Surface ocean heat flux from SW+LW+lat+sens+mass transfer+frazil+restore+seaice_melt_heat or flux adjustments net_heat_surface
             wfo: # Net surface water flux (precip+melt+lrunoff+ice calving-evap) PRCmE
             pso: # Pressure at ice-ocean or atmosphere-ocean interface p_surf
