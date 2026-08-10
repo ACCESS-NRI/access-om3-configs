@@ -61,6 +61,7 @@ Use this checklist whilst developing your configuration to make sure you include
 #### Guidelines for what is needed to be a `dev-*` branch
 
 The following are some suggestions for what is needed for a branch to become a `dev-*` branch on `access-om3-configs`. Some of these guidelines are limited by practical considerations and so can be discussed before or at time of review:
+
  - files used in the `config.yaml` need to be accessible (e.g. not in someone's personal folder but in `/g/data/vk83/prerelease/` or other widely available group workspace).
  - input files in the `config.yaml` have appropriate metadata such that they could be reproduced if needed (this includes the related workflows being under version control).
  - where practical the branch is up to date with using the latest build and commits from the closest related repository.
