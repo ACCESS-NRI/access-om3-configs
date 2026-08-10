@@ -4982,7 +4982,7 @@
     ! long_name: Area integrated heat content (relative to 0C) of water leaving ocean
     ! units: W
     ! variants: {total_heat_content_massout,total_hfevapds}
-"total_heat_content_massin"  [Unused]
+"total_heat_content_massin"  [Used]
     ! modules: ocean_model
     ! dimensions: scalar
     ! long_name: Area integrated heat content (relative to 0C) of water entering ocean
@@ -5021,7 +5021,7 @@
     ! long_name: Area integrated surface downward latent heat flux
     ! units: W
     ! variants: {total_lat,total_hflso}
-"total_lat_evap"  [Unused]
+"total_lat_evap"  [Used]
     ! modules: ocean_model
     ! dimensions: scalar
     ! long_name: Area integrated latent heat flux due to evap/condense
@@ -5054,7 +5054,7 @@
     ! dimensions: scalar
     ! long_name: Area integrated surface heat flux from restoring and/or flux adjustment
     ! units: W
-"total_seaice_melt_heat"  [Unused]
+"total_seaice_melt_heat"  [Used]
     ! modules: ocean_model
     ! dimensions: scalar
     ! long_name: Area integrated surface heat flux from snow and sea ice melt
