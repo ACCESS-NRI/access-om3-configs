@@ -3729,6 +3729,13 @@
     ! units: W
     ! cell_methods: xh:sum yq:point zl:sum
     ! variants: {T_hbd_diffy,T_hbd_diffy_xyave}
+"T_advection_scheme_variance_production"  [Unused]
+    ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
+    ! dimensions: xh, yh, zl
+    ! long_name: Spurious variance production of T variance due to advection
+    ! units: Celsius2 m s-1
+    ! cell_methods: xh:mean yh:mean zl:mean area:mean
+    ! variants: {T_advection_scheme_variance_production,T_advection_scheme_variance_production_xyave}
 "T_zint"  [Unused]
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
@@ -3941,6 +3948,13 @@
     ! units: psu m3 s-1
     ! cell_methods: xh:sum yq:point zl:sum
     ! variants: {S_hbd_diffy,S_hbd_diffy_xyave}
+"S_advection_scheme_variance_production"  [Unused]
+    ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
+    ! dimensions: xh, yh, zl
+    ! long_name: Spurious variance production of S variance due to advection
+    ! units: (g kg-1)2 m s-1
+    ! cell_methods: xh:mean yh:mean zl:mean area:mean
+    ! variants: {S_advection_scheme_variance_production,S_advection_scheme_variance_production_xyave}
 "S_zint"  [Unused]
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
@@ -4153,6 +4167,13 @@
     ! units: yr m3 s-1
     ! cell_methods: xh:sum yq:point zl:sum
     ! variants: {age_hbd_diffy,age_hbd_diffy_xyave}
+"age_advection_scheme_variance_production"  [Unused]
+    ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
+    ! dimensions: xh, yh, zl
+    ! long_name: Spurious variance production of age variance due to advection
+    ! units: yr2 m s-1
+    ! cell_methods: xh:mean yh:mean zl:mean area:mean
+    ! variants: {age_advection_scheme_variance_production,age_advection_scheme_variance_production_xyave}
 "age_zint"  [Unused]
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
