@@ -245,6 +245,8 @@ diag_table:
             ficeberg: # Frozen runoff (calving) and iceberg melt into ocean
             ePBL_h_ML: # Surface boundary layer depth
             h_ML: # Surface mixed layer depth based on active turbulence
+            MSTAR: # mstar used in ePBL
+            MSTAR_LT: # Increase in mstar due to Langmuir turbulence
 
     'monthly 2d max fields':
         defaults:  # these can be overridden for individual fields below
