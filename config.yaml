@@ -19,7 +19,7 @@ modules:
     use:
         - /g/data/vk83/modules
     load:
-        - access-om3/2026.05.002
+        - access-om3/2026.05.003
 
 queue: normal
 ncpus: 240
