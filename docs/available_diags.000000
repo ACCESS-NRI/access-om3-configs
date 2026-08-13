@@ -3365,7 +3365,7 @@
     ! units: m s-1
     ! cell_methods: xh:mean yh:mean zi:point area:mean
     ! variants: {Velocity_Scale,Velocity_Scale_xyave}
-"MSTAR"  [Unused]
+"MSTAR"  [Used]
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
     ! long_name: Total mstar that is used.
@@ -3383,7 +3383,7 @@
     ! long_name: Modified Langmuir number.
     ! units: nondim
     ! cell_methods: xh:mean yh:mean area:mean
-"MSTAR_LT"  [Unused]
+"MSTAR_LT"  [Used]
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
     ! long_name: Increase in mstar due to Langmuir Turbulence.
