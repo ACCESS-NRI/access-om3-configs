@@ -82,8 +82,8 @@
     <datavars>
       <var>msdwswrf  Faxa_swdn</var>
     </datavars>
-    <offset>-5400</offset>
-    <tintalgo>coszen</tintalgo>
+    <offset>0</offset>
+    <tintalgo>linear</tintalgo>
   </stream_info>
   <stream_info name="JRA55do.Q_10">
     <taxmode>limit</taxmode>
