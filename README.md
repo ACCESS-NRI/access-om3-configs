@@ -1,6 +1,11 @@
-# MOM6-CICE6 1 deg JRA55-do IAF ACCESS-OM3 configuration
+# Template configuration for regional OM3 forced with ERA5 and GLORYS
 
-**WARNING: This configuration is still under development and should not be used for production.**
+This configuration serves two purposes:
+
+1. It is a template used by the regional-mom6/ACCESS-rOM3 workflow for generic, relocatable regional configurations of MOM6. The template matches the [Tasmania demo](https://github.com/COSIMA/regional-mom6/blob/main/demos/ACCESS-rOM3-demo.ipynb). See https://github.com/COSIMA/regional-mom6/ and associated documentation for details.
+2. This configuration serves as a case for the global OM3 development team to test against. 
+
+**WARNING: Unlike other configurations, this is used to set up generic regional OM3 configurations using the regional-mom6 software package. Such domains aren't immediately producion ready, and the user needs to undertake validation and testing**
 
 See [`main` branch
 README](https://github.com/COSIMA/MOM6-CICE6/blob/main/README.md) for usage
@@ -8,9 +13,8 @@ information.
 
 ## Features
 
-- data atmosphere (DATM) = JRA55-do v1-4, IAF 1958-2018
+- data atmosphere (DATM) = ERA5 modified by the regional-mom6 package to fit chosen domain
 - data runoff (DROF) = JRA55-do v1-4, IAF 1958-2018
-- tripolar grid
 
 ## Requirements
 

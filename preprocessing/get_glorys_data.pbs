@@ -1,0 +1,27 @@
+#!/bin/bash
+#PBS -N get_glorys_data
+#PBS -P tm70
+#PBS -q copyq
+#PBS -l ncpus=1
+#PBS -l mem=4GB
+#PBS -l walltime=10:00:00
+#PBS -l wd
+#PBS -l storage=scratch/tm70+gdata/tm70+gdata/vk83
+#PBS -o get_glorys_data.log
+module use /g/data/vk83/modules
+module load copernicusmarine/2.4.1
+
+copernicusmarine subset --dataset-id cmems_mod_glo_phy_my_0.083deg_P1D-m --variable so --variable thetao --variable uo --variable vo --variable zos --start-datetime 2012-01-01T00:00:00 --end-datetime 2012-01-02T00:00:00 --minimum-longitude 142.76 --maximum-longitude 150.24 --minimum-latitude -48.24 --maximum-latitude -38.71 --minimum-depth 0 --maximum-depth 6000 -o /g/data/tm70/hm6113/tmp/access-rom3-demo -f ic_unprocessed.nc
+
+
+copernicusmarine subset --dataset-id cmems_mod_glo_phy_my_0.083deg_P1D-m --variable so --variable thetao --variable uo --variable vo --variable zos --start-datetime 2012-01-01T00:00:00 --end-datetime 2012-02-01T00:00:00 --minimum-longitude 149.76 --maximum-longitude 150.24 --minimum-latitude -48.24 --maximum-latitude -38.71 --minimum-depth 0 --maximum-depth 6000 -o /g/data/tm70/hm6113/tmp/access-rom3-demo -f east_unprocessed.nc
+
+
+copernicusmarine subset --dataset-id cmems_mod_glo_phy_my_0.083deg_P1D-m --variable so --variable thetao --variable uo --variable vo --variable zos --start-datetime 2012-01-01T00:00:00 --end-datetime 2012-02-01T00:00:00 --minimum-longitude 142.76 --maximum-longitude 143.24 --minimum-latitude -48.24 --maximum-latitude -38.71 --minimum-depth 0 --maximum-depth 6000 -o /g/data/tm70/hm6113/tmp/access-rom3-demo -f west_unprocessed.nc
+
+
+copernicusmarine subset --dataset-id cmems_mod_glo_phy_my_0.083deg_P1D-m --variable so --variable thetao --variable uo --variable vo --variable zos --start-datetime 2012-01-01T00:00:00 --end-datetime 2012-02-01T00:00:00 --minimum-longitude 142.76 --maximum-longitude 150.24 --minimum-latitude -48.24 --maximum-latitude -47.76 --minimum-depth 0 --maximum-depth 6000 -o /g/data/tm70/hm6113/tmp/access-rom3-demo -f south_unprocessed.nc
+
+
+copernicusmarine subset --dataset-id cmems_mod_glo_phy_my_0.083deg_P1D-m --variable so --variable thetao --variable uo --variable vo --variable zos --start-datetime 2012-01-01T00:00:00 --end-datetime 2012-02-01T00:00:00 --minimum-longitude 142.76 --maximum-longitude 150.24 --minimum-latitude -39.190000000000005 --maximum-latitude -38.71 --minimum-depth 0 --maximum-depth 6000 -o /g/data/tm70/hm6113/tmp/access-rom3-demo -f north_unprocessed.nc
+
