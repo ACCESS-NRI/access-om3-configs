@@ -103,9 +103,6 @@ ACCESS-OM3
 "access-om3.mom6.2d.hfrainds.1mon.mean.%4yr", 1, "months", 1, "days", "time", 1, "years"
 "ocean_model", "hfrainds", "hfrainds", "access-om3.mom6.2d.hfrainds.1mon.mean.%4yr", "all", "average", "none", 2
 
-"access-om3.mom6.2d.net_heat_coupler.1mon.mean.%4yr", 1, "months", 1, "days", "time", 1, "years"
-"ocean_model", "net_heat_coupler", "net_heat_coupler", "access-om3.mom6.2d.net_heat_coupler.1mon.mean.%4yr", "all", "average", "none", 2
-
 "access-om3.mom6.2d.hfds.1mon.mean.%4yr", 1, "months", 1, "days", "time", 1, "years"
 "ocean_model", "hfds", "hfds", "access-om3.mom6.2d.hfds.1mon.mean.%4yr", "all", "average", "none", 2
 
@@ -286,6 +283,17 @@ ACCESS-OM3
 "ocean_model", "total_icemelt", "total_icemelt", "access-om3.mom6.scalar.1day.snap.%4yr", "all", "none", "none", 1
 "ocean_model", "total_frunoff", "total_frunoff", "access-om3.mom6.scalar.1day.snap.%4yr", "all", "none", "none", 1
 "ocean_model", "total_lrunoff", "total_lrunoff", "access-om3.mom6.scalar.1day.snap.%4yr", "all", "none", "none", 1
+"ocean_model", "total_hfevapds", "total_hfevapds", "access-om3.mom6.scalar.1day.snap.%4yr", "all", "none", "none", 1
+"ocean_model", "total_heat_content_massin", "total_heat_content_massin", "access-om3.mom6.scalar.1day.snap.%4yr", "all", "none", "none", 1
+"ocean_model", "total_hfds", "total_hfds", "access-om3.mom6.scalar.1day.snap.%4yr", "all", "none", "none", 1
+"ocean_model", "total_rsntds", "total_rsntds", "access-om3.mom6.scalar.1day.snap.%4yr", "all", "none", "none", 1
+"ocean_model", "total_rlntds", "total_rlntds", "access-om3.mom6.scalar.1day.snap.%4yr", "all", "none", "none", 1
+"ocean_model", "total_hflso", "total_hflso", "access-om3.mom6.scalar.1day.snap.%4yr", "all", "none", "none", 1
+"ocean_model", "total_lat_evap", "total_lat_evap", "access-om3.mom6.scalar.1day.snap.%4yr", "all", "none", "none", 1
+"ocean_model", "total_hfsnthermds", "total_hfsnthermds", "access-om3.mom6.scalar.1day.snap.%4yr", "all", "none", "none", 1
+"ocean_model", "total_hfibthermds", "total_hfibthermds", "access-om3.mom6.scalar.1day.snap.%4yr", "all", "none", "none", 1
+"ocean_model", "total_hfsso", "total_hfsso", "access-om3.mom6.scalar.1day.snap.%4yr", "all", "none", "none", 1
+"ocean_model", "total_seaice_melt_heat", "total_seaice_melt_heat", "access-om3.mom6.scalar.1day.snap.%4yr", "all", "none", "none", 1
 
 
 # monthly 3d prognostic BGC fields
