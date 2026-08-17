@@ -432,6 +432,9 @@ H_TO_M = 1.0                    !   [m H-1] default = 1.0
                                 ! A constant that translates the model's internal units of thickness into m.
 NK = 75                         !   [nondim]
                                 ! The number of model layers.
+ADVECTION_SCHEME_VARIANCE_UNDERFLOW = 1.0E-23 !   [Conc2 (tracer dependent)] default = 1.0E-23
+                                ! A tiny magnitude for variance used to determine when advection scheme variance
+                                ! production is set to 0.
 
 ! === module MOM_tracer_registry ===
 
@@ -1694,6 +1697,10 @@ ML_RESTRAT_ANSWER_DATE = 99991231 ! default = 99991231
                                 ! restrat calculations.  Values below 20240201 recover the answers from the end
                                 ! of 2023, while higher values use the new cuberoot function in the Bodner code
                                 ! to avoid needing to undo dimensional rescaling.
+BODNER_HMIN_BUG = True          !   [Boolean] default = True
+                                ! If true, recover a bug where layer thicknesses in the Bodner et al. mixed
+                                ! layer restratification are not clamped at a minimum value and can therefore go
+                                ! negative.
 MIN_WSTAR2 = 1.0E-09            !   [m2 s-2] default = 1.0E-24
                                 ! The minimum lower bound to apply to the vertical momentum flux, w'u', in the
                                 ! Bodner et al., restratification parameterization. This avoids a
