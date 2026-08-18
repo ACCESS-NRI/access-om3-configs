@@ -4074,8 +4074,8 @@ work/INPUT/fx/sftof/gr/v20240531/sftof_input4MIPs_atmosphericState_OMIP_MRI-JRA5
 work/INPUT/kmt.nc:
   fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/cice/grids/global.25km/2026.08.17/kmt.nc
   hashes:
-    binhash: 36d2a4bea71ebd0b011baad1807fc69e
-    md5: c0c7e2126dde7168f900f2506a141fda
+    binhash: 3054e32b8ba03d579f3e940d4a139e4b
+    md5: d45958b7f70fea4622c60339bf73a7ec
 work/INPUT/ocean_hgrid.nc:
   fullpath: /g/data/vk83/configurations/inputs/access-om3/share/grids/global.25km/2026.06.11/ocean_hgrid.nc
   hashes:
@@ -4099,8 +4099,8 @@ work/INPUT/tideamp.nc:
 work/INPUT/topog.nc:
   fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/share/grids/global.25km/2026.08.17/topog.nc
   hashes:
-    binhash: 6ec9999e5e26670dc83b21910d3814ad
-    md5: 5bc63514bfffb7eea38119f4e3e26e4d
+    binhash: 6af85ff7b0a15a1bf31b6d599add7975
+    md5: fe1ed054b8bcb84bb88974e9668ee6e6
 work/INPUT/woa23_ts_01_mom.nc:
   fullpath: /g/data/vk83/configurations/inputs/access-om3/mom/initial_conditions/global.25km/2026.06.11/woa23_ts_01_mom.nc
   hashes:
