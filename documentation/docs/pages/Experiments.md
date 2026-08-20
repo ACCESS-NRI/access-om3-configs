@@ -48,7 +48,7 @@ distributed and modified. Users of ACCESS-NRI models, data, tools or expert supp
 
 ## Community run sensitivity tests
 
-The following are additional sensitivity-test experiments, exploring specific parameter choices rather than serving as control experiments. As these experiments are for specific interests, we don't track the same level of detail for these runs, but evaluation figures, run length, and the ESM datastore path are available where practical, and base configuration and model build are additionally available for the GM sensitivity runs.
+The following are additional sensitivity-test experiments, exploring specific parameter choices rather than serving as control experiments. As these experiments are for specific interests, we do not necessarily track the same level of detail for these runs.
 
 |Experiment | Evaluation | Base Configuration | Model build | Length (years) | ESM Datastore <br/>  (output path) |
 |----|----|----|----|----|------------------------------------------------------------------------------------------------|
