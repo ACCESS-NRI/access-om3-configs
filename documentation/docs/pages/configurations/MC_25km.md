@@ -141,7 +141,7 @@ This group defines the spatial grid, land mask, and ice thickness category struc
         - Bathymetry file `bathymetry_file = "./INPUT/topog.nc"`. (not currently used)
 - Grid staggering
     - Atmosphere and ocean coupling grids use `A-grid`: `grid_atm = "A"`, `grid_ocn = "A"`,
-    - Sea ice uses `B-grid`: `grid_ice = "B"`.
+    - Sea ice uses `C-grid`: `grid_ice = "C"`.
 - Ice Thickness Categories: 
     - Five ice thickness categories: `ncat = 5`,
     - Four vertical layers in sea ice: `nilyr = 4`,
