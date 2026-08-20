@@ -678,12 +678,6 @@ DO_RIVERMIX = True              !   [Boolean] default = False
                                 ! down to RIVERMIX_DEPTH if the ocean is that deep.
 RIVERMIX_DEPTH = 40.0           !   [m] default = 0.0
                                 ! The depth to which rivers are mixed if DO_RIVERMIX is defined.
-USE_RIVER_HEAT_CONTENT = True   !   [Boolean] default = False
-                                ! If true, use the fluxes%runoff_Hflx field to set the heat carried by runoff,
-                                ! instead of using SST*CP*liq_runoff.
-USE_CALVING_HEAT_CONTENT = True !   [Boolean] default = False
-                                ! If true, use the fluxes%calving_Hflx field to set the heat carried by runoff,
-                                ! instead of using SST*CP*froz_runoff.
 VAR_PEN_SW = True               !   [Boolean] default = False
                                 ! If true, use one of the CHL_A schemes specified by OPACITY_SCHEME to determine
                                 ! the e-folding depth of incoming short wave radiation.
