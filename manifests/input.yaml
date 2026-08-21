@@ -2,14 +2,14 @@ format: yamanifest
 version: 1.0
 ---
 work/INPUT/JRA55do-datm-ESMFmesh.nc:
-  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/share/meshes/share/2026.01.21/JRA55do-datm-ESMFmesh.nc
+  fullpath: /g/data/vk83/configurations/inputs/access-om3/share/meshes/share/2026.01.21/JRA55do-datm-ESMFmesh.nc
   hashes:
-    binhash: c0e9a071f20670930d0e117f13399d78
+    binhash: a94de44546b145640eb49467b7b3da1f
     md5: 0ecb68f878b91b8adc90838e2c413914
 work/INPUT/JRA55do-drof-ESMFmesh.nc:
-  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/share/meshes/share/2026.01.21/JRA55do-drof-ESMFmesh.nc
+  fullpath: /g/data/vk83/configurations/inputs/access-om3/share/meshes/share/2026.01.21/JRA55do-drof-ESMFmesh.nc
   hashes:
-    binhash: 9f3ee3ce42e776fcbee8026e0c3880f5
+    binhash: 780e2ab02c4560e247c96bba2817ccc5
     md5: bf62c4e7786ddfbe56d61b3074d5d16d
 work/INPUT/OBC37S_forcing_access_yr2_4km.nc:
   fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.01.08/OBC37S_forcing_access_yr2_4km.nc
@@ -82,15 +82,15 @@ work/INPUT/access-om3-4km-nomask-ESMFmesh.nc:
     binhash: 5669704e050d3be2b98277ad4270bf3c
     md5: a49b9c9d816f746b1210005ea167fa3a
 work/INPUT/access-om3-panan4km-rof-remap-weights.nc:
-  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/cmeps/remap_weights/panan.4km/2026.06.26/access-om3-panan4km-rof-remap-weights.nc
+  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/cmeps/remap_weights/panan.4km/2026.08.20/access-om3-panan4km-rof-remap-weights.nc
   hashes:
-    binhash: 309e9bbf1256a14633d1388e08d5b425
-    md5: 7cdf32f1b4af8745be6f3b4082d5754d
+    binhash: 9cc1b23427b3be294e754663433a2767
+    md5: a3c2d81f10af826685d00acf0c3ece1d
 work/INPUT/access-om3-panan4km-rofi-climatology.nc:
-  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/cmeps/rofi_pattern/panan.4km/2026.06.26/access-om3-panan4km-rofi-climatology.nc
+  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/cmeps/rofi_pattern/panan.4km/2026.08.20/access-om3-panan4km-rofi-climatology.nc
   hashes:
-    binhash: a3139c2e816768d59480fe77016d1c74
-    md5: 829e373426a0361eaf2596c15486658a
+    binhash: 6fc5d50ec5e13cbb57625386d937fbdb
+    md5: 5f820a3483961852547c59348a7cd842
 work/INPUT/bottom_roughness.nc:
   fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.02.27/bottom_roughness.nc
   hashes:

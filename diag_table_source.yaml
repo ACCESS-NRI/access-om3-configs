@@ -202,7 +202,6 @@ diag_table:
         fields:
             hfrunoffds: # Heat content (relative to 0C) of liquid+solid runoff into ocean
             hfrainds: # Heat content (relative to 0degC) of liquid+frozen precip entering ocean
-            net_heat_coupler: # Surface ocean heat flux from SW+LW+latent+sensible+seaice_melt_heat (via the coupler)
             hfds: # Surface ocean heat flux from SW+LW+lat+sens+mass transfer+frazil+restore+seaice_melt_heat or flux adjustments net_heat_surface
             wfo: # Net surface water flux (precip+melt+lrunoff+ice calving-evap) PRCmE
             pso: # Pressure at ice-ocean or atmosphere-ocean interface p_surf
@@ -288,3 +287,14 @@ diag_table:
             total_friver: # Area integrated liquid runoff into ocean total_lrunoff
             total_net_massout: # Area integrated mass leaving ocean due to evap and seaice form
             total_net_massin: # Area integrated mass entering ocean due to predip, runoff, ice melt
+            total_hfevapds: # Area integrated heat content (relative to 0C) of water leaving ocean
+            total_heat_content_massin: # Area integrated heat content (relative to 0C) of water entering ocean
+            total_hfds: # Area integrated surface heat flux from SW+LW+lat+sens+mass+frazil+restore or flux adjustments
+            total_rsntds: # Area integrated net downward shortwave at sea water surface
+            total_rlntds: # Area integrated net downward longwave at sea water surface
+            total_hflso: # Area integrated surface downward latent heat flux
+            total_lat_evap: # Area integrated latent heat flux due to evap/condense
+            total_hfsnthermds: # Area integrated latent heat flux due to melting frozen precip
+            total_hfibthermds: # Area integrated latent heat flux due to melting icebergs
+            total_hfsso: # Area integrated downward sensible heat flux
+            total_seaice_melt_heat: # Area integrated surface heat flux from snow and sea ice melt
