@@ -36,3 +36,6 @@ in the configuration folder for a new experiment. To use this script:
     ```bash
     payu sweep && payu run
     ```
+
+!!! note
+    The script doesn't currently support WavewatchIII (WW3) restarts.
