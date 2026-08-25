@@ -17,11 +17,10 @@
   print_global = .false.
 /
 &grid_nml
-  bathymetry_file = "./INPUT/topog.nc"
   grid_atm = "A"
   grid_file = "./INPUT/ocean_hgrid.nc"
   grid_format = "mom_nc"
-  grid_ice = "B"
+  grid_ice = "C"
   grid_ocn = "A"
   grid_type = "tripole"
   grid_outfile = .true.
