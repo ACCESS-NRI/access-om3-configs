@@ -17,9 +17,9 @@ sync:
 #Model software version
 modules:
     use:
-        - /g/data/vk83/modules
+        - /g/data/vk83/prerelease/modules
     load:
-        - access-om3/2026.05.003
+        - access-om3/pr263-1
         - model-tools/mppnccombine-fast/2025.07.000
 
 queue: normalsr
@@ -56,7 +56,7 @@ metadata:
     enable: true
 manifest:
   reproduce:
-    exe: True
+    exe: False
     input: True
 
 mpi:
