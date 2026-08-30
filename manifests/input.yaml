@@ -2,127 +2,137 @@ format: yamanifest
 version: 1.0
 ---
 work/INPUT/JRA55do-datm-ESMFmesh.nc:
-  fullpath: /g/data/vk83/configurations/inputs/access-om3/share/meshes/share/2024.09.16/JRA55do-datm-ESMFmesh.nc
+  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/share/meshes/share/2026.01.21/JRA55do-datm-ESMFmesh.nc
   hashes:
-    binhash: 3aa7bd11a69390ed8739af63e41462fd
-    md5: f583b0fc505afc28f1d7c949a715cccb
+    binhash: c0e9a071f20670930d0e117f13399d78
+    md5: 0ecb68f878b91b8adc90838e2c413914
 work/INPUT/JRA55do-drof-ESMFmesh.nc:
-  fullpath: /g/data/vk83/configurations/inputs/access-om3/share/meshes/share/2024.09.16/JRA55do-drof-ESMFmesh.nc
+  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/share/meshes/share/2026.01.21/JRA55do-drof-ESMFmesh.nc
   hashes:
-    binhash: fa1322dbc0ab951527b165f8327c7b5b
-    md5: 3b46260b8c14d12925cf70f82da6658e
+    binhash: 9f3ee3ce42e776fcbee8026e0c3880f5
+    md5: bf62c4e7786ddfbe56d61b3074d5d16d
 work/INPUT/RYF.friver.1990_1991.nc:
-  fullpath: /g/data/vk83/configurations/inputs/JRA-55/RYF/v1-6/data/RYF.friver.1990_1991.nc
+  fullpath: /g/data/vk83/configurations/inputs/JRA-55/RYF/v1-6/2026.04.15/RYF.friver.1990_1991.nc
   hashes:
-    binhash: 7ed1b4267c202eae4e1e1fb7170adfdc
-    md5: 06d549192558fc48c43416b1015044bc
+    binhash: 09550ac6d5c2dd55950f188f57473ecd
+    md5: beb16730c02db9a730f69dfdc843b774
 work/INPUT/RYF.huss.1990_1991.nc:
-  fullpath: /g/data/vk83/configurations/inputs/JRA-55/RYF/v1-6/data/RYF.huss.1990_1991.nc
+  fullpath: /g/data/vk83/configurations/inputs/JRA-55/RYF/v1-6/2026.04.15/RYF.huss.1990_1991.nc
   hashes:
-    binhash: be1a71017ed8b5392505b2b013e05343
-    md5: 76bce15820d66e4dbd55674072253869
+    binhash: 405973c78715f0229800515d3c5641d4
+    md5: 1b184b232a31382443e5818bb623a9cb
 work/INPUT/RYF.licalvf.1990_1991.nc:
-  fullpath: /g/data/vk83/configurations/inputs/JRA-55/RYF/v1-6/data/RYF.licalvf.1990_1991.nc
+  fullpath: /g/data/vk83/configurations/inputs/JRA-55/RYF/v1-6/2026.04.15/RYF.licalvf.1990_1991.nc
   hashes:
-    binhash: e7eb183d2b7cdd685bdee810004cf3c9
-    md5: 33aba38d6bffb45f9b1ce6240c2cd21a
+    binhash: 4215bb026f1651b0a38bb359ffde9812
+    md5: 1d9233a590fb94d052196cdd5245a585
 work/INPUT/RYF.prra.1990_1991.nc:
-  fullpath: /g/data/vk83/configurations/inputs/JRA-55/RYF/v1-6/data/RYF.prra.1990_1991.nc
+  fullpath: /g/data/vk83/configurations/inputs/JRA-55/RYF/v1-6/2026.04.15/RYF.prra.1990_1991.nc
   hashes:
-    binhash: 1d8af8b1b94d1cf78a3108477d329d06
-    md5: 4e1210fa78c124c1537e8ce28584555c
+    binhash: b3d6923936b78a42f3ced485d1dc944a
+    md5: a03d5b51f44fb9fcad5036a0b7d408d0
 work/INPUT/RYF.prsn.1990_1991.nc:
-  fullpath: /g/data/vk83/configurations/inputs/JRA-55/RYF/v1-6/data/RYF.prsn.1990_1991.nc
+  fullpath: /g/data/vk83/configurations/inputs/JRA-55/RYF/v1-6/2026.04.15/RYF.prsn.1990_1991.nc
   hashes:
-    binhash: 5b9d401daa0c90298d703a3a2dac12b1
-    md5: 1fa60bceab287d4059c6a23d5fb18170
+    binhash: 2186b8e6f5ac2f055c76feae275fac0d
+    md5: 914dcf6080c0fc9b9d46bf7082a4c0be
 work/INPUT/RYF.psl.1990_1991.nc:
-  fullpath: /g/data/vk83/configurations/inputs/JRA-55/RYF/v1-6/data/RYF.psl.1990_1991.nc
+  fullpath: /g/data/vk83/configurations/inputs/JRA-55/RYF/v1-6/2026.04.15/RYF.psl.1990_1991.nc
   hashes:
-    binhash: e85798bf489561d1eb316a50b170f318
-    md5: 40003042b732f70edaf59f302427b213
+    binhash: cf11f0382c3c256c6c70cb5ad23c4a4e
+    md5: 98206e380baf0f229b2983f569f9b0e0
 work/INPUT/RYF.rlds.1990_1991.nc:
-  fullpath: /g/data/vk83/configurations/inputs/JRA-55/RYF/v1-6/data/RYF.rlds.1990_1991.nc
+  fullpath: /g/data/vk83/configurations/inputs/JRA-55/RYF/v1-6/2026.04.15/RYF.rlds.1990_1991.nc
   hashes:
-    binhash: 33502887b018dbb288775102c1411d65
-    md5: 449ca4bd2d51794204a6ceedc79bad82
+    binhash: 8ef7649e46845d1f50d5c3039a336d10
+    md5: 6e9242d3a02c1ee768337dcab710de39
 work/INPUT/RYF.rsds.1990_1991.nc:
-  fullpath: /g/data/vk83/configurations/inputs/JRA-55/RYF/v1-6/data/RYF.rsds.1990_1991.nc
+  fullpath: /g/data/vk83/configurations/inputs/JRA-55/RYF/v1-6/2026.04.15/RYF.rsds.1990_1991.nc
   hashes:
-    binhash: ca831af4d8931736138d04166910b7c4
-    md5: 7d8e5270940eaaf5121b72eea736b2cd
+    binhash: ff58f2282c2ac2989bbae5ce5cb17b15
+    md5: 5f9721311ff7ac4908ca79a9d9cfa5fd
 work/INPUT/RYF.tas.1990_1991.nc:
-  fullpath: /g/data/vk83/configurations/inputs/JRA-55/RYF/v1-6/data/RYF.tas.1990_1991.nc
+  fullpath: /g/data/vk83/configurations/inputs/JRA-55/RYF/v1-6/2026.04.15/RYF.tas.1990_1991.nc
   hashes:
-    binhash: ae172b9c06fe1b5b2b0a2b78e7de0d17
-    md5: 1947327fb37d4d1e7eee3e1804500721
+    binhash: 9448feec5416d22c70668dfed3b96a64
+    md5: 5fdf6d3b0369f1b50138013101c288a6
 work/INPUT/RYF.uas.1990_1991.nc:
-  fullpath: /g/data/vk83/configurations/inputs/JRA-55/RYF/v1-6/data/RYF.uas.1990_1991.nc
+  fullpath: /g/data/vk83/configurations/inputs/JRA-55/RYF/v1-6/2026.04.15/RYF.uas.1990_1991.nc
   hashes:
-    binhash: 7271b6b617e233932c5e319a63c64bc3
-    md5: 74516d793e148d522b2b2f73eb6eb6c7
+    binhash: 91aab3178fd13839f3f5a572c3c9f34f
+    md5: 264a82753021ba094b54cc0cfae4f3ec
 work/INPUT/RYF.vas.1990_1991.nc:
-  fullpath: /g/data/vk83/configurations/inputs/JRA-55/RYF/v1-6/data/RYF.vas.1990_1991.nc
+  fullpath: /g/data/vk83/configurations/inputs/JRA-55/RYF/v1-6/2026.04.15/RYF.vas.1990_1991.nc
   hashes:
-    binhash: f353a71a014062723ed2b56353932caf
-    md5: 30b92b1e409cff9a9900692aa961aba4
+    binhash: db95d15e2b6d3dc5aba176ffd96bd440
+    md5: bd0ccd8ef7f639ca77b6705f0d6d1fcb
 work/INPUT/access-om3-8km-ESMFmesh.nc:
-  fullpath: /g/data/x77/ahg157/inputs/mom6/global-8km/access-om3-8km-ESMFmesh.nc
+  fullpath: /g/data/tm70/ek4684/8km_grid_input_files/access-om3-8km-ESMFmesh.nc
   hashes:
-    binhash: a9740a484e7e9a729dcdc9f82dbab77d
-    md5: 483db5b68e183914369582dad689a1c6
+    binhash: a1e7049b803af31ac1f02360be60e599
+    md5: 27d6c528a02d022d1af08196f4726c07
 work/INPUT/access-om3-8km-nomask-ESMFmesh.nc:
-  fullpath: /g/data/x77/ahg157/inputs/mom6/global-8km/access-om3-8km-nomask-ESMFmesh.nc
+  fullpath: /g/data/tm70/ek4684/8km_grid_input_files/access-om3-8km-nomask-ESMFmesh.nc
   hashes:
-    binhash: ae38ec873cd05a4e84656dfa7831c1cd
-    md5: 58c30e0a380ef7ffd857dd27c54d3892
+    binhash: b5ac800e333a15de991a6b756ef4f36c
+    md5: b2b1cfdee2bf1d5cc0d6621aabd58c8a
 work/INPUT/access-om3-8km-rof-remap-weights.nc:
-  fullpath: /g/data/x77/ahg157/inputs/mom6/global-8km/access-om3-8km-rof-remap-weights.nc
+  fullpath: /g/data/tm70/ek4684/8km_grid_input_files/access-om3-8km-rof-remap-weights.nc
   hashes:
-    binhash: 169f0071669815edae26b82a2df3d926
-    md5: 9b8c9f7f294ffd2283a09cbb7a07f48b
+    binhash: e04b14090353d823eac40aff024aedaf
+    md5: 9534c41ea77ec4a641f287060f4e0155
+work/INPUT/access-om3-8km-rofi-climatology.nc:
+  fullpath: /g/data/tm70/ek4684/8km_grid_input_files/access-om3-8km-rofi-climatology.nc
+  hashes:
+    binhash: a49e3589832f4cb32ee9bacee936ee0b
+    md5: b35bc979f6b5429736049266321d7223
 work/INPUT/access-om3-8km-vmap-weights.nc:
-  fullpath: /g/data/x77/ahg157/inputs/mom6/global-8km/access-om3-8km-vmap-weights.nc
+  fullpath: /g/data/tm70/ek4684/8km_grid_input_files/old_grid_dependent_files/access-om3-8km-vmap-weights.nc
   hashes:
-    binhash: d579cfcc5df8acefe81476d6c43f9826
+    binhash: 3601f920abe12d8aec521a5c3dce8ec1
     md5: c2eb7d65432e728a3d519f37bfcf6892
 work/INPUT/bottom_roughness.nc:
-  fullpath: /g/data/x77/ahg157/inputs/mom6/global-8km/bottom_roughness.nc
+  fullpath: /g/data/tm70/ek4684/8km_grid_input_files/bottom_roughness.nc
   hashes:
-    binhash: bc59de9339d10035cac71ceba76dd542
-    md5: 1dfab48c6276d7ce7525c199d9183a33
+    binhash: 7713d3ae90579f54efac5eb792e2740f
+    md5: b52dc4f448cb3088fa3d3290909bcaf5
+work/INPUT/chl_globcolour_monthly_clim.nc:
+  fullpath: /g/data/tm70/ek4684/8km_grid_input_files/chl_globcolour_monthly_clim.nc
+  hashes:
+    binhash: f17525a106ef17e232234f9c9c756254
+    md5: 8e3d1e7b0697825036e8e2d79bf5da8a
 work/INPUT/kmt.nc:
-  fullpath: /g/data/x77/ahg157/inputs/mom6/global-8km/kmt.nc
+  fullpath: /g/data/tm70/ek4684/8km_grid_input_files/kmt.nc
   hashes:
-    binhash: 0fff96657f4906e04dd1118c484593c1
-    md5: e0ead34b617a8c909e0f82c11e14a913
-work/INPUT/mask_table.4448.96x72:
-  fullpath: /g/data/x77/ahg157/inputs/mom6/global-8km/mask_table.4448.96x72
-  hashes:
-    binhash: 744148f724498669516454e55ef7271d
-    md5: 41926095b76013b740411916ce4d0303
+    binhash: ebc1abc0dc3267dc928ef879ce0fc8b1
+    md5: 48ea22d9295c0217925e82a5f6a86009
 work/INPUT/ocean_hgrid.nc:
-  fullpath: /g/data/x77/ahg157/inputs/mom6/global-8km/ocean_hgrid.nc
+  fullpath: /g/data/tm70/ek4684/8km_grid_input_files/ocean_hgrid.nc
   hashes:
-    binhash: e101cd4d49c425755f0e100799a09cf6
-    md5: 257e9fd6e2fbc21ae401dcac05e0541d
-work/INPUT/ocean_temp_salt.res.nc:
-  fullpath: /g/data/x77/ahg157/inputs/mom6/global-8km/ocean_temp_salt.res.nc
-  hashes:
-    binhash: 2d6092916c78984389c18713347d074a
-    md5: 26bdc77845852fa7fb67d662d4067812
+    binhash: f3ab5eeb058628d134cda1e1e0cda0c9
+    md5: e8ed1f1dd04ecba95b81f2dfcfaa9d7c
 work/INPUT/ocean_vgrid.nc:
-  fullpath: /g/data/vk83/configurations/inputs/access-om3/mom/grids/vertical/global.25km/2025.03.12/ocean_vgrid.nc
+  fullpath: /g/data/tm70/ek4684/8km_grid_input_files/ocean_vgrid.nc
   hashes:
-    binhash: cbc588e29d819ce8898d77760a65e20d
-    md5: 66f71f2b24bd00b1c220787505e0106e
+    binhash: 0a4352529c28cfea908f20c45501f6aa
+    md5: 5c7eb17ff3fbd032d6865008af5c2871
 work/INPUT/salt_sfc_restore.nc:
-  fullpath: /g/data/x77/ahg157/inputs/mom6/global-8km/salt_sfc_restore.nc
+  fullpath: /g/data/tm70/ek4684/8km_grid_input_files/salt_sfc_restore.nc
   hashes:
-    binhash: 7e8d6919538c569e2c17b58c920513fc
-    md5: 8be892b8b36211ab587bbdb28290435f
+    binhash: be286b205277ebd315b29b7dbd08325d
+    md5: 24933f0fd67ee7d7c803b7f46858929c
+work/INPUT/tideamp.nc:
+  fullpath: /g/data/tm70/ek4684/8km_grid_input_files/tideamp.nc
+  hashes:
+    binhash: e1ab13c7ed3800708828326ca9063bb8
+    md5: b36490e779f029789aebb99d0f3d61df
 work/INPUT/topog.nc:
-  fullpath: /g/data/x77/ahg157/inputs/mom6/global-8km/topog.nc
+  fullpath: /g/data/tm70/ek4684/8km_grid_input_files/topog.nc
   hashes:
-    binhash: 8740a0d404421393e773c17e61a51958
-    md5: 362529f0412c7fe6c69c332a357c2fc9
+    binhash: e528f5b8170eb57b7855f26671e480e6
+    md5: a7f96b56c4784673f9a46239e33afc37
+work/INPUT/woa23_ts_01_mom.nc:
+  fullpath: /g/data/tm70/cyb561/8km_woa_ic/woa23_ts_01_mom.nc
+  hashes:
+    binhash: 3d629e7d425075100649c053bfd4b456
+    md5: 9a5183c687b21f665a0ec96114db7dd5
