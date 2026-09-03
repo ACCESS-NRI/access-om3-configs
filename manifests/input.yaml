@@ -67,70 +67,70 @@ work/INPUT/RYF.vas.1990_1991.nc:
     binhash: db95d15e2b6d3dc5aba176ffd96bd440
     md5: bd0ccd8ef7f639ca77b6705f0d6d1fcb
 work/INPUT/access-om3-8km-ESMFmesh.nc:
-  fullpath: /g/data/tm70/ek4684/8km_grid_input_files/access-om3-8km-ESMFmesh.nc
+  fullpath: /g/data/tm70/ek4684/8km_grid_input_files/cgrid_topography_main/access-om3-8km-ESMFmesh.nc
   hashes:
-    binhash: a1e7049b803af31ac1f02360be60e599
-    md5: 27d6c528a02d022d1af08196f4726c07
+    binhash: c8732f0ed213874347b11a1634465a44
+    md5: 9eb72db0f58849ff8f5945de1a302c4b
 work/INPUT/access-om3-8km-nomask-ESMFmesh.nc:
-  fullpath: /g/data/tm70/ek4684/8km_grid_input_files/access-om3-8km-nomask-ESMFmesh.nc
+  fullpath: /g/data/tm70/ek4684/8km_grid_input_files/cgrid_topography_main/access-om3-8km-nomask-ESMFmesh.nc
   hashes:
-    binhash: b5ac800e333a15de991a6b756ef4f36c
-    md5: b2b1cfdee2bf1d5cc0d6621aabd58c8a
+    binhash: f20d6f88c16c4d9916874ebc80ecea60
+    md5: de7b8e926247afa7bbbda40b9c02f942
 work/INPUT/access-om3-8km-rof-remap-weights.nc:
-  fullpath: /g/data/tm70/ek4684/8km_grid_input_files/access-om3-8km-rof-remap-weights.nc
+  fullpath: /g/data/tm70/ek4684/8km_grid_input_files/cgrid_topography_main/access-om3-8km-rof-remap-weights.nc
   hashes:
-    binhash: e04b14090353d823eac40aff024aedaf
-    md5: 9534c41ea77ec4a641f287060f4e0155
+    binhash: 0e766047afb1220217a4c251f8b70b52
+    md5: 69605d665478a5b23504365fe59bb32f
 work/INPUT/access-om3-8km-rofi-climatology.nc:
-  fullpath: /g/data/tm70/ek4684/8km_grid_input_files/access-om3-8km-rofi-climatology.nc
+  fullpath: /g/data/tm70/ek4684/8km_grid_input_files/cgrid_topography_main/access-om3-8km-rofi-climatology.nc
   hashes:
-    binhash: a49e3589832f4cb32ee9bacee936ee0b
-    md5: b35bc979f6b5429736049266321d7223
+    binhash: 5b4aa9f2d25e69328db23db00e4f7a8e
+    md5: 7d2abc39336427eac362a6bff9ea171b
 work/INPUT/access-om3-8km-vmap-weights.nc:
-  fullpath: /g/data/tm70/ek4684/8km_grid_input_files/old_grid_dependent_files/access-om3-8km-vmap-weights.nc
+  fullpath: /g/data/tm70/ek4684/8km_grid_input_files/cgrid_topography_main/access-om3-8km-vmap-weights.nc
   hashes:
-    binhash: 3601f920abe12d8aec521a5c3dce8ec1
-    md5: c2eb7d65432e728a3d519f37bfcf6892
+    binhash: 9b454a8572b53aebaa5365aa09ae4c39
+    md5: 5f87ee968321a79e15aa852fb7d7b58d
 work/INPUT/bottom_roughness.nc:
-  fullpath: /g/data/tm70/ek4684/8km_grid_input_files/bottom_roughness.nc
+  fullpath: /g/data/tm70/ek4684/8km_grid_input_files/cgrid_topography_main/bottom_roughness.nc
   hashes:
-    binhash: 7713d3ae90579f54efac5eb792e2740f
-    md5: b52dc4f448cb3088fa3d3290909bcaf5
+    binhash: 10b052c4b770aa410fc613e33c175aed
+    md5: 1f223f65dca0aa96c98f509fad601ed3
 work/INPUT/chl_globcolour_monthly_clim.nc:
-  fullpath: /g/data/tm70/ek4684/8km_grid_input_files/chl_globcolour_monthly_clim.nc
+  fullpath: /g/data/tm70/ek4684/8km_grid_input_files/cgrid_topography_main/chl_globcolour_monthly_clim.nc
   hashes:
-    binhash: f17525a106ef17e232234f9c9c756254
-    md5: 8e3d1e7b0697825036e8e2d79bf5da8a
+    binhash: cb171e29451d9366f20601064d47b135
+    md5: 01e9dd37f6404094029d56c0c7be1443
 work/INPUT/kmt.nc:
-  fullpath: /g/data/tm70/ek4684/8km_grid_input_files/kmt.nc
+  fullpath: /g/data/tm70/ek4684/8km_grid_input_files/cgrid_topography_main/kmt.nc
   hashes:
-    binhash: ebc1abc0dc3267dc928ef879ce0fc8b1
-    md5: 48ea22d9295c0217925e82a5f6a86009
+    binhash: ce9107ce40da10c00a4f48b53952d41a
+    md5: 4e1adf6ab524c10e9e9706fb7986de63
 work/INPUT/ocean_hgrid.nc:
-  fullpath: /g/data/tm70/ek4684/8km_grid_input_files/ocean_hgrid.nc
+  fullpath: /g/data/tm70/ek4684/8km_grid_input_files/cgrid_topography_main/ocean_hgrid.nc
   hashes:
     binhash: f3ab5eeb058628d134cda1e1e0cda0c9
     md5: e8ed1f1dd04ecba95b81f2dfcfaa9d7c
 work/INPUT/ocean_vgrid.nc:
-  fullpath: /g/data/tm70/ek4684/8km_grid_input_files/ocean_vgrid.nc
+  fullpath: /g/data/tm70/ek4684/8km_grid_input_files/cgrid_topography_main/ocean_vgrid.nc
   hashes:
-    binhash: 0a4352529c28cfea908f20c45501f6aa
-    md5: 5c7eb17ff3fbd032d6865008af5c2871
+    binhash: c41c5493ed055a92446cf3352934f36f
+    md5: 6626f306ebdabb4acf54f2ff18e6cb26
 work/INPUT/salt_sfc_restore.nc:
-  fullpath: /g/data/tm70/ek4684/8km_grid_input_files/salt_sfc_restore.nc
+  fullpath: /g/data/tm70/ek4684/8km_grid_input_files/cgrid_topography_main/salt_sfc_restore.nc
   hashes:
     binhash: be286b205277ebd315b29b7dbd08325d
     md5: 24933f0fd67ee7d7c803b7f46858929c
 work/INPUT/tideamp.nc:
-  fullpath: /g/data/tm70/ek4684/8km_grid_input_files/tideamp.nc
+  fullpath: /g/data/tm70/ek4684/8km_grid_input_files/cgrid_topography_main/tideamp.nc
   hashes:
-    binhash: e1ab13c7ed3800708828326ca9063bb8
-    md5: b36490e779f029789aebb99d0f3d61df
+    binhash: 7bb9762014c5afb4b5bc6ecf2bcab8bd
+    md5: fcede0cc3ebfc0c0b2bcbd11667ecb99
 work/INPUT/topog.nc:
-  fullpath: /g/data/tm70/ek4684/8km_grid_input_files/topog.nc
+  fullpath: /g/data/tm70/ek4684/8km_grid_input_files/cgrid_topography_main/topog.nc
   hashes:
-    binhash: e528f5b8170eb57b7855f26671e480e6
-    md5: a7f96b56c4784673f9a46239e33afc37
+    binhash: 4c5d952d7e47160450fe06c962103531
+    md5: b4cf0ad0869a5bdafd0c650eabf00736
 work/INPUT/woa23_ts_01_mom.nc:
   fullpath: /g/data/tm70/cyb561/8km_woa_ic/woa23_ts_01_mom.nc
   hashes:
