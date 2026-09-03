@@ -179,6 +179,7 @@ diag_table:
             rhopot0: # Potential density referenced to surface
             rhopot2: # Potential density referenced to 2000 dbar
             thetao: # Potential Temperature
+            bigthetao: # Conservative Temperature
             so: # Salinity
             uo: # u velocity
             vo: # v velocity
@@ -210,6 +211,8 @@ diag_table:
             thkcello: # Cell Thickness
             Kd_interface: # Total diapycnal diffusivity at interfaces
             Kd_ePBL: # ePBL diapycnal diffusivity at interfaces
+            diftrblo: # Ocean Tracer Diffusivity due to Parameterized Mesoscale Advection
+            diftrelo: # Ocean Tracer Epineutral Laplacian Diffusivity
 
     'monthly 2d fields':
         defaults:  # these can be overridden for individual fields below
@@ -218,7 +221,6 @@ diag_table:
         fields:
             hfrunoffds: # Heat content (relative to 0C) of liquid+solid runoff into ocean
             hfrainds: # Heat content (relative to 0degC) of liquid+frozen precip entering ocean
-            net_heat_coupler: # Surface ocean heat flux from SW+LW+latent+sensible+seaice_melt_heat (via the coupler)
             hfds: # Surface ocean heat flux from SW+LW+lat+sens+mass transfer+frazil+restore+seaice_melt_heat or flux adjustments net_heat_surface
             wfo: # Net surface water flux (precip+melt+lrunoff+ice calving-evap) PRCmE
             pso: # Pressure at ice-ocean or atmosphere-ocean interface p_surf
@@ -279,6 +281,7 @@ diag_table:
             tob: # Sea Water Potential Temperature at Sea Floor
             mlotst: # Mixed layer depth (delta rho = 0.03) MLD_003
             tos: # Sea Surface Temperature
+            conSST: # Sea Surface Conservative Temperature
             sos: # Sea Surface Salinity
             speed: # Sea Surface Speed
             evs: # Evaporation/condensation at ocean surface (evaporation is negative)
@@ -318,12 +321,13 @@ diag_table:
             masso: # Mass of liquid ocean
             soga: # Global Mean Ocean Salinity
             thetaoga: # Global Mean Ocean Potential Temperature
+            bigthetaoga: # Global Mean Ocean Conservative Temperature
             tosga: # Global Area Average Sea Surface Temperature sst_global
+            sscont_global: # Global Area Average Sea Surface Conservative Temperature
             sosga: # Global Area Average Sea Surface Salinity sss_global
             total_salt_Flux_Added: # Area integrated surface salt flux due to restoring or flux adjustment 
             total_salt_Flux_In: # Area integrated surface salt flux at surface from coupler
             total_salt_flux: # Area integrated surface salt flux
-            net_fresh_water_global_adjustment: # Adjustment needed to adjust net fresh water into ocean to zero
             salt_flux_global_restoring_adjustment: # Adjustment needed to balance net global salt flux into ocean at surface
             total_wfo: # Area integrated net surface water flux (precip+melt+liq runoff+ice calving-evap) total_PRCmE
             total_evs: # Area integrated evap/condense at ocean surface total_evap
@@ -336,8 +340,18 @@ diag_table:
             total_net_massout: # Area integrated mass leaving ocean due to evap and seaice form
             total_net_massin: # Area integrated mass entering ocean due to precip, runoff, ice melt
             total_PRCmE: # Area integrated net surface water flux (precip+melt+liq runoff+ice calving-evap)
-            total_evap: # Area integrated evap/condense at ocean surface
             total_icemelt: # Area integrated sea ice melt (>0) or form (<0)
             total_precip: # Area integrated liquid+frozen precip into ocean
             total_frunoff: # Area integrated frozen runoff (calving) & iceberg melt into ocean
             total_lrunoff: # Area integrated liquid runoff into ocean
+            total_hfevapds: # Area integrated heat content (relative to 0C) of water leaving ocean
+            total_heat_content_massin: # Area integrated heat content (relative to 0C) of water entering ocean
+            total_hfds: # Area integrated surface heat flux from SW+LW+lat+sens+mass+frazil+restore or flux adjustments
+            total_rsntds: # Area integrated net downward shortwave at sea water surface
+            total_rlntds: # Area integrated net downward longwave at sea water surface
+            total_hflso: # Area integrated surface downward latent heat flux
+            total_lat_evap: # Area integrated latent heat flux due to evap/condense
+            total_hfsnthermds: # Area integrated latent heat flux due to melting frozen precip
+            total_hfibthermds: # Area integrated latent heat flux due to melting icebergs
+            total_hfsso: # Area integrated downward sensible heat flux
+            total_seaice_melt_heat: # Area integrated surface heat flux from snow and sea ice melt
