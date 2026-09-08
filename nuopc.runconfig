@@ -1,5 +1,5 @@
 DRIVER_attributes::
-     Verbosity = high
+     Verbosity = off
      cime_model = cesm
      drv_restart_pointer = rpointer.cpl
      logFilePostFix = .log
@@ -122,7 +122,7 @@ ALLCOMP_attributes::
 ::
 
 MED_attributes::
-     Verbosity = high
+     Verbosity = off
      aoflux_grid = ogrid
      atm2ice_map = ./INPUT/access-om3-8km-vmap-weights.nc
      atm2lnd_map = unset
@@ -236,7 +236,7 @@ MED_attributes::
      ice2wav_smapname = unset
      ice_nx = 4320
      ice_ny = 3672
-     info_debug = 2
+     info_debug = 1
      lnd2atm_map = unset
      lnd2rof_map = unset
      lnd_nx = 0
