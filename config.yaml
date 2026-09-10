@@ -41,22 +41,22 @@ model: access-om3
 exe: access-om3-MOM6-CICE6
 input:
   #- /g/data/tm70/ek4684/8km_grid_input_files/mask_table.2512.96x72
-  - /g/data/tm70/ek4684/8km_grid_input_files/cgrid_topography_main/kmt.nc
-  - /g/data/tm70/ek4684/8km_grid_input_files/cgrid_topography_main/ocean_hgrid.nc
+  - /g/data/vk83/prerelease/configurations/inputs/access-om3/cice/grids/global.8km/2026.09.10/kmt.nc
+  - /g/data/vk83/prerelease/configurations/inputs/access-om3/share/grids/global.8km/2026.09.08/ocean_hgrid.nc
   - /g/data/tm70/ek4684/8km_grid_input_files/cgrid_topography_main/ocean_vgrid.nc
-  - /g/data/tm70/ek4684/8km_grid_input_files/cgrid_topography_main/topog.nc
-  - /g/data/tm70/ek4684/8km_grid_input_files/cgrid_topography_main/access-om3-8km-ESMFmesh.nc
-  - /g/data/tm70/ek4684/8km_grid_input_files/cgrid_topography_main/access-om3-8km-nomask-ESMFmesh.nc
-  - /g/data/tm70/ek4684/8km_grid_input_files/cgrid_topography_main/access-om3-8km-rof-remap-weights.nc
+  - /g/data/vk83/prerelease/configurations/inputs/access-om3/share/grids/global.8km/2026.09.10/topog.nc
+  - /g/data/vk83/prerelease/configurations/inputs/access-om3/share/meshes/global.8km/2026.09.10/access-om3-8km-ESMFmesh.nc
+  - /g/data/vk83/prerelease/configurations/inputs/access-om3/share/meshes/global.8km/2026.09.10/access-om3-8km-nomask-ESMFmesh.nc
+  - /g/data/vk83/prerelease/configurations/inputs/access-om3/cmeps/remap_weights/global.8km/2026.09.10/access-om3-8km-rof-remap-weights.nc
   - /g/data/vk83/prerelease/configurations/inputs/access-om3/share/meshes/share/2026.01.21/JRA55do-datm-ESMFmesh.nc
   - /g/data/vk83/prerelease/configurations/inputs/access-om3/share/meshes/share/2026.01.21/JRA55do-drof-ESMFmesh.nc
   - /g/data/tm70/cyb561/8km_woa_ic/woa23_ts_01_mom.nc
   - /g/data/tm70/ek4684/8km_grid_input_files/cgrid_topography_main/salt_sfc_restore.nc
-  - /g/data/tm70/ek4684/8km_grid_input_files/cgrid_topography_main/bottom_roughness.nc
+  - /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/tidal_external_files/global.8km/2026.09.10/bottom_roughness.nc
   # - /g/data/vk83/configurations/inputs/access-om3/mom/tidal_external_files/global.25km/2025.05.15/tideamp.nc
   - /g/data/tm70/ek4684/8km_grid_input_files/cgrid_topography_main/chl_globcolour_monthly_clim.nc
-  - /g/data/tm70/ek4684/8km_grid_input_files/cgrid_topography_main/access-om3-8km-rofi-climatology.nc
-  - /g/data/tm70/ek4684/8km_grid_input_files/cgrid_topography_main/tideamp.nc
+  - /g/data/vk83/prerelease/configurations/inputs/access-om3/cmeps/rofi_pattern/global.8km/2026.09.10/access-om3-8km-rofi-climatology.nc
+  - /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/tidal_external_files/global.8km/2026.09.10/tideamp.nc
   - /g/data/vk83/configurations/inputs/JRA-55/RYF/v1-6/2026.04.15
 
   #Likely not needed...
