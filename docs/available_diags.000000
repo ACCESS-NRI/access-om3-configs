@@ -168,6 +168,30 @@
     ! long_name: heat capacity of sea water
     ! units: J kg-1 K-1
     ! variants: {C_p,cpocean}
+"SN_u"  [Unused]
+    ! modules: {ocean_model,ocean_model_d2}
+    ! dimensions: xq, yh
+    ! long_name: Inverse eddy time-scale, S*N, at u-points
+    ! units: s-1
+    ! cell_methods: xq:point yh:mean
+"SN_v"  [Unused]
+    ! modules: {ocean_model,ocean_model_d2}
+    ! dimensions: xh, yq
+    ! long_name: Inverse eddy time-scale, S*N, at v-points
+    ! units: s-1
+    ! cell_methods: xh:mean yq:point
+"L2u"  [Unused]
+    ! modules: {ocean_model,ocean_model_d2}
+    ! dimensions: xq, yh
+    ! long_name: Length scale squared for mixing coefficient, at u-points
+    ! units: m2
+    ! cell_methods: xq:point yh:mean
+"L2v"  [Unused]
+    ! modules: {ocean_model,ocean_model_d2}
+    ! dimensions: xh, yq
+    ! long_name: Length scale squared for mixing coefficient, at v-points
+    ! units: m2
+    ! cell_methods: xh:mean yq:point
 "sqg_struct"  [Unused]
     ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
     ! dimensions: xh, yh, zl
@@ -576,6 +600,52 @@
     ! units: nondim
     ! cell_methods: xh:mean yh:mean zl:mean area:mean
     ! variants: {grid_Re_Ah,grid_Re_Ah_xyave}
+"Khh"  [Unused] (CMOR equivalent is "difmxylo")
+    ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
+    ! dimensions: xh, yh, zl
+    ! long_name: Laplacian Horizontal Viscosity at h Points
+    ! units: m2 s-1
+    ! cell_methods: xh:mean yh:mean zl:mean area:mean
+    ! variants: {Khh,Khh_xyave,difmxylo,difmxylo_xyave}
+"Khq"  [Unused]
+    ! modules: {ocean_model,ocean_model_d2}
+    ! dimensions: xq, yq, zl
+    ! long_name: Laplacian Horizontal Viscosity at q Points
+    ! units: m2 s-1
+    ! cell_methods: xq:point yq:point zl:mean
+"grid_Re_Kh"  [Unused]
+    ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
+    ! dimensions: xh, yh, zl
+    ! long_name: Grid Reynolds number for the Laplacian horizontal viscosity at h points
+    ! units: nondim
+    ! cell_methods: xh:mean yh:mean zl:mean area:mean
+    ! variants: {grid_Re_Kh,grid_Re_Kh_xyave}
+"vort_xy_q"  [Unused]
+    ! modules: {ocean_model,ocean_model_d2}
+    ! dimensions: xq, yq, zl
+    ! long_name: Vertical vorticity at q Points
+    ! units: s-1
+    ! cell_methods: xq:point yq:point zl:mean
+"div_xx_h"  [Unused]
+    ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
+    ! dimensions: xh, yh, zl
+    ! long_name: Horizontal divergence at h Points
+    ! units: s-1
+    ! cell_methods: xh:mean yh:mean zl:mean area:mean
+    ! variants: {div_xx_h,div_xx_h_xyave}
+"sh_xy_q"  [Unused]
+    ! modules: {ocean_model,ocean_model_d2}
+    ! dimensions: xq, yq, zl
+    ! long_name: Shearing strain at q Points
+    ! units: s-1
+    ! cell_methods: xq:point yq:point zl:mean
+"sh_xx_h"  [Unused]
+    ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
+    ! dimensions: xh, yh, zl
+    ! long_name: Horizontal tension at h Points
+    ! units: s-1
+    ! cell_methods: xh:mean yh:mean zl:mean area:mean
+    ! variants: {sh_xx_h,sh_xx_h_xyave}
 "FrictWork"  [Unused]
     ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
     ! dimensions: xh, yh, zl
@@ -1481,10 +1551,28 @@
     ! long_name: Surface meridional velocity component of mixed layer restratification
     ! units: m s-1
     ! cell_methods: xh:mean yq:point
-"mle_fl"  [Unused]
+"MLE_wpup"  [Unused]
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
-    ! long_name: Frontal length scale used in the mixed layer restratificiation parameterization
+    ! long_name: Vertical turbulent momentum flux in Bodner mixed layer restratification parameterization
+    ! units: m2 s-2
+    ! cell_methods: xh:mean yh:mean area:mean
+"MLE_ustar"  [Unused]
+    ! modules: {ocean_model,ocean_model_d2}
+    ! dimensions: xh, yh
+    ! long_name: Surface turbulent friction velocity, u*, in Bodner mixed layer restratification parameterization
+    ! units: m s-1
+    ! cell_methods: xh:mean yh:mean area:mean
+"MLE_bflux"  [Unused]
+    ! modules: {ocean_model,ocean_model_d2}
+    ! dimensions: xh, yh
+    ! long_name: Surface buoyancy flux, B0, in Bodner mixed layer restratification parameterization
+    ! units: m2 s-3
+    ! cell_methods: xh:mean yh:mean area:mean
+"lf_bodner"  [Unused]
+    ! modules: {ocean_model,ocean_model_d2}
+    ! dimensions: xh, yh
+    ! long_name: Front length in Bodner mixed layer restratificiation parameterization
     ! units: m
     ! cell_methods: xh:mean yh:mean area:mean
 "masscello"  [Unused]
@@ -2814,40 +2902,55 @@
     ! cell_methods: xh:mean yh:mean zi:point area:mean
     ! variants: {Kd_shear,Kd_shear_xyave}
 "TKE_shear"  [Unused]
-    ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
-    ! dimensions: xh, yh, zi
-    ! long_name: Shear-driven Turbulent Kinetic Energy at horizontal tracer points
+    ! modules: {ocean_model,ocean_model_d2}
+    ! dimensions: xq, yq, zi
+    ! long_name: Shear-driven Turbulent Kinetic Energy at horizontal vertices
     ! units: m2 s-2
-    ! cell_methods: xh:mean yh:mean zi:point area:mean
-    ! variants: {TKE_shear,TKE_shear_xyave}
+    ! cell_methods: xq:point yq:point zi:point
+"Kd_shear_vertex"  [Unused]
+    ! modules: {ocean_model,ocean_model_d2}
+    ! dimensions: xq, yq, zi
+    ! long_name: Shear-driven Diapycnal Diffusivity at horizontal vertices
+    ! units: m2 s-1
+    ! cell_methods: xq:point yq:point zi:point
 "S2_shear_in"  [Unused]
-    ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
-    ! dimensions: xh, yh, zi
-    ! long_name: Interface shear squared at horizontal tracer points, as input to kappa-shear
+    ! modules: {ocean_model,ocean_model_d2}
+    ! dimensions: xq, yq, zi
+    ! long_name: Interface shear squared at horizontal vertices, as input to kappa-shear
     ! units: s-2
-    ! cell_methods: xh:mean yh:mean zi:point area:mean
-    ! variants: {S2_shear_in,S2_shear_in_xyave}
+    ! cell_methods: xq:point yq:point zi:point
 "N2_shear_in"  [Unused]
-    ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
-    ! dimensions: xh, yh, zi
-    ! long_name: Interface stratification at horizontal tracer points, as input to kappa-shear
+    ! modules: {ocean_model,ocean_model_d2}
+    ! dimensions: xq, yq, zi
+    ! long_name: Interface stratification at horizontal vertices, as input to kappa-shear
     ! units: s-2
-    ! cell_methods: xh:mean yh:mean zi:point area:mean
-    ! variants: {N2_shear_in,N2_shear_in_xyave}
+    ! cell_methods: xq:point yq:point zi:point
 "S2_shear_mean"  [Unused]
-    ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
-    ! dimensions: xh, yh, zi
-    ! long_name: Interface shear squared at horizontal tracer points, averaged over timestep in kappa-shear
+    ! modules: {ocean_model,ocean_model_d2}
+    ! dimensions: xq, yq, zi
+    ! long_name: Interface shear squared at horizontal vertices, averaged over timestep in kappa-shear
     ! units: s-2
-    ! cell_methods: xh:mean yh:mean zi:point area:mean
-    ! variants: {S2_shear_mean,S2_shear_mean_xyave}
+    ! cell_methods: xq:point yq:point zi:point
 "N2_shear_mean"  [Unused]
+    ! modules: {ocean_model,ocean_model_d2}
+    ! dimensions: xq, yq, zi
+    ! long_name: Interface stratification at horizontal vertices, averaged over timestep in kappa-shear
+    ! units: s-2
+    ! cell_methods: xq:point yq:point zi:point
+"KT_extra"  [Unused]
     ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
     ! dimensions: xh, yh, zi
-    ! long_name: Interface stratification at horizontal tracer points, averaged ove timestep in kappa-shear
-    ! units: s-2
+    ! long_name: Double-diffusive diffusivity for temperature
+    ! units: m2 s-1
     ! cell_methods: xh:mean yh:mean zi:point area:mean
-    ! variants: {N2_shear_mean,N2_shear_mean_xyave}
+    ! variants: {KT_extra,KT_extra_xyave}
+"KS_extra"  [Unused]
+    ! modules: {ocean_model,ocean_model_z,ocean_model_d2,ocean_model_z_d2}
+    ! dimensions: xh, yh, zi
+    ! long_name: Double-diffusive diffusivity for salinity
+    ! units: m2 s-1
+    ! cell_methods: xh:mean yh:mean zi:point area:mean
+    ! variants: {KS_extra,KS_extra_xyave}
 "created_H"  [Unused]
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
