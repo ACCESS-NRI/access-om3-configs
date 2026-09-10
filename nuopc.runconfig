@@ -124,9 +124,9 @@ ALLCOMP_attributes::
 MED_attributes::
      Verbosity = off
      aoflux_grid = ogrid
-     atm2ice_map = ./INPUT/access-om3-8km-vmap-weights.nc
+     atm2ice_map = unset
      atm2lnd_map = unset
-     atm2ocn_map = ./INPUT/access-om3-8km-vmap-weights.nc
+     atm2ocn_map = unset
      atm2wav_map = unset
      atm_nx = 4320
      atm_ny = 3672
@@ -249,8 +249,9 @@ MED_attributes::
      ocn_surface_flux_scheme = 0
      rof2lnd_map = unset
      rof2ocn_fmapname = unset
-     rof2ocn_ice_rmapname = ./INPUT/access-om3-8km-rof-remap-weights.nc
+     rof2ocn_ice_rmapname = unset
      rof2ocn_liq_rmapname = ./INPUT/access-om3-8km-rof-remap-weights.nc
+     rof2ocn_ice_spread = ./INPUT/access-om3-8km-rofi-climatology.nc
      rof_nx = 4320
      rof_ny = 3672
      wav2ocn_smapname = unset
@@ -268,13 +269,13 @@ CLOCK_attributes::
      ice_cpl_dt = 99999 #not used
      lnd_cpl_dt = 99999 #not used
      ocn_cpl_dt = 450 #ignored (coupling timestep set by nuopc.runseq) unless stop_option is nsteps
-     restart_n = 15
+     restart_n = 2
      restart_option = ndays
      restart_ymd = -999
      rof_cpl_dt = 99999 #not used
      start_tod = 0
      start_ymd = 19000101
-     stop_n = 15
+     stop_n = 2
      stop_option = ndays
      stop_tod = 0
      stop_ymd = -999

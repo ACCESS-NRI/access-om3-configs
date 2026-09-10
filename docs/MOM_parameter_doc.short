@@ -23,11 +23,6 @@ THERMO_SPANS_COUPLING = True    !   [Boolean] default = False
                                 ! coupling timestep. The actual thermodynamic timestep that is used in this case
                                 ! is the largest integer multiple of the coupling timestep that is less than or
                                 ! equal to DT_THERM.
-THICKNESSDIFFUSE = True         !   [Boolean] default = False
-                                ! If true, isopycnal surfaces are diffused with a Laplacian coefficient of KHTH.
-THICKNESSDIFFUSE_FIRST = True   !   [Boolean] default = False
-                                ! If true, do thickness diffusion or interface height smoothing before dynamics.
-                                ! This is only used if THICKNESSDIFFUSE or APPLY_INTERFACE_FILTER is true.
 HFREEZE = 10.0                  !   [m] default = -1.0
                                 ! If HFREEZE > 0, melt potential will be computed. The actual depth over which
                                 ! melt potential is computed will be min(HFREEZE, OBLD), where OBLD is the
@@ -235,24 +230,6 @@ REMAPPING_USE_OM4_SUBCELLS = False !   [Boolean] default = True
                                 ! recommend setting this option to false.
 
 ! === module MOM_state_initialization ===
-INIT_LAYERS_FROM_Z_FILE = True  !   [Boolean] default = False
-                                ! If true, initialize the layer thicknesses, temperatures, and salinities from a
-                                ! Z-space file on a latitude-longitude grid.
-
-! === module MOM_initialize_layers_from_Z ===
-TEMP_SALT_Z_INIT_FILE = "./INPUT/woa23_ts_01_mom.nc" ! default = "temp_salt_z.nc"
-                                ! The name of the z-space input file used to initialize temperatures (T) and
-                                ! salinities (S). If T and S are not in the same file, TEMP_Z_INIT_FILE and
-                                ! SALT_Z_INIT_FILE must be set.
-Z_INIT_ALE_REMAPPING = True     !   [Boolean] default = False
-                                ! If True, then remap straight to model coordinate from file.
-Z_INIT_REMAP_GENERAL = True     !   [Boolean] default = False
-                                ! If false, only initializes to z* coordinates. If true, allows initialization
-                                ! directly to general coordinates.
-TEMP_SALT_INIT_VERTICAL_REMAP_ONLY = True !   [Boolean] default = False
-                                ! If true, initial conditions are on the model horizontal grid. Extrapolation
-                                ! over missing ocean values is done using an ICE-9 procedure with vertical ALE
-                                ! remapping .
 
 ! === module MOM_diag_mediator ===
 NUM_DIAG_COORDS = 2             ! default = 1
@@ -324,33 +301,6 @@ DIAG_COORD_DEF_RHO2 = "RFNC1:76,999.5,1020.,1034.1,3.1,1041.,0.002" ! default = 
                                 !                the weighted sum of profiles I and I+1.
                                 !                Dz can be FNC1:string which is used everywhere.
                                 !                e.g. HYBRID_MAP:vgrid.nc,map,sigma2,dz
-
-! === module MOM_MEKE ===
-USE_MEKE = True                 !   [Boolean] default = False
-                                ! If true, turns on the MEKE scheme which calculates a sub-grid mesoscale eddy
-                                ! kinetic energy budget.
-MEKE_GMCOEFF = 1.0              !   [nondim] default = -1.0
-                                ! The efficiency of the conversion of potential energy into MEKE by the
-                                ! thickness mixing parameterization. If MEKE_GMCOEFF is negative, this
-                                ! conversion is not used or calculated.
-MEKE_BGSRC = 1.0E-13            !   [W kg-1] default = 0.0
-                                ! A background energy source for MEKE.
-MEKE_KHTH_FAC = 0.3             !   [nondim] default = 0.0
-                                ! A factor that maps MEKE%Kh to KhTh.
-MEKE_KHTR_FAC = 0.3             !   [nondim] default = 0.0
-                                ! A factor that maps MEKE%Kh to KhTr.
-MEKE_KHMEKE_FAC = 1.0           !   [nondim] default = 0.0
-                                ! A factor that maps MEKE%Kh to Kh for MEKE itself.
-MEKE_VISCOSITY_COEFF_KU = 0.6   !   [nondim] default = 0.0
-                                ! If non-zero, is the scaling coefficient in the expression forviscosity used to
-                                ! parameterize harmonic lateral momentum mixing byunresolved eddies represented
-                                ! by MEKE. Can be negative torepresent backscatter from the unresolved eddies.
-MEKE_ALPHA_RHINES = 0.15        !   [nondim] default = 0.0
-                                ! If positive, is a coefficient weighting the Rhines scale in the expression for
-                                ! mixing length used in MEKE-derived diffusivity.
-MEKE_ALPHA_EADY = 0.15          !   [nondim] default = 0.0
-                                ! If positive, is a coefficient weighting the Eady length scale in the
-                                ! expression for mixing length used in MEKE-derived diffusivity.
 
 ! === module MOM_lateral_mixing_coeffs ===
 USE_VARIABLE_MIXING = True      !   [Boolean] default = False
@@ -733,8 +683,6 @@ TRACER_ADVECTION_SCHEME = "PPM:H3" ! default = "PLM"
                                 !   PPM    - Piecewise Parabolic Method (Colella-Woodward)
 
 ! === module MOM_tracer_hor_diff ===
-KHTR = 50.0                     !   [m2 s-1] default = 0.0
-                                ! The background along-isopycnal tracer diffusivity.
 CHECK_DIFFUSIVE_CFL = True      !   [Boolean] default = False
                                 ! If true, use enough iterations the diffusion to ensure that the diffusive
                                 ! equivalent of the CFL limit is not violated.  If false, always use the greater

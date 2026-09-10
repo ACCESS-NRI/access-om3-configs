@@ -49,20 +49,15 @@ USE_CONTEMP_ABSSAL = True       !   [Boolean] default = False
 USE_REGRIDDING = True           !   [Boolean] default = False
                                 ! If True, use the ALE algorithm (regridding/remapping). If False, use the
                                 ! layered isopycnal algorithm.
-THICKNESSDIFFUSE = True         !   [Boolean] default = False
-                                ! If true, isopycnal surfaces are diffused with a Laplacian coefficient of KHTH.
-THICKNESSDIFFUSE_FIRST = True   !   [Boolean] default = False
-                                ! If true, do thickness diffusion or interface height smoothing before dynamics.
-                                ! This is only used if THICKNESSDIFFUSE or APPLY_INTERFACE_FILTER is true.
 DT = 200.0                      !   [s]
                                 ! The (baroclinic) dynamics time step.  The time-step that is actually used will
                                 ! be an integer fraction of the forcing time-step (DT_FORCING in ocean-only mode
                                 ! or the coupling timestep in coupled mode.)
-DT_THERM = 3600.0               !   [s] default = 900.0
-                                ! The thermodynamic and tracer advection time step. Ideally DT_THERM should be
-                                ! an integer multiple of DT and less than the forcing or coupling time-step,
-                                ! unless THERMO_SPANS_COUPLING is true, in which case DT_THERM can be an integer
-                                ! multiple of the coupling timestep.  By default DT_THERM is set to DT.
+DT_THERM = 3600.0               !   [s] default = 200.0
+                                ! The thermodynamic time step. Ideally DT_THERM should be an integer multiple of
+                                ! DT and of DT_TRACER_ADVECT and less than the forcing or coupling time-step.
+                                ! However, if THERMO_SPANS_COUPLING is true, DT_THERM can be an integer multiple
+                                ! of the coupling timestep. By default DT_THERM is set to DT.
 THERMO_SPANS_COUPLING = True    !   [Boolean] default = False
                                 ! If true, the MOM will take thermodynamic timesteps that can be longer than the
                                 ! coupling timestep. The actual thermodynamic timestep that is used in this case
@@ -73,7 +68,7 @@ HFREEZE = 10.0                  !   [m] default = -1.0
                                 ! melt potential is computed will be min(HFREEZE, OBLD), where OBLD is the
                                 ! boundary layer depth. If HFREEZE <= 0 (default), melt potential will not be
                                 ! computed.
-DTBT_RESET_PERIOD = 0.0         !   [s] default = 7200.0
+DTBT_RESET_PERIOD = 0.0         !   [s] default = 3600.0
                                 ! The period between recalculations of DTBT (if DTBT <= 0). If DTBT_RESET_PERIOD
                                 ! is negative, DTBT is set based only on information available at
                                 ! initialization.  If 0, DTBT will be set every dynamics time step. The default
@@ -109,8 +104,6 @@ WRITE_GEOM = 2                  ! default = 1
                                 ! write the geometry and vertical grid files. Other values are invalid.
 GEOM_FILE = "access-om3.mom6.geometry.nc" ! default = "ocean_geometry"
                                 ! The file into which to write the ocean geometry.
-SAVE_INITIAL_CONDS = False       !   [Boolean] default = False
-                                ! If true, write the initial conditions to a file given by IC_OUTPUT_FILE.
 
 ! === module MOM_domains ===
 TRIPOLAR_N = True               !   [Boolean] default = False
@@ -182,9 +175,6 @@ CHANNEL_CONFIG = "list"         ! default = "none"
                                 !       NetCDF file on the model grid.
 CHANNEL_LIST_FILE = "./auxiliary_input/MOM_channel_list" ! default = "MOM_channel_list"
                                 ! The file from which the list of narrowed channels is read.
-FATAL_UNUSED_CHANNEL_WIDTHS = False !   [Boolean] default = False
-                                ! If true, trigger a fatal error if there are any channel widths in
-                                ! CHANNEL_LIST_FILE that do not cause any open face widths to change.
 
 ! === module MOM_verticalGrid ===
 ! Parameters providing information about the vertical grid.
@@ -369,33 +359,6 @@ DIAG_COORD_DEF_RHO2 = "RFNC1:76,999.5,1020.,1034.1,3.1,1041.,0.002" ! default = 
                                 !                the weighted sum of profiles I and I+1.
                                 !                Dz can be FNC1:string which is used everywhere.
                                 !                e.g. HYBRID_MAP:vgrid.nc,map,sigma2,dz
-
-! === module MOM_MEKE ===
-USE_MEKE = True                 !   [Boolean] default = False
-                                ! If true, turns on the MEKE scheme which calculates a sub-grid mesoscale eddy
-                                ! kinetic energy budget.
-MEKE_GMCOEFF = 1.0              !   [nondim] default = -1.0
-                                ! The efficiency of the conversion of potential energy into MEKE by the
-                                ! thickness mixing parameterization. If MEKE_GMCOEFF is negative, this
-                                ! conversion is not used or calculated.
-MEKE_BGSRC = 1.0E-13            !   [W kg-1] default = 0.0
-                                ! A background energy source for MEKE.
-MEKE_KHTH_FAC = 0.3             !   [nondim] default = 0.0
-                                ! A factor that maps MEKE%Kh to KhTh.
-MEKE_KHTR_FAC = 0.3             !   [nondim] default = 0.0
-                                ! A factor that maps MEKE%Kh to KhTr.
-MEKE_KHMEKE_FAC = 1.0           !   [nondim] default = 0.0
-                                ! A factor that maps MEKE%Kh to Kh for MEKE itself.
-MEKE_VISCOSITY_COEFF_KU = 0.6   !   [nondim] default = 0.0
-                                ! If non-zero, is the scaling coefficient in the expression forviscosity used to
-                                ! parameterize harmonic lateral momentum mixing byunresolved eddies represented
-                                ! by MEKE. Can be negative torepresent backscatter from the unresolved eddies.
-MEKE_ALPHA_RHINES = 0.15        !   [nondim] default = 0.0
-                                ! If positive, is a coefficient weighting the Rhines scale in the expression for
-                                ! mixing length used in MEKE-derived diffusivity.
-MEKE_ALPHA_EADY = 0.15          !   [nondim] default = 0.0
-                                ! If positive, is a coefficient weighting the Eady length scale in the
-                                ! expression for mixing length used in MEKE-derived diffusivity.
 
 ! === module MOM_lateral_mixing_coeffs ===
 USE_VARIABLE_MIXING = True      !   [Boolean] default = False
@@ -778,8 +741,6 @@ TRACER_ADVECTION_SCHEME = "PPM:H3" ! default = "PLM"
                                 !   PPM    - Piecewise Parabolic Method (Colella-Woodward)
 
 ! === module MOM_tracer_hor_diff ===
-KHTR = 50.0                     !   [m2 s-1] default = 0.0
-                                ! The background along-isopycnal tracer diffusivity.
 CHECK_DIFFUSIVE_CFL = True      !   [Boolean] default = False
                                 ! If true, use enough iterations the diffusion to ensure that the diffusive
                                 ! equivalent of the CFL limit is not violated.  If false, always use the greater
