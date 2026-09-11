@@ -13,7 +13,7 @@ GLOBAL_INDEXING = False         !   [Boolean] default = False
                                 ! depending on where they are on the staggered grid.  Also, the starting index
                                 ! of the velocity-point arrays is usually 0, not 1. This can only be set at
                                 ! compile time.
-NONBLOCKING_UPDATES = False     !   [Boolean] default = False
+NONBLOCKING_UPDATES = True      !   [Boolean] default = False
                                 ! If true, non-blocking halo updates may be used.
 THIN_HALO_UPDATES = True        !   [Boolean] default = True
                                 ! If true, optional arguments may be used to specify the width of the halos that
@@ -25,7 +25,7 @@ THIN_HALO_UPDATES = True        !   [Boolean] default = True
                                 ! the PE count to be changed at run time.  This can only be set at compile time.
 AUTO_MASKTABLE = False          !   [Boolean] default = False
                                 ! Turn on automatic mask table generation to eliminate land blocks.
-MASKTABLE = "mask_table.1027.72x48" ! default = "MOM_mask_table"
+MASKTABLE = "./auxiliary_input/mask_table.4505.120x100" ! default = "MOM_mask_table"
                                 ! A text file to specify n_mask, layout and mask_list. This feature masks out
                                 ! processors that contain only land points. The first line of mask_table is the
                                 ! number of regions to be masked out. The second line is the layout of the model
@@ -38,15 +38,15 @@ MASKTABLE = "mask_table.1027.72x48" ! default = "MOM_mask_table"
                                 !  4,6
                                 !  1,2
                                 !  3,6
-NIPROC = 72                     !
+NIPROC = 120                    !
                                 ! The number of processors in the x-direction. With STATIC_MEMORY_ this is set
                                 ! in MOM_memory.h at compile time.
-NJPROC = 48                     !
+NJPROC = 100                    !
                                 ! The number of processors in the y-direction. With STATIC_MEMORY_ this is set
                                 ! in MOM_memory.h at compile time.
-LAYOUT = 72, 48                 !
+LAYOUT = 120, 100               !
                                 ! The processor layout that was actually used.
-IO_LAYOUT = 9, 6                ! default = 1, 1
+IO_LAYOUT = 12, 10              ! default = 1, 1
                                 ! The processor layout to be used, or 0,0 to automatically set the io_layout to
                                 ! be the same as the layout.
 
