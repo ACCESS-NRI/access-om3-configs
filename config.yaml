@@ -1,12 +1,12 @@
 # Payu configuration
 
-# If submitting to a different project to your default, uncomment line below
+# If submitting to a different project to your default, uncomment line below 
 # and change project code as appropriate; also set shortpath below
-project: x77
+# project: x77
 # Force payu to always find, and save, files in this scratch project directory
-shortpath: /scratch/tm70
+# shortpath: /scratch/tm70
 
-# Using payu sync is recommend to copy data from ephemeral scratch space to
+# Using payu sync is recommend to copy data from ephemeral scratch space to 
 # longer term storage
 sync:
     enable: False   # set path below and change to true
@@ -16,31 +16,22 @@ sync:
 
 #Model software version
 modules:
-  use:
-    - /g/data/vk83/modules
-  load:
-    - access-om3/2026.05.003
-    - model-tools/mppnccombine-fast/2025.07.000
+    use:
+        - /g/data/vk83/modules
+    load:
+        - access-om3/2026.05.003
+        - model-tools/mppnccombine-fast/2025.07.000
 
 queue: normalsr
-#ncpus: 1664 # 16 nodes
-ncpus: 4944 # 48 nodes
-#ncpus: 3328 # 32 nodes
-#ncpus: 2912 # 28 nodes
+ncpus: 4944
 jobfs: 10GB
 #mem: 8000GB
 walltime: 05:00:00
 jobname: 8km_jra_ryf
 
-# env:
-#   ESMF_RUNTIME_PROFILE: "on"
-#   ESMF_RUNTIME_TRACE: "on"
-#   ESMF_RUNTIME_PROFILE_OUTPUT: "SUMMARY BINARY"
-
 model: access-om3
 exe: access-om3-MOM6-CICE6
 input:
-  #- /g/data/tm70/ek4684/8km_grid_input_files/mask_table.2512.96x72
   - /g/data/vk83/prerelease/configurations/inputs/access-om3/cice/grids/global.8km/2026.09.10/kmt.nc
   - /g/data/vk83/prerelease/configurations/inputs/access-om3/share/grids/global.8km/2026.09.08/ocean_hgrid.nc
   - /g/data/tm70/ek4684/8km_grid_input_files/cgrid_topography_main/ocean_vgrid.nc
@@ -53,31 +44,18 @@ input:
   - /g/data/tm70/cyb561/8km_woa_ic/woa23_ts_01_mom.nc
   - /g/data/tm70/ek4684/8km_grid_input_files/cgrid_topography_main/salt_sfc_restore.nc
   - /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/tidal_external_files/global.8km/2026.09.10/bottom_roughness.nc
-  # - /g/data/vk83/configurations/inputs/access-om3/mom/tidal_external_files/global.25km/2025.05.15/tideamp.nc
   - /g/data/tm70/ek4684/8km_grid_input_files/cgrid_topography_main/chl_globcolour_monthly_clim.nc
   - /g/data/vk83/prerelease/configurations/inputs/access-om3/cmeps/rofi_pattern/global.8km/2026.09.10/access-om3-8km-rofi-climatology.nc
   - /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/tidal_external_files/global.8km/2026.09.10/tideamp.nc
   - /g/data/vk83/configurations/inputs/JRA-55/RYF/v1-6/2026.04.15
 
-  #Likely not needed...
-  # - /g/data/tm70/ek4684/8km_grid_input_files/B_mask_8km.nc
-  #- /g/data/tm70/ek4684/8km_grid_input_files/CO2_gm_1750-2024.nc
-  #- /g/data/tm70/ek4684/8km_grid_input_files/SFe_Hamiltonetal2020_monthly_clim.nc
-  
-runlog: False
-metadata:
+runlog: true
+metadata: 
     enable: true
 manifest:
   reproduce:
-    exe: False
-    input: False
-
-
-storage:
-  gdata:
-    - tm70
-    - vk83
-#    - x77
+    exe: True
+    input: True
 
 mpi:
   flags:
