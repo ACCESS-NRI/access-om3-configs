@@ -114,7 +114,6 @@ ALLCOMP_attributes::
      start_type = startup
      tfreeze_option = linear_salt
      wav_coupling_to_cice = .false.
-     additional_restart_dir = RESTART
      restart_pointer_append_date = .false.
 ::
 
@@ -125,8 +124,8 @@ MED_attributes::
      atm2lnd_map = unset
      atm2ocn_map = unset
      atm2wav_map = unset
-     atm_nx = 360
-     atm_ny = 300
+     atm_nx = 70
+     atm_ny = 125
      budget_ann = 1
      budget_daily = 0
      budget_inst = 0
@@ -231,8 +230,8 @@ MED_attributes::
      history_option_wav_inst = never
      ice2atm_map = unset
      ice2wav_smapname = unset
-     ice_nx = 360
-     ice_ny = 300
+     ice_nx = 0
+     ice_ny = 0
      info_debug = 1
      lnd2atm_map = unset
      lnd2rof_map = unset
@@ -241,15 +240,15 @@ MED_attributes::
      mapuv_with_cart3d = .true.
      ocn2atm_map = unset
      ocn2wav_smapname = unset
-     ocn_nx = 140
-     ocn_ny = 249
+     ocn_nx = 70
+     ocn_ny = 125
      ocn_surface_flux_scheme = 0
      rof2lnd_map = unset
      rof2ocn_fmapname = unset
      rof2ocn_ice_rmapname = unset
      rof2ocn_liq_rmapname = unset
-     rof_nx = 360
-     rof_ny = 300
+     rof_nx = 70
+     rof_ny = 125
      wav2ocn_smapname = unset
      wav_nx = 0
      wav_ny = 0
@@ -270,7 +269,7 @@ CLOCK_attributes::
      restart_ymd = -999
      rof_cpl_dt = 99999 #not used
      start_tod = 0
-     start_ymd = 20160101
+     start_ymd = 20120101
      stop_n = 1
      stop_option = nmonths
      stop_tod = 0
