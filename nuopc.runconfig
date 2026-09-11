@@ -27,28 +27,28 @@ DRIVER_attributes::
 ::
 
 PELAYOUT_attributes::
-     atm_ntasks = 544
+     atm_ntasks = 929
      atm_nthreads = 1
      atm_pestride = 1
      atm_rootpe = 0
-     cpl_ntasks = 544
+     cpl_ntasks = 929
      cpl_nthreads = 1
      cpl_pestride = 1
      cpl_rootpe = 0
      esmf_logging = ESMF_LOGKIND_NONE
-     ice_ntasks = 544
+     ice_ntasks = 929
      ice_nthreads = 1
      ice_pestride = 1
      ice_rootpe = 0
      ninst = 1
-     ocn_ntasks = 4400
+     ocn_ntasks = 7495
      ocn_nthreads = 1
      ocn_pestride = 1
-     ocn_rootpe = 544
+     ocn_rootpe = 929
      pio_asyncio_ntasks = 0
      pio_asyncio_rootpe = 1
      pio_asyncio_stride = 0
-     rof_ntasks = 544
+     rof_ntasks = 929
      rof_nthreads = 1
      rof_pestride = 1
      rof_rootpe = 0
