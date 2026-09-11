@@ -24,9 +24,9 @@ modules:
 
 queue: normalsr
 ncpus: 2080
-jobfs: 10GB
+jobfs: 20GB
 mem: 7500GB
-walltime: 6:00:00
+walltime: 12:00:00
 jobname: superaus
 
 model: access-om3
@@ -36,16 +36,16 @@ input:
     - /g/data/vk83/configurations/inputs/access-om3/share/meshes/share/2026.01.21/JRA55do-drof-ESMFmesh.nc
     - /g/data/tm70/hm6113/superaus/expt2.0/access-rom3-5kmsuperoz-ESMFmesh.nc
     - /g/data/tm70/hm6113/superaus/expt2.0/access-rom3-5kmsuperoz-nomask-ESMFmesh.nc
-    - /g/data/tm70/hm6113/superaus/expt2.0/bathymetry.nc
+    - /g/data/tm70/hm6113/superaus/expt2.0/topog.nc
     - /g/data/tm70/hm6113/superaus/expt2.0/ocean_hgrid.nc
     - /g/data/tm70/hm6113/superaus/expt2.0/ocean_vgrid.nc
     - /g/data/tm70/hm6113/superaus/expt2.0/init_tracers.nc
     - /g/data/tm70/hm6113/superaus/expt2.0/init_eta.nc
     - /g/data/tm70/hm6113/superaus/expt2.0/init_vel.nc
-    - /g/data/tm70/hm6113/superaus/expt2.0/long/forcing_obc_segment_001.nc
-    - /g/data/tm70/hm6113/superaus/expt2.0/long/forcing_obc_segment_002.nc
-    - /g/data/tm70/hm6113/superaus/expt2.0/long/forcing_obc_segment_003.nc
-    - /g/data/tm70/hm6113/superaus/expt2.0/long/forcing_obc_segment_004.nc
+    - /g/data/tm70/hm6113/superaus/expt2.0/forcing_obc_segment_001.nc
+    - /g/data/tm70/hm6113/superaus/expt2.0/forcing_obc_segment_002.nc
+    - /g/data/tm70/hm6113/superaus/expt2.0/forcing_obc_segment_003.nc
+    - /g/data/tm70/hm6113/superaus/expt2.0/forcing_obc_segment_004.nc
     - /g/data/tm70/hm6113/superaus/expt2.0/tu_segment_001.nc
     - /g/data/tm70/hm6113/superaus/expt2.0/tu_segment_002.nc
     - /g/data/tm70/hm6113/superaus/expt2.0/tu_segment_003.nc

@@ -3361,21 +3361,21 @@ work/INPUT/JRA55do-drof-ESMFmesh.nc:
   hashes:
     binhash: 780e2ab02c4560e247c96bba2817ccc5
     md5: bf62c4e7786ddfbe56d61b3074d5d16d
+work/INPUT/access-rom3-5kmsuperoz-ESMFmesh.nc:
+  fullpath: /g/data/tm70/hm6113/superaus/expt2.0/access-rom3-5kmsuperoz-ESMFmesh.nc
+  hashes:
+    binhash: 555952a990ec7985ab1eccbddc88a1d8
+    md5: 11f94363d653d1f1ca107311e41eeb77
+work/INPUT/access-rom3-5kmsuperoz-nomask-ESMFmesh.nc:
+  fullpath: /g/data/tm70/hm6113/superaus/expt2.0/access-rom3-5kmsuperoz-nomask-ESMFmesh.nc
+  hashes:
+    binhash: 5b64fe3293576332d1ea8c87471b0d22
+    md5: 67fe2c8ac7b8792c40fd4ef1d56e8195
 work/INPUT/access-rom3-5kmsuperoz-rof-remap-weights.nc:
-  fullpath: /g/data/tm70/hm6113/superaus/expt8/newfiles/access-rom3-5kmsuperoz-rof-remap-weights.nc
+  fullpath: /g/data/tm70/hm6113/superaus/expt2.0/access-rom3-5kmsuperoz-rof-remap-weights.nc
   hashes:
-    binhash: 1627d131ebafb49a0e7a0458e31f0e9d
-    md5: 7025ce3ed83e30d0509a52e0e7fe2115
-work/INPUT/access-rom3-ESMFmesh.nc:
-  fullpath: /g/data/tm70/hm6113/superaus/expt07_alltidesbathydeep/newfiles/access-rom3-ESMFmesh.nc
-  hashes:
-    binhash: 7de6b26cb99134f286fca0375f1fe5dc
-    md5: c3c050bdd52a17132572291ac599a336
-work/INPUT/access-rom3-nomask-ESMFmesh.nc:
-  fullpath: /g/data/tm70/hm6113/superaus/expt07_alltidesbathydeep/newfiles/access-rom3-nomask-ESMFmesh.nc
-  hashes:
-    binhash: 209afc0fbc364ffbc94c0200036d1ab0
-    md5: 5dd6b17c1a5105d03b10a46b98aa6b47
+    binhash: a38a4ce13747a971b1d251864c9fbcbf
+    md5: ede502a01af7bbb1f57a40dd332fe245
 work/INPUT/day/friver/gr/v20240531/friver_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-6-0_gr_19580101-19581231.nc:
   fullpath: /g/data/qv56/replicas/input4MIPs/CMIP6Plus/OMIP/MRI/MRI-JRA55-do-1-6-0/land/day/friver/gr/v20240531/friver_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-6-0_gr_19580101-19581231.nc
   hashes:
@@ -4047,25 +4047,25 @@ work/INPUT/day/licalvf/gr/v20240531/licalvf_input4MIPs_atmosphericState_OMIP_MRI
     binhash: fb4da82e21b01ccd4ef5e7a99f31f4e5
     md5: 6838f869a96238b2b162103794739519
 work/INPUT/forcing_obc_segment_001.nc:
-  fullpath: /g/data/tm70/hm6113/superaus/expt8/long/forcing_obc_segment_001.nc
+  fullpath: /g/data/tm70/hm6113/superaus/expt2.0/forcing_obc_segment_001.nc
   hashes:
-    binhash: 71d63c5bd24c0a1791621a2e7fabfd59
-    md5: 0d77cc5d554be418b0c54dcd537423d0
+    binhash: a8492cdb6597985a007054223a4f7e22
+    md5: 8a96eb8936349d3d1bc55e381a0746da
 work/INPUT/forcing_obc_segment_002.nc:
-  fullpath: /g/data/tm70/hm6113/superaus/expt8/long/forcing_obc_segment_002.nc
+  fullpath: /g/data/tm70/hm6113/superaus/expt2.0/forcing_obc_segment_002.nc
   hashes:
-    binhash: 9982a75e79b6ab1370d57cc4dc7c6258
-    md5: b4a75df129f28230f58934c4da69dd15
+    binhash: 93894a09318c14d5a5cb21bf24db7252
+    md5: 34fe3757ed9d05bf85cdbbf937f90a2b
 work/INPUT/forcing_obc_segment_003.nc:
-  fullpath: /g/data/tm70/hm6113/superaus/expt8/long/forcing_obc_segment_003.nc
+  fullpath: /g/data/tm70/hm6113/superaus/expt2.0/forcing_obc_segment_003.nc
   hashes:
-    binhash: 885f4c6396de28fa37a16c8f5f1181e7
-    md5: 3a2f2426ca6e0f8ccbc872bb534d816c
+    binhash: 1699a4c1b0b67b46dcbe301da91599b9
+    md5: 6338d9cef35c4e5ea9b205ca2393a9d6
 work/INPUT/forcing_obc_segment_004.nc:
-  fullpath: /g/data/tm70/hm6113/superaus/expt8/long/forcing_obc_segment_004.nc
+  fullpath: /g/data/tm70/hm6113/superaus/expt2.0/forcing_obc_segment_004.nc
   hashes:
-    binhash: 02b3fdc6690b49051232937272d5a694
-    md5: e4db9f7c30e88f4a1449da7badf6cd9b
+    binhash: d715ac8e8b0486ccf01cb4f11f573ac7
+    md5: bb5c639a685c3ab0b4088641d28bff42
 work/INPUT/fx/areacella/gr/v20240531/areacella_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-6-0_gr.nc:
   fullpath: /g/data/qv56/replicas/input4MIPs/CMIP6Plus/OMIP/MRI/MRI-JRA55-do-1-6-0/atmos/fx/areacella/gr/v20240531/areacella_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-6-0_gr.nc
   hashes:
@@ -4077,72 +4077,72 @@ work/INPUT/fx/sftof/gr/v20240531/sftof_input4MIPs_atmosphericState_OMIP_MRI-JRA5
     binhash: 7f98fc486410cff8df3232d390e5a05b
     md5: f5034ec4d5228d648be6375b13ed2c98
 work/INPUT/init_eta.nc:
-  fullpath: /g/data/tm70/hm6113/superaus/expt8/init_eta.nc
+  fullpath: /g/data/tm70/hm6113/superaus/expt2.0/init_eta.nc
   hashes:
-    binhash: ee2133df9974001cc97a7320e474167c
-    md5: 70c8344803f60248edc61bc18bad7e5e
+    binhash: 11a69dfa1c937d8eda08b6aefb79d17c
+    md5: 49987de51be204b41238ae9387aa0d12
 work/INPUT/init_tracers.nc:
-  fullpath: /g/data/tm70/hm6113/superaus/expt8/init_tracers.nc
+  fullpath: /g/data/tm70/hm6113/superaus/expt2.0/init_tracers.nc
   hashes:
-    binhash: 734ddae919b8f897e5ca3e28ac01b806
-    md5: 43e37619f46ebebdf7c89708a9ef34da
+    binhash: e24950e111c55d16f262698a9211ff63
+    md5: 7b0285706408a76c5202be37f6637c10
 work/INPUT/init_vel.nc:
-  fullpath: /g/data/tm70/hm6113/superaus/expt8/init_vel.nc
+  fullpath: /g/data/tm70/hm6113/superaus/expt2.0/init_vel.nc
   hashes:
-    binhash: 84518ac370aef9fac0c1f260dbec05bb
-    md5: 141edb99ad146bc7a25b09ad79b2dacb
+    binhash: 5aff94c3199a4e7329f28d14bbef313c
+    md5: fbac2d5da1ca58905f2597968c4f6f25
 work/INPUT/ocean_hgrid.nc:
-  fullpath: /g/data/tm70/hm6113/superaus/expt8/ocean_hgrid.nc
+  fullpath: /g/data/tm70/hm6113/superaus/expt2.0/ocean_hgrid.nc
   hashes:
-    binhash: 556bcdc83ddc6bccab7afd690f5a17ef
-    md5: 59dedcca7acd2a6aa6a63396e79ff40a
+    binhash: 92f138a08259045a3265eb5071a3b9ab
+    md5: f393930890ea4bdaedd8260057ee092f
 work/INPUT/ocean_vgrid.nc:
-  fullpath: /g/data/tm70/hm6113/superaus/expt8/ocean_vgrid.nc
+  fullpath: /g/data/tm70/hm6113/superaus/expt2.0/ocean_vgrid.nc
   hashes:
-    binhash: 30af78ac8e86695b43ce9904a79b965a
-    md5: 8cab0ca33c3820e681a13b626fa1def7
+    binhash: 16f97365e524618e54997f0ec4ad44a7
+    md5: b65e8535e6b40cbd98308c357267c3d7
 work/INPUT/topog.nc:
-  fullpath: /g/data/tm70/hm6113/superaus/expt8/newfiles/topog.nc
+  fullpath: /g/data/tm70/hm6113/superaus/expt2.0/topog.nc
   hashes:
-    binhash: af275a082a1dc89a7b6d46e0a7051cce
-    md5: e26e3fe1f36f362b64df39fc16401e7b
+    binhash: 2e372196a920b9bd8007e5b92b48f78e
+    md5: b9e1750efe765b123953a2c9417599f6
 work/INPUT/tu_segment_001.nc:
-  fullpath: /g/data/tm70/hm6113/superaus/expt8/tu_segment_001.nc
+  fullpath: /g/data/tm70/hm6113/superaus/expt2.0/tu_segment_001.nc
   hashes:
-    binhash: 25b9d538176e3673d6ea60cc32674344
-    md5: da5e92bc36fd35113e1f8ad01f2e31d7
+    binhash: 83bf25ef2a1bdbde77f4a4c810167288
+    md5: 40bffae63de2c4c173e1d29eaae55d62
 work/INPUT/tu_segment_002.nc:
-  fullpath: /g/data/tm70/hm6113/superaus/expt8/tu_segment_002.nc
+  fullpath: /g/data/tm70/hm6113/superaus/expt2.0/tu_segment_002.nc
   hashes:
-    binhash: 88ac9abe940f123917eb799b5a37797c
-    md5: de08fb470324f857fd210b665c614944
+    binhash: 9f692ef6e38ad08a50f497928fecba6f
+    md5: ee8d7265069079631e7f6e987a670112
 work/INPUT/tu_segment_003.nc:
-  fullpath: /g/data/tm70/hm6113/superaus/expt8/tu_segment_003.nc
+  fullpath: /g/data/tm70/hm6113/superaus/expt2.0/tu_segment_003.nc
   hashes:
-    binhash: 30bfca8e4e70b19a17602db64ca8af71
-    md5: d935fec101f5334281ad30b431ef7c2e
+    binhash: 321a1dafa357d2bb0ed794f131ab7e3e
+    md5: a02730ca9055ff98be7632541a7e61d3
 work/INPUT/tu_segment_004.nc:
-  fullpath: /g/data/tm70/hm6113/superaus/expt8/tu_segment_004.nc
+  fullpath: /g/data/tm70/hm6113/superaus/expt2.0/tu_segment_004.nc
   hashes:
-    binhash: 8a4b5c386899dbe2a2f3b85a7d821f2b
-    md5: eebdeebfb4d89c1088eb11e88cda6cef
+    binhash: 20b33c5996be1fa15fc60473757681f1
+    md5: 705e1b591232a343feb7cb9da242b4fb
 work/INPUT/tz_segment_001.nc:
-  fullpath: /g/data/tm70/hm6113/superaus/expt8/tz_segment_001.nc
+  fullpath: /g/data/tm70/hm6113/superaus/expt2.0/tz_segment_001.nc
   hashes:
-    binhash: 398f6457c4a477ecd729c231d8c4527f
-    md5: 2900d77f5ffb2d0abf9824b0d33c7d06
+    binhash: ba45c86afbf1bec773e4c1864c2362bb
+    md5: 110c0afa1379617f9721b995d60e4ece
 work/INPUT/tz_segment_002.nc:
-  fullpath: /g/data/tm70/hm6113/superaus/expt8/tz_segment_002.nc
+  fullpath: /g/data/tm70/hm6113/superaus/expt2.0/tz_segment_002.nc
   hashes:
-    binhash: a46edf11be8df4241f0c2815799326d1
-    md5: 7663c61a612ee16ed935802b49796b08
+    binhash: 47b25d608543da8f010f4ec9aa51f807
+    md5: d922fb9be0be9edfae1be877e66dda51
 work/INPUT/tz_segment_003.nc:
-  fullpath: /g/data/tm70/hm6113/superaus/expt8/tz_segment_003.nc
+  fullpath: /g/data/tm70/hm6113/superaus/expt2.0/tz_segment_003.nc
   hashes:
-    binhash: 0cd7b4e1d2835e12806543fbca3544eb
-    md5: eddb9f1405e75ca82c7b81a585b75789
+    binhash: 3f9b94fdc64d7aab16980b837ba9f5bb
+    md5: 81ac2144f15a846b000c7133f0df5531
 work/INPUT/tz_segment_004.nc:
-  fullpath: /g/data/tm70/hm6113/superaus/expt8/tz_segment_004.nc
+  fullpath: /g/data/tm70/hm6113/superaus/expt2.0/tz_segment_004.nc
   hashes:
-    binhash: 582464da77009056e0cad4746a4c5073
-    md5: f5c3ef19ed59482a66b0cf06478d3875
+    binhash: cac798873f13995c0c1fbbd30ce02eb4
+    md5: c9f390fe41adf40c52805d5e969fba13

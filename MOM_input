@@ -33,11 +33,11 @@ THICKNESSDIFFUSE = True         !   [Boolean] default = False
 THICKNESSDIFFUSE_FIRST = True   !   [Boolean] default = False
                                 ! If true, do thickness diffusion or interface height smoothing before dynamics.
                                 ! This is only used if THICKNESSDIFFUSE or APPLY_INTERFACE_FILTER is true.
-DT = 240.0                      !   [s]
+DT = 300.0                      !   [s]
                                 ! The (baroclinic) dynamics time step.  The time-step that is actually used will
                                 ! be an integer fraction of the forcing time-step (DT_FORCING in ocean-only mode
                                 ! or the coupling timestep in coupled mode.)
-DT_THERM = 1200.0               !   [s] default = 1800.0
+DT_THERM = 1500.0               !   [s] default = 1800.0
                                 ! The thermodynamic and tracer advection time step. Ideally DT_THERM should be
                                 ! an integer multiple of DT and less than the forcing or coupling time-step,
                                 ! unless THERMO_SPANS_COUPLING is true, in which case DT_THERM can be an integer
@@ -74,7 +74,7 @@ TRIPOLAR_N = False               !   [Boolean] default = False
                                 ! TRIPOLAR_N, NIGLOBAL must be even.
 REENTRANT_X = False             !   [Boolean] default = True
                                 ! If true, the domain is zonally reentrant.
-NIGLOBAL = 1832                 !
+NIGLOBAL = 1834                 !
                                 ! The total number of thickness grid points in the x-direction in the physical
                                 ! domain. With STATIC_MEMORY_ this is set in MOM_memory.h at compile time.
 NJGLOBAL = 1662                  !
@@ -131,7 +131,7 @@ MAXIMUM_DEPTH = 6000.0          !   [m]
 
 ! === module MOM_verticalGrid ===
 ! Parameters providing information about the vertical grid.
-NK = 75                         !   [nondim]
+NK = 200                         !   [nondim]
                                 ! The number of model layers.
 
 ! === module MOM_EOS ===

@@ -68,11 +68,11 @@ ENABLE_BUGS_BY_DEFAULT = True   !   [Boolean] default = True
                                 ! will no longer be used to set their default.  Setting this to false means that
                                 ! bugs are only used if they are actively selected, but it also means that
                                 ! answers may change when code is updated due to newly found bugs.
-DT = 240.0                      !   [s]
+DT = 300.0                      !   [s]
                                 ! The (baroclinic) dynamics time step.  The time-step that is actually used will
                                 ! be an integer fraction of the forcing time-step (DT_FORCING in ocean-only mode
                                 ! or the coupling timestep in coupled mode.)
-DT_THERM = 1200.0               !   [s] default = 240.0
+DT_THERM = 1500.0               !   [s] default = 300.0
                                 ! The thermodynamic time step. Ideally DT_THERM should be an integer multiple of
                                 ! DT and of DT_TRACER_ADVECT and less than the forcing or coupling time-step.
                                 ! However, if THERMO_SPANS_COUPLING is true, DT_THERM can be an integer multiple
@@ -82,7 +82,7 @@ THERMO_SPANS_COUPLING = False   !   [Boolean] default = False
                                 ! coupling timestep. The actual thermodynamic timestep that is used in this case
                                 ! is the largest integer multiple of the coupling timestep that is less than or
                                 ! equal to DT_THERM.
-DT_TRACER_ADVECT = 1200.0       !   [s] default = 1200.0
+DT_TRACER_ADVECT = 1500.0       !   [s] default = 1500.0
                                 ! The tracer advection time step. Ideally DT_TRACER_ADVECT should be an integer
                                 ! multiple of DT, less than DT_THERM, and less than the forcing or coupling
                                 ! time-step. However, if TRADV_SPANS_COUPLING is true, DT_TRACER_ADVECT can be
@@ -117,7 +117,7 @@ HFREEZE = 10.0                  !   [m] default = -1.0
 INTERPOLATE_P_SURF = False      !   [Boolean] default = False
                                 ! If true, linearly interpolate the surface pressure over the coupling time
                                 ! step, using the specified value at the end of the step.
-DTBT_RESET_PERIOD = 0.0         !   [s] default = 1200.0
+DTBT_RESET_PERIOD = 0.0         !   [s] default = 1500.0
                                 ! The period between recalculations of DTBT (if DTBT <= 0). If DTBT_RESET_PERIOD
                                 ! is negative, DTBT is set based only on information available at
                                 ! initialization.  If 0, DTBT will be set every dynamics time step. The default
@@ -214,10 +214,10 @@ REENTRANT_Y = False             !   [Boolean] default = False
 TRIPOLAR_N = False              !   [Boolean] default = False
                                 ! Use tripolar connectivity at the northern edge of the domain.  With
                                 ! TRIPOLAR_N, NIGLOBAL must be even.
-NIGLOBAL = 2100                 !
+NIGLOBAL = 1834                 !
                                 ! The total number of thickness grid points in the x-direction in the physical
                                 ! domain. With STATIC_MEMORY_ this is set in MOM_memory.h at compile time.
-NJGLOBAL = 1936                 !
+NJGLOBAL = 1662                 !
                                 ! The total number of thickness grid points in the y-direction in the physical
                                 ! domain. With STATIC_MEMORY_ this is set in MOM_memory.h at compile time.
 NIHALO = 4                      ! default = 4
@@ -508,7 +508,7 @@ ANGSTROM = 1.0E-10              !   [m] default = 1.0E-10
                                 ! The minimum layer thickness, usually one-Angstrom.
 H_TO_M = 1.0                    !   [m H-1] default = 1.0
                                 ! A constant that translates the model's internal units of thickness into m.
-NK = 75                         !   [nondim]
+NK = 200                        !   [nondim]
                                 ! The number of model layers.
 
 ! === module MOM_tracer_registry ===
@@ -627,6 +627,17 @@ OBC_SEGMENT_003_DATA = "U=file:forcing_obc_segment_003.nc(u),V=file:forcing_obc_
 OBC_SEGMENT_004_DATA = "U=file:forcing_obc_segment_004.nc(u),V=file:forcing_obc_segment_004.nc(v),SSH=file:forcing_obc_segment_004.nc(eta),TEMP=file:forcing_obc_segment_004.nc(temp),SALT=file:forcing_obc_segment_004.nc(salt),Uamp=file:tu_segment_004.nc(uamp),Uphase=file:tu_segment_004.nc(uphase),Vamp=file:tu_segment_004.nc(vamp),Vphase=file:tu_segment_004.nc(vphase),SSHamp=file:tz_segment_004.nc(zamp),SSHphase=file:tz_segment_004.nc(zphase)" !
                                 ! OBC segment docs
 
+! === module MOM_hor_index ===
+! Sets the horizontal array index types.
+
+! === module MOM_fixed_initialization ===
+
+! === module MOM_grid_init ===
+
+! === module MOM_open_boundary ===
+! Controls where open boundaries are located, what kind of boundary condition to impose, and what data to apply,
+! if any.
+
 ! === module MOM_coord_initialization ===
 COORD_CONFIG = "none"           ! default = "none"
                                 ! This specifies how layers are to be defined:
@@ -693,7 +704,7 @@ ALE_COORDINATE_CONFIG = "FILE:ocean_vgrid.nc,interfaces=zi" ! default = "UNIFORM
                                 !                the weighted sum of profiles I and I+1.
                                 !                Dz can be FNC1:string which is used everywhere.
                                 !                e.g. HYBRID_MAP:vgrid.nc,map,sigma2,dz
-!ALE_RESOLUTION = 2.183554920959762, 2.223508461421912, 2.270821198937382, 2.326840859387387, 2.393158846909847, 2.4716530398828667, 2.564537593211803, 2.6744206854294923, 2.8043711855126148, 2.9579952067950366, 3.139523438407238, 3.353909962939806, 3.606942934599523, 3.9053669415401657, 4.257016027510431, 4.67095509948556, 5.1576256778483724, 5.728989517629863, 6.398660405430206, 7.182010303443633, 8.09623092549387, 9.160325886588211, 10.39500210643267, 11.822422883882652, 13.465780235467946, 15.348642606514076, 17.4940385129604, 19.923250175350887, 22.654316881168484, 25.7002877584639, 29.067317427051194, 32.752760862423315, 36.74348530106738, 41.014660992428674, 45.529299812885085, 50.238764458508285, 55.08436455674746, 60.0, 64.91563544325254, 69.76123554149171, 74.47070018711486, 78.98533900757127, 83.25651469893262, 87.24723913757668, 90.9326825729488, 94.2997122415361, 97.34568311883163, 100.07674982464914, 102.50596148703971, 104.6513573934858, 106.53421976453205, 108.17757711611739, 109.60499789356732, 110.839674113412, 111.90376907450627, 112.8179896965562, 113.60133959456971, 114.27101048237, 114.8423743221515, 115.32904490051442, 115.74298397248958, 116.09463305845975, 116.39305706540063, 116.64609003706028,
+!ALE_RESOLUTION = 2.885893499403987, 2.890668086682152, 2.895752625027212, 2.90116714711745, 2.9069329685146936, 2.913072768225737, 2.919610674107897, 2.9265723533806884, 2.933985108515703, 2.941877978786515, 2.950281847769851, 2.959229557098354, 2.9687560267731996, 2.978898382352348, 2.9896960893363556, 3.0011910950783047, 3.0134279785477176, 3.026454108279033, 3.0403198088340275, 3.0550785361029895, 3.0707870617617985, 3.0875056671901646, 3.105298347139822, 3.124233023419592, 3.1443817688363396, 3.165821041595237, 3.1886319303199144, 3.2129004098000564, 3.238717607511191, 3.266180080876211, 3.295390105150034, 3.3264559717053857, 3.35949229637761, 3.394620337387792, 3.4319683222038293, 3.471671782517319, 3.513873896306009, 3.5587258357174676, 3.606387119243877, 3.6570259663611893, 3.7108196524729777, 3.767954861629505, 3.8286280340830388, 3.893045705288415, 3.9614248324629386, 4.03399310427875, 4.110989228674583, 4.192663193141641, 4.279276491161255, 4.371102307751897, 4.468425656324712, 4.571543458254467, 4.680764555755275, 4.796409647816233, 4.9188111381173485, 5.048312883022533, 5.1852698269594555, 5.3300475117644055, 5.483021445926596, 5.644576319142345, 5.815105047221124, 5.995007632221018, 6.184689822771361, 6.384
 MIN_THICKNESS = 0.001           !   [m] default = 0.001
                                 ! When regridding, this is the minimum layer thickness allowed.
 REMAPPING_SCHEME = "PPM_H4"     ! default = "PLM"
@@ -775,10 +786,87 @@ FATAL_INCONSISTENT_RESTART_TIME = False !   [Boolean] default = False
                                 ! If true and a time_in value is provided to MOM_initialize_state, verify that
                                 ! the time read from a restart file is the same as time_in, and issue a fatal
                                 ! error if it is not.  Otherwise, simply set the time to time_in if present.
+INIT_LAYERS_FROM_Z_FILE = True  !   [Boolean] default = False
+                                ! If true, initialize the layer thicknesses, temperatures, and salinities from a
+                                ! Z-space file on a latitude-longitude grid.
+
+! === module MOM_initialize_layers_from_Z ===
+TEMP_SALT_Z_INIT_FILE = "init_tracers.nc" ! default = "temp_salt_z.nc"
+                                ! The name of the z-space input file used to initialize temperatures (T) and
+                                ! salinities (S). If T and S are not in the same file, TEMP_Z_INIT_FILE and
+                                ! SALT_Z_INIT_FILE must be set.
+TEMP_Z_INIT_FILE = "init_tracers.nc" ! default = "init_tracers.nc"
+                                ! The name of the z-space input file used to initialize temperatures, only.
+SALT_Z_INIT_FILE = "init_tracers.nc" ! default = "init_tracers.nc"
+                                ! The name of the z-space input file used to initialize temperatures, only.
+Z_INIT_FILE_PTEMP_VAR = "temp"  ! default = "ptemp"
+                                ! The name of the potential temperature variable in TEMP_Z_INIT_FILE.
+Z_INIT_FILE_SALT_VAR = "salt"   ! default = "salt"
+                                ! The name of the salinity variable in SALT_Z_INIT_FILE.
+Z_INIT_HOMOGENIZE = False       !   [Boolean] default = False
+                                ! If True, then horizontally homogenize the interpolated initial conditions.
+Z_INIT_ALE_REMAPPING = True     !   [Boolean] default = False
+                                ! If True, then remap straight to model coordinate from file.
+Z_INIT_REMAPPING_SCHEME = "PPM_IH4" ! default = "PPM_IH4"
+                                ! The remapping scheme to use if using Z_INIT_ALE_REMAPPING is True.
+Z_INIT_REMAP_GENERAL = True     !   [Boolean] default = False
+                                ! If false, only initializes to z* coordinates. If true, allows initialization
+                                ! directly to general coordinates.
+Z_INIT_REMAP_FULL_COLUMN = True !   [Boolean] default = True
+                                ! If false, only reconstructs profiles for valid data points. If true, inserts
+                                ! vanished layers below the valid data.
+Z_INIT_REMAP_OLD_ALG = False    !   [Boolean] default = False
+                                ! If false, uses the preferred remapping algorithm for initialization. If true,
+                                ! use an older, less robust algorithm for remapping.
+TEMP_SALT_INIT_VERTICAL_REMAP_ONLY = True !   [Boolean] default = False
+                                ! If true, initial conditions are on the model horizontal grid. Extrapolation
+                                ! over missing ocean values is done using an ICE-9 procedure with vertical ALE
+                                ! remapping .
 Z_INIT_REMAPPING_USE_OM4_SUBCELLS = False !   [Boolean] default = False
                                 ! If true, use the OM4 remapping-via-subcells algorithm for initialization. See
                                 ! REMAPPING_USE_OM4_SUBCELLS for more details. We recommend setting this option
                                 ! to false.
+HOR_REGRID_ANSWER_DATE = 99991231 ! default = 99991231
+                                ! The vintage of the order of arithmetic for horizontal regridding.  Dates
+                                ! before 20190101 give the same answers as the code did in late 2018, while
+                                ! later versions add parentheses for rotational symmetry.  Dates after 20230101
+                                ! use reproducing sums for global averages.
+LAND_FILL_TEMP = 0.0            !   [degC] default = 0.0
+                                ! A value to use to fill in ocean temperatures on land points.
+LAND_FILL_SALIN = 35.0          !   [ppt] default = 35.0
+                                ! A value to use to fill in ocean salinities on land points.
+HORIZ_INTERP_TOL_TEMP = 0.001   !   [degC] default = 0.001
+                                ! The tolerance in temperature changes between iterations when interpolating
+                                ! from an input dataset using horiz_interp_and_extrap_tracer.  This routine
+                                ! converges slowly, so an overly small tolerance can get expensive.
+HORIZ_INTERP_TOL_SALIN = 0.001  !   [ppt] default = 0.001
+                                ! The tolerance in salinity changes between iterations when interpolating from
+                                ! an input dataset using horiz_interp_and_extrap_tracer.  This routine converges
+                                ! slowly, so an overly small tolerance can get expensive.
+DEPRESS_INITIAL_SURFACE = False !   [Boolean] default = False
+                                ! If true,  depress the initial surface to avoid huge tsunamis when a large
+                                ! surface pressure is applied.
+TRIM_IC_FOR_P_SURF = False      !   [Boolean] default = False
+                                ! If true, cuts way the top of the column for initial conditions at the depth
+                                ! where the hydrostatic pressure matches the imposed surface pressure which is
+                                ! read from file.
+REGRID_ACCELERATE_INIT = False  !   [Boolean] default = False
+                                ! If true, runs REGRID_ACCELERATE_ITERATIONS iterations of the regridding
+                                ! algorithm to push the initial grid to be consistent with the initial
+                                ! condition. Useful only for state-based and iterative coordinates.
+VELOCITY_CONFIG = "file"        ! default = "zero"
+                                ! A string that determines how the initial velocities are specified for a new
+                                ! run:
+                                !     file - read velocities from the file specified
+                                !       by (VELOCITY_FILE).
+                                !     zero - the fluid is initially at rest.
+                                !     uniform - the flow is uniform (determined by
+                                !       parameters INITIAL_U_CONST and INITIAL_V_CONST).
+                                !     rossby_front - a mixed layer front in thermal wind balance.
+                                !     soliton - Equatorial Rossby soliton.
+                                !     USER - call a user modified routine.
+VELOCITY_FILE = "init_vel.nc"   !
+                                ! The name of the velocity initial condition file.
 U_IC_VAR = "u"                  ! default = "u"
                                 ! The initial condition variable for zonal velocity in VELOCITY_FILE.
 V_IC_VAR = "v"                  ! default = "v"
@@ -1144,7 +1232,7 @@ UPWIND_1ST_CONTINUITY = False   !   [Boolean] default = False
                                 ! If true, CONTINUITY_PPM becomes a 1st-order upwind continuity solver.  This
                                 ! scheme is highly diffusive but may be useful for debugging or in single-column
                                 ! mode where its minimal stencil is useful.
-ETA_TOLERANCE = 1.0E-06         !   [m] default = 3.75E-09
+ETA_TOLERANCE = 1.0E-06         !   [m] default = 1.0E-08
                                 ! The tolerance for the differences between the barotropic and baroclinic
                                 ! estimates of the sea surface height due to the fluxes through each face.  The
                                 ! total tolerance for SSH is 4 times this value.  The default is
