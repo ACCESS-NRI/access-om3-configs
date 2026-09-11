@@ -107,10 +107,10 @@ work/INPUT/ocean_hgrid.nc:
     binhash: 01c33b2fa55c6ab6d31955afd7fea53b
     md5: e8ed1f1dd04ecba95b81f2dfcfaa9d7c
 work/INPUT/ocean_vgrid.nc:
-  fullpath: /g/data/tm70/ek4684/8km_grid_input_files/cgrid_topography_main/ocean_vgrid.nc
+  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/grids/vertical/share/2025.03.12/ocean_vgrid.nc
   hashes:
-    binhash: c41c5493ed055a92446cf3352934f36f
-    md5: 6626f306ebdabb4acf54f2ff18e6cb26
+    binhash: 9c1f82b7ea91a8647c8857c02676a7a5
+    md5: 66f71f2b24bd00b1c220787505e0106e
 work/INPUT/salt_sfc_restore.nc:
   fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/surface_salt_restoring/global.8km/2026.09.11/salt_sfc_restore.nc
   hashes:
