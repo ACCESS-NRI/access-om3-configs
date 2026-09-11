@@ -7,10 +7,10 @@
   flds_presndep = .false.
   flds_preso3 = .false.
   iradsw = 1
-  model_maskfile = "./INPUT/access-rom3-nomask-ESMFmesh.nc"
-  model_meshfile = "./INPUT/access-rom3-nomask-ESMFmesh.nc"
-  nx_global = 2100
-  ny_global = 1936 
+  model_maskfile = "./INPUT/access-rom3-5kmsuperoz-nomask-ESMFmesh.nc"
+  model_meshfile = "./INPUT/access-rom3-5kmsuperoz-nomask-ESMFmesh.nc"
+  nx_global = 1834
+  ny_global = 1662 
   restfilm = "null"
   skip_restart_read = .false.
 /

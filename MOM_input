@@ -74,10 +74,10 @@ TRIPOLAR_N = False               !   [Boolean] default = False
                                 ! TRIPOLAR_N, NIGLOBAL must be even.
 REENTRANT_X = False             !   [Boolean] default = True
                                 ! If true, the domain is zonally reentrant.
-NIGLOBAL = 2100                 !
+NIGLOBAL = 1832                 !
                                 ! The total number of thickness grid points in the x-direction in the physical
                                 ! domain. With STATIC_MEMORY_ this is set in MOM_memory.h at compile time.
-NJGLOBAL = 1936                  !
+NJGLOBAL = 1662                  !
                                 ! The total number of thickness grid points in the y-direction in the physical
                                 ! domain. With STATIC_MEMORY_ this is set in MOM_memory.h at compile time.
 
