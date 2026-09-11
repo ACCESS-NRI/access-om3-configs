@@ -17,7 +17,9 @@ FATAL_UNUSED_PARAMS = True      !   [Boolean] default = False
 ! This section contains non default layout parameters which are set.
 ! ------------------------
 ! === module MOM_domains ===
-MASKTABLE = "./auxiliary_input/mask_table.2512.96x72" ! default = "MOM_mask_table"
+NONBLOCKING_UPDATES = True      !   [Boolean] default = False
+                                ! If true, non-blocking halo updates may be used.
+MASKTABLE = "./auxiliary_input/mask_table.4505.120x100 ! default = "MOM_mask_table"
                                 ! A text file to specify n_mask, layout and mask_list. This feature masks out
                                 ! processors that contain only land points. The first line of mask_table is the
                                 ! number of regions to be masked out. The second line is the layout of the model
@@ -30,9 +32,9 @@ MASKTABLE = "./auxiliary_input/mask_table.2512.96x72" ! default = "MOM_mask_tabl
                                 !  4,6
                                 !  1,2
                                 !  3,6
-LAYOUT = 96, 72                 !
+LAYOUT = 120, 100               !
                                 ! The processor layout that was actually used.
-IO_LAYOUT = 12, 9                ! default = 1, 1
+IO_LAYOUT = 12, 10              ! default = 1, 1
                                 ! The processor layout to be used, or 0,0 to automatically set the io_layout to
                                 ! be the same as the layout.
 
