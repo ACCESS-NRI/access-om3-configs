@@ -150,17 +150,7 @@ Wind speed is derived from `u10` and `v10`.
 
 ### Radiation
 
-ERA5 radiation variables are stored as accumulated energy in:
-
-$$
-\mathrm{J\,m^{-2}}
-$$
-
-and are divided by $3600\ \mathrm{s}$ to obtain:
-
-$$
-\mathrm{W\,m^{-2}}.
-$$
+ERA5 radiation variables are stored as accumulated energy in J m⁻² and divided by 3,600 s to obtain W m⁻².
 
 For shortwave radiation, CDEPS partitions:
 
