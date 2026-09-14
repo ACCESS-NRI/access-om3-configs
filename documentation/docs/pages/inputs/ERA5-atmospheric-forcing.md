@@ -515,5 +515,3 @@ MOM6 grid
 CICE6 grid
 ocean initial conditions
 ```
-
-Changes to WW3, the ACCESS-OM3 executable, PE layout or model resource allocation are configuration-specific and are not required simply to use ERA5 atmospheric forcing.
