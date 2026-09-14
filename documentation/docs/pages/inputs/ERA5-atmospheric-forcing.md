@@ -1,6 +1,6 @@
 # ERA5 atmospheric forcing
 
-[ERA5](https://confluence.ecmwf.int/spaces/CKB/pages/76414402/ERA5+data+documentation) is ECMWF's fifth-generation global atmospheric reanalysis. The [hourly single-level product](https://cds.climate.copernicus.eu/datasets/reanalysis-era5-single-levels?tab=overview) used by ACCESS-OM3 is provided on a regular $0.25^\circ \times 0.25^\circ$ latitude-longitude grid.
+[ERA5](https://confluence.ecmwf.int/spaces/CKB/pages/76414402/ERA5+data+documentation) is ECMWF's fifth-generation global atmospheric reanalysis. The [hourly single-level product](https://cds.climate.copernicus.eu/datasets/reanalysis-era5-single-levels?tab=overview) used by ACCESS-OM3 is provided on a regular 0.25° × 0.25° latitude-longitude grid.
 
 ACCESS-OM3 uses ERA5 through the CDEPS **DATM** component. ERA5 supplies atmospheric forcing only; runoff continues to be supplied from JRA55-do through **DROF**.
 
