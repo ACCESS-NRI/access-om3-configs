@@ -268,6 +268,12 @@ ACCESS-OM3
 "access-om3.mom6.2d.tauy_bot.1mon.mean.%4yr", 1, "months", 1, "days", "time", 1, "years"
 "ocean_model", "tauy_bot", "tauy_bot", "access-om3.mom6.2d.tauy_bot.1mon.mean.%4yr", "all", "average", "none", 2
 
+"access-om3.mom6.2d.MSTAR.1mon.mean.%4yr", 1, "months", 1, "days", "time", 1, "years"
+"ocean_model", "MSTAR", "MSTAR", "access-om3.mom6.2d.MSTAR.1mon.mean.%4yr", "all", "average", "none", 2
+
+"access-om3.mom6.2d.MSTAR_LT.1mon.mean.%4yr", 1, "months", 1, "days", "time", 1, "years"
+"ocean_model", "MSTAR_LT", "MSTAR_LT", "access-om3.mom6.2d.MSTAR_LT.1mon.mean.%4yr", "all", "average", "none", 2
+
 
 # monthly 2d max fields
 

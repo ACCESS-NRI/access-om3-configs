@@ -266,6 +266,8 @@ diag_table:
             kv_bbl_v: # BBL viscosity at v points
             taux_bot: # Zonal Bottom Stress from Ocean to Earth
             tauy_bot: # Meridional Bottom Stress from Ocean to Earth
+            MSTAR: # Total mstar that is used
+            MSTAR_LT: # Increase in mstar due to Langmuir Turbulence
 
     'monthly 2d max fields':
         defaults:  # these can be overridden for individual fields below
