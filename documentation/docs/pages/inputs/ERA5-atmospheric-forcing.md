@@ -10,8 +10,6 @@ The ACCESS-OM3-ready ERA5 files are currently stored on NCI at:
 /g/data/av17/access-nri/OM3/era5_rechunked_1h_yearly/
 ```
 
-The files have been rechunked into yearly files to improve access patterns for ACCESS-OM3. They are currently development inputs and have not yet been published as production ACCESS-NRI configuration inputs.
-
 ERA5 forcing is currently used in the [`dev-MCW_100km_era_iaf`](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MCW_100km_era_iaf) configuration. This allows evaluation of the coupled MOM6–CICE6–WW3 model using atmospheric forcing consistent with the [Wave Hindcast for the Australian Climate Service (WHACS)](https://data.csiro.au/collection/csiro:64350), which used ERA5 hourly winds and daily sea ice.
 
 ## ERA5 forcing fields
