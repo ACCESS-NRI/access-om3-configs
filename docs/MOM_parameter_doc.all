@@ -68,7 +68,7 @@ ENABLE_BUGS_BY_DEFAULT = True   !   [Boolean] default = True
                                 ! will no longer be used to set their default.  Setting this to false means that
                                 ! bugs are only used if they are actively selected, but it also means that
                                 ! answers may change when code is updated due to newly found bugs.
-DT = 200.0                      !   [s]
+DT = 240.0                      !   [s]
                                 ! The (baroclinic) dynamics time step.  The time-step that is actually used will
                                 ! be an integer fraction of the forcing time-step (DT_FORCING in ocean-only mode
                                 ! or the coupling timestep in coupled mode.)

@@ -19,7 +19,7 @@ FATAL_UNUSED_PARAMS = True      !   [Boolean] default = False
 ! === module MOM_domains ===
 NONBLOCKING_UPDATES = True      !   [Boolean] default = False
                                 ! If true, non-blocking halo updates may be used.
-MASKTABLE = "./auxiliary_input/mask_table.4505.120x100" ! default = "MOM_mask_table"
+MASKTABLE = "./auxiliary_input/mask_table.3671.108x96" ! default = "MOM_mask_table"
                                 ! A text file to specify n_mask, layout and mask_list. This feature masks out
                                 ! processors that contain only land points. The first line of mask_table is the
                                 ! number of regions to be masked out. The second line is the layout of the model
@@ -32,9 +32,9 @@ MASKTABLE = "./auxiliary_input/mask_table.4505.120x100" ! default = "MOM_mask_ta
                                 !  4,6
                                 !  1,2
                                 !  3,6
-LAYOUT = 120, 100               !
+LAYOUT = 108, 96                !
                                 ! The processor layout that was actually used.
-IO_LAYOUT = 12, 10              ! default = 1, 1
+IO_LAYOUT = 9, 8                ! default = 1, 1
                                 ! The processor layout to be used, or 0,0 to automatically set the io_layout to
                                 ! be the same as the layout.
 
@@ -51,7 +51,7 @@ USE_CONTEMP_ABSSAL = True       !   [Boolean] default = False
 USE_REGRIDDING = True           !   [Boolean] default = False
                                 ! If True, use the ALE algorithm (regridding/remapping). If False, use the
                                 ! layered isopycnal algorithm.
-DT = 200.0                      !   [s]
+DT = 240.0                      !   [s]
                                 ! The (baroclinic) dynamics time step.  The time-step that is actually used will
                                 ! be an integer fraction of the forcing time-step (DT_FORCING in ocean-only mode
                                 ! or the coupling timestep in coupled mode.)
