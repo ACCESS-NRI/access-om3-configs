@@ -251,6 +251,7 @@ The conversion requires changes to:
 ```text
 datm_in
 config.yaml
+fd.yaml
 datm.streams.xml
 ```
 
@@ -332,7 +333,30 @@ input:
 
 Other grid, initial-condition and model-component inputs are independent of this forcing conversion.
 
-### 4. Generate `datm.streams.xml`
+### 4. Update the field dictionary
+
+Compared with the [`fd.yaml` files in the 25 km](https://github.com/ACCESS-NRI/access-om3-configs/blob/dev-MC_25km_jra_iaf/fd.yaml) and [100 km](https://github.com/ACCESS-NRI/access-om3-configs/blob/dev-MC_100km_jra_iaf/fd.yaml) JRA55-do configurations, ERA5 requires three additional atmospheric fields. Add these entries to the `atm import to med` section of `fd.yaml`:
+
+```yaml
+- standard_name: Sa_q2m
+  alias: inst_spec_humid_height_lowest
+  canonical_units: kg kg-1
+  description: atm import to med - specific humidity at 2m
+#
+- standard_name: Sa_t2m
+  alias: inst_temp_height_lowest
+  canonical_units: K
+  description: atm import to med - temperature at 2m
+#
+- standard_name: Sa_wspd10m
+  alias: inst_wind_speed_height_lowest
+  canonical_units: m s-1
+  description: atm import to med - wind speed at 10m
+```
+
+The [ERA5 CDEPS data mode](https://github.com/ACCESS-NRI/CDEPS/blob/6a21caa1d2b6a47a10c77e8017045fa231f5a2ad/datm/datm_datamode_era5_mod.F90) advertises and populates these three fields; no other field-dictionary additions are required.
+
+### 5. Generate `datm.streams.xml`
 
 The ERA5 `datm.streams.xml` should be generated rather than edited manually.
 
@@ -396,7 +420,7 @@ The generator also sets:
 - accumulated-field time offsets; and
 - the requested forcing period.
 
-### 5. Check the generated stream file
+### 6. Check the generated stream file
 
 After generation, check that `datm.streams.xml` points to the staged ERA5 files.
 
@@ -430,7 +454,7 @@ while instantaneous streams should contain:
 <offset>0</offset>
 ```
 
-### 6. Check the simulation period
+### 7. Check the simulation period
 
 The model start date must lie within the intended ERA5 forcing period.
 
@@ -478,6 +502,14 @@ config.yaml
 JRA55-do atmos/
           ↓
 /g/data/av17/access-nri/OM3/era5_rechunked_1h_yearly/
+```
+
+```text
+fd.yaml
+
+add Sa_q2m
+add Sa_t2m
+add Sa_wspd10m
 ```
 
 and regenerating:
