@@ -250,7 +250,7 @@
     ! long_name: BBL thickness at u points
     ! units: m
     ! cell_methods: xq:point yh:mean
-"kv_bbl_u"  [Unused]
+"kv_bbl_u"  [Used]
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xq, yh
     ! long_name: BBL viscosity at u points
@@ -268,7 +268,7 @@
     ! long_name: BBL thickness at v points
     ! units: m
     ! cell_methods: xh:mean yq:point
-"kv_bbl_v"  [Unused]
+"kv_bbl_v"  [Used]
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yq
     ! long_name: BBL viscosity at v points
@@ -619,7 +619,7 @@
     ! units: m s-2
     ! cell_methods: xh:mean yq:point zl:mean
     ! variants: {diffv_visc_rem,diffv_visc_rem_xyave}
-"Ahh"  [Unused] (CMOR equivalent is "difmxybo")
+"Ahh"  [Used] (CMOR equivalent is "difmxybo")
     ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
     ! dimensions: xh, yh, zl
     ! long_name: Biharmonic Horizontal Viscosity at h Points
@@ -639,7 +639,7 @@
     ! units: nondim
     ! cell_methods: xh:mean yh:mean zl:mean area:mean
     ! variants: {grid_Re_Ah,grid_Re_Ah_xyave}
-"Khh"  [Unused] (CMOR equivalent is "difmxylo")
+"Khh"  [Used] (CMOR equivalent is "difmxylo")
     ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
     ! dimensions: xh, yh, zl
     ! long_name: Laplacian Horizontal Viscosity at h Points
@@ -719,14 +719,14 @@
     ! units: m2 s-1
     ! cell_methods: xh:mean yh:mean zi:point area:mean
     ! variants: {Kv_slow,Kv_slow_xyave}
-"Kv_u"  [Unused]
+"Kv_u"  [Used]
     ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
     ! dimensions: xq, yh, zl
     ! long_name: Total vertical viscosity at u-points
     ! units: m2 s-1
     ! cell_methods: xq:point yh:mean zl:mean
     ! variants: {Kv_u,Kv_u_xyave}
-"Kv_v"  [Unused]
+"Kv_v"  [Used]
     ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
     ! dimensions: xh, yq, zl
     ! long_name: Total vertical viscosity at v-points
@@ -850,13 +850,13 @@
     ! units: m s-2
     ! cell_methods: xh:mean yq:point zl:mean
     ! variants: {dv_dt_str,dv_dt_str_xyave}
-"taux_bot"  [Unused]
+"taux_bot"  [Used]
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xq, yh
     ! long_name: Zonal Bottom Stress from Ocean to Earth
     ! units: Pa
     ! cell_methods: xq:point yh:mean
-"tauy_bot"  [Unused]
+"tauy_bot"  [Used]
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yq
     ! long_name: Meridional Bottom Stress from Ocean to Earth
@@ -2762,14 +2762,14 @@
     ! units: m2 s-1
     ! cell_methods: xh:mean yh:mean zi:point area:mean
     ! variants: {Kd_ePBL,Kd_ePBL_xyave}
-"Kd_heat"  [Unused] (CMOR equivalent is "difvho")
+"Kd_heat"  [Used] (CMOR equivalent is "difvho")
     ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
     ! dimensions: xh, yh, zi
     ! long_name: Total diapycnal diffusivity for heat at interfaces
     ! units: m2 s-1
     ! cell_methods: xh:mean yh:mean zi:point area:mean
     ! variants: {Kd_heat,Kd_heat_xyave,difvho,difvho_xyave}
-"Kd_salt"  [Unused] (CMOR equivalent is "difvso")
+"Kd_salt"  [Used] (CMOR equivalent is "difvso")
     ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
     ! dimensions: xh, yh, zi
     ! long_name: Total diapycnal diffusivity for salt at interfaces
@@ -2907,7 +2907,7 @@
     ! long_name: Depth integrated heat tendency due to frazil formation
     ! units: W m-2
     ! cell_methods: xh:mean yh:mean area:mean
-"Kd_itides"  [Unused]
+"Kd_itides"  [Used]
     ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
     ! dimensions: xh, yh, zi
     ! long_name: Internal Tide Driven Diffusivity
@@ -2992,14 +2992,14 @@
     ! units: W m-2
     ! cell_methods: xh:mean yh:mean zl:mean area:mean
     ! variants: {Kd_Lowmode_Work,Kd_Lowmode_Work_xyave}
-"Kd_BBL"  [Unused]
+"Kd_BBL"  [Used]
     ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
     ! dimensions: xh, yh, zi
     ! long_name: Bottom Boundary Layer Diffusivity
     ! units: m2 s-1
     ! cell_methods: xh:mean yh:mean zi:point area:mean
     ! variants: {Kd_BBL,Kd_BBL_xyave}
-"Kd_bkgnd"  [Unused]
+"Kd_bkgnd"  [Used]
     ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
     ! dimensions: xh, yh, zi
     ! long_name: Background diffusivity added by MOM_bkgnd_mixing module
@@ -3055,7 +3055,7 @@
     ! units: s-2
     ! cell_methods: xh:mean yh:mean zi:point area:mean
     ! variants: {N2,N2_xyave,obvfsq,obvfsq_xyave}
-"Kd_shear"  [Unused]
+"Kd_shear"  [Used]
     ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
     ! dimensions: xh, yh, zi
     ! long_name: Shear-driven Diapycnal Diffusivity at horizontal tracer points
@@ -3591,7 +3591,7 @@
     ! units: W
     ! cell_methods: xh:sum yq:point zl:sum
     ! variants: {T_hbd_diffy,T_hbd_diffy_xyave}
-"T_advection_scheme_variance_production"  [Unused]
+"T_advection_scheme_variance_production"  [Used]
     ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
     ! dimensions: xh, yh, zl
     ! long_name: Spurious variance production of T variance due to advection
@@ -3747,7 +3747,7 @@
     ! long_name: Vertical sum of vertical remapping tracer content tendency for Heat
     ! units: W m-2
     ! cell_methods: xh:mean yh:mean area:mean
-"T_vardec"  [Unused]
+"T_vardec"  [Used]
     ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
     ! dimensions: xh, yh, zl
     ! long_name: ALE variance decay for conservative temperature
@@ -3810,7 +3810,7 @@
     ! units: psu m3 s-1
     ! cell_methods: xh:sum yq:point zl:sum
     ! variants: {S_hbd_diffy,S_hbd_diffy_xyave}
-"S_advection_scheme_variance_production"  [Unused]
+"S_advection_scheme_variance_production"  [Used]
     ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
     ! dimensions: xh, yh, zl
     ! long_name: Spurious variance production of S variance due to advection
@@ -3966,7 +3966,7 @@
     ! long_name: Vertical sum of vertical remapping tracer content tendency for Salt
     ! units: kg m-2 s-1
     ! cell_methods: xh:mean yh:mean area:mean
-"S_vardec"  [Unused]
+"S_vardec"  [Used]
     ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
     ! dimensions: xh, yh, zl
     ! long_name: ALE variance decay for absolute salinity
