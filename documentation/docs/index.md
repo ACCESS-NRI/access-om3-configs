@@ -133,3 +133,11 @@ branch, visit:
 
 [`https://github.com/ACCESS-NRI/access-om3-configs/compare/release-MC_25km_jra_iaf-1.0-beta..dev-MC_25km_jra_iaf`](https://github.com/ACCESS-NRI/access-om3-configs/compare/release-MC_25km_jra_iaf-1.0-beta..dev-MC_25km_jra_iaf)
 
+
+[test same version](/configurations/Overview/)
+
+[test docs-2026.07.000 version](/@docs-2026.07.000/configurations/Overview/)
+
+[test docs-2025.12.000 version](/@docs-2025.12.000/configurations/Overview/)
+
+[test non-existing version](/@docs-2026.09.000/configurations/Overview/)
