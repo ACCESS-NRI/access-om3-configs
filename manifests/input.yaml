@@ -82,15 +82,15 @@ work/INPUT/access-om3-8km-rof-remap-weights.nc:
     binhash: 9490ef59d2c60d338242c8b6566dd0ad
     md5: c120f194bd1a883b8dd8250ac8a2119a
 work/INPUT/access-om3-8km-rofi-climatology.nc:
-  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/cmeps/rofi_pattern/global.8km/2026.09.10/access-om3-8km-rofi-climatology.nc
+  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/cmeps/rofi_pattern/global.8km/2026.09.17/access-om3-8km-rofi-climatology.nc
   hashes:
-    binhash: 0503bff8e3a38e18a1a77ddc38fa14ce
-    md5: 6fdc69019df84682aefa476ca773f3d6
+    binhash: 3a1e56d4eeb9d96ca607fc28ba971a62
+    md5: cf380622cb381210291da448c4a71ab6
 work/INPUT/bottom_roughness.nc:
   fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/tidal_external_files/global.8km/2026.09.17/bottom_roughness.nc
   hashes:
-    binhash: f7d420e800d03a3d4551764da7b612f9
-    md5: 2a98cfe94938da4253ca81dc7b318917
+    binhash: 5b02cc858a930d4c1f544b80f84d5bfe
+    md5: 101ce3ad96164281f44528e33049ac6f
 work/INPUT/chl_globcolour_monthly_clim.nc:
   fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/chlorophyll/global.8km/2026.09.11/chl_globcolour_monthly_clim.nc
   hashes:
