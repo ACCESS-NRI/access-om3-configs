@@ -5,10 +5,27 @@
     parameter_filename = 'MOM_input', 'MOM_override'
 /
 
+&generic_tracer_nml
+    do_generic_tracer=.true.
+    do_generic_WOMBATlite=.true.
+    force_update_fluxes=.true. !This has to be set for THERMO_SPANS_COUPLING to work
+/
+
+&generic_wombatlite_nml
+    co2_calc='mocsy'
+    do_caco3_dynamics=.true.
+    do_burial=.true.
+/
+
+&time_interp_external_nml
+    max_fields = 200
+/
+
+
 &fms_nml
     clock_grain = 'ROUTINE'
     clock_flags = 'NONE'
-    domains_stack_size = 5000000
+    domains_stack_size = 20000000
     stack_size = 0
 /
 

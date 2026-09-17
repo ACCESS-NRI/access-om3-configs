@@ -133,6 +133,10 @@ MAXIMUM_DEPTH = 6000.0          !   [m]
 ! Parameters providing information about the vertical grid.
 NK = 200                         !   [nondim]
                                 ! The number of model layers.
+! === module MOM_tracer_flow_control ===
+ USE_generic_tracer = True   !   [Boolean] default = False
+                                 ! If true and _USE_GENERIC_TRACER is defined as a preprocessor macro, use the
+                                 ! MOM_generic_tracer packages.
 
 ! === module MOM_EOS ===
 EQN_OF_STATE = "WRIGHT_REDUCED" ! default = "WRIGHT"

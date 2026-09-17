@@ -3376,6 +3376,26 @@ work/INPUT/access-rom3-5kmsuperoz-rof-remap-weights.nc:
   hashes:
     binhash: a38a4ce13747a971b1d251864c9fbcbf
     md5: ede502a01af7bbb1f57a40dd332fe245
+work/INPUT/alk_obc_segment.nc:
+  fullpath: /g/data/tm70/hm6113/superaus/expt2.0/bgc/alk_obc_segment.nc
+  hashes:
+    binhash: 655b90961c1cb60ae69b8b4e245b162d
+    md5: d1883b603e0dffc6e05a9051db942dc6
+work/INPUT/caco3_obc_segment.nc:
+  fullpath: /g/data/tm70/hm6113/superaus/expt2.0/bgc/caco3_obc_segment.nc
+  hashes:
+    binhash: c46fa4b84e9d523dc9b584d6b9f6bf58
+    md5: 29a039956236b6b5338dc7f0b1c31307
+work/INPUT/caco3_sediment_obc_segment.nc:
+  fullpath: /g/data/tm70/hm6113/superaus/expt2.0/bgc/caco3_sediment_obc_segment.nc
+  hashes:
+    binhash: 14e64e1451026d673c1e2c59b55a7c1e
+    md5: 0a6791c573d126812cf4105fa79d381f
+work/INPUT/caco3bury_obc_segment.nc:
+  fullpath: /g/data/tm70/hm6113/superaus/expt2.0/bgc/caco3bury_obc_segment.nc
+  hashes:
+    binhash: bdf26ecf7ad972005473321982cb308c
+    md5: 36b51ebf800a91b28a6124d5441dc559
 work/INPUT/day/friver/gr/v20240531/friver_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-6-0_gr_19580101-19581231.nc:
   fullpath: /g/data/qv56/replicas/input4MIPs/CMIP6Plus/OMIP/MRI/MRI-JRA55-do-1-6-0/land/day/friver/gr/v20240531/friver_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-6-0_gr_19580101-19581231.nc
   hashes:
@@ -4046,6 +4066,51 @@ work/INPUT/day/licalvf/gr/v20240531/licalvf_input4MIPs_atmosphericState_OMIP_MRI
   hashes:
     binhash: fb4da82e21b01ccd4ef5e7a99f31f4e5
     md5: 6838f869a96238b2b162103794739519
+work/INPUT/det_obc_segment.nc:
+  fullpath: /g/data/tm70/hm6113/superaus/expt2.0/bgc/det_obc_segment.nc
+  hashes:
+    binhash: 0fe30cf59f3a23c0237360a7a1b4e59d
+    md5: 46ede4649784e5a7c75cb06b42d463ec
+work/INPUT/det_sediment_obc_segment.nc:
+  fullpath: /g/data/tm70/hm6113/superaus/expt2.0/bgc/det_sediment_obc_segment.nc
+  hashes:
+    binhash: e0485e1c121d5ae5459c008ad41c2f06
+    md5: 5b33e15ba34579bdb5654e37531db432
+work/INPUT/detbury_obc_segment.nc:
+  fullpath: /g/data/tm70/hm6113/superaus/expt2.0/bgc/detbury_obc_segment.nc
+  hashes:
+    binhash: f6c4350380bb3d9b88d2e95f650a313f
+    md5: 50d65545029b30211f47b86ceb3ed487
+work/INPUT/detfe_obc_segment.nc:
+  fullpath: /g/data/tm70/hm6113/superaus/expt2.0/bgc/detfe_obc_segment.nc
+  hashes:
+    binhash: 94dec634af586386a26b7484776d9bef
+    md5: 3778449eda4fe45efabdcf323772ee1c
+work/INPUT/detfe_sediment_obc_segment.nc:
+  fullpath: /g/data/tm70/hm6113/superaus/expt2.0/bgc/detfe_sediment_obc_segment.nc
+  hashes:
+    binhash: da12c8a80cb16372a52f950707c91de5
+    md5: 6d0a55636a256269879f83133251314d
+work/INPUT/dic_obc_segment.nc:
+  fullpath: /g/data/tm70/hm6113/superaus/expt2.0/bgc/dic_obc_segment.nc
+  hashes:
+    binhash: 96450adc29de760b1b84d7d60d19a674
+    md5: 10a3b91a32c868e1daf9e1d7576e1cd6
+work/INPUT/dicp_obc_segment.nc:
+  fullpath: /g/data/tm70/hm6113/superaus/expt2.0/bgc/dicp_obc_segment.nc
+  hashes:
+    binhash: b57ea24bf0efc1132b74ac192f958ad3
+    md5: 7404473ad4ee350d35b1a56f2e808bab
+work/INPUT/dicr_obc_segment.nc:
+  fullpath: /g/data/tm70/hm6113/superaus/expt2.0/bgc/dicr_obc_segment.nc
+  hashes:
+    binhash: e0dcc7b91bfcc38e794d2e3d652ef453
+    md5: b7f73717d25070577aa70aed0bf60c66
+work/INPUT/fe_obc_segment.nc:
+  fullpath: /g/data/tm70/hm6113/superaus/expt2.0/bgc/fe_obc_segment.nc
+  hashes:
+    binhash: e345b9b6c353cf0854acf527f060e28b
+    md5: 36c9e28c350a873730247d6d2e614f2e
 work/INPUT/forcing_obc_segment_001.nc:
   fullpath: /g/data/tm70/hm6113/superaus/expt2.0/forcing_obc_segment_001.nc
   hashes:
@@ -4076,6 +4141,21 @@ work/INPUT/fx/sftof/gr/v20240531/sftof_input4MIPs_atmosphericState_OMIP_MRI-JRA5
   hashes:
     binhash: 7f98fc486410cff8df3232d390e5a05b
     md5: f5034ec4d5228d648be6375b13ed2c98
+work/INPUT/grid_spec.nc:
+  fullpath: /g/data/tm70/hm6113/superaus/expt2.0/bgc/grid_spec.nc
+  hashes:
+    binhash: 7ec9c4ecaa0633f044eaa1058d22a205
+    md5: 709268cd891e6f0e827f6de0249f1a3d
+work/INPUT/hgrid.nc:
+  fullpath: /g/data/tm70/hm6113/superaus/expt2.0/hgrid.nc
+  hashes:
+    binhash: ab47796bb36411dc18f3ba7b0659288b
+    md5: f393930890ea4bdaedd8260057ee092f
+work/INPUT/init_bgc.nc:
+  fullpath: /g/data/tm70/hm6113/superaus/expt2.0/bgc/init_bgc.nc
+  hashes:
+    binhash: ea7b8592e5962e0e6267ce78c07191c9
+    md5: 690d9e887595e3439ad40c782bce044e
 work/INPUT/init_eta.nc:
   fullpath: /g/data/tm70/hm6113/superaus/expt2.0/init_eta.nc
   hashes:
@@ -4091,16 +4171,46 @@ work/INPUT/init_vel.nc:
   hashes:
     binhash: 5aff94c3199a4e7329f28d14bbef313c
     md5: fbac2d5da1ca58905f2597968c4f6f25
+work/INPUT/no3_obc_segment.nc:
+  fullpath: /g/data/tm70/hm6113/superaus/expt2.0/bgc/no3_obc_segment.nc
+  hashes:
+    binhash: 1f73c4cb3f44efac514fd56c15533a84
+    md5: f319c2ee594e03f20adbbfd3f2937986
+work/INPUT/o2_obc_segment.nc:
+  fullpath: /g/data/tm70/hm6113/superaus/expt2.0/bgc/o2_obc_segment.nc
+  hashes:
+    binhash: 1aaae04364cc80951220e743831db910
+    md5: 375f5b1ab07e1ee35f5346ce4a2a023f
 work/INPUT/ocean_hgrid.nc:
   fullpath: /g/data/tm70/hm6113/superaus/expt2.0/ocean_hgrid.nc
   hashes:
     binhash: 92f138a08259045a3265eb5071a3b9ab
     md5: f393930890ea4bdaedd8260057ee092f
+work/INPUT/ocean_mosaic.nc:
+  fullpath: /g/data/tm70/hm6113/superaus/expt2.0/ocean_mosaic.nc
+  hashes:
+    binhash: 6a68741a805239d62d5f2a6b923d03be
+    md5: 5dbcaa041b49eeec89c33acb18453dea
 work/INPUT/ocean_vgrid.nc:
   fullpath: /g/data/tm70/hm6113/superaus/expt2.0/ocean_vgrid.nc
   hashes:
     binhash: 16f97365e524618e54997f0ec4ad44a7
     md5: b65e8535e6b40cbd98308c357267c3d7
+work/INPUT/pchl_obc_segment.nc:
+  fullpath: /g/data/tm70/hm6113/superaus/expt2.0/bgc/pchl_obc_segment.nc
+  hashes:
+    binhash: 09f0d7a38d6f90b8e5a9409726b55740
+    md5: af919d50036eb803c26512df2accea3b
+work/INPUT/phy_obc_segment.nc:
+  fullpath: /g/data/tm70/hm6113/superaus/expt2.0/bgc/phy_obc_segment.nc
+  hashes:
+    binhash: ceb38ad95ee426401d07af168ff0554f
+    md5: 15e964f3da6d48e724f59e8bceacef66
+work/INPUT/phyfe_obc_segment.nc:
+  fullpath: /g/data/tm70/hm6113/superaus/expt2.0/bgc/phyfe_obc_segment.nc
+  hashes:
+    binhash: d062bee1cf56aab2428d7b1afddcfe99
+    md5: b31c9d7c7ba312a5c6d2cd4717082421
 work/INPUT/topog.nc:
   fullpath: /g/data/tm70/hm6113/superaus/expt2.0/topog.nc
   hashes:
@@ -4146,3 +4256,13 @@ work/INPUT/tz_segment_004.nc:
   hashes:
     binhash: cac798873f13995c0c1fbbd30ce02eb4
     md5: c9f390fe41adf40c52805d5e969fba13
+work/INPUT/zoo_obc_segment.nc:
+  fullpath: /g/data/tm70/hm6113/superaus/expt2.0/bgc/zoo_obc_segment.nc
+  hashes:
+    binhash: 6618eefcc7580092aa2275d2f7a21bb4
+    md5: dc0dc846997eb104fae0b68eb963562a
+work/INPUT/zoofe_obc_segment.nc:
+  fullpath: /g/data/tm70/hm6113/superaus/expt2.0/bgc/zoofe_obc_segment.nc
+  hashes:
+    binhash: 362c0b2ec2b999b9876698a58f8acfe9
+    md5: 4e72d4fe365dcc9a7a13dc6e7eed7fb0

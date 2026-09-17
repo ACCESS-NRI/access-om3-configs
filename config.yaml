@@ -38,6 +38,7 @@ input:
     - /g/data/tm70/hm6113/superaus/expt2.0/access-rom3-5kmsuperoz-nomask-ESMFmesh.nc
     - /g/data/tm70/hm6113/superaus/expt2.0/topog.nc
     - /g/data/tm70/hm6113/superaus/expt2.0/ocean_hgrid.nc
+    - /g/data/tm70/hm6113/superaus/expt2.0/hgrid.nc
     - /g/data/tm70/hm6113/superaus/expt2.0/ocean_vgrid.nc
     - /g/data/tm70/hm6113/superaus/expt2.0/init_tracers.nc
     - /g/data/tm70/hm6113/superaus/expt2.0/init_eta.nc
@@ -54,7 +55,30 @@ input:
     - /g/data/tm70/hm6113/superaus/expt2.0/tz_segment_002.nc
     - /g/data/tm70/hm6113/superaus/expt2.0/tz_segment_003.nc
     - /g/data/tm70/hm6113/superaus/expt2.0/tz_segment_004.nc
+    - /g/data/tm70/hm6113/superaus/expt2.0/ocean_mosaic.nc
     - /g/data/tm70/hm6113/superaus/expt2.0/access-rom3-5kmsuperoz-rof-remap-weights.nc
+    - /g/data/tm70/hm6113/superaus/expt2.0/bgc/alk_obc_segment.nc
+    - /g/data/tm70/hm6113/superaus/expt2.0/bgc/caco3bury_obc_segment.nc
+    - /g/data/tm70/hm6113/superaus/expt2.0/bgc/caco3_obc_segment.nc
+    - /g/data/tm70/hm6113/superaus/expt2.0/bgc/caco3_sediment_obc_segment.nc
+    - /g/data/tm70/hm6113/superaus/expt2.0/bgc/detbury_obc_segment.nc 
+    - /g/data/tm70/hm6113/superaus/expt2.0/bgc/detfe_obc_segment.nc
+    - /g/data/tm70/hm6113/superaus/expt2.0/bgc/detfe_sediment_obc_segment.nc
+    - /g/data/tm70/hm6113/superaus/expt2.0/bgc/det_obc_segment.nc
+    - /g/data/tm70/hm6113/superaus/expt2.0/bgc/det_sediment_obc_segment.nc
+    - /g/data/tm70/hm6113/superaus/expt2.0/bgc/dic_obc_segment.nc
+    - /g/data/tm70/hm6113/superaus/expt2.0/bgc/dicp_obc_segment.nc
+    - /g/data/tm70/hm6113/superaus/expt2.0/bgc/dicr_obc_segment.nc
+    - /g/data/tm70/hm6113/superaus/expt2.0/bgc/fe_obc_segment.nc
+    - /g/data/tm70/hm6113/superaus/expt2.0/bgc/no3_obc_segment.nc
+    - /g/data/tm70/hm6113/superaus/expt2.0/bgc/o2_obc_segment.nc
+    - /g/data/tm70/hm6113/superaus/expt2.0/bgc/pchl_obc_segment.nc
+    - /g/data/tm70/hm6113/superaus/expt2.0/bgc/phyfe_obc_segment.nc
+    - /g/data/tm70/hm6113/superaus/expt2.0/bgc/phy_obc_segment.nc
+    - /g/data/tm70/hm6113/superaus/expt2.0/bgc/zoofe_obc_segment.nc
+    - /g/data/tm70/hm6113/superaus/expt2.0/bgc/zoo_obc_segment.nc
+    - /g/data/tm70/hm6113/superaus/expt2.0/bgc/init_bgc.nc
+    - /g/data/tm70/hm6113/superaus/expt2.0/bgc/grid_spec.nc
     - /g/data/qv56/replicas/input4MIPs/CMIP6Plus/OMIP/MRI/MRI-JRA55-do-1-6-0/land/
     - /g/data/qv56/replicas/input4MIPs/CMIP6Plus/OMIP/MRI/MRI-JRA55-do-1-6-0/landIce/
     - /g/data/qv56/replicas/input4MIPs/CMIP6Plus/OMIP/MRI/MRI-JRA55-do-1-6-0/atmos/
