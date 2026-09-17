@@ -53,6 +53,7 @@ input:
 - /g/data/qv56/replicas/input4MIPs/CMIP6Plus/OMIP/MRI/MRI-JRA55-do-1-6-0/land/
 - /g/data/qv56/replicas/input4MIPs/CMIP6Plus/OMIP/MRI/MRI-JRA55-do-1-6-0/landIce/
 - /g/data/av17/access-nri/OM3/era5_rechunked_1h_yearly/
+- ./MOM_auto_mask_table
 
 collate: false
 runlog: false
