@@ -23,9 +23,9 @@ modules:
         - model-tools/mppnccombine-fast/2025.07.000
 
 queue: normalsr
-ncpus: 2080
+ncpus: 1040
 jobfs: 20GB
-mem: 7500GB
+mem: 5120GB
 walltime: 12:00:00
 jobname: superaus
 
