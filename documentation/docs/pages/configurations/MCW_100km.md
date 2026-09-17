@@ -24,9 +24,9 @@ These values must agree with WW3's `IUSSP = 3` and `STK_WN = 0.04, 0.110, 0.3305
 
 ### Stokes drift and Langmuir turbulence
 
-The closest non-wave 100 km configuration estimates the Langmuir number with `USE_LA_LI2016 = True`. The MCW configuration instead sets `EPBL_LT = True`, allowing the energetic planetary boundary layer (ePBL) scheme [@reichl2018simplified] to calculate a Langmuir number from the coupled Stokes-drift profile. `EPBL_LANGMUIR_SCHEME = "ADDITIVE"` adds the Langmuir-turbulence contribution to the other contributions to the ePBL mixing-energy factor.
+The closest non-wave 100 km configuration estimates the Langmuir number with `USE_LA_LI2016 = True`. The MCW configuration instead sets `EPBL_LT = True`, allowing the energetic planetary boundary layer (ePBL) scheme [@reichl2018simplified] to calculate a Langmuir number from the coupled Stokes-drift profile. `EPBL_LANGMUIR_SCHEME = "ADDITIVE"` adds the Langmuir-turbulence contribution to the other contributions to the ePBL mixing-energy factor [@reichl2019parameterization; @li2019comparing].
 
-The associated coefficients are also specific to this wave-aware setup: `LT_ENHANCE_COEF = 0.105`, `LT_ENHANCE_EXP = -1.0`, `LT_MOD_LAC1 = 0.0`, and `LT_MOD_LAC4 = LT_MOD_LAC5 = 0.8`. They replace the coefficients used with the wind-sea estimate in the non-wave configuration.
+The associated coefficients are also specific to this wave-aware setup: `LT_ENHANCE_COEF = 0.105`, `LT_ENHANCE_EXP = -1.0`, `LT_MOD_LAC1 = 0.0`, and `LT_MOD_LAC4 = LT_MOD_LAC5 = 0.8`. They follow the surface-layer Langmuir-number formulation evaluated in those studies [@reichl2019parameterization; @li2019comparing], replacing the coefficients used with the wind-sea estimate in the non-wave configuration.
 
 This MOM6 treatment is separate from WW3's own `LMPN` option, which is disabled below.
 
@@ -38,23 +38,22 @@ The ocean baroclinic timestep is `DT = 3600` s, equal to the coupling interval. 
 
 ### Floe-size distribution
 
-In [`ice_in`](https://github.com/ACCESS-NRI/access-om3-configs/blob/dev-MCW_100km_era_iaf/ice_in), the MCW configuration changes `nfsd` from one to 12 and enables the prognostic floe-size-distribution tracer with `tr_fsd = .true.`. CICE therefore evolves ice area across 12 floe-radius categories as well as its five ice-thickness categories. The distribution responds to new-ice formation, lateral growth and melt, thermodynamic welding, and wave fracture; these processes affect floe perimeter and hence lateral thermodynamic tendencies.
+In [`ice_in`](https://github.com/ACCESS-NRI/access-om3-configs/blob/dev-MCW_100km_era_iaf/ice_in), the MCW configuration changes `nfsd` from one to 12 and enables the prognostic floe-size-distribution tracer with `tr_fsd = .true.`. CICE therefore evolves ice area across 12 floe-radius categories as well as its five ice-thickness categories. The distribution responds to new-ice formation, lateral growth and melt, thermodynamic welding, and wave fracture; these processes affect floe perimeter and hence lateral melt rates [@roach2019advances].
 
 ### Wave forcing
 
-`wav_coupling_to_cice = .true.` in `nuopc.runconfig` connects the models in both directions. CICE supplies ice thickness and floe diameter to WW3, while WW3 supplies its 25-bin wave-elevation spectrum to CICE at the coupling frequency. CICE uses that spectrum in its wave-fracture step to update the floe-size distribution.
+`wav_coupling_to_cice = .true.` in `nuopc.runconfig` connects the models in both directions. CICE supplies ice thickness and floe diameter to WW3, while WW3 supplies its instantaneous 25-bin wave-elevation spectrum to CICE at each coupling exchange. CICE uses that spectrum in its wave-fracture step to update the floe-size distribution.
 
 `wave_spec_type = "constant"` does **not** mean that the spectrum is constant in time. In the CICE/Icepack wave-fracture algorithm it selects a constant-phase reconstruction of sea-surface elevation and one fracture iteration from the supplied spectrum; the alternative `random` mode uses random phases and iterates fracture to convergence.
 
 ### Wave and floe-size diagnostics
 
-All fields in `icefields_fsd_nml` are written to both daily and monthly streams (`"md"`). They comprise:
+The relevant fields in `icefields_fsd_nml` are written to both daily and monthly streams (`"md"`). They comprise:
 
 - `fsdrad` and `fsdperim`: representative floe radius and perimeter per unit ice area;
 - `afsd` and `afsdn`: areal floe-size distribution, respectively aggregated over and resolved by ice-thickness category;
 - `dafsd_newi`, `dafsd_latg`, `dafsd_latm`, `dafsd_wave` and `dafsd_weld`: floe-size-distribution tendencies from new ice, lateral growth, lateral melt, wave fracture and welding;
-- `wave_sig_ht`: significant wave height calculated from the spectrum in ice; and
-- `aice_ww`, `diam_ww` and `hice_ww`: ice concentration, number-mean floe diameter and thickness in the form used for wave coupling.
+- `wave_sig_ht`: significant wave height [diagnosed by CICE](https://github.com/ACCESS-NRI/CICE/blob/CICE6.6.3-2/cicecore/cicedyn/general/ice_step_mod.F90#L710-L713) from the instantaneous spectrum imported from WW3.
 
 These fields allow changes in floe size to be attributed to their physical processes and compared with the wave conditions that drive fracture.
 
@@ -62,7 +61,7 @@ These fields allow changes in floe size to be attributed to their physical proce
 
 ### Grid and spectral discretisation
 
-The branch's [`ww3_grid.nml`](https://github.com/ACCESS-NRI/access-om3-configs/blob/dev-MCW_100km_era_iaf/WW3_PreProc/ww3_grid.nml) configures the same 360 x 324 curvilinear, spherical tripolar grid as MOM6 and CICE6. The preprocessor also reads an unresolved-obstruction map; `FLAGTR = 4` places transparencies at cell centres and includes the continuous sea-ice treatment described below.
+The branch's [`ww3_grid.nml`](https://github.com/ACCESS-NRI/access-om3-configs/blob/dev-MCW_100km_era_iaf/WW3_PreProc/ww3_grid.nml) configures the same 360 x 324 curvilinear, spherical tripolar grid as MOM6 and CICE6. The preprocessor also reads an unresolved-obstruction map; `FLAGTR = 4` places its static transparencies at cell centres.
 
 The wave spectrum has 25 frequency bins beginning at 0.04118 Hz, with successive frequencies multiplied by 1.1. It has 24 directional bins, giving 15-degree directional resolution, with `THOFF = 0.0`.
 
@@ -82,7 +81,7 @@ The executable does not contain `PR3`, `IC3` or `IS2`. Consequently, the `PRO3` 
 
 ### Time stepping
 
-In a CESM-coupled run, WW3 restores the timestep controls from [`wav_in`](https://github.com/ACCESS-NRI/access-om3-configs/blob/dev-MCW_100km_era_iaf/wav_in) after reading the preprocessed `mod_def.ww3`. The `DTMAX`, `DTXY`, `DTKTH` and `DTMIN` values in `ww3_grid.nml` are therefore preprocessor inputs, not the effective runtime limits. The current runtime values are:
+In ACCESS-OM3's coupled WW3 pathway, selected by WW3's historically named `CESMCOUPLED` compile switch, WW3 restores the timestep controls from [`wav_in`](https://github.com/ACCESS-NRI/access-om3-configs/blob/dev-MCW_100km_era_iaf/wav_in) after reading the preprocessed `mod_def.ww3`. The `DTMAX`, `DTXY`, `DTKTH` and `DTMIN` values in `ww3_grid.nml` are therefore preprocessor inputs, not the effective runtime limits. The current runtime values are:
 
 | `wav_in` parameter | Runtime value | Purpose |
 | --- | ---: | --- |
@@ -101,7 +100,7 @@ Nonlinear quadruplet interactions use the discrete interaction approximation wit
 
 ### Stokes-drift output and MOM6 coupling
 
-`USSP = 1` enables partitioned Stokes-drift output, while `IUSSP = 3` requests three bands represented by decay wavenumbers `STK_WN = 0.04, 0.110, 0.3305`. WW3 exports both vector components for each band to MOM6. `E3D = 1` enables frequency-resolved energy-spectrum output; independently of that output flag, the coupled WW3 cap exports the 25-bin elevation spectrum to CICE6 at each coupling exchange.
+`USSP = 1` enables partitioned Stokes-drift output, while `IUSSP = 3` requests three bands represented by decay wavenumbers `STK_WN = 0.04, 0.110, 0.3305`. WW3 exports both vector components for each band to MOM6. `E3D = 1` enables frequency-resolved energy-spectrum output; independently of that output flag, the coupled WW3 cap exports the 25-bin elevation spectrum to CICE6 at each coupling exchange. These coupled fields are instantaneous WW3 state at the exchange time, not interval means.
 
 The band count and wavenumbers are a coupling contract: changing them requires matching changes to MOM6's `STK_BAND_COUPLER` and `SURFBAND_WAVENUMBERS`, followed by regeneration of `mod_def.ww3`.
 
@@ -111,9 +110,11 @@ WW3 is configured with `LMPENABLED = F` and `HSLMODE = 0`. Its Li et al. Langmui
 
 ### Wave-ice interaction
 
-The active attenuation choice is `SIC4 IC4METHOD = 8`, not IC3 or the older IC4M2 method. In `access-ww3 2026.03.001`, method 8 is an [ACCESS-NRI-specific cubic fit](https://github.com/ACCESS-NRI/WW3/blob/2026.03.001/model/src/w3sic4md.F90#L559-L595) in wave period, coupled ice thickness and coupled floe radius. Thickness is limited to 0.1–3.5 m and radius to 2.5–100 m. For periods from 5 to 20 s, `0.00212 / T^2 + 0.0459 / T^4` is added to the polynomial attenuation; above 20 s, these terms are used alone. WW3 divides energy attenuation by two to obtain amplitude attenuation. The coefficients are hard-coded rather than set in `namelists_Global.nml`.
+The active attenuation choice is `SIC4 IC4METHOD = 8`, not IC3 or the older IC4M2 method. Upstream WW3 uses the name **IC4M8** for the order-3 power-law model of Meylan et al. [@meylan2018dispersion], introduced through [NOAA-EMC/WW3 issue #1167](https://github.com/NOAA-EMC/WW3/issues/1167) and [PR #1176](https://github.com/NOAA-EMC/WW3/pull/1176). That model has the form `k_i = C_hf h_ice f^3`.
 
-`CICE0 = 0.25` and `CICEN = 0.75` bound the concentration interval used by WW3's continuous-ice transparency treatment. Together with `FLAGTR = 4`, this combines the cell-centred obstruction data with concentration-dependent ice transparency rather than treating the ice edge as a single discontinuous threshold.
+However, the pinned `access-ww3 2026.03.001` source currently assigns [`CASE (8)`](https://github.com/ACCESS-NRI/WW3/blob/2026.03.001/model/src/w3sic4md.F90#L559-L595) to a different, floe-size-dependent cubic fit associated with Meylan et al. [@meylan2021floe]. It calculates energy attenuation from wave period, coupled ice thickness, and a floe radius obtained by halving the coupled floe diameter. Thickness is clipped to 0.1–3.5 m and radius to 2.5–100 m. The cubic fit predicts the base-10 logarithm of energy attenuation, capped at zero before conversion back to linear units. For `5 < T < 20` s, `0.00212 / T^2 + 0.0459 / T^4` is added; for `T > 20` s, that expression replaces the cubic-fit value. WW3 then sets amplitude attenuation to half the energy attenuation. The coefficients are hard-coded rather than set in `namelists_Global.nml`. Therefore, the method number in this configuration should not be assumed to select upstream IC4M8 until the ACCESS-NRI implementation is reconciled with upstream WW3.
+
+`CICE0 = 0.25` and `CICEN = 0.75` are present in the namelist but do not control IC4 attenuation. In `access-ww3 2026.03.001`, the [concentration-based propagation-transparency ramp](https://github.com/ACCESS-NRI/WW3/blob/2026.03.001/model/src/w3updtmd.F90#L2975-L3040) is compiled only with `IC0`; this executable instead uses `IC4`. `FLAGTR = 4` still applies the static unresolved-obstruction data at cell centres, while IC4 wave attenuation is calculated separately.
 
 `ICNUMERICS = T` is required by the matching ACCESS-NRI WW3 implementation to activate the compiled sea-ice source-term calculation. The source term is scaled by ice concentration before it is included in the spectral source-term integration. This switch is specific to the `access-ww3 2026.03.001` implementation used by the documented configuration and should be rechecked when changing executable versions.
 
