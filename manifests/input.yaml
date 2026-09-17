@@ -87,10 +87,10 @@ work/INPUT/access-om3-8km-rofi-climatology.nc:
     binhash: 0503bff8e3a38e18a1a77ddc38fa14ce
     md5: 6fdc69019df84682aefa476ca773f3d6
 work/INPUT/bottom_roughness.nc:
-  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/tidal_external_files/global.8km/2026.09.11/bottom_roughness.nc
+  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/tidal_external_files/global.8km/2026.09.17/bottom_roughness.nc
   hashes:
-    binhash: 7e0455dece2cf188316c893ceb21eed7
-    md5: 53a84b075d6f2140b07ac9ecdbdbd457
+    binhash: f7d420e800d03a3d4551764da7b612f9
+    md5: 2a98cfe94938da4253ca81dc7b318917
 work/INPUT/chl_globcolour_monthly_clim.nc:
   fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/chlorophyll/global.8km/2026.09.11/chl_globcolour_monthly_clim.nc
   hashes:
@@ -112,10 +112,10 @@ work/INPUT/ocean_vgrid.nc:
     binhash: 9c1f82b7ea91a8647c8857c02676a7a5
     md5: 66f71f2b24bd00b1c220787505e0106e
 work/INPUT/salt_sfc_restore.nc:
-  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/surface_salt_restoring/global.8km/2026.09.11/salt_sfc_restore.nc
+  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/surface_salt_restoring/global.8km/2026.09.17/salt_sfc_restore.nc
   hashes:
-    binhash: 9c9730838a66424e684ec1902cfc2d84
-    md5: a6c920afe5530cedd4cef63be1671649
+    binhash: 2a56f0e0835b6c2457c0c0fc5ea3daac
+    md5: 53a059fcceb43c976f04673fa3cf8627
 work/INPUT/tideamp.nc:
   fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/tidal_external_files/global.8km/2026.09.11/tideamp.nc
   hashes:
@@ -127,7 +127,7 @@ work/INPUT/topog.nc:
     binhash: 2187e12e7d5e9dae137ebddc68504236
     md5: 85c26ec14c3047fd3323841f3a28cdd0
 work/INPUT/woa23_ts_01_mom.nc:
-  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/initial_conditions/global.8km/2026.09.11/woa23_ts_01_mom.nc
+  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/initial_conditions/global.8km/2026.09.17/woa23_ts_01_mom.nc
   hashes:
-    binhash: ec9e80b84e0c805af6d4b15368feaa72
-    md5: 5e75c06e416c2547fc11fae0062908c4
+    binhash: 4c5a85ab1d4f80fc99637257d36c2977
+    md5: 1644a55c923b28f8c6f5c850e17c94e8
