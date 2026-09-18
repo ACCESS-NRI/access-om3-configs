@@ -25,6 +25,12 @@ C_P = 3992.0                    !   [J kg-1 K-1] default = 3991.86795711963
                                 ! The heat capacity of sea water, approximated as a constant. This is only used
                                 ! if ENABLE_THERMODYNAMICS is true. The default value is from the TEOS-10
                                 ! definition of conservative temperature.
+NONBLOCKING_P_SURF_BUG = False  !   [Boolean] default = True
+                                ! If true, recover a bug in which the non-blocking halo update of the surface
+                                ! pressure is not completed before the halo points of forces%p_surf are copied
+                                ! into tv%p_surf, so that those halo points hold the surface pressure from the
+                                ! previous coupling step, or zeros on the first step after a restart.  This is
+                                ! only used if NONBLOCKING_UPDATES and USE_PSURF_IN_EOS are true
 CHECK_BAD_SURFACE_VALS = True   !   [Boolean] default = False
                                 ! If true, check the surface state for ridiculous values.
 SAVE_INITIAL_CONDS = True       !   [Boolean] default = False
