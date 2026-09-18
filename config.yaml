@@ -18,7 +18,6 @@ modules:
 queue: normalsr
 ncpus: 208
 jobfs: 10GB
-mem: 1000GB
 walltime: 02:00:00
 jobname: access-rom3-demo
 
