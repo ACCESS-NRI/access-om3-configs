@@ -63,7 +63,7 @@ These fields allow changes in floe size to be attributed to their physical proce
 
 The branch's [`ww3_grid.nml`](https://github.com/ACCESS-NRI/access-om3-configs/blob/dev-MCW_100km_era_iaf/WW3_PreProc/ww3_grid.nml) configures the same 360 x 324 curvilinear, spherical tripolar grid as MOM6 and CICE6. The preprocessor also reads an unresolved-obstruction map; `FLAGTR = 4` places its static transparencies at cell centres.
 
-The wave spectrum has 25 frequency bins beginning at 0.04118 Hz, with successive frequencies multiplied by 1.1. It has 24 directional bins, giving 15-degree directional resolution, with `THOFF = 0.0`.
+The wave spectrum has 25 frequency bins beginning at 0.04118 Hz, with successive frequencies multiplied by 1.1. It has 24 directional bins, giving 15-degree directional resolution. `THOFF` offsets the first direction by −0.5 to 0.5 of that 15-degree increment; `THOFF = 0.0` leaves the directional grid unshifted. Non-zero offsets can help mitigate the garden-sprinkler effect with `PR1` [@ww3dg2019manual].
 
 ### Compiled physics switches
 
@@ -75,7 +75,7 @@ RWND WNX1 WNT0 CRX1 CRT0 O0 O1 O2 O3 O4 O5 O6 O7 O14 O15 IS0 REF0
 NOGRB IC4
 ```
 
-The scientifically important selections are `PR1` propagation, `ST6` wind input and dissipation, `LN1` linear wave growth, `NL1` nonlinear quadruplet interactions, `BT1` bottom friction, `DB1` depth-induced breaking and `IC4` wave–ice attenuation. `IS0` selects no separate wave–ice scattering source term. The parameter namelists used below correspond to these compiled packages: `SIN6` and `SWL6` to `ST6`, `SNL1` to `NL1`, and `SIC4` to `IC4`.
+The scientifically important selections are `PR1` propagation, `ST6` wind input and dissipation, `LN1` linear wave growth, `NL1` nonlinear quadruplet interactions, `BT1` bottom friction, `DB1` depth-induced breaking and `IC4` wave–ice attenuation. `PR1` is WW3's conservative first-order upwind scheme for propagating wave action; *first order* describes its numerical accuracy, and the scheme is more diffusive than the higher-order propagation options [@ww3dg2019manual]. `IS0` selects no separate wave–ice scattering source term. The parameter namelists used below correspond to these compiled packages: `SIN6` and `SWL6` to `ST6`, `SNL1` to `NL1`, and `SIC4` to `IC4`.
 
 The executable does not contain `PR3`, `IC3` or `IS2`. Consequently, the `PRO3` garden-sprinkler-effect tuning, IC3 viscoelastic parameters, and IS2 floe-scattering parameters described in older WW3 configuration notes are inactive and should not be added to this configuration. Changing to any of those packages requires a new executable built with the matching switch, not just a namelist change.
 
@@ -94,9 +94,9 @@ In ACCESS-OM3's coupled WW3 pathway, selected by WW3's historically named `CESMC
 
 ### Source-term physics
 
-The branch's [`namelists_Global.nml`](https://github.com/ACCESS-NRI/access-om3-configs/blob/dev-MCW_100km_era_iaf/WW3_PreProc/namelists_Global.nml) configures the compiled `ST6` package, which represents wind input, whitecapping dissipation and swell dissipation and constrains total wind input using the independently calculated wind stress. `SINA0 = 0.04` controls negative wind input when wind opposes the waves. For swell dissipation, `SWLB1 = 0.22e-3` is the scaling coefficient and `CSTB1 = T` selects the formulation in which that coefficient is constant rather than rescaled by peak steepness. ST6 and its observation-based development are described by [@rogers2012observation].
+The branch's [`namelists_Global.nml`](https://github.com/ACCESS-NRI/access-om3-configs/blob/dev-MCW_100km_era_iaf/WW3_PreProc/namelists_Global.nml) configures the compiled `ST6` package, which represents wind input, whitecapping dissipation and swell dissipation and constrains total wind input using the independently calculated wind stress. `SINA0 = 0.04` controls negative wind input when wind opposes the waves. For swell dissipation, `SWLB1 = 0.22e-3` is the scaling coefficient and `CSTB1 = T` selects the formulation in which that coefficient is constant rather than rescaled by peak steepness. The observation-based development of ST6 is described in [@rogers2012observation; @zieger2015observation].
 
-Nonlinear quadruplet interactions use the discrete interaction approximation with `LAMBDA = 0.237` and `NLPROP = 2.13e7`. These tune the representative interacting quadruplet and the proportionality coefficient, respectively.
+`NL1` represents the nonlinear four-wave source term using the Discrete Interaction Approximation (DIA) [@hasselmann1985parameterizations]. `LAMBDA = 0.237` and `NLPROP = 2.13e7` tune the representative interacting quadruplet and its proportionality coefficient, respectively.
 
 ### Stokes-drift output and MOM6 coupling
 
