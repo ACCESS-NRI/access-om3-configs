@@ -93,14 +93,11 @@ TRADV_SPANS_COUPLING = False    !   [Boolean] default = False
                                 ! the coupling timestep. The actual tracer advection timestep that is used in
                                 ! this case is the largest integer multiple of the coupling timestep that is
                                 ! less than or equal to DT_TRACER_ADVECT.
-THICKNESSDIFFUSE = True         !   [Boolean] default = False
+THICKNESSDIFFUSE = False        !   [Boolean] default = False
                                 ! If true, isopycnal surfaces are diffused with a Laplacian coefficient of KHTH.
 APPLY_INTERFACE_FILTER = False  !   [Boolean] default = False
                                 ! If true, model interface heights are subjected to a grid-scale dependent
                                 ! spatial smoothing, often with biharmonic filter.
-THICKNESSDIFFUSE_FIRST = True   !   [Boolean] default = False
-                                ! If true, do thickness diffusion or interface height smoothing before dynamics.
-                                ! This is only used if THICKNESSDIFFUSE or APPLY_INTERFACE_FILTER is true.
 HMIX_SFC_PROP = 1.0             !   [m] default = 1.0
                                 ! If BULKMIXEDLAYER is false, HMIX_SFC_PROP is the depth over which to average
                                 ! to find surface properties like SST and SSS or density (but not surface
@@ -117,7 +114,7 @@ HFREEZE = 10.0                  !   [m] default = -1.0
 INTERPOLATE_P_SURF = False      !   [Boolean] default = False
                                 ! If true, linearly interpolate the surface pressure over the coupling time
                                 ! step, using the specified value at the end of the step.
-DTBT_RESET_PERIOD = 0.0         !   [s] default = 1800.0
+DTBT_RESET_PERIOD = 1800.0      !   [s] default = 1800.0
                                 ! The period between recalculations of DTBT (if DTBT <= 0). If DTBT_RESET_PERIOD
                                 ! is negative, DTBT is set based only on information available at
                                 ! initialization.  If 0, DTBT will be set every dynamics time step. The default
@@ -181,18 +178,15 @@ SURFACE_ANSWER_DATE = 99991231  ! default = 99991231
                                 ! The vintage of the expressions for the surface properties.  Values below
                                 ! 20190101 recover the answers from the end of 2018, while higher values use
                                 ! updated and more robust forms of the same expressions.
-USE_DIABATIC_TIME_BUG = False   !   [Boolean] default = False
-                                ! If true, uses the wrong calendar time for diabatic processes, as was done in
-                                ! MOM6 versions prior to February 2018. This is not recommended.
 SAVE_INITIAL_CONDS = True       !   [Boolean] default = False
                                 ! If true, write the initial conditions to a file given by IC_OUTPUT_FILE.
 IC_OUTPUT_FILE = "MOM_IC"       ! default = "MOM_IC"
                                 ! The file into which to write the initial conditions.
-WRITE_GEOM = 1                  ! default = 1
+WRITE_GEOM = 2                  ! default = 1
                                 ! If =0, never write the geometry and vertical grid files. If =1, write the
                                 ! geometry and vertical grid files only for a new simulation. If =2, always
                                 ! write the geometry and vertical grid files. Other values are invalid.
-GEOM_FILE = "ocean_geometry"    ! default = "ocean_geometry"
+GEOM_FILE = "access-om3.mom6.geometry.nc" ! default = "ocean_geometry"
                                 ! The file into which to write the ocean geometry.
 USE_DBCLIENT = False            !   [Boolean] default = False
                                 ! If true, initialize a client to a remote database that can be used for online
@@ -217,10 +211,10 @@ REENTRANT_Y = False             !   [Boolean] default = False
 TRIPOLAR_N = False              !   [Boolean] default = False
                                 ! Use tripolar connectivity at the northern edge of the domain.  With
                                 ! TRIPOLAR_N, NIGLOBAL must be even.
-NIGLOBAL = 140                  !
+NIGLOBAL = 70                   !
                                 ! The total number of thickness grid points in the x-direction in the physical
                                 ! domain. With STATIC_MEMORY_ this is set in MOM_memory.h at compile time.
-NJGLOBAL = 249                  !
+NJGLOBAL = 125                  !
                                 ! The total number of thickness grid points in the y-direction in the physical
                                 ! domain. With STATIC_MEMORY_ this is set in MOM_memory.h at compile time.
 NIHALO = 4                      ! default = 4
@@ -293,7 +287,7 @@ TOPO_EDITS_FILE = ""            ! default = ""
                                 ! The file from which to read a list of i,j,z topography overrides.
 ALLOW_LANDMASK_CHANGES = False  !   [Boolean] default = False
                                 ! If true, allow topography overrides to change land mask.
-MINIMUM_DEPTH = 4.5             !   [m] default = 0.0
+MINIMUM_DEPTH = 10.0            !   [m] default = 0.0
                                 ! If MASKING_DEPTH is unspecified, then anything shallower than MINIMUM_DEPTH is
                                 ! assumed to be land and all fluxes are masked out. If MASKING_DEPTH is
                                 ! specified, then all depths shallower than MINIMUM_DEPTH but deeper than
@@ -301,7 +295,7 @@ MINIMUM_DEPTH = 4.5             !   [m] default = 0.0
 MASKING_DEPTH = -9999.0         !   [m] default = -9999.0
                                 ! The depth below which to mask points as land points, for which all fluxes are
                                 ! zeroed out. MASKING_DEPTH is ignored if it has the special default value.
-MAXIMUM_DEPTH = 4500.0          !   [m]
+MAXIMUM_DEPTH = 6000.0          !   [m]
                                 ! The maximum depth of the ocean.
 
 ! === module MOM_open_boundary ===
@@ -349,10 +343,10 @@ OBC_RAMP_TIMESCALE = 1.0        !   [days] default = 1.0
                                 ! If RAMP_OBCS is true, this sets the ramping timescale.
 OBC_TIDE_N_CONSTITUENTS = 0     ! default = 0
                                 ! Number of tidal constituents being added to the open boundary.
-EXTERIOR_OBC_BUG = True         !   [Boolean] default = True
+EXTERIOR_OBC_BUG = False        !   [Boolean] default = True
                                 ! If true, recover a bug in barotropic solver and other routines when boundary
                                 ! contitions interior to the domain are used.
-OBC_HOR_INDEXING_BUG = True     !   [Boolean] default = True
+OBC_HOR_INDEXING_BUG = False    !   [Boolean] default = True
                                 ! If true, recover set of a horizontal indexing bugs in the OBC code.
 OBC_SEGMENT_001 = "J=N,I=N:0,FLATHER,ORLANSKI,NUDGED,ORLANSKI_TAN,NUDGED_TAN" !
                                 ! Documentation needs to be dynamic?????
@@ -393,6 +387,12 @@ OBC_TRACER_RESERVOIR_LENGTH_SCALE_OUT = 3.0E+04 !   [m] default = 0.0
 OBC_TRACER_RESERVOIR_LENGTH_SCALE_IN = 3000.0 !   [m] default = 0.0
                                 ! An effective length scale for restoring the tracer concentration at the
                                 ! boundaries to values from the interior when the flow is entering the domain.
+OBC_THICKNESS_RESERVOIR_LENGTH_SCALE_OUT = 0.0 !   [m] default = 0.0
+                                ! An effective length scale for restoring the layer thickness at the boundaries
+                                ! to externally imposed values when the flow is exiting the domain.
+OBC_THICKNESS_RESERVOIR_LENGTH_SCALE_IN = 0.0 !   [m] default = 0.0
+                                ! An effective length scale for restoring the layer thickness at the boundaries
+                                ! to values from the interior when the flow is entering the domain.
 OBC_REMAPPING_SCHEME = "PPM_H4" ! default = "PPM_H4"
                                 ! This sets the reconstruction scheme used for OBC vertical remapping for all
                                 ! variables. It can be one of the following schemes:
@@ -416,6 +416,13 @@ OBC_REMAPPING_USE_OM4_SUBCELLS = False !   [Boolean] default = False
                                 ! If true, use the OM4 remapping-via-subcells algorithm for neutral diffusion.
                                 ! See REMAPPING_USE_OM4_SUBCELLS for more details. We recommend setting this
                                 ! option to false.
+OBC_PROJECTION_BUG = False      !   [Boolean] default = True
+                                ! If false, use only interior ocean points at OBCs to specify several
+                                ! calculations at OBC points, and it avoids applying a land mask at the bay-like
+                                ! intersection of orthogonal OBC segments.  Otherwise the calculation of terms
+                                ! like the potential vorticity used in the barotropic solver relies on
+                                ! bathymetry or other fields being projected outward across OBCs.  This option
+                                ! changes answers for some configurations that use OBCs.
 CHANNEL_CONFIG = "none"         ! default = "none"
                                 ! A parameter that determines which set of channels are
                                 ! restricted to specific  widths.  Options are:
@@ -458,11 +465,14 @@ H_TO_M = 1.0                    !   [m H-1] default = 1.0
                                 ! A constant that translates the model's internal units of thickness into m.
 NK = 75                         !   [nondim]
                                 ! The number of model layers.
+ADVECTION_SCHEME_VARIANCE_UNDERFLOW = 1.0E-23 !   [Conc2 (tracer dependent)] default = 1.0E-23
+                                ! A tiny magnitude for variance used to determine when advection scheme variance
+                                ! production is set to 0.
 
 ! === module MOM_tracer_registry ===
 
 ! === module MOM_EOS ===
-EQN_OF_STATE = "WRIGHT_REDUCED" ! default = "WRIGHT"
+EQN_OF_STATE = "WRIGHT_FULL"    ! default = "WRIGHT_FULL"
                                 ! EQN_OF_STATE determines which ocean equation of state should be used.
                                 ! Currently, the valid choices are "LINEAR", "UNESCO", "JACKETT_MCD", "WRIGHT",
                                 ! "WRIGHT_REDUCED", "WRIGHT_FULL", "NEMO", "ROQUET_RHO", "ROQUET_SPV" and
@@ -531,6 +541,8 @@ USE_MARBL_TRACERS = False       !   [Boolean] default = False
                                 ! If true, use the MARBL tracer package.
 USE_REGIONAL_DYES = False       !   [Boolean] default = False
                                 ! If true, use the regional_dyes tracer package.
+USE_FILE_DYES = False           !   [Boolean] default = False
+                                ! If true, use the file dyes tracer package.
 USE_OIL_TRACER = False          !   [Boolean] default = False
                                 ! If true, use the oil_tracer tracer package.
 USE_ADVECTION_TEST_TRACER = False !   [Boolean] default = False
@@ -539,7 +551,7 @@ USE_OCMIP2_CFC = False          !   [Boolean] default = False
                                 ! If true, use the MOM_OCMIP2_CFC tracer package.
 USE_CFC_CAP = False             !   [Boolean] default = False
                                 ! If true, use the MOM_CFC_cap tracer package.
-USE_generic_tracer = True       !   [Boolean] default = False
+USE_generic_tracer = False      !   [Boolean] default = False
                                 ! If true and _USE_GENERIC_TRACER is defined as a preprocessor macro, use the
                                 ! MOM_generic_tracer packages.
 USE_PSEUDO_SALT_TRACER = False  !   [Boolean] default = False
@@ -550,17 +562,6 @@ USE_DYED_OBC_TRACER = False     !   [Boolean] default = False
                                 ! If true, use the dyed_obc_tracer tracer package.
 USE_NW2_TRACERS = False         !   [Boolean] default = False
                                 ! If true, use the NeverWorld2 tracers.
-
-! === module register_MOM_generic_tracer ===
-GENERIC_TRACER_IC_FILE = ""     ! default = ""
-                                ! The file in which the generic tracer initial values can be found, or an empty
-                                ! string for internal initialization.
-GENERIC_TRACER_IC_FILE_IS_Z = False !   [Boolean] default = False
-                                ! If true, GENERIC_TRACER_IC_FILE is in depth space, not layer space.
-TRACERS_MAY_REINIT = False      !   [Boolean] default = False
-                                ! If true, tracers may go through the initialization code if they are not found
-                                ! in the restart files.  Otherwise it is a fatal error if tracers are not found
-                                ! in the restart files of a restarted run.
 
 ! === module MOM_boundary_update ===
 USE_FILE_OBC = False            !   [Boolean] default = False
@@ -575,6 +576,14 @@ USE_DYED_CHANNEL_OBC = False    !   [Boolean] default = False
                                 ! If true, use the dyed channel open boundary.
 
 ! === module segment_tracer_registry_init ===
+OBC_SEGMENT_001_DATA = "U=file:forcing_obc_segment_001.nc(u),V=file:forcing_obc_segment_001.nc(v),SSH=file:forcing_obc_segment_001.nc(eta),TEMP=file:forcing_obc_segment_001.nc(temp),SALT=file:forcing_obc_segment_001.nc(salt)" !
+                                ! OBC segment docs
+OBC_SEGMENT_002_DATA = "U=file:forcing_obc_segment_002.nc(u),V=file:forcing_obc_segment_002.nc(v),SSH=file:forcing_obc_segment_002.nc(eta),TEMP=file:forcing_obc_segment_002.nc(temp),SALT=file:forcing_obc_segment_002.nc(salt)" !
+                                ! OBC segment docs
+OBC_SEGMENT_003_DATA = "U=file:forcing_obc_segment_003.nc(u),V=file:forcing_obc_segment_003.nc(v),SSH=file:forcing_obc_segment_003.nc(eta),TEMP=file:forcing_obc_segment_003.nc(temp),SALT=file:forcing_obc_segment_003.nc(salt)" !
+                                ! OBC segment docs
+OBC_SEGMENT_004_DATA = "U=file:forcing_obc_segment_004.nc(u),V=file:forcing_obc_segment_004.nc(v),SSH=file:forcing_obc_segment_004.nc(eta),TEMP=file:forcing_obc_segment_004.nc(temp),SALT=file:forcing_obc_segment_004.nc(salt)" !
+                                ! OBC segment docs
 
 ! === module MOM_hor_index ===
 ! Sets the horizontal array index types.
@@ -636,9 +645,24 @@ ALE_COORDINATE_CONFIG = "FILE:vcoord.nc,interfaces=zi" ! default = "UNIFORM"
                                 !  FNC1:string - FNC1:dz_min,H_total,power,precision
                                 !  HYBRID:string - read from a file. The string specifies
                                 !                the filename and two variable names, separated
-                                !                by a comma or space, for sigma-2 and dz. e.g.
-                                !                HYBRID:vgrid.nc,sigma2,dz
-!ALE_RESOLUTION = 11.092098076435915, 11.12589544733533, 11.165918086620376, 11.213306058249117, 11.269405557709561, 11.335805113860857, 11.414377717524317, 11.507329670725412, 11.617256981273385, 11.747210121002269, 11.900767900902267, 12.082121062640923, 12.296165903074183, 12.548607782597145, 12.846073650390167, 13.196231663509366, 13.607914479412557, 14.091240747579036, 14.657726598738321, 15.320375433883754, 16.093730012474765, 16.993865811613148, 18.03829916245229, 19.245778371728136, 20.63592195573483, 22.22866685820685, 24.043493287542788, 26.098404231537188, 28.408659426442966, 30.985297348839254, 33.83352429499399, 36.951102794253245, 40.32692362139596, 43.93998287341037, 47.75899167530645, 51.74280691482443, 55.84178142011456, 60.0, 64.15821857988544, 68.25719308517557, 72.24100832469344, 76.06001712658963, 79.67307637860404, 83.0488972057467, 86.16647570500595, 89.01470265116063, 91.59134057355709, 93.90159576846281, 95.95650671245721, 97.7713331417931, 99.36407804426517, 100.75422162827181, 101.96170083754782, 103.00613418838702, 103.90626998752532, 104.67962456611622, 105.34227340126154, 105.90875925242108, 106.39208552058744, 106.80376833649052, 107.15392634960972, 107.45139221740283, 107.70383409692568, 1
+                                !                by a comma or space, for sigma-2 and dz.
+                                !                e.g. HYBRID:vgrid.nc,sigma2,dz
+                                !  HYBRID_3D:string - read from a file. The string specifies
+                                !                the filename and two 3D variable names, separated
+                                !                by a comma or space, for sigma-2 and dz. The
+                                !                latter can be FNC1:string which is used everywhere.
+                                !                e.g. HYBRID_3D:vgrid.nc,sigma2,dz
+                                !  HYBRID_MAP:string - read from a file. The string specifies
+                                !                the filename and three variable names, separated
+                                !                by a comma or space, for map, sigma-2 and dz.
+                                !                Map is a spatial index array with, maxval(map)=N,
+                                !                and the others are 2D arrays containing N profiles.
+                                !                Map typically contains integer values, but it can
+                                !                contain real values, I+w, which imply using
+                                !                the weighted sum of profiles I and I+1.
+                                !                Dz can be FNC1:string which is used everywhere.
+                                !                e.g. HYBRID_MAP:vgrid.nc,map,sigma2,dz
+!ALE_RESOLUTION = 4.821854240081545, 4.859984607250117, 4.905138354135806, 4.958601706742593, 5.021893449723606, 5.0968057694840425, 5.185451783873582, 5.290320654151742, 5.414341209641762, 5.560955008310259, 5.734199683069228, 5.938803250158976, 6.180289736801626, 6.465095959853201, 6.800698477363284, 7.195748543446456, 7.660211207542389, 8.205502381884045, 8.844614624217613, 9.592218438227832, 10.46472103971513, 11.48025886438404, 12.658593926869258, 14.02087816297535, 15.589245283393126, 17.38618825028462, 19.433684734663643, 21.752045799682975, 24.358487558038235, 27.265463675613546, 30.478847922557293, 33.996115973003725, 37.804734342087784, 41.881006318719415, 46.18963163367914, 50.68419241672501, 55.30867647397531, 60.0, 64.69132352602458, 69.31580758327505, 73.81036836632086, 78.11899368128059, 82.19526565791216, 86.00388402699627, 89.5211520774426, 92.73453632438645, 95.64151244196182, 98.24795420031705, 100.56631526533624, 102.6138117497153, 104.41075471660679, 105.97912183702465, 107.34140607313066, 108.51974113561573, 109.53527896028481, 110.40778156177203, 111.15538537578232, 111.79449761811611, 112.33978879245751, 112.80425145655363, 113.19930152263669, 113.53490404014701, 113.81971026319843, 114.0611967498
 MIN_THICKNESS = 0.001           !   [m] default = 0.001
                                 ! When regridding, this is the minimum layer thickness allowed.
 REMAPPING_SCHEME = "PPM_H4"     ! default = "PLM"
@@ -725,13 +749,13 @@ INIT_LAYERS_FROM_Z_FILE = True  !   [Boolean] default = False
                                 ! Z-space file on a latitude-longitude grid.
 
 ! === module MOM_initialize_layers_from_Z ===
-TEMP_SALT_Z_INIT_FILE = "init_tracers_mod.nc" ! default = "temp_salt_z.nc"
+TEMP_SALT_Z_INIT_FILE = "init_tracers.nc" ! default = "temp_salt_z.nc"
                                 ! The name of the z-space input file used to initialize temperatures (T) and
                                 ! salinities (S). If T and S are not in the same file, TEMP_Z_INIT_FILE and
                                 ! SALT_Z_INIT_FILE must be set.
-TEMP_Z_INIT_FILE = "init_tracers_mod.nc" ! default = "init_tracers_mod.nc"
+TEMP_Z_INIT_FILE = "init_tracers.nc" ! default = "init_tracers.nc"
                                 ! The name of the z-space input file used to initialize temperatures, only.
-SALT_Z_INIT_FILE = "init_tracers_mod.nc" ! default = "init_tracers_mod.nc"
+SALT_Z_INIT_FILE = "init_tracers.nc" ! default = "init_tracers.nc"
                                 ! The name of the z-space input file used to initialize temperatures, only.
 Z_INIT_FILE_PTEMP_VAR = "temp"  ! default = "ptemp"
                                 ! The name of the potential temperature variable in TEMP_Z_INIT_FILE.
@@ -816,18 +840,10 @@ ODA_INCUPD = False              !   [Boolean] default = False
 SPONGE = False                  !   [Boolean] default = False
                                 ! If true, sponges may be applied anywhere in the domain. The exact location and
                                 ! properties of those sponges are specified via SPONGE_CONFIG.
-OBC_RESERVOIR_INIT_BUG = True   !   [Boolean] default = True
+OBC_RESERVOIR_INIT_BUG = False  !   [Boolean] default = True
                                 ! If true, set the OBC tracer reservoirs at the startup of a new run from the
                                 ! interior tracer concentrations regardless of properties that may be explicitly
                                 ! specified for the reservoir concentrations.
-OBC_SEGMENT_001_DATA = "U=file:obgc_obc.nc(u),V=file:obgc_obc.nc(v),SSH=file:obgc_obc.nc(eta),TEMP=file:obgc_obc.nc(temp),SALT=file:obgc_obc.nc(salt)" !
-                                ! OBC segment docs
-OBC_SEGMENT_002_DATA = "U=file:obgc_obc.nc(u),V=file:obgc_obc.nc(v),SSH=file:obgc_obc.nc(eta),TEMP=file:obgc_obc.nc(temp),SALT=file:obgc_obc.nc(salt)" !
-                                ! OBC segment docs
-OBC_SEGMENT_003_DATA = "U=file:obgc_obc.nc(u),V=file:obgc_obc.nc(v),SSH=file:obgc_obc.nc(eta),TEMP=file:obgc_obc.nc(temp),SALT=file:obgc_obc.nc(salt)" !
-                                ! OBC segment docs
-OBC_SEGMENT_004_DATA = "U=file:obgc_obc.nc(u),V=file:obgc_obc.nc(v),SSH=file:obgc_obc.nc(eta),TEMP=file:obgc_obc.nc(temp),SALT=file:obgc_obc.nc(salt)" !
-                                ! OBC segment docs
 OBC_USER_CONFIG = "none"        ! default = "none"
                                 ! A string that sets how the user code is invoked to set open boundary data:
                                 !    DOME - specified inflow on northern boundary
@@ -875,8 +891,23 @@ DIAG_COORD_DEF_Z = "FILE:vcoord.nc,interfaces=zi" ! default = "WOA09"
                                 !  FNC1:string - FNC1:dz_min,H_total,power,precision
                                 !  HYBRID:string - read from a file. The string specifies
                                 !                the filename and two variable names, separated
-                                !                by a comma or space, for sigma-2 and dz. e.g.
-                                !                HYBRID:vgrid.nc,sigma2,dz
+                                !                by a comma or space, for sigma-2 and dz.
+                                !                e.g. HYBRID:vgrid.nc,sigma2,dz
+                                !  HYBRID_3D:string - read from a file. The string specifies
+                                !                the filename and two 3D variable names, separated
+                                !                by a comma or space, for sigma-2 and dz. The
+                                !                latter can be FNC1:string which is used everywhere.
+                                !                e.g. HYBRID_3D:vgrid.nc,sigma2,dz
+                                !  HYBRID_MAP:string - read from a file. The string specifies
+                                !                the filename and three variable names, separated
+                                !                by a comma or space, for map, sigma-2 and dz.
+                                !                Map is a spatial index array with, maxval(map)=N,
+                                !                and the others are 2D arrays containing N profiles.
+                                !                Map typically contains integer values, but it can
+                                !                contain real values, I+w, which imply using
+                                !                the weighted sum of profiles I and I+1.
+                                !                Dz can be FNC1:string which is used everywhere.
+                                !                e.g. HYBRID_MAP:vgrid.nc,map,sigma2,dz
 
 ! === module MOM_MEKE ===
 USE_MEKE = False                !   [Boolean] default = False
@@ -936,7 +967,7 @@ KD_GL90_USE_SQG_STRUCT = False  !   [Boolean] default = False
 KHTH_SLOPE_CFF = 0.0            !   [nondim] default = 0.0
                                 ! The nondimensional coefficient in the Visbeck formula for the interface depth
                                 ! diffusivity
-KHTR_SLOPE_CFF = 0.0            !   [nondim] default = 0.0
+KHTR_SLOPE_CFF = 0.25           !   [nondim] default = 0.0
                                 ! The nondimensional coefficient in the Visbeck formula for the epipycnal tracer
                                 ! diffusivity
 USE_STORED_SLOPES = False       !   [Boolean] default = False
@@ -949,24 +980,34 @@ VERY_SMALL_FREQUENCY = 1.0E-17  !   [s-1] default = 1.0E-17
 USE_STANLEY_ISO = False         !   [Boolean] default = False
                                 ! If true, turn on Stanley SGS T variance parameterization in isopycnal slope
                                 ! code.
-MIXING_COEFS_OBC_BUG = True     !   [Boolean] default = True
+MIXING_COEFS_OBC_BUG = False    !   [Boolean] default = True
                                 ! If false, use only interior data for thickness weighting in lateral mixing
                                 ! coefficient calculations and to calculate stratification and other fields at
                                 ! open boundary condition faces.
+RESOLN_FUNCTION_OBC_BUG = False !   [Boolean] default = True
+                                ! If false, use only interior data for calculating the resolution functions at
+                                ! open boundary condition faces and vertices.
 KD_SMOOTH = 1.0E-06             !   [m2 s-1] default = 1.0E-06
                                 ! A diapycnal diffusivity that is used to interpolate more sensible values of T
                                 ! & S into thin layers.
-INTERNAL_WAVE_SPEED_TOL = 0.001 !   [nondim] default = 0.001
-                                ! The fractional tolerance for finding the wave speeds.
-INTERNAL_WAVE_SPEED_MIN = 0.0   !   [m s-1] default = 0.0
-                                ! A floor in the first mode speed below which 0 used instead.
-INTERNAL_WAVE_SPEED_BETTER_EST = True !   [Boolean] default = True
-                                ! If true, use a more robust estimate of the first mode wave speed as the
-                                ! starting point for iterations.
-EBT_REMAPPING_USE_OM4_SUBCELLS = False !   [Boolean] default = False
-                                ! If true, use the OM4 remapping-via-subcells algorithm for calculating EBT
-                                ! structure. See REMAPPING_USE_OM4_SUBCELLS for details. We recommend setting
-                                ! this option to false.
+USE_SIMPLER_EADY_GROWTH_RATE = False !   [Boolean] default = False
+                                ! If true, use a simpler method to calculate the Eady growth rate that avoids
+                                ! division by layer thickness. Recommended.
+VARMIX_KTOP = 2                 !   [nondim] default = 2
+                                ! The layer number at which to start vertical integration of S*N for purposes of
+                                ! finding the Eady growth rate.
+MIN_DZ_FOR_SLOPE_N2 = 1.0       !   [m] default = 1.0
+                                ! The minimum vertical distance to use in the denominator of the bouyancy
+                                ! frequency used in the slope calculation.
+FULL_DEPTH_EADY_GROWTH_RATE = False !   [Boolean] default = False
+                                ! If true, calculate the Eady growth rate based on average slope times
+                                ! stratification that includes contributions from sea-level changes in its
+                                ! denominator, rather than just the nominal depth of the bathymetry.  This only
+                                ! applies when using the model interface heights as a proxy for isopycnal
+                                ! slopes.
+VISBECK_L_SCALE = 0.0           !   [m or nondim] default = 0.0
+                                ! The fixed length scale in the Visbeck formula, or if negative a nondimensional
+                                ! scaling factor relating this length scale squared to the cell areas.
 USE_QG_LEITH_GM = False         !   [Boolean] default = False
                                 ! If true, use the QG Leith viscosity as the GM coefficient.
 
@@ -1005,7 +1046,7 @@ BBL_USE_TIDAL_BG = False        !   [Boolean] default = False
                                 ! Flag to use the tidal RMS amplitude in place of constant background velocity
                                 ! for computing u* in the BBL. This flag is only used when BOTTOMDRAGLAW is true
                                 ! and LINEAR_DRAG is false.
-DRAG_BG_VEL = 0.001             !   [m s-1] default = 0.0
+DRAG_BG_VEL = 0.1               !   [m s-1] default = 0.0
                                 ! DRAG_BG_VEL is either the assumed bottom velocity (with LINEAR_DRAG) or an
                                 ! unresolved  velocity that is combined with the resolved velocity to estimate
                                 ! the velocity magnitude.  DRAG_BG_VEL is only used when BOTTOMDRAGLAW is
@@ -1025,12 +1066,12 @@ HTBL_SHELF_MIN = 0.1            !   [m] default = 0.1
 HTBL_SHELF = 10.0               !   [m] default = 10.0
                                 ! The thickness over which near-surface velocities are averaged for the drag law
                                 ! under an ice shelf.  By default this is the same as HBBL
-KV = 1.0E-05                    !   [m2 s-1]
+KV = 1.0E-06                    !   [m2 s-1]
                                 ! The background kinematic viscosity in the interior. The molecular value, ~1e-6
                                 ! m2 s-1, may be used.
-KV_BBL_MIN = 1.0E-05            !   [m2 s-1] default = 1.0E-05
+KV_BBL_MIN = 1.0E-06            !   [m2 s-1] default = 1.0E-06
                                 ! The minimum viscosities in the bottom boundary layer.
-KV_TBL_MIN = 1.0E-05            !   [m2 s-1] default = 1.0E-05
+KV_TBL_MIN = 1.0E-06            !   [m2 s-1] default = 1.0E-06
                                 ! The minimum viscosities in the top boundary layer.
 CORRECT_BBL_BOUNDS = False      !   [Boolean] default = False
                                 ! If true, uses the correct bounds on the BBL thickness and viscosity so that
@@ -1106,6 +1147,8 @@ TIDES = False                   !   [Boolean] default = False
                                 ! If true, apply tidal momentum forcing.
 CALCULATE_SAL = False           !   [Boolean] default = False
                                 ! If true, calculate self-attraction and loading.
+USE_HA = False                  !   [Boolean] default = False
+                                ! If true, perform inline harmonic analysis.
 BE = 0.6                        !   [nondim] default = 0.6
                                 ! If SPLIT is true, BE determines the relative weighting of a  2nd-order
                                 ! Runga-Kutta baroclinic time stepping scheme (0.5) and a backward Euler scheme
@@ -1125,18 +1168,23 @@ SPLIT_BOTTOM_STRESS = False     !   [Boolean] default = False
 BT_USE_LAYER_FLUXES = True      !   [Boolean] default = True
                                 ! If true, use the summed layered fluxes plus an adjustment due to the change in
                                 ! the barotropic velocity in the barotropic continuity equation.
+BT_ADJ_CORR_MASS_SRC = True     !   [Boolean] default = True
+                                ! If true, recalculates the barotropic mass source after predictor step. This
+                                ! should make little difference in the deep ocean but appears to help for
+                                ! vanished layers. If false, uses the same mass source as from the predictor
+                                ! step.
 STORE_CORIOLIS_ACCEL = True     !   [Boolean] default = True
                                 ! If true, calculate the Coriolis accelerations at the end of each timestep for
                                 ! use in the predictor step of the next split RK2 timestep.
 FPMIX = False                   !   [Boolean] default = False
                                 ! If true, add non-local momentum flux increments and diffuse down the Eulerian
                                 ! gradient.
-VISC_REM_BUG = True             !   [Boolean] default = True
+VISC_REM_BUG = False            !   [Boolean] default = False
                                 ! If true, visc_rem_[uv] in split mode is incorrectly calculated or accounted
                                 ! for in two places. This parameter controls the defaults of two individual
                                 ! flags, VISC_REM_TIMESTEP_BUG in MOM_dynamics_split_RK2(b) and
                                 ! VISC_REM_BT_WEIGHT_BUG in MOM_barotropic.
-VISC_REM_TIMESTEP_BUG = True    !   [Boolean] default = True
+VISC_REM_TIMESTEP_BUG = False   !   [Boolean] default = False
                                 ! If true, recover a bug that uses dt_pred rather than dt in vertvisc_remnant()
                                 ! at the end of predictor stage for the following continuity() and btstep()
                                 ! calls in the corrector step. Default of this flag is set by VISC_REM_BUG
@@ -1161,7 +1209,7 @@ ETA_TOLERANCE = 1.0E-06         !   [m] default = 3.75E-09
                                 ! total tolerance for SSH is 4 times this value.  The default is
                                 ! 0.5*NK*ANGSTROM, and this should not be set less than about
                                 ! 10^-15*MAXIMUM_DEPTH.
-VELOCITY_TOLERANCE = 3.0E+08    !   [m s-1] default = 3.0E+08
+VELOCITY_TOLERANCE = 1.0E-04    !   [m s-1] default = 3.0E+08
                                 ! The tolerance for barotropic velocity discrepancies between the barotropic
                                 ! solution and  the sum of the layer thicknesses.
 CONT_PPM_AGGRESS_ADJUST = False !   [Boolean] default = False
@@ -1201,6 +1249,9 @@ CORIOLIS_SCHEME = "SADOURNY75_ENSTRO" ! default = "SADOURNY75_ENERGY"
                                 !    ARAKAWA_LAMB81    - Arakawa & Lamb, 1981; En. + Enst.
                                 !    ARAKAWA_LAMB_BLEND - A blend of Arakawa & Lamb with
                                 !                         Arakawa & Hsu and Sadourny energy
+                                !    WENOVI5TH_PV_ENSTRO   - 5th-order WENO PV enstrophy
+                                !    WENOVI3RD_PV_ENSTRO   - 3rd-order WENO PV enstrophy
+                                !    WENOVI7TH_PV_ENSTRO  - 7th-order WENO PV enstrophy
 BOUND_CORIOLIS = True           !   [Boolean] default = False
                                 ! If true, the Coriolis terms at u-points are bounded by the four estimates of
                                 ! (f+rv)v from the four neighboring v-points, and similarly at v-points.  This
@@ -1209,7 +1260,7 @@ BOUND_CORIOLIS = True           !   [Boolean] default = False
 KE_SCHEME = "KE_ARAKAWA"        ! default = "KE_ARAKAWA"
                                 ! KE_SCHEME selects the discretization for acceleration due to the kinetic
                                 ! energy gradient. Valid values are:
-                                !    KE_ARAKAWA, KE_SIMPLE_GUDONOV, KE_GUDONOV
+                                !    KE_ARAKAWA, KE_SIMPLE_GUDONOV, KE_GUDONOV, KE_UP3
 PV_ADV_SCHEME = "PV_ADV_CENTERED" ! default = "PV_ADV_CENTERED"
                                 ! PV_ADV_SCHEME selects the discretization for PV advection. Valid values are:
                                 !    PV_ADV_CENTERED - centered (aka Sadourny, 75)
@@ -1227,7 +1278,7 @@ RHO_PGF_REF = 1035.0            !   [kg m-3] default = 1035.0
                                 ! The reference density that is subtracted off when calculating pressure
                                 ! gradient forces.  Its inverse is subtracted off of specific volumes when in
                                 ! non-Boussinesq mode.  The default is RHO_0.
-RHO_PGF_REF_BUG = True          !   [Boolean] default = True
+RHO_PGF_REF_BUG = False         !   [Boolean] default = True
                                 ! If true, recover a bug that RHO_0 (the mean seawater density in Boussinesq
                                 ! mode) and RHO_PGF_REF (the subtracted reference density in finite volume
                                 ! pressure gradient forces) are incorrectly interchanged in several instances in
@@ -1240,7 +1291,7 @@ SSH_IN_EOS_PRESSURE_FOR_PGF = False !   [Boolean] default = False
 MASS_WEIGHT_IN_PRESSURE_GRADIENT = True !   [Boolean] default = False
                                 ! If true, use mass weighting when interpolating T/S for integrals near the
                                 ! bathymetry in FV pressure gradient calculations.
-MASS_WEIGHT_IN_PRESSURE_GRADIENT_TOP = False !   [Boolean] default = False
+MASS_WEIGHT_IN_PRESSURE_GRADIENT_TOP = True !   [Boolean] default = True
                                 ! If true and MASS_WEIGHT_IN_PRESSURE_GRADIENT is true, use mass weighting when
                                 ! interpolating T/S for integrals near the top of the water column in FV
                                 ! pressure gradient calculations.
@@ -1281,17 +1332,45 @@ USE_ZB2020 = False              !   [Boolean] default = False
                                 ! mesoscale eddies.
 
 ! === module MOM_hor_visc ===
+USE_CIRCULATION_IN_HORVISC = False !   [Boolean] default = False
+                                ! Use circulation theorem to compute vorticity in horvisc module (for ZB20 or
+                                ! Leith)
 USE_CONT_THICKNESS = False      !   [Boolean] default = False
                                 ! If true, use thickness at velocity points from continuity solver. This option
                                 ! currently only works with split mode.
-LAPLACIAN = False               !   [Boolean] default = False
+LAPLACIAN = True                !   [Boolean] default = False
                                 ! If true, use a Laplacian horizontal viscosity.
+KH = 0.0                        !   [m2 s-1] default = 0.0
+                                ! The background Laplacian horizontal viscosity.
+KH_BG_MIN = 0.0                 !   [m2 s-1] default = 0.0
+                                ! The minimum value allowed for Laplacian horizontal viscosity, KH.
+KH_VEL_SCALE = 0.01             !   [m s-1] default = 0.0
+                                ! The velocity scale which is multiplied by the grid spacing to calculate the
+                                ! Laplacian viscosity. The final viscosity is the largest of this scaled
+                                ! viscosity, the Smagorinsky and Leith viscosities, and KH.
+KH_SIN_LAT = 0.0                !   [m2 s-1] default = 0.0
+                                ! The amplitude of a latitudinally-dependent background viscosity of the form
+                                ! KH_SIN_LAT*(SIN(LAT)**KH_PWR_OF_SINE).
+SMAGORINSKY_KH = False          !   [Boolean] default = False
+                                ! If true, use a Smagorinsky nonlinear eddy viscosity.
+LEITH_KH = False                !   [Boolean] default = False
+                                ! If true, use a Leith nonlinear eddy viscosity.
+BOUND_KH = True                 !   [Boolean] default = True
+                                ! If true, the Laplacian coefficient is locally limited to be stable.
+EY24_EBT_BS = False             !   [Boolean] default = False
+                                ! If true, use the the backscatter scheme (EBT mode with kill switch)developed
+                                ! by Yankovsky et al. (2024).
+ANISOTROPIC_VISCOSITY = False   !   [Boolean] default = False
+                                ! If true, allow anistropic viscosity in the Laplacian horizontal viscosity.
+ADD_LES_VISCOSITY = False       !   [Boolean] default = False
+                                ! If true, adds the viscosity from Smagorinsky and Leith to the background
+                                ! viscosity instead of taking the maximum.
 BIHARMONIC = True               !   [Boolean] default = True
                                 ! If true, use a biharmonic horizontal viscosity. BIHARMONIC may be used with
                                 ! LAPLACIAN.
 AH = 0.0                        !   [m4 s-1] default = 0.0
                                 ! The background biharmonic horizontal viscosity.
-AH_VEL_SCALE = 0.0              !   [m s-1] default = 0.0
+AH_VEL_SCALE = 0.01             !   [m s-1] default = 0.0
                                 ! The velocity scale which is multiplied by the cube of the grid spacing to
                                 ! calculate the biharmonic viscosity. The final viscosity is the largest of this
                                 ! scaled viscosity, the Smagorinsky and Leith viscosities, and AH.
@@ -1308,12 +1387,16 @@ USE_LEITHY = False              !   [Boolean] default = False
                                 ! harmonic backscatter.
 BOUND_AH = True                 !   [Boolean] default = True
                                 ! If true, the biharmonic coefficient is locally limited to be stable.
-BETTER_BOUND_AH = True          !   [Boolean] default = True
-                                ! If true, the biharmonic coefficient is locally limited to be stable with a
-                                ! better bounding than just BOUND_AH.
 RE_AH = 0.0                     !   [nondim] default = 0.0
                                 ! If nonzero, the biharmonic coefficient is scaled so that the biharmonic
                                 ! Reynolds number is equal to this.
+BACKSCATTER_UNDERBOUND = False  !   [Boolean] default = False
+                                ! If true, the bounds on the biharmonic viscosity are allowed to increase where
+                                ! the Laplacian viscosity is negative (due to backscatter parameterizations)
+                                ! beyond the largest timestep-dependent stable values of biharmonic viscosity
+                                ! when no Laplacian viscosity is applied.  The default is true for historical
+                                ! reasons, but this option probably should not be used because it can contribute
+                                ! to numerical instabilities.
 SMAG_BI_CONST = 0.06            !   [nondim] default = 0.0
                                 ! The nondimensional biharmonic Smagorinsky constant, typically 0.015 - 0.06.
 BOUND_CORIOLIS_BIHARM = True    !   [Boolean] default = True
@@ -1333,7 +1416,10 @@ USE_LAND_MASK_FOR_HVISC = True  !   [Boolean] default = True
 HORVISC_BOUND_COEF = 0.8        !   [nondim] default = 0.8
                                 ! The nondimensional coefficient of the ratio of the viscosity bounds to the
                                 ! theoretical maximum for stability without considering other terms.
-FRICTWORK_BUG = True            !   [Boolean] default = True
+USE_KH_BG_2D = False            !   [Boolean] default = False
+                                ! If true, read a file containing 2-d background harmonic viscosities. The final
+                                ! viscosity is the maximum of the other terms and this background value.
+FRICTWORK_BUG = False           !   [Boolean] default = False
                                 ! If true, retain an answer-changing bug in calculating the FrictWork, which
                                 ! cancels the h in thickness flux and the h at velocity point. This isnot
                                 ! recommended.
@@ -1381,17 +1467,13 @@ KV_ML_INVZ2 = 0.0               !   [m2 s-1] default = 0.0
                                 ! from the surface, to allow for finite wind stresses to be transmitted through
                                 ! infinitesimally thin surface layers.  This is an older option for numerical
                                 ! convenience without a strong physical basis, and its use is now discouraged.
-MAXVEL = 6.0                    !   [m s-1] default = 3.0E+08
-                                ! The maximum velocity allowed before the velocity components are truncated.
-CFL_BASED_TRUNCATIONS = True    !   [Boolean] default = True
-                                ! If true, base truncations on the CFL number, and not an absolute speed.
 CFL_TRUNCATE = 0.5              !   [nondim] default = 0.5
                                 ! The value of the CFL number that will cause velocity components to be
                                 ! truncated; instability can occur past 0.5.
 CFL_REPORT = 0.5                !   [nondim] default = 0.5
                                 ! The value of the CFL number that causes accelerations to be reported; the
                                 ! default is CFL_TRUNCATE.
-CFL_TRUNCATE_RAMP_TIME = 0.0    !   [s] default = 0.0
+CFL_TRUNCATE_RAMP_TIME = 7200.0 !   [s] default = 0.0
                                 ! The time over which the CFL truncation value is ramped up at the beginning of
                                 ! the run.
 CFL_TRUNCATE_START = 0.0        !   [nondim] default = 0.0
@@ -1463,7 +1545,7 @@ BAROTROPIC_ANSWER_DATE = 99991231 ! default = 99991231
                                 ! The vintage of the expressions in the barotropic solver. Values below 20190101
                                 ! recover the answers from the end of 2018, while higher values use more
                                 ! efficient or general expressions.
-VISC_REM_BT_WEIGHT_BUG = True   !   [Boolean] default = True
+VISC_REM_BT_WEIGHT_BUG = False  !   [Boolean] default = False
                                 ! If true, recover a bug in barotropic solver that uses an unnormalized weight
                                 ! function for vertical averages of baroclinic velocity and forcing. Default of
                                 ! this flag is set by VISC_REM_BUG.
@@ -1535,6 +1617,11 @@ DTBT = -0.9                     !   [s or nondim] default = -0.98
 BT_USE_OLD_CORIOLIS_BRACKET_BUG = False !   [Boolean] default = False
                                 ! If True, use an order of operations that is not bitwise rotationally symmetric
                                 ! in the meridional Coriolis term of the barotropic solver.
+MASK_COASTAL_PRESSURE_FORCE = False !   [Boolean] default = False
+                                ! If true, use the land masks to zero out the diagnosed barotropic pressure
+                                ! gradient accelerations at coastal or land points.  This changes diagnostics
+                                ! and improves the reproducibility of certain debugging checksums, but it does
+                                ! not alter the solutions themselves.
 
 ! === module MOM_mixed_layer_restrat ===
 MIXEDLAYER_RESTRAT = True       !   [Boolean] default = False
@@ -1542,57 +1629,68 @@ MIXEDLAYER_RESTRAT = True       !   [Boolean] default = False
                                 ! mixed layer. Can be used in ALE mode without restriction but in layer mode can
                                 ! only be used if BULKMIXEDLAYER is true.
 MLE%
-USE_BODNER23 = False            !   [Boolean] default = False
+USE_BODNER23 = True             !   [Boolean] default = False
                                 ! If true, use the Bodner et al., 2023, formulation of the re-stratifying
                                 ! mixed-layer restratification parameterization. This only works in ALE mode.
-%MLE
-FOX_KEMPER_ML_RESTRAT_COEF = 1.0 !   [nondim] default = 0.0
-                                ! A nondimensional coefficient that is proportional to the ratio of the
-                                ! deformation radius to the dominant lengthscale of the submesoscale mixed layer
-                                ! instabilities, times the minimum of the ratio of the mesoscale eddy kinetic
-                                ! energy to the large-scale geostrophic kinetic energy or 1 plus the square of
-                                ! the grid spacing over the deformation radius, as detailed by Fox-Kemper et al.
-                                ! (2011)
-USE_STANLEY_ML = False          !   [Boolean] default = False
+CR = 0.0175                     !   [nondim] default = 0.0
+                                ! The efficiency coefficient in eq 27 of Bodner et al., 2023.
+BODNER_NSTAR = 0.066            !   [nondim] default = 0.066
+                                ! The n* value used to estimate the turbulent vertical momentum flux in Bodner
+                                ! et al., 2023, eq. 18. This is independent of the value used in the PBL scheme
+                                ! but should be set to be the same for consistency.
+BODNER_MSTAR = 0.5              !   [nondim] default = 0.5
+                                ! The m* value used to estimate the turbulent vertical momentum flux in Bodner
+                                ! et al., 2023, eq. 18. This is independent of the value used in the PBL scheme
+                                ! but should be set to be the same for consistency.
+BLD_GROWING_TFILTER = 0.0       !   [s] default = 0.0
+                                ! The time-scale for a running-mean filter applied to the boundary layer depth
+                                ! (BLD) when the BLD is deeper than the running mean. A value of 0
+                                ! instantaneously sets the running mean to the current value of BLD.
+BLD_DECAYING_TFILTER = 8.64E+04 !   [s] default = 0.0
+                                ! The time-scale for a running-mean filter applied to the boundary layer depth
+                                ! (BLD) when the BLD is shallower than the running mean. A value of 0
+                                ! instantaneously sets the running mean to the current value of BLD.
+MLD_GROWING_TFILTER = 0.0       !   [s] default = 0.0
+                                ! The time-scale for a running-mean filter applied to the time-filtered BLD,
+                                ! when the latter is deeper than the running mean. A value of 0 instantaneously
+                                ! sets the running mean to the current value filtered BLD.
+MLD_DECAYING_TFILTER = 2.592E+06 !   [s] default = 0.0
+                                ! The time-scale for a running-mean filter applied to the time-filtered BLD,
+                                ! when the latter is shallower than the running mean. A value of 0
+                                ! instantaneously sets the running mean to the current value filtered BLD.
+ML_RESTRAT_ANSWER_DATE = 99991231 ! default = 99991231
+                                ! The vintage of the order of arithmetic and expressions in the mixed layer
+                                ! restrat calculations.  Values below 20240201 recover the answers from the end
+                                ! of 2023, while higher values use the new cuberoot function in the Bodner code
+                                ! to avoid needing to undo dimensional rescaling.
+BODNER_HMIN_BUG = False         !   [Boolean] default = True
+                                ! If true, recover a bug where layer thicknesses in the Bodner et al. mixed
+                                ! layer restratification are not clamped at a minimum value and can therefore go
+                                ! negative.
+MIN_WSTAR2 = 1.0E-09            !   [m2 s-2] default = 1.0E-24
+                                ! The minimum lower bound to apply to the vertical momentum flux, w'u', in the
+                                ! Bodner et al., restratification parameterization. This avoids a
+                                ! division-by-zero in the limit when u* and the buoyancy flux are zero.  The
+                                ! default is less than the molecular viscosity of water times the Coriolis
+                                ! parameter a micron away from the equator.
+TAIL_DH = 0.0                   !   [nondim] default = 0.0
+                                ! Fraction by which to extend the mixed-layer restratification depth used for a
+                                ! smoother stream function at the base of the mixed-layer.
+USE_STANLEY_TVAR = False        !   [Boolean] default = False
                                 ! If true, turn on Stanley SGS T variance parameterization in ML restrat code.
-FOX_KEMPER_ML_RESTRAT_COEF2 = 0.0 !   [nondim] default = 0.0
-                                ! As for FOX_KEMPER_ML_RESTRAT_COEF but used in a second application of the MLE
-                                ! restratification parameterization.
-MLE_FRONT_LENGTH = 5000.0       !   [m] default = 0.0
-                                ! If non-zero, is the frontal-length scale used to calculate the upscaling of
-                                ! buoyancy gradients that is otherwise represented by the parameter
-                                ! FOX_KEMPER_ML_RESTRAT_COEF. If MLE_FRONT_LENGTH is non-zero, it is recommended
-                                ! to set FOX_KEMPER_ML_RESTRAT_COEF=1.0.
-MLE_FRONT_LENGTH_FROM_FILE = False !   [Boolean] default = False
-                                ! If true, the MLE front-length scale is read from a file.
+USE_CR_GRID = False             !   [Boolean] default = False
+                                ! If true, read in a spatially varying Cr field.
+USE_MLD_GRID = False            !   [Boolean] default = False
+                                ! If true, read in a spatially varying MLD_decaying_Tfilt field.
+%MLE
 MLE_USE_PBL_MLD = True          !   [Boolean] default = False
                                 ! If true, the MLE parameterization will use the mixed-layer depth provided by
                                 ! the active PBL parameterization. If false, MLE will estimate a MLD based on a
-                                ! density difference with the surface using the parameter MLE_DENSITY_DIFF.
-MLE_MLD_DECAY_TIME = 2.592E+06  !   [s] default = 0.0
-                                ! The time-scale for a running-mean filter applied to the mixed-layer depth used
-                                ! in the MLE restratification parameterization. When the MLD deepens below the
-                                ! current running-mean the running-mean is instantaneously set to the current
-                                ! MLD.
-MLE_MLD_DECAY_TIME2 = 0.0       !   [s] default = 0.0
-                                ! The time-scale for a running-mean filter applied to the filtered mixed-layer
-                                ! depth used in a second MLE restratification parameterization. When the MLD
-                                ! deepens below the current running-mean the running-mean is instantaneously set
-                                ! to the current MLD.
-MLE_TAIL_DH = 0.0               !   [nondim] default = 0.0
-                                ! Fraction by which to extend the mixed-layer restratification depth used for a
-                                ! smoother stream function at the base of the mixed-layer.
-MLE_MLD_STRETCH = 1.0           !   [nondim] default = 1.0
-                                ! A scaling coefficient for stretching/shrinking the MLD used in the MLE scheme.
-                                ! This simply multiplies MLD wherever used.
-KV_RESTRAT = 0.0                !   [m2 s-1] default = 0.0
-                                ! A small viscosity that sets a floor on the momentum mixing rate during
-                                ! restratification.  If this is positive, it will prevent some possible
-                                ! divisions by zero even if ustar, RESTRAT_USTAR_MIN, and f are all 0.
-RESTRAT_USTAR_MIN = 1.45842E-18 !   [m s-1] default = 1.45842E-18
-                                ! The minimum value of ustar that will be used by the mixed layer
-                                ! restratification module.  This can be tiny, but if this is greater than 0, it
-                                ! will prevent divisions by zero when f and KV_RESTRAT are zero.
+                                ! density difference with the surface using the parameter MLE_DENSITY_DIFF,
+                                ! unless BODNER_DETECT_MLD is true.
+BODNER_DETECT_MLD = False       !   [Boolean] default = False
+                                ! If true, the Bodner parameterization will use the mixed-layer depth detected
+                                ! via the density difference criterion MLE_DENSITY_DIFF.
 
 ! === module MOM_diagnostics ===
 DIAG_EBT_MONO_N2_COLUMN_FRACTION = 0.0 !   [nondim] default = 0.0
@@ -1601,6 +1699,13 @@ DIAG_EBT_MONO_N2_COLUMN_FRACTION = 0.0 !   [nondim] default = 0.0
 DIAG_EBT_MONO_N2_DEPTH = -1.0   !   [m] default = -1.0
                                 ! The depth below which N2 is limited as monotonic for the purposes of
                                 ! calculating the equivalent barotropic wave speed.
+INTERNAL_WAVE_SPEED_TOL = 0.001 !   [nondim] default = 0.001
+                                ! The fractional tolerance for finding the wave speeds.
+INTERNAL_WAVE_SPEED_MIN = 0.0   !   [m s-1] default = 0.0
+                                ! A floor in the first mode speed below which 0 used instead.
+INTERNAL_WAVE_SPEED_BETTER_EST = True !   [Boolean] default = True
+                                ! If true, use a more robust estimate of the first mode wave speed as the
+                                ! starting point for iterations.
 INTWAVE_REMAPPING_USE_OM4_SUBCELLS = False !   [Boolean] default = False
                                 ! If true, use the OM4 remapping-via-subcells algorithm for calculating EBT
                                 ! structure. See REMAPPING_USE_OM4_SUBCELLS for details. We recommend setting
@@ -1608,7 +1713,7 @@ INTWAVE_REMAPPING_USE_OM4_SUBCELLS = False !   [Boolean] default = False
 
 ! === module MOM_diabatic_driver ===
 ! The following parameters are used for diabatic processes.
-USE_LEGACY_DIABATIC_DRIVER = True !   [Boolean] default = True
+USE_LEGACY_DIABATIC_DRIVER = False !   [Boolean] default = True
                                 ! If true, use a legacy version of the diabatic subroutine. This is temporary
                                 ! and is needed to avoid change in answers.
 ENERGETICS_SFC_PBL = True       !   [Boolean] default = False
@@ -1639,7 +1744,7 @@ MIX_BOUNDARY_TRACERS = True     !   [Boolean] default = True
 MIX_BOUNDARY_TRACER_ALE = False !   [Boolean] default = False
                                 ! If true and in ALE mode, mix the passive tracers in massless layers at the
                                 ! bottom into the interior as though a diffusivity of KD_MIN_TR were operating.
-KD_MIN_TR = 1.0E-06             !   [m2 s-1] default = 1.0E-06
+KD_MIN_TR = 1.5E-06             !   [m2 s-1] default = 1.5E-06
                                 ! A minimal diffusivity that should always be applied to tracers, especially in
                                 ! massless layers near the bottom. The default is 0.1*KD.
 KD_BBL_TR = 0.0                 !   [m2 s-1] default = 0.0
@@ -1660,9 +1765,9 @@ EVAP_CFL_LIMIT = 0.8            !   [nondim] default = 0.8
 MLD_EN_VALS = 25.0, 2500.0, 2.5E+05 !   [J/m2] default = 25.0, 2500.0, 2.5E+05
                                 ! The energy values used to compute MLDs.  If not set (or all set to 0.), the
                                 ! default will overwrite to 25., 2500., 250000.
-HREF_FOR_MLD = 0.0              !   [m] default = 0.0
-                                ! Reference depth used to calculate the potential density used to find the mixed
-                                ! layer depth based on a delta rho = 0.03 kg/m3.
+BMLD_EN_VALS = 25.0, 2500.0, 2.5E+05 !   [J/m2] default = 25.0, 2500.0, 2.5E+05
+                                ! The energy values used to compute Bottom MLDs.  If not set (or all set to 0.),
+                                ! the default will overwrite to 25., 2500., 250000.
 DIAG_MLD_DENSITY_DIFF = 0.1     !   [kg/m3] default = 0.1
                                 ! The density difference used to determine a diagnostic mixed layer depth,
                                 ! MLD_user, following the definition of Levitus 1982. The MLD is the depth at
@@ -1715,31 +1820,33 @@ BBL_MIXING_MAX_DECAY = 200.0    !   [m] default = 200.0
                                 ! The maximum decay scale for the BBL diffusion, or 0 to allow the mixing to
                                 ! penetrate as far as stratification and rotation permit.  The default for now
                                 ! is 200 m. This is only used if BOTTOMDRAGLAW is true.
-BBL_MIXING_AS_MAX = True        !   [Boolean] default = True
+BBL_MIXING_AS_MAX = False       !   [Boolean] default = True
                                 ! If true, take the maximum of the diffusivity from the BBL mixing and the other
                                 ! diffusivities. Otherwise, diffusivity from the BBL_mixing is simply added.
-USE_LOTW_BBL_DIFFUSIVITY = False !   [Boolean] default = False
+USE_LOTW_BBL_DIFFUSIVITY = True !   [Boolean] default = False
                                 ! If true, uses a simple, imprecise but non-coordinate dependent, model of BBL
                                 ! mixing diffusivity based on Law of the Wall. Otherwise, uses the original BBL
                                 ! scheme.
-DRAG_DIFFUSIVITY_ANSWER_DATE = 20250101 ! default = 20250101
-                                ! The vintage of the order of arithmetic in the drag diffusivity calculations.
-                                ! Values above 20250301 use less confusing expressions to set the bottom-drag
-                                ! generated diffusivity when USE_LOTW_BBL_DIFFUSIVITY is false.
+LOTW_BBL_USE_OMEGA = True       !   [Boolean] default = True
+                                ! If true, use the maximum of Omega and N for the TKE to diffusion calculation.
+                                ! Otherwise, N is N.
+VON_KARMAN_BBL = 0.41           !   [nondim] default = 0.41
+                                ! The value the von Karman constant as used in calculating the BBL diffusivity.
+LOTW_BBL_ANSWER_DATE = 99991231 ! default = 99991231
+                                ! The vintage of the order of arithmetic and expressions in the LOTW_BBL
+                                ! calculations.  Values below 20240630 recover the original answers, while
+                                ! higher values use more accurate expressions.  This only applies when
+                                ! USE_LOTW_BBL_DIFFUSIVITY is true.
 DZ_BBL_AVG_MIN = 0.0            !   [m] default = 0.0
                                 ! A minimal distance over which to average to determine the average bottom
                                 ! boundary layer density.
-SIMPLE_TKE_TO_KD = False        !   [Boolean] default = False
-                                ! If true, uses a simple estimate of Kd/TKE that will work for arbitrary
-                                ! vertical coordinates. If false, calculates Kd/TKE and bounds based on exact
-                                ! energetics for an isopycnal layer-formulation.
 
 ! === module MOM_bkgnd_mixing ===
 ! Adding static vertical background mixing coefficients
-KD = 1.0E-05                    !   [m2 s-1] default = 0.0
+KD = 1.5E-05                    !   [m2 s-1] default = 0.0
                                 ! The background diapycnal diffusivity of density in the interior. Zero or the
                                 ! molecular value, ~1e-7 m2 s-1, may be used.
-KD_MIN = 1.0E-07                !   [m2 s-1] default = 1.0E-07
+KD_MIN = 2.0E-06                !   [m2 s-1] default = 1.5E-07
                                 ! The minimum diapycnal diffusivity.
 BRYAN_LEWIS_DIFFUSIVITY = False !   [Boolean] default = False
                                 ! If true, use a Bryan & Lewis (JGR 1979) like tanh profile of background
@@ -1756,14 +1863,14 @@ HENYEY_IGW_BACKGROUND = True    !   [Boolean] default = False
 HENYEY_N0_2OMEGA = 20.0         !   [nondim] default = 20.0
                                 ! The ratio of the typical Buoyancy frequency to twice the Earth's rotation
                                 ! period, used with the Henyey scaling from the mixing.
-HENYEY_MAX_LAT = 95.0           !   [degN] default = 95.0
+HENYEY_MAX_LAT = 73.0           !   [degN] default = 95.0
                                 ! A latitude poleward of which the Henyey profile is returned to the minimum
                                 ! diffusivity
 KD_TANH_LAT_FN = False          !   [Boolean] default = False
                                 ! If true, use a tanh dependence of Kd_sfc on latitude, like CM2.1/CM2M.  There
                                 ! is no physical justification for this form, and it can not be used with
                                 ! HENYEY_IGW_BACKGROUND.
-KD_MAX = -1.0                   !   [m2 s-1] default = -1.0
+KD_MAX = 0.1                    !   [m2 s-1] default = -1.0
                                 ! The maximum permitted increment for the diapycnal diffusivity from TKE-based
                                 ! parameterizations, or a negative value for no limit.
 KD_ADD = 0.0                    !   [m2 s-1] default = 0.0
@@ -1783,18 +1890,36 @@ DISSIPATION_N1 = 0.0            !   [J m-3] default = 0.0
                                 ! = A + B*N
 DISSIPATION_KD_MIN = 0.0        !   [m2 s-1] default = 0.0
                                 ! The minimum vertical diffusivity applied as a floor.
-DOUBLE_DIFFUSION = False        !   [Boolean] default = False
+DOUBLE_DIFFUSION = True         !   [Boolean] default = False
                                 ! If true, increase diffusivites for temperature or salinity based on the
                                 ! double-diffusive parameterization described in Large et al. (1994).
+MAX_RRHO_SALT_FINGERS = 2.55    !   [nondim] default = 1.9
+                                ! Maximum density ratio for salt fingering regime.
+MAX_SALT_DIFF_SALT_FINGERS = 1.0E-04 !   [m2 s-1] default = 1.0E-04
+                                ! Maximum salt diffusivity for salt fingering regime.
+KV_MOLECULAR = 1.5E-06          !   [m2 s-1] default = 1.5E-06
+                                ! Molecular viscosity for calculation of fluxes under double-diffusive
+                                ! convection.
 
 ! === module MOM_kappa_shear ===
 ! Parameterization of shear-driven turbulence following Jackson, Hallberg and Legg, JPO 2008
 USE_JACKSON_PARAM = True        !   [Boolean] default = False
                                 ! If true, use the Jackson-Hallberg-Legg (JPO 2008) shear mixing
                                 ! parameterization.
-VERTEX_SHEAR = False            !   [Boolean] default = False
+VERTEX_SHEAR = True             !   [Boolean] default = False
                                 ! If true, do the calculations of the shear-driven mixing at the cell vertices
                                 ! (i.e., the vorticity points).
+VERTEX_SHEAR_VISCOSITY_BUG = False !   [Boolean] default = True
+                                ! If true, use a bug in vertex shear that zeros out viscosities at vertices on
+                                ! coastlines.
+VERTEX_SHEAR_OBC_BUG = False    !   [Boolean] default = True
+                                ! If false, use extra masking when interpolating thicknesses to velocity points
+                                ! for setting up the shear velocities at vertices to avoid using external
+                                ! thicknesses at open boundaries.  When OBCs are not in use, this parameter does
+                                ! not change answers, but true is more efficient.
+VERTEX_SHEAR_GEOMETRIC_MEAN = False !   [Boolean] default = False
+                                ! If true, use a geometric mean for moving diffusivity from vertices to tracer
+                                ! points.  False uses algebraic mean.
 VERTEX_SHEAR_THICKNESS_MEAN = False !   [Boolean] default = False
                                 ! If true, apply thickness weighting to horizontal averagings of diffusivity to
                                 ! tracer points in the kappa shear solver.
@@ -1803,10 +1928,10 @@ RINO_CRIT = 0.25                !   [nondim] default = 0.25
 SHEARMIX_RATE = 0.089           !   [nondim] default = 0.089
                                 ! A nondimensional rate scale for shear-driven entrainment. Jackson et al find
                                 ! values in the range of 0.085-0.089.
-MAX_RINO_IT = 50                !   [nondim] default = 50
+MAX_RINO_IT = 25                !   [nondim] default = 50
                                 ! The maximum number of iterations that may be used to estimate the Richardson
                                 ! number driven mixing.
-KD_KAPPA_SHEAR_0 = 1.0E-05      !   [m2 s-1] default = 1.0E-05
+KD_KAPPA_SHEAR_0 = 1.5E-05      !   [m2 s-1] default = 1.5E-05
                                 ! The background diffusivity that is used to smooth the density and shear
                                 ! profiles before solving for the diffusivities.  The default is the greater of
                                 ! KD and 1e-7 m2 s-1.
@@ -1814,7 +1939,7 @@ KD_SEED_KAPPA_SHEAR = 1.0       !   [m2 s-1] default = 1.0
                                 ! A moderately large seed value of diapycnal diffusivity that is used as a
                                 ! starting turbulent diffusivity in the iterations to find an energetically
                                 ! constrained solution for the shear-driven diffusivity.
-KD_TRUNC_KAPPA_SHEAR = 1.0E-07  !   [m2 s-1] default = 1.0E-07
+KD_TRUNC_KAPPA_SHEAR = 1.5E-07  !   [m2 s-1] default = 1.5E-07
                                 ! The value of shear-driven diffusivity that is considered negligible and is
                                 ! rounded down to 0. The default is 1% of KD_KAPPA_SHEAR_0.
 FRI_CURVATURE = -0.97           !   [nondim] default = -0.97
@@ -1852,13 +1977,17 @@ KAPPA_SHEAR_ELIM_MASSLESS = True !   [Boolean] default = True
 MAX_KAPPA_SHEAR_IT = 13         ! default = 13
                                 ! The maximum number of iterations that may be used to estimate the
                                 ! time-averaged diffusivity.
-PRANDTL_TURB = 1.25             !   [nondim] default = 1.0
+PRANDTL_TURB = 1.0              !   [nondim] default = 1.0
                                 ! The turbulent Prandtl number applied to shear instability.
 KAPPA_SHEAR_MAX_KAP_SRC_CHG = 10.0 !   [nondim] default = 10.0
                                 ! The maximum permitted increase in the kappa source within an iteration
                                 ! relative to the local source; this must be greater than 1.  The lower limit
                                 ! for the permitted fractional decrease is (1 - 0.5/kappa_src_max_chg).  These
                                 ! limits could perhaps be made dynamic with an improved iterative solver.
+KAPPA_SHEAR_VERTEX_PSURF_BUG = False !   [Boolean] default = False
+                                ! If true, do a simple average of the cell surface pressures to get a pressure
+                                ! at the corner if VERTEX_SHEAR=True.  Otherwise mask out any land points in the
+                                ! average.
 KAPPA_SHEAR_ITER_BUG = False    !   [Boolean] default = False
                                 ! If true, use an older, dimensionally inconsistent estimate of the derivative
                                 ! of diffusivity with energy in the Newton's method iteration.  The bug causes
@@ -1867,7 +1996,7 @@ KAPPA_SHEAR_ALL_LAYER_TKE_BUG = False !   [Boolean] default = False
                                 ! If true, report back the latest estimate of TKE instead of the time average
                                 ! TKE when there is mass in all layers.  Otherwise always report the time
                                 ! averaged TKE, as is currently done when there are some massless layers.
-USE_RESTRICTIVE_TOLERANCE_CHECK = False !   [Boolean] default = False
+USE_RESTRICTIVE_TOLERANCE_CHECK = True !   [Boolean] default = False
                                 ! If true, uses the more restrictive tolerance check to determine if a timestep
                                 ! is acceptable for the KS_it outer iteration loop.  False uses the original
                                 ! less restrictive check.
@@ -1951,35 +2080,22 @@ DIRECT_EPBL_MIXING_CALC = False !   [Boolean] default = False
                                 ! kinetic energy, use a direct calculation of the diffusivity that is supported
                                 ! by a given energy input instead of the more general but slower iterative
                                 ! solver.
-EPBL_MSTAR_SCHEME = "REICHL_H18" ! default = "CONSTANT"
+EPBL_MSTAR_SCHEME = "OM4"       ! default = "CONSTANT"
                                 ! EPBL_MSTAR_SCHEME selects the method for setting mstar.  Valid values are:
                                 !    CONSTANT   - Use a fixed mstar given by MSTAR
                                 !    OM4        - Use L_Ekman/L_Obukhov in the stabilizing limit, as in OM4
                                 !    REICHL_H18 - Use the scheme documented in Reichl & Hallberg, 2018.
-MSTAR_CAP = 10.0                !   [nondim] default = -1.0
+MSTAR_CAP = 1.25                !   [nondim] default = -1.0
                                 ! If this value is positive, it sets the maximum value of mstar allowed in ePBL.
-                                ! (This is not used if EPBL_MSTAR_SCHEME = CONSTANT).
-RH18_MSTAR_CN1 = 0.275          !   [nondim] default = 0.275
-                                ! MSTAR_N coefficient 1 (outer-most coefficient for fit). The value of 0.275 is
-                                ! given in RH18.  Increasing this coefficient increases MSTAR for all values of
-                                ! Hf/ust, but more effectively at low values (weakly developed OSBLs).
-RH18_MSTAR_CN2 = 8.0            !   [nondim] default = 8.0
-                                ! MSTAR_N coefficient 2 (coefficient outside of exponential decay). The value of
-                                ! 8.0 is given in RH18.  Increasing this coefficient increases MSTAR for all
-                                ! values of HF/ust, with a much more even effect across a wide range of Hf/ust
-                                ! than CN1.
-RH18_MSTAR_CN3 = -6.0           !   [nondim] default = -5.0
-                                ! MSTAR_N coefficient 3 (exponential decay coefficient). The value of -5.0 is
-                                ! given in RH18.  Increasing this increases how quickly the value of MSTAR
-                                ! decreases as Hf/ust increases.
-RH18_MSTAR_CS1 = 0.2            !   [nondim] default = 0.2
-                                ! MSTAR_S coefficient for RH18 in stabilizing limit. The value of 0.2 is given
-                                ! in RH18 and increasing it increases MSTAR in the presence of a stabilizing
-                                ! surface buoyancy flux.
-RH18_MSTAR_CS2 = 0.4            !   [nondim] default = 0.4
-                                ! MSTAR_S exponent for RH18 in stabilizing limit. The value of 0.4 is given in
-                                ! RH18 and increasing it increases MSTAR exponentially in the presence of a
-                                ! stabilizing surface buoyancy flux.
+                                ! (This is not used if EPBL_mstar_scheme = CONSTANT).
+MSTAR2_COEF1 = 0.29             !   [nondim] default = 0.3
+                                ! Coefficient in computing mstar when rotation and stabilizing effects are both
+                                ! important (used if EPBL_mstar_scheme = OM4).
+MSTAR2_COEF2 = 0.152            !   [nondim] default = 0.085
+                                ! Coefficient in computing mstar when only rotation limits the total mixing
+                                ! (used if EPBL_MSTAR_SCHEME = OM4)
+EPBL_BBL_USE_MSTAR = False      !   [nondim] default = False
+                                ! A logical to use mstar in the calculation of TKE in the ePBL BBL scheme
 NSTAR = 0.06                    !   [nondim] default = 0.2
                                 ! The portion of the buoyant potential energy imparted by surface fluxes that is
                                 ! available to drive entrainment at the base of mixed layer when that energy is
@@ -2005,7 +2121,7 @@ EPBL_MLD_BISECTION = False      !   [Boolean] default = False
                                 ! mixed layer depth.  Otherwise use the false position after a maximum and
                                 ! minimum bound have been evaluated and the returned value or bisection before
                                 ! this.
-EPBL_MLD_ITER_BUG = True        !   [Boolean] default = True
+EPBL_MLD_ITER_BUG = False       !   [Boolean] default = True
                                 ! If true, use buggy logic that gives the wrong bounds for the next iteration
                                 ! when successive guesses increase by exactly EPBL_MLD_TOLERANCE.
 EPBL_MLD_MAX_ITS = 20           ! default = 20
@@ -2064,10 +2180,10 @@ LT_MOD_LAC2 = 0.0               !   [nondim] default = 0.0
 LT_MOD_LAC3 = 0.0               !   [nondim] default = 0.0
                                 ! Coefficient for modification of Langmuir number due to MLD approaching
                                 ! unstable Obukhov depth.
-LT_MOD_LAC4 = 0.95              !   [nondim] default = 0.95
+LT_MOD_LAC4 = 0.0               !   [nondim] default = 0.95
                                 ! Coefficient for modification of Langmuir number due to ratio of Ekman to
                                 ! stable Obukhov depth.
-LT_MOD_LAC5 = 0.95              !   [nondim] default = 0.95
+LT_MOD_LAC5 = 0.22              !   [nondim] default = 0.95
                                 ! Coefficient for modification of Langmuir number due to ratio of Ekman to
                                 ! unstable Obukhov depth.
 EPBL_EQD_DIFFUSIVITY_SHAPE = False !   [nondim] default = False
@@ -2153,7 +2269,7 @@ CHECK_DIFFUSIVE_CFL = True      !   [Boolean] default = False
                                 ! If true, use enough iterations the diffusion to ensure that the diffusive
                                 ! equivalent of the CFL limit is not violated.  If false, always use the greater
                                 ! of 1 or MAX_TR_DIFFUSION_CFL iteration.
-MAX_TR_DIFFUSION_CFL = -1.0     !   [nondim] default = -1.0
+MAX_TR_DIFFUSION_CFL = 2.0      !   [nondim] default = -1.0
                                 ! If positive, locally limit the along-isopycnal tracer diffusivity to keep the
                                 ! diffusive CFL locally at or below this value.  The number of diffusive
                                 ! iterations is often this value or the next greater integer.
@@ -2191,6 +2307,8 @@ MAX_ENERGY = 0.0                !   [m2 s-2] default = 0.0
                                 ! The maximum permitted average energy per unit mass; the model will be stopped
                                 ! if there is more energy than this.  If zero or negative, this is set to
                                 ! 10*MAXVEL^2.
+MAXVEL = 6.0                    !   [m s-1] default = 3.0E+08
+                                ! The maximum velocity allowed before the velocity components are truncated.
 ENERGYFILE = "ocean.stats"      ! default = "ocean.stats"
                                 ! The file to use to write the energies and globally summed diagnostics.
 DATE_STAMPED_STDOUT = True      !   [Boolean] default = True
@@ -2305,7 +2423,7 @@ UTIDE = 0.0                     !   [m s-1] default = 0.0
                                 ! The constant tidal amplitude used with INT_TIDE_DISSIPATION.
 READ_GUST_2D = False            !   [Boolean] default = False
                                 ! If true, use a 2-dimensional gustiness supplied from an input file
-GUST_CONST = 0.02               !   [Pa] default = 0.0
+GUST_CONST = 0.0                !   [Pa] default = 0.0
                                 ! The background gustiness in the winds.
 USTAR_GUSTLESS_BUG = False      !   [Boolean] default = False
                                 ! If true include a bug in the time-averaging of the gustless wind friction
@@ -2326,7 +2444,7 @@ LIQUID_RUNOFF_FROM_DATA = False !   [Boolean] default = False
                                 ! the component name 'OCN'.
 
 ! === module MOM_restart ===
-WAVE_INTERFACE_ANSWER_DATE = 20221231 ! default = 20221231
+WAVE_INTERFACE_ANSWER_DATE = 99991231 ! default = 99991231
                                 ! The vintage of the order of arithmetic and expressions in the surface wave
                                 ! calculations.  Values below 20230101 recover the answers from the end of 2022,
                                 ! while higher values use updated and more robust forms of the same expressions:
