@@ -849,3 +849,5 @@ SEA_ICE_RIGID_MASS = 100.0      !   [kg m-2] default = 1000.0
                                 ! rigidity
 
 ! === module MOM_restart ===
+
+MASKED_LAND_VALUES_BUG = False
