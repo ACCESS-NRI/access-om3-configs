@@ -18,7 +18,6 @@ sync:
 modules:
   use:
   - /g/data/vk83/modules
-  - /g/data/vk83/prerelease/modules
   load:
   - access-om3/2026.05.004
 queue: normal
