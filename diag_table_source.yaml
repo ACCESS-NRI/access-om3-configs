@@ -179,6 +179,11 @@ diag_table:
             rhopot0: # Potential density referenced to surface
             rhopot2: # Potential density referenced to 2000 dbar
             thetao: # Potential Temperature
+            bigthetao: # Conservative Temperature
+            Ahh: # Biharmonic Horizontal Viscosity at h Points
+            Khh: # Laplacian Horizontal Viscosity at h Points
+            Kv_u: # Total vertical viscosity at u-points
+            Kv_v: # Total vertical viscosity at v-points
             so: # Salinity
             uo: # u velocity
             vo: # v velocity
@@ -193,13 +198,13 @@ diag_table:
             module_name: ocean_model_rho2
             file_name_diag_coord: "rho2"
         fields:  # comment out all of these if not needed, as remapping to density slows model by ~30% - see https://github.com/ACCESS-NRI/access-om3-configs/pull/622#issuecomment-3031962668
-            # thkcello: # Cell Thickness
-            # e: # Interface height relative to mean sea level
-            # umo: # Ocean Mass X Transport
-            # vmo: # Ocean Mass Y Transport
-            # uhGM: # Time Mean Diffusive Zonal Thickness Flux
-            # vhGM: # Time Mean Diffusive Meridional Thickness Flux
-            # GM_sfn_y: # Parameterized Meridional Overturning Streamfunction
+            thkcello: # Cell Thickness
+            e: # Interface height relative to mean sea level
+            umo: # Ocean Mass X Transport
+            vmo: # Ocean Mass Y Transport
+            uhGM: # Time Mean Diffusive Zonal Thickness Flux
+            vhGM: # Time Mean Diffusive Meridional Thickness Flux
+            GM_sfn_y: # Parameterized Meridional Overturning Streamfunction
 
     'monthly 3d fields on native':
         defaults:  # these can be overridden for individual fields below
@@ -210,6 +215,18 @@ diag_table:
             thkcello: # Cell Thickness
             Kd_interface: # Total diapycnal diffusivity at interfaces
             Kd_ePBL: # ePBL diapycnal diffusivity at interfaces
+            difvho: # Total diapycnal diffusivity for heat at interfaces
+            difvso: # Total diapycnal diffusivity for salt at interfaces
+            Kd_shear: # Shear-driven Diapycnal Diffusivity at horizontal tracer points
+            Kd_itides: # Internal Tide Driven Diffusivity
+            Kd_bkgnd: # Background diffusivity added by MOM_bkgnd_mixing module
+            Kd_BBL: # Bottom Boundary Layer Diffusivity
+            diftrblo: # Ocean Tracer Diffusivity due to Parameterized Mesoscale Advection
+            diftrelo: # Epipycnal tracer diffusivity at tracer cell center
+            T_advection_scheme_variance_production: # Spurious variance production of T variance due to advection
+            S_advection_scheme_variance_production: # Spurious variance production of S variance due to advection
+            T_vardec: # ALE variance decay for conservative temperature
+            S_vardec: # ALE variance decay for absolute salinity
 
     'monthly 2d fields':
         defaults:  # these can be overridden for individual fields below
@@ -244,6 +261,13 @@ diag_table:
             ficeberg: # Frozen runoff (calving) and iceberg melt into ocean
             ePBL_h_ML: # Surface boundary layer depth
             h_ML: # Surface mixed layer depth based on active turbulence
+            MEKE_KU: # MEKE derived lateral viscosity
+            kv_bbl_u: # BBL viscosity at u points
+            kv_bbl_v: # BBL viscosity at v points
+            taux_bot: # Zonal Bottom Stress from Ocean to Earth
+            tauy_bot: # Meridional Bottom Stress from Ocean to Earth
+            MSTAR: # Total mstar that is used
+            MSTAR_LT: # Increase in mstar due to Langmuir Turbulence
 
     'monthly 2d max fields':
         defaults:  # these can be overridden for individual fields below
@@ -287,6 +311,7 @@ diag_table:
             net_massin: # Net mass entering ocean due to precip, runoff, ice melt
             massout_flux: # Net mass flux of freshwater out of the ocean (used in the boundary flux calculation)
             massin_flux: # Net mass flux of freshwater into the ocean (used in boundary flux calculation)
+            conSST: # Sea Surface Conservative Temperature
 
     'daily scalar timeseries':
         defaults:  # these can be overridden for individual fields below
@@ -317,6 +342,8 @@ diag_table:
             masso: # Mass of liquid ocean
             soga: # Global Mean Ocean Salinity
             thetaoga: # Global Mean Ocean Potential Temperature
+            bigthetaoga: # Global Mean Ocean Conservative Temperature
+            sscont_global: # Global Area Average Sea Surface Conservative Temperature
             tosga: # Global Area Average Sea Surface Temperature sst_global
             sosga: # Global Area Average Sea Surface Salinity sss_global
             total_salt_Flux_Added: # Area integrated surface salt flux due to restoring or flux adjustment 
