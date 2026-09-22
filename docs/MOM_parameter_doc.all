@@ -68,11 +68,11 @@ ENABLE_BUGS_BY_DEFAULT = True   !   [Boolean] default = True
                                 ! will no longer be used to set their default.  Setting this to false means that
                                 ! bugs are only used if they are actively selected, but it also means that
                                 ! answers may change when code is updated due to newly found bugs.
-DT = 3600.0                     !   [s]
+DT = 900.0                      !   [s]
                                 ! The (baroclinic) dynamics time step.  The time-step that is actually used will
                                 ! be an integer fraction of the forcing time-step (DT_FORCING in ocean-only mode
                                 ! or the coupling timestep in coupled mode.)
-DT_THERM = 7200.0               !   [s] default = 3600.0
+DT_THERM = 7200.0               !   [s] default = 900.0
                                 ! The thermodynamic time step. Ideally DT_THERM should be an integer multiple of
                                 ! DT and of DT_TRACER_ADVECT and less than the forcing or coupling time-step.
                                 ! However, if THERMO_SPANS_COUPLING is true, DT_THERM can be an integer multiple
@@ -214,10 +214,10 @@ REENTRANT_Y = False             !   [Boolean] default = False
 TRIPOLAR_N = True               !   [Boolean] default = False
                                 ! Use tripolar connectivity at the northern edge of the domain.  With
                                 ! TRIPOLAR_N, NIGLOBAL must be even.
-NIGLOBAL = 360                  !
+NIGLOBAL = 1440                 !
                                 ! The total number of thickness grid points in the x-direction in the physical
                                 ! domain. With STATIC_MEMORY_ this is set in MOM_memory.h at compile time.
-NJGLOBAL = 324                  !
+NJGLOBAL = 1152                 !
                                 ! The total number of thickness grid points in the y-direction in the physical
                                 ! domain. With STATIC_MEMORY_ this is set in MOM_memory.h at compile time.
 NIHALO = 4                      ! default = 4
@@ -306,7 +306,7 @@ MAXIMUM_DEPTH = 6000.0          !   [m]
 ! if any.
 OBC_NUMBER_OF_SEGMENTS = 0      ! default = 0
                                 ! The number of open boundary segments.
-CHANNEL_CONFIG = "none"         ! default = "none"
+CHANNEL_CONFIG = "list"         ! default = "none"
                                 ! A parameter that determines which set of channels are
                                 ! restricted to specific  widths.  Options are:
                                 !     none - All channels have the grid width.
@@ -317,6 +317,14 @@ CHANNEL_CONFIG = "none"         ! default = "none"
                                 !       test case.
                                 !     file - Read open face widths everywhere from a
                                 !       NetCDF file on the model grid.
+CHANNEL_LIST_FILE = "channel_list" ! default = "MOM_channel_list"
+                                ! The file from which the list of narrowed channels is read.
+CHANNEL_LIST_360_LON_CHECK = True !   [Boolean] default = True
+                                ! If true, the channel configuration list works for any longitudes in the range
+                                ! of -360 to 360.
+FATAL_UNUSED_CHANNEL_WIDTHS = True !   [Boolean] default = False
+                                ! If true, trigger a fatal error if there are any channel widths in
+                                ! CHANNEL_LIST_FILE that do not cause any open face widths to change.
 SUBGRID_TOPO_AT_VEL = False     !   [Boolean] default = False
                                 ! If true, use variables from TOPO_AT_VEL_FILE as parameters for porous barrier.
 ROTATION = "2omegasinlat"       ! default = "2omegasinlat"
@@ -629,85 +637,10 @@ FATAL_INCONSISTENT_RESTART_TIME = False !   [Boolean] default = False
                                 ! If true and a time_in value is provided to MOM_initialize_state, verify that
                                 ! the time read from a restart file is the same as time_in, and issue a fatal
                                 ! error if it is not.  Otherwise, simply set the time to time_in if present.
-INIT_LAYERS_FROM_Z_FILE = True  !   [Boolean] default = False
-                                ! If true, initialize the layer thicknesses, temperatures, and salinities from a
-                                ! Z-space file on a latitude-longitude grid.
-
-! === module MOM_initialize_layers_from_Z ===
-TEMP_SALT_Z_INIT_FILE = "woa23_ts_01_mom.nc" ! default = "temp_salt_z.nc"
-                                ! The name of the z-space input file used to initialize temperatures (T) and
-                                ! salinities (S). If T and S are not in the same file, TEMP_Z_INIT_FILE and
-                                ! SALT_Z_INIT_FILE must be set.
-TEMP_Z_INIT_FILE = "woa23_ts_01_mom.nc" ! default = "woa23_ts_01_mom.nc"
-                                ! The name of the z-space input file used to initialize temperatures, only.
-SALT_Z_INIT_FILE = "woa23_ts_01_mom.nc" ! default = "woa23_ts_01_mom.nc"
-                                ! The name of the z-space input file used to initialize temperatures, only.
-Z_INIT_FILE_PTEMP_VAR = "ptemp" ! default = "ptemp"
-                                ! The name of the potential temperature variable in TEMP_Z_INIT_FILE.
-Z_INIT_FILE_SALT_VAR = "salt"   ! default = "salt"
-                                ! The name of the salinity variable in SALT_Z_INIT_FILE.
-Z_INIT_HOMOGENIZE = False       !   [Boolean] default = False
-                                ! If True, then horizontally homogenize the interpolated initial conditions.
-Z_INIT_ALE_REMAPPING = True     !   [Boolean] default = False
-                                ! If True, then remap straight to model coordinate from file.
-Z_INIT_REMAPPING_SCHEME = "PPM_IH4" ! default = "PPM_IH4"
-                                ! The remapping scheme to use if using Z_INIT_ALE_REMAPPING is True.
-Z_INIT_REMAP_GENERAL = True     !   [Boolean] default = False
-                                ! If false, only initializes to z* coordinates. If true, allows initialization
-                                ! directly to general coordinates.
-Z_INIT_REMAP_FULL_COLUMN = True !   [Boolean] default = True
-                                ! If false, only reconstructs profiles for valid data points. If true, inserts
-                                ! vanished layers below the valid data.
-Z_INIT_REMAP_OLD_ALG = False    !   [Boolean] default = False
-                                ! If false, uses the preferred remapping algorithm for initialization. If true,
-                                ! use an older, less robust algorithm for remapping.
-TEMP_SALT_INIT_VERTICAL_REMAP_ONLY = True !   [Boolean] default = False
-                                ! If true, initial conditions are on the model horizontal grid. Extrapolation
-                                ! over missing ocean values is done using an ICE-9 procedure with vertical ALE
-                                ! remapping .
 Z_INIT_REMAPPING_USE_OM4_SUBCELLS = False !   [Boolean] default = False
                                 ! If true, use the OM4 remapping-via-subcells algorithm for initialization. See
                                 ! REMAPPING_USE_OM4_SUBCELLS for more details. We recommend setting this option
                                 ! to false.
-HOR_REGRID_ANSWER_DATE = 99991231 ! default = 99991231
-                                ! The vintage of the order of arithmetic for horizontal regridding.  Dates
-                                ! before 20190101 give the same answers as the code did in late 2018, while
-                                ! later versions add parentheses for rotational symmetry.  Dates after 20230101
-                                ! use reproducing sums for global averages.
-LAND_FILL_TEMP = 0.0            !   [degC] default = 0.0
-                                ! A value to use to fill in ocean temperatures on land points.
-LAND_FILL_SALIN = 35.0          !   [ppt] default = 35.0
-                                ! A value to use to fill in ocean salinities on land points.
-HORIZ_INTERP_TOL_TEMP = 0.001   !   [degC] default = 0.001
-                                ! The tolerance in temperature changes between iterations when interpolating
-                                ! from an input dataset using horiz_interp_and_extrap_tracer.  This routine
-                                ! converges slowly, so an overly small tolerance can get expensive.
-HORIZ_INTERP_TOL_SALIN = 0.001  !   [ppt] default = 0.001
-                                ! The tolerance in salinity changes between iterations when interpolating from
-                                ! an input dataset using horiz_interp_and_extrap_tracer.  This routine converges
-                                ! slowly, so an overly small tolerance can get expensive.
-DEPRESS_INITIAL_SURFACE = False !   [Boolean] default = False
-                                ! If true,  depress the initial surface to avoid huge tsunamis when a large
-                                ! surface pressure is applied.
-TRIM_IC_FOR_P_SURF = False      !   [Boolean] default = False
-                                ! If true, cuts way the top of the column for initial conditions at the depth
-                                ! where the hydrostatic pressure matches the imposed surface pressure which is
-                                ! read from file.
-REGRID_ACCELERATE_INIT = False  !   [Boolean] default = False
-                                ! If true, runs REGRID_ACCELERATE_ITERATIONS iterations of the regridding
-                                ! algorithm to push the initial grid to be consistent with the initial
-                                ! condition. Useful only for state-based and iterative coordinates.
-VELOCITY_CONFIG = "zero"        ! default = "zero"
-                                ! A string that determines how the initial velocities are specified for a new
-                                ! run:
-                                !     file - read velocities from the file specified
-                                !       by (VELOCITY_FILE).
-                                !     zero - the fluid is initially at rest.
-                                !     uniform - the flow is uniform (determined by
-                                !       parameters INITIAL_U_CONST and INITIAL_V_CONST).
-                                !     rossby_front - a mixed layer front in thermal wind balance.
-                                !     soliton - Equatorial Rossby soliton.
-                                !     USER - call a user modified routine.
 ODA_INCUPD = False              !   [Boolean] default = False
                                 ! If true, oda incremental updates will be applied everywhere in the domain.
 SPONGE = False                  !   [Boolean] default = False
@@ -904,9 +837,9 @@ MEKE_GM_SRC_ALT = False         !   [Boolean] default = False
                                 ! streamfunction for the MEKE GM source term.
 MEKE_VISC_DRAG = True           !   [Boolean] default = True
                                 ! If true, use the vertvisc_type to calculate the bottom drag acting on MEKE.
-MEKE_KHTH_FAC = 0.5             !   [nondim] default = 0.0
+MEKE_KHTH_FAC = 0.3             !   [nondim] default = 0.0
                                 ! A factor that maps MEKE%Kh to KhTh.
-MEKE_KHTR_FAC = 0.5             !   [nondim] default = 0.0
+MEKE_KHTR_FAC = 0.3             !   [nondim] default = 0.0
                                 ! A factor that maps MEKE%Kh to KhTr.
 MEKE_KHMEKE_FAC = 1.0           !   [nondim] default = 0.0
                                 ! A factor that maps MEKE%Kh to Kh for MEKE itself.
@@ -919,7 +852,7 @@ MEKE_MIN_LSCALE = False         !   [Boolean] default = False
 MEKE_RD_MAX_SCALE = False       !   [Boolean] default = False
                                 ! If true, the length scale used by MEKE is the minimum of the deformation
                                 ! radius or grid-spacing. Only used if MEKE_OLD_LSCALE=True
-MEKE_VISCOSITY_COEFF_KU = 1.0   !   [nondim] default = 0.0
+MEKE_VISCOSITY_COEFF_KU = 0.6   !   [nondim] default = 0.0
                                 ! If non-zero, is the scaling coefficient in the expression forviscosity used to
                                 ! parameterize harmonic lateral momentum mixing byunresolved eddies represented
                                 ! by MEKE. Can be negative torepresent backscatter from the unresolved eddies.
@@ -1065,7 +998,7 @@ VISBECK_L_SCALE = 0.0           !   [m or nondim] default = 0.0
 KH_RES_SCALE_COEF = 1.0         !   [nondim] default = 1.0
                                 ! A coefficient that determines how KhTh is scaled away if RESOLN_SCALED_... is
                                 ! true, as F = 1 / (1 + (KH_RES_SCALE_COEF*Rd/dx)^KH_RES_FN_POWER).
-KH_RES_FN_POWER = 100           ! default = 2
+KH_RES_FN_POWER = 3             ! default = 2
                                 ! The power of dx/Ld in the Kh resolution function.  Any positive integer may be
                                 ! used, although even integers are more efficient to calculate.  Setting this
                                 ! greater than 100 results in a step-function being used.
@@ -1073,7 +1006,7 @@ VISC_RES_SCALE_COEF = 1.0       !   [nondim] default = 1.0
                                 ! A coefficient that determines how Kh is scaled away if RESOLN_SCALED_... is
                                 ! true, as F = 1 / (1 + (KH_RES_SCALE_COEF*Rd/dx)^KH_RES_FN_POWER). This
                                 ! function affects lateral viscosity, Kh, and not KhTh.
-VISC_RES_FN_POWER = 100         ! default = 100
+VISC_RES_FN_POWER = 3           ! default = 3
                                 ! The power of dx/Ld in the Kh resolution function.  Any positive integer may be
                                 ! used, although even integers are more efficient to calculate.  Setting this
                                 ! greater than 100 results in a step-function being used. This function affects
@@ -1153,12 +1086,12 @@ HTBL_SHELF_MIN = 0.1            !   [m] default = 0.1
 HTBL_SHELF = 10.0               !   [m] default = 10.0
                                 ! The thickness over which near-surface velocities are averaged for the drag law
                                 ! under an ice shelf.  By default this is the same as HBBL
-KV = 1.0E-04                    !   [m2 s-1]
+KV = 0.0                        !   [m2 s-1]
                                 ! The background kinematic viscosity in the interior. The molecular value, ~1e-6
                                 ! m2 s-1, may be used.
-KV_BBL_MIN = 1.0E-04            !   [m2 s-1] default = 1.0E-04
+KV_BBL_MIN = 0.0                !   [m2 s-1] default = 0.0
                                 ! The minimum viscosities in the bottom boundary layer.
-KV_TBL_MIN = 1.0E-04            !   [m2 s-1] default = 1.0E-04
+KV_TBL_MIN = 0.0                !   [m2 s-1] default = 0.0
                                 ! The minimum viscosities in the top boundary layer.
 CORRECT_BBL_BOUNDS = False      !   [Boolean] default = False
                                 ! If true, uses the correct bounds on the BBL thickness and viscosity so that
@@ -2207,9 +2140,11 @@ IGNORE_FLUXES_OVER_LAND = False !   [Boolean] default = False
                                 ! points. This is needed when the ocean is coupled with ice shelves and sea ice,
                                 ! since the sea ice mask needs to be different than the ocean mask to avoid sea
                                 ! ice formation under ice shelves. This flag only works when use_ePBL = True.
-DO_RIVERMIX = False             !   [Boolean] default = False
+DO_RIVERMIX = True              !   [Boolean] default = False
                                 ! If true, apply additional mixing wherever there is runoff, so that it is mixed
                                 ! down to RIVERMIX_DEPTH if the ocean is that deep.
+RIVERMIX_DEPTH = 40.0           !   [m] default = 0.0
+                                ! The depth to which rivers are mixed if DO_RIVERMIX is defined.
 USE_RIVER_HEAT_CONTENT = False  !   [Boolean] default = False
                                 ! If true, use the fluxes%runoff_Hflx field to set the heat carried by runoff,
                                 ! instead of using SST*CP*liq_runoff.

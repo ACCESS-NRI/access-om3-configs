@@ -7,8 +7,8 @@
   hist_suffix = ".1day.mean", ".1mon.mean", "x", "x", "x"
   hist_time_axis = "middle"
   history_deflate = 1
-  history_chunksize = 180, 162
-  history_precision = 8
+  history_chunksize = 720, 540
+  history_precision = 4
   restart_deflate = 1
   ice_ic = "none"
   lcdf64 = .false.
@@ -20,7 +20,7 @@
   grid_atm = "A"
   grid_file = "./INPUT/ocean_hgrid.nc"
   grid_format = "mom_nc"
-  grid_ice = "B"
+  grid_ice = "C"
   grid_ocn = "A"
   grid_type = "tripole"
   grid_outfile = .true.
@@ -69,18 +69,18 @@
   wave_spec_type = "constant"
   /
 &domain_nml
-  block_size_x = 15
-  block_size_y = 20
-  distribution_type = "cartesian"
+  block_size_x = 20
+  block_size_y = 18
+  distribution_type = "roundrobin"
   distribution_wght = "latitude"
   maskhalo_bound = .true.
   maskhalo_dyn = .true.
   maskhalo_remap = .true.
   max_blocks = -1
   ns_boundary_type = "tripole"
-  nx_global = 360
-  ny_global = 324
-  processor_shape = "slenderX1"
+  nx_global = 1440
+  ny_global = 1152
+  processor_shape = "square-ice"
 /
 &ice_prescribed_nml
 /
@@ -93,13 +93,13 @@
 &icefields_fsd_nml
     f_fsdrad       = 'md'
     f_fsdperim     = 'md'
-    f_afsd         = 'md'
-    f_afsdn        = 'md'
-    f_dafsd_newi   = 'md'
-    f_dafsd_latg   = 'md'
-    f_dafsd_latm   = 'md'
+    f_afsd         = 'm'
+    f_afsdn        = 'm'
+    f_dafsd_newi   = 'm'
+    f_dafsd_latg   = 'm'
+    f_dafsd_latm   = 'm'
     f_dafsd_wave   = 'md'
-    f_dafsd_weld   = 'md'
+    f_dafsd_weld   = 'm'
     f_wave_sig_ht  = 'md'
     f_aice_ww      = 'md'
     f_diam_ww      = 'md'
