@@ -60,7 +60,7 @@
 /
 &forcing_nml
   emissivity = 0.95d0
-  ice_ref_salinity = 5.0d0
+  ice_ref_salinity = 3.2d0
   highfreq = .true.
   tfrz_option = "linear_salt"
   update_ocn_f = .true.
