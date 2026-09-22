@@ -127,10 +127,10 @@ work/INPUT/ocean_vgrid.nc:
     binhash: edfce23fc2dba28037ca9f66376c00c1
     md5: 04e88652ff339b09b29ea4adb8fa2229
 work/INPUT/salt_sfc_restore.nc:
-  fullpath: /g/data/vk83/configurations/inputs/access-om3/mom/surface_salt_restoring/global.25km/2026.06.12/salt_sfc_restore.nc
+  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/surface_salt_restoring/global.25km/2026.09.22/salt_sfc_restore.nc
   hashes:
-    binhash: 80c9ee05fdb37ff1093d4a3f5224d980
-    md5: 097e31db6aa58597b1dd3dee97179591
+    binhash: 535ca82c2cf1dee1b5d1a7ae4da4525b
+    md5: 6689232b7a65fcefb679cf3772008516
 work/INPUT/tideamp.nc:
   fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/tidal_external_files/global.25km/2026.08.18/tideamp.nc
   hashes:
