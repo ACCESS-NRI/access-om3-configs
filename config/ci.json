@@ -22,7 +22,7 @@
         "release-MC_100km_jra_ryf": { },
         "release-MC_25km_jra_ryf": { },
         "release-.*": {
-            "model-config-tests-version": "0.2.4",
+            "model-config-tests-version": "0.2.5",
             "payu-version": "1.3.6"
         }
     },
@@ -31,7 +31,7 @@
             "markers": "repro"
         },
         "release-.*": {
-            "model-config-tests-version": "0.2.4",
+            "model-config-tests-version": "0.2.5",
             "payu-version": "1.3.6"
         }
     },
@@ -41,7 +41,7 @@
         },
         "release-.*": {
             "markers": "access_om3 or config",
-            "model-config-tests-version": "0.2.4",
+            "model-config-tests-version": "0.2.5",
             "payu-version": "1.3.6"
         }
     },
