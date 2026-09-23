@@ -60,7 +60,7 @@
 /
 &forcing_nml
   emissivity = 0.95d0
-  ice_ref_salinity = 5.0d0
+  ice_ref_salinity = 3.2d0
   highfreq = .true.
   tfrz_option = "linear_salt"
   update_ocn_f = .true.
@@ -164,8 +164,9 @@
   f_rain = 'x'
   f_fsens = 'x'
   f_flwup = 'x'
-  f_sig1 = 'x', f_sig2 = 'x'
+  f_sig1 = 'md', f_sig2 = 'md'
   f_sigP = 'x'
+  f_strength = 'md'
   f_snow = 'x'
   f_sst = 'x'
   f_sss = 'x'
