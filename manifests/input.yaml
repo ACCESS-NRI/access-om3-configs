@@ -3352,10 +3352,10 @@ work/INPUT/3hrPt/vas/gr/v20240531/vas_input4MIPs_atmosphericState_OMIP_MRI-JRA55
     binhash: e437daa09050c288f69a0210ef2fd28f
     md5: eec2d7bd3e71ed5114136cccb08010d9
 work/INPUT/CO2_gm_1750-2024.nc:
-  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/wombat/forcing/global.100km/2026.09.22/CO2_gm_1750-2024.nc
+  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/wombat/forcing/global.100km/2026.05.20/CO2_gm_1750-2024.nc
   hashes:
-    binhash: 93324e7058d4119183537cbb1bb7b646
-    md5: 77c161412d21ae97027e81ecc79e2317
+    binhash: 05f6b7d935e468c463740199034fdd9e
+    md5: aa813b8fc7dd01fa68ba207c4de94b59
 work/INPUT/JRA55do-datm-ESMFmesh.nc:
   fullpath: /g/data/vk83/configurations/inputs/access-om3/share/meshes/share/2026.01.21/JRA55do-datm-ESMFmesh.nc
   hashes:
@@ -3367,20 +3367,20 @@ work/INPUT/JRA55do-drof-ESMFmesh.nc:
     binhash: 780e2ab02c4560e247c96bba2817ccc5
     md5: bf62c4e7786ddfbe56d61b3074d5d16d
 work/INPUT/SFe_Hamiltonetal2020_monthly_clim.nc:
-  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/wombat/forcing/global.100km/2026.09.22/SFe_Hamiltonetal2020_monthly_clim.nc
+  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/wombat/forcing/global.100km/2026.05.20/SFe_Hamiltonetal2020_monthly_clim.nc
   hashes:
-    binhash: 135c4e248afdf72d9f50d56480603039
-    md5: 0aee7ba3e8fd3eecdcc845f30e01c784
+    binhash: 7b0ec17de13277a8bbd16df4b1818f43
+    md5: 63526c3cfeba77aa75bdc32784662782
 work/INPUT/access-om3-100km-ESMFmesh.nc:
   fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/share/meshes/global.100km/2026.09.22/access-om3-100km-ESMFmesh.nc
   hashes:
     binhash: a3f8f446414d69049a10875f8d69ccad
     md5: d8f38134129744fff2e4e1ab6319fef4
 work/INPUT/access-om3-100km-nomask-ESMFmesh.nc:
-  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/share/meshes/global.100km/2026.09.22/access-om3-100km-nomask-ESMFmesh.nc
+  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/share/meshes/global.100km/2026.04.07/access-om3-100km-nomask-ESMFmesh.nc
   hashes:
-    binhash: 709e259b1ce35b74d8ce4507d331a2e5
-    md5: cec9b32cad35880b7b2645403d436dca
+    binhash: 627afeda4806fee1dcb1c5d980610c94
+    md5: 92f32a4f0e7e6fb2a3c977e3936b7a5b
 work/INPUT/access-om3-100km-rof-remap-weights.nc:
   fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/cmeps/remap_weights/global.100km/2026.09.22/access-om3-100km-rof-remap-weights.nc
   hashes:
@@ -3397,10 +3397,10 @@ work/INPUT/bottom_roughness.nc:
     binhash: 786385daae4369269df6f90ebd023660
     md5: c3324af5b1233f3b706449fa9ed74c46
 work/INPUT/chl_globcolour_monthly_clim.nc:
-  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/chlorophyll/global.100km/2026.09.22/chl_globcolour_monthly_clim.nc
+  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/chlorophyll/global.100km/2026.05.20/chl_globcolour_monthly_clim.nc
   hashes:
-    binhash: 03f941e87cc747d6a5a3e989496cf0d2
-    md5: c5be49d752143ed3cdc697fc56eed979
+    binhash: 65988a701ab9e7ee4cebd9825f83ed39
+    md5: 2dfb11e85b74519d0b14f9f2f067d13d
 work/INPUT/day/friver/gr/v20240531/friver_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-6-0_gr_19580101-19581231.nc:
   fullpath: /g/data/qv56/replicas/input4MIPs/CMIP6Plus/OMIP/MRI/MRI-JRA55-do-1-6-0/land/day/friver/gr/v20240531/friver_input4MIPs_atmosphericState_OMIP_MRI-JRA55-do-1-6-0_gr_19580101-19581231.nc
   hashes:
