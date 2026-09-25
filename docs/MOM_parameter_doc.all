@@ -146,6 +146,12 @@ P_REF = 2.0E+07                 !   [Pa] default = 2.0E+07
                                 ! The pressure that is used for calculating the coordinate density.  (1 Pa = 1e4
                                 ! dbar, so 2e7 is commonly used.) This is only used if USE_EOS and
                                 ! ENABLE_THERMODYNAMICS are true.
+NONBLOCKING_P_SURF_BUG = False  !   [Boolean] default = True
+                                ! If true, recover a bug in which the non-blocking halo update of the surface
+                                ! pressure is not completed before the halo points of forces%p_surf are copied
+                                ! into tv%p_surf, so that those halo points hold the surface pressure from the
+                                ! previous coupling step, or zeros on the first step after a restart.  This is
+                                ! only used if NONBLOCKING_UPDATES and USE_PSURF_IN_EOS are true
 FIRST_DIRECTION = 0             ! default = 0
                                 ! An integer that indicates which direction goes first in parts of the code that
                                 ! use directionally split updates, with even numbers (or 0) used for x- first
@@ -218,7 +224,7 @@ REFERENCE_HEIGHT = 0.0          !   [m] default = 0.0
                                 ! A reference value for geometric height fields, such as bathyT.
 
 ! === module MOM_fixed_initialization ===
-INPUTDIR = "./INPUT/"           ! default = "."
+INPUTDIR = "."                  ! default = "."
                                 ! The directory in which input files are found.
 
 ! === module MOM_grid_init ===
@@ -230,7 +236,7 @@ GRID_CONFIG = "mosaic"          !
                                 !     cartesian - use a (flat) Cartesian grid.
                                 !     spherical - use a simple spherical grid.
                                 !     mercator - use a Mercator spherical grid.
-GRID_FILE = "ocean_hgrid.nc"    !
+GRID_FILE = "./INPUT/ocean_hgrid.nc" !
                                 ! Name of the file from which to read horizontal grid data.
 USE_TRIPOLAR_GEOLONB_BUG = False !   [Boolean] default = False
                                 ! If true, use older code that incorrectly sets the longitude in some points
@@ -264,7 +270,7 @@ TOPO_CONFIG = "file"            !
                                 !     Phillips - ACC-like idealized topography used in the Phillips config.
                                 !     dense - Denmark Strait-like dense water formation and overflow.
                                 !     USER - call a user modified routine.
-TOPO_FILE = "topog.nc"          ! default = "topog.nc"
+TOPO_FILE = "./INPUT/topog.nc"  ! default = "topog.nc"
                                 ! The file from which the bathymetry is read.
 TOPO_VARNAME = "depth"          ! default = "depth"
                                 ! The name of the bathymetry variable in TOPO_FILE.
@@ -569,7 +575,7 @@ USE_SHELFWAVE_OBC = False       !   [Boolean] default = False
                                 ! If true, use the shelfwave open boundary.
 USE_DYED_CHANNEL_OBC = False    !   [Boolean] default = False
                                 ! If true, use the dyed channel open boundary.
-OBC_SEGMENT_001_DATA = "U=file:OBC37S_forcing_access_yr2_4km.nc(u),V=file:OBC37S_forcing_access_yr2_4km.nc(v),SSH=file:OBC37S_forcing_access_yr2_4km.nc(eta_t),TEMP=file:OBC37S_forcing_access_yr2_4km.nc(pot_temp),SALT=file:OBC37S_forcing_access_yr2_4km.nc(salt)" !
+OBC_SEGMENT_001_DATA = "U=file:./INPUT/OBC37S_forcing_access_yr2_4km.nc(u),V=file:./INPUT/OBC37S_forcing_access_yr2_4km.nc(v),SSH=file:./INPUT/OBC37S_forcing_access_yr2_4km.nc(eta_t),TEMP=file:./INPUT/OBC37S_forcing_access_yr2_4km.nc(pot_temp),SALT=file:./INPUT/OBC37S_forcing_access_yr2_4km.nc(salt)" !
                                 ! OBC segment docs
 
 ! === module MOM_hor_index ===
@@ -618,7 +624,7 @@ REGRIDDING_COORDINATE_MODE = "ZSTAR" ! default = "LAYER"
                                 !  ADAPTIVE - optimize for smooth neutral density surfaces
 REGRIDDING_COORDINATE_UNITS = "m" ! default = "m"
                                 ! Units of the regridding coordinate.
-ALE_COORDINATE_CONFIG = "FILE:ocean_vgrid.nc,interfaces=zeta" ! default = "UNIFORM"
+ALE_COORDINATE_CONFIG = "FILE:./INPUT/ocean_vgrid.nc,interfaces=zeta" ! default = "UNIFORM"
                                 ! Determines how to specify the coordinate resolution. Valid options are:
                                 !  PARAM       - use the vector-parameter ALE_RESOLUTION
                                 !  UNIFORM[:N] - uniformly distributed
@@ -736,13 +742,13 @@ INIT_LAYERS_FROM_Z_FILE = True  !   [Boolean] default = False
                                 ! Z-space file on a latitude-longitude grid.
 
 ! === module MOM_initialize_layers_from_Z ===
-TEMP_SALT_Z_INIT_FILE = "ocean_temp_salt.res.nc" ! default = "temp_salt_z.nc"
+TEMP_SALT_Z_INIT_FILE = "./INPUT/ocean_temp_salt.res.nc" ! default = "temp_salt_z.nc"
                                 ! The name of the z-space input file used to initialize temperatures (T) and
                                 ! salinities (S). If T and S are not in the same file, TEMP_Z_INIT_FILE and
                                 ! SALT_Z_INIT_FILE must be set.
-TEMP_Z_INIT_FILE = "ocean_temp_salt.res.nc" ! default = "ocean_temp_salt.res.nc"
+TEMP_Z_INIT_FILE = "./INPUT/ocean_temp_salt.res.nc" ! default = "./INPUT/ocean_temp_salt.res.nc"
                                 ! The name of the z-space input file used to initialize temperatures, only.
-SALT_Z_INIT_FILE = "ocean_temp_salt.res.nc" ! default = "ocean_temp_salt.res.nc"
+SALT_Z_INIT_FILE = "./INPUT/ocean_temp_salt.res.nc" ! default = "./INPUT/ocean_temp_salt.res.nc"
                                 ! The name of the z-space input file used to initialize temperatures, only.
 Z_INIT_FILE_PTEMP_VAR = "temp"  ! default = "ptemp"
                                 ! The name of the potential temperature variable in TEMP_Z_INIT_FILE.
@@ -852,7 +858,7 @@ DIAG_AS_CHKSUM = False          !   [Boolean] default = False
 AVAILABLE_DIAGS_FILE = "available_diags.000000" ! default = "available_diags.000000"
                                 ! A file into which to write a list of all available ocean diagnostics that can
                                 ! be included in a diag_table.
-DIAG_COORD_DEF_Z = "FILE:ocean_vgrid.nc,interfaces=zeta" ! default = "WOA09"
+DIAG_COORD_DEF_Z = "FILE:./INPUT/ocean_vgrid.nc,interfaces=zeta" ! default = "WOA09"
                                 ! Determines how to specify the coordinate resolution. Valid options are:
                                 !  PARAM       - use the vector-parameter DIAG_COORD_RES_Z
                                 !  UNIFORM[:N] - uniformly distributed
@@ -904,7 +910,7 @@ REGRIDDING_ANSWER_DATE = 99991231 ! default = 99991231
                                 ! Values below 20190101 result in the use of older, less accurate expressions
                                 ! that were in use at the end of 2018.  Higher values result in the use of more
                                 ! robust and accurate forms of mathematically equivalent expressions.
-DIAG_COORD_DEF_RHO2 = "FILE:diag_rho2.nc,interfaces=rho2" ! default = "WOA09"
+DIAG_COORD_DEF_RHO2 = "FILE:./INPUT/diag_rho2.nc,interfaces=rho2" ! default = "WOA09"
                                 ! Determines how to specify the coordinate resolution. Valid options are:
                                 !  PARAM       - use the vector-parameter DIAG_COORD_RES_RHO2
                                 !  UNIFORM[:N] - uniformly distributed
@@ -1910,12 +1916,12 @@ TKE_ITIDE_MAX = 0.1             !   [W m-2] default = 1000.0
 READ_TIDEAMP = True             !   [Boolean] default = False
                                 ! If true, read a file (given by TIDEAMP_FILE) containing the tidal amplitude
                                 ! with INT_TIDE_DISSIPATION.
-TIDEAMP_FILE = "tideamp.nc"     ! default = "tideamp.nc"
+TIDEAMP_FILE = "./INPUT/tideamp.nc" ! default = "tideamp.nc"
                                 ! The path to the file containing the spatially varying tidal amplitudes with
                                 ! INT_TIDE_DISSIPATION.
 TIDEAMP_VARNAME = "tideamp"     ! default = "tideamp"
                                 ! The name of the tidal amplitude variable in the input file.
-H2_FILE = "bottom_roughness.nc" !
+H2_FILE = "./INPUT/bottom_roughness.nc" !
                                 ! The path to the file containing the sub-grid-scale topographic roughness
                                 ! amplitude with INT_TIDE_DISSIPATION.
 ROUGHNESS_VARNAME = "h2"        ! default = "h2"
@@ -2154,9 +2160,11 @@ IGNORE_FLUXES_OVER_LAND = False !   [Boolean] default = False
                                 ! points. This is needed when the ocean is coupled with ice shelves and sea ice,
                                 ! since the sea ice mask needs to be different than the ocean mask to avoid sea
                                 ! ice formation under ice shelves. This flag only works when use_ePBL = True.
-DO_RIVERMIX = False             !   [Boolean] default = False
+DO_RIVERMIX = True              !   [Boolean] default = False
                                 ! If true, apply additional mixing wherever there is runoff, so that it is mixed
                                 ! down to RIVERMIX_DEPTH if the ocean is that deep.
+RIVERMIX_DEPTH = 40.0           !   [m] default = 0.0
+                                ! The depth to which rivers are mixed if DO_RIVERMIX is defined.
 USE_RIVER_HEAT_CONTENT = False  !   [Boolean] default = False
                                 ! If true, use the fluxes%runoff_Hflx field to set the heat carried by runoff,
                                 ! instead of using SST*CP*liq_runoff.
@@ -2170,7 +2178,7 @@ VAR_PEN_SW = True               !   [Boolean] default = False
                                 ! the e-folding depth of incoming short wave radiation.
 CHL_FROM_FILE = True            !   [Boolean] default = True
                                 ! If true, chl_a is read from a file.
-CHL_FILE = "chl_globcolour_monthly_clim.nc" !
+CHL_FILE = "./INPUT/chl_globcolour_monthly_clim.nc" !
                                 ! CHL_FILE is the file containing chl_a concentrations in the variable CHL_A. It
                                 ! is used when VAR_PEN_SW and CHL_FROM_FILE are true.
 CHL_VARNAME = "CHL"             ! default = "CHL_A"
@@ -2551,7 +2559,7 @@ ENTHALPY_FROM_COUPLER = True    !   [Boolean] default = False
 FLUXCONST = 0.11                !   [m day-1] default = 0.0
                                 ! The constant that relates the restoring surface fluxes to the relative surface
                                 ! anomalies (akin to a piston velocity).  Note the non-MKS units.
-SALT_RESTORE_FILE = "salt_sfc_restore.nc" ! default = "salt_restore.nc"
+SALT_RESTORE_FILE = "./INPUT/salt_sfc_restore.nc" ! default = "salt_restore.nc"
                                 ! A file in which to find the surface salinity to use for restoring.
 SALT_RESTORE_VARIABLE = "salt"  ! default = "salt"
                                 ! The name of the surface salinity variable to read from SALT_RESTORE_FILE for
