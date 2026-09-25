@@ -1,0 +1,21 @@
+contact: Add your name here
+email: Add your email address here
+created: Add the date you started the experiment here (YYYY-MM-DD)
+description: |-
+    A small regional configuration of ACCESS-rOM3 around Tasmania. This is not a science configuration but rather a template for other regional models, and is used by the regional-mom6 demo notebook https://github.com/COSIMA/regional-mom6/blob/main/demos/ACCESS-rOM3-demo.ipynb. 
+    This template also serves as a place to test OM3 code changes and ensure they still work with a `regional-mom6` generated domain.
+notes: |-
+  ACCESS-NRI and COSIMA request that users of this model acknowledge those organisations 
+  following the examples at https://www.access-nri.org.au/resources/acknowledging-us/ 
+  and https://cosima.org.au/index.php/get-involved/
+keywords:
+  - era5
+  - access-om3
+  - regional-mom6
+realm:
+  - ocean
+nominal_resolution: 10 km
+license: CC-BY-4.0
+model: ACCESS-OM3
+url: https://github.com/ACCESS-NRI/access-om3-configs/tree/M_regional_template
+version: 0.0
