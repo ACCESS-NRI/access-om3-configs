@@ -17,12 +17,26 @@ FATAL_UNUSED_PARAMS = True      !   [Boolean] default = False
 ! This section contains non default layout parameters which are set.
 ! ------------------------
 ! === module MOM_domains ===
-AUTO_MASKTABLE = True           !   [Boolean] default = False
-                                ! Turn on automatic mask table generation to eliminate land blocks.
-AUTO_IO_LAYOUT_FAC = 35         ! default = 0
-                                ! When AUTO_MASKTABLE is enabled, io layout is calculated by performing integer
-                                ! division of the runtime-determined domain layout with this factor. If the
-                                ! factor is set to 0 (default), the io layout is set to 1,1.
+NONBLOCKING_UPDATES = True      !   [Boolean] default = False
+                                ! If true, non-blocking halo updates may be used.
+MASKTABLE = "./auxiliary_input/mask_table.1042.70x35" ! default = "MOM_mask_table"
+                                ! A text file to specify n_mask, layout and mask_list. This feature masks out
+                                ! processors that contain only land points. The first line of mask_table is the
+                                ! number of regions to be masked out. The second line is the layout of the model
+                                ! and must be consistent with the actual model layout. The following (n_mask)
+                                ! lines give the logical positions of the processors that are masked out. The
+                                ! mask_table can be created by tools like check_mask. The following example of
+                                ! mask_table masks out 2 processors, (1,2) and (3,6), out of the 24 in a 4x6
+                                ! layout:
+                                !  2
+                                !  4,6
+                                !  1,2
+                                !  3,6
+LAYOUT = 70, 35                 !
+                                ! The processor layout that was actually used.
+IO_LAYOUT = 7, 5                ! default = 1, 1
+                                ! The processor layout to be used, or 0,0 to automatically set the io_layout to
+                                ! be the same as the layout.
 
 ! This section is formatted the same as the MOM_parameter_short.doc output file.
 ! ------------------------
@@ -67,6 +81,12 @@ C_P = 3992.0                    !   [J kg-1 K-1] default = 3991.86795711963
                                 ! The heat capacity of sea water, approximated as a constant. This is only used
                                 ! if ENABLE_THERMODYNAMICS is true. The default value is from the TEOS-10
                                 ! definition of conservative temperature.
+NONBLOCKING_P_SURF_BUG = False  !   [Boolean] default = True
+                                ! If true, recover a bug in which the non-blocking halo update of the surface
+                                ! pressure is not completed before the halo points of forces%p_surf are copied
+                                ! into tv%p_surf, so that those halo points hold the surface pressure from the
+                                ! previous coupling step, or zeros on the first step after a restart.  This is
+                                ! only used if NONBLOCKING_UPDATES and USE_PSURF_IN_EOS are true
 WRITE_GEOM = 2                  ! default = 1
                                 ! If =0, never write the geometry and vertical grid files. If =1, write the
                                 ! geometry and vertical grid files only for a new simulation. If =2, always
@@ -83,8 +103,6 @@ NJGLOBAL = 1442                 !
                                 ! domain. With STATIC_MEMORY_ this is set in MOM_memory.h at compile time.
 
 ! === module MOM_fixed_initialization ===
-INPUTDIR = "./INPUT/"           ! default = "."
-                                ! The directory in which input files are found.
 
 ! === module MOM_grid_init ===
 GRID_CONFIG = "mosaic"          !
@@ -95,7 +113,7 @@ GRID_CONFIG = "mosaic"          !
                                 !     cartesian - use a (flat) Cartesian grid.
                                 !     spherical - use a simple spherical grid.
                                 !     mercator - use a Mercator spherical grid.
-GRID_FILE = "ocean_hgrid.nc"    !
+GRID_FILE = "./INPUT/ocean_hgrid.nc" !
                                 ! Name of the file from which to read horizontal grid data.
 RAD_EARTH = 6.371229E+06        !   [m] default = 6.378E+06
                                 ! The radius of the Earth.
@@ -126,6 +144,8 @@ TOPO_CONFIG = "file"            !
                                 !     Phillips - ACC-like idealized topography used in the Phillips config.
                                 !     dense - Denmark Strait-like dense water formation and overflow.
                                 !     USER - call a user modified routine.
+TOPO_FILE = "./INPUT/topog.nc"  ! default = "topog.nc"
+                                ! The file from which the bathymetry is read.
 MAXIMUM_DEPTH = 6000.0          !   [m]
                                 ! The maximum depth of the ocean.
 
@@ -182,7 +202,7 @@ USE_IDEAL_AGE_TRACER = True     !   [Boolean] default = False
 ! === module ideal_age_example ===
 
 ! === module MOM_boundary_update ===
-OBC_SEGMENT_001_DATA = "U=file:OBC37S_forcing_access_yr2_4km.nc(u),V=file:OBC37S_forcing_access_yr2_4km.nc(v),SSH=file:OBC37S_forcing_access_yr2_4km.nc(eta_t),TEMP=file:OBC37S_forcing_access_yr2_4km.nc(pot_temp),SALT=file:OBC37S_forcing_access_yr2_4km.nc(salt)" !
+OBC_SEGMENT_001_DATA = "U=file:./INPUT/OBC37S_forcing_access_yr2_4km.nc(u),V=file:./INPUT/OBC37S_forcing_access_yr2_4km.nc(v),SSH=file:./INPUT/OBC37S_forcing_access_yr2_4km.nc(eta_t),TEMP=file:./INPUT/OBC37S_forcing_access_yr2_4km.nc(pot_temp),SALT=file:./INPUT/OBC37S_forcing_access_yr2_4km.nc(salt)" !
                                 ! OBC segment docs
 
 ! === module MOM_fixed_initialization ===
@@ -204,7 +224,7 @@ REGRIDDING_COORDINATE_MODE = "ZSTAR" ! default = "LAYER"
                                 !  HYCOM1 - HyCOM-like hybrid coordinate
                                 !  HYBGEN - Hybrid coordinate from the Hycom hybgen code
                                 !  ADAPTIVE - optimize for smooth neutral density surfaces
-ALE_COORDINATE_CONFIG = "FILE:ocean_vgrid.nc,interfaces=zeta" ! default = "UNIFORM"
+ALE_COORDINATE_CONFIG = "FILE:./INPUT/ocean_vgrid.nc,interfaces=zeta" ! default = "UNIFORM"
                                 ! Determines how to specify the coordinate resolution. Valid options are:
                                 !  PARAM       - use the vector-parameter ALE_RESOLUTION
                                 !  UNIFORM[:N] - uniformly distributed
@@ -260,7 +280,7 @@ INIT_LAYERS_FROM_Z_FILE = True  !   [Boolean] default = False
                                 ! Z-space file on a latitude-longitude grid.
 
 ! === module MOM_initialize_layers_from_Z ===
-TEMP_SALT_Z_INIT_FILE = "ocean_temp_salt.res.nc" ! default = "temp_salt_z.nc"
+TEMP_SALT_Z_INIT_FILE = "./INPUT/ocean_temp_salt.res.nc" ! default = "temp_salt_z.nc"
                                 ! The name of the z-space input file used to initialize temperatures (T) and
                                 ! salinities (S). If T and S are not in the same file, TEMP_Z_INIT_FILE and
                                 ! SALT_Z_INIT_FILE must be set.
@@ -284,7 +304,7 @@ DIAG_COORDS = "z Z ZSTAR", "rho2 RHO2 RHO" !
                                 ! A list of string tuples associating diag_table modules to a coordinate
                                 ! definition used for diagnostics. Each string is of the form
                                 ! "MODULE_SUFFIX,PARAMETER_SUFFIX,COORDINATE_NAME".
-DIAG_COORD_DEF_Z = "FILE:ocean_vgrid.nc,interfaces=zeta" ! default = "WOA09"
+DIAG_COORD_DEF_Z = "FILE:./INPUT/ocean_vgrid.nc,interfaces=zeta" ! default = "WOA09"
                                 ! Determines how to specify the coordinate resolution. Valid options are:
                                 !  PARAM       - use the vector-parameter DIAG_COORD_RES_Z
                                 !  UNIFORM[:N] - uniformly distributed
@@ -315,7 +335,7 @@ DIAG_COORD_DEF_Z = "FILE:ocean_vgrid.nc,interfaces=zeta" ! default = "WOA09"
                                 !                the weighted sum of profiles I and I+1.
                                 !                Dz can be FNC1:string which is used everywhere.
                                 !                e.g. HYBRID_MAP:vgrid.nc,map,sigma2,dz
-DIAG_COORD_DEF_RHO2 = "FILE:diag_rho2.nc,interfaces=rho2" ! default = "WOA09"
+DIAG_COORD_DEF_RHO2 = "FILE:./INPUT/diag_rho2.nc,interfaces=rho2" ! default = "WOA09"
                                 ! Determines how to specify the coordinate resolution. Valid options are:
                                 !  PARAM       - use the vector-parameter DIAG_COORD_RES_RHO2
                                 !  UNIFORM[:N] - uniformly distributed
@@ -548,7 +568,10 @@ TKE_ITIDE_MAX = 0.1             !   [W m-2] default = 1000.0
 READ_TIDEAMP = True             !   [Boolean] default = False
                                 ! If true, read a file (given by TIDEAMP_FILE) containing the tidal amplitude
                                 ! with INT_TIDE_DISSIPATION.
-H2_FILE = "bottom_roughness.nc" !
+TIDEAMP_FILE = "./INPUT/tideamp.nc" ! default = "tideamp.nc"
+                                ! The path to the file containing the spatially varying tidal amplitudes with
+                                ! INT_TIDE_DISSIPATION.
+H2_FILE = "./INPUT/bottom_roughness.nc" !
                                 ! The path to the file containing the sub-grid-scale topographic roughness
                                 ! amplitude with INT_TIDE_DISSIPATION.
 BBL_EFFIC = 0.01                !   [nondim] default = 0.2
@@ -610,10 +633,15 @@ PRESSURE_DEPENDENT_FRAZIL = True !   [Boolean] default = False
                                 ! If true, use a pressure dependent freezing temperature when making frazil. The
                                 ! default is false, which will be faster but is inappropriate with ice-shelf
                                 ! cavities.
+DO_RIVERMIX = True              !   [Boolean] default = False
+                                ! If true, apply additional mixing wherever there is runoff, so that it is mixed
+                                ! down to RIVERMIX_DEPTH if the ocean is that deep.
+RIVERMIX_DEPTH = 40.0           !   [m] default = 0.0
+                                ! The depth to which rivers are mixed if DO_RIVERMIX is defined.
 VAR_PEN_SW = True               !   [Boolean] default = False
                                 ! If true, use one of the CHL_A schemes specified by OPACITY_SCHEME to determine
                                 ! the e-folding depth of incoming short wave radiation.
-CHL_FILE = "chl_globcolour_monthly_clim.nc" !
+CHL_FILE = "./INPUT/chl_globcolour_monthly_clim.nc" !
                                 ! CHL_FILE is the file containing chl_a concentrations in the variable CHL_A. It
                                 ! is used when VAR_PEN_SW and CHL_FROM_FILE are true.
 CHL_VARNAME = "CHL"             ! default = "CHL_A"
@@ -740,7 +768,7 @@ ENTHALPY_FROM_COUPLER = True    !   [Boolean] default = False
 FLUXCONST = 0.11                !   [m day-1] default = 0.0
                                 ! The constant that relates the restoring surface fluxes to the relative surface
                                 ! anomalies (akin to a piston velocity).  Note the non-MKS units.
-SALT_RESTORE_FILE = "salt_sfc_restore.nc" ! default = "salt_restore.nc"
+SALT_RESTORE_FILE = "./INPUT/salt_sfc_restore.nc" ! default = "salt_restore.nc"
                                 ! A file in which to find the surface salinity to use for restoring.
 SRESTORE_AS_SFLUX = True        !   [Boolean] default = False
                                 ! If true, the restoring of salinity is applied as a salt flux instead of as a
