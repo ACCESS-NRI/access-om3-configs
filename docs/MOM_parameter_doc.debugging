@@ -25,7 +25,7 @@ S_RESCALE_POWER = 0             ! default = 0
                                 ! salinity.  Valid values range from -300 to 300.
 
 ! === module MOM ===
-VERBOSITY = 9                   ! default = 2
+VERBOSITY = 2                   ! default = 2
                                 ! Integer controlling level of messaging
                                 !   0 = Only FATAL messages
                                 !   2 = Only FATAL, WARNING, NOTE [default]
@@ -48,6 +48,10 @@ DEBUG_REDUNDANT = False         !   [Boolean] default = False
 OBC_DEBUGGING_TESTS = False     !   [Boolean] default = False
                                 ! If true, do additional calls resetting certain values to help verify the
                                 ! correctness of the open boundary condition code.
+OBC_REVERSE_SEGMENT_ORDER = False !   [Boolean] default = False
+                                ! If true, store the OBC segments internally and handle them in the reverse
+                                ! order from that with which they are specified via external parameters to test
+                                ! for dependencies on the order with which the OBC segments are applied.
 
 ! === module MOM_verticalGrid ===
 ! Parameters providing information about the vertical grid.
@@ -92,5 +96,5 @@ WRITE_TRACER_MIN_MAX = False    !   [Boolean] default = False
 ! === module MOM_file_parser ===
 REPORT_UNUSED_PARAMS = True     !   [Boolean] default = True
                                 ! If true, report any parameter lines that are not used in the run.
-FATAL_UNUSED_PARAMS = False     !   [Boolean] default = False
+FATAL_UNUSED_PARAMS = True      !   [Boolean] default = False
                                 ! If true, kill the run if there are any unused parameters.
