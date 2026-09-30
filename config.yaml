@@ -61,7 +61,7 @@ metadata:
 manifest:
   reproduce:
     exe: true
-    input: false
+    input: true
 
 mpi:
   flags:
