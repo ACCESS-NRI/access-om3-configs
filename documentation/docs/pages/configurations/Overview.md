@@ -70,9 +70,14 @@ ALLCOMP_attributes::
   - [`mesh_rof`](https://github.com/search?q=repo%3AACCESS-NRI%2Faccess-om3-configs+path%3Adoc%2Fnuopc.runconfig+mesh_rof&type=code) in `ROF_attributes` in `nuopc.runconfig`
   - grid dimensions [`*_nx`](https://github.com/search?q=repo%3AACCESS-NRI%2Faccess-om3-configs+path%3Adoc%2Fnuopc.runconfig+_nx&type=code), [`*_ny`](https://github.com/search?q=repo%3AACCESS-NRI%2Faccess-om3-configs+path%3Adoc%2Fnuopc.runconfig+_ny&type=code) in `MED_attributes` in `nuopc.runconfig`
 #### coupling diagnostics
-  - [`*budget*`](https://github.com/search?q=repo%3AACCESS-NRI%2Faccess-om3-configs+path%3Adoc%2Fnuopc.runconfig+budget&type=code) in `MED_attributes` in `nuopc.runconfig`
-  - [`hist*`](https://github.com/search?q=repo%3AACCESS-NRI%2Faccess-om3-configs+path%3Adoc%2Fnuopc.runconfig+hist&type=code) in `MED_attributes` in `nuopc.runconfig`
+  - For a printout of global budget diagnostics in the `diag.log` file 
+    - see [`*budget*`](https://github.com/search?q=repo%3AACCESS-NRI%2Faccess-om3-configs+path%3Adoc%2Fnuopc.runconfig+budget&type=code) fields in `MED_attributes` in `nuopc.runconfig`
+    - the budget diagnostics usefulness is limited as there is no land model component, energy and mass fluxes from the atmosphere over land are discarded, leading to non-zero global balance of energy and mass diagnostics
+    - these diagnostics only reflect the fields as passed through the coupler
+  - For spatial diagnostics of coupled fields: 
+    - see [`hist*`](https://github.com/search?q=repo%3AACCESS-NRI%2Faccess-om3-configs+path%3Adoc%2Fnuopc.runconfig+hist&type=code) in `MED_attributes` in `nuopc.runconfig`
     - `histaux_*_flds` is either a colon-delimited list of fields to output, or [`all` to output everything](https://github.com/ESCOMP/CMEPS/blob/606eb397d4e66f8fa3417e7e8fd2b2b4b3c222b4/mediator/med_phases_history_mod.F90#L1105-L1143); see [CMEPS field naming convention](https://escomp.github.io/CMEPS/versions/master/html/esmflds.html#field-naming-convention) to decode these
+    - `history_*` will save all fields to/from a component. `history_n_*_avg` and `history_option_*_avg` or `history_n_*_inst` and `history_option_*_inst` need to be used together. See [valid options](https://escomp.github.io/CMEPS/versions/master/html/generic.html?highlight=history_option) for `history_*`.
     - `grep hist archive/output000/log/med.log` will show you when data was written
 #### verbosity in NUOPC log files (`archive/output*/log/*.log`)
   - [`Verbosity`](https://github.com/search?q=repo%3AACCESS-NRI%2Faccess-om3-configs+path%3Adoc%2Fnuopc.runconfig+Verbosity&type=code) in attributes for model components in `nuopc.runconfig`; can be `off`, `low`, `high`, `max` - see [here](https://earthsystemmodeling.org/docs/release/ESMF_8_3_1/NUOPC_refdoc/node3.html#SECTION00033000000000000000) - but doesn't seems to make any difference, perhaps due to [this issue](https://github.com/ESCOMP/CMEPS/issues/21).
