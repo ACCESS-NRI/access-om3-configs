@@ -45,5 +45,12 @@ jobs:
 
           # add and commit
           git add doc
+
+          # stop gracefully if the doc folder is already up to date
+          if git diff --cached --quiet; then
+            echo "::notice::doc folder already up to date with ${{ env.config-branch-name }} (${commit}), nothing to commit"
+            exit 0
+          fi
+
           git commit -m "Updated doc folder from branch https://github.com/ACCESS-NRI/access-om3-configs/tree/${{ env.config-branch-name }} commit: ${commit}"
           git push
