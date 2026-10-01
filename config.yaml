@@ -60,8 +60,8 @@ metadata:
     enable: false
 manifest:
   reproduce:
-    exe: false
-    input: false
+    exe: true
+    input: true
 
 mpi:
   flags:
