@@ -9,18 +9,18 @@
 # Using payu sync is recommend to copy data from ephemeral scratch space to
 # longer term storage
 sync:
-    enable: False   # set path below and change to true
-    base_path: null # Set to location on /g/data (e.g. /g/data/PROJECT/USER/)
-    restarts: True
-    exclude_uncollated: False
+  enable: false     # set path below and change to true
+  base_path: null   # Set to location on /g/data (e.g. /g/data/PROJECT/USER/)
+  restarts: true
+  exclude_uncollated: false
 
 # Model software version
 modules:
-    use:
-        - /g/data/vk83/modules
-    load:
-        - access-om3/2026.05.004
-
+  use:
+  - /g/data/vk83/modules
+  - /g/data/vk83/prerelease/modules
+  load:
+  - access-om3/pr281-2
 queue: normalsr
 ncpus: 208
 jobfs: 10GB
@@ -30,30 +30,30 @@ jobname: access-rom3-demo
 model: access-om3
 exe: access-om3-MOM6
 input:
-    - /g/data/vk83/prerelease/configurations/inputs/access-rom3/regional_template/2026.09.24/
+- /g/data/vk83/prerelease/configurations/inputs/access-rom3/regional_template/2026.09.24/
     # drof/datm forcing data
-    - /g/data/vk83/configurations/inputs/access-om3/share/meshes/share/2026.01.21/JRA55do-drof-ESMFmesh.nc
-    - /g/data/qv56/replicas/input4MIPs/CMIP6Plus/OMIP/MRI/MRI-JRA55-do-1-6-0/land/
-    - /g/data/qv56/replicas/input4MIPs/CMIP6Plus/OMIP/MRI/MRI-JRA55-do-1-6-0/landIce/
-    - /g/data/vk83/prerelease/configurations/inputs/access-om3/share/meshes/share/2026.07.30/ERA5-datm-ESMFmesh.nc
-    - /g/data/av17/access-nri/OM3/era5_rechunked_1h_yearly/
+- /g/data/vk83/configurations/inputs/access-om3/share/meshes/share/2026.01.21/JRA55do-drof-ESMFmesh.nc
+- /g/data/qv56/replicas/input4MIPs/CMIP6Plus/OMIP/MRI/MRI-JRA55-do-1-6-0/land/
+- /g/data/qv56/replicas/input4MIPs/CMIP6Plus/OMIP/MRI/MRI-JRA55-do-1-6-0/landIce/
+- /g/data/vk83/prerelease/configurations/inputs/access-om3/share/meshes/share/2026.07.30/ERA5-datm-ESMFmesh.nc
+- /g/data/av17/access-nri/OM3/era5_rechunked_1h_yearly/
 
 runlog: false
 metadata:
-    enable: false
+  enable: false
 manifest:
-    reproduce:
-        exe: true
-        input: false
+  reproduce:
+    exe: false
+    input: false
 
 mpi:
-    flags:
-        - --mca mpi_yield_when_idle true
+  flags:
+  - --mca mpi_yield_when_idle true
 
 collate: false
 
 userscripts:
-    archive: /usr/bin/bash /g/data/vk83/apps/om3-scripts/payu_config/archive.sh
+  archive: /usr/bin/bash /g/data/vk83/apps/om3-scripts/payu_config/archive.sh
 
 qsub_flags: -W umask=027
 
