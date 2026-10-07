@@ -4207,10 +4207,10 @@ work/INPUT/metadata.yaml:
     binhash: c66a1f4f96a57a7429ce9eab0ba7610f
     md5: 29a4c4c9b93778078bd0d7adf5d1cfe2
 work/INPUT/mod_def.ww3:
-  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/ww3/mod_def/global.100km/2026.10.01/mod_def.ww3
+  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/ww3/mod_def/global.100km/2026.10.06/mod_def.ww3
   hashes:
-    binhash: bfaf88b8dff948bce4fbcda4ee95a2d4
-    md5: 537dc9f89ae37a4952d61f01fbf9b832
+    binhash: 65d5df529cfba5a50eae48fe7ed6b60d
+    md5: bf216ba9daf40e65a3ec3251fd19fd06
 work/INPUT/msl/msl_era5_oper_sfc_19400101-19401231.nc:
   fullpath: /g/data/av17/access-nri/OM3/era5_rechunked_1h_yearly/msl/msl_era5_oper_sfc_19400101-19401231.nc
   hashes:
@@ -4657,9 +4657,9 @@ work/INPUT/ocean_vgrid.nc:
     binhash: 9c1f82b7ea91a8647c8857c02676a7a5
     md5: 66f71f2b24bd00b1c220787505e0106e
 work/INPUT/restart.ww3:
-  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/ww3/initial_conditions/global.100km/2026.10.01/restart.ww3
+  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/ww3/initial_conditions/global.100km/2026.10.06/restart.ww3
   hashes:
-    binhash: 2f72a8ac7c8127f13600f8d6936f6189
+    binhash: c7b24ce7dc37988462ce38960ae347ad
     md5: e68a98bd293d7e554073d08ff91962f2
 work/INPUT/salt_sfc_restore.nc:
   fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/surface_salt_restoring/global.100km/2026.09.23/salt_sfc_restore.nc
