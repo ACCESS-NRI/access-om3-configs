@@ -3,7 +3,7 @@
   model_maskfile = "./INPUT/access-om3-8km-nomask-ESMFmesh.nc"
   model_meshfile = "./INPUT/access-om3-8km-nomask-ESMFmesh.nc"
   nx_global = 4320
-  ny_global = 3672
+  ny_global = 3360
   restfilm = "null"
   skip_restart_read = .false.
 /

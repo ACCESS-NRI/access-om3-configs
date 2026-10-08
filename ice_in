@@ -68,7 +68,7 @@
 /
 &domain_nml
   block_size_x = 60
-  block_size_y = 54
+  block_size_y = 56
   distribution_type = "roundrobin"
   distribution_wght = "latitude"
   maskhalo_bound = .true.
@@ -77,7 +77,7 @@
   max_blocks = -1
   ns_boundary_type = "tripole"
   nx_global = 4320
-  ny_global = 3672
+  ny_global = 3360
   processor_shape = "square-ice"
 /
 &ice_prescribed_nml

@@ -19,7 +19,7 @@ FATAL_UNUSED_PARAMS = True      !   [Boolean] default = False
 ! === module MOM_domains ===
 NONBLOCKING_UPDATES = True      !   [Boolean] default = False
                                 ! If true, non-blocking halo updates may be used.
-MASKTABLE = "./auxiliary_input/mask_table.3671.108x96" ! default = "MOM_mask_table"
+MASKTABLE = "./auxiliary_input/mask_table.3693.108x96" ! default = "MOM_mask_table"
                                 ! A text file to specify n_mask, layout and mask_list. This feature masks out
                                 ! processors that contain only land points. The first line of mask_table is the
                                 ! number of regions to be masked out. The second line is the layout of the model
@@ -114,7 +114,7 @@ TRIPOLAR_N = True               !   [Boolean] default = False
 NIGLOBAL = 4320                 !
                                 ! The total number of thickness grid points in the x-direction in the physical
                                 ! domain. With STATIC_MEMORY_ this is set in MOM_memory.h at compile time.
-NJGLOBAL = 3672                 !
+NJGLOBAL = 3360                 !
                                 ! The total number of thickness grid points in the y-direction in the physical
                                 ! domain. With STATIC_MEMORY_ this is set in MOM_memory.h at compile time.
 
