@@ -41,7 +41,7 @@ PELAYOUT_attributes::
      ice_pestride = 1
      ice_rootpe = 0
      ninst = 1
-     ocn_ntasks = 6697
+     ocn_ntasks = 6675
      ocn_nthreads = 1
      ocn_pestride = 1
      ocn_rootpe = 1519
@@ -129,7 +129,7 @@ MED_attributes::
      atm2ocn_map = unset
      atm2wav_map = unset
      atm_nx = 4320
-     atm_ny = 3672
+     atm_ny = 3360
      budget_ann = 1
      budget_daily = 0
      budget_inst = 0
@@ -235,7 +235,7 @@ MED_attributes::
      ice2atm_map = unset
      ice2wav_smapname = unset
      ice_nx = 4320
-     ice_ny = 3672
+     ice_ny = 3360
      info_debug = 1
      lnd2atm_map = unset
      lnd2rof_map = unset
@@ -245,7 +245,7 @@ MED_attributes::
      ocn2atm_map = unset
      ocn2wav_smapname = unset
      ocn_nx = 4320
-     ocn_ny = 3672
+     ocn_ny = 3360
      ocn_surface_flux_scheme = 0
      rof2lnd_map = unset
      rof2ocn_fmapname = unset
@@ -253,7 +253,7 @@ MED_attributes::
      rof2ocn_liq_rmapname = ./INPUT/access-om3-8km-rof-remap-weights.nc
      rof2ocn_ice_spread = ./INPUT/access-om3-8km-rofi-climatology.nc
      rof_nx = 4320
-     rof_ny = 3672
+     rof_ny = 3360
      wav2ocn_smapname = unset
      wav_nx = 0
      wav_ny = 0
