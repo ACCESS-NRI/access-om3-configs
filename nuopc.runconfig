@@ -335,10 +335,10 @@ ICE_modelio::
      logfile = ice.log
      pio_async_interface = .false.
      pio_netcdf_format = nothing
-     pio_numiotasks = 1
+     pio_numiotasks = 28
      pio_rearranger = 1
-     pio_root = 1
-     pio_stride = 1
+     pio_root = 2 # I used 1 here but looking at the settings, root=2 might be better
+     pio_stride = 52
      pio_typename = netcdf4p
 ::
 
