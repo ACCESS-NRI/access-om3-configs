@@ -1,4 +1,5 @@
 &setup_nml
+  ndtd = 2
   bfbflag = "off" 
   conserv_check = .false.
   diagfreq = 960
