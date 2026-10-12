@@ -122,10 +122,10 @@ work/INPUT/ocean_mosaic.nc:
     binhash: 2dcc422a883014541a1bda2027f5973e
     md5: 48ca097393aa50b6980b7a097f7f27b7
 work/INPUT/ocean_vgrid.nc:
-  fullpath: /g/data/vk83/configurations/inputs/access-om3/mom/grids/vertical/global.25km/2026.03.16/ocean_vgrid.nc
+  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/grids/vertical/share/2025.03.12/ocean_vgrid.nc
   hashes:
-    binhash: edfce23fc2dba28037ca9f66376c00c1
-    md5: 04e88652ff339b09b29ea4adb8fa2229
+    binhash: 9c1f82b7ea91a8647c8857c02676a7a5
+    md5: 66f71f2b24bd00b1c220787505e0106e
 work/INPUT/salt_sfc_restore.nc:
   fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/surface_salt_restoring/global.25km/2026.09.22/salt_sfc_restore.nc
   hashes:
