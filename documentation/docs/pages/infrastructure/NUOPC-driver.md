@@ -81,3 +81,6 @@ It is common to set at least these 3 timesteps in the `MOM_input` file:
 - Baroclinic time-step (`DT`) for Lagrangian stacked shallow-water equations; often called "the" model timestep; needs to be short enough to resolve internal gravity waves, inertial oscillations and advection on the horizontal grid (i.e. this is resolution-dependent).
 
 - Thermodynamics time-step (`DT_THERM`), which can be [set to resolve the relevant physics](https://youtu.be/JKMwd8VXYcU?si=dBk09lMVPsMF3aJT&t=541) (e.g. one to three hours or so to capture the diurnal cycle), independent of the horizontal grid resolution. It is possible to set `DT_THERM` longer than the coupling time-step, but only with [`DIABATIC_FIRST = False`](https://github.com/search?q=repo%3AACCESS-NRI%2Faccess-om3-configs+path%3Adoc%2FMOM_input+content%3ADIABATIC_FIRST&type=code). The tracer advection timestep (`DT_TRACER_ADVECT`) defaults to the same as `DT_THERM`.
+
+!!! warning
+    Avoid setting `DT_THERM` (or `DT_TRACER_ADVECT`) to three times the coupling time-step. Because of how MOM6 handles the first coupling steps of a cold-start run, this puts the thermodynamic steps out of phase with the run and restart boundaries, and the model crashes when writing restarts. See [this issue](https://github.com/ACCESS-NRI/MOM6/issues/105) for details.
