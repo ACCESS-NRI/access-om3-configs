@@ -2,7 +2,7 @@
 
 [ERA5](https://confluence.ecmwf.int/spaces/CKB/pages/76414402/ERA5+data+documentation) is ECMWF's fifth-generation global atmospheric reanalysis. The [hourly single-level product](https://cds.climate.copernicus.eu/datasets/reanalysis-era5-single-levels?tab=overview) used by ACCESS-OM3 is provided on a regular 0.25° × 0.25° latitude-longitude grid.
 
-ACCESS-OM3 uses ERA5 through the CDEPS **DATM** component. ERA5 supplies atmospheric forcing only; runoff continues to be supplied from JRA55-do through **DROF**.
+ACCESS-OM3 uses ERA5 through the CDEPS **DATM** component. ERA5 supplies atmospheric forcing only; runoff continues to be supplied from JRA55-do through **DROF**. See [Forcing data models](Forcing-data-models.md) for the coupling and runoff background, and [JRA55-do → ERA5 conversion](ERA5-conversion.md) for configuration changes.
 
 The ACCESS-OM3-ready ERA5 files are currently stored on NCI at:
 
@@ -14,46 +14,24 @@ ERA5 forcing is currently used in the [`dev-MCW_100km_era_iaf`](https://github.c
 
 ## ERA5 forcing fields
 
-The ERA5 DATM configuration uses the following streams:
+Each stream reads one ERA5 variable from its own subdirectory of `/g/data/av17/access-nri/OM3/era5_rechunked_1h_yearly/`.
 
-| Stream | ERA5 variable $\rightarrow$ CDEPS field | Treatment |
-| --- | --- | --- |
-| `ERA5.RAINC` | `cp` $\rightarrow$ `Faxa_rainc` | preceding-hour accumulation |
-| `ERA5.RAINL` | `lsp` $\rightarrow$ `Faxa_rainl` | preceding-hour accumulation |
-| `ERA5.SNOWC` | `csf` $\rightarrow$ `Faxa_snowc` | preceding-hour accumulation |
-| `ERA5.SNOWL` | `lsf` $\rightarrow$ `Faxa_snowl` | preceding-hour accumulation |
-| `ERA5.LWDN` | `strd` $\rightarrow$ `Faxa_lwdn` | preceding-hour accumulation |
-| `ERA5.SWDN` | `ssrd` $\rightarrow$ `Faxa_swdn` | preceding-hour accumulation |
-| `ERA5.SWNET` | `ssr` $\rightarrow$ `Faxa_swnet` | preceding-hour accumulation |
-| `ERA5.SLP_10` | `msl` $\rightarrow$ `Sa_pslv`, `Sa_pbot` | instantaneous |
-| `ERA5.T_10` | `t2m` $\rightarrow$ `Sa_t2m`, `Sa_tbot` | instantaneous |
-| `ERA5.TDEW` | `d2m` $\rightarrow$ `Sa_tdew` | instantaneous |
-| `ERA5.U_10` | `u10` $\rightarrow$ `Sa_u`, `Sa_u10m` | instantaneous |
-| `ERA5.V_10` | `v10` $\rightarrow$ `Sa_v`, `Sa_v10m` | instantaneous |
+| Stream | Directory | ERA5 variable | CDEPS field(s) | Description (`long_name`) | Treatment |
+| --- | --- | --- | --- | --- | --- |
+| `ERA5.RAINC` | `cp/` | `cp` | `Faxa_rainc` | Convective precipitation | preceding-hour accumulation |
+| `ERA5.RAINL` | `lsp/` | `lsp` | `Faxa_rainl` | Large-scale precipitation | preceding-hour accumulation |
+| `ERA5.SNOWC` | `csf/` | `csf` | `Faxa_snowc` | Convective snowfall | preceding-hour accumulation |
+| `ERA5.SNOWL` | `lsf/` | `lsf` | `Faxa_snowl` | Large-scale snowfall | preceding-hour accumulation |
+| `ERA5.LWDN` | `strd/` | `strd` | `Faxa_lwdn` | Surface long-wave (thermal) radiation downwards | preceding-hour accumulation |
+| `ERA5.SWDN` | `ssrd/` | `ssrd` | `Faxa_swdn` | Surface short-wave (solar) radiation downwards | preceding-hour accumulation |
+| `ERA5.SWNET` | `ssr/` | `ssr` | `Faxa_swnet` | Surface net short-wave (solar) radiation | preceding-hour accumulation |
+| `ERA5.SLP_10` | `msl/` | `msl` | `Sa_pslv`, `Sa_pbot` | Mean sea level pressure | instantaneous |
+| `ERA5.T_10` | `2t/` | `t2m` | `Sa_t2m`, `Sa_tbot` | 2 metre temperature | instantaneous |
+| `ERA5.TDEW` | `2d/` | `d2m` | `Sa_tdew` | 2 metre dewpoint temperature | instantaneous |
+| `ERA5.U_10` | `10u/` | `u10` | `Sa_u`, `Sa_u10m` | 10 metre U wind component | instantaneous |
+| `ERA5.V_10` | `10v/` | `v10` | `Sa_v`, `Sa_v10m` | 10 metre V wind component | instantaneous |
 
-The five instantaneous ERA5 fields are:
-
-```text
-msl
-t2m
-d2m
-u10
-v10
-```
-
-The seven accumulated fields are:
-
-```text
-cp
-lsp
-csf
-lsf
-strd
-ssrd
-ssr
-```
-
-None of the configured streams is an hourly-mean field.
+None of the streams are hourly means.
 
 ## Time handling
 
@@ -129,6 +107,8 @@ Sa_t2m
 Sa_tbot
 ```
 
+The same temperature is also copied directly to potential temperature (`Sa_ptem`).
+
 The 2 m dew-point temperature is combined with temperature and pressure to derive atmospheric humidity fields including:
 
 ```text
@@ -152,18 +132,7 @@ Wind speed is derived from `u10` and `v10`.
 
 ERA5 radiation variables are stored as accumulated energy in J m⁻² and divided by 3,600 s to obtain W m⁻².
 
-For shortwave radiation, CDEPS partitions:
-
-```text
-ssrd / 3600
-```
-
-into four shortwave components:
-
-- 28% visible direct;
-- 31% near-infrared direct;
-- 24% visible diffuse;
-- 17% near-infrared diffuse.
+For shortwave radiation, CDEPS partitions `ssrd / 3600` into four components: 28% visible direct, 31% near-infrared direct, 24% visible diffuse and 17% near-infrared diffuse.
 
 ERA5 variables `aluvp`, `aluvd`, `alnip` and `alnid` are albedo-like quantities rather than shortwave flux bands and are therefore not used as these four components.
 
@@ -171,25 +140,21 @@ ERA5 variables `aluvp`, `aluvd`, `alnip` and `alnid` are albedo-like quantities 
 
 ERA5 precipitation and snowfall accumulations are supplied in metres of water equivalent.
 
-CDEPS multiplies these fields by freshwater density and divides by $3600\ \mathrm{s}$ to convert them to:
-
-$$
-\mathrm{kg\,m^{-2}\,s^{-1}}.
-$$
+CDEPS multiplies these fields by freshwater density and divides by 3,600 s to convert them to kg m⁻² s⁻¹.
 
 ## Forcing period
 
-The forcing period is defined in `datm.streams.xml` using:
+The configured file list spans 1940–2025. The forcing period is defined in `datm.streams.xml` using:
 
 ```xml
-<year_first>...</year_first>
-<year_last>...</year_last>
-<year_align>...</year_align>
+<year_first>1940</year_first>
+<year_last>2025</year_last>
+<year_align>1940</year_align>
 ```
 
 For interannual forcing, `year_align` is normally set equal to `year_first`, so forcing years align directly with model years.
 
-The current ERA5 file collection spans the available yearly forcing files beginning in 1940. Users should confirm that files exist for the requested simulation period before starting an experiment.
+Users should confirm that files exist for the requested simulation period before starting an experiment.
 
 The stream configuration uses:
 
@@ -203,7 +168,7 @@ This behaviour should not be used as a substitute for selecting an appropriate s
 
 ## ERA5 input preparation
 
-The original ERA5 files available at NCI are not arranged optimally for ACCESS-OM3 model access.
+The original ERA5 files replicated under NCI project `rt52` are not arranged optimally for ACCESS-OM3 model access.
 
 Source files examined in [access-om3-configs issue #1381](https://github.com/ACCESS-NRI/access-om3-configs/issues/1381) used chunks of:
 
@@ -220,305 +185,3 @@ The ACCESS-OM3 [ERA5 yearly rechunking script](https://github.com/ACCESS-NRI/om3
 and concatenates the monthly files into one yearly file for each forcing variable.
 
 Because individual monthly ERA5 files can use different packing, the script decodes the source values before combining them, repacks the yearly file using a common `int16` encoding, and validates the decoded output against the packing tolerance.
-
-The resulting files are stored under:
-
-```text
-/g/data/av17/access-nri/OM3/era5_rechunked_1h_yearly/
-```
-
-## Converting a JRA55-do configuration to ERA5
-
-This section describes how to change an existing ACCESS-OM3 **JRA55-do interannual forcing configuration** to use ERA5 atmospheric forcing.
-
-The conversion can be seen by comparing:
-
-- [`dev-MC_100km_jra_iaf`](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MC_100km_jra_iaf)
-- [`dev-MCW_100km_era_iaf`](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MCW_100km_era_iaf)
-
-Only atmospheric forcing changes are described here.
-
-Differences associated with WW3, model executables, PE layouts, queue selection or computational resources are unrelated to the JRA55-do → ERA5 forcing conversion.
-
-!!! note
-
-    ERA5 replaces only **DATM atmospheric forcing**.
-
-    Runoff continues to use JRA55-do through DROF. The JRA55-do `land/` and `landIce/` inputs must therefore remain in the configuration.
-
-The conversion requires changes to:
-
-```text
-datm_in
-config.yaml
-fd.yaml
-datm.streams.xml
-```
-
-### 1. Change the DATM data mode
-
-In `datm_in`, change:
-
-```fortran
-datamode = "JRA55do"
-```
-
-to:
-
-```fortran
-datamode = "ERA5"
-```
-
-No other change to `datm_in` is required.
-
-### 2. Replace the DATM mesh
-
-In the existing `input:` list in `config.yaml`, replace only the JRA55-do **DATM atmospheric** mesh:
-
-```yaml
-- /g/data/vk83/configurations/inputs/access-om3/share/meshes/share/2026.01.21/JRA55do-datm-ESMFmesh.nc
-```
-
-with the ERA5 DATM mesh:
-
-```yaml
-- /g/data/vk83/prerelease/configurations/inputs/access-om3/share/meshes/share/2026.07.30/ERA5-datm-ESMFmesh.nc
-```
-
-Retain the existing **DROF runoff** mesh, `JRA55do-drof-ESMFmesh.nc`, unchanged. The [ERA5 configuration](https://github.com/ACCESS-NRI/access-om3-configs/blob/d84b1acaf4b509052fdffd2718af57bc9b8b6161/config.yaml#L38-L39) stages both the ERA5 DATM mesh and the JRA55-do DROF mesh.
-
-This stages the mesh as:
-
-```text
-./INPUT/ERA5-datm-ESMFmesh.nc
-```
-
-which is the filename referenced by the ERA5 DATM streams.
-
-### 3. Replace the atmospheric forcing inputs
-
-Remove the JRA55-do atmospheric forcing directory:
-
-```yaml
-- /g/data/qv56/replicas/input4MIPs/CMIP6Plus/OMIP/MRI/MRI-JRA55-do-1-6-0/atmos/
-```
-
-and add the ACCESS-OM3 ERA5 forcing directory:
-
-```yaml
-- /g/data/av17/access-nri/OM3/era5_rechunked_1h_yearly/
-```
-
-Do **not** remove the JRA55-do runoff inputs:
-
-```yaml
-- /g/data/qv56/replicas/input4MIPs/CMIP6Plus/OMIP/MRI/MRI-JRA55-do-1-6-0/land/
-- /g/data/qv56/replicas/input4MIPs/CMIP6Plus/OMIP/MRI/MRI-JRA55-do-1-6-0/landIce/
-```
-
-These are required by DROF.
-
-Apply these replacements to the existing `input:` list; the snippets above show individual entries, not a complete replacement list. Retain all other inputs, including the DROF mesh, runoff data, grids and initial conditions.
-
-### 4. Update the field dictionary
-
-Compared with the [`fd.yaml` files in the 25 km](https://github.com/ACCESS-NRI/access-om3-configs/blob/dev-MC_25km_jra_iaf/fd.yaml) and [100 km](https://github.com/ACCESS-NRI/access-om3-configs/blob/dev-MC_100km_jra_iaf/fd.yaml) JRA55-do configurations, the [ERA5 CDEPS data mode](https://github.com/ACCESS-NRI/CDEPS/blob/6a21caa1d2b6a47a10c77e8017045fa231f5a2ad/datm/datm_datamode_era5_mod.F90#L105-L120) requires three additional atmospheric fields. Add these entries to the `atm import to med` section of `fd.yaml`:
-
-```yaml
-- standard_name: Sa_q2m
-  alias: inst_spec_humid_height_lowest
-  canonical_units: kg kg-1
-  description: atm import to med - specific humidity at 2 m
-#
-- standard_name: Sa_t2m
-  alias: inst_temp_height_lowest
-  canonical_units: K
-  description: atm import to med - temperature at 2 m
-#
-- standard_name: Sa_wspd10m
-  alias: inst_wind_speed_height_lowest
-  canonical_units: m s-1
-  description: atm import to med - wind speed at 10 m
-```
-
-The current ERA5 configuration's `fd.yaml` also contains [`Sa_shum_wiso`](https://github.com/ACCESS-NRI/access-om3-configs/blob/dev-MCW_100km_era_iaf/fd.yaml#L393-L396), but this is not required for the standard ERA5 conversion. The pinned ERA5 CDEPS data mode does not advertise or populate that field, and the configuration sets [`flds_wiso = .false.`](https://github.com/ACCESS-NRI/access-om3-configs/blob/d84b1acaf4b509052fdffd2718af57bc9b8b6161/nuopc.runconfig#L95). `Sa_shum_wiso` is only relevant when water-isotope coupling is enabled; with it disabled, no other field-dictionary additions are required.
-
-### 5. Generate `datm.streams.xml`
-
-The ERA5 `datm.streams.xml` should be generated rather than edited manually.
-
-Use [`generate_xml_datm_era5.py`](https://github.com/ACCESS-NRI/om3-scripts/blob/main/data_stream_xml_generation/generate_xml_datm_era5.py) from `om3-scripts`.
-
-The script takes:
-
-```text
-YEAR_FIRST YEAR_LAST --input-base ERA5_DIRECTORY
-```
-
-For example:
-
-```bash
-python /g/data/vk83/apps/om3-scripts/data_stream_xml_generation/generate_xml_datm_era5.py \
-    1940 2025 \
-    --input-base /g/data/av17/access-nri/OM3/era5_rechunked_1h_yearly
-```
-
-This writes:
-
-```text
-datm.streams.xml
-```
-
-in the current working directory.
-
-Choose `YEAR_FIRST` and `YEAR_LAST` to match the ERA5 forcing files required by the experiment.
-
-For an interannual experiment where:
-
-```text
-YEAR_FIRST != YEAR_LAST
-```
-
-the generator sets:
-
-```xml
-<taxmode>extend</taxmode>
-```
-
-For a repeating-year experiment where:
-
-```text
-YEAR_FIRST == YEAR_LAST
-```
-
-the generator instead sets:
-
-```xml
-<taxmode>cycle</taxmode>
-```
-
-The generator also sets:
-
-- the ERA5 stream names;
-- ERA5 source-variable to CDEPS-field mappings;
-- `ERA5-datm-ESMFmesh.nc` as the source mesh;
-- conservative or patch spatial remapping;
-- temporal interpolation;
-- accumulated-field time offsets; and
-- the requested forcing period.
-
-### 6. Check the generated stream file
-
-After generation, check that `datm.streams.xml` points to the staged ERA5 files.
-
-For example:
-
-```xml
-<stream_info name="ERA5.U_10">
-```
-
-should contain files similar to:
-
-```xml
-<file>./INPUT/10u/10u_era5_oper_sfc_20200101-20201231.nc</file>
-```
-
-and should use:
-
-```xml
-<meshfile>./INPUT/ERA5-datm-ESMFmesh.nc</meshfile>
-```
-
-Accumulated streams should contain:
-
-```xml
-<offset>-1800</offset>
-```
-
-while instantaneous streams should contain:
-
-```xml
-<offset>0</offset>
-```
-
-### 7. Check the simulation period
-
-The model start date must lie within the intended ERA5 forcing period.
-
-For example, if `datm.streams.xml` contains:
-
-```xml
-<year_first>1940</year_first>
-<year_last>2025</year_last>
-<year_align>1940</year_align>
-```
-
-then:
-
-```text
-start_ymd = 19580101
-```
-
-falls within the forcing period.
-
-Although `taxmode=extend` allows DATM to extend beyond the time axis, simulations should normally remain within the scientifically intended forcing period.
-
-### Conversion summary
-
-Converting JRA55-do atmospheric forcing to ERA5 requires:
-
-```text
-datm_in
-
-datamode = "JRA55do"
-          ↓
-datamode = "ERA5"
-```
-
-```text
-config.yaml
-
-JRA55do-datm-ESMFmesh.nc
-          ↓
-ERA5-datm-ESMFmesh.nc
-```
-
-```text
-config.yaml
-
-JRA55-do atmos/
-          ↓
-/g/data/av17/access-nri/OM3/era5_rechunked_1h_yearly/
-```
-
-```text
-fd.yaml
-
-add Sa_q2m
-add Sa_t2m
-add Sa_wspd10m
-```
-
-and regenerating:
-
-```text
-datm.streams.xml
-```
-
-using:
-
-```text
-generate_xml_datm_era5.py
-```
-
-The following remain unchanged as part of the atmospheric forcing conversion:
-
-```text
-JRA55-do land/
-JRA55-do landIce/
-drof.streams.xml
-DROF configuration
-MOM6 grid
-CICE6 grid
-ocean initial conditions
-```

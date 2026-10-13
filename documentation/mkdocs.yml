@@ -106,8 +106,10 @@ nav:
         - Edit this Documentation: pages/contributing/Edit-Config-Docs.md
         - Add Supported Config:      pages/contributing/Add-Supported-Config.md      
   - Inputs:
-        - Forcing data models:   pages/inputs/Forcing-data-models.md
-        - ERA5 atmospheric forcing: pages/inputs/ERA5-atmospheric-forcing.md
+        - Forcing data models:
+            - Overview: pages/inputs/Forcing-data-models.md
+            - ERA5 atmospheric forcing: pages/inputs/ERA5-atmospheric-forcing.md
+            - JRA55-do → ERA5 conversion: pages/inputs/ERA5-conversion.md
         - Grids:                 pages/inputs/Grids.md
         - Topography generation: pages/inputs/Topography-generation.md
         - Initial condition generation: pages/inputs/Initial-conditions-generation.md
