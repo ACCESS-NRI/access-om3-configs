@@ -273,17 +273,19 @@ No other change to `datm_in` is required.
 
 ### 2. Replace the DATM mesh
 
-In the `input:` section of `config.yaml`, remove the JRA55-do DATM mesh:
+In the existing `input:` list in `config.yaml`, replace only the JRA55-do **DATM atmospheric** mesh:
 
 ```yaml
 - /g/data/vk83/configurations/inputs/access-om3/share/meshes/share/2026.01.21/JRA55do-datm-ESMFmesh.nc
 ```
 
-and add the ERA5 DATM mesh:
+with the ERA5 DATM mesh:
 
 ```yaml
 - /g/data/vk83/prerelease/configurations/inputs/access-om3/share/meshes/share/2026.07.30/ERA5-datm-ESMFmesh.nc
 ```
+
+Retain the existing **DROF runoff** mesh, `JRA55do-drof-ESMFmesh.nc`, unchanged. The [ERA5 configuration](https://github.com/ACCESS-NRI/access-om3-configs/blob/d84b1acaf4b509052fdffd2718af57bc9b8b6161/config.yaml#L38-L39) stages both the ERA5 DATM mesh and the JRA55-do DROF mesh.
 
 This stages the mesh as:
 
@@ -316,45 +318,30 @@ Do **not** remove the JRA55-do runoff inputs:
 
 These are required by DROF.
 
-The relevant forcing inputs should therefore resemble:
-
-```yaml
-input:
-    # ERA5 atmospheric mesh
-    - /g/data/vk83/prerelease/configurations/inputs/access-om3/share/meshes/share/2026.07.30/ERA5-datm-ESMFmesh.nc
-
-    # JRA55-do runoff
-    - /g/data/qv56/replicas/input4MIPs/CMIP6Plus/OMIP/MRI/MRI-JRA55-do-1-6-0/land/
-    - /g/data/qv56/replicas/input4MIPs/CMIP6Plus/OMIP/MRI/MRI-JRA55-do-1-6-0/landIce/
-
-    # ERA5 atmospheric forcing
-    - /g/data/av17/access-nri/OM3/era5_rechunked_1h_yearly/
-```
-
-Other grid, initial-condition and model-component inputs are independent of this forcing conversion.
+Apply these replacements to the existing `input:` list; the snippets above show individual entries, not a complete replacement list. Retain all other inputs, including the DROF mesh, runoff data, grids and initial conditions.
 
 ### 4. Update the field dictionary
 
-Compared with the [`fd.yaml` files in the 25 km](https://github.com/ACCESS-NRI/access-om3-configs/blob/dev-MC_25km_jra_iaf/fd.yaml) and [100 km](https://github.com/ACCESS-NRI/access-om3-configs/blob/dev-MC_100km_jra_iaf/fd.yaml) JRA55-do configurations, ERA5 requires three additional atmospheric fields. Add these entries to the `atm import to med` section of `fd.yaml`:
+Compared with the [`fd.yaml` files in the 25 km](https://github.com/ACCESS-NRI/access-om3-configs/blob/dev-MC_25km_jra_iaf/fd.yaml) and [100 km](https://github.com/ACCESS-NRI/access-om3-configs/blob/dev-MC_100km_jra_iaf/fd.yaml) JRA55-do configurations, the [ERA5 CDEPS data mode](https://github.com/ACCESS-NRI/CDEPS/blob/6a21caa1d2b6a47a10c77e8017045fa231f5a2ad/datm/datm_datamode_era5_mod.F90#L105-L120) requires three additional atmospheric fields. Add these entries to the `atm import to med` section of `fd.yaml`:
 
 ```yaml
 - standard_name: Sa_q2m
   alias: inst_spec_humid_height_lowest
   canonical_units: kg kg-1
-  description: atm import to med - specific humidity at 2m
+  description: atm import to med - specific humidity at 2 m
 #
 - standard_name: Sa_t2m
   alias: inst_temp_height_lowest
   canonical_units: K
-  description: atm import to med - temperature at 2m
+  description: atm import to med - temperature at 2 m
 #
 - standard_name: Sa_wspd10m
   alias: inst_wind_speed_height_lowest
   canonical_units: m s-1
-  description: atm import to med - wind speed at 10m
+  description: atm import to med - wind speed at 10 m
 ```
 
-The [ERA5 CDEPS data mode](https://github.com/ACCESS-NRI/CDEPS/blob/6a21caa1d2b6a47a10c77e8017045fa231f5a2ad/datm/datm_datamode_era5_mod.F90) advertises and populates these three fields; no other field-dictionary additions are required.
+The current ERA5 configuration's `fd.yaml` also contains [`Sa_shum_wiso`](https://github.com/ACCESS-NRI/access-om3-configs/blob/dev-MCW_100km_era_iaf/fd.yaml#L393-L396), but this is not required for the standard ERA5 conversion. The pinned ERA5 CDEPS data mode does not advertise or populate that field, and the configuration sets [`flds_wiso = .false.`](https://github.com/ACCESS-NRI/access-om3-configs/blob/d84b1acaf4b509052fdffd2718af57bc9b8b6161/nuopc.runconfig#L95). `Sa_shum_wiso` is only relevant when water-isotope coupling is enabled; with it disabled, no other field-dictionary additions are required.
 
 ### 5. Generate `datm.streams.xml`
 
@@ -372,7 +359,7 @@ For example:
 
 ```bash
 python /g/data/vk83/apps/om3-scripts/data_stream_xml_generation/generate_xml_datm_era5.py \
-    1940 2026 \
+    1940 2025 \
     --input-base /g/data/av17/access-nri/OM3/era5_rechunked_1h_yearly
 ```
 
@@ -462,7 +449,7 @@ For example, if `datm.streams.xml` contains:
 
 ```xml
 <year_first>1940</year_first>
-<year_last>2026</year_last>
+<year_last>2025</year_last>
 <year_align>1940</year_align>
 ```
 
