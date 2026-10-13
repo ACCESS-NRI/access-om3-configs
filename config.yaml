@@ -35,7 +35,7 @@ exe: access-om3-MOM6-CICE6
 input:
     - /g/data/vk83/prerelease/configurations/inputs/access-om3/panan-isf.4km/2026.06.17/kmt.nc
     - /g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.01.08/ocean_hgrid.nc
-    - /g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.01.08/ocean_vgrid.nc
+    - /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/grids/vertical/share/2025.03.12/ocean_vgrid.nc
     - /g/data/vk83/prerelease/configurations/inputs/access-om3/panan-isf.4km/2026.01.08/ocean_temp_salt.res.nc
     - /g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.01.08/salt_sfc_restore.nc
     - /g/data/vk83/prerelease/configurations/inputs/access-om3/panan-isf.4km/2026.01.08/salt_restore_mask.nc

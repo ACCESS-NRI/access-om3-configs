@@ -122,9 +122,9 @@ work/INPUT/ocean_temp_salt.res.nc:
     binhash: 8345a635ab30295f2cd6b3640f591223
     md5: 4bb7af6ab6b226e08760931cb1748fce
 work/INPUT/ocean_vgrid.nc:
-  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.01.08/ocean_vgrid.nc
+  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/grids/vertical/share/2025.03.12/ocean_vgrid.nc
   hashes:
-    binhash: 55ccd1cf1887ece8c2b5788600f49100
+    binhash: 9c1f82b7ea91a8647c8857c02676a7a5
     md5: 66f71f2b24bd00b1c220787505e0106e
 work/INPUT/salt_restore_mask.nc:
   fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/panan-isf.4km/2026.01.08/salt_restore_mask.nc
