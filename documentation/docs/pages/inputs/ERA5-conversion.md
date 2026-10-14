@@ -2,10 +2,7 @@
 
 This page describes how to change an existing ACCESS-OM3 **JRA55-do interannual forcing configuration** to use [ERA5 atmospheric forcing](ERA5-atmospheric-forcing.md). See [Forcing data models](Forcing-data-models.md) for the existing JRA55-do atmosphere and runoff treatment.
 
-The conversion can be seen by comparing:
-
-- [`dev-MC_100km_jra_iaf`](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MC_100km_jra_iaf)
-- [`dev-MCW_100km_era_iaf`](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MCW_100km_era_iaf)
+Andrew Kiss's [JRA55-do → ERA5 conversion commit](https://github.com/ACCESS-Community-Hub/access-om3-experiments/commit/885b5f41547d6c363a64ffb6d385ed31e37f9f9e) provides a forcing-conversion example for the 25 km configuration. The steps below describe the atmospheric forcing changes; use mesh and input paths appropriate to your configuration.
 
 !!! note
 
