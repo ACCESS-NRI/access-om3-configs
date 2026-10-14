@@ -91,42 +91,21 @@ Within `datm.streams.xml`, [each stream references the staged mesh](https://gith
 
 ## ERA5 CDEPS processing
 
-The [ERA5 CDEPS data mode](https://github.com/ACCESS-NRI/CDEPS/blob/6a21caa1d2b6a47a10c77e8017045fa231f5a2ad/datm/datm_datamode_era5_mod.F90#L454-L459) performs several transformations before the atmospheric fields are passed to the coupled components.
+The ERA5 DATM data mode converts the source variables into the atmospheric state and flux fields used by the mediator and coupled components. The `Sa_*` names identify atmospheric state fields; `bot` denotes the lowest atmospheric reference level, rather than the ocean bottom. The [field dictionary](https://github.com/ACCESS-NRI/access-om3-configs/blob/bbf1c86c50dfa0716c47fd9be2e261169fd911e7/fd.yaml#L364-L444) defines their meanings and units.
 
-`msl` is used for both:
+The pinned CDEPS implementation [copies pressure, temperature and wind components](https://github.com/ACCESS-NRI/CDEPS/blob/6a21caa1d2b6a47a10c77e8017045fa231f5a2ad/datm/datm_datamode_era5_mod.F90#L394-L405) and [derives humidity, density and wind speed](https://github.com/ACCESS-NRI/CDEPS/blob/6a21caa1d2b6a47a10c77e8017045fa231f5a2ad/datm/datm_datamode_era5_mod.F90#L431-L459) as follows:
 
-```text
-Sa_pslv
-Sa_pbot
-```
+| CDEPS field(s) and meaning | ERA5 input or calculation |
+| --- | --- |
+| `Sa_pslv`: sea-level pressure; `Sa_pbot`: pressure at the lowest atmospheric reference level | Mean sea-level pressure (`msl`) is copied to both fields, without a height adjustment. |
+| `Sa_t2m`: 2 m air temperature; `Sa_tbot`: lowest-level air temperature; `Sa_ptem`: lowest-level potential temperature | 2 m temperature (`t2m`) is copied to all three fields. The data mode does not apply a potential-temperature conversion. |
+| `Sa_q2m`: 2 m specific humidity; `Sa_shum`: lowest-level specific humidity | Both receive the humidity derived from 2 m dew-point temperature (`d2m`, read as `Sa_tdew`), 2 m temperature (`t2m`) and mean sea-level pressure (`msl`). |
+| `Sa_u`, `Sa_u10m`: zonal wind; `Sa_v`, `Sa_v10m`: meridional wind | The corresponding 10 m wind components (`u10`, `v10`) are copied directly. |
+| `Sa_wspd10m`: 10 m wind speed | Calculated as `sqrt(u10² + v10²)`. |
+| `Sa_dens`: air density at the lowest atmospheric reference level | Calculated from `Sa_pbot`, `Sa_tbot` and the derived specific humidity (`Sa_shum` or `Sa_q2m`). |
+| `Sa_z`: lowest atmospheric reference height | Set to 10 m. |
 
-and `t2m` is used for:
-
-```text
-Sa_t2m
-Sa_tbot
-```
-
-The same temperature is also copied directly to potential temperature (`Sa_ptem`).
-
-The 2 m dew-point temperature is combined with temperature and pressure to derive atmospheric humidity fields including:
-
-```text
-Sa_q2m
-Sa_shum
-```
-
-CDEPS calculates air density using pressure, temperature and the derived humidity.
-
-The atmospheric reference height:
-
-```text
-Sa_z
-```
-
-is set to 10 m. The forcing therefore combines 2 m temperature and humidity with 10 m winds.
-
-Wind speed is derived from `u10` and `v10`.
+The forcing therefore combines 2 m temperature and humidity with 10 m winds, while assigning a 10 m reference height to the coupled atmospheric fields.
 
 ### Radiation
 
