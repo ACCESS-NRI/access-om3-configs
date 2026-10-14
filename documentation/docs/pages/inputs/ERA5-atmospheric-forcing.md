@@ -37,7 +37,7 @@ None of the streams are hourly means.
 
 ERA5 accumulated fields are timestamped at the **end** of the period they represent. For example, a precipitation value stamped at 07:00 represents the accumulation from 06:00 to 07:00.
 
-For linear temporal interpolation, the accumulated fields are therefore shifted by:
+For linear temporal interpolation, the accumulated fields use a −1,800 s offset, as specified for [the precipitation stream in `datm.streams.xml`](https://github.com/ACCESS-NRI/access-om3-configs/blob/bbf1c86c50dfa0716c47fd9be2e261169fd911e7/datm.streams.xml#L110-L111):
 
 ```xml
 <offset>-1800</offset>
@@ -45,7 +45,7 @@ For linear temporal interpolation, the accumulated fields are therefore shifted 
 
 This places the forcing value at the midpoint of the represented one-hour interval.
 
-Instantaneous fields are already valid at their timestamps and use:
+Instantaneous fields are already valid at their timestamps and use zero offset, as specified for [the pressure stream](https://github.com/ACCESS-NRI/access-om3-configs/blob/bbf1c86c50dfa0716c47fd9be2e261169fd911e7/datm.streams.xml#L846-L847):
 
 ```xml
 <offset>0</offset>
@@ -53,7 +53,7 @@ Instantaneous fields are already valid at their timestamps and use:
 
 This treatment was established in [om3-scripts PR #122](https://github.com/ACCESS-NRI/om3-scripts/pull/122).
 
-All ERA5 DATM streams currently use:
+All twelve ERA5 DATM streams in [this configuration commit](https://github.com/ACCESS-NRI/access-om3-configs/blob/bbf1c86c50dfa0716c47fd9be2e261169fd911e7/datm.streams.xml) use:
 
 ```xml
 <tintalgo>linear</tintalgo>
@@ -65,25 +65,25 @@ for temporal interpolation.
 
 DATM reads ERA5 data on its source grid and passes the fields to the CMEPS mediator, where they are remapped onto the ACCESS-OM3 grid.
 
-Accumulated flux fields use conservative remapping:
+Accumulated flux fields use conservative remapping, as specified by [`mapalgo` in the precipitation stream](https://github.com/ACCESS-NRI/access-om3-configs/blob/bbf1c86c50dfa0716c47fd9be2e261169fd911e7/datm.streams.xml#L8-L11):
 
 ```text
 consf
 ```
 
-while instantaneous atmospheric state fields use patch remapping:
+while instantaneous atmospheric state fields use patch remapping, as specified in [the pressure stream](https://github.com/ACCESS-NRI/access-om3-configs/blob/bbf1c86c50dfa0716c47fd9be2e261169fd911e7/datm.streams.xml#L743-L746):
 
 ```text
 patch
 ```
 
-The current ERA5 DATM mesh is:
+The ERA5 DATM mesh is staged by [`config.yaml`](https://github.com/ACCESS-NRI/access-om3-configs/blob/bbf1c86c50dfa0716c47fd9be2e261169fd911e7/config.yaml#L38) from:
 
 ```text
 /g/data/vk83/prerelease/configurations/inputs/access-om3/share/meshes/share/2026.07.30/ERA5-datm-ESMFmesh.nc
 ```
 
-Within `datm.streams.xml`, the staged file is referenced as:
+Within `datm.streams.xml`, [each stream references the staged mesh](https://github.com/ACCESS-NRI/access-om3-configs/blob/bbf1c86c50dfa0716c47fd9be2e261169fd911e7/datm.streams.xml#L17) as:
 
 ```xml
 <meshfile>./INPUT/ERA5-datm-ESMFmesh.nc</meshfile>
