@@ -30,7 +30,9 @@ What ad-hoc testing was done? How are you convinced this change is correct (plot
 
 **6. CI Testing**
 <!-- Has the CI-testing been run? -->
-- [ ] `!test repro` or `!test repro commit ` has been run
+- [ ] `!test repro` has been run (or explain why not).
+  - Optional: `--commit` to update checksums, `--markers` to select tests,
+    and `--walltime` to adjust the PBS job walltime.
 
 **7. Reproducibility**
 
