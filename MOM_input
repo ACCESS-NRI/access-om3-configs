@@ -1,3 +1,8 @@
+INTEGRAL_BT_CONTINUITY = False
+ADJUST_BT_CONT = False
+BT_NONLIN_STRESS = False
+LINEARIZED_BT_CORIOLIS = True
+
 ! This section contains non default debugging parameters which are set.
 ! ------------------------
 ! === module MOM_vert_friction ===
