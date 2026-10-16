@@ -147,6 +147,104 @@ The pinned [`config.yaml`](https://github.com/ACCESS-NRI/access-om3-configs/blob
 
 CICE writes daily and monthly means. WW3's `WAV_modelio` settings request daily history, while the [coupled cap uses driver restart/history alarms](https://github.com/ACCESS-NRI/WW3/blob/2026.03.001/model/src/wav_comp_nuopc.F90#L1135-L1170). The native schedules in [`wav_in`](https://github.com/ACCESS-NRI/access-om3-configs/blob/bbf1c86c50dfa0716c47fd9be2e261169fd911e7/wav_in) still span 1 January 1958 to 1 January 2024 with daily field/restart strides and disabled point output; these dates are not the coupled run's stop date. Check both the coupled alarms and native schedules when changing run dates or switching to standalone WW3. Longer experiments also require checking actual forcing-file availability.
 
+## Exchanged fields
+
+The tables below list **all 73 component-to-component mapping records** in `/scratch/tm70/ek4684/test1/work/log/med.log`, inspected on 16 October 2026. This run uses the deployed executable described above; its `fd.yaml` and `nuopc.runseq` match configuration commit `bbf1c86`, and its `nuopc.runconfig` differs only by `start_type = continue`. This is an inventory of fields mapped by CMEPS, not a list of every advertised field or history diagnostic. A mapped field can be an intermediate used by the mediator rather than a field passed unchanged into the receiving model.
+
+Here `atm` is DATM (ERA5), `rof` is DROF (JRA55-do runoff), `ocn` is MOM6, `ice` is CICE6, and `wav` is WW3. All routes pass through CMEPS on the 3600 s coupling sequence. Names and units follow the pinned [field dictionary](https://github.com/ACCESS-NRI/access-om3-configs/blob/bbf1c86c50dfa0716c47fd9be2e261169fd911e7/fd.yaml), with the spectrum-unit caveat below. Paired names denote separate fields; the three Stokes bands and 25 spectrum bins are array dimensions, not separate mapping records.
+
+### Atmospheric forcing
+
+Each field below is mapped to **both ocean and ice** (`atm→ocn`: 19; `atm→ice`: 19). Only the three fields marked in the final column are also mapped to WW3 (`atm→wav`: 3).
+
+| Field(s) | Quantity | Units | Also to WW3 |
+| --- | --- | --- | --- |
+| `Sa_u`, `Sa_v` | Zonal and meridional wind | m s⁻¹ | Yes |
+| `Sa_z` | Atmospheric reference height | m | |
+| `Sa_tbot` | Air temperature at the reference level | K | Yes |
+| `Sa_pbot` | Pressure at the reference level | Pa | |
+| `Sa_shum` | Specific humidity | kg kg⁻¹ | |
+| `Sa_ptem` | Potential temperature | K | |
+| `Sa_dens` | Air density | kg m⁻³ | |
+| `Sa_pslv` | Sea-level pressure | Pa | |
+| `Faxa_rainc`, `Faxa_rainl` | Convective and large-scale rain | kg m⁻² s⁻¹ | |
+| `Faxa_snowc`, `Faxa_snowl` | Convective and large-scale snow | kg m⁻² s⁻¹ | |
+| `Faxa_swnet` | Net shortwave radiation | W m⁻² | |
+| `Faxa_lwdn` | Downward longwave radiation | W m⁻² | |
+| `Faxa_swndr`, `Faxa_swndf` | Direct and diffuse near-infrared shortwave radiation | W m⁻² | |
+| `Faxa_swvdr`, `Faxa_swvdf` | Direct and diffuse visible shortwave radiation | W m⁻² | |
+
+These are coupler fields after DATM processing, not necessarily separate ERA5 input variables; see the ERA5 guide linked above for forcing preparation.
+
+### Ocean exports
+
+| Route | Field(s) | Quantity | Units |
+| --- | --- | --- | --- |
+| `ocn→ice` | `So_omask` | Ocean mask | 1 |
+| `ocn→ice`, `ocn→wav` | `So_t` | Sea-surface temperature | K |
+| `ocn→ice` | `So_s` | Sea-surface salinity | g kg⁻¹ |
+| `ocn→ice`, `ocn→wav` | `So_u`, `So_v` | Zonal and meridional surface currents | m s⁻¹ |
+| `ocn→ice` | `So_dhdx`, `So_dhdy` | Sea-surface slopes | m m⁻¹ |
+| `ocn→ice` | `Fioo_q` | Freezing/melting potential | W m⁻² |
+| `ocn→wav` | `So_bldepth` | Ocean boundary-layer depth | m |
+
+There are eight mappings to ice and four to waves.
+
+### Ice exports
+
+| Route | Field(s) | Quantity | Units |
+| --- | --- | --- | --- |
+| `ice→ocn` | `Faii_swnet` | Net shortwave radiation over ice | W m⁻² |
+| `ice→ocn`, `ice→wav` | `Si_ifrac` | Ice concentration | 1 |
+| `ice→ocn` | `Fioi_swpen` | Total shortwave radiation penetrating ice into ocean | W m⁻² |
+| `ice→ocn` | `Fioi_swpen_vdr`, `Fioi_swpen_vdf` | Visible direct and diffuse penetrating shortwave | W m⁻² |
+| `ice→ocn` | `Fioi_swpen_idr`, `Fioi_swpen_idf` | Near-infrared direct and diffuse penetrating shortwave | W m⁻² |
+| `ice→ocn` | `Fioi_melth` | Ice–ocean heat flux | W m⁻² |
+| `ice→ocn` | `Fioi_taux`, `Fioi_tauy` | Zonal and meridional ice stress on ocean | N m⁻² |
+| `ice→ocn` | `Fioi_meltw` | Freshwater flux from ice to ocean | kg m⁻² s⁻¹ |
+| `ice→ocn` | `Fioi_salt` | Salt flux from ice to ocean | kg m⁻² s⁻¹ |
+| `ice→wav` | `Si_thick` | Ice thickness | m |
+| `ice→wav` | `Si_floediam` | Floe diameter | m |
+
+There are 12 mappings to ocean and three to waves. FSD categories themselves are not exchanged: WW3 receives floe diameter, while CICE retains the category distribution.
+
+### Runoff and wave exports
+
+| Route | Field(s) | Quantity | Units |
+| --- | --- | --- | --- |
+| `rof→ocn` | `Forr_rofl` | Liquid runoff | kg m⁻² s⁻¹ |
+| `rof→ocn` | `Forr_rofi` | Frozen runoff | kg m⁻² s⁻¹ |
+| `wav→ocn` | `Sw_pstokes_x`, `Sw_pstokes_y` | Zonal and meridional Stokes drift, each with three bands | m s⁻¹ |
+| `wav→ice` | `Sw_elevation_spectrum` | Instantaneous, direction-integrated wave-elevation spectrum, 25 frequency bins | See note below |
+
+There are two runoff mappings, two wave-to-ocean mappings and one wave-to-ice mapping. Significant wave height, wave period, radiation stress and wave-induced bottom currents are **not** among this run's mapped fields. The log sets a `rof→ice` connection flag but records no field mappings on that route; there are also no mapped return fields to DATM or DROF.
+
+!!! note "Spectrum units need a metadata check"
+    `fd.yaml` declares `Sw_elevation_spectrum` in `m2/s`. The [WW3 spectrum calculation](https://github.com/ACCESS-NRI/WW3/blob/0a23b2c358150b420919f47545ae81b76fa39a0f/model/src/wav_import_export.F90#L1337-L1376) integrates over directions and converts to ordinary frequency, consistent with a variance density in m² Hz⁻¹ (m² s). Treat the dictionary label as an unresolved metadata discrepancy, not as an instruction to rescale the exchanged values.
+
+### Mapping and mediator processing
+
+The log reports `fcopy` for atmosphere–ocean, atmosphere–ice and ocean–ice transfers. Atmosphere/ocean to waves use `bilnr`; ice to waves and waves to ocean/ice use `bilnr_nstod`, all with `one` normalization. Liquid runoff uses `rof2ocn_liq`, `none` normalization and `access-om3-100km-rof-remap-weights.nc`; frozen runoff uses `consd` with `one` normalization. These are the logged mapping identifiers. The log also enables frozen-runoff spreading using `access-om3-100km-rofi-climatology.nc`.
+
+CMEPS combines and transforms fields before model import. In particular, the logged merge rules sum convective and large-scale precipitation into `Faxa_rain` and `Faxa_snow`, rename runoff to `Foxx_rofl` and `Foxx_rofi`, and weight ocean-directed atmospheric and ice flux contributions by open-water and ice fractions. The logged initial contributions to `Foxx_taux`, `Foxx_tauy` and `Foxx_lwnet` are not their complete flux budgets: air–ocean flux calculations also occur in the mediator. Thus the 73 mappings above should not be read as 73 independent model import variables.
+
+For completeness, the same log lists these **14 internal air–ocean calculation fields**, separately from the mapping inventory:
+
+| Field(s) | Role |
+| --- | --- |
+| `Faox_taux`, `Faox_tauy` | Air–ocean stress components |
+| `Faox_lat`, `Faox_sen` | Latent and sensible heat fluxes |
+| `Faox_evap`, `Faox_lwup` | Evaporation and upward longwave flux |
+| `So_tref`, `So_qref` | Reference temperature and specific humidity |
+| `So_u10`, `So_u10res` | Wind diagnostics from the air–ocean flux calculation |
+| `So_ssq`, `So_re`, `So_ustar`, `So_duu10n` | Additional air–ocean flux diagnostics |
+
+These internal bundle entries are not evidence of additional component-to-component transfers. To recheck the mapping inventory after changing configuration or executable, inspect the new run's log:
+
+```bash
+grep '^ mapping' work/log/med.log
+```
+
 ## Running and regenerating WW3 inputs
 
 On Gadi, ensure access to the input projects listed in `config.yaml` (including `vk83`, `av17` and `qv56`, plus `xp65` for postprocessing) and an allocation for running the model. Use Payu **1.3.6 or later**, as required by the configuration. Clone the ERA5 interannual-forcing branch and enter the resulting configuration directory:
