@@ -1,3 +1,8 @@
+INTEGRAL_BT_CONTINUITY = False
+ADJUST_BT_CONT = False
+BT_NONLIN_STRESS = False
+LINEARIZED_BT_CORIOLIS = True
+
 ! This section contains non default debugging parameters which are set.
 ! ------------------------
 ! === module MOM_vert_friction ===
@@ -421,6 +426,9 @@ SMAG_BI_CONST = 0.06            !   [nondim] default = 0.0
                                 ! The nondimensional biharmonic Smagorinsky constant, typically 0.015 - 0.06.
 
 ! === module MOM_vert_friction ===
+VERTVISC_OBC_STRESS_BUG = False !   [Boolean] default = True
+                                ! If true, recover a bug that applies the surface wind stress as a boundary
+                                ! condition at open boundary points in vertvisc.
 HMIX_FIXED = 0.5                !   [m]
                                 ! The prescribed depth over which the near-surface viscosity and diffusivity are
                                 ! elevated when the bulk mixed layer is not used.
