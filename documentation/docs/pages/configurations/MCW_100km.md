@@ -88,16 +88,29 @@ The executable does not contain `PR3`, `IC3` or `IS2`. Consequently, the `PRO3` 
 
 ### Time stepping
 
-In ACCESS-OM3's coupled WW3 pathway, selected by WW3's historically named `CESMCOUPLED` compile switch, WW3 restores the timestep controls from [`wav_in`](https://github.com/ACCESS-NRI/access-om3-configs/blob/bbf1c86c50dfa0716c47fd9be2e261169fd911e7/wav_in) after reading the preprocessed `mod_def.ww3`. The `DTMAX`, `DTXY`, `DTKTH` and `DTMIN` values in `ww3_grid.nml` (900, 300, 600 and 10 s) are therefore preprocessor inputs, not the effective runtime limits; the [coupled initialisation restores the runtime values](https://github.com/ACCESS-NRI/WW3/blob/2026.03.001/model/src/wav_comp_nuopc.F90#L1599-L1607). The current runtime values are:
+WW3 splits wave evolution into geographic propagation, propagation through frequency/direction space (including refraction), and source terms such as wind input and dissipation. These processes use separate timestep limits and internal substeps; none of the four controls below is the interval between exchanges with MOM6 and CICE. See [Changing WW3 timesteps](#changing-ww3-timesteps) for the editing and verification procedure.
 
-| `wav_in` parameter | Runtime value | Purpose |
-| --- | ---: | --- |
-| `dtmax` | 1800 s | maximum overall integration step |
-| `dtcfl` | 600 s | horizontal-propagation CFL step |
-| `dtcfli` | 600 s | spectral propagation and refraction step |
-| `dtmin` | 50 s | minimum source-term integration step |
+In this build's `CESMCOUPLED` pathway, the [cap restores the controls from `wav_in` after reading `mod_def.ww3`](https://github.com/ACCESS-NRI/WW3/blob/2026.03.001/model/src/wav_comp_nuopc.F90#L1599-L1607). The preprocessing values in `ww3_grid.nml` therefore do not determine the effective runtime controls.
 
-The 600 s `dtcfl` and 1800 s `dtmax` divide the 3600 s coupling interval exactly. [Issue #1519](https://github.com/ACCESS-NRI/access-om3-configs/issues/1519) discusses their selection, but its grid-spacing/CFL estimates predate the October topography change and should not be quoted as validation of the current grid. With `PR1`, WW3 also applies local propagation substeps. The spectral step `dtcfli = 600` s requires empirical assessment, and the issue proposes testing `dtmin = 10` s because the current 50 s value lacks configuration-specific justification.
+| `wav_in` control | WW3 name | Current value | Meaning |
+| --- | --- | ---: | --- |
+| `dtcfl` | `DTXY` | 600 s | Reference limit for geographic propagation, based on grid spacing and wave group speed; PR1 can apply local substeps. |
+| `dtcfli` | `DTKTH` | 600 s | Maximum step for propagation in spectral space, including directional and wavenumber changes from refraction. |
+| `dtmax` | `DTMAX` | 1800 s | Maximum overall wave integration step; propagation and source-term calculations can subdivide it. |
+| `dtmin` | `DTMIN` | 50 s | Minimum step for dynamically integrated source terms, rather than a fixed step used by every process. |
+
+The original calculation in [issue #1519](https://github.com/ACCESS-NRI/access-om3-configs/issues/1519) used the smallest active grid spacing, not the nominal 100 km resolution:
+
+```text
+f1 = 0.04118 Hz
+cg,max = 1.15 g / (4 pi f1) ≈ 21.79 m/s
+Dmin = 15,589 m
+0.9 Dmin / cg,max ≈ 644 s
+```
+
+Choosing `dtcfl = 600 s` stayed below that estimate and divided the 3600 s coupling interval exactly. `dtmax = 1800 s` follows the approximate `3 × dtcfl` guideline and also divides the coupling interval. `dtcfli = 600 s` is `dtmax/3`; spectral propagation depends on refraction and cannot be selected from minimum cell size alone. The [WW3 timestep guidance](https://github.com/NOAA-EMC/WW3/blob/e9792e4210d640bb3c341dd0e6e27f10daae9451/model/nml/ww3_grid.nml#L46-L75) describes these as selection guidelines, not universal stability guarantees.
+
+The [full-year comparison in #1519](https://github.com/ACCESS-NRI/access-om3-configs/issues/1519#issuecomment-5126327350) tested `dtcfl/dtcfli/dtmax = 600/600/1800 s` against `180/300/600 s`, retaining `dtmin = 50 s` in both. Runtime decreased by 24.8%; mean absolute differences were 0.022 m in significant wave height, 0.043 s in `T02`, and 0.65° in wave direction. The discussion retained 50 s for this low-resolution configuration; the initial proposal of 10 s was not the adopted setting. These results support the selected values for the tested configuration, but predate the October topography change. Reassess timestep suitability when changing grid, spectrum, physics or coupling.
 
 ### Source-term physics
 
@@ -257,7 +270,7 @@ payu clone --branch dev-MCW_100km_era_iaf \
 cd mcw_100km_era_iaf
 ```
 
-Review the cloned `config.yaml` and input paths: cloning the development branch obtains its latest revision, which may be newer than the snapshot above. The supplied `mod_def.ww3` and `restart.ww3` can be used without preprocessing. If the WW3 preprocessing inputs are changed, load the exact `access-om3` version specified by `config.yaml`; for the version documented here this is:
+Review the cloned `config.yaml` and input paths: cloning the development branch obtains its latest revision, which may be newer than the snapshot above. The supplied `mod_def.ww3` and `restart.ww3` can be used without preprocessing. For runtime timestep edits, follow [Changing WW3 timesteps](#changing-ww3-timesteps) below. If the WW3 preprocessing inputs are changed, load the exact `access-om3` version specified by `config.yaml`; for the version documented here this is:
 
 ```bash
 module load access-om3/2026.05.004
@@ -270,13 +283,41 @@ ww3_strt
 
 This branch enforces input and executable manifest checks. For deliberately changed inputs, temporarily set `manifest.reproduce.input: false`, run `payu setup`, review the updated `manifests/input.yaml`, then restore `manifest.reproduce.input: true` and run `payu sweep` to remove the setup work directory before submission (see [Payu manifest controls](https://payu.readthedocs.io/en/latest/config.html#manifests)). Keep executable checking enabled unless the executable was deliberately changed.
 
-Preserve the Gregorian calendar and matching CICE/WW3 masks, and inspect the preprocessor report for the three Stokes bands and enabled tail. A change only to parameter values for already compiled packages requires regeneration of `mod_def.ww3`; selecting a different physics or propagation package also requires an ACCESS-OM3 executable built with the corresponding WW3 switch.
+Preserve the Gregorian calendar and matching CICE/WW3 masks, and inspect the preprocessor report for the three Stokes bands and enabled tail. A change to preprocessing parameter values for already compiled packages requires regeneration of `mod_def.ww3`; selecting a different physics or propagation package also requires an ACCESS-OM3 executable built with the corresponding WW3 switch.
 
 From the configuration directory, submit the experiment with:
 
 ```bash
 payu run
 ```
+
+### Changing WW3 timesteps
+
+1. In the experiment's control directory, edit the existing `&ww3_inparm` block in **`wav_in`**. The documented configuration contains the following values (seconds); replace the relevant values for your test, preserving `initfile` and the other namelists:
+
+    ```fortran
+    &ww3_inparm
+      dtcfl  = 600.
+      dtcfli = 600.
+      dtmax  = 1800.
+      dtmin  = 50.
+      initfile = "./INPUT/restart.ww3"
+    /
+    ```
+
+2. Check the coupling interval at the start of **`nuopc.runseq`** (3600 s in this configuration). For straightforward alignment, choose `dtmax` and `dtcfl` that divide this interval, with `dtmax` an integer multiple of `dtcfl`, as in the selected values above. Alignment alone does not establish numerical stability; use the [parameter rationale](#time-stepping_1) and a comparison run to assess your choice. Editing `wav_in` does not change the coupling interval. If you intend to change coupling as well, follow the [coupling and MOM6 timestep guidance](https://docs.access-hive.org.au/models/run_a_model/run_access-om3/#change-model-time-step) and reassess the WW3 limits against the new interval.
+
+3. For changes only to these four runtime controls in this coupled build, **do not regenerate `mod_def.ww3` or `restart.ww3`**. Do not edit only `WW3_PreProc/ww3_grid.nml`: its timestep values are overridden by `wav_in`. Changing grid, spectrum or preprocessing physics is a separate operation requiring the input-generation workflow above.
+
+4. Run a short comparison experiment from the same initial state or restart as a baseline, retaining its logs and configuration. In this build, `wav.log` prints the controls read from `wav_in`; together with the cap's post-initialisation override described above, this identifies the runtime limits. During a run, inspect:
+
+    ```bash
+    grep -E 'dtcfl|dtcfli|dtmax|dtmin' work/log/wav.log
+    ```
+
+    After Payu archives the run, use `archive/outputNNN/log/wav.log`, replacing `NNN` with that run's index. Expect the values you set, not the preprocessing defaults. This reports configured limits, not every adaptive internal substep. If they differ, check the staged `work/wav_in` and the executable version before interpreting results.
+
+5. Check for warnings, NaNs, aborts and restart/coupling failures, and compare wave height, period, direction and runtime with the baseline. For this PR1 build, **do not use `CFX`, `CFD` or `CFK` as timestep-validation diagnostics**: [#1519](https://github.com/ACCESS-NRI/access-om3-configs/issues/1519) records that the relevant arrays are populated only with PR3 and otherwise produce missing values. A short successful test is an initial check, not proof of long-term coupled stability.
 
 ## References
 
