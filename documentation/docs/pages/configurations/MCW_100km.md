@@ -88,15 +88,15 @@ The executable does not contain `PR3`, `IC3` or `IS2`. Consequently, the `PRO3` 
 
 ### Time stepping
 
-WW3 splits wave evolution into geographic propagation, propagation through frequency/direction space (including refraction), and source terms such as wind input and dissipation. These processes use separate timestep limits and internal substeps; none of the four controls below is the interval between exchanges with MOM6 and CICE. See [Changing WW3 timesteps](#changing-ww3-timesteps) for the editing and verification procedure.
+WW3 splits wave evolution into geographic propagation, propagation through frequency/direction space (including refraction), and source terms such as wind input and dissipation. These processes use separate timestep limits and internal substeps. The four controls below do not set the coupling interval between WW3, MOM6 and CICE. See [Changing WW3 timesteps](#changing-ww3-timesteps) for the editing and verification procedure.
 
 In this build's `CESMCOUPLED` pathway, the [cap restores the controls from `wav_in` after reading `mod_def.ww3`](https://github.com/ACCESS-NRI/WW3/blob/2026.03.001/model/src/wav_comp_nuopc.F90#L1599-L1607). The preprocessing values in `ww3_grid.nml` therefore do not determine the effective runtime controls.
 
 | `wav_in` control | WW3 name | Current value | Meaning |
 | --- | --- | ---: | --- |
 | `dtcfl` | `DTXY` | 600 s | Reference limit for geographic propagation, based on grid spacing and wave group speed; PR1 can apply local substeps. |
-| `dtcfli` | `DTKTH` | 600 s | Maximum step for propagation in spectral space, including directional and wavenumber changes from refraction. |
-| `dtmax` | `DTMAX` | 1800 s | Maximum overall wave integration step; propagation and source-term calculations can subdivide it. |
+| `dtcfli` | `DTKTH` | 600 s | Maximum timestep for propagation through wavenumber–direction space, including refraction. |
+| `dtmax` | `DTMAX` | 1800 s | Maximum overall wave integration timestep; individual processes can use shorter steps. |
 | `dtmin` | `DTMIN` | 50 s | Minimum step for dynamically integrated source terms, rather than a fixed step used by every process. |
 
 The original calculation in [issue #1519](https://github.com/ACCESS-NRI/access-om3-configs/issues/1519) used the smallest active grid spacing, not the nominal 100 km resolution:
@@ -108,9 +108,11 @@ Dmin = 15,589 m
 0.9 Dmin / cg,max ≈ 644 s
 ```
 
-Choosing `dtcfl = 600 s` stayed below that estimate and divided the 3600 s coupling interval exactly. `dtmax = 1800 s` follows the approximate `3 × dtcfl` guideline and also divides the coupling interval. `dtcfli = 600 s` is `dtmax/3`; spectral propagation depends on refraction and cannot be selected from minimum cell size alone. The [WW3 timestep guidance](https://github.com/NOAA-EMC/WW3/blob/e9792e4210d640bb3c341dd0e6e27f10daae9451/model/nml/ww3_grid.nml#L46-L75) describes these as selection guidelines, not universal stability guarantees.
+The selected `dtcfl = 600 s` lies below this estimate. `dtmax = 1800 s` follows the approximate `3 × dtcfl` guideline. Both divide the coupling interval exactly.
 
-The [full-year comparison in #1519](https://github.com/ACCESS-NRI/access-om3-configs/issues/1519#issuecomment-5126327350) tested `dtcfl/dtcfli/dtmax = 600/600/1800 s` against `180/300/600 s`, retaining `dtmin = 50 s` in both. Runtime decreased by 24.8%; mean absolute differences were 0.022 m in significant wave height, 0.043 s in `T02`, and 0.65° in wave direction. The discussion retained 50 s for this low-resolution configuration; the initial proposal of 10 s was not the adopted setting. These results support the selected values for the tested configuration, but predate the October topography change. Reassess timestep suitability when changing grid, spectrum, physics or coupling.
+The selected `dtcfli = 600 s` equals `dtmax/3`. Its suitability depends on spectral propagation, including refraction, and cannot be inferred from minimum geographic cell spacing alone. The [WW3 timestep guidance](https://github.com/NOAA-EMC/WW3/blob/e9792e4210d640bb3c341dd0e6e27f10daae9451/model/nml/ww3_grid.nml#L46-L75) describes these as selection guidelines, not universal stability guarantees.
+
+The [full-year comparison in #1519](https://github.com/ACCESS-NRI/access-om3-configs/issues/1519#issuecomment-5126327350) tested `dtcfl/dtcfli/dtmax = 600/600/1800 s` against `180/300/600 s`, retaining `dtmin = 50 s` in both. Runtime decreased by 24.8%; mean absolute differences were 0.022 m in significant wave height, 0.043 s in mean wave period, and 0.65° in mean wave direction. The discussion retained 50 s for this low-resolution configuration; the initial proposal of 10 s was not adopted. These results support the selected values for the tested configuration, but predate the October topography change. Reassess timestep suitability when changing grid, spectrum, physics or coupling.
 
 ### Source-term physics
 
@@ -132,7 +134,7 @@ WW3 is configured with `LMPENABLED = F` and `HSLMODE = 0`. Its Li et al. Langmui
 
 ### Wave-ice interaction
 
-The active attenuation choice is `SIC4 IC4METHOD = 8`. In the pinned `access-ww3 2026.03.001` source, [`CASE (8)`](https://github.com/ACCESS-NRI/WW3/blob/2026.03.001/model/src/w3sic4md.F90#L559-L595) combines a floe-size-dependent cubic fit associated with Meylan et al. [@meylan2021floe] with the **IC4M2** empirical attenuation of Meylan et al. [@meylan2014situ], `0.00212 / T^2 + 0.0459 / T^4`. The cubic component depends on wave period, coupled ice thickness, and a radius obtained by halving the coupled floe diameter, adding dependence on the CICE ice state while that component is active.
+The active attenuation choice is `SIC4 IC4METHOD = 8`. In the pinned `access-ww3 2026.03.001` source, [`CASE (8)`](https://github.com/ACCESS-NRI/WW3/blob/2026.03.001/model/src/w3sic4md.F90#L559-L595) combines a floe-size-dependent cubic fit associated with Meylan et al. [@meylan2021floe] with the **IC4M2** empirical attenuation of Meylan et al. [@meylan2014situ], `0.00212 / T^2 + 0.0459 / T^4`. The cubic component introduces additional dependencies on mean ice thickness and representative floe diameter supplied by CICE.
 
 Thickness is clipped to 0.1–3.5 m and radius to 2.5–100 m. The cubic fit predicts the base-10 logarithm of energy attenuation, capped at zero before conversion back to linear units. For `5 < T < 20` s, IC4M2 is added to the cubic result; for `T > 20` s, IC4M2 is used alone. At other periods, including exactly 20 s, the code uses only the cubic result. WW3 then sets amplitude attenuation to half the energy attenuation. The coefficients are hard-coded rather than set in `namelists_Global.nml`.
 
