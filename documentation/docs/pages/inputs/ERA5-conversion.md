@@ -226,3 +226,9 @@ start_ymd = 19580101
 falls within the forcing period.
 
 Although `taxmode=extend` allows DATM to extend beyond the time axis, simulations should normally remain within the scientifically intended forcing period.
+
+## 8. Update the input manifest and complete setup
+
+After switching forcing, `payu setup` can appear to hang at `Checking exe, input and restart manifests` while hashing the multi-terabyte ERA5 collection if `manifests/input.yaml` lacks matching entries. For exactly the same unchanged forcing files, reuse the ERA5 entries and hashes from the [MCW ERA5 input manifest](https://github.com/ACCESS-NRI/access-om3-configs/blob/dev-MCW_100km_era_iaf/manifests/input.yaml), retaining all other inputs required by your configuration.
+
+Otherwise, allow the initial hashing to finish, preferably within a PBS job rather than on a login node. Complete setup before submitting the model run: an incomplete manifest can omit `gdata/av17` from the PBS storage request and cause input-file access failures. Subsequent setups can reuse the recorded hashes.
