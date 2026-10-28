@@ -114,6 +114,11 @@ authors:
     family-names: Yang
     email: Luwei.Yang@anu.edu.au
     affiliation: Research School of Earth Sciences, Australian National University
+  - given-names: Stefan
+    family-names: Zieger
+    email: stefan.zieger@bom.gov.au
+    affiliation: Bureau of Meteorology, Melbourne, VIC, Australia
+    orcid: 'https://orcid.org/0000-0002-6051-8085'
 identifiers:
   - description: "The concept DOI of all ACCESS-OM3 configurations."
     type: doi
@@ -153,7 +158,7 @@ abstract: >-
   components.
 license: CC-BY-4.0
 version: release-MCW_100km_era_iaf-1.0-beta
-date-released: "2026-07-14"
+date-released: 
 keywords:
   - access-om3
   - climate
