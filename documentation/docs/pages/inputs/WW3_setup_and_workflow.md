@@ -1,6 +1,6 @@
 ## MOM6-CICE6-WW3 in ACCESS-OM3
 
-For the current ERA5-forced 100 km configuration, use the [version-specific parameter and running guide](/configurations/MCW_100km/). The workflow below explains the general preprocessing requirements.
+For the current ERA5-forced 100 km configuration, use the [MCW parameter and running guide](/configurations/MCW_100km/). The workflow below explains the general preprocessing requirements.
 
 ### Overview: Typical vs Wave-coupled Configurations
 
