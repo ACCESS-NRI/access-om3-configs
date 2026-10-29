@@ -125,7 +125,7 @@ identifiers:
     value: 10.5281/zenodo.16294824
   - description: "The versioned DOI"
     type: doi
-    value: 10.5281/zenodo.21350660
+    value: 10.5281/zenodo.23750174
 repository-code: 'https://github.com/ACCESS-NRI/access-om3-configs'
 url: 'https://access-om3-configs.access-hive.org.au/'
 repository-artifact: >-
@@ -144,8 +144,7 @@ abstract: >-
   WW3 waves are coupled to the ocean, where surface Stokes
   drift is used for Langmuir turbulence in the ePBL mixing
   scheme, and to the sea ice, which uses C-grid dynamics
-  with a floe size distribution. The coupling interval, CICE
-  timestep and MOM6 baroclinic timestep are 1800 s.
+  with a floe size distribution.
 
   ACCESS-OM3 is the third generation of the ACCESS global
   ocean-seaice model. It uses up to date releases of the
