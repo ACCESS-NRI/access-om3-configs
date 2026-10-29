@@ -1,11 +1,8 @@
 # MOM6-CICE6-WW3 100 km configuration
 
-The MCW_100km_era_iaf configuration couples MOM6, CICE6 and WAVEWATCH III (WW3) on the nominal 100 km ACCESS-OM3 grid. Unlike the MOM6-CICE 25 km configuration, which uses JRA55-do, this configuration uses [ERA5 atmospheric forcing](https://github.com/ACCESS-NRI/access-om3-configs/blob/c1a4ed2cbe66b3003fbf04285487a7daaf2bbf03/documentation/docs/pages/inputs/ERA5-atmospheric-forcing.md). The forcing preparation, field mappings and configuration changes are documented in that guide, pending [PR #1662](https://github.com/ACCESS-NRI/access-om3-configs/pull/1662); the link points to its PR source while it is not yet part of this site. Runoff remains JRA55-do through DROF.
+The MCW_100km_era_iaf configuration couples MOM6, CICE6 and WAVEWATCH III (WW3) on the nominal 100 km ACCESS-OM3 grid. Unlike the MOM6-CICE 25 km configuration, which uses JRA55-do, this configuration uses [ERA5 atmospheric forcing](../../inputs/ERA5-atmospheric-forcing/). The forcing preparation, field mappings and configuration changes are documented in that guide. Runoff remains JRA55-do through DROF.
 
-Background on MOM6 and CICE6 parameter choices is documented for the [MOM6-CICE 25 km configuration](/configurations/MC_25km/). Resolution-dependent settings should not be copied unchanged. A branch-specific workflow for running this configuration and regenerating its WW3 inputs is included below.
-
-!!! warning
-    These settings describe `dev-MCW_100km_era_iaf` at [commit `bbf1c86`](https://github.com/ACCESS-NRI/access-om3-configs/tree/bbf1c86c50dfa0716c47fd9be2e261169fd911e7) (checked 16 October 2026), using `access-om3/2026.05.004`. The deployed executable uses [MOM6 `2026.05.003`](https://github.com/ACCESS-NRI/MOM6/tree/d11a149ccba676d524312328f7eb62560a156dc3), [CICE `CICE6.6.3-2`](https://github.com/ACCESS-NRI/CICE/tree/2b267226f6c2a67a0e6bafcd4a1c0bd772850611) and [WW3 `2026.03.001`](https://github.com/ACCESS-NRI/WW3/tree/0a23b2c358150b420919f47545ae81b76fa39a0f), linked by `access3 2026.03.002`. Recheck the branch inputs and model release before applying these settings to another revision.
+This page describes the MCW configuration's wave coupling and parameter choices. Shared MOM6 and CICE6 choices are documented for the [MOM6-CICE 25 km configuration](../MC_25km/); resolution-dependent settings differ. See [Forcing data models](../../inputs/Forcing-data-models/) for atmospheric forcing and runoff, and [Coupling architecture](../../infrastructure/Architecture/) for exchanges common to the configurations.
 
 ## MOM6 parameter choices
 
@@ -34,23 +31,23 @@ This MOM6 treatment is separate from WW3's own `LMPN` option, which is disabled 
 
 ### Time stepping
 
-The ocean baroclinic timestep is `DT = 3600` s, equal to the coupling interval. `DT_THERM = 7200` s and `THERMO_SPANS_COUPLING = True` allow one thermodynamic step to span two coupling intervals. `DTBT = -0.9` instructs MOM6 to choose a barotropic timestep at 90% of its estimated stable maximum and round it to an integer subdivision of `DT`. These settings were introduced and tested in [PR #1518](https://github.com/ACCESS-NRI/access-om3-configs/pull/1518); the shorter `DT` used by the 25 km configuration is resolution-dependent.
+The ocean baroclinic timestep is `DT = 1800` s, equal to the coupling interval set in `nuopc.runseq`. `DT_THERM = 7200` s and `THERMO_SPANS_COUPLING = True` allow one thermodynamic step to span four coupling intervals. `DTBT = -0.9` instructs MOM6 to choose a barotropic timestep at 90% of its estimated stable maximum and round it to an integer subdivision of `DT`. See the [MOM6 timestep guidance](../../infrastructure/NUOPC-driver/#mom6-time-steps) for the roles of these controls.
 
 ## CICE6 parameter choices
 
 ### C-grid dynamics and matching inputs
 
-`grid_ice = "C"` selects C-grid ice dynamics. [PR #1739](https://github.com/ACCESS-NRI/access-om3-configs/pull/1739) updated the WW3 preprocessing mask and binaries to match the CICE land mask; its restart test passed after that correction. Keep the CICE `kmt.nc`, coupling meshes, WW3 text mask/depth and preprocessed binaries consistent when changing topography. The current input set is described below.
+`grid_ice = "C"` selects C-grid ice dynamics. The CICE `kmt.nc`, coupling meshes, WW3 text mask/depth and preprocessed binaries must have consistent land masks and bathymetry. When changing topography, update these inputs together.
 
 ### Floe-size distribution
 
-In [`ice_in`](https://github.com/ACCESS-NRI/access-om3-configs/blob/bbf1c86c50dfa0716c47fd9be2e261169fd911e7/ice_in), the MCW configuration changes `nfsd` from one to 12 and enables the prognostic floe-size-distribution tracer with `tr_fsd = .true.`. CICE therefore evolves ice area across 12 floe-radius categories as well as its five ice-thickness categories. The distribution responds to new-ice formation, lateral growth and melt, thermodynamic welding, and wave fracture; these processes affect floe perimeter and hence lateral melt rates [@roach2019advances].
+In `ice_in`, the MCW configuration changes `nfsd` from one to 12 and enables the prognostic floe-size-distribution tracer with `tr_fsd = .true.`. CICE therefore evolves ice area across 12 floe-radius categories as well as its five ice-thickness categories. The distribution responds to new-ice formation, lateral growth and melt, thermodynamic welding, and wave fracture; these processes affect floe perimeter and hence lateral melt rates [@roach2019advances].
 
 ### Wave forcing
 
-`wav_coupling_to_cice = .true.` in [`nuopc.runconfig`](https://github.com/ACCESS-NRI/access-om3-configs/blob/bbf1c86c50dfa0716c47fd9be2e261169fd911e7/nuopc.runconfig) connects the models in both directions. CICE supplies ice concentration, thickness and floe diameter to WW3, while WW3 supplies its instantaneous 25-bin wave-elevation spectrum to CICE at each coupling exchange. CICE uses that spectrum in its wave-fracture step to update the floe-size distribution.
+`wav_coupling_to_cice = .true.` in `nuopc.runconfig` connects the models in both directions. CICE supplies ice concentration, thickness and floe diameter to WW3, while WW3 supplies its instantaneous 25-bin wave-elevation spectrum to CICE at each coupling exchange. CICE uses that spectrum in its wave-fracture step to update the floe-size distribution.
 
-`wave_spec_type = "constant"` does **not** mean that the spectrum is constant in time. In the [Icepack wave-fracture algorithm](https://github.com/CICE-Consortium/Icepack/blob/daa41638c6cef298583f35ee4dec5ab1bb077aea/columnphysics/icepack_wavefracspec.F90#L450-L488) it selects a fixed phase and one fracture iteration, avoiding the random-number generator; this removes that source of nondeterminism, rather than guaranteeing reproducibility of the entire coupled model. The alternative `random` mode draws random phases and iterates fracture to convergence.
+`wave_spec_type = "constant"` does **not** mean that the spectrum is constant in time. In the Icepack wave-fracture algorithm it selects a fixed phase and one fracture iteration, avoiding the random-number generator; this removes that source of nondeterminism, rather than guaranteeing reproducibility of the entire coupled model. The alternative `random` mode draws random phases and iterates fracture to convergence.
 
 ### Wave and floe-size diagnostics
 
@@ -59,8 +56,8 @@ The relevant fields in `icefields_fsd_nml` are written to both daily and monthly
 - `fsdrad` and `fsdperim`: representative floe radius and perimeter per unit ice area;
 - `afsd` and `afsdn`: areal floe-size distribution, respectively aggregated over and resolved by ice-thickness category;
 - `dafsd_newi`, `dafsd_latg`, `dafsd_latm`, `dafsd_wave` and `dafsd_weld`: floe-size-distribution tendencies from new ice, lateral growth, lateral melt, wave fracture and welding;
-- `wave_sig_ht`: significant wave height [diagnosed by CICE](https://github.com/ACCESS-NRI/CICE/blob/CICE6.6.3-2/cicecore/cicedyn/general/ice_step_mod.F90#L710-L713) from the instantaneous spectrum imported from WW3;
-- `aice_ww`, `diam_ww` and `hice_ww`: [concentration, number-mean diameter and thickness of floes larger than `Dmin`](https://github.com/ACCESS-NRI/CICE/blob/2b267226f6c2a67a0e6bafcd4a1c0bd772850611/cicecore/cicedyn/analysis/ice_history_fsd.F90#L162-L176), provided as wave-related diagnostics.
+- `wave_sig_ht`: significant wave height diagnosed by CICE from the instantaneous spectrum imported from WW3;
+- `aice_ww`, `diam_ww` and `hice_ww`: concentration, number-mean diameter and thickness of floes larger than `Dmin`, provided as wave-related diagnostics.
 
 These fields allow changes in floe size to be attributed to their physical processes and compared with the wave conditions that drive fracture.
 
@@ -68,13 +65,13 @@ These fields allow changes in floe size to be attributed to their physical proce
 
 ### Grid and spectral discretisation
 
-The branch's [`ww3_grid.nml`](https://github.com/ACCESS-NRI/access-om3-configs/blob/bbf1c86c50dfa0716c47fd9be2e261169fd911e7/WW3_PreProc/ww3_grid.nml) configures the same 360 x 324 curvilinear, spherical tripolar grid as MOM6 and CICE6. The preprocessor also reads an unresolved-obstruction map; `FLAGTR = 4` places its static transparencies at cell centres.
+`ww3_grid.nml` configures the same 360 x 324 curvilinear, spherical tripolar grid as MOM6 and CICE6. The preprocessor also reads an unresolved-obstruction map; `FLAGTR = 4` places its static transparencies at cell centres.
 
-The wave spectrum has 25 frequency bins beginning at 0.04118 Hz, with successive frequencies multiplied by 1.1. It has 24 directional bins, giving 15-degree directional resolution. `THOFF` offsets the first direction by −0.5 to 0.5 of that 15-degree increment; `THOFF = 0.0` leaves the directional grid unshifted. `THOFF` rotates the directional grid; it is not a dedicated garden-sprinkler correction. The [versioned manual](https://github.com/ACCESS-NRI/WW3/blob/2026.03.001/manual/num/GSE_null.tex) states that no such correction is available or needed for `PR1` on this grid type.
+The wave spectrum has 25 frequency bins beginning at 0.04118 Hz, with successive frequencies multiplied by 1.1. It has 24 directional bins, giving 15-degree directional resolution. `THOFF` offsets the first direction by −0.5 to 0.5 of that 15-degree increment; `THOFF = 0.0` leaves the directional grid unshifted. `THOFF` rotates the directional grid; it is not a dedicated garden-sprinkler correction. No explicit garden-sprinkler correction is used with `PR1` on this grid type [@ww3dg2019manual].
 
 ### Compiled physics switches
 
-The deployed WW3 library (`bjzidie`), linked into the `access3` executable (`26wbxup`), was compiled with the following switches, matching its [version-pinned CMake configuration](https://github.com/ACCESS-NRI/WW3/blob/0a23b2c358150b420919f47545ae81b76fa39a0f/CMakeLists.txt#L20):
+The ACCESS-OM3 executable used by this configuration compiles WW3 with the following switches:
 
 ```cmake
 CESMCOUPLED DIST MPI PR1 FLX4 ST6 STAB0 LN1 NL1 BT1 DB1 MLIM TR0 BS0
@@ -90,7 +87,7 @@ The executable does not contain `PR3`, `IC3` or `IS2`. Consequently, the `PRO3` 
 
 WW3 splits wave evolution into geographic propagation, propagation through frequency/direction space (including refraction), and source terms such as wind input and dissipation. These processes use separate timestep limits and internal substeps. The four controls below do not set the coupling interval between WW3, MOM6 and CICE. See [Changing WW3 timesteps](#changing-ww3-timesteps) for the editing and verification procedure.
 
-In this build's `CESMCOUPLED` pathway, the [cap restores the controls from `wav_in` after reading `mod_def.ww3`](https://github.com/ACCESS-NRI/WW3/blob/2026.03.001/model/src/wav_comp_nuopc.F90#L1599-L1607). The preprocessing values in `ww3_grid.nml` therefore do not determine the effective runtime controls.
+In ACCESS-OM3's coupled WW3 pathway, selected by the historically named `CESMCOUPLED` switch, the [cap restores the controls from `wav_in` after reading `mod_def.ww3`](https://github.com/search?q=repo%3AACCESS-NRI%2FWW3+path%3Amodel%2Fsrc%2Fwav_comp_nuopc.F90+DTMAX&type=code). The preprocessing values in `ww3_grid.nml` therefore do not determine the effective runtime controls.
 
 | `wav_in` control | WW3 name | Current value | Meaning |
 | --- | --- | ---: | --- |
@@ -99,34 +96,32 @@ In this build's `CESMCOUPLED` pathway, the [cap restores the controls from `wav_
 | `dtmax` | `DTMAX` | 1800 s | Maximum overall wave integration timestep; individual processes can use shorter steps. |
 | `dtmin` | `DTMIN` | 50 s | Minimum step for dynamically integrated source terms, rather than a fixed step used by every process. |
 
-The original calculation in [issue #1519](https://github.com/ACCESS-NRI/access-om3-configs/issues/1519) used the smallest active grid spacing, not the nominal 100 km resolution:
+The geographic propagation limit depends on the smallest active grid spacing and fastest wave group speed, rather than the nominal 100 km resolution. A starting estimate is `dtcfl ≈ 0.9 Dmin / cg,max`, where `Dmin` is the minimum active spacing and `cg,max` is estimated from the lowest spectral frequency:
 
 ```text
 f1 = 0.04118 Hz
 cg,max = 1.15 g / (4 pi f1) ≈ 21.79 m/s
-Dmin = 15,589 m
-0.9 Dmin / cg,max ≈ 644 s
 ```
 
-The selected `dtcfl = 600 s` lies below this estimate. `dtmax = 1800 s` follows the approximate `3 × dtcfl` guideline. Both divide the coupling interval exactly.
+Using `Dmin = 15,589 m`, the reference calculation in [issue #1519](https://github.com/ACCESS-NRI/access-om3-configs/issues/1519) gives `0.9 Dmin / cg,max ≈ 644 s`, above the selected `dtcfl = 600 s`. Recalculate `Dmin` from the active mask when changing topography; the reference value is not a verified minimum for every input revision.
 
-The selected `dtcfli = 600 s` equals `dtmax/3`. Its suitability depends on spectral propagation, including refraction, and cannot be inferred from minimum geographic cell spacing alone. The [WW3 timestep guidance](https://github.com/NOAA-EMC/WW3/blob/e9792e4210d640bb3c341dd0e6e27f10daae9451/model/nml/ww3_grid.nml#L46-L75) describes these as selection guidelines, not universal stability guarantees.
+The selected `dtmax = 1800 s` follows the approximate `3 × dtcfl` guideline. Both divide the 1800 s coupling interval exactly. `dtcfli = 600 s` is `dtmax/3`; its suitability depends on spectral propagation and refraction and cannot be inferred from geographic spacing alone.
 
-The [full-year comparison in #1519](https://github.com/ACCESS-NRI/access-om3-configs/issues/1519#issuecomment-5126327350) tested `dtcfl/dtcfli/dtmax = 600/600/1800 s` against `180/300/600 s`, retaining `dtmin = 50 s` in both. Runtime decreased by 24.8%; mean absolute differences were 0.022 m in significant wave height, 0.043 s in mean wave period, and 0.65° in mean wave direction. The discussion retained 50 s for this low-resolution configuration; the initial proposal of 10 s was not adopted. These results support the selected values for the tested configuration, but predate the October topography change. Reassess timestep suitability when changing grid, spectrum, physics or coupling.
+The [timestep selection analysis](https://github.com/ACCESS-NRI/access-om3-configs/issues/1519) supports this balance of accuracy and computational cost, including `dtmin = 50` s. Reassess the limits when changing grid, spectrum, physics or coupling; the [general WW3 timestep guidance](../../infrastructure/NUOPC-driver/#wavewatch-iii-time-steps) describes their roles and selection criteria.
 
 ### Source-term physics
 
-The branch's [`namelists_Global.nml`](https://github.com/ACCESS-NRI/access-om3-configs/blob/bbf1c86c50dfa0716c47fd9be2e261169fd911e7/WW3_PreProc/namelists_Global.nml) configures the compiled `ST6` package, which represents wind input, whitecapping dissipation and swell dissipation and constrains total wind input using the independently calculated wind stress. `SINA0 = 0.04` controls negative wind input when wind opposes the waves. For swell dissipation, `SWLB1 = 0.22e-3` is the scaling coefficient and `CSTB1 = T` selects the formulation in which that coefficient is constant rather than rescaled by peak steepness. The observation-based development of ST6 is described in [@rogers2012observation; @zieger2015observation].
+`namelists_Global.nml` configures the compiled `ST6` package, which represents wind input, whitecapping dissipation and swell dissipation and constrains total wind input using the independently calculated wind stress. `SINA0 = 0.04` controls negative wind input when wind opposes the waves. For swell dissipation, `SWLB1 = 0.22e-3` is the scaling coefficient and `CSTB1 = T` selects the formulation in which that coefficient is constant rather than rescaled by peak steepness. The observation-based development of ST6 is described in [@rogers2012observation; @zieger2015observation].
 
 `NL1` represents the nonlinear four-wave source term using the Discrete Interaction Approximation (DIA) [@hasselmann1985parameterizations]. `LAMBDA = 0.237` and `NLPROP = 2.13e7` tune the representative interacting quadruplet and its proportionality coefficient, respectively.
 
 ### Stokes-drift output and MOM6 coupling
 
-`USSP = 1` enables partitioned Stokes-drift output, while `IUSSP = 3` requests three bands represented by decay wavenumbers `STK_WN = 0.04, 0.110, 0.3305`. WW3 exports both vector components for each band to MOM6. `E3D = 1` enables frequency-resolved energy-spectrum output; independently of that output flag, the coupled WW3 cap exports the 25-bin elevation spectrum to CICE6 at each coupling exchange. These coupled fields are [calculated from the instantaneous WW3 state](https://github.com/ACCESS-NRI/WW3/blob/2026.03.001/model/src/wav_import_export.F90#L840-L865) at the exchange time, not interval means.
+`USSP = 1` enables partitioned Stokes-drift output, while `IUSSP = 3` requests three bands represented by decay wavenumbers `STK_WN = 0.04, 0.110, 0.3305`. WW3 exports both vector components for each band to MOM6. `E3D = 1` enables frequency-resolved energy-spectrum output; independently of that output flag, the coupled WW3 cap exports the 25-bin elevation spectrum to CICE6 at each coupling exchange. These coupled fields are calculated from the instantaneous WW3 state at the exchange time, not interval means.
 
-`STK_TAIL = T`, enabled in [PR #1754](https://github.com/ACCESS-NRI/access-om3-configs/pull/1754), adds the analytic f⁻⁵ spectral-tail contribution to the highest Stokes band. The resolved spectrum ends near 0.406 Hz; the [tail calculation](https://github.com/ACCESS-NRI/WW3/blob/2026.03.001/model/src/w3iogomd.F90#L4020-L4027) includes unresolved high-frequency contributions to Stokes drift and therefore affects MOM6 Langmuir mixing. It does not add resolved spectral bins. This flag is stored in `mod_def.ww3`, so editing the namelist alone does not enable it.
+`STK_TAIL = T` adds the analytic f⁻⁵ spectral-tail contribution to the highest Stokes band. The resolved spectrum ends near 0.406 Hz; the tail calculation includes unresolved high-frequency contributions to Stokes drift and therefore affects MOM6 Langmuir mixing. It does not add resolved spectral bins. This flag is stored in `mod_def.ww3`, so editing the namelist alone does not enable it.
 
-The band count and wavenumbers are a coupling contract: changes require matching MOM6 settings and regeneration of `mod_def.ww3`. The [WW3 cap in this build advertises exactly three bands](https://github.com/ACCESS-NRI/WW3/blob/2026.03.001/model/src/wav_import_export.F90#L150-L159), so changing the band count also requires compatible cap/source changes and a rebuilt executable.
+The band count and wavenumbers are a coupling contract: changes require matching MOM6 settings and regeneration of `mod_def.ww3`. The WW3 cap advertises exactly three bands, so changing the band count also requires compatible cap/source changes and a rebuilt executable.
 
 ### Langmuir settings
 
@@ -134,131 +129,41 @@ WW3 is configured with `LMPENABLED = F` and `HSLMODE = 0`. Its Li et al. Langmui
 
 ### Wave-ice interaction
 
-The active attenuation choice is `SIC4 IC4METHOD = 8`. In the pinned `access-ww3 2026.03.001` source, [`CASE (8)`](https://github.com/ACCESS-NRI/WW3/blob/2026.03.001/model/src/w3sic4md.F90#L559-L595) combines a floe-size-dependent cubic fit associated with Meylan et al. [@meylan2021floe] with the **IC4M2** empirical attenuation of Meylan et al. [@meylan2014situ], `0.00212 / T^2 + 0.0459 / T^4`. The cubic component introduces additional dependencies on mean ice thickness and representative floe diameter supplied by CICE.
+The active attenuation choice is `SIC4 IC4METHOD = 8`. In the [ACCESS-OM3 WW3 implementation](https://github.com/search?q=repo%3AACCESS-NRI%2FWW3+path%3Amodel%2Fsrc%2Fw3sic4md.F90+IC4METHOD&type=code), method 8 combines a floe-size-dependent cubic fit associated with Meylan et al. [@meylan2021floe] with the **IC4M2** empirical attenuation of Meylan et al. [@meylan2014situ], `0.00212 / T^2 + 0.0459 / T^4`. The cubic component introduces additional dependencies on mean ice thickness and representative floe diameter supplied by CICE.
 
 Thickness is clipped to 0.1–3.5 m and radius to 2.5–100 m. The cubic fit predicts the base-10 logarithm of energy attenuation, capped at zero before conversion back to linear units. For `5 < T < 20` s, IC4M2 is added to the cubic result; for `T > 20` s, IC4M2 is used alone. At other periods, including exactly 20 s, the code uses only the cubic result. WW3 then sets amplitude attenuation to half the energy attenuation. The coefficients are hard-coded rather than set in `namelists_Global.nml`.
 
-This implementation differs from upstream WW3's use of the name **IC4M8** for the order-3 power-law model of Meylan et al. [@meylan2018dispersion], introduced through [NOAA-EMC/WW3 issue #1167](https://github.com/NOAA-EMC/WW3/issues/1167) and [PR #1176](https://github.com/NOAA-EMC/WW3/pull/1176). That model has the form `k_i = C_hf h_ice f^3`; therefore, `IC4METHOD = 8` should not be assumed to select the same formulation across these WW3 versions.
+This implementation differs from upstream WW3's use of the name **IC4M8** for the order-3 power-law model of Meylan et al. [@meylan2018dispersion]. That model has the form `k_i = C_hf h_ice f^3`; therefore, `IC4METHOD = 8` should not be assumed to select the same formulation across WW3 implementations.
 
-`CICE0 = 0.25` and `CICEN = 0.75` are present in the namelist but do not control IC4 attenuation. In `access-ww3 2026.03.001`, the [concentration-based propagation-transparency ramp](https://github.com/ACCESS-NRI/WW3/blob/2026.03.001/model/src/w3updtmd.F90#L2975-L3040) is compiled only with `IC0`; this executable instead uses `IC4`. `FLAGTR = 4` still applies the static unresolved-obstruction data at cell centres, while IC4 wave attenuation is calculated separately.
+`CICE0 = 0.25` and `CICEN = 0.75` are present in the namelist but do not control IC4 attenuation. The concentration-based propagation-transparency ramp is compiled only with `IC0`; this configuration uses `IC4`. `FLAGTR = 4` still applies the static unresolved-obstruction data at cell centres, while IC4 wave attenuation is calculated separately.
 
-[`ICNUMERICS = T`](https://github.com/ACCESS-NRI/WW3/blob/2026.03.001/model/src/w3srcemd.F90#L1320-L1342) is required by the matching ACCESS-NRI WW3 implementation to activate the compiled sea-ice source-term calculation. The source term is scaled by ice concentration before it is included in the spectral source-term integration. This switch is specific to the `access-ww3 2026.03.001` implementation used by the documented configuration and should be rechecked when changing executable versions.
+[`ICNUMERICS = T`](https://github.com/search?q=repo%3AACCESS-NRI%2FWW3+path%3Amodel%2Fsrc%2Fw3srcemd.F90+ICNUMERICS&type=code) activates the compiled sea-ice source-term calculation in the ACCESS-OM3 WW3 implementation. The source term is scaled by ice concentration before it is included in the spectral source-term integration.
 
 ### Other numerical choices
 
-The coupled driver uses a Gregorian calendar. The supplied `mod_def.ww3` stores `CALTYPE = 'standard'`, and the [WW3 cap derives its output calendar from the driver](https://github.com/ACCESS-NRI/WW3/blob/2026.03.001/model/src/wav_comp_nuopc.F90#L625-L632). The standalone `&CALTYPE = '365_day' /` line in `namelists_Global.nml` is misleading: [`CALTYPE` belongs to `&MISC`](https://github.com/ACCESS-NRI/WW3/blob/2026.03.001/model/src/w3gridmd.F90#L1096-L1102), and its [default is `standard`](https://github.com/ACCESS-NRI/WW3/blob/2026.03.001/model/src/w3gridmd.F90#L2710). Do not treat that line as an active no-leap setting.
+The coupled driver uses a Gregorian calendar, and WW3 uses `CALTYPE = 'standard'`. When regenerating WW3 inputs, set [`CALTYPE` in the `&MISC` namelist](https://github.com/search?q=repo%3AACCESS-NRI%2FWW3+path%3Amodel%2Fsrc%2Fw3gridmd.F90+CALTYPE&type=code); a standalone `&CALTYPE` block does not select the calendar.
 
 WW3's initial condition is a fetch-limited JONSWAP spectrum (`ITYPE = 3`) calculated from local wind speed and direction, using the grid-cell scale as the fetch and constraining the result to the configured frequency range.
 
-## Appendix: PR3 tuning (not active)
+## Alternative propagation: PR3 (not active)
 
-This configuration is compiled with `PR1`, so the [`PRO3` namelist](https://github.com/ACCESS-NRI/WW3/blob/2026.03.001/model/src/w3gridmd.F90#L1073-L1075) is inactive. A future switch to `PR3` would require rebuilding ACCESS-OM3, regenerating `mod_def.ww3`, and validating the `WDTHCG` and `WDTHTH` averaging parameters for this grid (see the [WW3 description of GSE averaging](https://github.com/ACCESS-NRI/WW3/blob/2026.03.001/manual/num/GSE_avg.tex)). No configuration-specific values are established here.
+PR3 is WW3's third-order ULTIMATE QUICKEST propagation option with averaging to reduce the garden-sprinkler effect: artificial separation of swell into discrete directional beams [@ww3dg2019manual]. It is an alternative for propagation sensitivity studies; the current configuration uses first-order `PR1`.
 
-## Current inputs, forcing and run coverage
+Switching to `PR3` requires rebuilding ACCESS-OM3 with the matching switch and regenerating `mod_def.ww3`. Its `PRO3` averaging parameters, `WDTHCG` and `WDTHTH`, require grid-specific validation. No PR3 values are prescribed for this configuration.
 
-The pinned [`config.yaml`](https://github.com/ACCESS-NRI/access-om3-configs/blob/bbf1c86c50dfa0716c47fd9be2e261169fd911e7/config.yaml) selects the **2026.10.13** topography and dependent inputs from [PR #1787](https://github.com/ACCESS-NRI/access-om3-configs/pull/1787): CICE mask, coupling meshes, runoff weights and iceberg-melt distribution, tidal inputs, chlorophyll, and WW3 binaries. The 17 km topography cutoff removes 23 ocean cells relative to the previous mask; bottom roughness also changes across the ocean because its source data were updated. These inputs must be used together. The horizontal grid remains `2026.03.13`; do not replace every input date with the topography date. Many paths remain under `vk83/prerelease`, and ERA5 is under `av17`, so this is still a development configuration.
+## Wave-coupling fields
 
-[`datm.streams.xml`](https://github.com/ACCESS-NRI/access-om3-configs/blob/bbf1c86c50dfa0716c47fd9be2e261169fd911e7/datm.streams.xml) lists ERA5 for 1940–2025, while [`drof.streams.xml`](https://github.com/ACCESS-NRI/access-om3-configs/blob/bbf1c86c50dfa0716c47fd9be2e261169fd911e7/drof.streams.xml) lists JRA55-do runoff for 1958–2024. Their common listed period is 1958–2024; `taxmode = extend` is not evidence of new forcing beyond those dates. The default startup is 1 January 1958, with one year per submission and annual coupled restarts (`restart_freq: 1YS` in Payu).
-
-CICE writes daily and monthly means. WW3's `WAV_modelio` settings request daily history, while the [coupled cap uses driver restart/history alarms](https://github.com/ACCESS-NRI/WW3/blob/2026.03.001/model/src/wav_comp_nuopc.F90#L1135-L1170). The native schedules in [`wav_in`](https://github.com/ACCESS-NRI/access-om3-configs/blob/bbf1c86c50dfa0716c47fd9be2e261169fd911e7/wav_in) still span 1 January 1958 to 1 January 2024 with daily field/restart strides and disabled point output; these dates are not the coupled run's stop date. Check both the coupled alarms and native schedules when changing run dates or switching to standalone WW3. Longer experiments also require checking actual forcing-file availability.
-
-## Exchanged fields
-
-The tables below list **all 73 component-to-component mapping records** in `/scratch/tm70/ek4684/test1/work/log/med.log`, inspected on 16 October 2026. This run uses the deployed executable described above; its `fd.yaml` and `nuopc.runseq` match configuration commit `bbf1c86`, and its `nuopc.runconfig` differs only by `start_type = continue`. This is an inventory of fields mapped by CMEPS, not a list of every advertised field or history diagnostic. A mapped field can be an intermediate used by the mediator rather than a field passed unchanged into the receiving model.
-
-Here `atm` is DATM (ERA5), `rof` is DROF (JRA55-do runoff), `ocn` is MOM6, `ice` is CICE6, and `wav` is WW3. All routes pass through CMEPS on the 3600 s coupling sequence. Names and units follow the pinned [field dictionary](https://github.com/ACCESS-NRI/access-om3-configs/blob/bbf1c86c50dfa0716c47fd9be2e261169fd911e7/fd.yaml), with the spectrum-unit caveat below. Paired names denote separate fields; the three Stokes bands and 25 spectrum bins are array dimensions, not separate mapping records.
-
-### Atmospheric forcing
-
-Each field below is mapped to **both ocean and ice** (`atm→ocn`: 19; `atm→ice`: 19). Only the three fields marked in the final column are also mapped to WW3 (`atm→wav`: 3).
-
-| Field(s) | Quantity | Units | Also to WW3 |
-| --- | --- | --- | --- |
-| `Sa_u`, `Sa_v` | Zonal and meridional wind | m s⁻¹ | Yes |
-| `Sa_z` | Atmospheric reference height | m | |
-| `Sa_tbot` | Air temperature at the reference level | K | Yes |
-| `Sa_pbot` | Pressure at the reference level | Pa | |
-| `Sa_shum` | Specific humidity | kg kg⁻¹ | |
-| `Sa_ptem` | Potential temperature | K | |
-| `Sa_dens` | Air density | kg m⁻³ | |
-| `Sa_pslv` | Sea-level pressure | Pa | |
-| `Faxa_rainc`, `Faxa_rainl` | Convective and large-scale rain | kg m⁻² s⁻¹ | |
-| `Faxa_snowc`, `Faxa_snowl` | Convective and large-scale snow | kg m⁻² s⁻¹ | |
-| `Faxa_swnet` | Net shortwave radiation | W m⁻² | |
-| `Faxa_lwdn` | Downward longwave radiation | W m⁻² | |
-| `Faxa_swndr`, `Faxa_swndf` | Direct and diffuse near-infrared shortwave radiation | W m⁻² | |
-| `Faxa_swvdr`, `Faxa_swvdf` | Direct and diffuse visible shortwave radiation | W m⁻² | |
-
-These are coupler fields after DATM processing, not necessarily separate ERA5 input variables; see the ERA5 guide linked above for forcing preparation.
-
-### Ocean exports
+The MCW-specific exchanges below pass through CMEPS every 1800 s. For atmospheric forcing, runoff and exchanges shared by MOM6–CICE6 configurations, see [Forcing data models](../../inputs/Forcing-data-models/) and [Coupling architecture](../../infrastructure/Architecture/).
 
 | Route | Field(s) | Quantity | Units |
 | --- | --- | --- | --- |
-| `ocn→ice` | `So_omask` | Ocean mask | 1 |
-| `ocn→ice`, `ocn→wav` | `So_t` | Sea-surface temperature | K |
-| `ocn→ice` | `So_s` | Sea-surface salinity | g kg⁻¹ |
-| `ocn→ice`, `ocn→wav` | `So_u`, `So_v` | Zonal and meridional surface currents | m s⁻¹ |
-| `ocn→ice` | `So_dhdx`, `So_dhdy` | Sea-surface slopes | m m⁻¹ |
-| `ocn→ice` | `Fioo_q` | Freezing/melting potential | W m⁻² |
-| `ocn→wav` | `So_bldepth` | Ocean boundary-layer depth | m |
+| Atmosphere → WW3 | `Sa_u`, `Sa_v`; `Sa_tbot` | Zonal and meridional wind; air temperature | m s⁻¹; K |
+| MOM6 → WW3 | `So_t`; `So_u`, `So_v`; `So_bldepth` | Sea-surface temperature; surface currents; ocean boundary-layer depth | K; m s⁻¹; m |
+| CICE6 → WW3 | `Si_ifrac`, `Si_thick`, `Si_floediam` | Ice concentration, thickness and representative floe diameter | 1; m; m |
+| WW3 → MOM6 | `Sw_pstokes_x`, `Sw_pstokes_y` | Zonal and meridional Stokes drift, each with three bands | m s⁻¹ |
+| WW3 → CICE6 | `Sw_elevation_spectrum` | Instantaneous direction-integrated wave-elevation spectrum, 25 frequency bins | m² Hz⁻¹ |
 
-There are eight mappings to ice and four to waves.
-
-### Ice exports
-
-| Route | Field(s) | Quantity | Units |
-| --- | --- | --- | --- |
-| `ice→ocn` | `Faii_swnet` | Net shortwave radiation over ice | W m⁻² |
-| `ice→ocn`, `ice→wav` | `Si_ifrac` | Ice concentration | 1 |
-| `ice→ocn` | `Fioi_swpen` | Total shortwave radiation penetrating ice into ocean | W m⁻² |
-| `ice→ocn` | `Fioi_swpen_vdr`, `Fioi_swpen_vdf` | Visible direct and diffuse penetrating shortwave | W m⁻² |
-| `ice→ocn` | `Fioi_swpen_idr`, `Fioi_swpen_idf` | Near-infrared direct and diffuse penetrating shortwave | W m⁻² |
-| `ice→ocn` | `Fioi_melth` | Ice–ocean heat flux | W m⁻² |
-| `ice→ocn` | `Fioi_taux`, `Fioi_tauy` | Zonal and meridional ice stress on ocean | N m⁻² |
-| `ice→ocn` | `Fioi_meltw` | Freshwater flux from ice to ocean | kg m⁻² s⁻¹ |
-| `ice→ocn` | `Fioi_salt` | Salt flux from ice to ocean | kg m⁻² s⁻¹ |
-| `ice→wav` | `Si_thick` | Ice thickness | m |
-| `ice→wav` | `Si_floediam` | Floe diameter | m |
-
-There are 12 mappings to ocean and three to waves. FSD categories themselves are not exchanged: WW3 receives floe diameter, while CICE retains the category distribution.
-
-### Runoff and wave exports
-
-| Route | Field(s) | Quantity | Units |
-| --- | --- | --- | --- |
-| `rof→ocn` | `Forr_rofl` | Liquid runoff | kg m⁻² s⁻¹ |
-| `rof→ocn` | `Forr_rofi` | Frozen runoff | kg m⁻² s⁻¹ |
-| `wav→ocn` | `Sw_pstokes_x`, `Sw_pstokes_y` | Zonal and meridional Stokes drift, each with three bands | m s⁻¹ |
-| `wav→ice` | `Sw_elevation_spectrum` | Instantaneous, direction-integrated wave-elevation spectrum, 25 frequency bins | See note below |
-
-There are two runoff mappings, two wave-to-ocean mappings and one wave-to-ice mapping. Significant wave height, wave period, radiation stress and wave-induced bottom currents are **not** among this run's mapped fields. The log sets a `rof→ice` connection flag but records no field mappings on that route; there are also no mapped return fields to DATM or DROF.
-
-!!! note "Spectrum units need a metadata check"
-    `fd.yaml` declares `Sw_elevation_spectrum` in `m2/s`. The [WW3 spectrum calculation](https://github.com/ACCESS-NRI/WW3/blob/0a23b2c358150b420919f47545ae81b76fa39a0f/model/src/wav_import_export.F90#L1337-L1376) integrates over directions and converts to ordinary frequency, consistent with a variance density in m² Hz⁻¹ (m² s). Treat the dictionary label as an unresolved metadata discrepancy, not as an instruction to rescale the exchanged values.
-
-### Mapping and mediator processing
-
-The log reports `fcopy` for atmosphere–ocean, atmosphere–ice and ocean–ice transfers. Atmosphere/ocean to waves use `bilnr`; ice to waves and waves to ocean/ice use `bilnr_nstod`, all with `one` normalization. Liquid runoff uses `rof2ocn_liq`, `none` normalization and `access-om3-100km-rof-remap-weights.nc`; frozen runoff uses `consd` with `one` normalization. These are the logged mapping identifiers. The log also enables frozen-runoff spreading using `access-om3-100km-rofi-climatology.nc`.
-
-CMEPS combines and transforms fields before model import. In particular, the logged merge rules sum convective and large-scale precipitation into `Faxa_rain` and `Faxa_snow`, rename runoff to `Foxx_rofl` and `Foxx_rofi`, and weight ocean-directed atmospheric and ice flux contributions by open-water and ice fractions. The logged initial contributions to `Foxx_taux`, `Foxx_tauy` and `Foxx_lwnet` are not their complete flux budgets: air–ocean flux calculations also occur in the mediator. Thus the 73 mappings above should not be read as 73 independent model import variables.
-
-For completeness, the same log lists these **14 internal air–ocean calculation fields**, separately from the mapping inventory:
-
-| Field(s) | Role |
-| --- | --- |
-| `Faox_taux`, `Faox_tauy` | Air–ocean stress components |
-| `Faox_lat`, `Faox_sen` | Latent and sensible heat fluxes |
-| `Faox_evap`, `Faox_lwup` | Evaporation and upward longwave flux |
-| `So_tref`, `So_qref` | Reference temperature and specific humidity |
-| `So_u10`, `So_u10res` | Wind diagnostics from the air–ocean flux calculation |
-| `So_ssq`, `So_re`, `So_ustar`, `So_duu10n` | Additional air–ocean flux diagnostics |
-
-These internal bundle entries are not evidence of additional component-to-component transfers. To recheck the mapping inventory after changing configuration or executable, inspect the new run's log:
-
-```bash
-grep '^ mapping' work/log/med.log
-```
+Floe-size categories remain internal to CICE6; WW3 receives a representative floe diameter. The wave-elevation spectrum is a variance density per unit ordinary frequency. The `m2/s` label in `fd.yaml` is inconsistent with this quantity and should not be used to rescale the exchanged values.
 
 ## Running and regenerating WW3 inputs
 
@@ -272,10 +177,9 @@ payu clone --branch dev-MCW_100km_era_iaf \
 cd mcw_100km_era_iaf
 ```
 
-Review the cloned `config.yaml` and input paths: cloning the development branch obtains its latest revision, which may be newer than the snapshot above. The supplied `mod_def.ww3` and `restart.ww3` can be used without preprocessing. For runtime timestep edits, follow [Changing WW3 timesteps](#changing-ww3-timesteps) below. If the WW3 preprocessing inputs are changed, load the exact `access-om3` version specified by `config.yaml`; for the version documented here this is:
+The supplied `mod_def.ww3` and `restart.ww3` can be used without preprocessing. For runtime timestep edits, follow [Changing WW3 timesteps](#changing-ww3-timesteps). If preprocessing inputs change, load the `access-om3` module selected by the experiment's `config.yaml`, then run:
 
 ```bash
-module load access-om3/2026.05.004
 cd WW3_PreProc
 ww3_grid
 ww3_strt
@@ -307,11 +211,11 @@ payu run
     /
     ```
 
-2. Check the coupling interval at the start of **`nuopc.runseq`** (3600 s in this configuration). For straightforward alignment, choose `dtmax` and `dtcfl` that divide this interval, with `dtmax` an integer multiple of `dtcfl`, as in the selected values above. Alignment alone does not establish numerical stability; use the [parameter rationale](#time-stepping_1) and a comparison run to assess your choice. Editing `wav_in` does not change the coupling interval. If you intend to change coupling as well, follow the [coupling and MOM6 timestep guidance](https://docs.access-hive.org.au/models/run_a_model/run_access-om3/#change-model-time-step) and reassess the WW3 limits against the new interval.
+2. Check the coupling interval at the start of **`nuopc.runseq`** (1800 s in this configuration). For straightforward alignment, choose `dtmax` and `dtcfl` that divide this interval, with `dtmax` an integer multiple of `dtcfl`, as in the selected values above. Alignment alone does not establish numerical stability; use the [parameter rationale](#time-stepping_1) and a comparison run to assess your choice. Editing `wav_in` does not change the coupling interval. If you intend to change coupling as well, follow the [coupling and MOM6 timestep guidance](https://docs.access-hive.org.au/models/run_a_model/run_access-om3/#change-model-time-step) and reassess the WW3 limits against the new interval.
 
-3. For changes only to these four runtime controls in this coupled build, **do not regenerate `mod_def.ww3` or `restart.ww3`**. Do not edit only `WW3_PreProc/ww3_grid.nml`: its timestep values are overridden by `wav_in`. Changing grid, spectrum or preprocessing physics is a separate operation requiring the input-generation workflow above.
+3. For changes only to these four runtime controls in this coupled configuration, **do not regenerate `mod_def.ww3` or `restart.ww3`**. Do not edit only `WW3_PreProc/ww3_grid.nml`: its timestep values are overridden by `wav_in`. Changing grid, spectrum or preprocessing physics is a separate operation requiring the input-generation workflow above.
 
-4. Run a short comparison experiment from the same initial state or restart as a baseline, retaining its logs and configuration. In this build, `wav.log` prints the controls read from `wav_in`; together with the cap's post-initialisation override described above, this identifies the runtime limits. During a run, inspect:
+4. Run a short comparison experiment from the same initial state or restart as a baseline, retaining its logs and configuration. `wav.log` prints the controls read from `wav_in`; together with the cap's post-initialisation override described above, this identifies the runtime limits. During a run, inspect:
 
     ```bash
     grep -E 'dtcfl|dtcfli|dtmax|dtmin' work/log/wav.log
@@ -319,7 +223,7 @@ payu run
 
     After Payu archives the run, use `archive/outputNNN/log/wav.log`, replacing `NNN` with that run's index. Expect the values you set, not the preprocessing defaults. This reports configured limits, not every adaptive internal substep. If they differ, check the staged `work/wav_in` and the executable version before interpreting results.
 
-5. Check for warnings, NaNs, aborts and restart/coupling failures, and compare wave height, period, direction and runtime with the baseline. For this PR1 build, **do not use `CFX`, `CFD` or `CFK` as timestep-validation diagnostics**: [#1519](https://github.com/ACCESS-NRI/access-om3-configs/issues/1519) records that the relevant arrays are populated only with PR3 and otherwise produce missing values. A short successful test is an initial check, not proof of long-term coupled stability.
+5. Check for warnings, NaNs, aborts and restart/coupling failures, and compare wave height, period, direction and runtime with the baseline. For this PR1 configuration, **do not use `CFX`, `CFD` or `CFK` as timestep-validation diagnostics**: [#1519](https://github.com/ACCESS-NRI/access-om3-configs/issues/1519) records that the relevant arrays are populated only with PR3 and otherwise produce missing values. A short successful test is an initial check, not proof of long-term coupled stability.
 
 ## References
 
