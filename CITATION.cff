@@ -1,0 +1,174 @@
+cff-version: 1.2.0
+title: 'ACCESS-OM3 Configurations'
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - given-names: Jo
+    family-names: Basevi
+    email: Johanna.Basevi@anu.edu.au
+    affiliation: Australia’s Climate Simulator (ACCESS-NRI), Australian National University, Canberra, Australia
+  - given-names: Luke
+    family-names: Bennetts
+    affiliation: School of Mathematics and Statistics, The University of Melbourne, Melbourne, VIC, Australia
+    orcid: 'https://orcid.org/0000-0001-9386-7882'
+  - given-names: Christopher Yit Sen 
+    family-names: Bull
+    email: chris.bull@anu.edu.au
+    affiliation: Australia’s Climate Simulator (ACCESS-NRI), Australian National University, Canberra, Australia
+    orcid: 'https://orcid.org/0000-0001-8362-3446'
+  - given-names: Qianhui
+    family-names: Chen
+    email: Qianhui.Chen@anu.edu.au
+    affiliation: Australia’s Climate Simulator (ACCESS-NRI), Australian National University, Canberra, Australia
+  - given-names: Noah
+    family-names: Day
+    affiliation: School of Mathematics and Statistics, The University of Melbourne, Melbourne, VIC, Australia
+    orcid: 'https://orcid.org/0000-0003-4176-7956'
+  - given-names: Martin
+    family-names: Dix
+    email: Martin.Dix@anu.edu.au
+    affiliation: Australia’s Climate Simulator (ACCESS-NRI), Australian National University, Canberra, Australia
+    orcid: 'https://orcid.org/0000-0002-7534-0654'
+  - given-names: Tommy
+    family-names: Gatti
+    email: Tommy.Gatti@anu.edu.au
+    affiliation: Australia’s Climate Simulator (ACCESS-NRI), Australian National University, Canberra, Australia
+  - given-names: Angus
+    family-names: Gibson
+    email: Angus.Gibson@anu.edu.au
+    affiliation: Research School of Earth Sciences, Australian National University
+  - given-names: Aidan
+    family-names: Heerdegen
+    email: Aidan.Heerdegen@anu.edu.au
+    affiliation: Australia’s Climate Simulator (ACCESS-NRI), Australian National University, Canberra, Australia
+    orcid: 'https://orcid.org/0000-0002-4481-4896'
+  - given-names: Andrew McC 
+    family-names: Hogg
+    email: Andy.Hogg@anu.edu.au
+    affiliation: Australia’s Climate Simulator (ACCESS-NRI), Australian National University, Canberra, Australia
+    orcid: 'https://orcid.org/0000-0001-5898-7635'
+  - given-names: Harshula
+    family-names: Jayasuriya
+    email: Harshula.Jayasuriya@anu.edu.au
+    affiliation: Australia’s Climate Simulator (ACCESS-NRI), Australian National University, Canberra, Australia
+    orcid: 'https://orcid.org/0009-0009-2679-050X'
+  - given-names: Ezhilsabareesh
+    family-names: Kannadasan
+    affiliation: Australia’s Climate Simulator (ACCESS-NRI), Australian National University, Canberra, Australia
+    orcid: 'https://orcid.org/0000-0003-1441-4311'
+  - given-names: Andrew E.
+    family-names: Kiss
+    email: andrew.kiss@anu.edu.au
+    affiliation: Research School of Earth Sciences, Australian National University
+    orcid: 'https://orcid.org/0000-0001-8960-9557'
+  - given-names: Minghang
+    family-names: Li
+    email: Minghang.Li1@anu.edu.au
+    affiliation: Australia’s Climate Simulator (ACCESS-NRI), Australian National University, Canberra, Australia
+  - given-names: Davide
+    family-names: Marchegiani
+    email: Davide.Marchegiani@anu.edu.au
+    affiliation: Australia’s Climate Simulator (ACCESS-NRI), Australian National University, Canberra, Australia
+    orcid: 'https://orcid.org/0000-0002-7619-7976'
+  - given-names: Alberto
+    family-names: Meucci
+    affiliation: Department of Infrastructure Engineering, The University of Melbourne, Melbourne, VIC, Australia
+    orcid: 'https://orcid.org/0000-0002-0278-756X'
+  - given-names: Adele
+    family-names: Morrison
+    email: Adele.Morrison@anu.edu.au
+    affiliation: Research School of Earth Sciences, Australian National University
+    orcid: 'https://orcid.org/0000-0002-9904-4980'
+  - given-names: Siobhan
+    family-names: O'Farrell
+    email: siobhan.ofarrell@unimelb.edu.au
+    affiliation: School of Mathematics and Statistics, The University of Melbourne, Melbourne, VIC, Australia
+    orcid: 'https://orcid.org/0000-0002-9019-6136'
+  - given-names: Micael
+    family-names: Oliveira
+    email: Micael.Oliveira@anu.edu.au
+    affiliation: Australia’s Climate Simulator (ACCESS-NRI), Australian National University, Canberra, Australia
+    orcid: 'https://orcid.org/0000-0003-1364-0907'
+  - given-names: Kieran
+    family-names: Ricardo
+    email: Kieran.Ricardo@anu.edu.au
+    affiliation: Australia’s Climate Simulator (ACCESS-NRI), Australian National University, Canberra, Australia
+  - given-names: Manodeep
+    family-names: Sinha
+    email: Manodeep.Sinha@anu.edu.au
+    affiliation: Australia’s Climate Simulator (ACCESS-NRI), Australian National University, Canberra, Australia
+    orcid: 'https://orcid.org/0000-0002-4845-1228'
+  - given-names: Dougal
+    family-names: Squire
+    email: Dougie.Squire@anu.edu.au
+    affiliation: Australia’s Climate Simulator (ACCESS-NRI), Australian National University, Canberra, Australia
+    orcid: 'https://orcid.org/0000-0003-3271-6874'
+  - given-names: Anton
+    family-names: Steketee
+    email: anton.steketee@anu.edu.au
+    affiliation: Australia’s Climate Simulator (ACCESS-NRI), Australian National University, Canberra, Australia
+    orcid: 'https://orcid.org/0009-0002-9081-4106'
+  - given-names: Spencer
+    family-names: Wong
+    email: spencer.wong@anu.edu.au
+    affiliation: Australia’s Climate Simulator (ACCESS-NRI), Australian National University, Canberra, Australia
+  - given-names: Luwei
+    family-names: Yang
+    email: Luwei.Yang@anu.edu.au
+    affiliation: Research School of Earth Sciences, Australian National University
+  - given-names: Stefan
+    family-names: Zieger
+    email: stefan.zieger@bom.gov.au
+    affiliation: Bureau of Meteorology, Melbourne, VIC, Australia
+    orcid: 'https://orcid.org/0000-0002-6051-8085'
+identifiers:
+  - description: "The concept DOI of all ACCESS-OM3 configurations."
+    type: doi
+    value: 10.5281/zenodo.16294824
+  - description: "The versioned DOI"
+    type: doi
+    value: 10.5281/zenodo.23750174
+repository-code: 'https://github.com/ACCESS-NRI/access-om3-configs'
+url: 'https://access-om3-configs.access-hive.org.au/'
+repository-artifact: >-
+  https://github.com/ACCESS-NRI/access-om3-configs/archive/refs/tags/release-MCW_100km_era_iaf-1.0-beta.tar.gz
+abstract: >-
+  This is a development model configuration of ACCESS-OM3
+  with coupled ocean waves (MCW: MOM6, CICE6 and WW3). This
+  uses a release of the ACCESS-OM3 software (version
+  2026.05.004), a global grid with 100km nominal resolution,
+  bathymetry generated from GEBCO 2024 and ocean initial
+  conditions generated from WOA2023. Interannual Forcing
+  (IAF) from hourly ERA5 atmospheric reanalysis, with
+  JRA55-do v1.6 river and land-ice runoff, is used as input
+  data.
+
+  WW3 waves are coupled to the ocean, where surface Stokes
+  drift is used for Langmuir turbulence in the ePBL mixing
+  scheme, and to the sea ice, which uses C-grid dynamics
+  with a floe size distribution.
+
+  ACCESS-OM3 is the third generation of the ACCESS global
+  ocean-seaice model. It uses up to date releases of the
+  MOM6 ocean model and CICE6 sea-ice model, and adds the
+  WAVEWATCH III (WW3) wave model in this configuration. It
+  is the first ACCESS model release using CMEPS (Community
+  Mediator for Earth Prediction Systems), built on top of
+  NUOPC (National Unified Operational Prediction
+  Capability), infrastructure to connect these model
+  components.
+license: CC-BY-4.0
+version: release-MCW_100km_era_iaf-1.0-beta
+date-released: 
+keywords:
+  - access-om3
+  - climate
+  - model
+  - "ocean - sea ice - waves"
+  - CICE
+  - MOM6
+  - WW3
+  - NUOPC
+  - ESMF
