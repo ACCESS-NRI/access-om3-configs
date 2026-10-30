@@ -793,12 +793,6 @@ SRESTORE_AS_SFLUX = True        !   [Boolean] default = False
                                 ! freshwater flux.
 MASK_SRESTORE = True            !   [Boolean] default = False
                                 ! If true, read a file (salt_restore_mask) containing a mask for SSS restoring.
-USE_RIGID_SEA_ICE = True        !   [Boolean] default = False
-                                ! If true, sea-ice is rigid enough to exert a nonhydrostatic pressure that
-                                ! resist vertical motion.
-SEA_ICE_RIGID_MASS = 100.0      !   [kg m-2] default = 1000.0
-                                ! The mass of sea-ice per unit area at which the sea-ice starts to exhibit
-                                ! rigidity
 
 ! === module MOM_restart ===
 
