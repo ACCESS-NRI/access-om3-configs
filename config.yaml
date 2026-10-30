@@ -24,9 +24,9 @@ modules:
         - model-tools/mppnccombine-fast/2026.10.000-1
 
 queue: normalsr
-ncpus: 8216
+ncpus: 8424
 jobfs: 10GB
-mem: 39500GB
+mem: 40500GB
 walltime: 05:00:00
 jobname: MC_8km_jra_ryf
 
