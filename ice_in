@@ -8,7 +8,7 @@
   hist_time_axis = "middle"
   history_deflate = 1
   history_chunksize = 720, 540
-  history_precision = 8
+  history_precision = 4
   restart_deflate = 1
   ice_ic = 'none' 
   lcdf64 = .false.
