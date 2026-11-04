@@ -35,13 +35,9 @@ The ocean baroclinic timestep is `DT = 1800` s, equal to the coupling interval s
 
 ## CICE6 parameter choices
 
-### C-grid dynamics and matching inputs
-
-`grid_ice = "C"` selects C-grid ice dynamics. The CICE `kmt.nc`, coupling meshes, WW3 text mask/depth and preprocessed binaries must have consistent land masks and bathymetry. When changing topography, update these inputs together.
-
 ### Floe-size distribution
 
-In `ice_in`, the MCW configuration changes `nfsd` from one to 12 and enables the prognostic floe-size-distribution tracer with `tr_fsd = .true.`. CICE therefore evolves ice area across 12 floe-radius categories as well as its five ice-thickness categories. The distribution responds to new-ice formation, lateral growth and melt, thermodynamic welding, and wave fracture; these processes affect floe perimeter and hence lateral melt rates [@roach2019advances].
+MCW enables CICE’s prognostic floe-size distribution (FSD) by setting `tr_fsd = .true.` and `nfsd = 12` in `ice_in`, where `nfsd` is the number of floe-radius categories. Sea-ice area is carried as a joint distribution over 12 floe-radius categories and five thickness categories (60 combinations). New-ice formation, lateral growth and melt, thermodynamic welding of floes, and fracture by ocean waves all change the FSD. Because floe size sets the perimeter per unit area of ice, the FSD also controls the lateral melt rate [@roach2018emergent; @roach2019advances].
 
 ### Wave forcing
 
@@ -65,7 +61,13 @@ These fields allow changes in floe size to be attributed to their physical proce
 
 ### Grid and spectral discretisation
 
-`ww3_grid.nml` configures the same 360 x 324 curvilinear, spherical tripolar grid as MOM6 and CICE6. The preprocessor also reads an unresolved-obstruction map; `FLAGTR = 4` places its static transparencies at cell centres.
+`ww3_grid.nml` selects a 360 x 324 curvilinear grid in spherical coordinates with tripolar closure (`CURV`, `SPHE`, `TRPL`). WW3's grid points coincide with the MOM6 tracer-cell centres: [the grid-generation script](https://github.com/ACCESS-NRI/access-om3-configs/blob/7026385225761a77fba4c3df1672ed01092479d8/WW3_PreProc/GenGrid.py#L42-L43) takes longitude and latitude from `ocean_hgrid.nc` at `[1::2, 1::2]`.
+
+WW3 uses a collocated (A-grid-like) layout here, rather than the staggered velocity layout of MOM6 and CICE's C-grid dynamics. Wave action is defined at the WW3 grid points; the [PR1 propagation scheme](https://github.com/ACCESS-NRI/WW3/blob/2026.03.001/manual/num/space_trad_1.tex#L10-L50) averages neighbouring point propagation velocities to obtain boundary flux velocities. Both components of the [exported Stokes drift](https://github.com/ACCESS-NRI/WW3/blob/2026.03.001/model/src/wav_import_export.F90#L708-L733) use the same sea-point mapping. Thus the components share the horizontal grid geometry, but not an identical arrangement of all variables.
+
+The preprocessor also reads an unresolved-obstruction map; `FLAGTR = 4` places its static transparencies at cell centres.
+
+WW3’s mask, depths and preprocessed binaries must remain consistent with the MOM6 topography, CICE land mask and coupling meshes. Update these inputs together when changing topography.
 
 The wave spectrum has 25 frequency bins beginning at 0.04118 Hz, with successive frequencies multiplied by 1.1. It has 24 directional bins, giving 15-degree directional resolution. `THOFF` offsets the first direction by −0.5 to 0.5 of that 15-degree increment; `THOFF = 0.0` leaves the directional grid unshifted. `THOFF` rotates the directional grid; it is not a dedicated garden-sprinkler correction. No explicit garden-sprinkler correction is used with `PR1` on this grid type [@ww3dg2019manual].
 
@@ -87,7 +89,7 @@ The executable does not contain `PR3`, `IC3` or `IS2`. Consequently, the `PRO3` 
 
 WW3 splits wave evolution into geographic propagation, propagation through frequency/direction space (including refraction), and source terms such as wind input and dissipation. These processes use separate timestep limits and internal substeps. The four controls below do not set the coupling interval between WW3, MOM6 and CICE. See [Changing WW3 timesteps](#changing-ww3-timesteps) for the editing and verification procedure.
 
-In ACCESS-OM3's coupled WW3 pathway, selected by the historically named `CESMCOUPLED` switch, the [cap restores the controls from `wav_in` after reading `mod_def.ww3`](https://github.com/search?q=repo%3AACCESS-NRI%2FWW3+path%3Amodel%2Fsrc%2Fwav_comp_nuopc.F90+DTMAX&type=code). The preprocessing values in `ww3_grid.nml` therefore do not determine the effective runtime controls.
+In ACCESS-OM3's coupled WW3 pathway, selected by the historically named `CESMCOUPLED` switch, the [cap restores the controls from `wav_in` after reading `mod_def.ww3`](https://github.com/ACCESS-NRI/WW3/blob/2026.03.001/model/src/wav_comp_nuopc.F90#L1599-L1607). The preprocessing values in `ww3_grid.nml` therefore do not determine the effective runtime controls. Retain the `TIMESTEPS_NML` entries: `ww3_grid` reads them into `mod_def.ww3`, and standalone WW3 can use those stored values. Keep them consistent with the intended runtime settings when regenerating inputs. The override applies to this coupled pathway; the preprocessing settings are not generally inactive.
 
 | `wav_in` control | WW3 name | Current value | Meaning |
 | --- | --- | ---: | --- |
@@ -106,6 +108,8 @@ cg,max = 1.15 g / (4 pi f1) ≈ 21.79 m/s
 Using `Dmin = 15,589 m`, the reference calculation in [issue #1519](https://github.com/ACCESS-NRI/access-om3-configs/issues/1519) gives `0.9 Dmin / cg,max ≈ 644 s`, above the selected `dtcfl = 600 s`. Recalculate `Dmin` from the active mask when changing topography; the reference value is not a verified minimum for every input revision.
 
 The selected `dtmax = 1800 s` follows the approximate `3 × dtcfl` guideline. Both divide the 1800 s coupling interval exactly. `dtcfli = 600 s` is `dtmax/3`; its suitability depends on spectral propagation and refraction and cannot be inferred from geographic spacing alone.
+
+**Divisibility is a convenient choice, not a requirement that all four limits divide the coupling interval.** In this WW3 version, [the integration loop subdivides the time remaining to its target](https://github.com/ACCESS-NRI/WW3/blob/2026.03.001/model/src/w3wavemd.F90#L1017-L1076) according to `dtmax`, and [PR1 chooses geographic substeps](https://github.com/ACCESS-NRI/WW3/blob/2026.03.001/model/src/w3pro1md.F90#L477-L480) from the actual integration step, `dtcfl` and propagation speed. The configured limits are therefore not necessarily the steps taken. For this build, use an overall limit of at least 1 s, positive propagation limits, and a positive source-term minimum no larger than the overall limit. The [preprocessor bounds `DTMAX` and `DTMIN`](https://github.com/ACCESS-NRI/WW3/blob/2026.03.001/model/src/w3gridmd.F90#L1345-L1371), but the coupled cap subsequently replaces them from `wav_in`, so do not rely on preprocessing to validate runtime edits. CFL and refraction constraints still need to be assessed for the chosen grid and physics.
 
 The [timestep selection analysis](https://github.com/ACCESS-NRI/access-om3-configs/issues/1519) supports this balance of accuracy and computational cost, including `dtmin = 50` s. Reassess the limits when changing grid, spectrum, physics or coupling; the [general WW3 timestep guidance](../../infrastructure/NUOPC-driver/#wavewatch-iii-time-steps) describes their roles and selection criteria.
 
@@ -163,17 +167,17 @@ The MCW-specific exchanges below pass through CMEPS every 1800 s. For atmospheri
 | WW3 → MOM6 | `Sw_pstokes_x`, `Sw_pstokes_y` | Zonal and meridional Stokes drift, each with three bands | m s⁻¹ |
 | WW3 → CICE6 | `Sw_elevation_spectrum` | Instantaneous direction-integrated wave-elevation spectrum, 25 frequency bins | m² Hz⁻¹ |
 
-Floe-size categories remain internal to CICE6; WW3 receives a representative floe diameter. The wave-elevation spectrum is a variance density per unit ordinary frequency. The `m2/s` label in `fd.yaml` is inconsistent with this quantity and should not be used to rescale the exchanged values.
+Floe-size categories remain internal to CICE6; WW3 receives a representative floe diameter. The wave-elevation spectrum is a variance density per unit ordinary frequency. The `m2/s` label in the development configuration’s `fd.yaml` is inconsistent with this quantity. The metadata correction is `canonical_units: m2 s` (equivalent to m² Hz⁻¹); it does not call for rescaling the exchanged values. This dictionary correction is a configuration change separate from the documentation.
 
 ## Running and regenerating WW3 inputs
 
-On Gadi, ensure access to the input projects listed in `config.yaml` (including `vk83`, `av17` and `qv56`, plus `xp65` for postprocessing) and an allocation for running the model. Use Payu **1.3.6 or later**, as required by the configuration. Clone the ERA5 interannual-forcing branch and enter the resulting configuration directory:
+On Gadi, ensure access to the input projects listed in `config.yaml` (including `vk83`, `av17` and `qv56`, plus `xp65` for postprocessing) and an allocation for running the model. Use Payu **1.3.6 or later**, as required by the configuration. Clone the ERA5 interannual-forcing release branch and enter the resulting configuration directory:
 
 ```bash
 module use /g/data/vk83/modules
 module load payu
-payu clone --branch dev-MCW_100km_era_iaf \
-  git@github.com:ACCESS-NRI/access-om3-configs.git mcw_100km_era_iaf
+payu clone --branch release-MCW_100km_era_iaf \
+  https://github.com/ACCESS-NRI/access-om3-configs mcw_100km_era_iaf
 cd mcw_100km_era_iaf
 ```
 
@@ -211,7 +215,7 @@ payu run
     /
     ```
 
-2. Check the coupling interval at the start of **`nuopc.runseq`** (1800 s in this configuration). For straightforward alignment, choose `dtmax` and `dtcfl` that divide this interval, with `dtmax` an integer multiple of `dtcfl`, as in the selected values above. Alignment alone does not establish numerical stability; use the [parameter rationale](#time-stepping_1) and a comparison run to assess your choice. Editing `wav_in` does not change the coupling interval. If you intend to change coupling as well, follow the [coupling and MOM6 timestep guidance](https://docs.access-hive.org.au/models/run_a_model/run_access-om3/#change-model-time-step) and reassess the WW3 limits against the new interval.
+2. Check the coupling interval at the start of **`nuopc.runseq`** (1800 s in this configuration). Choosing `dtmax` and `dtcfl` that divide this interval, with `dtmax` an integer multiple of `dtcfl`, is convenient but is not a strict divisibility requirement in this WW3 build. WW3 subdivides the interval internally. Keep the runtime limits within the ranges described above; alignment alone does not establish numerical stability; use the [parameter rationale](#time-stepping_1) and a comparison run to assess your choice. Editing `wav_in` does not change the coupling interval. If you intend to change coupling as well, follow the [coupling and MOM6 timestep guidance](https://docs.access-hive.org.au/models/run_a_model/run_access-om3/#change-model-time-step) and reassess the WW3 limits against the new interval.
 
 3. For changes only to these four runtime controls in this coupled configuration, **do not regenerate `mod_def.ww3` or `restart.ww3`**. Do not edit only `WW3_PreProc/ww3_grid.nml`: its timestep values are overridden by `wav_in`. Changing grid, spectrum or preprocessing physics is a separate operation requiring the input-generation workflow above.
 
