@@ -605,9 +605,6 @@ MINIMUM_FORCING_DEPTH = 1.08    !   [m] default = 0.001
                                 ! when near-surface layers become thin relative to this scale, in which case the
                                 ! forcing tendencies scaled down by distributing the forcing over this depth
                                 ! scale.
-FRAZIL_NOT_UNDER_ICESHELF = True !   [Boolean] default = False
-                                ! If true, do not use frazil scheme underneath ice shelves defined by
-                                ! frac_shelf_h greater than 0.
 
 ! === module MOM_set_diffusivity ===
 
@@ -855,9 +852,6 @@ ICE_SHELF_TEMPERATURE = -20.0   !   [degC] default = -15.0
                                 ! The temperature at the center of the ice shelf.
 COL_THICK_MELT_THRESHOLD = 0.001 !   [m] default = 0.0
                                 ! The minimum ocean column thickness where melting is allowed.
-ICE_SHELF_USTAR_FROM_VEL_BUGFIX = True !   [Boolean] default = False
-                                ! Bug fix for ice-area weighting of squared ocean velocities used to calculate
-                                ! friction velocity under ice shelves
 ICE_SHELF_TIDEAMP_SCALING_FACTOR = 0.66 !   [nondim] default = 1.0
                                 ! Scale TIDEAMP_FILE or UTIDE by number in melt parameterisation friction
                                 ! velocity calculation.
