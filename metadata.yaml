@@ -1,0 +1,36 @@
+contact: Add your name here
+email: Add your email address here
+created: Add the date you started the experiment here (YYYY-MM-DD)
+description: |-
+    100km ACCESS-OM3 global configuration coupling MOM6, CICE6 and
+    WAVEWATCH III (MCW) under interannual forcing (IAF).
+    Initial conditions of temperature and salinity are from WOA23.
+    Run with hourly ERA5 atmospheric data, linearly interpolated to
+    the half-hourly coupling times, and JRA55-do v1.6.0
+    river and land-ice runoff. The simulation starts on 1 Jan 1958
+    using the Gregorian calendar.
+    Wave coupling supplies Stokes drift to MOM6 for Langmuir mixing
+    and wave spectra to CICE6 for floe-size-distribution evolution.
+notes: |-
+  ACCESS-NRI and COSIMA request that users of this model acknowledge those organisations
+  following the examples at https://www.access-nri.org.au/resources/acknowledging-us/
+  and https://cosima.org.au/index.php/get-involved/
+keywords:
+  - ERA5
+  - JRA55
+  - access-om3
+  - interannual
+  - global
+  - waves
+  - MOM6
+  - CICE6
+  - WW3
+realm:
+  - ocean
+  - seaIce
+  - waves
+nominal_resolution: 100 km
+license: CC-BY-4.0
+model: ACCESS-OM3
+url: https://github.com/ACCESS-NRI/access-om3-configs/tree/release-MCW_100km_era_iaf
+version: 1.0-beta
