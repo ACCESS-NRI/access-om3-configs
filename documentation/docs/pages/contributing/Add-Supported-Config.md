@@ -65,7 +65,7 @@ The following are some suggestions for what is needed for a branch to become a `
  - files used in the `config.yaml` need to be accessible (e.g. not in someone's personal folder but in `/g/data/vk83/prerelease/` or other widely available group workspace).
  - input files in the `config.yaml` have appropriate metadata such that they could be reproduced if needed (this includes the related workflows being under version control).
  - where practical the branch is up to date with using the latest build and commits from the closest related repository.
- - updated checksums (i.e. `!test repro commit`) and docs.
+ - updated checksums (i.e. `!test repro --commit`) and docs.
  - pass the dev "QA" [tests](https://github.com/ACCESS-NRI/model-config-tests/blob/ee4cb743816648753c36e15e6a630bedc2859853/src/model_config_tests/config_tests/qa/test_config.py#L153), these run automatically on PRs into `access-om3-configs`.
  - as much as is practical, structured to represent the minimum set of differences relative to other established dev configurations.
  - configuration needs to work / run at least for a little bit.

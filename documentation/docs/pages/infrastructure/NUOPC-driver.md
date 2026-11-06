@@ -82,6 +82,9 @@ It is common to set at least these 3 timesteps in the `MOM_input` file:
 
 - Thermodynamics time-step (`DT_THERM`), which can be [set to resolve the relevant physics](https://youtu.be/JKMwd8VXYcU?si=dBk09lMVPsMF3aJT&t=541) (e.g. one to three hours or so to capture the diurnal cycle), independent of the horizontal grid resolution. It is possible to set `DT_THERM` longer than the coupling time-step, but only with [`DIABATIC_FIRST = False`](https://github.com/search?q=repo%3AACCESS-NRI%2Faccess-om3-configs+path%3Adoc%2FMOM_input+content%3ADIABATIC_FIRST&type=code). The tracer advection timestep (`DT_TRACER_ADVECT`) defaults to the same as `DT_THERM`.
 
+!!! warning
+    Avoid setting `DT_THERM` (or `DT_TRACER_ADVECT`) to three times the coupling time-step. Because of how MOM6 handles the first coupling steps of a cold-start run, this puts the thermodynamic steps out of phase with the run and restart boundaries, and the model crashes when writing restarts. See [this issue](https://github.com/ACCESS-NRI/MOM6/issues/105) for details.
+
 ### WAVEWATCH III time-steps
 
 WW3 advances the wave-action spectrum using separate calculations for geographic propagation, propagation in spectral space, and source terms. It therefore has four timestep controls, rather than one fixed wave timestep. See the [WW3 timestep guidance](https://github.com/search?q=repo%3AACCESS-NRI%2FWW3+path%3Amodel%2Fnml%2Fww3_grid.nml+TIMESTEPS&type=code).
