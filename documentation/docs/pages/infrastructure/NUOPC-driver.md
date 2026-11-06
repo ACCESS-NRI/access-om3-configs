@@ -84,3 +84,23 @@ It is common to set at least these 3 timesteps in the `MOM_input` file:
 
 !!! warning
     Avoid setting `DT_THERM` (or `DT_TRACER_ADVECT`) to three times the coupling time-step. Because of how MOM6 handles the first coupling steps of a cold-start run, this puts the thermodynamic steps out of phase with the run and restart boundaries, and the model crashes when writing restarts. See [this issue](https://github.com/ACCESS-NRI/MOM6/issues/105) for details.
+
+### WAVEWATCH III time-steps
+
+WW3 advances the wave-action spectrum using separate calculations for geographic propagation, propagation in spectral space, and source terms. It therefore has four timestep controls, rather than one fixed wave timestep. See the [WW3 timestep guidance](https://github.com/search?q=repo%3AACCESS-NRI%2FWW3+path%3Amodel%2Fnml%2Fww3_grid.nml+TIMESTEPS&type=code).
+
+For the ACCESS-OM3 coupled executable documented in the [MCW guide](/configurations/MCW_100km/), set these controls in seconds in the `&ww3_inparm` namelist in **`wav_in`**:
+
+- **Geographic propagation (`dtcfl`, called `DTXY` in WW3 preprocessing)** controls the reference timestep for transporting wave action across the horizontal grid. Choose it using the smallest active grid-cell spacing and the fastest wave group speed, associated with the lowest spectral frequency, rather than the nominal model resolution. A typical starting point is `0.9 × minimum spacing / maximum group speed`. In the PR1 scheme used by this configuration, local propagation substeps also account for wave speed and currents.
+
+- **Spectral propagation (`dtcfli`, or `DTKTH`)** limits the timestep for changes in wavenumber and direction, including refraction. Its appropriate value depends on spectral resolution and refraction by currents and depth variations, so it cannot be inferred from horizontal grid spacing alone. WW3 guidance suggests approximately `dtmax/2` for weak currents and potentially `dtmax/10` for strong currents; these are starting estimates to assess through tests, not universal stability limits.
+
+- **Overall integration (`dtmax`, or `DTMAX`)** sets the maximum global wave timestep. Geographic and spectral propagation can take substeps within it, while source-term integration uses its own dynamically selected steps. A common starting choice is approximately `3 × dtcfl`, with timestep limits chosen as integer multiples where practical. It is a maximum, not a guarantee that every internal update advances by that duration.
+
+- **Source-term integration (`dtmin`, or `DTMIN`)** sets the minimum timestep for dynamically integrating wave growth and dissipation, such as wind input and whitecapping. It is not the timestep for geographic propagation or the minimum coupling interval. WW3 gives a typical range of 5–60 s and a common starting value of 10 s; configuration-specific testing can justify other choices. The documented MCW configuration retains 50 s in its tested timestep set.
+
+The **coupling interval** is set separately in `nuopc.runseq`: it controls when WW3 exchanges information with the other components, not its internal propagation or source-term substeps. Choosing `dtmax` and `dtcfl` to divide that interval simplifies alignment, but is not a strict divisibility requirement in this WW3 build: its integration loop and propagation schemes choose internal substeps. See the [MCW timestep constraints](/configurations/MCW_100km/#time-stepping_1) for the source-level explanation and recommended ranges. For example, the documented MCW configuration uses an 1800 s coupling interval with `dtmax = 1800`, `dtcfl = 600`, `dtcfli = 600` and `dtmin = 50` s. Changing `wav_in` alone does not change coupling frequency; changing coupling also requires reviewing the other components' timesteps.
+
+In ACCESS-OM3's `CESMCOUPLED` pathway, the [WW3 cap restores these four values from `wav_in` after loading `mod_def.ww3`](https://github.com/search?q=repo%3AACCESS-NRI%2FWW3+path%3Amodel%2Fsrc%2Fwav_comp_nuopc.F90+DTMAX&type=code). Timestep-only edits therefore do not require regenerating the binary inputs, and editing only the preprocessing timestep values will not change the runtime controls. Recheck this behaviour for other executables or standalone WW3.
+
+See the [MCW parameter rationale](/configurations/MCW_100km/#time-stepping_1) for the selected values, and [Changing WW3 timesteps](/configurations/MCW_100km/#changing-ww3-timesteps) for editing, log checks and validation. The reported limits are distinct from adaptive internal substeps; the PR1 scheme also has limitations on the available CFL diagnostics, described in that procedure.
