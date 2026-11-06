@@ -167,7 +167,7 @@ The MCW-specific exchanges below pass through CMEPS every 1800 s. For atmospheri
 | WW3 → MOM6 | `Sw_pstokes_x`, `Sw_pstokes_y` | Zonal and meridional Stokes drift, each with three bands | m s⁻¹ |
 | WW3 → CICE6 | `Sw_elevation_spectrum` | Instantaneous direction-integrated wave-elevation spectrum, 25 frequency bins | m² Hz⁻¹ |
 
-Floe-size categories remain internal to CICE6; WW3 receives a representative floe diameter. The wave-elevation spectrum is a variance density per unit ordinary frequency. The `m2/s` label in the development configuration’s `fd.yaml` is inconsistent with this quantity. The metadata correction is `canonical_units: m2 s` (equivalent to m² Hz⁻¹); it does not call for rescaling the exchanged values. This dictionary correction is a configuration change separate from the documentation.
+Floe-size categories remain internal to CICE6; WW3 receives a representative floe diameter. The wave-elevation spectrum is a variance density per unit ordinary frequency, with units of m² Hz⁻¹ (equivalent to m² s).
 
 ## Running and regenerating WW3 inputs
 
