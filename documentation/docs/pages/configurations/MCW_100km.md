@@ -89,14 +89,14 @@ The executable does not contain `PR3`, `IC3` or `IS2`. Consequently, the `PRO3` 
 
 WW3 splits wave evolution into geographic propagation, propagation through frequency/direction space (including refraction), and source terms such as wind input and dissipation. These processes use separate timestep limits and internal substeps. The four controls below do not set the coupling interval between WW3, MOM6 and CICE. See [Changing WW3 timesteps](#changing-ww3-timesteps) for the editing and verification procedure.
 
-In ACCESS-OM3's coupled WW3 pathway, selected by the historically named `CESMCOUPLED` switch, the [cap restores the controls from `wav_in` after reading `mod_def.ww3`](https://github.com/ACCESS-NRI/WW3/blob/2026.03.001/model/src/wav_comp_nuopc.F90#L1599-L1607). The preprocessing values in `ww3_grid.nml` therefore do not determine the effective runtime controls. Retain the `TIMESTEPS_NML` entries: `ww3_grid` reads them into `mod_def.ww3`, and standalone WW3 can use those stored values. Keep them consistent with the intended runtime settings when regenerating inputs. The override applies to this coupled pathway; the preprocessing settings are not generally inactive.
+For coupled MCW runs, set the four runtime timestep controls in `wav_in`: `dtmax`, `dtcfl`, `dtcfli` and `dtmin`. The corresponding preprocessing settings are `TIMESTEPS%DTMAX`, `TIMESTEPS%DTXY`, `TIMESTEPS%DTKTH` and `TIMESTEPS%DTMIN` in the `TIMESTEPS_NML` section of `WW3_PreProc/ww3_grid.nml`. The `ww3_grid` preprocessor stores these settings in `mod_def.ww3`, but during coupled initialisation the [WW3 cap replaces them with the values from `wav_in`](https://github.com/search?q=repo%3AACCESS-NRI%2FWW3+path%3Amodel%2Fsrc%2Fwav_comp_nuopc.F90+dtmax_in&type=code). Changing only `ww3_grid.nml`, even when regenerating `mod_def.ww3`, therefore does not change the timestep controls used by MCW; update them in `wav_in`. The table below maps the runtime controls to their corresponding preprocessing entries.
 
-| `wav_in` control | WW3 name | Current value | Meaning |
+| `wav_in` control | `ww3_grid.nml` entry (`TIMESTEPS_NML`) | Current value | Meaning |
 | --- | --- | ---: | --- |
-| `dtcfl` | `DTXY` | 600 s | Reference limit for geographic propagation, based on grid spacing and wave group speed; PR1 can apply local substeps. |
-| `dtcfli` | `DTKTH` | 600 s | Maximum timestep for propagation through wavenumber–direction space, including refraction. |
-| `dtmax` | `DTMAX` | 1800 s | Maximum overall wave integration timestep; individual processes can use shorter steps. |
-| `dtmin` | `DTMIN` | 50 s | Minimum step for dynamically integrated source terms, rather than a fixed step used by every process. |
+| `dtcfl` | `TIMESTEPS%DTXY` | 600 s | Reference limit for geographic propagation, based on grid spacing and wave group speed; PR1 can apply local substeps. |
+| `dtcfli` | `TIMESTEPS%DTKTH` | 600 s | Maximum timestep for propagation through wavenumber–direction space, including refraction. |
+| `dtmax` | `TIMESTEPS%DTMAX` | 1800 s | Maximum overall wave integration timestep; individual processes can use shorter steps. |
+| `dtmin` | `TIMESTEPS%DTMIN` | 50 s | Minimum step for dynamically integrated source terms, rather than a fixed step used by every process. |
 
 The geographic propagation limit depends on the smallest active grid spacing and fastest wave group speed, rather than the nominal 100 km resolution. A starting estimate is `dtcfl ≈ 0.9 Dmin / cg,max`, where `Dmin` is the minimum active spacing and `cg,max` is estimated from the lowest spectral frequency:
 
