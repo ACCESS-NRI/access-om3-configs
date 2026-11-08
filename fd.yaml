@@ -383,12 +383,12 @@
      - standard_name: Sa_shum
        alias: inst_spec_humid_height_lowest
        canonical_units: kg kg-1
-       description: atm import to med - bottom layer specific humidiaty
+       description: atm import to med - bottom layer specific humidity
      #
      - standard_name: Sa_q2m
        alias: inst_spec_humid_height_lowest
        canonical_units: kg kg-1
-       description: atm import to med -  specific humidiaty at 2m
+       description: atm import to med -  specific humidity at 2m
      #
      - standard_name: Sa_shum_wiso
        alias: inst_spec_humid_height_lowest_wiso
@@ -1210,7 +1210,7 @@
      #
      - standard_name: Sw_elevation_spectrum
        alias: wave_elevation_spectrum
-       canonical_units: m2/s
+       canonical_units: m2 s
        description: wave elevation spectrum
      #
      - standard_name: Sw_ustokes_avg
