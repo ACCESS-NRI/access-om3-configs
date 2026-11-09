@@ -61,7 +61,7 @@ These fields allow changes in floe size to be attributed to their physical proce
 
 ### Grid and spectral discretisation
 
-`ww3_grid.nml` selects a 360 x 324 curvilinear grid in spherical coordinates with tripolar closure (`CURV`, `SPHE`, `TRPL`). WW3's grid points coincide with the MOM6 tracer-cell centres: the [`generate_ww3_grid.py` script in `om3-scripts`](https://github.com/ACCESS-NRI/om3-scripts/blob/main/ww3_grid_generation/generate_ww3_grid.py) takes longitude and latitude from `ocean_hgrid.nc` at `[1::2, 1::2]`.
+`ww3_grid.nml` selects a 360 x 324 curvilinear grid in spherical coordinates with tripolar closure (`CURV`, `SPHE`, `TRPL`). WW3's grid points coincide with the MOM6 tracer-cell centres: the [`generate_ww3_grid.py` script in `om3-scripts`](https://github.com/ACCESS-NRI/om3-scripts/blob/main/ww3_grid_generation/generate_ww3_grid.py) takes longitude and latitude from `ocean_hgrid.nc` tracer cell centres.
 
 WW3 uses a collocated (A-grid-like) layout here, rather than the staggered velocity layout of MOM6 and CICE's C-grid dynamics. Wave action is defined at the WW3 grid points; the [PR1 propagation scheme](https://github.com/search?q=repo%3AACCESS-NRI%2FWW3+path%3Amanual%2Fnum%2Fspace_trad_1.tex+PR1&type=code) averages neighbouring point propagation velocities to obtain boundary flux velocities. Both components of the [exported Stokes drift](https://github.com/search?q=repo%3AACCESS-NRI%2FWW3+path%3Amodel%2Fsrc%2Fwav_import_export.F90+Sw_pstokes_x&type=code) use the same sea-point mapping. Thus the components share the horizontal grid geometry, but not an identical arrangement of all variables.
 
