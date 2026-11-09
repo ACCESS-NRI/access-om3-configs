@@ -84,3 +84,21 @@ It is common to set at least these 3 timesteps in the `MOM_input` file:
 
 !!! warning
     Avoid setting `DT_THERM` (or `DT_TRACER_ADVECT`) to three times the coupling time-step. Because of how MOM6 handles the first coupling steps of a cold-start run, this puts the thermodynamic steps out of phase with the run and restart boundaries, and the model crashes when writing restarts. See [this issue](https://github.com/ACCESS-NRI/MOM6/issues/105) for details.
+
+### WAVEWATCH III time-steps
+
+WW3 advances the wave-action spectrum using separate calculations for geographic propagation, propagation in spectral space, and source terms. It therefore has four timestep controls, expressed in seconds. The runtime names below correspond to the preprocessing names in parentheses:
+
+- **Geographic propagation (`dtcfl`, or `DTXY`)** sets a reference timestep limit for transporting wave action across the horizontal grid. Its selection depends on the smallest active grid-cell spacing and wave group speeds; the propagation scheme may use local substeps.
+
+- **Spectral propagation (`dtcfli`, or `DTKTH`)** limits the timestep for changes in wavenumber and direction, including refraction. Its selection depends on spectral resolution, currents and depth variations.
+
+- **Overall integration (`dtmax`, or `DTMAX`)** sets the maximum overall wave integration timestep. Geographic and spectral propagation can take substeps within it, while source terms use dynamically selected integration steps.
+
+- **Source-term integration (`dtmin`, or `DTMIN`)** sets the minimum timestep for dynamically integrating wave growth and dissipation, such as wind input and whitecapping. It does not set the propagation timesteps or coupling interval.
+
+See the [WW3 timestep guidance](https://github.com/search?q=repo%3AACCESS-NRI%2FWW3+path%3Amodel%2Fnml%2Fww3_grid.nml+TIMESTEPS&type=code) for general selection guidelines.
+
+The **coupling interval**, set separately in `nuopc.runseq`, controls when WW3 exchanges information with the other components. It is distinct from WW3's internal integration steps; changing it requires reviewing the timesteps of all coupled components.
+
+See the [MCW timestep choices](../../configurations/MCW_100km/#time-stepping_1) for configuration values and their rationale, and [Changing WW3 timesteps](../../configurations/MCW_100km/#changing-ww3-timesteps) for the editing and verification procedure.
