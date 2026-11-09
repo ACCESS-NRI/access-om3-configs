@@ -39,6 +39,7 @@ The **grid preprocessor** (`ww3_grid`) takes static grid data files located in t
 
 **Steps to follow manually:**
 
+* If the grid or topography changes, generate the text grid files with [`om3-scripts/ww3_grid_generation/generate_ww3_grid.py`](https://github.com/ACCESS-NRI/om3-scripts/blob/main/ww3_grid_generation/generate_ww3_grid.py), supplying the intended supergrid and topography paths. See the [MCW input-generation procedure](../../configurations/MCW_100km/#running-and-regenerating-ww3-inputs) for the arguments.
 * Run `ww3_grid` to generate `mod_def.ww3`.
 * Run `ww3_strt` to generate `restart.ww3`.
 * Update configuration (`config.yaml`, input path) to point to these files.
