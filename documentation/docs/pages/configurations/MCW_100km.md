@@ -149,12 +149,6 @@ The coupled driver uses a Gregorian calendar, and WW3 uses `CALTYPE = 'standard'
 
 WW3's initial condition is a fetch-limited JONSWAP spectrum (`ITYPE = 3`) calculated from local wind speed and direction, using the grid-cell scale as the fetch and constraining the result to the configured frequency range.
 
-## Alternative propagation: PR3 (not active)
-
-PR3 is WW3's third-order ULTIMATE QUICKEST propagation option with averaging to reduce the garden-sprinkler effect: artificial separation of swell into discrete directional beams [@ww3dg2019manual]. It is an alternative for propagation sensitivity studies; the current configuration uses first-order `PR1`.
-
-Switching to `PR3` requires rebuilding ACCESS-OM3 with the matching switch and regenerating `mod_def.ww3`. Its `PRO3` averaging parameters, `WDTHCG` and `WDTHTH`, require grid-specific validation. No PR3 values are prescribed for this configuration.
-
 ## Wave-coupling fields
 
 The MCW-specific exchanges below pass through CMEPS every 1800 s. For atmospheric forcing, runoff and exchanges shared by MOM6–CICE6 configurations, see [Forcing data models](../../inputs/Forcing-data-models/) and [Coupling architecture](../../infrastructure/Architecture/).
