@@ -105,13 +105,13 @@ f1 = 0.04118 Hz
 cg,max = 1.15 g / (4 pi f1) ≈ 21.79 m/s
 ```
 
-Using `Dmin = 15,589 m`, the reference calculation in [issue #1519](https://github.com/ACCESS-NRI/access-om3-configs/issues/1519) gives `0.9 Dmin / cg,max ≈ 644 s`, above the selected `dtcfl = 600 s`. Recalculate `Dmin` from the active mask when changing topography; the reference value is not a verified minimum for every input revision.
+For this grid, `0.9 Dmin / cg,max ≈ 644 s`, above the selected `dtcfl = 600 s`. Recalculate `Dmin` from the active mask when changing topography.
 
-The selected `dtmax = 1800 s` follows the approximate `3 × dtcfl` guideline. Both divide the 1800 s coupling interval exactly. `dtcfli = 600 s` is `dtmax/3`; its suitability depends on spectral propagation and refraction and cannot be inferred from geographic spacing alone.
+The selected `dtmax = 1800 s` follows the approximate `3 × dtcfl` guideline, and `dtcfli = 600 s` is `dtmax/3`. The suitability of `dtcfli` depends on spectral propagation and refraction and cannot be inferred from geographic spacing alone.
 
-**Divisibility is a convenient choice, not a requirement that all four limits divide the coupling interval.** In this WW3 version, [the integration loop subdivides the time remaining to its target](https://github.com/search?q=repo%3AACCESS-NRI%2FWW3+path%3Amodel%2Fsrc%2Fw3wavemd.F90+DTMAX&type=code) according to `dtmax`, and [PR1 chooses geographic substeps](https://github.com/search?q=repo%3AACCESS-NRI%2FWW3+path%3Amodel%2Fsrc%2Fw3pro1md.F90+NTLOC&type=code) from the actual integration step, `dtcfl` and propagation speed. The configured limits are therefore not necessarily the steps taken. For this build, use an overall limit of at least 1 s, positive propagation limits, and a positive source-term minimum no larger than the overall limit. The [preprocessor bounds `DTMAX` and `DTMIN`](https://github.com/search?q=repo%3AACCESS-NRI%2FWW3+path%3Amodel%2Fsrc%2Fw3gridmd.F90+DTMIN&type=code), but the coupled cap subsequently replaces them from `wav_in`, so do not rely on preprocessing to validate runtime edits. CFL and refraction constraints still need to be assessed for the chosen grid and physics.
+All three divide the 1800 s coupling interval, but this is a convenience, not a requirement: WW3 [subdivides each coupling interval](https://github.com/search?q=repo%3AACCESS-NRI%2FWW3+path%3Amodel%2Fsrc%2Fw3wavemd.F90+DTMAX&type=code) according to `dtmax`, and [PR1 chooses its own geographic substeps](https://github.com/search?q=repo%3AACCESS-NRI%2FWW3+path%3Amodel%2Fsrc%2Fw3pro1md.F90+NTLOC&type=code), so the configured limits are not necessarily the steps taken. Reassess the limits when changing grid, spectrum, physics or coupling; see the [general WW3 timestep guidance](../../infrastructure/NUOPC-driver/#wavewatch-iii-time-steps).
 
-The timestep selection analysis above supports this balance of accuracy and computational cost, including `dtmin = 50` s. Reassess the limits when changing grid, spectrum, physics or coupling; the [general WW3 timestep guidance](../../infrastructure/NUOPC-driver/#wavewatch-iii-time-steps) describes their roles and selection criteria.
+The grid-based timestep derivation and justification for the selected values are documented in [issue #1519](https://github.com/ACCESS-NRI/access-om3-configs/issues/1519#issuecomment-5126327350).
 
 ### Source-term physics
 
