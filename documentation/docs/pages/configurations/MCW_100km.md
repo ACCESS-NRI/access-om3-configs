@@ -175,7 +175,7 @@ payu clone --branch release-MCW_100km_era_iaf \
 cd mcw_100km_era_iaf
 ```
 
-The supplied `mod_def.ww3` and `restart.ww3` can be used without preprocessing. For runtime timestep edits, follow [Changing WW3 timesteps](#changing-ww3-timesteps). If changing the horizontal grid or topography, first regenerate the WW3 text grids using `om3-scripts/ww3_grid_generation/generate_ww3_grid.py`. Pass the intended `ocean_hgrid.nc` and `topog.nc` through `--grid-filename` and `--topog-filename`, with `--gridname=OM3_100km` and `--output-dir=WW3_PreProc` when running from the configuration directory. The script writes `.Lat`, `.Lon`, `.Dpt`, `.Mask` and `.Obstr` files plus a provenance README; ensure these filenames match `ww3_grid.nml` and retain consistent CICE masks and coupling meshes.
+The supplied `mod_def.ww3` and `restart.ww3` can be used without preprocessing. For runtime timestep edits, follow [Changing WW3 timesteps](#changing-ww3-timesteps). If changing the horizontal grid or topography, first regenerate the WW3 text grids using `om3-scripts/ww3_grid_generation/generate_ww3_grid.py`. Pass the intended supergrid and topography paths through `--grid-filename` and `--topog-filename`. Set `--gridname` to match the filenames referenced in `ww3_grid.nml`, and `--output-dir` to the directory where those files should be written. The script writes `.Lat`, `.Lon`, `.Dpt`, `.Mask` and `.Obstr` files plus a provenance README; ensure these filenames match `ww3_grid.nml` and retain consistent CICE masks and coupling meshes.
 
 After updating preprocessing inputs, load the `access-om3` module selected by the experiment's `config.yaml`, then run:
 
