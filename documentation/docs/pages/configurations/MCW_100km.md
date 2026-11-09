@@ -23,7 +23,7 @@ These values must agree with WW3's `IUSSP = 3` and `STK_WN = 0.04, 0.110, 0.3305
 
 The closest non-wave 100 km configuration estimates the Langmuir number with `USE_LA_LI2016 = True`. The MCW configuration instead sets `EPBL_LT = True`, allowing the energetic planetary boundary layer (ePBL) scheme [@reichl2018simplified] to calculate a Langmuir number from the coupled Stokes-drift profile. `EPBL_LANGMUIR_SCHEME = "ADDITIVE"` adds the Langmuir-turbulence contribution to the other contributions to the ePBL mixing-energy factor [@reichl2019parameterization; @li2019comparing].
 
-The selected **E12** coefficients are `LT_ENHANCE_COEF = 0.150`, `LT_ENHANCE_EXP = -1.0`, and `LT_MOD_LAC1 = LT_MOD_LAC2 = LT_MOD_LAC3 = LT_MOD_LAC4 = LT_MOD_LAC5 = 0.0`. E12 is an ACCESS-OM3 tuning, not a parameter set taken directly from the literature. It was selected through [sensitivity experiments documented in issue #950](https://github.com/ACCESS-NRI/access-om3-configs/issues/950), balancing mixed-layer-depth and Antarctic sea-ice biases and RMSE. `LT_MOD_LAC2/3` are not explicitly set in `MOM_input`. The later Stokes-tail change below alters the coupled forcing of this tuning; it does not change these coefficients.
+The selected **E12** coefficients are `LT_ENHANCE_COEF = 0.150`, `LT_ENHANCE_EXP = -1.0`, and `LT_MOD_LAC1 = LT_MOD_LAC2 = LT_MOD_LAC3 = LT_MOD_LAC4 = LT_MOD_LAC5 = 0.0`. E12 is an ACCESS-OM3 tuning, not a parameter set taken directly from the literature. It was selected through [sensitivity experiments documented in issue #950](https://github.com/ACCESS-NRI/access-om3-configs/issues/950), balancing mixed-layer-depth and Antarctic sea-ice biases and RMSE.
 
 The literature-based E00 starting point used `LT_ENHANCE_COEF = 0.105`, `LT_ENHANCE_EXP = -1.0`, `LT_MOD_LAC1 = LT_MOD_LAC2 = LT_MOD_LAC3 = 0.0`, and `LT_MOD_LAC4 = LT_MOD_LAC5 = 0.8`, following the published surface-layer Langmuir-number formulation [@reichl2019parameterization; @li2019comparing]. E12 retains the exponent and `LT_MOD_LAC1/2/3`, but its `LT_ENHANCE_COEF = 0.150` and `LT_MOD_LAC4/5 = 0.0` come from the ACCESS-OM3 parameter sweep.
 
@@ -145,7 +145,7 @@ This implementation differs from upstream WW3's use of the name **IC4M8** for th
 
 ### Other numerical choices
 
-The coupled driver uses a Gregorian calendar, and WW3 uses `CALTYPE = 'standard'`. When regenerating WW3 inputs, set [`CALTYPE` in the `&MISC` namelist](https://github.com/search?q=repo%3AACCESS-NRI%2FWW3+path%3Amodel%2Fsrc%2Fw3gridmd.F90+CALTYPE&type=code); a standalone `&CALTYPE` block does not select the calendar.
+The coupled driver uses a Gregorian calendar, and WW3 uses `CALTYPE = 'standard'`.
 
 WW3's initial condition is a fetch-limited JONSWAP spectrum (`ITYPE = 3`) calculated from local wind speed and direction, using the grid-cell scale as the fetch and constraining the result to the configured frequency range.
 
