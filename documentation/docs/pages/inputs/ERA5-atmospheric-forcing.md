@@ -1,0 +1,166 @@
+# ERA5 atmospheric forcing
+
+[ERA5](https://confluence.ecmwf.int/spaces/CKB/pages/76414402/ERA5+data+documentation) is ECMWF's fifth-generation global atmospheric reanalysis. The [hourly single-level product](https://cds.climate.copernicus.eu/datasets/reanalysis-era5-single-levels?tab=overview) used by ACCESS-OM3 is provided on a regular 0.25° × 0.25° latitude-longitude grid.
+
+ACCESS-OM3 uses ERA5 through the CDEPS **DATM** component. ERA5 supplies atmospheric forcing only; runoff continues to be supplied from JRA55-do through **DROF**. See [Forcing data models](Forcing-data-models.md) for the coupling and runoff background, and [JRA55-do → ERA5 conversion](ERA5-conversion.md) for configuration changes.
+
+The ACCESS-OM3-ready ERA5 files are currently stored on NCI at:
+
+```text
+/g/data/av17/access-nri/OM3/era5_rechunked_1h_yearly/
+```
+
+ERA5 forcing is currently used in the [`dev-MCW_100km_era_iaf`](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MCW_100km_era_iaf) configuration. This allows evaluation of the coupled MOM6–CICE6–WW3 model using atmospheric forcing consistent with the [Wave Hindcast for the Australian Climate Service (WHACS)](https://data.csiro.au/collection/csiro:64350), which used ERA5 hourly winds and daily sea ice.
+
+## ERA5 forcing fields
+
+Each stream reads one ERA5 variable from its own subdirectory of `/g/data/av17/access-nri/OM3/era5_rechunked_1h_yearly/`.
+
+| Stream | Directory | ERA5 variable | CDEPS field(s) | Description (`long_name`) | Treatment |
+| --- | --- | --- | --- | --- | --- |
+| `ERA5.RAINC` | `cp/` | `cp` | `Faxa_rainc` | Convective precipitation | preceding-hour accumulation |
+| `ERA5.RAINL` | `lsp/` | `lsp` | `Faxa_rainl` | Large-scale precipitation | preceding-hour accumulation |
+| `ERA5.SNOWC` | `csf/` | `csf` | `Faxa_snowc` | Convective snowfall | preceding-hour accumulation |
+| `ERA5.SNOWL` | `lsf/` | `lsf` | `Faxa_snowl` | Large-scale snowfall | preceding-hour accumulation |
+| `ERA5.LWDN` | `strd/` | `strd` | `Faxa_lwdn` | Surface long-wave (thermal) radiation downwards | preceding-hour accumulation |
+| `ERA5.SWDN` | `ssrd/` | `ssrd` | `Faxa_swdn` | Surface short-wave (solar) radiation downwards | preceding-hour accumulation |
+| `ERA5.SWNET` | `ssr/` | `ssr` | `Faxa_swnet` | Surface net short-wave (solar) radiation | preceding-hour accumulation |
+| `ERA5.SLP_10` | `msl/` | `msl` | `Sa_pslv`, `Sa_pbot` | Mean sea level pressure | instantaneous |
+| `ERA5.T_10` | `2t/` | `t2m` | `Sa_t2m`, `Sa_tbot` | 2 metre temperature | instantaneous |
+| `ERA5.TDEW` | `2d/` | `d2m` | `Sa_tdew` | 2 metre dewpoint temperature | instantaneous |
+| `ERA5.U_10` | `10u/` | `u10` | `Sa_u`, `Sa_u10m` | 10 metre U wind component | instantaneous |
+| `ERA5.V_10` | `10v/` | `v10` | `Sa_v`, `Sa_v10m` | 10 metre V wind component | instantaneous |
+
+None of the streams are hourly means.
+
+## Time handling
+
+ERA5 accumulated fields are timestamped at the **end** of the period they represent. For example, a precipitation value stamped at 07:00 represents the accumulation from 06:00 to 07:00.
+
+For linear temporal interpolation, the accumulated fields use a −1,800 s offset, as specified for [the precipitation stream in `datm.streams.xml`](https://github.com/ACCESS-NRI/access-om3-configs/blob/bbf1c86c50dfa0716c47fd9be2e261169fd911e7/datm.streams.xml#L110-L111):
+
+```xml
+<offset>-1800</offset>
+```
+
+This places the forcing value at the midpoint of the represented one-hour interval.
+
+Instantaneous fields are already valid at their timestamps and use zero offset, as specified for [the pressure stream](https://github.com/ACCESS-NRI/access-om3-configs/blob/bbf1c86c50dfa0716c47fd9be2e261169fd911e7/datm.streams.xml#L846-L847):
+
+```xml
+<offset>0</offset>
+```
+
+This treatment was established in [om3-scripts PR #122](https://github.com/ACCESS-NRI/om3-scripts/pull/122).
+
+All twelve ERA5 DATM streams in [this configuration commit](https://github.com/ACCESS-NRI/access-om3-configs/blob/bbf1c86c50dfa0716c47fd9be2e261169fd911e7/datm.streams.xml) use:
+
+```xml
+<tintalgo>linear</tintalgo>
+```
+
+for temporal interpolation.
+
+## Spatial remapping
+
+DATM reads ERA5 data on its source grid and passes the fields to the CMEPS mediator, where they are remapped onto the ACCESS-OM3 grid.
+
+Accumulated flux fields use conservative remapping, as specified by [`mapalgo` in the precipitation stream](https://github.com/ACCESS-NRI/access-om3-configs/blob/bbf1c86c50dfa0716c47fd9be2e261169fd911e7/datm.streams.xml#L8-L11):
+
+```text
+consf
+```
+
+while instantaneous atmospheric state fields use patch remapping, as specified in [the pressure stream](https://github.com/ACCESS-NRI/access-om3-configs/blob/bbf1c86c50dfa0716c47fd9be2e261169fd911e7/datm.streams.xml#L743-L746):
+
+```text
+patch
+```
+
+The ERA5 DATM mesh is staged by [`config.yaml`](https://github.com/ACCESS-NRI/access-om3-configs/blob/bbf1c86c50dfa0716c47fd9be2e261169fd911e7/config.yaml#L38) from:
+
+```text
+/g/data/vk83/prerelease/configurations/inputs/access-om3/share/meshes/share/2026.07.30/ERA5-datm-ESMFmesh.nc
+```
+
+Within `datm.streams.xml`, [each stream references the staged mesh](https://github.com/ACCESS-NRI/access-om3-configs/blob/bbf1c86c50dfa0716c47fd9be2e261169fd911e7/datm.streams.xml#L17) as:
+
+```xml
+<meshfile>./INPUT/ERA5-datm-ESMFmesh.nc</meshfile>
+```
+
+## ERA5 CDEPS processing
+
+The ERA5 DATM data mode converts the source variables into the atmospheric state and flux fields used by the mediator and coupled components. The `Sa_*` names identify atmospheric state fields; `bot` denotes the lowest atmospheric reference level, rather than the ocean bottom. The [field dictionary](https://github.com/ACCESS-NRI/access-om3-configs/blob/bbf1c86c50dfa0716c47fd9be2e261169fd911e7/fd.yaml#L364-L444) defines their meanings and units.
+
+The pinned CDEPS implementation [copies pressure, temperature and wind components](https://github.com/ACCESS-NRI/CDEPS/blob/6a21caa1d2b6a47a10c77e8017045fa231f5a2ad/datm/datm_datamode_era5_mod.F90#L394-L405) and [derives humidity, density and wind speed](https://github.com/ACCESS-NRI/CDEPS/blob/6a21caa1d2b6a47a10c77e8017045fa231f5a2ad/datm/datm_datamode_era5_mod.F90#L431-L459) as follows:
+
+| CDEPS field(s) and meaning | ERA5 input or calculation |
+| --- | --- |
+| `Sa_pslv`: sea-level pressure; `Sa_pbot`: pressure at the lowest atmospheric reference level | Mean sea-level pressure (`msl`) is copied to both fields, without a height adjustment. |
+| `Sa_t2m`: 2 m air temperature; `Sa_tbot`: lowest-level air temperature; `Sa_ptem`: lowest-level potential temperature | 2 m temperature (`t2m`) is copied to all three fields. The data mode does not apply a potential-temperature conversion. |
+| `Sa_q2m`: 2 m specific humidity; `Sa_shum`: lowest-level specific humidity | Both receive the humidity derived from 2 m dew-point temperature (`d2m`, read as `Sa_tdew`), 2 m temperature (`t2m`) and mean sea-level pressure (`msl`). |
+| `Sa_u`, `Sa_u10m`: zonal wind; `Sa_v`, `Sa_v10m`: meridional wind | The corresponding 10 m wind components (`u10`, `v10`) are copied directly. |
+| `Sa_wspd10m`: 10 m wind speed | Calculated as `sqrt(u10² + v10²)`. |
+| `Sa_dens`: air density at the lowest atmospheric reference level | Calculated from `Sa_pbot`, `Sa_tbot` and the derived specific humidity (`Sa_shum` or `Sa_q2m`). |
+| `Sa_z`: lowest atmospheric reference height | Set to 10 m. |
+
+The forcing therefore combines 2 m temperature and humidity with 10 m winds, while assigning a 10 m reference height to the coupled atmospheric fields.
+
+### Radiation
+
+ERA5 radiation variables are stored as accumulated energy in J m⁻² and divided by 3,600 s to obtain W m⁻².
+
+For shortwave radiation, CDEPS partitions `ssrd / 3600` into four components: 28% visible direct, 31% near-infrared direct, 24% visible diffuse and 17% near-infrared diffuse.
+
+ERA5 variables `aluvp`, `aluvd`, `alnip` and `alnid` are albedo-like quantities rather than shortwave flux bands and are therefore not used as these four components.
+
+### Precipitation
+
+ERA5 precipitation and snowfall accumulations are supplied in metres of water equivalent.
+
+CDEPS multiplies these fields by freshwater density and divides by 3,600 s to convert them to kg m⁻² s⁻¹.
+
+## Forcing period
+
+The configured file list spans 1940–2025. The forcing period is defined in `datm.streams.xml` using:
+
+```xml
+<year_first>1940</year_first>
+<year_last>2025</year_last>
+<year_align>1940</year_align>
+```
+
+For interannual forcing, `year_align` is normally set equal to `year_first`, so forcing years align directly with model years.
+
+Users should confirm that files exist for the requested simulation period before starting an experiment.
+
+The stream configuration uses:
+
+```xml
+<taxmode>extend</taxmode>
+```
+
+for interannual forcing. `extend` uses the nearest available endpoint field outside the configured time axis rather than cycling through the forcing period.
+
+This behaviour should not be used as a substitute for selecting an appropriate scientific experiment period.
+
+## ERA5 input preparation
+
+The original ERA5 files replicated under NCI project `rt52` are not arranged optimally for ACCESS-OM3 model access.
+
+Source files examined in [access-om3-configs issue #1381](https://github.com/ACCESS-NRI/access-om3-configs/issues/1381) used chunks of:
+
+```text
+(time, latitude, longitude) = (93, 91, 180)
+```
+
+The ACCESS-OM3 [ERA5 yearly rechunking script](https://github.com/ACCESS-NRI/om3-scripts/blob/main/era5_rechunking/make_era5_yearly_rechunked.py) converts the source data to:
+
+```text
+(time, latitude, longitude) = (1, 721, 1440)
+```
+
+and concatenates the monthly files into one yearly file for each forcing variable.
+
+Because individual monthly ERA5 files can use different packing, the script decodes the source values before combining them, repacks the yearly file using a common `int16` encoding, and validates the decoded output against the packing tolerance.
