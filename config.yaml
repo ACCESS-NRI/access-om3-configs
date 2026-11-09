@@ -55,9 +55,9 @@ input:
     - /g/data/av17/access-nri/OM3/era5_rechunked_1h_yearly/
 
 collate: false
-runlog: false
+runlog: true
 metadata: 
-    enable: false
+    enable: true
 manifest:
   reproduce:
     exe: true

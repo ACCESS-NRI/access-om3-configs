@@ -21,14 +21,14 @@ keywords:
   - access-om3
   - interannual
   - global
-  - waves
+  - wave
   - MOM6
   - CICE6
   - WW3
 realm:
   - ocean
   - seaIce
-  - waves
+  - wave
 nominal_resolution: 100 km
 license: CC-BY-4.0
 model: ACCESS-OM3
