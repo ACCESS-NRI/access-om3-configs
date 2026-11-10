@@ -35,7 +35,7 @@ distributed and modified. Users of ACCESS-NRI models, data, tools or expert supp
   in all publications/reports/public releases.
 
 
-{#- Rows come from docs/data/experiments.yaml. Edit that file to add or change an experiment. -#}
+{#- Rows come from experiments.yaml (next to this file). Edit that file to add or change an experiment. -#}
 {%- set CONFIG = "https://github.com/ACCESS-NRI/access-om3-configs/tree/" -%}
 {%- set BUILD = "https://github.com/ACCESS-NRI/ACCESS-OM3/releases/tag/" -%}
 
