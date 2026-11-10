@@ -46,19 +46,17 @@ distributed and modified. Users of ACCESS-NRI models, data, tools or expert supp
 
 {%- macro hidden(e) -%}
 {#- These properties are available to be filtered by, but not shown in the table -#}
-{{ e.resolution }} | {{ e.forcing }} | {{ e.components | join(' ') or '-' }}
+{{ e.resolution }} | {{ e.forcing }} | {{ e.components | join(' + ') }}
 {%- endmacro %}
+
+{#- Component combinations that exist in the YAML, e.g. "MOM6 + CICE + WOMBATLite" -#}
+{%- set combos = experiments | map(attribute='components') | map('join', ' + ') | unique | sort -%}
 
 <div class="exp-filter">
 <label>Search <input type="search" data-filter="search" placeholder="name, build, description..."></label>
 <label>Resolution <select data-filter="Resolution"><option value="">Any</option><option>8km</option><option>25km</option><option>100km</option></select></label>
 <label>Forcing <select data-filter="Forcing"><option value="">Any</option><option>JRA-IAF</option><option>JRA-RYF</option><option>ERA-IAF</option></select></label>
-<span class="exp-filter__group"><strong>Components</strong>
-<button type="button" data-component="MOM6" aria-pressed="false">MOM6</button>
-<button type="button" data-component="CICE" aria-pressed="false">CICE</button>
-<button type="button" data-component="WW3" aria-pressed="false">WW3</button>
-<button type="button" data-component="WOMBATLite" aria-pressed="false">WOMBATLite</button>
-</span>
+<label>Components <select data-filter="Components"><option value="">Any</option>{% for c in combos %}<option>{{ c }}</option>{% endfor %}</select></label>
 </div>
 
 <div class="exp-table" markdown>

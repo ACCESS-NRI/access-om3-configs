@@ -1559,18 +1559,6 @@ img.intro-img {
 .md-typeset table.dataTable td { padding: .9375em 1.25em; vertical-align: top; border-top: .05rem solid var(--md-typeset-table-color); }
 .md-typeset table.dataTable > tbody > tr:hover { background: var(--md-default-fg-color--lightest); }
 .md-typeset .dt-info { font-size: .7rem; opacity: .75; }
-.md-typeset .exp-filter__group { display: flex; flex-wrap: wrap; gap: .3rem; align-items: center; }
-.md-typeset .exp-filter__group strong { margin-right: .2rem; }
-.md-typeset .exp-filter button {
-  font: inherit; font-weight: 600; padding: .15em .7em; cursor: pointer;
-  color: var(--md-default-fg-color); background: transparent;
-  border: .05rem solid var(--md-default-fg-color--light); border-radius: .1rem;
-}
-.md-typeset .exp-filter button:hover { background: var(--md-default-fg-color--lightest); }
-.md-typeset .exp-filter button[aria-pressed="true"] {
-  background: var(--md-accent-fg-color); border-color: var(--md-accent-fg-color); color: var(--md-accent-bg-color);
-}
-.md-typeset .exp-filter button[aria-pressed="true"]::before { content: "\2713\00a0"; }
 .md-typeset table.dataTable .exp-nowrap { white-space: nowrap; }
 .md-typeset table.dataTable th.dt-type-date, .md-typeset table.dataTable td.dt-type-date,
 .md-typeset table.dataTable th.dt-type-numeric, .md-typeset table.dataTable td.dt-type-numeric { text-align: left; }

@@ -27,26 +27,16 @@ document$.subscribe(() => {
   });
 
   const escape = s => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-  function apply() {
-    // Selected components are AND'd: a run must include every one that is switched on.
-    const comps = [...bar.querySelectorAll('[data-component][aria-pressed="true"]')].map(b => b.dataset.component);
-    const compRe = comps.map(c => `(?=.*\\b${escape(c)}\\b)`).join('');
+  // Each dropdown must match its hidden column exactly; the search box matches any column.
+  bar.addEventListener('input', () => {
     for (const dt of dts) {
       const heads = dt.columns().header().toArray().map(th => th.textContent.trim());
       dt.search(bar.querySelector('[data-filter="search"]').value);
-      for (const name of ['Resolution', 'Forcing']) {
+      for (const name of HIDDEN) {
         const v = bar.querySelector(`[data-filter="${name}"]`).value;
         dt.column(heads.indexOf(name)).search(v ? `^${escape(v)}$` : '', true, false);
       }
-      dt.column(heads.indexOf('Components')).search(compRe && `^${compRe}`, true, false);
       dt.draw();
     }
-  }
-  bar.addEventListener('input', apply);
-  bar.addEventListener('click', e => {
-    const b = e.target.closest('[data-component]');
-    if (!b) return;
-    b.setAttribute('aria-pressed', b.getAttribute('aria-pressed') === 'true' ? 'false' : 'true');
-    apply();
   });
 });
