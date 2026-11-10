@@ -59,7 +59,9 @@ plugins:
       enable_creation_date: false
   - search:
       separator: '[\s\-,:!=\[\]()"/]+|(?!\b)(?=[A-Z][a-z])|\.(?!\d)|&[lg]t;'
-  - macros
+  - macros:
+      include_yaml:
+        - experiments: docs/data/experiments.yaml
   - bibtex:
       bib_file: references.bib
       csl_file: https://raw.githubusercontent.com/citation-style-language/styles/26eccff9e537f71494a4da7b91afac1adf571dc9/apa.csl
@@ -154,12 +156,16 @@ extra_css:
   - fontello/css/fontello.css
   - css/custom.css
   - https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css
+  - https://cdn.datatables.net/2.3.4/css/dataTables.dataTables.min.css   # Experiments table
 
 extra_javascript:
   - js/mathjax.js # For pymdownx.arithmatex extension
   - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js # For pymdownx.arithmatex extension
   - https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js     # For tablesort functionality 
   - https://cdn.jsdelivr.net/gh/atteggiani/animated-terminal@3.0/animated-terminal.min.js # Terminal animations
+  - https://code.jquery.com/jquery-3.7.1.min.js   # required by DataTables
+  - https://cdn.datatables.net/2.3.4/js/dataTables.min.js   # Experiments table
+  - js/experiments-table.js
   # - js/custom-tags.js
   # - js/miscellaneous.js
 
