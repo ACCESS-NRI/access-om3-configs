@@ -115,6 +115,20 @@
   description: "Control experiment for model validation (see [#1423](https://github.com/ACCESS-NRI/access-om3-configs/issues/1423))"
   datastore: /g/data/ol01/outputs/access-om3-25km/MC_25km_jra_ryf+wombatlite-test3-f4d79e82/experiment_datastore.json
 
+- experiment: MCW_100km_era_iaf-test1-961264ad
+  runlog: https://github.com/ACCESS-Community-Hub/access-om3-experiments/tree/MCW_100km_era_iaf-test1-961264ad
+  evaluation: https://access-om3-paper-1.readthedocs.io/mcw_100km_era_iaf-test1-961264ad-2026.11.000/
+  group: control
+  resolution: 100km
+  forcing: ERA-IAF
+  components: [MOM6, CICE, WW3]
+  config: {branch: dev-MCW_100km_era_iaf, commit: 393901eb18cc34b3da7199cf65af74e582cc8022}
+  build: "2026.05.004"
+  date: 2026-11-02
+  years: 67 years (1958-2024)
+  description: Control experiment for model validation
+  datastore: /g/data/ol01/outputs/access-om3-100km/MCW_100km_era_iaf-test1-961264ad/experiment_datastore.json
+
 - experiment: MC_25km_jra_iaf-1.0-beta-gm1-d968c801
   runlog: https://github.com/ACCESS-Community-Hub/access-om3-experiments/tree/MC_25km_jra_iaf-1.0-beta-gm1-d968c801
   evaluation: https://access-om3-paper-1.readthedocs.io/mc_25km_jra_iaf-1.0-beta-gm1-d968c801-2026.07.000/

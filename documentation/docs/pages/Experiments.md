@@ -54,9 +54,9 @@ distributed and modified. Users of ACCESS-NRI models, data, tools or expert supp
 
 <div class="exp-filter">
 <label>Search <input type="search" data-filter="search" placeholder="name, build, description..."></label>
+<label>Components <select data-filter="Components"><option value="">Any</option>{% for c in combos %}<option>{{ c }}</option>{% endfor %}</select></label>
 <label>Resolution <select data-filter="Resolution"><option value="">Any</option><option>8km</option><option>25km</option><option>100km</option></select></label>
 <label>Forcing <select data-filter="Forcing"><option value="">Any</option><option>JRA-IAF</option><option>JRA-RYF</option><option>ERA-IAF</option></select></label>
-<label>Components <select data-filter="Components"><option value="">Any</option>{% for c in combos %}<option>{{ c }}</option>{% endfor %}</select></label>
 </div>
 
 <div class="exp-table" markdown>
