@@ -75,3 +75,7 @@ qsub_flags: -W umask=027
 
 restart_freq: 1YS
 payu_minimum_version: 1.3.6
+
+env:
+    ESMF_RUNTIME_PROFILE: "ON"
+    ESMF_RUNTIME_PROFILE_OUTPUT: "SUMMARY"
