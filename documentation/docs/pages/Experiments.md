@@ -1,27 +1,3 @@
-
-<!-- some hacks to hide the table of contents and make the links sidebar smaller, 
-so the table has more screen real estate -->
-<style>
-.md-sidebar--secondary:not([hidden]){
-  display: none 
-}
-
-.md-sidebar {
-    width: 8rem
-}
-
-.md-typeset table td:first-child,
-.md-typeset table th:first-child {
-  max-width: 200px;
-}
-
-.md-typeset table td:last-child,
-.md-typeset table th:last-child {
-  min-width: 200px;
-}
-
-</style>
-
 # ACCESS-OM3 Experiments
 
 The below lists key experiments that are being used to improve, evaluate and drive development for OM3. We welcome scientific and technical feedback on these runs. If you would like to get involved in evaluation of these runs, see instructions [here](https://github.com/acCESS-Community-Hub/access-om3-paper-1/) and an overview [here](/contributing/#help-us-evaluate-and-improve-applications-of-om3). 
@@ -35,29 +11,59 @@ distributed and modified. Users of ACCESS-NRI models, data, tools or expert supp
   in all publications/reports/public releases.
 
 
-|Experiment | Evaluation | Base Configuration                                                                                                          | Date completed | Description                                   | Model build                                                                      | Length (years)       | ESM Datastore <br/>  (output path)                                                               |
-|----|----| --------------------------------------------------------------------------------------------------------------------------- | -------------- | --------------------------------------------- | -------------------------------------------------------------------------------- | -------------------- | ------------------------------------------------------------------------------------------------ |
-|[MC_25km_jra_ryf-1.0-beta-cdfb3543](https://github.com/ACCESS-Community-Hub/access-om3-experiments/tree/MC_25km_jra_ryf-1.0-beta-cdfb3543) | [Evaluation](https://access-om3-paper-1.readthedocs.io/mc_25km_jra_ryf-1.0-beta-cdfb3543-2026.07.000/) | [release-MC_25km_jra_ryf](https://github.com/ACCESS-NRI/access-om3-configs/tree/4429156d3bb1ad4e04f41be8a90329684365786d) | 9-Aug-25       | Control experiment for model validation | [2025.05.001](https://github.com/ACCESS-NRI/ACCESS-OM3/releases/tag/2025.05.001) | 52 years             | `/g/data/ol01/outputs/access-om3-25km/MC_25km_jra_ryf-1.0-beta-cdfb3543/experiment_datastore.json` <br/> (`/g/data/ol01/outputs/access-om3-25km/MC_25km_jra_ryf-1.0-beta-cdfb3543/`)|
-|[25km-iaf-test-for-AK-expt-7df5ef4c](https://github.com/ACCESS-Community-Hub/access-om3-experiments/tree/25km-iaf-test-for-AK-expt-7df5ef4c) | [Evaluation](https://access-om3-paper-1.readthedocs.io/mc_25km-iaf-test-for-ak-expt-7df5ef4c-2026.07.000/) | [25km-iaf-test-for-AK](https://github.com/ACCESS-NRI/access-om3-configs/tree/96ae801c9f2d786bb710a3cb0a29a05e0ab471c2)                          | 16-Sep-25      | Control experiment for model validation | [2025.05.001](https://github.com/ACCESS-NRI/ACCESS-OM3/releases/tag/2025.05.001) | 66 years (1958-2023) | `/g/data/ol01/outputs/access-om3-25km/25km-iaf-test-for-AK-expt-7df5ef4c/datastore.json`  <br/> (`/g/data/ol01/outputs/access-om3-25km/25km-iaf-test-for-AK-expt-7df5ef4c/`) |
-|[MC_25km_jra_iaf-1.0-beta-5165c0f8](https://github.com/ACCESS-Community-Hub/access-om3-experiments/tree/MC_25km_jra_iaf-1.0-beta-5165c0f8) | [Evaluation](https://access-om3-paper-1.readthedocs.io/mc_25km_jra_iaf-1.0-beta-5165c0f8-2026.07.000/) | [dev-MC_25km_jra_iaf](https://github.com/ACCESS-NRI/access-om3-configs/tree/f1307b65ee6b06ad9e92a560ae64bc0b4c91e6ee)                          | started 9-Dec-25      | Control experiment for model validation | [2025.08.001](https://github.com/ACCESS-NRI/ACCESS-OM3/releases/tag/2025.08.001) | 57 years (1958-2014) ([crashed](https://github.com/ACCESS-NRI/access-om3-configs/issues/1010#issuecomment-3672861969)) | `/g/data/ol01/outputs/access-om3-25km/MC_25km_jra_iaf-1.0-beta-5165c0f8/datastore.json`  <br/> (`/g/data/ol01/outputs/access-om3-25km/MC_25km_jra_iaf-1.0-beta-5165c0f8/`) |
-| [MC_100km_jra_ryf+wombatlite-1e74abf-11f9df5c](https://github.com/ACCESS-Community-Hub/access-om3-experiments/tree/MC_100km_jra_ryf%2Bwombatlite-1e74abf-11f9df5c) | [Evaluation](https://access-om3-paper-1.readthedocs.io/mc_100km_jra_ryfwombatlite-1e74abf-11f9df5c-2026.07.000/) | [dev-MC_100km_jra_ryf+wombatlite](https://github.com/ACCESS-NRI/access-om3-configs/tree/1e74abf43317d25dcd2c82d681a13cbb7b1b60ed) | 19-Dec-25  | Control experiment for model validation | [2025.08.001](https://github.com/ACCESS-NRI/ACCESS-OM3/releases/tag/2025.08.001) | 50 years | `/g/data/ol01/outputs/access-om3-100km/MC_100km_jra_ryf+wombatlite-1e74abf-11f9df5c/experiment_datastore.json`  <br/> (`/g/data/ol01/outputs/access-om3-100km/MC_100km_jra_ryf+wombatlite-1e74abf-11f9df5c`) |
-| [MC_25km_jra_ryf+wombatlite-81ad20e-c4347f5a](https://github.com/ACCESS-Community-Hub/access-om3-experiments/tree/MC_25km_jra_ryf%2Bwombatlite-81ad20e-c4347f5a) | [Evaluation](https://access-om3-paper-1.readthedocs.io/mc_25km_jra_ryfwombatlite-81ad20e-c4347f5a-2026.07.000/) | [dev-MC_25km_jra_ryf+wombatlite](https://github.com/ACCESS-NRI/access-om3-configs/tree/81ad20ec37661632dd8d7859ef6d6ded7f90664b) | 22-Dec-25  | Control experiment for model validation | [2025.08.001](https://github.com/ACCESS-NRI/ACCESS-OM3/releases/tag/2025.08.001) | 30 years | `/g/data/ol01/outputs/access-om3-25km/MC_25km_jra_ryf+wombatlite-81ad20e-c4347f5a/experiment_datastore.json`  <br/> (`/g/data/ol01/outputs/access-om3-25km/MC_25km_jra_ryf+wombatlite-81ad20e-c4347f5a`) |
-|[MC_25km_jra_iaf+wombatlite-test3v2-00532b88](https://github.com/ACCESS-Community-Hub/access-om3-experiments/tree/MC_25km_jra_iaf%2Bwombatlite-test3v2-00532b88) | [Evaluation](https://access-om3-paper-1.readthedocs.io/mc_25km_jra_iafwombatlite-test3v2-00532b88-2026.07.000/) | [dev-MC_25km_jra_iaf+wombatlite](https://github.com/ACCESS-NRI/access-om3-configs/tree/701a7b7f8d30c709552f989754504e8d7c67cf63)                          | started 7-Apr-26      | Control experiment for model validation | [2025.08.003](https://github.com/ACCESS-NRI/ACCESS-OM3/releases/tag/2025.08.003) | 66 years (1958-2023) | `/g/data/ol01/outputs/access-om3-25km/MC_25km_jra_iaf+wombatlite-test3v2-00532b88/datastore.json`  <br/> (`/g/data/ol01/outputs/access-om3-25km/MC_25km_jra_iaf+wombatlite-test3v2-00532b88`) |
-|[MC_25km_jra_iaf+wombatlite-test4-d28e0359](https://github.com/ACCESS-Community-Hub/access-om3-experiments/tree/MC_25km_jra_iaf%2Bwombatlite-test4-d28e0359) | [Evaluation](https://access-om3-paper-1.readthedocs.io/mc_25km_jra_iafwombatlite-test4-d28e0359-2026.11.000/) | [dev-MC_25km_jra_iaf+wombatlite](https://github.com/ACCESS-NRI/access-om3-configs/tree/d4e97fe79ff4cd8abec047bb73da91422b2fd36a)                          | 1-Jul-26      | Control experiment for model validation (see [#1394](https://github.com/ACCESS-NRI/access-om3-configs/issues/1394)) | [2026.05.002](https://github.com/ACCESS-NRI/ACCESS-OM3/releases/tag/2026.05.002) |  66 years (1958-2023) | `/g/data/ol01/outputs/access-om3-25km/MC_25km_jra_iaf+wombatlite-test4-d28e0359/datastore.json`  <br/> (`/g/data/ol01/outputs/access-om3-25km/MC_25km_jra_iaf+wombatlite-test4-d28e0359`) |
-|[MC-25km_jra_ryf+wombatlite-test3-f4d79e82](https://github.com/ACCESS-Community-Hub/access-om3-experiments/tree/MC-25km_jra_ryf%2Bwombatlite-test3-f4d79e82) | [Evaluation](https://access-om3-paper-1.readthedocs.io/mc_25km_jra_ryfwombatlite-test3-f4d79e82-2026.07.000/) | [dev-MC_25km_jra_ryf+wombatlite](https://github.com/ACCESS-NRI/access-om3-configs/tree/4392259ef5b580166ab4a3887b88a77eb813807d)                          | 26-Jun-26      | Control experiment for model validation (see [#1423](https://github.com/ACCESS-NRI/access-om3-configs/issues/1423)) | [2026.05.002](https://github.com/ACCESS-NRI/ACCESS-OM3/releases/tag/2026.05.002) |  31 years (1900-1930) | `/g/data/ol01/outputs/access-om3-25km/MC_25km_jra_ryf+wombatlite-test3-f4d79e82/experiment_datastore.json`  <br/> (`/g/data/ol01/outputs/access-om3-25km/MC_25km_jra_ryf+wombatlite-test3-f4d79e82`) |
-| [MCW_100km_era_iaf-test1-961264ad](https://github.com/ACCESS-Community-Hub/access-om3-experiments/tree/MCW_100km_era_iaf-test1-961264ad) | [Evaluation](https://access-om3-paper-1.readthedocs.io/mcw_100km_era_iaf-test1-961264ad-2026.11.000/) | [dev-MCW_100km_era_iaf](https://github.com/ACCESS-NRI/access-om3-configs/tree/393901eb18cc34b3da7199cf65af74e582cc8022) | 2-Nov-26 | Control experiment for model validation | [2026.05.004](https://github.com/ACCESS-NRI/ACCESS-OM3/releases/tag/2026.05.004) | 67 years (1958-2024) | `/g/data/ol01/outputs/access-om3-100km/MCW_100km_era_iaf-test1-961264ad/experiment_datastore.json` <br/> (`/g/data/ol01/outputs/access-om3-100km/MCW_100km_era_iaf-test1-961264ad/`) |
+{#- The table is constructed from experiments.yaml (next to this file). Edit that file to add or change an experiment. -#}
+{%- set CONFIG = "https://github.com/ACCESS-NRI/access-om3-configs/tree/" -%}
+{%- set BUILD = "https://github.com/ACCESS-NRI/ACCESS-OM3/releases/tag/" -%}
+
+{#- First, define two macros for re-usable functionality for each table row. -#}
+{%- macro store(e) -%}
+{#- Buttons that copy the datastore path and the experiment's output folder (blank if not given) -#}
+{%- if e.get('datastore') -%}
+{%- set folder = e.datastore.rsplit('/', 1)[0] ~ '/' -%}
+<button type="button" class="exp-copy" data-copy="{{ e.datastore }}" title="{{ e.datastore }}">Copy datastore path</button> <button type="button" class="exp-copy" data-copy="{{ folder }}" title="{{ folder }}">Copy output path</button>
+{%- endif -%}
+{%- endmacro -%}
+
+{%- macro hidden(e) -%}
+{#- These properties are available to be filtered by, but not shown in the table -#}
+{{ e.nominal_resolution }} | {{ e.forcing }} | {{ e.components | join(' + ') }}
+{%- endmacro %}
+
+{#- Second, figure out which of the resolutions and components to allow filtering by. -#}
+{#- Component combinations that exist in the YAML, e.g. "MOM6 + CICE + WOMBATLite" -#}
+{%- set combos = experiments | map(attribute='components') | map('join', ' + ') | unique | sort -%}
+{#- Resolutions that exist in the YAML, smallest first (values are "<number> km", see experiments.schema.json) -#}
+{%- set resolutions = experiments | map(attribute='nominal_resolution') | map('replace', ' km', '') | map('int') | unique | sort -%}
+
+{#- Show the filters -#}
+<div class="exp-filter">
+<label>Search <input type="search" autocomplete="off" data-filter="search" placeholder="name, build, description..."></label>
+<label>Components <select autocomplete="off" data-filter="Components"><option value="">Any</option>{% for c in combos %}<option>{{ c }}</option>{% endfor %}</select></label>
+<label>Resolution <select autocomplete="off" data-filter="Resolution"><option value="">Any</option>{% for r in resolutions %}<option>{{ r }} km</option>{% endfor %}</select></label>
+<label>Forcing <select autocomplete="off" data-filter="Forcing"><option value="">Any</option><option>JRA-IAF</option><option>JRA-RYF</option><option>ERA-IAF</option></select></label>
+</div>
+
+{#- Show the table; rows are built from experiments.yaml -#}
+<div class="exp-table" markdown>
+
+| Experiment | Evaluation | Base Configuration | Date | Description | Model build | Length (years) | ESM Datastore | Resolution | Forcing | Components |
+|----|----|----|----|----|----|----|----|----|----|----|
+{% for e in experiments if e.group == 'control' -%}
+| [{{ e.experiment }}]({{ e.runlog }}) | {% if e.get('evaluation') %}[Evaluation]({{ e.evaluation }}){% endif %} | [{{ e.config.get('branch') or e.config.commit[:7] }}]({{ CONFIG ~ e.config.commit }}) | {{ e.date }} | {{ e.get('description', '') }} | [{{ e.build.name }}]({{ e.build.get('url') or (BUILD ~ e.build.name) }}) | {{ e.years }} | {{ store(e) }} | {{ hidden(e) }} |
+{% endfor %}
+
+</div>
 
 ## Community run sensitivity tests
 
 The following are additional sensitivity-test experiments, exploring specific parameter choices rather than serving as control experiments. As these experiments are for specific interests, we do not necessarily track the same level of detail for these runs.
 
-|Experiment | Evaluation | Base Configuration | Model build | Length (years) | ESM Datastore <br/>  (output path) |
-|----|----|----|----|----|------------------------------------------------------------------------------------------------|
-|[MC_25km_jra_iaf-1.0-beta-gm1-d968c801](https://github.com/ACCESS-Community-Hub/access-om3-experiments/tree/MC_25km_jra_iaf-1.0-beta-gm1-d968c801) | [Evaluation](https://access-om3-paper-1.readthedocs.io/mc_25km_jra_iaf-1.0-beta-gm1-d968c801-2026.07.000/) | [dev-MC_25km_jra_iaf](https://github.com/ACCESS-NRI/access-om3-configs/tree/f1307b65ee6b06ad9e92a560ae64bc0b4c91e6ee) | [2025.08.001](https://github.com/ACCESS-NRI/ACCESS-OM3/releases/tag/2025.08.001) | 32 years (1979-2010) | `/g/data/ol01/outputs/access-om3-25km/MC_25km_jra_iaf-1.0-beta-gm1-d968c801/datastore.json`  <br/> (`/g/data/ol01/outputs/access-om3-25km/MC_25km_jra_iaf-1.0-beta-gm1-d968c801/`) |
-|[MC_25km_jra_iaf-1.0-beta-gm2-5dc49da6](https://github.com/ACCESS-Community-Hub/access-om3-experiments/tree/MC_25km_jra_iaf-1.0-beta-gm2-5dc49da6) | [Evaluation](https://access-om3-paper-1.readthedocs.io/mc_25km_jra_iaf-1.0-beta-gm2-5dc49da6-2026.07.000/) | [dev-MC_25km_jra_iaf](https://github.com/ACCESS-NRI/access-om3-configs/tree/f1307b65ee6b06ad9e92a560ae64bc0b4c91e6ee) | [2025.08.001](https://github.com/ACCESS-NRI/ACCESS-OM3/releases/tag/2025.08.001) | 30 years (1979-2008) | `/g/data/ol01/outputs/access-om3-25km/MC_25km_jra_iaf-1.0-beta-gm2-5dc49da6/datastore.json`  <br/> (`/g/data/ol01/outputs/access-om3-25km/MC_25km_jra_iaf-1.0-beta-gm2-5dc49da6/`) |
-|[MC_25km_jra_iaf-1.0-beta-gm3-da330542](https://github.com/ACCESS-Community-Hub/access-om3-experiments/tree/MC_25km_jra_iaf-1.0-beta-gm3-da330542) | [Evaluation](https://access-om3-paper-1.readthedocs.io/mc_25km_jra_iaf-1.0-beta-gm3-da330542-2026.07.000/) | [dev-MC_25km_jra_iaf](https://github.com/ACCESS-NRI/access-om3-configs/tree/f1307b65ee6b06ad9e92a560ae64bc0b4c91e6ee) | [2025.08.001](https://github.com/ACCESS-NRI/ACCESS-OM3/releases/tag/2025.08.001) | 31 years (1979-2009) | `/g/data/ol01/outputs/access-om3-25km/MC_25km_jra_iaf-1.0-beta-gm3-da330542/datastore.json`  <br/> (`/g/data/ol01/outputs/access-om3-25km/MC_25km_jra_iaf-1.0-beta-gm3-da330542/`) |
-|[MC_25km_jra_iaf-1.0-beta-gm4-9fd08880](https://github.com/ACCESS-Community-Hub/access-om3-experiments/tree/MC_25km_jra_iaf-1.0-beta-gm4-9fd08880) | [Evaluation](https://access-om3-paper-1.readthedocs.io/mc_25km_jra_iaf-1.0-beta-gm4-9fd08880-2026.07.000/) | [dev-MC_25km_jra_iaf](https://github.com/ACCESS-NRI/access-om3-configs/tree/f1307b65ee6b06ad9e92a560ae64bc0b4c91e6ee) | [2025.08.001](https://github.com/ACCESS-NRI/ACCESS-OM3/releases/tag/2025.08.001) | 31 years (1979-2009) | `/g/data/ol01/outputs/access-om3-25km/MC_25km_jra_iaf-1.0-beta-gm4-9fd08880/datastore.json`  <br/> (`/g/data/ol01/outputs/access-om3-25km/MC_25km_jra_iaf-1.0-beta-gm4-9fd08880/`) |
-|[MC_25km_jra_iaf-1.0-beta-gm5-9b5dbfa9](https://github.com/ACCESS-Community-Hub/access-om3-experiments/tree/MC_25km_jra_iaf-1.0-beta-gm5-9b5dbfa9) | [Evaluation](https://access-om3-paper-1.readthedocs.io/mc_25km_jra_iaf-1.0-beta-gm5-9b5dbfa9-2026.07.000/) | [dev-MC_25km_jra_iaf](https://github.com/ACCESS-NRI/access-om3-configs/tree/f1307b65ee6b06ad9e92a560ae64bc0b4c91e6ee) | [2025.08.001](https://github.com/ACCESS-NRI/ACCESS-OM3/releases/tag/2025.08.001) | 31 years (1979-2009) | `/g/data/ol01/outputs/access-om3-25km/MC_25km_jra_iaf-1.0-beta-gm5-9b5dbfa9/datastore.json`  <br/> (`/g/data/ol01/outputs/access-om3-25km/MC_25km_jra_iaf-1.0-beta-gm5-9b5dbfa9/`) |
-|[MC_25km_jra_iaf+wombatlite_bs1-mpudig-backscat1-4c21c151](https://github.com/ACCESS-Community-Hub/access-om3-experiments/tree/MC_25km_jra_iaf%2Bwombatlite_bs1-mpudig-backscat1-4c21c151) | [Evaluation](https://access-om3-paper-1.readthedocs.io/mc_25km_jra_iafwombatlite_bs1-mpudig-backscat1-4c21c151-2026.07.000/) | [dev-MC_25km_jra_iaf+wombatlite](https://github.com/ACCESS-NRI/access-om3-configs/tree/cf60aa7326243888b88fbf8055b9b9e2ce2c4bf5) | [2026.03.000](https://github.com/ACCESS-NRI/ACCESS-OM3/releases/tag/2026.03.000) | 30 years (1990-2019) | `/g/data/ol01/outputs/access-om3-25km/MC_25km_jra_iaf+wombatlite_bs1-mpudig-backscat1-4c21c151/datastore.json`  <br/> (`/g/data/ol01/outputs/access-om3-25km/MC_25km_jra_iaf+wombatlite_bs1-mpudig-backscat1-4c21c151/`) |
-|[MC_25km_jra_iaf+wombatlite_bs2-mpudig-backscat2-0578cc36](https://github.com/ACCESS-Community-Hub/access-om3-experiments/tree/MC_25km_jra_iaf%2Bwombatlite_bs2-mpudig-backscat2-0578cc3) | [Evaluation](https://access-om3-paper-1.readthedocs.io/mc_25km_jra_iafwombatlite_bs2-mpudig-backscat2-0578cc36-2026.07.000/) | [dev-MC_25km_jra_iaf+wombatlite](https://github.com/ACCESS-NRI/access-om3-configs/tree/cf60aa7326243888b88fbf8055b9b9e2ce2c4bf5) | [2026.03.000](https://github.com/ACCESS-NRI/ACCESS-OM3/releases/tag/2026.03.000) | 30 years (1990-2019) | `/g/data/ol01/outputs/access-om3-25km/MC_25km_jra_iaf+wombatlite_bs2-mpudig-backscat2-0578cc36/datastore.json`  <br/> (`/g/data/ol01/outputs/access-om3-25km/MC_25km_jra_iaf+wombatlite_bs2-mpudig-backscat2-0578cc36/`) |
+<div class="exp-table" markdown>
 
+| Experiment | Evaluation | Base Configuration | Date | Model build | Length (years) | ESM Datastore | Resolution | Forcing | Components |
+|----|----|----|----|----|----|----|----|----|----|
+{% for e in experiments if e.group == 'community' -%}
+| [{{ e.experiment }}]({{ e.runlog }}) | {% if e.get('evaluation') %}[Evaluation]({{ e.evaluation }}){% endif %} | [{{ e.config.get('branch') or e.config.commit[:7] }}]({{ CONFIG ~ e.config.commit }}) | {{ e.date }} | [{{ e.build.name }}]({{ e.build.get('url') or (BUILD ~ e.build.name) }}) | {{ e.years }} | {{ store(e) }} | {{ hidden(e) }} |
+{% endfor %}
+
+</div>

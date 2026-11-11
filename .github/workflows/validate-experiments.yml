@@ -1,0 +1,35 @@
+name: Validate experiments
+
+# Checks documentation/docs/pages/experiments.yaml (the Experiments page data)
+# against documentation/docs/pages/experiments.schema.json.
+
+on:
+  # Runs on every PR into main (no path filter), so it can be a required check
+  # without blocking PRs that don't touch the docs.
+  pull_request:
+    branches:
+      - main
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Validate experiments   # the check name shown on PRs (use this in rulesets)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install pyyaml jsonschema
+
+      - name: Validate experiments.yaml
+        run: python documentation/scripts/validate_experiments.py

@@ -1,0 +1,104 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "experiments.schema.json",
+  "title": "ACCESS-OM3 experiments list",
+  "description": "Schema for experiments.yaml, which generates the tables on pages/Experiments.md. Checked by .github/workflows/validate-experiments.yml.",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": [
+      "experiment", "runlog", "group", "nominal_resolution", "forcing",
+      "components", "config", "build", "date", "years"
+    ],
+    "properties": {
+      "experiment": {
+        "description": "Run name; must be unique in the file (checked by the script, not the schema).",
+        "type": "string",
+        "minLength": 1
+      },
+      "runlog": {
+        "description": "URL of the runlog branch.",
+        "$ref": "#/$defs/url"
+      },
+      "evaluation": {
+        "description": "URL of the evaluation page.",
+        "$ref": "#/$defs/url"
+      },
+      "group": {
+        "description": "Which table the run appears in.",
+        "enum": ["control", "community"]
+      },
+      "nominal_resolution": {
+        "description": "Same name and format as metadata.yaml (ACCESS-NRI experiment-metadata schema).",
+        "enum": ["4 km", "8 km", "25 km", "100 km"]
+      },
+      "forcing": {
+        "enum": ["JRA-IAF", "JRA-RYF", "ERA-IAF"]
+      },
+      "components": {
+        "type": "array",
+        "minItems": 1,
+        "uniqueItems": true,
+        "items": { "enum": ["MOM6", "CICE", "WW3", "WOMBATLite"] }
+      },
+      "config": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["commit"],
+        "properties": {
+          "branch": {
+            "description": "Branch name shown as the link text (defaults to the short commit).",
+            "type": "string",
+            "minLength": 1
+          },
+          "commit": {
+            "description": "Commit in ACCESS-NRI/access-om3-configs the run used.",
+            "type": "string",
+            "pattern": "^[0-9a-f]{7,40}$"
+          }
+        }
+      },
+      "build": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name"],
+        "properties": {
+          "name": {
+            "description": "ACCESS-OM3 release, e.g. \"2026.05.004\", or a pre-release, e.g. \"access-om3/pr264-25\". Quote it in YAML, or a value like 2026.05 is read as a number.",
+            "type": "string",
+            "minLength": 1
+          },
+          "url": {
+            "description": "Link for the build. Defaults to the ACCESS-OM3 release page for `name`; give it for a pre-release (the PR comment announcing that build).",
+            "$ref": "#/$defs/url"
+          }
+        }
+      },
+      "date": {
+        "description": "YYYY-MM-DD, roughly when the run was done.",
+        "type": "string",
+        "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$",
+        "format": "date"
+      },
+      "years": {
+        "type": "string",
+        "minLength": 1
+      },
+      "description": {
+        "type": "string"
+      },
+      "datastore": {
+        "description": "Path to the ESM datastore JSON on Gadi.",
+        "type": "string",
+        "pattern": "^/g/data/.+\\.json$"
+      }
+    }
+  },
+  "$defs": {
+    "url": {
+      "type": "string",
+      "pattern": "^https?://[^\\s]+$"
+    }
+  }
+}
