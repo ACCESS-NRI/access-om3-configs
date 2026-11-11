@@ -14,8 +14,11 @@
 #   config:
 #     branch: dev-MCW_100km_era_iaf                    # (optional) link text; defaults to the short commit
 #     commit: 393901eb18cc34b3da7199cf65af74e582cc8022  # 7-40 character SHA in access-om3-configs
-#   build: "2026.05.004"                               # ACCESS-OM3 release tag (or e.g. "access-om3/pr264-25"); keep the quotes
-#   build_url: https://github.com/ACCESS-NRI/ACCESS-OM3/pull/264   # (optional) link for a non-release build; defaults to the release page
+#   build:
+#     name: "2026.05.004"                              # ACCESS-OM3 release, or a pre-release like "access-om3/pr264-25"; keep the quotes
+#     # url: https://github.com/ACCESS-NRI/ACCESS-OM3/pull/264#issuecomment-6058404118
+#     #   (optional) only for a pre-release: link to the PR comment announcing that exact build.
+#     #   Without it, the link is the ACCESS-OM3 release page for name.
 #   date: 2026-11-02                                   # YYYY-MM-DD, roughly when the run was done
 #   years: 67 years (1958-2024)                        # free text
 #   description: Control experiment for model validation   # (optional) free text, markdown links allowed
@@ -29,7 +32,7 @@
   forcing: JRA-RYF
   components: [MOM6, CICE]
   config: {branch: release-MC_25km_jra_ryf, commit: 4429156d3bb1ad4e04f41be8a90329684365786d}
-  build: "2025.05.001"
+  build: {name: "2025.05.001"}
   date: 2025-08-09
   years: 52 years
   description: Control experiment for model validation
@@ -43,7 +46,7 @@
   forcing: JRA-IAF
   components: [MOM6, CICE]
   config: {branch: 25km-iaf-test-for-AK, commit: 96ae801c9f2d786bb710a3cb0a29a05e0ab471c2}
-  build: "2025.05.001"
+  build: {name: "2025.05.001"}
   date: 2025-09-16
   years: 66 years (1958-2023)
   description: Control experiment for model validation
@@ -57,7 +60,7 @@
   forcing: JRA-IAF
   components: [MOM6, CICE]
   config: {branch: dev-MC_25km_jra_iaf, commit: f1307b65ee6b06ad9e92a560ae64bc0b4c91e6ee}
-  build: "2025.08.001"
+  build: {name: "2025.08.001"}
   date: 2025-12-09
   years: "57 years (1958-2014) ([crashed](https://github.com/ACCESS-NRI/access-om3-configs/issues/1010#issuecomment-3672861969))"
   description: Control experiment for model validation
@@ -71,7 +74,7 @@
   forcing: JRA-RYF
   components: [MOM6, CICE, WOMBATLite]
   config: {branch: dev-MC_100km_jra_ryf+wombatlite, commit: 1e74abf43317d25dcd2c82d681a13cbb7b1b60ed}
-  build: "2025.08.001"
+  build: {name: "2025.08.001"}
   date: 2025-12-19
   years: 50 years
   description: Control experiment for model validation
@@ -85,7 +88,7 @@
   forcing: JRA-RYF
   components: [MOM6, CICE, WOMBATLite]
   config: {branch: dev-MC_25km_jra_ryf+wombatlite, commit: 81ad20ec37661632dd8d7859ef6d6ded7f90664b}
-  build: "2025.08.001"
+  build: {name: "2025.08.001"}
   date: 2025-12-22
   years: 30 years
   description: Control experiment for model validation
@@ -99,7 +102,7 @@
   forcing: JRA-IAF
   components: [MOM6, CICE, WOMBATLite]
   config: {branch: dev-MC_25km_jra_iaf+wombatlite, commit: 701a7b7f8d30c709552f989754504e8d7c67cf63}
-  build: "2025.08.003"
+  build: {name: "2025.08.003"}
   date: 2026-04-07
   years: 66 years (1958-2023)
   description: Control experiment for model validation
@@ -113,7 +116,7 @@
   forcing: JRA-IAF
   components: [MOM6, CICE, WOMBATLite]
   config: {branch: dev-MC_25km_jra_iaf+wombatlite, commit: d4e97fe79ff4cd8abec047bb73da91422b2fd36a}
-  build: "2026.05.002"
+  build: {name: "2026.05.002"}
   date: 2026-07-01
   years: 66 years (1958-2023)
   description: "Control experiment for model validation (see [#1394](https://github.com/ACCESS-NRI/access-om3-configs/issues/1394))"
@@ -127,7 +130,7 @@
   forcing: JRA-RYF
   components: [MOM6, CICE, WOMBATLite]
   config: {branch: dev-MC_25km_jra_ryf+wombatlite, commit: 4392259ef5b580166ab4a3887b88a77eb813807d}
-  build: "2026.05.002"
+  build: {name: "2026.05.002"}
   date: 2026-06-26
   years: 31 years (1900-1930)
   description: "Control experiment for model validation (see [#1423](https://github.com/ACCESS-NRI/access-om3-configs/issues/1423))"
@@ -141,7 +144,7 @@
   forcing: ERA-IAF
   components: [MOM6, CICE, WW3]
   config: {branch: dev-MCW_100km_era_iaf, commit: 393901eb18cc34b3da7199cf65af74e582cc8022}
-  build: "2026.05.004"
+  build: {name: "2026.05.004"}
   date: 2026-11-02
   years: 67 years (1958-2024)
   description: Control experiment for model validation
@@ -155,7 +158,7 @@
   forcing: JRA-IAF
   components: [MOM6, CICE]
   config: {branch: dev-MC_25km_jra_iaf, commit: f1307b65ee6b06ad9e92a560ae64bc0b4c91e6ee}
-  build: "2025.08.001"
+  build: {name: "2025.08.001"}
   date: 2025-12-24
   years: 32 years (1979-2010)
   datastore: /g/data/ol01/outputs/access-om3-25km/MC_25km_jra_iaf-1.0-beta-gm1-d968c801/datastore.json
@@ -168,7 +171,7 @@
   forcing: JRA-IAF
   components: [MOM6, CICE]
   config: {branch: dev-MC_25km_jra_iaf, commit: f1307b65ee6b06ad9e92a560ae64bc0b4c91e6ee}
-  build: "2025.08.001"
+  build: {name: "2025.08.001"}
   date: 2026-01-08
   years: 30 years (1979-2008)
   datastore: /g/data/ol01/outputs/access-om3-25km/MC_25km_jra_iaf-1.0-beta-gm2-5dc49da6/datastore.json
@@ -181,7 +184,7 @@
   forcing: JRA-IAF
   components: [MOM6, CICE]
   config: {branch: dev-MC_25km_jra_iaf, commit: f1307b65ee6b06ad9e92a560ae64bc0b4c91e6ee}
-  build: "2025.08.001"
+  build: {name: "2025.08.001"}
   date: 2025-12-24
   years: 31 years (1979-2009)
   datastore: /g/data/ol01/outputs/access-om3-25km/MC_25km_jra_iaf-1.0-beta-gm3-da330542/datastore.json
@@ -194,7 +197,7 @@
   forcing: JRA-IAF
   components: [MOM6, CICE]
   config: {branch: dev-MC_25km_jra_iaf, commit: f1307b65ee6b06ad9e92a560ae64bc0b4c91e6ee}
-  build: "2025.08.001"
+  build: {name: "2025.08.001"}
   date: 2026-01-20
   years: 31 years (1979-2009)
   datastore: /g/data/ol01/outputs/access-om3-25km/MC_25km_jra_iaf-1.0-beta-gm4-9fd08880/datastore.json
@@ -207,7 +210,7 @@
   forcing: JRA-IAF
   components: [MOM6, CICE]
   config: {branch: dev-MC_25km_jra_iaf, commit: f1307b65ee6b06ad9e92a560ae64bc0b4c91e6ee}
-  build: "2025.08.001"
+  build: {name: "2025.08.001"}
   date: 2026-01-21
   years: 31 years (1979-2009)
   datastore: /g/data/ol01/outputs/access-om3-25km/MC_25km_jra_iaf-1.0-beta-gm5-9b5dbfa9/datastore.json
@@ -220,7 +223,7 @@
   forcing: JRA-IAF
   components: [MOM6, CICE, WOMBATLite]
   config: {branch: dev-MC_25km_jra_iaf+wombatlite, commit: cf60aa7326243888b88fbf8055b9b9e2ce2c4bf5}
-  build: "2026.03.000"
+  build: {name: "2026.03.000"}
   date: 2026-06-10
   years: 30 years (1990-2019)
   datastore: /g/data/ol01/outputs/access-om3-25km/MC_25km_jra_iaf+wombatlite_bs1-mpudig-backscat1-4c21c151/datastore.json
@@ -233,7 +236,7 @@
   forcing: JRA-IAF
   components: [MOM6, CICE, WOMBATLite]
   config: {branch: dev-MC_25km_jra_iaf+wombatlite, commit: cf60aa7326243888b88fbf8055b9b9e2ce2c4bf5}
-  build: "2026.03.000"
+  build: {name: "2026.03.000"}
   date: 2026-06-22
   years: 30 years (1990-2019)
   datastore: /g/data/ol01/outputs/access-om3-25km/MC_25km_jra_iaf+wombatlite_bs2-mpudig-backscat2-0578cc36/datastore.json

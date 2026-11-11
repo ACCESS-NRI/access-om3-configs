@@ -60,13 +60,20 @@
         }
       },
       "build": {
-        "description": "ACCESS-OM3 release tag, e.g. \"2026.05.004\". Must be quoted in YAML, or it is read as a number.",
-        "type": "string",
-        "minLength": 1
-      },
-      "build_url": {
-        "description": "Link for the build, when it isn't an ACCESS-OM3 release (e.g. a pre-release build's pull request). Defaults to the release page for `build`.",
-        "$ref": "#/$defs/url"
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name"],
+        "properties": {
+          "name": {
+            "description": "ACCESS-OM3 release, e.g. \"2026.05.004\", or a pre-release, e.g. \"access-om3/pr264-25\". Quote it in YAML, or a value like 2026.05 is read as a number.",
+            "type": "string",
+            "minLength": 1
+          },
+          "url": {
+            "description": "Link for the build. Defaults to the ACCESS-OM3 release page for `name`; give it for a pre-release (the PR comment announcing that build).",
+            "$ref": "#/$defs/url"
+          }
+        }
       },
       "date": {
         "description": "YYYY-MM-DD, roughly when the run was done.",

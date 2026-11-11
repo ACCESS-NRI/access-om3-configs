@@ -69,7 +69,7 @@ distributed and modified. Users of ACCESS-NRI models, data, tools or expert supp
 | Experiment | Evaluation | Base Configuration | Date | Description | Model build | Length (years) | ESM Datastore | Resolution | Forcing | Components |
 |----|----|----|----|----|----|----|----|----|----|----|
 {% for e in experiments if e.group == 'control' -%}
-| [{{ e.experiment }}]({{ e.runlog }}) | {% if e.get('evaluation') %}[Evaluation]({{ e.evaluation }}){% endif %} | [{{ e.config.get('branch') or e.config.commit[:7] }}]({{ CONFIG ~ e.config.commit }}) | {{ e.date }} | {{ e.get('description', '') }} | [{{ e.build }}]({{ e.get('build_url') or (BUILD ~ e.build) }}) | {{ e.years }} | {{ store(e) }} | {{ hidden(e) }} |
+| [{{ e.experiment }}]({{ e.runlog }}) | {% if e.get('evaluation') %}[Evaluation]({{ e.evaluation }}){% endif %} | [{{ e.config.get('branch') or e.config.commit[:7] }}]({{ CONFIG ~ e.config.commit }}) | {{ e.date }} | {{ e.get('description', '') }} | [{{ e.build.name }}]({{ e.build.get('url') or (BUILD ~ e.build.name) }}) | {{ e.years }} | {{ store(e) }} | {{ hidden(e) }} |
 {% endfor %}
 
 </div>
@@ -83,7 +83,7 @@ The following are additional sensitivity-test experiments, exploring specific pa
 | Experiment | Evaluation | Base Configuration | Date | Model build | Length (years) | ESM Datastore | Resolution | Forcing | Components |
 |----|----|----|----|----|----|----|----|----|----|
 {% for e in experiments if e.group == 'community' -%}
-| [{{ e.experiment }}]({{ e.runlog }}) | {% if e.get('evaluation') %}[Evaluation]({{ e.evaluation }}){% endif %} | [{{ e.config.get('branch') or e.config.commit[:7] }}]({{ CONFIG ~ e.config.commit }}) | {{ e.date }} | [{{ e.build }}]({{ e.get('build_url') or (BUILD ~ e.build) }}) | {{ e.years }} | {{ store(e) }} | {{ hidden(e) }} |
+| [{{ e.experiment }}]({{ e.runlog }}) | {% if e.get('evaluation') %}[Evaluation]({{ e.evaluation }}){% endif %} | [{{ e.config.get('branch') or e.config.commit[:7] }}]({{ CONFIG ~ e.config.commit }}) | {{ e.date }} | [{{ e.build.name }}]({{ e.build.get('url') or (BUILD ~ e.build.name) }}) | {{ e.years }} | {{ store(e) }} | {{ hidden(e) }} |
 {% endfor %}
 
 </div>
