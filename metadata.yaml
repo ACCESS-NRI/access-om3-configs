@@ -3,12 +3,12 @@ email: Add your email address here
 created: Add the date you started the experiment here (YYYY-MM-DD)
 description: |-
     Prototype 4km ACCESS-OM3 pan-Antarctic configuration with ice shelves under
-    the RYF9091 Repeat Year Forcing strategy outlined by Stewart et al (2020),
-    https://doi.org/10.1016/j.ocemod.2019.101557.
+    interannual forcing.
     Initial conditions of temperature and salinity are interp/extrapolated from
     start of Jan of second year of ACCESS-OM2-01-RYF output, restarted from WOA13.
-    Run with JRA55-do v1.6.0 RYF9091 (1 May 1990 - 30 April 1991) repeated forcing.
-    Spin up starts from a nominal year of 1 Jan 1900.
+    Run with JRA55-do v1.6.0 interannually-varying forcing, starting 1 Jan 1975.
+    Open boundary conditions at 37.5S are daily output from the second year of
+    ACCESS-OM2-01-RYF, restarted from WOA13, repeated every year.
 notes: |-
   ACCESS-NRI and COSIMA request that users of this model acknowledge those organisations 
   following the examples at https://www.access-nri.org.au/resources/acknowledging-us/ 
@@ -16,7 +16,7 @@ notes: |-
 keywords:
   - JRA55
   - access-om3
-  - repeat-year
+  - interannual
   - pan-antarctic
 realm:
   - ocean
@@ -24,5 +24,5 @@ realm:
 nominal_resolution: 4 km
 license: CC-BY-4.0
 model: ACCESS-OM3
-url: https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MC_panan4km_jra_ryf+isf
+url: https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MC_panan4km_jra_iaf+isf
 version: 0.0
