@@ -1,25 +1,24 @@
 # Experiments listed on pages/Experiments.md (rendered by the template in that file).
-# Add one block per experiment. Field order doesn't matter.
 #
-# Field               Required  Valid values
-# ------------------  --------  ---------------------------------------------------------------
-# experiment          yes       Run name; must be unique in this file
-# runlog              yes       URL of the runlog branch (normally in ACCESS-Community-Hub/access-om3-experiments)
-# evaluation          no        URL of the evaluation page (normally on access-om3-paper-1.readthedocs.io)
-# group               yes       control | community   (main table, or "Community run sensitivity tests")
-# nominal_resolution  yes       4 km | 8 km | 25 km | 100 km   (same name and format as metadata.yaml)
-# forcing             yes       JRA-IAF | JRA-RYF | ERA-IAF
-# components          yes       List of any of: MOM6, CICE, WW3, WOMBATLite (no duplicates), e.g. [MOM6, CICE, WW3]
-# config              yes       {branch: <config branch name>, commit: <7-40 character commit SHA>}
-#   .commit           yes       Commit in ACCESS-NRI/access-om3-configs the run used
-#   .branch           no        Branch name shown as the link text (defaults to the short commit SHA)
-# build               yes       ACCESS-OM3 release tag, e.g. "2026.05.004" (quote it, so YAML keeps it as text)
-# date                yes       YYYY-MM-DD, roughly when the run was done (start or finish date)
-# years               yes       Free text, e.g. 66 years (1958-2023)
-# description         no        Free text; markdown links allowed
-# datastore           no        Path to the ESM datastore: /g/data/.../<name>.json
+# To add an experiment: copy the block below to the end of the control or community
+# entries, remove the leading "# " from each line, and fill in the values.
+# Fields marked (optional) can be deleted. Any field not listed here is not allowed.
 #
-# Any other field is not allowed.
+# - experiment: MCW_100km_era_iaf-test1-961264ad      # run name, unique in this file
+#   runlog: https://github.com/ACCESS-Community-Hub/access-om3-experiments/tree/MCW_100km_era_iaf-test1-961264ad
+#   evaluation: https://access-om3-paper-1.readthedocs.io/mcw_100km_era_iaf-test1-961264ad-2026.11.000/   # (optional)
+#   group: control                                     # control | community
+#   nominal_resolution: 100 km                         # 4 km | 8 km | 25 km | 100 km
+#   forcing: ERA-IAF                                   # JRA-IAF | JRA-RYF | ERA-IAF
+#   components: [MOM6, CICE, WW3]                      # any of MOM6, CICE, WW3, WOMBATLite (no duplicates)
+#   config:
+#     branch: dev-MCW_100km_era_iaf                    # (optional) link text; defaults to the short commit
+#     commit: 393901eb18cc34b3da7199cf65af74e582cc8022  # 7-40 character SHA in access-om3-configs
+#   build: "2026.05.004"                               # ACCESS-OM3 release tag; keep the quotes
+#   date: 2026-11-02                                   # YYYY-MM-DD, roughly when the run was done
+#   years: 67 years (1958-2024)                        # free text
+#   description: Control experiment for model validation   # (optional) free text, markdown links allowed
+#   datastore: /g/data/ol01/outputs/access-om3-100km/MCW_100km_era_iaf-test1-961264ad/experiment_datastore.json   # (optional) /g/data/.../*.json
 
 - experiment: MC_25km_jra_ryf-1.0-beta-cdfb3543
   runlog: https://github.com/ACCESS-Community-Hub/access-om3-experiments/tree/MC_25km_jra_ryf-1.0-beta-cdfb3543
