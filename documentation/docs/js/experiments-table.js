@@ -28,7 +28,7 @@ document$.subscribe(() => {
 
   const escape = s => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
   // Each dropdown must match its hidden column exactly; the search box matches any column.
-  bar.addEventListener('input', () => {
+  function apply() {
     for (const dt of dts) {
       const heads = dt.columns().header().toArray().map(th => th.textContent.trim());
       dt.search(bar.querySelector('[data-filter="search"]').value);
@@ -38,5 +38,24 @@ document$.subscribe(() => {
       }
       dt.draw();
     }
+  }
+  // Keep the selected filters in the URL (?resolution=25+km&...), so a refresh keeps them
+  // and a filtered view can be shared. The controls have autocomplete="off", so the URL is
+  // the only source of state and the controls always match the table.
+  const controls = [...bar.querySelectorAll('[data-filter]')];
+  const key = el => el.dataset.filter.toLowerCase();
+  const params = new URLSearchParams(location.search);
+  for (const el of controls) {
+    const v = params.get(key(el)) || '';
+    const valid = el.tagName !== 'SELECT' || [...el.options].some(o => o.value === v);
+    el.value = valid ? v : '';
+  }
+  bar.addEventListener('input', () => {
+    const p = new URLSearchParams(location.search);
+    for (const el of controls) el.value ? p.set(key(el), el.value) : p.delete(key(el));
+    const q = p.toString();
+    history.replaceState(history.state, '', location.pathname + (q ? '?' + q : '') + location.hash);
+    apply();
   });
+  apply();
 });
