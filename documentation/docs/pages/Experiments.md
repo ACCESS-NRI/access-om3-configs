@@ -11,10 +11,11 @@ distributed and modified. Users of ACCESS-NRI models, data, tools or expert supp
   in all publications/reports/public releases.
 
 
-{#- The table is constructed from from experiments.yaml (next to this file). Edit that file to add or change an experiment. -#}
+{#- The table is constructed from experiments.yaml (next to this file). Edit that file to add or change an experiment. -#}
 {%- set CONFIG = "https://github.com/ACCESS-NRI/access-om3-configs/tree/" -%}
 {%- set BUILD = "https://github.com/ACCESS-NRI/ACCESS-OM3/releases/tag/" -%}
 
+{#- First, define two macros for re-usable functionality for each table row. -#}
 {%- macro store(e) -%}
 {#- Buttons that copy the datastore path and the experiment's output folder (blank if not given) -#}
 {%- if e.get('datastore') -%}
@@ -28,11 +29,13 @@ distributed and modified. Users of ACCESS-NRI models, data, tools or expert supp
 {{ e.nominal_resolution }} | {{ e.forcing }} | {{ e.components | join(' + ') }}
 {%- endmacro %}
 
+{#- Second, figure out which of the resolutions and components to allow filtering by. -#}
 {#- Component combinations that exist in the YAML, e.g. "MOM6 + CICE + WOMBATLite" -#}
 {%- set combos = experiments | map(attribute='components') | map('join', ' + ') | unique | sort -%}
 {#- Resolutions that exist in the YAML, smallest first (values are "<number> km", see experiments.schema.json) -#}
 {%- set resolutions = experiments | map(attribute='nominal_resolution') | map('replace', ' km', '') | map('int') | unique | sort -%}
 
+{#- Show the filters -#}
 <div class="exp-filter">
 <label>Search <input type="search" autocomplete="off" data-filter="search" placeholder="name, build, description..."></label>
 <label>Components <select autocomplete="off" data-filter="Components"><option value="">Any</option>{% for c in combos %}<option>{{ c }}</option>{% endfor %}</select></label>
@@ -40,6 +43,7 @@ distributed and modified. Users of ACCESS-NRI models, data, tools or expert supp
 <label>Forcing <select autocomplete="off" data-filter="Forcing"><option value="">Any</option><option>JRA-IAF</option><option>JRA-RYF</option><option>ERA-IAF</option></select></label>
 </div>
 
+{#- Show the table; rows are built from experiments.yaml -#}
 <div class="exp-table" markdown>
 
 | Experiment | Evaluation | Base Configuration | Date | Description | Model build | Length (years) | ESM Datastore | Resolution | Forcing | Components |

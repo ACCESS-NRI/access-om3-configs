@@ -17,7 +17,7 @@
 #   build:
 #     name: "2026.05.004"                              # ACCESS-OM3 release, or a pre-release like "access-om3/pr264-25"; keep the quotes
 #     # url: https://github.com/ACCESS-NRI/ACCESS-OM3/pull/264#issuecomment-6058404118
-#     #   (optional) only for a pre-release: link to the PR comment announcing that exact build.
+#     #   (optional) only for a pre-release: link to the PR comment for that exact build.
 #     #   Without it, the link is the ACCESS-OM3 release page for name.
 #   date: 2026-11-02                                   # YYYY-MM-DD, roughly when the run was done
 #   years: 67 years (1958-2024)                        # free text
