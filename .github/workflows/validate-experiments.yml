@@ -4,16 +4,14 @@ name: Validate experiments
 # against documentation/docs/pages/experiments.schema.json.
 
 on:
+  # Runs on every PR into main (no path filter), so it can be a required check
+  # without blocking PRs that don't touch the docs.
   pull_request:
-    paths:
-      - documentation/**
-      - .github/workflows/validate-experiments.yml
+    branches:
+      - main
   push:
     branches:
       - main
-    paths:
-      - documentation/**
-      - .github/workflows/validate-experiments.yml
   workflow_dispatch:
 
 permissions:
