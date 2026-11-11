@@ -14,7 +14,8 @@
 #   config:
 #     branch: dev-MCW_100km_era_iaf                    # (optional) link text; defaults to the short commit
 #     commit: 393901eb18cc34b3da7199cf65af74e582cc8022  # 7-40 character SHA in access-om3-configs
-#   build: "2026.05.004"                               # ACCESS-OM3 release tag; keep the quotes
+#   build: "2026.05.004"                               # ACCESS-OM3 release tag (or e.g. "access-om3/pr264-25"); keep the quotes
+#   build_url: https://github.com/ACCESS-NRI/ACCESS-OM3/pull/264   # (optional) link for a non-release build; defaults to the release page
 #   date: 2026-11-02                                   # YYYY-MM-DD, roughly when the run was done
 #   years: 67 years (1958-2024)                        # free text
 #   description: Control experiment for model validation   # (optional) free text, markdown links allowed

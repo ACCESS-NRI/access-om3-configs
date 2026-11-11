@@ -64,6 +64,10 @@
         "type": "string",
         "minLength": 1
       },
+      "build_url": {
+        "description": "Link for the build, when it isn't an ACCESS-OM3 release (e.g. a pre-release build's pull request). Defaults to the release page for `build`.",
+        "$ref": "#/$defs/url"
+      },
       "date": {
         "description": "YYYY-MM-DD, roughly when the run was done.",
         "type": "string",
