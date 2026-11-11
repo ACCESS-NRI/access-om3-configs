@@ -1,13 +1,14 @@
 # Experiments listed on pages/Experiments.md.
 # components: any of MOM6, CICE, WW3, WOMBATLite
 # date: roughly when the run was done (start or finish date)
-# Allowed values -> resolution: 8km | 25km | 100km;  forcing: JRA-IAF | JRA-RYF | ERA-IAF
+# Allowed values -> nominal_resolution: 8 km | 25 km | 100 km;  forcing: JRA-IAF | JRA-RYF | ERA-IAF
+# nominal_resolution uses the same name and format as metadata.yaml (ACCESS-NRI experiment-metadata schema)
 
 - experiment: MC_25km_jra_ryf-1.0-beta-cdfb3543
   runlog: https://github.com/ACCESS-Community-Hub/access-om3-experiments/tree/MC_25km_jra_ryf-1.0-beta-cdfb3543
   evaluation: https://access-om3-paper-1.readthedocs.io/mc_25km_jra_ryf-1.0-beta-cdfb3543-2026.07.000/
   group: control
-  resolution: 25km
+  nominal_resolution: 25 km
   forcing: JRA-RYF
   components: [MOM6, CICE]
   config: {branch: release-MC_25km_jra_ryf, commit: 4429156d3bb1ad4e04f41be8a90329684365786d}
@@ -21,7 +22,7 @@
   runlog: https://github.com/ACCESS-Community-Hub/access-om3-experiments/tree/25km-iaf-test-for-AK-expt-7df5ef4c
   evaluation: https://access-om3-paper-1.readthedocs.io/mc_25km-iaf-test-for-ak-expt-7df5ef4c-2026.07.000/
   group: control
-  resolution: 25km
+  nominal_resolution: 25 km
   forcing: JRA-IAF
   components: [MOM6, CICE]
   config: {branch: 25km-iaf-test-for-AK, commit: 96ae801c9f2d786bb710a3cb0a29a05e0ab471c2}
@@ -35,7 +36,7 @@
   runlog: https://github.com/ACCESS-Community-Hub/access-om3-experiments/tree/MC_25km_jra_iaf-1.0-beta-5165c0f8
   evaluation: https://access-om3-paper-1.readthedocs.io/mc_25km_jra_iaf-1.0-beta-5165c0f8-2026.07.000/
   group: control
-  resolution: 25km
+  nominal_resolution: 25 km
   forcing: JRA-IAF
   components: [MOM6, CICE]
   config: {branch: dev-MC_25km_jra_iaf, commit: f1307b65ee6b06ad9e92a560ae64bc0b4c91e6ee}
@@ -49,7 +50,7 @@
   runlog: https://github.com/ACCESS-Community-Hub/access-om3-experiments/tree/MC_100km_jra_ryf%2Bwombatlite-1e74abf-11f9df5c
   evaluation: https://access-om3-paper-1.readthedocs.io/mc_100km_jra_ryfwombatlite-1e74abf-11f9df5c-2026.07.000/
   group: control
-  resolution: 100km
+  nominal_resolution: 100 km
   forcing: JRA-RYF
   components: [MOM6, CICE, WOMBATLite]
   config: {branch: dev-MC_100km_jra_ryf+wombatlite, commit: 1e74abf43317d25dcd2c82d681a13cbb7b1b60ed}
@@ -63,7 +64,7 @@
   runlog: https://github.com/ACCESS-Community-Hub/access-om3-experiments/tree/MC_25km_jra_ryf%2Bwombatlite-81ad20e-c4347f5a
   evaluation: https://access-om3-paper-1.readthedocs.io/mc_25km_jra_ryfwombatlite-81ad20e-c4347f5a-2026.07.000/
   group: control
-  resolution: 25km
+  nominal_resolution: 25 km
   forcing: JRA-RYF
   components: [MOM6, CICE, WOMBATLite]
   config: {branch: dev-MC_25km_jra_ryf+wombatlite, commit: 81ad20ec37661632dd8d7859ef6d6ded7f90664b}
@@ -77,7 +78,7 @@
   runlog: https://github.com/ACCESS-Community-Hub/access-om3-experiments/tree/MC_25km_jra_iaf%2Bwombatlite-test3v2-00532b88
   evaluation: https://access-om3-paper-1.readthedocs.io/mc_25km_jra_iafwombatlite-test3v2-00532b88-2026.07.000/
   group: control
-  resolution: 25km
+  nominal_resolution: 25 km
   forcing: JRA-IAF
   components: [MOM6, CICE, WOMBATLite]
   config: {branch: dev-MC_25km_jra_iaf+wombatlite, commit: 701a7b7f8d30c709552f989754504e8d7c67cf63}
@@ -91,7 +92,7 @@
   runlog: https://github.com/ACCESS-Community-Hub/access-om3-experiments/tree/MC_25km_jra_iaf%2Bwombatlite-test4-d28e0359
   evaluation: https://access-om3-paper-1.readthedocs.io/mc_25km_jra_iafwombatlite-test4-d28e0359-2026.11.000/
   group: control
-  resolution: 25km
+  nominal_resolution: 25 km
   forcing: JRA-IAF
   components: [MOM6, CICE, WOMBATLite]
   config: {branch: dev-MC_25km_jra_iaf+wombatlite, commit: d4e97fe79ff4cd8abec047bb73da91422b2fd36a}
@@ -105,7 +106,7 @@
   runlog: https://github.com/ACCESS-Community-Hub/access-om3-experiments/tree/MC-25km_jra_ryf%2Bwombatlite-test3-f4d79e82
   evaluation: https://access-om3-paper-1.readthedocs.io/mc_25km_jra_ryfwombatlite-test3-f4d79e82-2026.07.000/
   group: control
-  resolution: 25km
+  nominal_resolution: 25 km
   forcing: JRA-RYF
   components: [MOM6, CICE, WOMBATLite]
   config: {branch: dev-MC_25km_jra_iaf+wombatlite, commit: d4e97fe79ff4cd8abec047bb73da91422b2fd36a}
@@ -119,7 +120,7 @@
   runlog: https://github.com/ACCESS-Community-Hub/access-om3-experiments/tree/MCW_100km_era_iaf-test1-961264ad
   evaluation: https://access-om3-paper-1.readthedocs.io/mcw_100km_era_iaf-test1-961264ad-2026.11.000/
   group: control
-  resolution: 100km
+  nominal_resolution: 100 km
   forcing: ERA-IAF
   components: [MOM6, CICE, WW3]
   config: {branch: dev-MCW_100km_era_iaf, commit: 393901eb18cc34b3da7199cf65af74e582cc8022}
@@ -133,7 +134,7 @@
   runlog: https://github.com/ACCESS-Community-Hub/access-om3-experiments/tree/MC_25km_jra_iaf-1.0-beta-gm1-d968c801
   evaluation: https://access-om3-paper-1.readthedocs.io/mc_25km_jra_iaf-1.0-beta-gm1-d968c801-2026.07.000/
   group: community
-  resolution: 25km
+  nominal_resolution: 25 km
   forcing: JRA-IAF
   components: [MOM6, CICE]
   config: {branch: dev-MC_25km_jra_iaf, commit: f1307b65ee6b06ad9e92a560ae64bc0b4c91e6ee}
@@ -145,7 +146,7 @@
   runlog: https://github.com/ACCESS-Community-Hub/access-om3-experiments/tree/MC_25km_jra_iaf-1.0-beta-gm2-5dc49da6
   evaluation: https://access-om3-paper-1.readthedocs.io/mc_25km_jra_iaf-1.0-beta-gm2-5dc49da6-2026.07.000/
   group: community
-  resolution: 25km
+  nominal_resolution: 25 km
   forcing: JRA-IAF
   components: [MOM6, CICE]
   config: {branch: dev-MC_25km_jra_iaf, commit: f1307b65ee6b06ad9e92a560ae64bc0b4c91e6ee}
@@ -157,7 +158,7 @@
   runlog: https://github.com/ACCESS-Community-Hub/access-om3-experiments/tree/MC_25km_jra_iaf-1.0-beta-gm3-da330542
   evaluation: https://access-om3-paper-1.readthedocs.io/mc_25km_jra_iaf-1.0-beta-gm3-da330542-2026.07.000/
   group: community
-  resolution: 25km
+  nominal_resolution: 25 km
   forcing: JRA-IAF
   components: [MOM6, CICE]
   config: {branch: dev-MC_25km_jra_iaf, commit: f1307b65ee6b06ad9e92a560ae64bc0b4c91e6ee}
@@ -169,7 +170,7 @@
   runlog: https://github.com/ACCESS-Community-Hub/access-om3-experiments/tree/MC_25km_jra_iaf-1.0-beta-gm4-9fd08880
   evaluation: https://access-om3-paper-1.readthedocs.io/mc_25km_jra_iaf-1.0-beta-gm4-9fd08880-2026.07.000/
   group: community
-  resolution: 25km
+  nominal_resolution: 25 km
   forcing: JRA-IAF
   components: [MOM6, CICE]
   config: {branch: dev-MC_25km_jra_iaf, commit: f1307b65ee6b06ad9e92a560ae64bc0b4c91e6ee}
@@ -181,7 +182,7 @@
   runlog: https://github.com/ACCESS-Community-Hub/access-om3-experiments/tree/MC_25km_jra_iaf-1.0-beta-gm5-9b5dbfa9
   evaluation: https://access-om3-paper-1.readthedocs.io/mc_25km_jra_iaf-1.0-beta-gm5-9b5dbfa9-2026.07.000/
   group: community
-  resolution: 25km
+  nominal_resolution: 25 km
   forcing: JRA-IAF
   components: [MOM6, CICE]
   config: {branch: dev-MC_25km_jra_iaf, commit: f1307b65ee6b06ad9e92a560ae64bc0b4c91e6ee}
@@ -193,7 +194,7 @@
   runlog: https://github.com/ACCESS-Community-Hub/access-om3-experiments/tree/MC_25km_jra_iaf%2Bwombatlite_bs1-mpudig-backscat1-4c21c151
   evaluation: https://access-om3-paper-1.readthedocs.io/mc_25km_jra_iafwombatlite_bs1-mpudig-backscat1-4c21c151-2026.07.000/
   group: community
-  resolution: 25km
+  nominal_resolution: 25 km
   forcing: JRA-IAF
   components: [MOM6, CICE, WOMBATLite]
   config: {branch: dev-MC_25km_jra_iaf+wombatlite, commit: cf60aa7326243888b88fbf8055b9b9e2ce2c4bf5}
@@ -205,7 +206,7 @@
   runlog: https://github.com/ACCESS-Community-Hub/access-om3-experiments/tree/MC_25km_jra_iaf%2Bwombatlite_bs2-mpudig-backscat2-0578cc3
   evaluation: https://access-om3-paper-1.readthedocs.io/mc_25km_jra_iafwombatlite_bs2-mpudig-backscat2-0578cc36-2026.07.000/
   group: community
-  resolution: 25km
+  nominal_resolution: 25 km
   forcing: JRA-IAF
   components: [MOM6, CICE, WOMBATLite]
   config: {branch: dev-MC_25km_jra_iaf+wombatlite, commit: cf60aa7326243888b88fbf8055b9b9e2ce2c4bf5}
