@@ -99,7 +99,7 @@ Regional configurations:
  
 **MOM6-CICE6-WW3-DATM-DROF configurations**
 
-- [`dev-MCW_100km_jra_iaf`](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MCW_100km_jra_iaf).
+- [`dev-MCW_100km_era_iaf`](https://github.com/ACCESS-NRI/access-om3-configs/tree/dev-MCW_100km_era_iaf): see the [100 km configuration guide](/configurations/MCW_100km/).
 
 The `dev-MCW_100km_jra_ryf` configuration has been [archived](https://github.com/ACCESS-NRI/access-om3-configs/releases/tag/archive-MCW_100km_jra_ryf), and isn't currently maintained.
 
