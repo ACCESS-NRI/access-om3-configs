@@ -1,8 +1,25 @@
-# Experiments listed on pages/Experiments.md.
-# components: any of MOM6, CICE, WW3, WOMBATLite
-# date: roughly when the run was done (start or finish date)
-# Allowed values -> nominal_resolution: 8 km | 25 km | 100 km;  forcing: JRA-IAF | JRA-RYF | ERA-IAF
-# nominal_resolution uses the same name and format as metadata.yaml (ACCESS-NRI experiment-metadata schema)
+# Experiments listed on pages/Experiments.md (rendered by the template in that file).
+# Add one block per experiment. Field order doesn't matter.
+#
+# Field               Required  Valid values
+# ------------------  --------  ---------------------------------------------------------------
+# experiment          yes       Run name; must be unique in this file
+# runlog              yes       URL of the runlog branch (normally in ACCESS-Community-Hub/access-om3-experiments)
+# evaluation          no        URL of the evaluation page (normally on access-om3-paper-1.readthedocs.io)
+# group               yes       control | community   (main table, or "Community run sensitivity tests")
+# nominal_resolution  yes       4 km | 8 km | 25 km | 100 km   (same name and format as metadata.yaml)
+# forcing             yes       JRA-IAF | JRA-RYF | ERA-IAF
+# components          yes       List of any of: MOM6, CICE, WW3, WOMBATLite (no duplicates), e.g. [MOM6, CICE, WW3]
+# config              yes       {branch: <config branch name>, commit: <7-40 character commit SHA>}
+#   .commit           yes       Commit in ACCESS-NRI/access-om3-configs the run used
+#   .branch           no        Branch name shown as the link text (defaults to the short commit SHA)
+# build               yes       ACCESS-OM3 release tag, e.g. "2026.05.004" (quote it, so YAML keeps it as text)
+# date                yes       YYYY-MM-DD, roughly when the run was done (start or finish date)
+# years               yes       Free text, e.g. 66 years (1958-2023)
+# description         no        Free text; markdown links allowed
+# datastore           no        Path to the ESM datastore: /g/data/.../<name>.json
+#
+# Any other field is not allowed.
 
 - experiment: MC_25km_jra_ryf-1.0-beta-cdfb3543
   runlog: https://github.com/ACCESS-Community-Hub/access-om3-experiments/tree/MC_25km_jra_ryf-1.0-beta-cdfb3543
