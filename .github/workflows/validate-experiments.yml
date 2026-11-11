@@ -6,18 +6,12 @@ name: Validate experiments
 on:
   pull_request:
     paths:
-      - documentation/docs/pages/experiments.yaml
-      - documentation/docs/pages/experiments.schema.json
-      - documentation/scripts/validate_experiments.py
-      - .github/workflows/validate-experiments.yml
+      - documentation/**
   push:
     branches:
       - main
     paths:
-      - documentation/docs/pages/experiments.yaml
-      - documentation/docs/pages/experiments.schema.json
-      - documentation/scripts/validate_experiments.py
-      - .github/workflows/validate-experiments.yml
+      - documentation/**
   workflow_dispatch:
 
 permissions:
