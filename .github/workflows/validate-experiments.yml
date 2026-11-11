@@ -21,6 +21,7 @@ permissions:
 
 jobs:
   validate:
+    name: Validate experiments   # the check name shown on PRs (use this in rulesets)
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
