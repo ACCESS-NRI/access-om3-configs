@@ -155,6 +155,7 @@
   components: [MOM6, CICE]
   config: {branch: dev-MC_25km_jra_iaf, commit: f1307b65ee6b06ad9e92a560ae64bc0b4c91e6ee}
   build: "2025.08.001"
+  date: 2025-12-24
   years: 32 years (1979-2010)
   datastore: /g/data/ol01/outputs/access-om3-25km/MC_25km_jra_iaf-1.0-beta-gm1-d968c801/datastore.json
 
@@ -167,6 +168,7 @@
   components: [MOM6, CICE]
   config: {branch: dev-MC_25km_jra_iaf, commit: f1307b65ee6b06ad9e92a560ae64bc0b4c91e6ee}
   build: "2025.08.001"
+  date: 2026-01-08
   years: 30 years (1979-2008)
   datastore: /g/data/ol01/outputs/access-om3-25km/MC_25km_jra_iaf-1.0-beta-gm2-5dc49da6/datastore.json
 
@@ -179,6 +181,7 @@
   components: [MOM6, CICE]
   config: {branch: dev-MC_25km_jra_iaf, commit: f1307b65ee6b06ad9e92a560ae64bc0b4c91e6ee}
   build: "2025.08.001"
+  date: 2025-12-24
   years: 31 years (1979-2009)
   datastore: /g/data/ol01/outputs/access-om3-25km/MC_25km_jra_iaf-1.0-beta-gm3-da330542/datastore.json
 
@@ -191,6 +194,7 @@
   components: [MOM6, CICE]
   config: {branch: dev-MC_25km_jra_iaf, commit: f1307b65ee6b06ad9e92a560ae64bc0b4c91e6ee}
   build: "2025.08.001"
+  date: 2026-01-20
   years: 31 years (1979-2009)
   datastore: /g/data/ol01/outputs/access-om3-25km/MC_25km_jra_iaf-1.0-beta-gm4-9fd08880/datastore.json
 
@@ -203,6 +207,7 @@
   components: [MOM6, CICE]
   config: {branch: dev-MC_25km_jra_iaf, commit: f1307b65ee6b06ad9e92a560ae64bc0b4c91e6ee}
   build: "2025.08.001"
+  date: 2026-01-21
   years: 31 years (1979-2009)
   datastore: /g/data/ol01/outputs/access-om3-25km/MC_25km_jra_iaf-1.0-beta-gm5-9b5dbfa9/datastore.json
 
@@ -215,6 +220,7 @@
   components: [MOM6, CICE, WOMBATLite]
   config: {branch: dev-MC_25km_jra_iaf+wombatlite, commit: cf60aa7326243888b88fbf8055b9b9e2ce2c4bf5}
   build: "2026.03.000"
+  date: 2026-06-10
   years: 30 years (1990-2019)
   datastore: /g/data/ol01/outputs/access-om3-25km/MC_25km_jra_iaf+wombatlite_bs1-mpudig-backscat1-4c21c151/datastore.json
 
@@ -227,6 +233,7 @@
   components: [MOM6, CICE, WOMBATLite]
   config: {branch: dev-MC_25km_jra_iaf+wombatlite, commit: cf60aa7326243888b88fbf8055b9b9e2ce2c4bf5}
   build: "2026.03.000"
+  date: 2026-06-22
   years: 30 years (1990-2019)
   datastore: /g/data/ol01/outputs/access-om3-25km/MC_25km_jra_iaf+wombatlite_bs2-mpudig-backscat2-0578cc36/datastore.json
 

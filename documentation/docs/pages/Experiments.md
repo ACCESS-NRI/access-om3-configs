@@ -40,8 +40,8 @@ distributed and modified. Users of ACCESS-NRI models, data, tools or expert supp
 {%- set BUILD = "https://github.com/ACCESS-NRI/ACCESS-OM3/releases/tag/" -%}
 
 {%- macro store(e) -%}
-{#- Return datastore path, and then the folder for the experiment output -#}
-`{{ e.datastore }}` <br/> (`{{ e.datastore.rsplit('/', 1)[0] }}/`)
+{#- Return datastore path, and then the folder for the experiment output (blank if not given) -#}
+{%- if e.get('datastore') -%}`{{ e.datastore }}` <br/> (`{{ e.datastore.rsplit('/', 1)[0] }}/`){%- endif -%}
 {%- endmacro -%}
 
 {%- macro hidden(e) -%}
@@ -64,7 +64,7 @@ distributed and modified. Users of ACCESS-NRI models, data, tools or expert supp
 | Experiment | Evaluation | Base Configuration | Date | Description | Model build | Length (years) | ESM Datastore <br/> (output path) | Resolution | Forcing | Components |
 |----|----|----|----|----|----|----|----|----|----|----|
 {% for e in experiments if e.group == 'control' -%}
-| [{{ e.experiment }}]({{ e.runlog }}) | [Evaluation]({{ e.evaluation }}) | [{{ e.config.branch }}]({{ CONFIG ~ e.config.commit }}) | {{ e.date }} | {{ e.description }} | [{{ e.build }}]({{ BUILD ~ e.build }}) | {{ e.years }} | {{ store(e) }} | {{ hidden(e) }} |
+| [{{ e.experiment }}]({{ e.runlog }}) | {% if e.get('evaluation') %}[Evaluation]({{ e.evaluation }}){% endif %} | [{{ e.config.get('branch') or e.config.commit[:7] }}]({{ CONFIG ~ e.config.commit }}) | {{ e.date }} | {{ e.get('description', '') }} | [{{ e.build }}]({{ BUILD ~ e.build }}) | {{ e.years }} | {{ store(e) }} | {{ hidden(e) }} |
 {% endfor %}
 
 </div>
@@ -75,10 +75,10 @@ The following are additional sensitivity-test experiments, exploring specific pa
 
 <div class="exp-table" markdown>
 
-| Experiment | Evaluation | Base Configuration | Model build | Length (years) | ESM Datastore <br/> (output path) | Resolution | Forcing | Components |
-|----|----|----|----|----|----|----|----|----|
+| Experiment | Evaluation | Base Configuration | Date | Model build | Length (years) | ESM Datastore <br/> (output path) | Resolution | Forcing | Components |
+|----|----|----|----|----|----|----|----|----|----|
 {% for e in experiments if e.group == 'community' -%}
-| [{{ e.experiment }}]({{ e.runlog }}) | [Evaluation]({{ e.evaluation }}) | [{{ e.config.branch }}]({{ CONFIG ~ e.config.commit }}) | [{{ e.build }}]({{ BUILD ~ e.build }}) | {{ e.years }} | {{ store(e) }} | {{ hidden(e) }} |
+| [{{ e.experiment }}]({{ e.runlog }}) | {% if e.get('evaluation') %}[Evaluation]({{ e.evaluation }}){% endif %} | [{{ e.config.get('branch') or e.config.commit[:7] }}]({{ CONFIG ~ e.config.commit }}) | {{ e.date }} | [{{ e.build }}]({{ BUILD ~ e.build }}) | {{ e.years }} | {{ store(e) }} | {{ hidden(e) }} |
 {% endfor %}
 
 </div>
