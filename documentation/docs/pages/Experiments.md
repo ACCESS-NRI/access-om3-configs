@@ -51,11 +51,13 @@ distributed and modified. Users of ACCESS-NRI models, data, tools or expert supp
 
 {#- Component combinations that exist in the YAML, e.g. "MOM6 + CICE + WOMBATLite" -#}
 {%- set combos = experiments | map(attribute='components') | map('join', ' + ') | unique | sort -%}
+{#- Resolutions that exist in the YAML, smallest first (values are "<number> km", see experiments.schema.json) -#}
+{%- set resolutions = experiments | map(attribute='nominal_resolution') | map('replace', ' km', '') | map('int') | unique | sort -%}
 
 <div class="exp-filter">
 <label>Search <input type="search" autocomplete="off" data-filter="search" placeholder="name, build, description..."></label>
 <label>Components <select autocomplete="off" data-filter="Components"><option value="">Any</option>{% for c in combos %}<option>{{ c }}</option>{% endfor %}</select></label>
-<label>Resolution <select autocomplete="off" data-filter="Resolution"><option value="">Any</option><option>4 km</option><option>8 km</option><option>25 km</option><option>100 km</option></select></label>
+<label>Resolution <select autocomplete="off" data-filter="Resolution"><option value="">Any</option>{% for r in resolutions %}<option>{{ r }} km</option>{% endfor %}</select></label>
 <label>Forcing <select autocomplete="off" data-filter="Forcing"><option value="">Any</option><option>JRA-IAF</option><option>JRA-RYF</option><option>ERA-IAF</option></select></label>
 </div>
 
