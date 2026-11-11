@@ -1,0 +1,40 @@
+name: Validate experiments
+
+# Checks documentation/docs/pages/experiments.yaml (the Experiments page data)
+# against documentation/docs/pages/experiments.schema.json.
+
+on:
+  pull_request:
+    paths:
+      - documentation/docs/pages/experiments.yaml
+      - documentation/docs/pages/experiments.schema.json
+      - documentation/scripts/validate_experiments.py
+      - .github/workflows/validate-experiments.yml
+  push:
+    branches:
+      - main
+    paths:
+      - documentation/docs/pages/experiments.yaml
+      - documentation/docs/pages/experiments.schema.json
+      - documentation/scripts/validate_experiments.py
+      - .github/workflows/validate-experiments.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install dependencies
+        run: pip install pyyaml jsonschema
+
+      - name: Validate experiments.yaml
+        run: python documentation/scripts/validate_experiments.py
