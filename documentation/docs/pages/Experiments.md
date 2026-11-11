@@ -1,27 +1,3 @@
-
-<!-- some hacks to hide the table of contents and make the links sidebar smaller, 
-so the table has more screen real estate -->
-<style>
-.md-sidebar--secondary:not([hidden]){
-  display: none 
-}
-
-.md-sidebar {
-    width: 8rem
-}
-
-.md-typeset table td:first-child,
-.md-typeset table th:first-child {
-  max-width: 200px;
-}
-
-.md-typeset table td:last-child,
-.md-typeset table th:last-child {
-  min-width: 200px;
-}
-
-</style>
-
 # ACCESS-OM3 Experiments
 
 The below lists key experiments that are being used to improve, evaluate and drive development for OM3. We welcome scientific and technical feedback on these runs. If you would like to get involved in evaluation of these runs, see instructions [here](https://github.com/acCESS-Community-Hub/access-om3-paper-1/) and an overview [here](/contributing/#help-us-evaluate-and-improve-applications-of-om3). 
@@ -35,7 +11,7 @@ distributed and modified. Users of ACCESS-NRI models, data, tools or expert supp
   in all publications/reports/public releases.
 
 
-{#- Rows come from experiments.yaml (next to this file). Edit that file to add or change an experiment. -#}
+{#- The table is constructed from from experiments.yaml (next to this file). Edit that file to add or change an experiment. -#}
 {%- set CONFIG = "https://github.com/ACCESS-NRI/access-om3-configs/tree/" -%}
 {%- set BUILD = "https://github.com/ACCESS-NRI/ACCESS-OM3/releases/tag/" -%}
 
