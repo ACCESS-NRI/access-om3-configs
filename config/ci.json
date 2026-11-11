@@ -22,6 +22,7 @@
         "release-MC_100km_jra_ryf": { },
         "release-MC_25km_jra_ryf": { },
         "release-.*": {
+            "markers": "repro",
             "model-config-tests-version": "0.2.6",
             "payu-version": "1.3.6"
         }
