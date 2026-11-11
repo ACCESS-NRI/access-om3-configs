@@ -7,11 +7,13 @@ on:
   pull_request:
     paths:
       - documentation/**
+      - .github/workflows/validate-experiments.yml
   push:
     branches:
       - main
     paths:
       - documentation/**
+      - .github/workflows/validate-experiments.yml
   workflow_dispatch:
 
 permissions:
