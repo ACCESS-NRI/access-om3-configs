@@ -41,7 +41,7 @@ document$.subscribe(() => {
         { targets: [col('Date'), col('Model build')].filter(i => i >= 0), className: 'exp-nowrap' },
         { targets: '_all', orderSequence: ['asc', 'desc'] },  // no third 'unsorted' state
       ],
-      layout: { topStart: null, topEnd: null, bottomStart: 'info', bottomEnd: null },
+      layout: { topStart: 'info', topEnd: null, bottomStart: null, bottomEnd: null },
       language: { info: 'Showing _TOTAL_ of _MAX_ experiments', infoFiltered: '', infoEmpty: 'Showing 0 of _MAX_ experiments', zeroRecords: 'No matching experiments' },
     });
   });
