@@ -1562,3 +1562,9 @@ img.intro-img {
 .md-typeset table.dataTable .exp-nowrap { white-space: nowrap; }
 .md-typeset table.dataTable th.dt-type-date, .md-typeset table.dataTable td.dt-type-date,
 .md-typeset table.dataTable th.dt-type-numeric, .md-typeset table.dataTable td.dt-type-numeric { text-align: left; }
+.md-typeset table.dataTable button.exp-copy {
+  margin: .1rem .3rem .1rem 0; padding: .15rem .5rem; font: inherit; font-size: .6rem; white-space: nowrap; cursor: pointer;
+  color: var(--md-default-fg-color); background: var(--md-code-bg-color);
+  border: .05rem solid var(--md-default-fg-color--lighter); border-radius: .2rem;
+}
+.md-typeset table.dataTable button.exp-copy:hover { border-color: var(--md-accent-fg-color); }

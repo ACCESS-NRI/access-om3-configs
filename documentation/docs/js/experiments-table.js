@@ -2,6 +2,26 @@
 // DataTables has no built-in filter bar shared across tables, so this wires up our own.
 // Resolution / Forcing / Components are real columns, hidden from view but still searchable,
 // so the filter bar above the tables can filter on them.
+
+// "Copy datastore path" / "Copy output path" buttons (class exp-copy, path in data-copy).
+// One listener on the document, so it keeps working across Material's instant navigation.
+document.addEventListener('click', e => {
+  const btn = e.target.closest('button.exp-copy');
+  if (!btn) return;
+  const path = btn.dataset.copy;
+  const done = () => {
+    const label = btn.dataset.label || (btn.dataset.label = btn.textContent);
+    btn.textContent = 'Copied!';
+    setTimeout(() => { btn.textContent = label; }, 1500);
+  };
+  // The Clipboard API needs HTTPS or localhost; otherwise show the path to copy by hand.
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(path).then(done, () => window.prompt('Copy this path:', path));
+  } else {
+    window.prompt('Copy this path:', path);
+  }
+});
+
 document$.subscribe(() => {
   const tables = [...document.querySelectorAll('.exp-table table')];
   const bar = document.querySelector('.exp-filter');
