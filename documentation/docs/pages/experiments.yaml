@@ -125,7 +125,7 @@
   nominal_resolution: 25 km
   forcing: JRA-RYF
   components: [MOM6, CICE, WOMBATLite]
-  config: {branch: dev-MC_25km_jra_iaf+wombatlite, commit: d4e97fe79ff4cd8abec047bb73da91422b2fd36a}
+  config: {branch: dev-MC_25km_jra_ryf+wombatlite, commit: 4392259ef5b580166ab4a3887b88a77eb813807d}
   build: "2026.05.002"
   date: 2026-06-26
   years: 31 years (1900-1930)
