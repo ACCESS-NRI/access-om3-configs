@@ -24,10 +24,10 @@ modules:
         - model-tools/mppnccombine-fast/2026.10.000-1
 
 queue: normalsr
-ncpus: 2990
+ncpus: 4992
 jobfs: 10GB
-mem: 14700GB
-walltime: 8:00:00
+mem: 24000GB
+walltime: 6:00:00
 jobname: MC_panan4km_jra_iaf+isf
 
 model: access-om3
