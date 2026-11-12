@@ -485,8 +485,6 @@ BT_PROJECT_VELOCITY = True      !   [Boolean] default = False
                                 ! use a predictor continuity step to find the pressure field, and then to do a
                                 ! corrector continuity step using a weighted average of the old and new
                                 ! velocities, with weights of (1-BEBT) and BEBT.
-DYNAMIC_SURFACE_PRESSURE = True !   [Boolean] default = False
-                                ! If true, add a dynamic pressure due to a viscous ice shelf, for instance.
 BEBT = 0.2                      !   [nondim] default = 0.1
                                 ! BEBT determines whether the barotropic time stepping uses the forward-backward
                                 ! time-stepping scheme or a backward Euler scheme. BEBT is valid in the range
@@ -770,6 +768,12 @@ LATENT_HEAT_FUSION = 3.337E+05  !   [J/kg] default = 3.34E+05
                                 ! The latent heat of fusion.
 LATENT_HEAT_VAPORIZATION = 2.501E+06 !   [J/kg] default = 2.5E+06
                                 ! The latent heat of fusion.
+MAX_P_SURF = 0.0                !   [Pa] default = -1.0
+                                ! The maximum surface pressure that can be exerted by the atmosphere and
+                                ! floating sea-ice or ice shelves. This is needed because the FMS coupling
+                                ! structure does not limit the water that can be frozen out of the ocean and the
+                                ! ice-ocean heat fluxes are treated explicitly.  No limit is applied if a
+                                ! negative value is used.
 ADJUST_NET_SRESTORE_BY_SCALING = True !   [Boolean] default = False
                                 ! If true, adjustments to salt restoring to achieve zero net are made by scaling
                                 ! values without moving the zero contour.
@@ -792,12 +796,6 @@ SRESTORE_AS_SFLUX = True        !   [Boolean] default = False
                                 ! freshwater flux.
 MAX_DELTA_SRESTORE = 0.5        !   [PSU or g kg-1] default = 999.0
                                 ! The maximum salinity difference used in restoring terms.
-USE_RIGID_SEA_ICE = True        !   [Boolean] default = False
-                                ! If true, sea-ice is rigid enough to exert a nonhydrostatic pressure that
-                                ! resist vertical motion.
-SEA_ICE_RIGID_MASS = 100.0      !   [kg m-2] default = 1000.0
-                                ! The mass of sea-ice per unit area at which the sea-ice starts to exhibit
-                                ! rigidity
 
 ! === module MOM_restart ===
 WAVE_METHOD = "SURFACE_BANDS"   ! default = "EMPTY"
