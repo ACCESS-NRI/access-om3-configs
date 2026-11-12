@@ -27,7 +27,7 @@ queue: normalsr
 ncpus: 4992
 jobfs: 10GB
 mem: 24000GB
-walltime: 6:00:00
+walltime: 4:00:00
 jobname: MC_panan4km_jra_iaf+isf
 
 model: access-om3
