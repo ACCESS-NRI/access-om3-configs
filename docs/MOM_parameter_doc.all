@@ -106,10 +106,10 @@ HMIX_UV_SFC_PROP = 1.08         !   [m] default = 0.0
                                 ! If BULKMIXEDLAYER is false, HMIX_UV_SFC_PROP is the depth over which to
                                 ! average to find surface flow properties, SSU, SSV. A non-positive value
                                 ! indicates no averaging.
-HMIX_SHELF_PROP = 1.0           !   [m] default = 1.0
+HMIX_SHELF_PROP = 1.08          !   [m] default = 1.0
                                 ! HMIX_SHELF_PROP is the depth over which to average to find surface properties
                                 ! like SST and SSS or density (but not surface velocities).
-HMIX_UV_SHELF_PROP = 0.0        !   [m] default = 0.0
+HMIX_UV_SHELF_PROP = 1.08       !   [m] default = 0.0
                                 ! HMIX_UV_SHELF_PROP is the depth over which to average to find surface flow
                                 ! properties, SSU, SSV. A non-positive value indicates no averaging.
 HFREEZE = 10.0                  !   [m] default = -1.0
@@ -145,7 +145,7 @@ C_P = 3992.0                    !   [J kg-1 K-1] default = 3991.86795711963
                                 ! The heat capacity of sea water, approximated as a constant. This is only used
                                 ! if ENABLE_THERMODYNAMICS is true. The default value is from the TEOS-10
                                 ! definition of conservative temperature.
-USE_PSURF_IN_EOS = False        !   [Boolean] default = True
+USE_PSURF_IN_EOS = True         !   [Boolean] default = True
                                 ! If true, always include the surface pressure contributions in equation of
                                 ! state calculations.
 P_REF = 2.0E+07                 !   [Pa] default = 2.0E+07
@@ -854,7 +854,7 @@ MIN_THICKNESS_SIMPLE_CALVE = 0.0 !   [m] default = 0.0
                                 ! Min thickness rule for the very simple calving law
 USTAR_SHELF_BG = 6.0E-04        !   [m s-1] default = 0.0
                                 ! The minimum value of ustar under ice shelves.
-CDRAG_SHELF = 0.007             !   [nondim] default = 0.003
+CDRAG_SHELF = 0.009             !   [nondim] default = 0.003
                                 ! CDRAG is the drag coefficient relating the magnitude of the velocity field to
                                 ! the surface stress.
 USTAR_SHELF_FROM_VEL = True     !   [Boolean] default = True
@@ -1979,7 +1979,7 @@ MINIMUM_FORCING_DEPTH = 1.08    !   [m] default = 0.001
                                 ! when near-surface layers become thin relative to this scale, in which case the
                                 ! forcing tendencies scaled down by distributing the forcing over this depth
                                 ! scale.
-SHELF_FORCING_DEPTH = 0.001     !   [m] default = 0.001
+SHELF_FORCING_DEPTH = 1.08      !   [m] default = 0.001
                                 ! The smallest depth over which forcing can be applied under an ice shelf. This
                                 ! only takes effect under ice shelves, and when near-surface layers become thin
                                 ! relative to this scale, in which case the forcing tendencies are scaled down
@@ -2011,7 +2011,7 @@ DIAG_DEPTH_SUBML_N2 = 50.0      !   [m] default = 50.0
 USE_KPP = False                 !   [Boolean] default = False
                                 ! If true, turns on the [CVMix] KPP scheme of Large et al., 1994, to calculate
                                 ! diffusivities and non-local transport in the OBL.
-FRAZIL_NOT_UNDER_ICESHELF = True !   [Boolean] default = False
+FRAZIL_NOT_UNDER_ICESHELF = False !   [Boolean] default = False
                                 ! If true, do not use frazil scheme underneath ice shelves defined by
                                 ! frac_shelf_h greater than 0.
 
@@ -2045,7 +2045,7 @@ TIDAL_MIXING_ANSWER_DATE = 99991231 ! default = 99991231
                                 ! The vintage of the order of arithmetic and expressions in the tidal mixing
                                 ! calculations.  Values below 20190101 recover the answers from the end of 2018,
                                 ! while higher values use updated and more robust forms of the same expressions.
-INT_TIDE_PROFILE = "STLAURENT_02" ! default = "STLAURENT_02"
+INT_TIDE_PROFILE = "POLZIN_09"  ! default = "STLAURENT_02"
                                 ! INT_TIDE_PROFILE selects the vertical profile of energy dissipation with
                                 ! INT_TIDE_DISSIPATION. Valid values are:
                                 !    STLAURENT_02 - Use the St. Laurent et al exponential
@@ -2061,7 +2061,26 @@ INT_TIDE_LOWMODE_DISSIPATION = False !   [Boolean] default = False
                                 ! generated; as with itidal drag on the barotropic tide, use an internal tidal
                                 ! dissipation scheme to drive diapycnal mixing, along the lines of St. Laurent
                                 ! et al. (2002) and Simmons et al. (2004).
-INT_TIDE_DECAY_SCALE = 500.0    !   [m] default = 500.0
+NU_POLZIN = 0.0697              !   [nondim] default = 0.0697
+                                ! When the Polzin decay profile is used, this is a non-dimensional constant in
+                                ! the expression for the vertical scale of decay for the tidal energy
+                                ! dissipation.
+NBOTREF_POLZIN = 9.61E-04       !   [s-1] default = 9.61E-04
+                                ! When the Polzin decay profile is used, this is the reference value of the
+                                ! buoyancy frequency at the ocean bottom in the Polzin formulation for the
+                                ! vertical scale of decay for the tidal energy dissipation.
+POLZIN_DECAY_SCALE_FACTOR = 1.0 !   [nondim] default = 1.0
+                                ! When the Polzin decay profile is used, this is a scale factor for the vertical
+                                ! scale of decay of the tidal energy dissipation.
+POLZIN_SCALE_MAX_FACTOR = 1.0   !   [nondim] default = 1.0
+                                ! When the Polzin decay profile is used, this is a factor to limit the vertical
+                                ! scale of decay of the tidal energy dissipation to
+                                ! POLZIN_DECAY_SCALE_MAX_FACTOR times the depth of the ocean.
+POLZIN_MIN_DECAY_SCALE = 0.0    !   [m] default = 0.0
+                                ! When the Polzin decay profile is used, this is the minimum vertical decay
+                                ! scale for the vertical profile
+                                ! of internal tide dissipation with the Polzin (2009) formulation
+INT_TIDE_DECAY_SCALE = 300.3003003003003 !   [m] default = 500.0
                                 ! The decay scale away from the bottom for tidal TKE with the new coding when
                                 ! INT_TIDE_DISSIPATION is used.
 MU_ITIDES = 0.2                 !   [nondim] default = 0.2
@@ -2073,15 +2092,15 @@ GAMMA_ITIDES = 0.3333           !   [nondim] default = 0.3333
 MIN_ZBOT_ITIDES = 0.0           !   [m] default = 0.0
                                 ! Turn off internal tidal dissipation when the total ocean depth is less than
                                 ! this value.
-KAPPA_ITIDES = 6.283185307179586E-04 !   [m-1] default = 6.283185307179586E-04
+KAPPA_ITIDES = 6.28319E-04      !   [m-1] default = 6.283185307179586E-04
                                 ! A topographic wavenumber used with INT_TIDE_DISSIPATION. The default is 2pi/10
                                 ! km, as in St.Laurent et al. 2002.
 UTIDE = 0.0                     !   [m s-1] default = 0.0
                                 ! The constant tidal amplitude used with INT_TIDE_DISSIPATION and the ice shelf
                                 ! melt parameterisation.
-KAPPA_H2_FACTOR = 1.0           !   [nondim] default = 1.0
+KAPPA_H2_FACTOR = 0.84          !   [nondim] default = 1.0
                                 ! A scaling factor for the roughness amplitude with INT_TIDE_DISSIPATION.
-TKE_ITIDE_MAX = 1000.0          !   [W m-2] default = 1000.0
+TKE_ITIDE_MAX = 0.1             !   [W m-2] default = 1000.0
                                 ! The maximum internal tide energy source available to mix above the bottom
                                 ! boundary layer with INT_TIDE_DISSIPATION.
 H2_FILE = "bottom_roughness.nc" !
@@ -2723,7 +2742,7 @@ SALT_RESTORE_VARIABLE = "salt"  ! default = "salt"
 SRESTORE_AS_SFLUX = True        !   [Boolean] default = False
                                 ! If true, the restoring of salinity is applied as a salt flux instead of as a
                                 ! freshwater flux.
-MAX_DELTA_SRESTORE = 999.0      !   [PSU or g kg-1] default = 999.0
+MAX_DELTA_SRESTORE = 1.0        !   [PSU or g kg-1] default = 999.0
                                 ! The maximum salinity difference used in restoring terms.
 MASK_SRESTORE_UNDER_ICE = False !   [Boolean] default = False
                                 ! If true, disables SSS restoring under sea-ice based on a frazil criteria

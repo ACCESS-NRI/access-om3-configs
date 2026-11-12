@@ -61,6 +61,12 @@ HMIX_UV_SFC_PROP = 1.08         !   [m] default = 0.0
                                 ! If BULKMIXEDLAYER is false, HMIX_UV_SFC_PROP is the depth over which to
                                 ! average to find surface flow properties, SSU, SSV. A non-positive value
                                 ! indicates no averaging.
+HMIX_SHELF_PROP = 1.08          !   [m] default = 1.0
+                                ! HMIX_SHELF_PROP is the depth over which to average to find surface properties
+                                ! like SST and SSS or density (but not surface velocities).
+HMIX_UV_SHELF_PROP = 1.08       !   [m] default = 0.0
+                                ! HMIX_UV_SHELF_PROP is the depth over which to average to find surface flow
+                                ! properties, SSU, SSV. A non-positive value indicates no averaging.
 HFREEZE = 10.0                  !   [m] default = -1.0
                                 ! If HFREEZE > 0, melt potential will be computed. The actual depth over which
                                 ! melt potential is computed will be min(HFREEZE, OBLD), where OBLD is the
@@ -82,9 +88,6 @@ C_P = 3992.0                    !   [J kg-1 K-1] default = 3991.86795711963
                                 ! The heat capacity of sea water, approximated as a constant. This is only used
                                 ! if ENABLE_THERMODYNAMICS is true. The default value is from the TEOS-10
                                 ! definition of conservative temperature.
-USE_PSURF_IN_EOS = False        !   [Boolean] default = True
-                                ! If true, always include the surface pressure contributions in equation of
-                                ! state calculations.
 WRITE_GEOM = 2                  ! default = 1
                                 ! If =0, never write the geometry and vertical grid files. If =1, write the
                                 ! geometry and vertical grid files only for a new simulation. If =2, always
@@ -311,7 +314,7 @@ DENSITY_ICE = 917.0             !   [kg m-3] default = 900.0
                                 ! A typical density of ice.
 USTAR_SHELF_BG = 6.0E-04        !   [m s-1] default = 0.0
                                 ! The minimum value of ustar under ice shelves.
-CDRAG_SHELF = 0.007             !   [nondim] default = 0.003
+CDRAG_SHELF = 0.009             !   [nondim] default = 0.003
                                 ! CDRAG is the drag coefficient relating the magnitude of the velocity field to
                                 ! the surface stress.
 
@@ -653,9 +656,11 @@ MINIMUM_FORCING_DEPTH = 1.08    !   [m] default = 0.001
                                 ! when near-surface layers become thin relative to this scale, in which case the
                                 ! forcing tendencies scaled down by distributing the forcing over this depth
                                 ! scale.
-FRAZIL_NOT_UNDER_ICESHELF = True !   [Boolean] default = False
-                                ! If true, do not use frazil scheme underneath ice shelves defined by
-                                ! frac_shelf_h greater than 0.
+SHELF_FORCING_DEPTH = 1.08      !   [m] default = 0.001
+                                ! The smallest depth over which forcing can be applied under an ice shelf. This
+                                ! only takes effect under ice shelves, and when near-surface layers become thin
+                                ! relative to this scale, in which case the forcing tendencies are scaled down
+                                ! by distributing the forcing over this depth scale.
 
 ! === module MOM_set_diffusivity ===
 
@@ -664,6 +669,24 @@ FRAZIL_NOT_UNDER_ICESHELF = True !   [Boolean] default = False
 INT_TIDE_DISSIPATION = True     !   [Boolean] default = False
                                 ! If true, use an internal tidal dissipation scheme to drive diapycnal mixing,
                                 ! along the lines of St. Laurent et al. (2002) and Simmons et al. (2004).
+INT_TIDE_PROFILE = "POLZIN_09"  ! default = "STLAURENT_02"
+                                ! INT_TIDE_PROFILE selects the vertical profile of energy dissipation with
+                                ! INT_TIDE_DISSIPATION. Valid values are:
+                                !    STLAURENT_02 - Use the St. Laurent et al exponential
+                                !                   decay profile.
+                                !    POLZIN_09 - Use the Polzin WKB-stretched algebraic
+                                !                   decay profile.
+INT_TIDE_DECAY_SCALE = 300.3003003003003 !   [m] default = 500.0
+                                ! The decay scale away from the bottom for tidal TKE with the new coding when
+                                ! INT_TIDE_DISSIPATION is used.
+KAPPA_ITIDES = 6.28319E-04      !   [m-1] default = 6.283185307179586E-04
+                                ! A topographic wavenumber used with INT_TIDE_DISSIPATION. The default is 2pi/10
+                                ! km, as in St.Laurent et al. 2002.
+KAPPA_H2_FACTOR = 0.84          !   [nondim] default = 1.0
+                                ! A scaling factor for the roughness amplitude with INT_TIDE_DISSIPATION.
+TKE_ITIDE_MAX = 0.1             !   [W m-2] default = 1000.0
+                                ! The maximum internal tide energy source available to mix above the bottom
+                                ! boundary layer with INT_TIDE_DISSIPATION.
 H2_FILE = "bottom_roughness.nc" !
                                 ! The path to the file containing the sub-grid-scale topographic roughness
                                 ! amplitude with INT_TIDE_DISSIPATION.
@@ -871,6 +894,8 @@ SALT_RESTORE_FILE = "salt_sfc_restore.nc" ! default = "salt_restore.nc"
 SRESTORE_AS_SFLUX = True        !   [Boolean] default = False
                                 ! If true, the restoring of salinity is applied as a salt flux instead of as a
                                 ! freshwater flux.
+MAX_DELTA_SRESTORE = 1.0        !   [PSU or g kg-1] default = 999.0
+                                ! The maximum salinity difference used in restoring terms.
 MASK_SRESTORE = True            !   [Boolean] default = False
                                 ! If true, read a file (salt_restore_mask) containing a mask for SSS restoring.
 
