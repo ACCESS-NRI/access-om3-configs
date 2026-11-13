@@ -17,7 +17,7 @@ FATAL_UNUSED_PARAMS = True      !   [Boolean] default = False
 ! This section contains non default layout parameters which are set.
 ! ------------------------
 ! === module MOM_domains ===
-MASKTABLE = "../auxiliary_input/mask_table.1490.84x49" ! default = "MOM_mask_table"
+MASKTABLE = "../auxiliary_input/mask_table.2232.110x55" ! default = "MOM_mask_table"
                                 ! A text file to specify n_mask, layout and mask_list. This feature masks out
                                 ! processors that contain only land points. The first line of mask_table is the
                                 ! number of regions to be masked out. The second line is the layout of the model
@@ -30,9 +30,9 @@ MASKTABLE = "../auxiliary_input/mask_table.1490.84x49" ! default = "MOM_mask_tab
                                 !  4,6
                                 !  1,2
                                 !  3,6
-LAYOUT = 84, 49                 !
+LAYOUT = 110, 55                !
                                 ! The processor layout that was actually used.
-IO_LAYOUT = 12, 7               ! default = 1, 1
+IO_LAYOUT = 10, 5               ! default = 1, 1
                                 ! The processor layout to be used, or 0,0 to automatically set the io_layout to
                                 ! be the same as the layout.
 
@@ -44,10 +44,15 @@ IO_LAYOUT = 12, 7               ! default = 1, 1
 USE_REGRIDDING = True           !   [Boolean] default = False
                                 ! If True, use the ALE algorithm (regridding/remapping). If False, use the
                                 ! layered isopycnal algorithm.
-DT = 150.0                      !   [s]
+DT = 200.0                      !   [s]
                                 ! The (baroclinic) dynamics time step.  The time-step that is actually used will
                                 ! be an integer fraction of the forcing time-step (DT_FORCING in ocean-only mode
                                 ! or the coupling timestep in coupled mode.)
+DT_THERM = 400.0                !   [s] default = 200.0
+                                ! The thermodynamic time step. Ideally DT_THERM should be an integer multiple of
+                                ! DT and of DT_TRACER_ADVECT and less than the forcing or coupling time-step.
+                                ! However, if THERMO_SPANS_COUPLING is true, DT_THERM can be an integer multiple
+                                ! of the coupling timestep. By default DT_THERM is set to DT.
 THERMO_SPANS_COUPLING = True    !   [Boolean] default = False
                                 ! If true, the MOM will take thermodynamic timesteps that can be longer than the
                                 ! coupling timestep. The actual thermodynamic timestep that is used in this case
@@ -61,12 +66,18 @@ HMIX_UV_SFC_PROP = 1.08         !   [m] default = 0.0
                                 ! If BULKMIXEDLAYER is false, HMIX_UV_SFC_PROP is the depth over which to
                                 ! average to find surface flow properties, SSU, SSV. A non-positive value
                                 ! indicates no averaging.
+HMIX_SHELF_PROP = 1.08          !   [m] default = 1.0
+                                ! HMIX_SHELF_PROP is the depth over which to average to find surface properties
+                                ! like SST and SSS or density (but not surface velocities).
+HMIX_UV_SHELF_PROP = 1.08       !   [m] default = 0.0
+                                ! HMIX_UV_SHELF_PROP is the depth over which to average to find surface flow
+                                ! properties, SSU, SSV. A non-positive value indicates no averaging.
 HFREEZE = 10.0                  !   [m] default = -1.0
                                 ! If HFREEZE > 0, melt potential will be computed. The actual depth over which
                                 ! melt potential is computed will be min(HFREEZE, OBLD), where OBLD is the
                                 ! boundary layer depth. If HFREEZE <= 0 (default), melt potential will not be
                                 ! computed.
-DTBT_RESET_PERIOD = 0.0         !   [s] default = 150.0
+DTBT_RESET_PERIOD = 0.0         !   [s] default = 400.0
                                 ! The period between recalculations of DTBT (if DTBT <= 0). If DTBT_RESET_PERIOD
                                 ! is negative, DTBT is set based only on information available at
                                 ! initialization.  If 0, DTBT will be set every dynamics time step. The default
@@ -82,15 +93,14 @@ C_P = 3992.0                    !   [J kg-1 K-1] default = 3991.86795711963
                                 ! The heat capacity of sea water, approximated as a constant. This is only used
                                 ! if ENABLE_THERMODYNAMICS is true. The default value is from the TEOS-10
                                 ! definition of conservative temperature.
-USE_PSURF_IN_EOS = False        !   [Boolean] default = True
-                                ! If true, always include the surface pressure contributions in equation of
-                                ! state calculations.
 WRITE_GEOM = 2                  ! default = 1
                                 ! If =0, never write the geometry and vertical grid files. If =1, write the
                                 ! geometry and vertical grid files only for a new simulation. If =2, always
                                 ! write the geometry and vertical grid files. Other values are invalid.
 GEOM_FILE = "access-om3.mom6.geometry.nc" ! default = "ocean_geometry"
                                 ! The file into which to write the ocean geometry.
+ICE_SHELF = True                !   [Boolean] default = False
+                                ! If true, enables the ice shelf model.
 
 ! === module MOM_domains ===
 NIGLOBAL = 4320                 !
@@ -277,6 +287,52 @@ REMAPPING_USE_OM4_SUBCELLS = False !   [Boolean] default = True
                                 ! reconstruction for the top- and lower-most sub-layers, but instead assumes
                                 ! they are always vanished (untrue) and so just uses their edge values. We
                                 ! recommend setting this option to false.
+
+! === module MOM_domains min_halo ===
+
+! === module MOM_grid_init ===
+
+! === module MOM_IS_diag_mediator ===
+
+! === module MOM_ice_shelf ===
+SHELF_THERMO = True             !   [Boolean] default = False
+                                ! If true, use a thermodynamically interactive ice shelf.
+LATENT_HEAT_FUSION = 3.337E+05  !   [J/kg] default = 3.34E+05
+                                ! The latent heat of fusion.
+ICE_SHELF_TEMPERATURE = -20.0   !   [degC] default = -15.0
+                                ! The temperature at the center of the ice shelf.
+COL_THICK_MELT_THRESHOLD = 0.001 !   [m] default = 0.0
+                                ! The minimum ocean column thickness where melting is allowed.
+READ_TIDEAMP = True             !   [Boolean] default = False
+                                ! If true, read a file (given by TIDEAMP_FILE) containing the tidal amplitude
+                                ! with INT_TIDE_DISSIPATION. If true, also used as the tidal amplitude in the
+                                ! ice shelf melt parameterisation.
+ICE_SHELF_USTAR_FROM_VEL_BUGFIX = True !   [Boolean] default = False
+                                ! Bug fix for ice-area weighting of squared ocean velocities used to calculate
+                                ! friction velocity under ice shelves
+ICE_SHELF_TIDEAMP_SCALING_FACTOR = 0.66 !   [nondim] default = 1.0
+                                ! Scale TIDEAMP_FILE or UTIDE by number in melt parameterisation friction
+                                ! velocity calculation.
+
+! === module MOM_EOS ===
+DENSITY_ICE = 917.0             !   [kg m-3] default = 900.0
+                                ! A typical density of ice.
+USTAR_SHELF_BG = 6.0E-04        !   [m s-1] default = 0.0
+                                ! The minimum value of ustar under ice shelves.
+CDRAG_SHELF = 0.009             !   [nondim] default = 0.003
+                                ! CDRAG is the drag coefficient relating the magnitude of the velocity field to
+                                ! the surface stress.
+
+! === module MOM_restart ===
+ICE_PROFILE_CONFIG = "FILE"     !
+                                ! This specifies how the initial ice profile is specified. Valid values are:
+                                ! CHANNEL, FILE, and USER.
+ICE_THICKNESS_FILE = "ice_shelf_thick.nc" ! default = "ice_shelf_h.nc"
+                                ! The file from which the bathymetry is read.
+ICE_THICKNESS_VARNAME = "thick" ! default = "h_shelf"
+                                ! The name of the thickness variable in ICE_THICKNESS_FILE.
+ICE_AREA_VARNAME = "area"       ! default = "area_shelf_h"
+                                ! The name of the area variable in ICE_THICKNESS_FILE.
 
 ! === module MOM_state_initialization ===
 INPUTDIR = "./INPUT/"           ! default = "."
@@ -605,9 +661,11 @@ MINIMUM_FORCING_DEPTH = 1.08    !   [m] default = 0.001
                                 ! when near-surface layers become thin relative to this scale, in which case the
                                 ! forcing tendencies scaled down by distributing the forcing over this depth
                                 ! scale.
-FRAZIL_NOT_UNDER_ICESHELF = True !   [Boolean] default = False
-                                ! If true, do not use frazil scheme underneath ice shelves defined by
-                                ! frac_shelf_h greater than 0.
+SHELF_FORCING_DEPTH = 1.08      !   [m] default = 0.001
+                                ! The smallest depth over which forcing can be applied under an ice shelf. This
+                                ! only takes effect under ice shelves, and when near-surface layers become thin
+                                ! relative to this scale, in which case the forcing tendencies are scaled down
+                                ! by distributing the forcing over this depth scale.
 
 ! === module MOM_set_diffusivity ===
 
@@ -616,10 +674,24 @@ FRAZIL_NOT_UNDER_ICESHELF = True !   [Boolean] default = False
 INT_TIDE_DISSIPATION = True     !   [Boolean] default = False
                                 ! If true, use an internal tidal dissipation scheme to drive diapycnal mixing,
                                 ! along the lines of St. Laurent et al. (2002) and Simmons et al. (2004).
-READ_TIDEAMP = True             !   [Boolean] default = False
-                                ! If true, read a file (given by TIDEAMP_FILE) containing the tidal amplitude
-                                ! with INT_TIDE_DISSIPATION. If true, also used as the tidal amplitude in the
-                                ! ice shelf melt parameterisation.
+INT_TIDE_PROFILE = "POLZIN_09"  ! default = "STLAURENT_02"
+                                ! INT_TIDE_PROFILE selects the vertical profile of energy dissipation with
+                                ! INT_TIDE_DISSIPATION. Valid values are:
+                                !    STLAURENT_02 - Use the St. Laurent et al exponential
+                                !                   decay profile.
+                                !    POLZIN_09 - Use the Polzin WKB-stretched algebraic
+                                !                   decay profile.
+INT_TIDE_DECAY_SCALE = 300.3003003003003 !   [m] default = 500.0
+                                ! The decay scale away from the bottom for tidal TKE with the new coding when
+                                ! INT_TIDE_DISSIPATION is used.
+KAPPA_ITIDES = 6.28319E-04      !   [m-1] default = 6.283185307179586E-04
+                                ! A topographic wavenumber used with INT_TIDE_DISSIPATION. The default is 2pi/10
+                                ! km, as in St.Laurent et al. 2002.
+KAPPA_H2_FACTOR = 0.84          !   [nondim] default = 1.0
+                                ! A scaling factor for the roughness amplitude with INT_TIDE_DISSIPATION.
+TKE_ITIDE_MAX = 0.1             !   [W m-2] default = 1000.0
+                                ! The maximum internal tide energy source available to mix above the bottom
+                                ! boundary layer with INT_TIDE_DISSIPATION.
 H2_FILE = "bottom_roughness.nc" !
                                 ! The path to the file containing the sub-grid-scale topographic roughness
                                 ! amplitude with INT_TIDE_DISSIPATION.
@@ -800,12 +872,8 @@ EPS_OMESH = 1.0E-13             !   [degrees] default = 1.0E-04
 RESTORE_SALINITY = True         !   [Boolean] default = False
                                 ! If true, the coupled driver will add a globally-balanced fresh-water flux that
                                 ! drives sea-surface salinity toward specified values.
-ICE_SHELF = True                !   [Boolean] default = False
-                                ! If true, enables the ice shelf model.
 
 ! === module MOM_surface_forcing_nuopc ===
-LATENT_HEAT_FUSION = 3.337E+05  !   [J/kg] default = 3.34E+05
-                                ! The latent heat of fusion.
 LATENT_HEAT_VAPORIZATION = 2.501E+06 !   [J/kg] default = 2.5E+06
                                 ! The latent heat of fusion.
 MAX_P_SURF = 0.0                !   [Pa] default = -1.0
@@ -831,47 +899,9 @@ SALT_RESTORE_FILE = "salt_sfc_restore.nc" ! default = "salt_restore.nc"
 SRESTORE_AS_SFLUX = True        !   [Boolean] default = False
                                 ! If true, the restoring of salinity is applied as a salt flux instead of as a
                                 ! freshwater flux.
+MAX_DELTA_SRESTORE = 1.0        !   [PSU or g kg-1] default = 999.0
+                                ! The maximum salinity difference used in restoring terms.
 MASK_SRESTORE = True            !   [Boolean] default = False
                                 ! If true, read a file (salt_restore_mask) containing a mask for SSS restoring.
 
 ! === module MOM_restart ===
-
-! === module MOM_domains min_halo ===
-
-! === module MOM_grid_init ===
-
-! === module MOM_IS_diag_mediator ===
-
-! === module MOM_ice_shelf ===
-SHELF_THERMO = True             !   [Boolean] default = False
-                                ! If true, use a thermodynamically interactive ice shelf.
-ICE_SHELF_TEMPERATURE = -20.0   !   [degC] default = -15.0
-                                ! The temperature at the center of the ice shelf.
-COL_THICK_MELT_THRESHOLD = 0.001 !   [m] default = 0.0
-                                ! The minimum ocean column thickness where melting is allowed.
-ICE_SHELF_USTAR_FROM_VEL_BUGFIX = True !   [Boolean] default = False
-                                ! Bug fix for ice-area weighting of squared ocean velocities used to calculate
-                                ! friction velocity under ice shelves
-ICE_SHELF_TIDEAMP_SCALING_FACTOR = 0.66 !   [nondim] default = 1.0
-                                ! Scale TIDEAMP_FILE or UTIDE by number in melt parameterisation friction
-                                ! velocity calculation.
-
-! === module MOM_EOS ===
-DENSITY_ICE = 917.0             !   [kg m-3] default = 900.0
-                                ! A typical density of ice.
-USTAR_SHELF_BG = 6.0E-04        !   [m s-1] default = 0.0
-                                ! The minimum value of ustar under ice shelves.
-CDRAG_SHELF = 0.007             !   [nondim] default = 0.003
-                                ! CDRAG is the drag coefficient relating the magnitude of the velocity field to
-                                ! the surface stress.
-
-! === module MOM_restart ===
-ICE_PROFILE_CONFIG = "FILE"     !
-                                ! This specifies how the initial ice profile is specified. Valid values are:
-                                ! CHANNEL, FILE, and USER.
-ICE_THICKNESS_FILE = "ice_shelf_thick.nc" ! default = "ice_shelf_h.nc"
-                                ! The file from which the bathymetry is read.
-ICE_THICKNESS_VARNAME = "thick" ! default = "h_shelf"
-                                ! The name of the thickness variable in ICE_THICKNESS_FILE.
-ICE_AREA_VARNAME = "area"       ! default = "area_shelf_h"
-                                ! The name of the area variable in ICE_THICKNESS_FILE.
