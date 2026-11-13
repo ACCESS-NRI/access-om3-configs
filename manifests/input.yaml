@@ -3367,10 +3367,10 @@ work/INPUT/OBC37S_forcing_access_yr2_4km.nc:
     binhash: 39b50148464d56adc7845d79189c0208
     md5: 487153ac346d933eb3a0f1fefd991a8c
 work/INPUT/access-om3-4km-ESMFmesh.nc:
-  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/panan-isf.4km/2026.06.17/access-om3-4km-ESMFmesh.nc
+  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/panan-isf.4km/2026.09.07/access-om3-4km-ESMFmesh.nc
   hashes:
-    binhash: 6c3f32026fff51d50376470d9add7cbd
-    md5: 9cd56cc9b096da80e676166cc744bbd5
+    binhash: 2a221ed85dda38931537a262bf8476c0
+    md5: a627ab79881fff50acb4b73cc5bbf11f
 work/INPUT/access-om3-4km-nomask-ESMFmesh.nc:
   fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/panan-isf.4km/2026.06.17/access-om3-4km-nomask-ESMFmesh.nc
   hashes:
@@ -3742,25 +3742,25 @@ work/INPUT/fx/sftof/gr/v20240531/sftof_input4MIPs_atmosphericState_OMIP_MRI-JRA5
     binhash: 7f98fc486410cff8df3232d390e5a05b
     md5: f5034ec4d5228d648be6375b13ed2c98
 work/INPUT/ice_shelf_thick.nc:
-  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/panan-isf.4km/2026.06.22/ice_shelf_thick.nc
+  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/panan-isf.4km/2026.09.07/ice_shelf_thick.nc
   hashes:
-    binhash: f512432c011a352e52454ed8c21feeb5
-    md5: 2b5c27323b5a2206c28e10dab4d8327b
+    binhash: 45a5618b9a5c46566000cce0feb59fb6
+    md5: 8afc9dc08bd1aedafedf61e276a9c478
 work/INPUT/kmt.nc:
-  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/panan-isf.4km/2026.06.17/kmt.nc
+  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/panan-isf.4km/2026.09.07/kmt.nc
   hashes:
-    binhash: 74ce4feae9feefa4d32e10fab07bd5ad
-    md5: ef2f39bcf10a28892d05866f0823e98d
+    binhash: d6b7c4ad63117d83e282ae6ca5db740e
+    md5: 2da8681175715b9afca897dfd2145a6b
 work/INPUT/ocean_hgrid.nc:
   fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.01.08/ocean_hgrid.nc
   hashes:
     binhash: 931f526ede0691b223ca4bb42879eeb3
     md5: a1876832e039ca9bf761b8c16a08449e
 work/INPUT/ocean_temp_salt.res.nc:
-  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/panan-isf.4km/2026.01.08/ocean_temp_salt.res.nc
+  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/panan-isf.4km/2026.06.17/ocean_temp_salt.res.nc
   hashes:
-    binhash: 8345a635ab30295f2cd6b3640f591223
-    md5: 4bb7af6ab6b226e08760931cb1748fce
+    binhash: af8959107b047da0503c4de602761347
+    md5: 36811d83ef1cdda3db3a5df203aaae0b
 work/INPUT/ocean_vgrid.nc:
   fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/mom/grids/vertical/share/2025.03.12/ocean_vgrid.nc
   hashes:

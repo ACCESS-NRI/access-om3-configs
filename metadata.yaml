@@ -4,8 +4,10 @@ created: Add the date you started the experiment here (YYYY-MM-DD)
 description: |-
     Prototype 4km ACCESS-OM3 pan-Antarctic configuration with ice shelves under
     interannual forcing.
-    Initial conditions of temperature and salinity are interp/extrapolated from
-    start of Jan of second year of ACCESS-OM2-01-RYF output, restarted from WOA13.
+    Initial conditions of temperature and salinity are from January of the
+    Yamazaki et al. observational Southern Ocean climatology, stitched north of
+    45S and below 2000m to January of the second year of ACCESS-OM2-01-RYF
+    output, restarted from WOA13.
     Run with JRA55-do v1.6.0 interannually-varying forcing, starting 1 Jan 1975.
     Open boundary conditions at 37.5S are daily output from the second year of
     ACCESS-OM2-01-RYF, restarted from WOA13, repeated every year.
