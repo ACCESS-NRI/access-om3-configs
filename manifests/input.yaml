@@ -72,25 +72,25 @@ work/INPUT/RYF.vas.1990_1991.nc:
     binhash: db95d15e2b6d3dc5aba176ffd96bd440
     md5: bd0ccd8ef7f639ca77b6705f0d6d1fcb
 work/INPUT/access-om3-4km-ESMFmesh.nc:
-  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.01.08/access-om3-4km-ESMFmesh.nc
+  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.11.13/access-om3-4km-ESMFmesh.nc
   hashes:
-    binhash: c009b73a1232b0417a0c95cbe9d0d860
-    md5: 3e36f72f89f9a61ae4a1ae5a7a1897a9
+    binhash: 1904eefeabe1eaee8f521aae9345585a
+    md5: 2af565e4958e3cbd66ba1bf180f2f42d
 work/INPUT/access-om3-4km-nomask-ESMFmesh.nc:
   fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.01.08/access-om3-4km-nomask-ESMFmesh.nc
   hashes:
     binhash: 5669704e050d3be2b98277ad4270bf3c
     md5: a49b9c9d816f746b1210005ea167fa3a
 work/INPUT/access-om3-panan4km-rof-remap-weights.nc:
-  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/cmeps/remap_weights/panan.4km/2026.08.20/access-om3-panan4km-rof-remap-weights.nc
+  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/cmeps/remap_weights/panan.4km/2026.11.13/access-om3-panan4km-rof-remap-weights.nc
   hashes:
-    binhash: 9cc1b23427b3be294e754663433a2767
-    md5: a3c2d81f10af826685d00acf0c3ece1d
+    binhash: 674f113588f6bc27b5a0a4b5a3244840
+    md5: 1f83e3a0ee19d95e6bf16c4fb48e79c0
 work/INPUT/access-om3-panan4km-rofi-climatology.nc:
-  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/cmeps/rofi_pattern/panan.4km/2026.08.20/access-om3-panan4km-rofi-climatology.nc
+  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/cmeps/rofi_pattern/panan.4km/2026.11.13/access-om3-panan4km-rofi-climatology.nc
   hashes:
-    binhash: 6fc5d50ec5e13cbb57625386d937fbdb
-    md5: 5f820a3483961852547c59348a7cd842
+    binhash: ee0ca6f3238da95e7f08dea83c961a2d
+    md5: e16a0b7d35a0735eb9a4f7e571c53b2f
 work/INPUT/bottom_roughness.nc:
   fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.02.27/bottom_roughness.nc
   hashes:
@@ -107,10 +107,10 @@ work/INPUT/diag_rho2.nc:
     binhash: fab458dc2a1c9fbb9ef0b6420aebaa78
     md5: b8abcb148bb3ef71282d6be4531e491e
 work/INPUT/kmt.nc:
-  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.01.08/kmt.nc
+  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.11.13/kmt.nc
   hashes:
-    binhash: 36c907af8f6dfcd916701046a589b111
-    md5: 7ec3d82ea07c77021acf3f1faded52e8
+    binhash: 0c872903d2b89770d14a6832a1c4308c
+    md5: 4df66e098ced45a33a362d6f96498060
 work/INPUT/ocean_hgrid.nc:
   fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.01.08/ocean_hgrid.nc
   hashes:
@@ -137,7 +137,7 @@ work/INPUT/tideamp.nc:
     binhash: eed2c09d5b0872497349c78de9d015a6
     md5: e714813b1e4bd46dff7936cd86b15366
 work/INPUT/topog.nc:
-  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.01.08/topog.nc
+  fullpath: /g/data/vk83/prerelease/configurations/inputs/access-om3/panan.4km/2026.11.13/topog.nc
   hashes:
-    binhash: 99a04b09610d1750c7e2f5f3218810fb
-    md5: 48bd279b3301e9f41f4aa38030f9ee68
+    binhash: b4e95b72090ccb7cb8891143de460858
+    md5: afc9efdc180bb987d72282d598a07c70
