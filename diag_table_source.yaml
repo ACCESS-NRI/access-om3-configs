@@ -185,6 +185,10 @@ diag_table:
             KE: # Layer Kinetic energy per unit mass
             e: # Interface height relative to mean sea level
             Kd_interface: #Total diapycnal diffusivity at interfaces
+            T_adx: # Advective (by residual mean) Zonal Flux of Heat
+            T_ady: # Advective (by residual mean) Meridional Flux of Heat
+            S_adx: # Advective (by residual mean) Zonal Flux of Salt
+            S_ady: # Advective (by residual mean) Meridional Flux of Salt
 
     'monthly 3d fields on rho2':
         defaults:  # these can be overridden for individual fields below
@@ -219,11 +223,23 @@ diag_table:
             umo_2d: # Ocean Mass X Transport Vertical Sum
             vmo_2d: # Ocean Mass Y Transport Vertical Sum
             pbo: # Sea Water Pressure at Sea Floor
-            friver: # Liquid runoff (rivers) into ocean
             ficeberg: # Frozen runoff (calving) and iceberg melt into ocean
             fsitherm: #  water flux to ocean from snow/sea ice melting(> 0) or formation(< 0)
             precip: # Liquid+frozen precip into ocean
             frazil_heat_tendency_2d: # Frazil heat tendency integrated vertically
+            rsntds: # Shortwave radiation flux into ocean SW
+            rlntds: # Longwave radiation flux into ocean LW
+            hflso: # Latent heat flux into ocean due to fusion and evaporation latent
+            hfsso: # Sensible heat flux into ocean sensible
+            evs: # Evaporation/condensation at ocean surface evap
+            hfibthermds: # Latent heat flux into ocean due to melting of frozen runoff latent_frunoff
+            Heat_PmE: # Heat flux into ocean from mass flux into ocean
+            heat_added: # Flux adjustment or restoring surface heat flux into ocean
+            net_heat_coupler: # Surface ocean heat flux from SW+LW+latent+sensible+seaice_melt_heat (via the coupler)
+            seaice_melt_heat: # Heat flux into ocean due to snow and sea ice melt/freeze
+            vprec: # Virtual liquid precip into ocean due to SSS restoring
+            tob: # Sea Water Potential Temperature at Sea Floor
+            sob: # Sea Water Salinity at Sea Floor
 
     'monthly 2d max fields':
         defaults:  # these can be overridden for individual fields below
@@ -271,6 +287,12 @@ diag_table:
             haline_driving: # haline driving
             tfreeze: # tfreeze
             ustar_shelf: #friction velocity
+            exch_vel_t: # Sub-shelf thermal exchange velocity
+            exch_vel_s: # Sub-shelf salt exchange velocity
+            tflux_shelf: # Heat conduction into ice shelf
+            frazil_refreeze: # Frazil ice refreezing under ice shelves
+            h_shelf: # Ice shelf thickness
+            area_shelf_h: # Ice shelf area in cell
 
     'daily scalar timeseries':
         defaults:  # these can be overridden for individual fields below
@@ -314,7 +336,6 @@ diag_table:
             total_prsn: # Area integrated frozen precip into ocean total_fprec
             total_lprec: # Area integrated liquid precip into ocean
             total_ficeberg: # Area integrated frozen runoff (calving) & iceberg melt into ocean total_frunoff
-            total_friver: # Area integrated liquid runoff into ocean total_lrunoff
             total_net_massout: # Area integrated mass leaving ocean due to evap and seaice form
             total_net_massin: # Area integrated mass entering ocean due to predip, runoff, ice melt
             total_hfevapds: # Area integrated heat content (relative to 0C) of water leaving ocean
