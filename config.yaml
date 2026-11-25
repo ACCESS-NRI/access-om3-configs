@@ -26,7 +26,6 @@ modules:
 queue: normalsr
 ncpus: 8424
 jobfs: 10GB
-mem: 40500GB
 walltime: 05:00:00
 jobname: MC_8km_jra_ryf
 
