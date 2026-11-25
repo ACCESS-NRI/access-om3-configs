@@ -224,6 +224,9 @@ diag_table:
             vmo_2d: # Ocean Mass Y Transport Vertical Sum
             pbo: # Sea Water Pressure at Sea Floor
             ficeberg: # Frozen runoff (calving) and iceberg melt into ocean
+            ePBL_h_ML: # Surface boundary layer depth
+            net_massout: # Net mass leaving the ocean due to evaporation, seaice formation
+            net_massin: # Net mass entering ocean due to precip, runoff, ice melt
             fsitherm: #  water flux to ocean from snow/sea ice melting(> 0) or formation(< 0)
             precip: # Liquid+frozen precip into ocean
             frazil_heat_tendency_2d: # Frazil heat tendency integrated vertically
@@ -247,6 +250,7 @@ diag_table:
             reduction_method: max  # mean, snap, rms, pow##, min, max, or diurnal##
         fields:
             mlotst: # Mixed layer depth (delta rho = 0.03) MLD_003
+            ePBL_h_ML: # Surface boundary layer depth
 
     'daily 2D fields':
         defaults:
@@ -320,6 +324,7 @@ diag_table:
             reduction_method: snap  # mean, snap, rms, pow##, min, max, or diurnal##
             packing: 1  # double precision
         fields:
+            masso: # Mass of liquid ocean
             soga: # Global Mean Ocean Salinity
             thetaoga: # Global Mean Ocean Potential Temperature
             tosga: # Global Area Average Sea Surface Temperature sst_global
@@ -327,7 +332,6 @@ diag_table:
             total_salt_Flux_Added: # Area integrated surface salt flux due to restoring or flux adjustment 
             total_salt_Flux_In: # Area integrated surface salt flux at surface from coupler
             total_salt_flux: # Area integrated surface salt flux
-            net_fresh_water_global_adjustment: # Adjustment needed to adjust net fresh water into ocean to zero
             salt_flux_global_restoring_adjustment: # Adjustment needed to balance net global salt flux into ocean at surface
             total_wfo: # Area integrated net surface water flux (precip+melt+liq runoff+ice calving-evap) total_PRCmE
             total_evs: # Area integrated evap/condense at ocean surface total_evap
@@ -337,7 +341,7 @@ diag_table:
             total_lprec: # Area integrated liquid precip into ocean
             total_ficeberg: # Area integrated frozen runoff (calving) & iceberg melt into ocean total_frunoff
             total_net_massout: # Area integrated mass leaving ocean due to evap and seaice form
-            total_net_massin: # Area integrated mass entering ocean due to predip, runoff, ice melt
+            total_net_massin: # Area integrated mass entering ocean due to precip, runoff, ice melt
             total_hfevapds: # Area integrated heat content (relative to 0C) of water leaving ocean
             total_heat_content_massin: # Area integrated heat content (relative to 0C) of water entering ocean
             total_hfds: # Area integrated surface heat flux from SW+LW+lat+sens+mass+frazil+restore or flux adjustments
