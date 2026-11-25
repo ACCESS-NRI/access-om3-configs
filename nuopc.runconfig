@@ -321,7 +321,7 @@ MED_modelio::
      pio_async_interface = .false.
      pio_netcdf_format = nothing
      pio_numiotasks = 4
-     pio_rearranger = 2
+     pio_rearranger = 1
      pio_root = 1
      pio_stride = 1
      pio_typename = netcdf4p
