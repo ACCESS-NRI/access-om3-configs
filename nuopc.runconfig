@@ -315,7 +315,7 @@ MED_modelio::
      pio_rearranger = 1
      pio_root = 1
      pio_stride = 104
-     pio_typename = pnetcdf
+     pio_typename = netcdf4p
 ::
 
 ATM_modelio::
