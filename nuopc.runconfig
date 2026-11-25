@@ -311,7 +311,7 @@ MED_modelio::
      logfile = med.log
      pio_async_interface = .false.
      pio_netcdf_format = 64bit_data
-     pio_numiotasks = 14
+     pio_numiotasks = 16
      pio_rearranger = 1
      pio_root = 1
      pio_stride = 104
@@ -335,10 +335,10 @@ ICE_modelio::
      logfile = ice.log
      pio_async_interface = .false.
      pio_netcdf_format = nothing
-     pio_numiotasks = 1
+     pio_numiotasks = 33
      pio_rearranger = 1
      pio_root = 1
-     pio_stride = 1
+     pio_stride = 52
      pio_typename = netcdf4p
 ::
 
