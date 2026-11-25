@@ -24,7 +24,13 @@ The human docs are the reference for how this repo works: [`CONTRIBUTING.md`](CO
 - **Default values:** config files generally only list settings that differ from the default. Don't add a setting at its default value.
 - **payu features:** when adding a new option to `config.yaml`, check which payu version introduced it (payu changelog and docs). If it's newer than `payu_minimum_version` in `config.yaml`, raise `payu_minimum_version` in the same commit.
 - **Executable:** `dev-` and `release-` branches must load a released `access-om3` module from `/g/data/vk83/modules`. Prerelease modules (`access-om3/prNNN-M`) are for testing in a draft PR or a local copy only.
-- **PIO settings** (`<COMP>_modelio` in `nuopc.runconfig`): PIO rejects `pio_numiotasks * pio_stride > <comp>_ntasks` with `PIO_EINVAL`, even when the IO ranks `pio_root + i * pio_stride` would all exist (NCAR/ParallelIO#1986). The model then aborts in `PIOc_Init_Intracomm` with no error message. When spreading IO tasks one per node (`pio_stride` = cores per node, 104 on `normalsr`), use `floor(ntasks / pio_stride)` IO tasks. The mediator and CICE share the same PEs in these configs, so check `cpl_ntasks`/`ice_ntasks` in `PELAYOUT_attributes`. Check and update this note when https://github.com/NCAR/ParallelIO/issues/1986 is resolved.
+- **PIO settings** (`MED_modelio` and `ICE_modelio` in `nuopc.runconfig`). Recommended (#1901; the exact counts may still be tuned):
+  - `pio_rearranger = 1` (box). The subset rearranger (`2`) makes mediator restart writes very slow (e.g. 583 s vs 33 s on the 8km).
+  - `pio_typename = netcdf4p`. With the box rearranger it is as fast as `pnetcdf`.
+  - About one IO task per node for the mediator and CICE: `pio_stride` = cores per node (104 on `normalsr`), `pio_root = 1`. Large configs can use more for CICE (the 8km uses two per node, `pio_stride = 52`).
+  - If the mediator and CICE fit on one node (e.g. 100km), leave the IO task counts as they are.
+  - The mediator and CICE share the same PEs in these configs, so base the counts on `cpl_ntasks`/`ice_ntasks` in `PELAYOUT_attributes`, and recompute them when the PE layout changes.
+  - PIO rejects `pio_numiotasks * pio_stride > <comp>_ntasks` with `PIO_EINVAL`, even when the IO ranks `pio_root + i * pio_stride` would all exist (NCAR/ParallelIO#1986). The model then aborts in `PIOc_Init_Intracomm` with no error message. So use `floor(ntasks / pio_stride)` IO tasks; a partly used last node gets none. Check and update this note when https://github.com/NCAR/ParallelIO/issues/1986 is resolved.
 
 ## Building the model
 
