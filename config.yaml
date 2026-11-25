@@ -2,9 +2,9 @@
 
 # If submitting to a different project to your default, uncomment line below 
 # and change project code as appropriate; also set shortpath below
-# project: e14
+# project: x77
 # Force payu to always find, and save, files in this scratch project directory
-# shortpath: /scratch/x77
+# shortpath: /scratch/v45
 
 # Using payu sync is recommend to copy data from ephemeral scratch space to 
 # longer term storage
@@ -68,9 +68,9 @@ mpi:
 collate:
   restart: true
   mpi: true
-  walltime: 2:00:00
-  mem: 80GB
-  ncpus: 16
+  walltime: 4:00:00
+  mem: 30GB
+  ncpus: 4
   queue: normalsr
   exe: mppnccombine-fast
 
@@ -81,7 +81,7 @@ postscript: -v PROJECT,SCRIPTS_DIR=/g/data/vk83/apps/om3-scripts -lstorage=${PBS
 
 qsub_flags: -W umask=027
 
-restart_freq: 1
+restart_freq: 1YS
 payu_minimum_version: 1.3.6
 
 env:
