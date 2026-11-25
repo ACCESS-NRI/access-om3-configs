@@ -312,7 +312,7 @@ MED_modelio::
      pio_async_interface = .false.
      pio_netcdf_format = 64bit_data
      pio_numiotasks = 14
-     pio_rearranger = 2
+     pio_rearranger = 1
      pio_root = 1
      pio_stride = 104
      pio_typename = pnetcdf
