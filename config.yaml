@@ -25,7 +25,6 @@ modules:
 queue: normalsr
 ncpus: 2704
 jobfs: 10GB
-mem: 13000GB
 walltime: 6:00:00
 jobname: MC_25km_jra_iaf
 
