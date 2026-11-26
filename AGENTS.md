@@ -36,8 +36,8 @@ The human docs are the reference for how this repo works: [`CONTRIBUTING.md`](CO
 
 The executable is not built in this repo. See `pages/infrastructure/Building.md` for the full process. In short:
 
-- **Source:** code changes go to the ACCESS-NRI fork of the component (MOM6, CICE, WW3) or to access3-share (CMEPS/CDEPS, shared code and the final executable). Push to a branch named after its issue.
-- **Prerelease build:** in a clone of ACCESS-NRI/ACCESS-OM3, point `spack.yaml` at the commit (`'@git.<full-sha>=<version>'`, e.g. `'@git.<sha>=CICE6.6.3-2'`). Spack variants such as `build_type=Debug` go in `spack.yaml` too. Open a draft PR to `main` titled `[Do not merge] Prerelease: ...`; the bot builds on Gadi and comments the module name (`access-om3/prNNN-M`). If the deploy fails in an unrelated dependency, rerun the failed job or comment `!redeploy`.
+- **Source:** code changes go to the ACCESS-NRI fork of the component (MOM6, CICE, WW3) or to access3-share (CMEPS/CDEPS, shared code and the final executable). Each change needs an issue in that component's repository (linking any related access-om3-configs issue); name the branch after it. If there isn't one, ask the user whether to open it.
+- **Prerelease build:** in a clone of ACCESS-NRI/ACCESS-OM3 (the deployment repo; its `spack.yaml` pins the version of every component), point `spack.yaml` at the commit (`'@git.<full-sha>=<version>'`, e.g. `'@git.<sha>=CICE6.6.3-2'`). Spack variants such as `build_type=Debug` go in `spack.yaml` too. Open a draft PR to `main` titled `[Do not merge] Prerelease: ...`; the bot builds on Gadi and comments the module name (`access-om3/prNNN-M`). If the deploy fails in an unrelated dependency, rerun the failed job or comment `!redeploy`.
 - **Using a prerelease in a config:** add `/g/data/vk83/prerelease/modules` to `modules: use:` and load `access-om3/prNNN-M` in `config.yaml`. Only do this in a draft PR or a local copy (see [Changing a configuration](#changing-a-configuration)). Prerelease modules are deleted eventually, so don't rely on them for long-running experiments.
 - **Faster iteration:** a personal spack instance (`spack develop`) can build from a local source tree, but the build has no provenance, so don't use it for experiments.
 - **Hardware:** the executables are optimised for Sapphire Rapids (`normalsr`) and may not run on `normal` (Cascade Lake).
@@ -47,6 +47,7 @@ The executable is not built in this repo. See `pages/infrastructure/Building.md`
 Structure commits so they can be cherry-picked cleanly into other configs:
 - **One change per commit.** If a PR makes several unrelated changes, put each in its own commit and reference its issue in the commit message (e.g. `Raise MAXTRUNC (#1595)`). Merge the PR with a **merge commit**, not squash, so each change keeps its own commit. A PR that makes one change (e.g. a docs fix on `main`) can be squashed.
 - **Checksums in a separate commit.** Keep the config change and the updated checksums (from `!test repro --commit`) in separate commits. Cherry-pick only the config change, then run `!test repro --commit` on each bot-opened PR so each target branch gets its own checksums.
+- **Signed commits.** All ACCESS-NRI repositories require signed commits.
 
 ## Pull requests
 
@@ -55,10 +56,7 @@ Structure commits so they can be cherry-picked cleanly into other configs:
 
 ## CI commands (PR comments)
 
-- `!test repro`: short run on Gadi comparing checksums.
-  - `--commit` (or `-c`) commits the new checksums when answers change: `!test repro --commit`.
-  - `-m`/`--markers <markers>` selects tests, e.g. `-m repro_historical`. Valid markers are listed in model-config-tests (`config_tests/conftest.py`). `-m historical` matches nothing and fails.
-  - `-w`/`--walltime <HH:MM:SS>` sets the PBS walltime for the test job.
+- `!test repro`: short run on Gadi comparing checksums. Options are defined in ACCESS-NRI/model-config-tests `.github/actions/parse-test-comment-command/parse_test_comment_command.py`, and valid `-m` markers in `src/model_config_tests/config_tests/conftest.py` (`pytest_configure`).
   - For the expensive configs (8km and panan), run only `-m repro_historical` unless the change could affect restart reproducibility or determinism.
   - A change that shouldn't alter answers (e.g. IO settings) should pass without `--commit`. If it doesn't, investigate before committing new checksums.
   - When the bot reports ":fire:" (an error, not a checksum mismatch), the model run failed. The experiment is on Gadi under `/scratch/tm70/repro-ci/experiments/access-om3-configs/pr<N>/<branch>/<commit>/control/<exp>/`; start with `access-om3.err` and the PBS `.e`/`.o` files there.
