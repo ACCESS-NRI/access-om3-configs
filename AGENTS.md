@@ -4,6 +4,13 @@ Guidance for AI coding agents working in ACCESS-NRI/access-om3-configs.
 
 The human docs are the reference for how this repo works: [`CONTRIBUTING.md`](CONTRIBUTING.md) and `documentation/docs/` on `main` (published at https://access-om3-configs.access-hive.org.au), especially `pages/infrastructure/Git-practices.md`, `pages/infrastructure/Building.md` and `pages/Tips-and-tricks.md`. Read them before making changes. This file only lists rules and pitfalls an agent is likely to miss.
 
+## Working here
+
+- **Ask rather than guess**, e.g. which configurations a change should go to, or whether it is meant to change answers.
+- **Parameter values are a science decision.** Don't choose or "improve" a value yourself. If you suggest one, say where it comes from (an issue, a paper, GFDL's OM4/OM5, another ACCESS-OM3 configuration) and leave the decision to the user.
+- **Keep changes small.** Every changed line should come from the request. If you notice something unrelated that looks wrong, mention it rather than fixing it in the same PR.
+- **Say what you ran and what it showed.** Don't call a change answer-neutral or tested unless a run shows it (e.g. `!test repro` passing without `--commit`). Never use `--commit` just to make a failing test pass; find out why the answers changed first.
+
 ## Terminology
 
 - **Config files:** the text files stored in this git repository on each configuration branch (`config.yaml`, `MOM_input`, `ice_in`, `nuopc.runconfig`, `diag_table`, `manifests/`, `docs/`, ...).
@@ -13,6 +20,7 @@ The human docs are the reference for how this repo works: [`CONTRIBUTING.md`](CO
 
 - `main` holds CI and documentation only. Each configuration is a separate `dev-<config>` / `release-<config>` branch with no shared history with `main`.
 - Never commit to, or create, branches starting with `dev-` or `release-`. Make a feature branch named `{issue_number}-{config_branch}` and open a PR to the `dev-` branch.
+- A `dev-` branch must keep meeting the guidelines for a `dev-*` branch (`pages/contributing/Add-Supported-Config.md`) after every PR. If a PR would break one, say so in the PR.
 - To apply the same change to other configs, comment on the merged PR with `!cherry-pick <hash...> into <branch...>` (the commits must already be merged into that PR's base branch). See [Commits](#commits) for which commits to include.
 
 ## Changing a configuration
@@ -22,6 +30,8 @@ The human docs are the reference for how this repo works: [`CONTRIBUTING.md`](CO
 - **`MOM_input`:** everything from the "This file was written by the model..." header onwards must be an exact copy of `docs/MOM_parameter_doc.short`. Replace that section whole; don't edit individual lines.
 - **`docs/` on a config branch** is updated automatically by payu when the configuration is run (payu copies the model's parameter output into it). Run the model to refresh it rather than editing it by hand. The `doc/` folder on `main` is updated by the `update-doc-folder` workflow; don't edit it directly either.
 - **Default values:** config files generally only list settings that differ from the default. Don't add a setting at its default value.
+- **Clean diffs:** change only the lines you need to, and put a new setting in its namelist group or section, not at the end of the file.
+- **Configuration docs:** the pages in `documentation/docs/pages/configurations/` on `main` explain and quote parameter values. When a PR changes a parameter, search those pages for it; if they quote the old value or the reasoning no longer holds, suggest the docs change to the user (it would go in a separate PR to `main`, linked to this one). Link a setting with a GitHub code search, either of the `doc/` folder on `main` (e.g. `repo:ACCESS-NRI/access-om3-configs path:doc/MOM_input content:DIABATIC_FIRST`) or of the default branch of the component's ACCESS-NRI fork (e.g. `repo:ACCESS-NRI/WW3 path:model/src/w3wavemd.F90 DTMAX`).
 - **payu features:** when adding a new option to `config.yaml`, check which payu version introduced it (payu changelog and docs). If it's newer than `payu_minimum_version` in `config.yaml`, raise `payu_minimum_version` in the same commit.
 - **Executable:** `dev-` and `release-` branches must load a released `access-om3` module from `/g/data/vk83/modules`. Prerelease modules (`access-om3/prNNN-M`) are for testing in a draft PR or a local copy only.
 - **PIO settings** (`MED_modelio` and `ICE_modelio` in `nuopc.runconfig`). Recommended (#1901; the exact counts may still be tuned):
@@ -81,6 +91,7 @@ QA tests from model-config-tests run on every PR to `dev-`/`release-`. Before fi
   - If the script commit changed since the previous inputs, look at what changed in the scripts. Inputs can change well beyond the PR's stated edit, and the PR description should say so.
 - A change to `NIPROC`/`NJPROC`/`LAYOUT` in `docs/MOM_parameter_doc.layout` is expected when the land mask or `ncpus` changes (`AUTO_MASKTABLE` drops land-only blocks). Check the arithmetic against `ocn_ntasks` in `nuopc.runconfig` before raising it.
 - Because payu updates `docs/` when it runs, a local run directory can contain `docs/` changes that aren't on the remote branch. Compare against the remote branch tip, not a run clone.
+- If the PR changes a parameter, check there is a linked docs PR to `main`, or a reason why the configuration pages don't need one.
 
 ## Gadi
 
