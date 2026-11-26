@@ -25,6 +25,10 @@ THIN_HALO_UPDATES = True        !   [Boolean] default = True
                                 ! the PE count to be changed at run time.  This can only be set at compile time.
 AUTO_MASKTABLE = True           !   [Boolean] default = False
                                 ! Turn on automatic mask table generation to eliminate land blocks.
+TARGET_IO_PES = 1               ! default = 1
+                                ! When AUTO_MASKTABLE is enabled, target number of IO PEs. If the given target
+                                ! number of IO PEs is not achievable, the target number of IO PEs is set to the
+                                ! nearest smaller number of PEs that is achievable.
 MASKTABLE = "MOM_auto_mask_table" ! default = "MOM_mask_table"
                                 ! A text file to specify n_mask, layout and mask_list. This feature masks out
                                 ! processors that contain only land points. The first line of mask_table is the
@@ -49,7 +53,9 @@ LAYOUT = 22, 15                 !
 AUTO_IO_LAYOUT_FAC = 0          ! default = 0
                                 ! When AUTO_MASKTABLE is enabled, io layout is calculated by performing integer
                                 ! division of the runtime-determined domain layout with this factor. If the
-                                ! factor is set to 0 (default), the io layout is set to 1,1.
+                                ! factor is set to 0 (default), the io layout is set to 1,1. NOTE: TARGET_IO_PES
+                                ! is a more robust way to set the number of IO PEs when auto masking is turned
+                                ! on.
 IO_LAYOUT = 1, 1                !
                                 ! The processor layout to be used, or 0,0 to automatically set the io_layout to
                                 ! be the same as the layout.
@@ -60,6 +66,21 @@ NIBLOCK = 1                     ! default = 1
                                 ! The number of blocks in the x-direction on each processor (for openmp).
 NJBLOCK = 1                     ! default = 1
                                 ! The number of blocks in the y-direction on each processor (for openmp).
+
+! === module MOM_continuity_PPM ===
+CONTINUITY_NIBLOCK = 0          ! default = 0
+                                ! The i-direction block size used in the mass and volume flux calculations. A
+                                ! value of 0 uses the full computational i-domain extent.
+CONTINUITY_NJBLOCK = 1          ! default = 1
+                                ! The j-direction block size used in the mass and volume flux calculations. A
+                                ! value of 0 uses the full computational j-domain extent.
+CONTINUITY_NKBLOCK = 1          ! default = 1
+                                ! The k-direction block size used in PPM reconstruction edge value calculations.
+                                ! A value of 0 uses the full vertical column.
+CORIOLIS_ADV_NKBLOCK = 1        ! default = 1
+                                ! advection calculations. A value of 0 uses the full vertical column.
+HORVISC_NKBLOCK = 1             ! default = 1
+                                ! advection calculations. A value of 0 uses the full vertical column.
 
 ! === module MOM_barotropic ===
 BT_USE_WIDE_HALOS = True        !   [Boolean] default = True

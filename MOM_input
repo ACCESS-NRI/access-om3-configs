@@ -62,8 +62,9 @@ HFREEZE = 10.0                  !   [m] default = -1.0
 DTBT_RESET_PERIOD = 0.0         !   [s] default = 7200.0
                                 ! The period between recalculations of DTBT (if DTBT <= 0). If DTBT_RESET_PERIOD
                                 ! is negative, DTBT is set based only on information available at
-                                ! initialization.  If 0, DTBT will be set every dynamics time step. The default
-                                ! is set by DT_THERM.  This is only used if SPLIT is true.
+                                ! initialization.  If 0, DTBT will be set every dynamics time step. Values
+                                ! between 0 and DT are treated as 0.  The default is set by DT_THERM. This is
+                                ! only used if SPLIT is true.
 FRAZIL = True                   !   [Boolean] default = False
                                 ! If true, water freezes if it gets too cold, and the accumulated heat deficit
                                 ! is returned in the surface state.  FRAZIL is only used if
@@ -113,8 +114,6 @@ NJGLOBAL = 324                  !
                                 ! The total number of thickness grid points in the y-direction in the physical
                                 ! domain. With STATIC_MEMORY_ this is set in MOM_memory.h at compile time.
 
-! === module MOM_fixed_initialization ===
-
 ! === module MOM_grid_init ===
 GRID_CONFIG = "mosaic"          !
                                 ! A character string that determines the method for defining the horizontal
@@ -160,6 +159,12 @@ TOPO_FILE = "./INPUT/topog.nc"  ! default = "topog.nc"
 MAXIMUM_DEPTH = 6000.0          !   [m]
                                 ! The maximum depth of the ocean.
 
+! === module MOM_open_boundary ===
+! Controls where open boundaries are located, what kind of boundary condition to impose, and what data to apply,
+! if any.
+
+! === module MOM_fixed_initialization ===
+
 ! === module MOM_verticalGrid ===
 ! Parameters providing information about the vertical grid.
 NK = 75                         !   [nondim]
@@ -188,9 +193,13 @@ USE_IDEAL_AGE_TRACER = True     !   [Boolean] default = False
 
 ! === module ideal_age_example ===
 
-! === module MOM_fixed_initialization ===
-
 ! === module MOM_grid_init ===
+
+! === module MOM_open_boundary ===
+! Controls where open boundaries are located, what kind of boundary condition to impose, and what data to apply,
+! if any.
+
+! === module MOM_fixed_initialization ===
 
 ! === module MOM_coord_initialization ===
 REGRIDDING_COORDINATE_MODE = "ZSTAR" ! default = "LAYER"
@@ -361,9 +370,10 @@ MEKE_KHTR_FAC = 0.5             !   [nondim] default = 0.0
 MEKE_KHMEKE_FAC = 1.0           !   [nondim] default = 0.0
                                 ! A factor that maps MEKE%Kh to Kh for MEKE itself.
 MEKE_VISCOSITY_COEFF_KU = 1.0   !   [nondim] default = 0.0
-                                ! If non-zero, is the scaling coefficient in the expression forviscosity used to
-                                ! parameterize harmonic lateral momentum mixing byunresolved eddies represented
-                                ! by MEKE. Can be negative torepresent backscatter from the unresolved eddies.
+                                ! If non-zero, is the scaling coefficient in the expression for viscosity used
+                                ! to parameterize harmonic lateral momentum mixing by unresolved eddies
+                                ! represented by MEKE. Can be negative to represent backscatter from the
+                                ! unresolved eddies.
 MEKE_ALPHA_RHINES = 0.15        !   [nondim] default = 0.0
                                 ! If positive, is a coefficient weighting the Rhines scale in the expression for
                                 ! mixing length used in MEKE-derived diffusivity.
@@ -432,6 +442,8 @@ KHTH_USE_FGNV_STREAMFUNCTION = True !   [Boolean] default = False
 FGNV_FILTER_SCALE = 0.1         !   [nondim] default = 1.0
                                 ! A coefficient scaling the vertical smoothing term in the Ferrari et al., 2010,
                                 ! streamfunction formulation.
+
+! === module MOM_stoch_eos ===
 
 ! === module MOM_dynamics_split_RK2 ===
 
@@ -597,7 +609,8 @@ TKE_ITIDE_MAX = 0.1             !   [W m-2] default = 1000.0
                                 ! boundary layer with INT_TIDE_DISSIPATION.
 READ_TIDEAMP = True             !   [Boolean] default = False
                                 ! If true, read a file (given by TIDEAMP_FILE) containing the tidal amplitude
-                                ! with INT_TIDE_DISSIPATION.
+                                ! with INT_TIDE_DISSIPATION. If true, also used as the tidal amplitude in the
+                                ! ice shelf melt parameterisation.
 TIDEAMP_FILE = "./INPUT/tideamp.nc" ! default = "tideamp.nc"
                                 ! The path to the file containing the spatially varying tidal amplitudes with
                                 ! INT_TIDE_DISSIPATION.
@@ -636,7 +649,7 @@ KD_MAX = 0.1                    !   [m2 s-1] default = -1.0
                                 ! The maximum permitted increment for the diapycnal diffusivity from TKE-based
                                 ! parameterizations, or a negative value for no limit.
 DOUBLE_DIFFUSION = True         !   [Boolean] default = False
-                                ! If true, increase diffusivites for temperature or salinity based on the
+                                ! If true, increase diffusivities for temperature or salinity based on the
                                 ! double-diffusive parameterization described in Large et al. (1994).
 MAX_RRHO_SALT_FINGERS = 2.55    !   [nondim] default = 1.9
                                 ! Maximum density ratio for salt fingering regime.
@@ -793,19 +806,6 @@ LATENT_HEAT_FUSION = 3.337E+05  !   [J/kg] default = 3.34E+05
                                 ! The latent heat of fusion.
 LATENT_HEAT_VAPORIZATION = 2.501E+06 !   [J/kg] default = 2.5E+06
                                 ! The latent heat of fusion.
-SRUNOFF_LATENT_HEAT = True      !   [Boolean] default = False
-                                ! If true, submarine melt (srunoff) enters each layer at an effective
-                                ! temperature equal to the layer temperature minus LATENT_HEAT_FUSION/C_p, so
-                                ! that melting the ice takes latent heat from the layers the meltwater enters.
-                                ! This is a simplified form of the Gade (1979) meltwater mixing line,
-                                ! neglecting the heat needed to warm the ice to the freezing point and the
-                                ! meltwater from the freezing point to the ambient temperature. If false,
-                                ! srunoff enters the ocean at the ambient temperature.
-SRUNOFF_DEPTH_MAX = 300.0       !   [m] default = 0.0
-                                ! The maximum depth over which the mass and heat from coupled submarine melt
-                                ! are spread, distributed uniformly by thickness. If 0, srunoff is applied
-                                ! within the top layer, or over MINIMUM_FORCING_DEPTH if the top layer is
-                                ! thinner than that.
 MAX_P_SURF = 0.0                !   [Pa] default = -1.0
                                 ! The maximum surface pressure that can be exerted by the atmosphere and
                                 ! floating sea-ice or ice shelves. This is needed because the FMS coupling
@@ -836,3 +836,18 @@ MAX_DELTA_SRESTORE = 0.5        !   [PSU or g kg-1] default = 999.0
                                 ! The maximum salinity difference used in restoring terms.
 
 ! === module MOM_restart ===
+
+! === module MOM_submarine_melt ===
+SRUNOFF_LATENT_HEAT = True      !   [Boolean] default = False
+                                ! If true, submarine melt (srunoff) enters each layer at an effective
+                                ! temperature equal to the layer temperature minus LATENT_HEAT_FUSION/C_p, so
+                                ! that melting the ice takes latent heat from the layers the meltwater enters.
+                                ! This is a simplified form of the Gade (1979) meltwater mixing line, neglecting
+                                ! the heat needed to warm the ice to the freezing point and the meltwater from
+                                ! the freezing point to the ambient temperature. If false, srunoff enters the
+                                ! ocean at the ambient temperature.
+SRUNOFF_DEPTH_MAX = 300.0       !   [m] default = 0.0
+                                ! The maximum depth over which the mass and heat from coupled submarine melt are
+                                ! spread, distributed uniformly by thickness. If 0, srunoff is applied within
+                                ! the top layer, or over MINIMUM_FORCING_DEPTH if the top layer is thinner than
+                                ! that.
