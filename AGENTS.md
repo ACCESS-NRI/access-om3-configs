@@ -77,6 +77,10 @@ QA tests from model-config-tests run on every PR to `dev-`/`release-`. Before fi
   - `ice_in`: `nx_global`, `ny_global`
   - `nuopc.runconfig`: `atm_nx`/`atm_ny`, `ice_nx`/`ice_ny`, `ocn_nx`/`ocn_ny`, `rof_nx`/`rof_ny` (and `wav_nx`/`wav_ny` for WW3 configs)
   - `MOM_input`: `NIGLOBAL`, `NJGLOBAL`
+- When a PR adds or changes inputs, check each new file's metadata (`ncdump -h`: the `history` and `inputFile`/`input_file` attributes, plus the `.README.md` next to it in the inputs directory):
+  - The script commit it records (om3-scripts, make_om3_topo) is the one the PR says was used, and is on the source repo's `main` and up to date with it (e.g. `gh api repos/ACCESS-NRI/om3-scripts/compare/<commit>...main`). If `main` has moved on, check whether the newer commits change the scripts used.
+  - The md5 it records for each upstream input matches the md5 of that input in `manifests/input.yaml` (e.g. `topog.nc` for the meshes, `kmt.nc`, tideamp and bottom roughness; the masked mesh for the runoff weights). A mismatch means the file was made from a different version of that input.
+  - If the script commit changed since the previous inputs, look at what changed in the scripts. Inputs can change well beyond the PR's stated edit, and the PR description should say so.
 - A change to `NIPROC`/`NJPROC`/`LAYOUT` in `docs/MOM_parameter_doc.layout` is expected when the land mask or `ncpus` changes (`AUTO_MASKTABLE` drops land-only blocks). Check the arithmetic against `ocn_ntasks` in `nuopc.runconfig` before raising it.
 - Because payu updates `docs/` when it runs, a local run directory can contain `docs/` changes that aren't on the remote branch. Compare against the remote branch tip, not a run clone.
 
