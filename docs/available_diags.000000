@@ -1611,7 +1611,7 @@
     ! units: degC
     ! standard_name: sea_water_potential_temperature_at_sea_floor
     ! cell_methods: xh:mean yh:mean area:mean
-"sob"  [Unused]
+"sob"  [Used]
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
     ! long_name: Sea Water Salinity at Sea Floor
@@ -3458,7 +3458,7 @@
     ! long_name: Salt source in ocean required to supply excessive ice salt fluxes
     ! units: ppt kg m-2 s-1
     ! cell_methods: xh:mean yh:mean area:mean
-"Heat_PmE"  [Unused]
+"Heat_PmE"  [Used]
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
     ! long_name: Heat flux into ocean from mass flux into ocean
@@ -3569,14 +3569,14 @@
     ! units: degC
     ! cell_methods: xh:mean yh:mean zl:mean area:mean
     ! variants: {temp_post_horzn,temp_post_horzn_xyave}
-"T_adx"  [Unused]
+"T_adx"  [Used]
     ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
     ! dimensions: xq, yh, zl
     ! long_name: Advective (by residual mean) Zonal Flux of Heat
     ! units: W
     ! cell_methods: xq:point yh:sum zl:sum
     ! variants: {T_adx,T_adx_xyave}
-"T_ady"  [Unused]
+"T_ady"  [Used]
     ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
     ! dimensions: xh, yq, zl
     ! long_name: Advective (by residual mean) Meridional Flux of Heat
@@ -3781,14 +3781,14 @@
     ! units: psu
     ! cell_methods: xh:mean yh:mean zl:mean area:mean
     ! variants: {salt_post_horzn,salt_post_horzn_xyave}
-"S_adx"  [Unused]
+"S_adx"  [Used]
     ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
     ! dimensions: xq, yh, zl
     ! long_name: Advective (by residual mean) Zonal Flux of Salt
     ! units: psu m3 s-1
     ! cell_methods: xq:point yh:sum zl:sum
     ! variants: {S_adx,S_adx_xyave}
-"S_ady"  [Unused]
+"S_ady"  [Used]
     ! modules: {ocean_model,ocean_model_z,ocean_model_rho2,ocean_model_d2,ocean_model_z_d2,ocean_model_rho2_d2}
     ! dimensions: xh, yq, zl
     ! long_name: Advective (by residual mean) Meridional Flux of Salt
@@ -4380,7 +4380,7 @@
     ! standard_name: water_flux_into_sea_water
     ! cell_methods: xh:mean yh:mean area:mean
     ! variants: {PRCmE,wfo}
-"evap"  [Unused] (CMOR equivalent is "evs")
+"evap"  [Used] (CMOR equivalent is "evs")
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
     ! long_name: Evaporation/condensation at ocean surface (evaporation is negative)
@@ -4418,7 +4418,7 @@
     ! standard_name: rainfall_flux
     ! cell_methods: xh:mean yh:mean area:mean
     ! variants: {lprec,prlq}
-"vprec"  [Unused]
+"vprec"  [Used]
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
     ! long_name: Virtual liquid precip into ocean due to SSS restoring
@@ -4432,7 +4432,7 @@
     ! standard_name: water_flux_into_sea_water_from_icebergs
     ! cell_methods: xh:mean yh:mean area:mean
     ! variants: {frunoff,ficeberg}
-"lrunoff"  [Used] (CMOR equivalent is "friver")
+"lrunoff"  [Unused] (CMOR equivalent is "friver")
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
     ! long_name: Liquid runoff (rivers) into ocean
@@ -4682,7 +4682,7 @@
     ! long_name: Heat content (relative to 0degC) of net mass entering ocean ocean
     ! units: W m-2
     ! cell_methods: xh:mean yh:mean area:mean
-"net_heat_coupler"  [Unused]
+"net_heat_coupler"  [Used]
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
     ! long_name: Surface ocean heat flux from SW+LW+latent+sensible+seaice_melt_heat (via the coupler)
@@ -4696,7 +4696,7 @@
     ! standard_name: surface_downward_heat_flux_in_sea_water
     ! cell_methods: xh:mean yh:mean area:mean
     ! variants: {net_heat_surface,hfds}
-"SW"  [Unused] (CMOR equivalent is "rsntds")
+"SW"  [Used] (CMOR equivalent is "rsntds")
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
     ! long_name: Shortwave radiation flux into ocean
@@ -4722,7 +4722,7 @@
     ! long_name: Combined longwave, latent, and sensible heating at ocean surface
     ! units: W m-2
     ! cell_methods: xh:mean yh:mean area:mean
-"LW"  [Unused] (CMOR equivalent is "rlntds")
+"LW"  [Used] (CMOR equivalent is "rlntds")
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
     ! long_name: Longwave radiation flux into ocean
@@ -4730,7 +4730,7 @@
     ! standard_name: surface_net_downward_longwave_flux
     ! cell_methods: xh:mean yh:mean area:mean
     ! variants: {LW,rlntds}
-"latent"  [Unused] (CMOR equivalent is "hflso")
+"latent"  [Used] (CMOR equivalent is "hflso")
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
     ! long_name: Latent heat flux into ocean due to fusion and evaporation (negative means ocean heat loss)
@@ -4750,7 +4750,7 @@
     ! units: W m-2
     ! cell_methods: xh:mean yh:mean area:mean
     ! variants: {latent_fprec_diag,hfsnthermds}
-"latent_frunoff"  [Unused] (CMOR equivalent is "hfibthermds")
+"latent_frunoff"  [Used] (CMOR equivalent is "hfibthermds")
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
     ! long_name: Latent heat flux into ocean due to melting of icebergs
@@ -4763,7 +4763,7 @@
     ! long_name: Latent heat flux into ocean due to melting of frozen glacier runoff
     ! units: W m-2
     ! cell_methods: xh:mean yh:mean area:mean
-"sensible"  [Unused] (CMOR equivalent is "hfsso")
+"sensible"  [Used] (CMOR equivalent is "hfsso")
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
     ! long_name: Sensible heat flux into ocean
@@ -4771,14 +4771,14 @@
     ! standard_name: surface_downward_sensible_heat_flux
     ! cell_methods: xh:mean yh:mean area:mean
     ! variants: {sensible,hfsso}
-"seaice_melt_heat"  [Unused]
+"seaice_melt_heat"  [Used]
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
     ! long_name: Heat flux into ocean due to snow and sea ice melt/freeze
     ! units: W m-2
     ! standard_name: snow_ice_melt_heat_flux
     ! cell_methods: xh:mean yh:mean area:mean
-"heat_added"  [Unused]
+"heat_added"  [Used]
     ! modules: {ocean_model,ocean_model_d2}
     ! dimensions: xh, yh
     ! long_name: Flux Adjustment or restoring surface heat flux into ocean
