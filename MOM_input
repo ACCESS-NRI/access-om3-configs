@@ -793,6 +793,19 @@ LATENT_HEAT_FUSION = 3.337E+05  !   [J/kg] default = 3.34E+05
                                 ! The latent heat of fusion.
 LATENT_HEAT_VAPORIZATION = 2.501E+06 !   [J/kg] default = 2.5E+06
                                 ! The latent heat of fusion.
+SRUNOFF_LATENT_HEAT = True      !   [Boolean] default = False
+                                ! If true, submarine melt (srunoff) enters each layer at an effective
+                                ! temperature equal to the layer temperature minus LATENT_HEAT_FUSION/C_p, so
+                                ! that melting the ice takes latent heat from the layers the meltwater enters.
+                                ! This is a simplified form of the Gade (1979) meltwater mixing line,
+                                ! neglecting the heat needed to warm the ice to the freezing point and the
+                                ! meltwater from the freezing point to the ambient temperature. If false,
+                                ! srunoff enters the ocean at the ambient temperature.
+SRUNOFF_DEPTH_MAX = 300.0       !   [m] default = 0.0
+                                ! The maximum depth over which the mass and heat from coupled submarine melt
+                                ! are spread, distributed uniformly by thickness. If 0, srunoff is applied
+                                ! within the top layer, or over MINIMUM_FORCING_DEPTH if the top layer is
+                                ! thinner than that.
 MAX_P_SURF = 0.0                !   [Pa] default = -1.0
                                 ! The maximum surface pressure that can be exerted by the atmosphere and
                                 ! floating sea-ice or ice shelves. This is needed because the FMS coupling
