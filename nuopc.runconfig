@@ -310,7 +310,7 @@ MED_modelio::
      diro = ./log
      logfile = med.log
      pio_async_interface = .false.
-     pio_netcdf_format = 64bit_data
+     pio_netcdf_format = nothing
      pio_numiotasks = 16
      pio_rearranger = 1
      pio_root = 1
